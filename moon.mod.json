@@ -1,0 +1,14 @@
+{
+  "name": "gmlewis/moonbit-fonts",
+  "version": "0.1.0",
+  "deps": {},
+  "readme": "README.md",
+  "repository": "https://github.com/gmlewis/moonbit-fonts",
+  "license": "Apache-2.0",
+  "keywords": [
+    "svg",
+    "open source",
+    "fonts"
+  ],
+  "description": "Experimental package to manipulate open source font data."
+}
