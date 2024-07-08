@@ -1,20 +1,20 @@
 /// `Glyph` represents a single glyph.
 pub struct Glyph {
   char : String
-  horiz_adv_x : Int
+  horiz_adv_x : Double
   d : String
-  xmin : Int
-  ymin : Int
-  xmax : Int
-  ymax : Int
+  xmin : Double
+  ymin : Double
+  xmax : Double
+  ymax : Double
 }
 
 /// `Font` represents an entire font.
 pub struct Font {
   id : String
-  horiz_adv_x : Int
-  units_per_em : Int
-  ascent : Int
-  descent : Int
+  horiz_adv_x : Double
+  units_per_em : Double
+  ascent : Double
+  descent : Double
   glyphs : Map[String, Glyph]
 }
