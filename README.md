@@ -1,4 +1,5 @@
 # moonbit-fonts
+[![check](https://github.com/gmlewis/moonbit-fonts/actions/workflows/check.yml/badge.svg)](https://github.com/gmlewis/moonbit-fonts/actions/workflows/check.yml)
 
 This is an experimental package to manipulate open source fonts with MoonBit.
 
