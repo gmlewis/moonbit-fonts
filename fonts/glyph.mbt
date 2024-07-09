@@ -8,8 +8,3 @@ pub struct Glyph {
   xmax : Double
   ymax : Double
 }
-
-/// `translate` translates (moves) a glyph path by the provided offsets.
-pub fn translate(self : Glyph, x : Double, y : Double) -> String {
-  ""
-}
