@@ -6,11 +6,11 @@ This is an experimental package to manipulate open source fonts with [MoonBit].
 All fonts are open source and their licenses can all be found in their corresponding
 repos which are organized by the first letter of the name of the font:
 
-* https://github.com/gmlewis/go-fonts-a/fonts/aaarghnormal
+* https://github.com/gmlewis/go-fonts-a/tree/master/fonts/aaarghnormal
 * ...
-* https://github.com/gmlewis/go-fonts-b/fonts/baloo
+* https://github.com/gmlewis/go-fonts-b/tree/master/fonts/baloo
 * ...
-* https://github.com/gmlewis/go-fonts-z/fonts/znikomitno24
+* https://github.com/gmlewis/go-fonts-z/tree/master/fonts/znikomitno24
 
 [MoonBit]: https://www.moonbitlang.com/
 
