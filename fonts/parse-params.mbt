@@ -15,7 +15,7 @@ let params_re = @regexp.compile("^ *([0-9\\.\\-]+) *,*")?
 fn parse_params(d : String) -> Params { // !String {
   let params = []
   while d.length() > 0 {
-  //   let match_result = params_re.matches(d)
+    let match_result = params_re.matches(d)
   }
   params
 }

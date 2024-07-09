@@ -22,7 +22,7 @@ Enjoy!
 # License
 
 Please note that all fonts have their own licenses which are included
-in their respective directories.
+in their respective original directories (see above).
 
 Copyright 2019-2024 Glenn M. Lewis. All Rights Reserved.
 
