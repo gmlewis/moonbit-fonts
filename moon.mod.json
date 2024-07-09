@@ -1,7 +1,9 @@
 {
   "name": "gmlewis/moonbit-fonts",
   "version": "0.1.0",
-  "deps": {},
+  "deps": {
+    "yj-qin/regexp": "0.2.1"
+  },
   "readme": "README.md",
   "repository": "https://github.com/gmlewis/moonbit-fonts",
   "license": "Apache-2.0",
