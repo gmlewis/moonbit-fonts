@@ -6,4 +6,4 @@ pub struct Font {
   ascent : Double
   descent : Double
   glyphs : Map[String, Glyph]
-}
+} derive(Show, Eq)

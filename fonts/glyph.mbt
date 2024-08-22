@@ -7,4 +7,4 @@ pub struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-}
+} derive(Show, Eq)

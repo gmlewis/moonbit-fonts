@@ -1,4 +1,4 @@
-# moonbit-fonts
+# gmlewis/moonbit-fonts
 [![check](https://github.com/gmlewis/moonbit-fonts/actions/workflows/check.yml/badge.svg)](https://github.com/gmlewis/moonbit-fonts/actions/workflows/check.yml)
 
 This is an experimental package to manipulate open source fonts with [MoonBit].
@@ -13,6 +13,20 @@ repos which are organized by the first letter of the name of the font:
 * https://github.com/gmlewis/go-fonts-z/tree/master/fonts/znikomitno24
 
 [MoonBit]: https://www.moonbitlang.com/
+
+## Status
+
+The code has been updated to support compiler:
+
+```bash
+$ moon version --all
+moon 0.1.20240819 (284058b 2024-08-19) ~/.moon/bin/moon
+moonc v0.1.20240820+85e9a0dc8 ~/.moon/bin/moonc
+moonrun 0.1.20240820 (ecf5abc 2024-08-20) ~/.moon/bin/moonrun
+```
+
+Use [`moonup`] to manage `moon` compiler versions:
+https://github.com/chawyehsu/moonup
 
 ----------------------------------------------------------------------
 
