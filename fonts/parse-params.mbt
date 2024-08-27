@@ -12,12 +12,12 @@ fn parse_params(d : String) -> Params!Error {
   while d.length() > 0 {
     let match_result = params_re.matches(d)
     match match_result.captures() {
-      [m] => {
+      [m, num] => {
         d = d.substring(start=m.length())
-        let n = @strconv.parse_double!(m.trim_space())
+        let n = @strconv.parse_double!(num)
         params.push(n)
       }
-      _ => raise ParseError("unable to parse SVG params \{d}")
+      e => raise ParseError("unable to parse SVG params \{d}: got \{e}")
     }
   }
   params
