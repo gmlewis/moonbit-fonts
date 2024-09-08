@@ -5,6 +5,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "!": {
     char: "!",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 224L224 224L224 793ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -14,6 +15,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "\"": {
     char: "\"",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 560L112 560L112 793ZM336 793L466 793L466 560L336 560L336 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -23,6 +25,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "#": {
     char: "#",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 569L336 569L336 793L466 793L466 569L578 569L578 448L466 448L466 345L578 345L578 224L466 224L466 0L336 0L336 224L242 224L242 0L112 0L112 224L0 224L0 345L112 345L112 448L0 448L0 569L112 569L112 793ZM237 450L237 343L340 343L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -32,6 +35,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "$": {
     char: "$",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 905L354 905L354 793L466 793L466 681L578 681L578 560L448 560L448 672L354 672L354 457L466 457L466 345L578 345L578 112L466 112L466 0L354 0L354 -112L224 -112L224 0L112 0L112 112L0 112L0 233L130 233L130 121L224 121L224 336L112 336L112 448L0 448L0 681L112 681L112 793L224 793L224 905ZM125 674L125 455L228 455L228 674L125 674ZM349 338L349 119L452 119L452 338L349 338Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -41,6 +45,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "%": {
     char: "%",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M448 793L578 793L578 672L466 672L466 448L354 448L354 336L242 336L242 112L130 112L130 0L0 0L0 121L112 121L112 345L224 345L224 457L336 457L336 681L448 681L448 793ZM0 793L130 793L130 560L0 560L0 793ZM448 233L578 233L578 0L448 0L448 233Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -50,6 +55,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "&": {
     char: "&",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L242 793L242 681L354 681L354 560L242 560L242 457L354 457L354 345L448 345L448 457L578 457L578 336L466 336L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 457L112 457L112 560L0 560L0 681L112 681L112 793ZM125 450L125 119L340 119L340 338L228 338L228 450L125 450ZM125 674L125 567L228 567L228 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -59,6 +65,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "'": {
     char: "'",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 560L224 560L224 793Z",
     xmin: 224.0,
     ymin: 560.0,
@@ -68,6 +75,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "(": {
     char: "(",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 905L466 905L466 784L354 784L354 672L242 672L242 121L354 121L354 9L466 9L466 -112L336 -112L336 0L224 0L224 112L112 112L112 681L224 681L224 793L336 793L336 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -77,6 +85,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ")": {
     char: ")",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L242 905L242 793L354 793L354 681L466 681L466 112L354 112L354 0L242 0L242 -112L112 -112L112 9L224 9L224 121L336 121L336 672L224 672L224 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -86,6 +95,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "*": {
     char: "*",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 672L354 672L354 569L466 569L466 448L336 448L336 560L242 560L242 448L112 448L112 569L224 569L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -95,6 +105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "+": {
     char: "+",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 457L578 457L578 336L354 336L354 112L224 112L224 336L0 336L0 457L224 457L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -104,6 +115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ",": {
     char: ",",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 121L242 121L242 0L130 0L130 -112L0 -112L0 9L112 9L112 121Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -113,6 +125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "-": {
     char: "-",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L578 457L578 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -122,6 +135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ".": {
     char: ".",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -131,6 +145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "/": {
     char: "/",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 672L466 672L466 448L354 448L354 336L242 336L242 112L130 112L130 0L0 0L0 121L112 121L112 345L224 345L224 457L336 457L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -140,6 +155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "0": {
     char: "0",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 343L228 343L228 455L340 455L340 567L452 567L452 674L125 674ZM349 450L349 338L237 338L237 226L125 226L125 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -149,6 +165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "1": {
     char: "1",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 121L578 121L578 0L0 0L0 121L224 121L224 560L130 560L130 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -158,6 +175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "2": {
     char: "2",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 336L354 336L354 224L242 224L242 121L578 121L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 457L448 457L448 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -167,6 +185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "3": {
     char: "3",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L224 336L224 457L448 457L448 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -176,6 +195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "4": {
     char: "4",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L466 793L466 457L578 457L578 336L466 336L466 0L336 0L336 336L0 336L0 569L112 569L112 681L224 681L224 793ZM237 674L237 562L125 562L125 455L340 455L340 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -185,6 +205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "5": {
     char: "5",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 448L0 448L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -194,6 +215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "6": {
     char: "6",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L466 793L466 672L242 672L242 560L130 560L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 569L112 569L112 681L224 681L224 793ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -203,6 +225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "7": {
     char: "7",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 448L466 448L466 224L354 224L354 0L224 0L224 233L336 233L336 457L448 457L448 672L130 672L130 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -212,6 +235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "8": {
     char: "8",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 345L112 345L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -221,6 +245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "9": {
     char: "9",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 224L466 224L466 112L354 112L354 0L112 0L112 121L336 121L336 233L448 233L448 336L112 336L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -230,6 +255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ":": {
     char: ":",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 448L224 448L224 569ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -239,6 +265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ";": {
     char: ";",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 121L354 121L354 0L242 0L242 -112L112 -112L112 9L224 9L224 121ZM224 569L354 569L354 448L224 448L224 569Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -248,6 +275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "<": {
     char: "<",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 672L466 672L466 560L354 560L354 448L242 448L242 345L354 345L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L224 224L224 336L112 336L112 457L224 457L224 569L336 569L336 681L448 681L448 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -257,6 +285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "=": {
     char: "=",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L578 569L578 448L0 448L0 569ZM0 345L578 345L578 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -266,6 +295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ">": {
     char: ">",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L466 457L466 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L224 448L224 560L112 560L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -275,6 +305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "?": {
     char: "?",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 336L354 336L354 224L224 224L224 345L336 345L336 457L448 457L448 672L130 672L130 560L0 560L0 681L112 681L112 793ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -284,6 +315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "@": {
     char: "@",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 224L224 224L224 569L354 569L354 345L448 345L448 672L130 672L130 121L578 121L578 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -293,6 +325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "A": {
     char: "A",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -302,6 +335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "B": {
     char: "B",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 793L466 793L466 681L578 681L578 560L466 560L466 457L578 457L578 112L466 112L466 0L0 0L0 793ZM125 450L125 119L452 119L452 450L125 450ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -311,6 +345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "C": {
     char: "C",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -320,6 +355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "D": {
     char: "D",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L466 793L466 681L578 681L578 112L466 112L466 0L0 0L0 793ZM125 674L125 119L452 119L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -329,6 +365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "E": {
     char: "E",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -338,6 +375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "F": {
     char: "F",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L466 457L466 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -347,6 +385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "G": {
     char: "G",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 336L336 336L336 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -356,6 +395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "H": {
     char: "H",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L448 569L448 793L578 793L578 0L448 0L448 448L130 448L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -365,6 +405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "I": {
     char: "I",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -374,6 +415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "J": {
     char: "J",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 672L466 672L466 112L354 112L354 0L112 0L112 112L0 112L0 233L130 233L130 121L336 121L336 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -383,6 +425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "K": {
     char: "K",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 457L466 457L466 345L578 345L578 0L448 0L448 336L336 336L336 448L130 448L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -392,6 +435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "L": {
     char: "L",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L578 121L578 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -401,6 +445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "M": {
     char: "M",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -410,6 +455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "N": {
     char: "N",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 0L448 0L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -419,6 +465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "O": {
     char: "O",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -428,6 +475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "P": {
     char: "P",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 336L130 336L130 0L0 0L0 793ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -437,6 +485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Q": {
     char: "Q",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 224L466 224L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L340 119L340 231L452 231L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -446,6 +495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "R": {
     char: "R",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 0L448 0L448 336L130 336L130 0L0 0L0 793ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -455,6 +505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "S": {
     char: "S",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -464,6 +515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "T": {
     char: "T",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L354 672L354 0L224 0L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -473,6 +525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "U": {
     char: "U",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -482,6 +535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "V": {
     char: "V",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 345L242 345L242 121L336 121L336 345L448 345L448 793L578 793L578 336L466 336L466 112L354 112L354 0L224 0L224 112L112 112L112 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -491,6 +545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "W": {
     char: "W",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 233L224 233L224 457L354 457L354 233L448 233L448 793L578 793L578 224L466 224L466 0L336 0L336 224L242 224L242 0L112 0L112 224L0 224L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -500,6 +555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "X": {
     char: "X",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 345L466 345L466 233L578 233L578 0L448 0L448 224L336 224L336 336L242 336L242 224L130 224L130 0L0 0L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -509,6 +565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Y": {
     char: "Y",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -518,6 +575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Z": {
     char: "Z",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 560L466 560L466 448L354 448L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 345L224 345L224 457L336 457L336 569L448 569L448 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -527,6 +585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "[": {
     char: "[",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 905L466 905L466 784L354 784L354 9L466 9L466 -112L224 -112L224 905Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -536,6 +595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "\\": {
     char: "\\",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 457L354 457L354 345L466 345L466 121L578 121L578 0L448 0L448 112L336 112L336 336L224 336L224 448L112 448L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -545,6 +605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "]": {
     char: "]",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L354 905L354 -112L112 -112L112 9L224 9L224 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -554,6 +615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "^": {
     char: "^",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L448 448L448 560L336 560L336 672L242 672L242 560L130 560L130 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -563,6 +625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "_": {
     char: "_",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 9L578 9L578 -112L0 -112L0 9Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -572,6 +635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "`": {
     char: "`",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -581,6 +645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "a": {
     char: "a",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -590,6 +655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "b": {
     char: "b",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L224 457L224 569L466 569L466 457L578 457L578 112L466 112L466 0L0 0L0 793ZM237 450L237 338L125 338L125 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -599,6 +665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "c": {
     char: "c",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -608,6 +675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "d": {
     char: "d",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M336 793L466 793L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 457L112 457L112 569L336 569L336 793ZM125 450L125 119L340 119L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -617,6 +685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "e": {
     char: "e",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -626,6 +695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "f": {
     char: "f",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 681L578 681L578 560L448 560L448 672L242 672L242 457L466 457L466 336L242 336L242 0L112 0L112 336L0 336L0 457L112 457L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -635,6 +705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "g": {
     char: "g",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 457L112 457L112 569ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -644,6 +715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "h": {
     char: "h",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -653,6 +725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "i": {
     char: "i",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -662,6 +735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "j": {
     char: "j",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L466 569L466 0L354 0L354 -112L112 -112L112 0L0 0L0 121L130 121L130 9L336 9L336 448L224 448L224 569ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -671,6 +745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "k": {
     char: "k",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 345L224 345L224 457L336 457L336 569L466 569L466 448L354 448L354 336L242 336L242 233L354 233L354 121L578 121L578 0L336 0L336 112L224 112L224 224L130 224L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -680,6 +755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "l": {
     char: "l",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 121L578 121L578 0L336 0L336 112L224 112L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -689,6 +765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "m": {
     char: "m",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L242 569L242 457L336 457L336 569L466 569L466 457L578 457L578 0L448 0L448 448L354 448L354 0L224 0L224 448L130 448L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -698,6 +775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "n": {
     char: "n",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -707,6 +785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "o": {
     char: "o",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -716,6 +795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "p": {
     char: "p",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 224L466 224L466 112L130 112L130 -112L0 -112L0 569ZM237 450L237 338L125 338L125 231L452 231L452 450L237 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -725,6 +805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "q": {
     char: "q",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 9L578 9L578 -112L336 -112L336 112L112 112L112 224L0 224L0 457L112 457L112 569ZM125 450L125 231L340 231L340 450L125 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -734,6 +815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "r": {
     char: "r",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 336L448 336L448 448L242 448L242 336L130 336L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -743,6 +825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "s": {
     char: "s",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 448L130 448L130 345L466 345L466 233L578 233L578 112L466 112L466 0L0 0L0 121L448 121L448 224L112 224L112 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -752,6 +835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "t": {
     char: "t",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 569L466 569L466 448L242 448L242 121L578 121L578 0L224 0L224 112L112 112L112 448L0 448L0 569L112 569L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -761,6 +845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "u": {
     char: "u",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -770,6 +855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "v": {
     char: "v",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L242 233L242 121L336 121L336 233L448 233L448 569L578 569L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -779,6 +865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "w": {
     char: "w",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L224 233L224 457L354 457L354 233L448 233L448 569L578 569L578 224L466 224L466 0L336 0L336 224L242 224L242 0L112 0L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -788,6 +875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "x": {
     char: "x",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L242 569L242 345L336 345L336 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L336 0L336 224L242 224L242 0L0 0L0 121L112 121L112 233L224 233L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -797,6 +885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "y": {
     char: "y",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L448 233L448 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -806,6 +895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "z": {
     char: "z",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 121L578 121L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -815,6 +905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "{": {
     char: "{",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 905L466 905L466 784L242 784L242 569L354 569L354 448L242 448L242 345L354 345L354 224L242 224L242 9L466 9L466 -112L224 -112L224 0L112 0L112 233L224 233L224 336L0 336L0 457L224 457L224 560L112 560L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -824,6 +915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "|": {
     char: "|",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 905L354 905L354 -112L224 -112L224 905Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -833,6 +925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "}": {
     char: "}",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L354 905L354 793L466 793L466 560L354 560L354 457L578 457L578 336L354 336L354 233L466 233L466 0L354 0L354 -112L112 -112L112 9L336 9L336 224L224 224L224 345L336 345L336 448L224 448L224 569L336 569L336 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -842,6 +935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "~": {
     char: "~",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 457L354 457L354 345L448 345L448 569L578 569L578 336L466 336L466 224L336 224L336 336L224 336L224 448L130 448L130 224L0 224L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -851,6 +945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¡": {
     char: "¡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 0L224 0L224 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -860,6 +955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¢": {
     char: "¢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L448 448L448 560L354 560L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 569L112 569L112 681L224 681L224 793ZM125 562L125 231L228 231L228 562L125 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -869,6 +965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "£": {
     char: "£",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 681L578 681L578 560L448 560L448 672L242 672L242 457L354 457L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 336L0 336L0 457L112 457L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -878,6 +975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¤": {
     char: "¤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 681L448 681L448 793L578 793L578 672L466 672L466 569L578 569L578 224L466 224L466 121L578 121L578 0L448 0L448 112L130 112L130 0L0 0L0 121L112 121L112 224L0 224L0 569L112 569L112 672L0 672L0 793ZM125 562L125 231L452 231L452 562L125 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -887,6 +985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¥": {
     char: "¥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 457L578 457L578 336L354 336L354 233L578 233L578 112L354 112L354 0L224 0L224 112L0 112L0 233L224 233L224 336L0 336L0 457L224 457L224 560L112 560L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -896,6 +995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¦": {
     char: "¦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 905L354 905L354 448L224 448L224 905ZM224 345L354 345L354 -112L224 -112L224 345Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -905,6 +1005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "§": {
     char: "§",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L466 793L466 672L242 672L242 569L354 569L354 457L466 457L466 336L354 336L354 233L466 233L466 112L354 112L354 0L112 0L112 121L336 121L336 224L224 224L224 336L112 336L112 457L224 457L224 560L112 560L112 681L224 681L224 793ZM237 450L237 343L340 343L340 450L237 450Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -914,6 +1015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¨": {
     char: "¨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 112.0,
     ymin: 672.0,
@@ -923,6 +1025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ª": {
     char: "ª",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 681L354 681L354 448L112 448L112 560L0 560L0 681L112 681L112 793ZM125 674L125 567L228 567L228 674L125 674Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -932,6 +1035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "«": {
     char: "«",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 681L354 681L354 560L242 560L242 448L130 448L130 345L242 345L242 233L354 233L354 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681ZM560 681L690 681L690 560L578 560L578 448L466 448L466 345L578 345L578 233L690 233L690 112L560 112L560 224L448 224L448 336L336 336L336 457L448 457L448 569L560 569L560 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -941,6 +1045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¬": {
     char: "¬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L578 457L578 224L448 224L448 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -950,6 +1055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¯": {
     char: "¯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1017L578 1017L578 896L0 896L0 1017Z",
     xmin: 0.0,
     ymin: 896.0,
@@ -959,6 +1065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "°": {
     char: "°",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 681L354 681L354 560L242 560L242 448L112 448L112 560L0 560L0 681L112 681L112 793ZM125 674L125 567L228 567L228 674L125 674Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -968,6 +1075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "±": {
     char: "±",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 681L354 681L354 569L466 569L466 448L354 448L354 336L224 336L224 448L112 448L112 569L224 569L224 681ZM112 233L466 233L466 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -977,6 +1085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "²": {
     char: "²",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 681L466 681L466 560L354 560L354 457L466 457L466 336L112 336L112 457L224 457L224 569L336 569L336 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -986,6 +1095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "³": {
     char: "³",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 681L466 681L466 448L354 448L354 336L112 336L112 457L336 457L336 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -995,6 +1105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "´": {
     char: "´",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 672L242 672L242 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -1004,6 +1115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "µ": {
     char: "µ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L130 0L130 -112L0 -112L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1013,6 +1125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¶": {
     char: "¶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L578 793L578 -112L448 -112L448 672L354 672L354 -112L224 -112L224 336L112 336L112 448L0 448L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1022,6 +1135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "·": {
     char: "·",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 336L224 336L224 457Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -1031,6 +1145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¸": {
     char: "¸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 9L466 9L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 9Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -1040,6 +1155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¹": {
     char: "¹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 457L466 457L466 336L112 336L112 457L224 457L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -1049,6 +1165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "º": {
     char: "º",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 681L354 681L354 560L242 560L242 448L112 448L112 560L0 560L0 681L112 681L112 793ZM125 674L125 567L228 567L228 674L125 674Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -1058,6 +1175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "»": {
     char: "»",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 681L130 681L130 569L242 569L242 457L354 457L354 336L242 336L242 224L130 224L130 112L0 112L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 681ZM336 681L466 681L466 569L578 569L578 457L690 457L690 336L578 336L578 224L466 224L466 112L336 112L336 233L448 233L448 345L560 345L560 448L448 448L448 560L336 560L336 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -1067,6 +1185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¼": {
     char: "¼",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 1129L354 1129L354 793L466 793L466 672L112 672L112 793L224 793L224 896L112 896L112 1017L224 1017L224 1129ZM336 345L466 345L466 -112L336 -112L336 0L112 0L112 233L242 233L242 121L336 121L336 345ZM0 569L578 569L578 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1076,6 +1195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "½": {
     char: "½",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 1129L354 1129L354 793L466 793L466 672L112 672L112 793L224 793L224 896L112 896L112 1017L224 1017L224 1129ZM112 345L354 345L354 233L466 233L466 112L354 112L354 9L466 9L466 -112L112 -112L112 9L224 9L224 121L336 121L336 224L112 224L112 345ZM0 569L578 569L578 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1085,6 +1205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¾": {
     char: "¾",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 1129L354 1129L354 1017L466 1017L466 784L354 784L354 672L112 672L112 793L336 793L336 896L224 896L224 1008L112 1008L112 1129ZM336 345L466 345L466 -112L336 -112L336 0L112 0L112 233L242 233L242 121L336 121L336 345ZM0 569L578 569L578 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1094,6 +1215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "¿": {
     char: "¿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 448L242 448L242 336L130 336L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 345L112 345L112 457L224 457L224 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1103,6 +1225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "À": {
     char: "À",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM112 1129L242 1129L242 1017L354 1017L354 896L224 896L224 1008L112 1008L112 1129ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1112,6 +1235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Á": {
     char: "Á",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1121,6 +1245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Â": {
     char: "Â",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1130,6 +1255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ã": {
     char: "Ã",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM112 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L336 896L336 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1139,6 +1265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ä": {
     char: "Ä",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM125 674L125 567L452 567L452 674L125 674ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1148,6 +1275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Å": {
     char: "Å",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 1129L354 1129L354 1017L466 1017L466 896L354 896L354 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793L224 793L224 896L112 896L112 1017L224 1017L224 1129ZM125 674L125 567L452 567L452 674L125 674ZM237 1010L237 903L340 903L340 1010L237 1010Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1157,6 +1285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Æ": {
     char: "Æ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L578 793L578 672L354 672L354 569L466 569L466 448L354 448L354 121L578 121L578 0L224 0L224 448L130 448L130 0L0 0L0 681L112 681L112 793ZM125 674L125 567L228 567L228 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1166,6 +1295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ç": {
     char: "Ç",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1175,6 +1305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "È": {
     char: "È",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM112 1129L242 1129L242 1017L354 1017L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1184,6 +1315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "É": {
     char: "É",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1193,6 +1325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ê": {
     char: "Ê",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1202,6 +1335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ë": {
     char: "Ë",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1211,6 +1345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ì": {
     char: "Ì",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1129L242 1129L242 1017L354 1017L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1220,6 +1355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Í": {
     char: "Í",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1229,6 +1365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Î": {
     char: "Î",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1238,6 +1375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ï": {
     char: "Ï",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1247,6 +1385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ð": {
     char: "Ð",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 336L0 336L0 457L112 457L112 793ZM237 674L237 455L349 455L349 338L237 338L237 119L452 119L452 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1256,6 +1395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ñ": {
     char: "Ñ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 0L448 0L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793ZM112 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L336 896L336 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1265,6 +1405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ò": {
     char: "Ò",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1129L242 1129L242 1017L354 1017L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1274,6 +1415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ó": {
     char: "Ó",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1283,6 +1425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ô": {
     char: "Ô",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1292,6 +1435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Õ": {
     char: "Õ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L336 896L336 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1301,6 +1445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ö": {
     char: "Ö",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1310,6 +1455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "×": {
     char: "×",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L130 681L130 569L242 569L242 457L336 457L336 569L448 569L448 681L578 681L578 560L466 560L466 448L354 448L354 345L466 345L466 233L578 233L578 112L448 112L448 224L336 224L336 336L242 336L242 224L130 224L130 112L0 112L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -1319,6 +1465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ø": {
     char: "Ø",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 343L228 343L228 455L340 455L340 674L125 674ZM349 450L349 338L237 338L237 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1328,6 +1475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ù": {
     char: "Ù",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM112 1129L242 1129L242 1017L354 1017L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1337,6 +1485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ú": {
     char: "Ú",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1346,6 +1495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Û": {
     char: "Û",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1355,6 +1505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ü": {
     char: "Ü",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1364,6 +1515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ý": {
     char: "Ý",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1373,6 +1525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Þ": {
     char: "Þ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 681L354 681L354 569L466 569L466 224L354 224L354 112L130 112L130 0L0 0L0 793ZM125 562L125 231L340 231L340 562L125 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1382,6 +1535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ß": {
     char: "ß",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L354 793L354 681L466 681L466 560L354 560L354 457L466 457L466 345L578 345L578 112L466 112L466 0L224 0L224 121L448 121L448 336L336 336L336 448L224 448L224 569L336 569L336 672L130 672L130 -112L0 -112L0 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1391,6 +1545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "à": {
     char: "à",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM112 905L242 905L242 793L354 793L354 672L224 672L224 784L112 784L112 905ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1400,6 +1555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "á": {
     char: "á",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1409,6 +1565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "â": {
     char: "â",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1418,6 +1575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ã": {
     char: "ã",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM112 905L354 905L354 793L448 793L448 905L578 905L578 784L466 784L466 672L336 672L336 784L130 784L130 672L0 672L0 793L112 793L112 905ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1427,6 +1585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ä": {
     char: "ä",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM125 226L125 119L452 119L452 226L125 226ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1436,6 +1595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "å": {
     char: "å",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddcc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM224 1017L354 1017L354 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905L224 905L224 1017ZM125 226L125 119L452 119L452 226L125 226ZM237 898L237 791L340 791L340 898L237 898Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1445,6 +1605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "æ": {
     char: "æ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L242 569L242 457L336 457L336 569L466 569L466 457L578 457L578 224L354 224L354 121L578 121L578 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 233L112 233L112 345L224 345L224 448L112 448L112 569ZM349 450L349 343L452 343L452 450L349 450ZM125 226L125 119L228 119L228 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1454,6 +1615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ç": {
     char: "ç",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1463,6 +1625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "è": {
     char: "è",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM112 905L242 905L242 793L354 793L354 672L224 672L224 784L112 784L112 905ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1472,6 +1635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "é": {
     char: "é",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1481,6 +1645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ê": {
     char: "ê",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1490,6 +1655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ë": {
     char: "ë",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1499,6 +1665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ì": {
     char: "ì",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM112 905L242 905L242 793L354 793L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1508,6 +1675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "í": {
     char: "í",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1517,6 +1685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "î": {
     char: "î",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1526,6 +1695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ï": {
     char: "ï",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -1535,6 +1705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ð": {
     char: "ð",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L354 793L354 681L448 681L448 793L578 793L578 672L466 672L466 569L578 569L578 112L466 112L466 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 560L354 560L354 448L224 448L224 569L336 569L336 672L112 672L112 793ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1544,6 +1715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ñ": {
     char: "ñ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM112 905L354 905L354 793L448 793L448 905L578 905L578 784L466 784L466 672L336 672L336 784L130 784L130 672L0 672L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1553,6 +1725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ò": {
     char: "ò",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM112 905L242 905L242 793L354 793L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1562,6 +1735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ó": {
     char: "ó",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1571,6 +1745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ô": {
     char: "ô",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1580,6 +1755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "õ": {
     char: "õ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM112 905L354 905L354 793L448 793L448 905L578 905L578 784L466 784L466 672L336 672L336 784L130 784L130 672L0 672L0 793L112 793L112 905ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1589,6 +1765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ö": {
     char: "ö",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1598,6 +1775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "÷": {
     char: "÷",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 457L578 457L578 336L0 336L0 457ZM224 681L354 681L354 560L224 560L224 681ZM224 233L354 233L354 112L224 112L224 233Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -1607,6 +1785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ø": {
     char: "ø",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 231L228 231L228 343L340 343L340 450L125 450ZM349 338L349 226L237 226L237 119L452 119L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1616,6 +1795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ù": {
     char: "ù",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM112 905L242 905L242 793L354 793L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1625,6 +1805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ú": {
     char: "ú",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM224 905L354 905L354 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1634,6 +1815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "û": {
     char: "û",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1643,6 +1825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ü": {
     char: "ü",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1652,6 +1835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ý": {
     char: "ý",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 233L448 233L448 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 569ZM336 793L466 793L466 672L354 672L354 560L224 560L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1661,6 +1845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "þ": {
     char: "þ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L354 457L354 345L466 345L466 112L354 112L354 0L130 0L130 -112L0 -112L0 793ZM125 338L125 119L340 119L340 338L125 338Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1670,6 +1855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ÿ": {
     char: "ÿ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 569L130 569L130 233L448 233L448 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 569ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1679,6 +1865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ā": {
     char: "Ā",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM112 1017L466 1017L466 896L112 896L112 1017ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1688,6 +1875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ā": {
     char: "ā",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM112 793L466 793L466 672L112 672L112 793ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1697,6 +1885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ă": {
     char: "Ă",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM0 1129L130 1129L130 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L112 896L112 1008L0 1008L0 1129ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1706,6 +1895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ă": {
     char: "ă",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM0 905L130 905L130 793L448 793L448 905L578 905L578 784L466 784L466 672L112 672L112 784L0 784L0 905ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1715,6 +1905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ą": {
     char: "Ą",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 0L466 0L466 -103L578 -103L578 -224L448 -224L448 -112L336 -112L336 9L448 9L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1724,6 +1915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ą": {
     char: "ą",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 0L354 0L354 -103L466 -103L466 -224L336 -224L336 -112L224 -112L224 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1733,6 +1925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ć": {
     char: "Ć",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1742,6 +1935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ć": {
     char: "ć",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1751,6 +1945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĉ": {
     char: "Ĉ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1760,6 +1955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĉ": {
     char: "ĉ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1769,6 +1965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ċ": {
     char: "Ċ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM224 1017L354 1017L354 896L224 896L224 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1778,6 +1975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ċ": {
     char: "ċ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1787,6 +1985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Č": {
     char: "Č",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1796,6 +1995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "č": {
     char: "č",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1805,6 +2005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ď": {
     char: "Ď",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M0 793L466 793L466 681L578 681L578 112L466 112L466 0L0 0L0 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1814,6 +2015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ď": {
     char: "ď",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M336 793L466 793L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 457L112 457L112 569L336 569L336 793ZM125 450L125 119L340 119L340 450L125 450ZM448 1129L578 1129L578 896L448 896L448 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1823,6 +2025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Đ": {
     char: "Đ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L466 793L466 681L578 681L578 112L466 112L466 0L0 0L0 793ZM125 674L125 455L349 455L349 338L125 338L125 119L452 119L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1832,6 +2035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "đ": {
     char: "đ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M336 793L466 793L466 681L578 681L578 560L466 560L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 345L112 345L112 457L336 457L336 560L224 560L224 681L336 681L336 793ZM125 338L125 119L340 119L340 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1841,6 +2045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ē": {
     char: "Ē",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM112 1017L466 1017L466 896L112 896L112 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1850,6 +2055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ē": {
     char: "ē",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM112 793L466 793L466 672L112 672L112 793ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1859,6 +2065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĕ": {
     char: "Ĕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM0 1129L130 1129L130 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1868,6 +2075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĕ": {
     char: "ĕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM0 905L130 905L130 793L448 793L448 905L578 905L578 784L466 784L466 672L112 672L112 784L0 784L0 905ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1877,6 +2085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ė": {
     char: "Ė",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM224 1017L354 1017L354 896L224 896L224 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1886,6 +2095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ė": {
     char: "ė",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1895,6 +2105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ę": {
     char: "Ę",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L354 0L354 -103L466 -103L466 -224L336 -224L336 -112L224 -112L224 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1904,6 +2115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ę": {
     char: "ę",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L354 0L354 -103L466 -103L466 -224L336 -224L336 -112L224 -112L224 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1913,6 +2125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ě": {
     char: "Ě",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1922,6 +2135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ě": {
     char: "ě",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1931,6 +2145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĝ": {
     char: "Ĝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 336L336 336L336 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1940,6 +2155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĝ": {
     char: "ĝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 457L112 457L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1949,6 +2165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ğ": {
     char: "Ğ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 336L336 336L336 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM0 1129L130 1129L130 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1958,6 +2175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ğ": {
     char: "ğ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 457L112 457L112 569ZM0 905L130 905L130 793L448 793L448 905L578 905L578 784L466 784L466 672L112 672L112 784L0 784L0 905ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1967,6 +2185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ġ": {
     char: "Ġ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 336L336 336L336 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM224 1017L354 1017L354 896L224 896L224 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -1976,6 +2195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ġ": {
     char: "ġ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 457L112 457L112 569ZM125 450L125 231L452 231L452 450L125 450ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -1985,6 +2205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ģ": {
     char: "Ģ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 336L336 336L336 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -1994,6 +2215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ģ": {
     char: "ģ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 457L112 457L112 569ZM125 450L125 231L452 231L452 450L125 450ZM224 905L354 905L354 672L224 672L224 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -2003,6 +2225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĥ": {
     char: "Ĥ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L448 569L448 793L578 793L578 0L448 0L448 448L130 448L130 0L0 0L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2012,6 +2235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĥ": {
     char: "ĥ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2021,6 +2245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ħ": {
     char: "Ħ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 681L448 681L448 793L578 793L578 0L448 0L448 336L130 336L130 0L0 0L0 793ZM125 562L125 455L452 455L452 562L125 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2030,6 +2255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ħ": {
     char: "ħ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L354 681L354 560L130 560L130 345L224 345L224 457L466 457L466 345L578 345L578 0L448 0L448 336L242 336L242 224L130 224L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2039,6 +2265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĩ": {
     char: "Ĩ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L336 896L336 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2048,6 +2275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĩ": {
     char: "ĩ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L130 784L130 672L0 672L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2057,6 +2285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ī": {
     char: "Ī",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1017L466 1017L466 896L112 896L112 1017Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2066,6 +2295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ī": {
     char: "ī",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM112 793L466 793L466 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2075,6 +2305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĭ": {
     char: "Ĭ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM0 1129L130 1129L130 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2084,6 +2315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĭ": {
     char: "ĭ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM0 905L130 905L130 793L336 793L336 905L466 905L466 784L354 784L354 672L112 672L112 784L0 784L0 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2093,6 +2325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Į": {
     char: "Į",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L242 0L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 121L224 121L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -2102,6 +2335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "į": {
     char: "į",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L242 0L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 121L224 121L224 448L112 448L112 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -2111,6 +2345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "İ": {
     char: "İ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM224 1017L354 1017L354 896L224 896L224 1017Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2120,6 +2355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ı": {
     char: "ı",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2129,6 +2365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĳ": {
     char: "Ĳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 672L242 672L242 121L354 121L354 0L0 0L0 121L112 121L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2138,6 +2375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĳ": {
     char: "ĳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 569L578 569L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 448L242 448L242 0L0 0L0 121L112 121L112 448L0 448L0 569ZM112 793L242 793L242 672L112 672L112 793ZM448 793L578 793L578 672L448 672L448 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2147,6 +2385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĵ": {
     char: "Ĵ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L578 793L578 672L466 672L466 112L354 112L354 0L112 0L112 112L0 112L0 233L130 233L130 121L336 121L336 672L224 672L224 793ZM336 1129L466 1129L466 1017L578 1017L578 896L448 896L448 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2156,6 +2395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĵ": {
     char: "ĵ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L466 569L466 0L354 0L354 -112L112 -112L112 0L0 0L0 121L130 121L130 9L336 9L336 448L224 448L224 569ZM336 905L466 905L466 793L578 793L578 672L448 672L448 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -2165,6 +2405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ķ": {
     char: "Ķ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 457L466 457L466 345L578 345L578 0L448 0L448 336L336 336L336 448L130 448L130 0L0 0L0 793ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2174,6 +2415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ķ": {
     char: "ķ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 345L224 345L224 457L336 457L336 569L466 569L466 448L354 448L354 336L242 336L242 233L354 233L354 121L578 121L578 0L336 0L336 112L224 112L224 224L130 224L130 0L0 0L0 793ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2183,6 +2425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĸ": {
     char: "ĸ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L336 345L336 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L130 224L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2192,6 +2435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ĺ": {
     char: "Ĺ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L578 121L578 0L0 0L0 793ZM224 1129L354 1129L354 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2201,6 +2445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ĺ": {
     char: "ĺ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L354 793L354 121L578 121L578 0L336 0L336 112L224 112L224 672L112 672L112 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2210,6 +2455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ļ": {
     char: "Ļ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L578 121L578 0L0 0L0 793ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2219,6 +2465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ļ": {
     char: "ļ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L354 793L354 121L578 121L578 0L336 0L336 112L224 112L224 672L112 672L112 793ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -2228,6 +2475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ľ": {
     char: "Ľ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L578 121L578 0L0 0L0 793ZM224 793L354 793L354 560L224 560L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2237,6 +2485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ľ": {
     char: "ľ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L354 793L354 121L578 121L578 0L336 0L336 112L224 112L224 672L112 672L112 793ZM448 793L578 793L578 560L448 560L448 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2246,6 +2495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŀ": {
     char: "Ŀ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L578 121L578 0L0 0L0 793ZM448 457L578 457L578 336L448 336L448 457Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2255,6 +2505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŀ": {
     char: "ŀ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L354 793L354 121L578 121L578 0L336 0L336 112L224 112L224 672L112 672L112 793ZM448 457L578 457L578 336L448 336L448 457Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -2264,6 +2515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ł": {
     char: "Ł",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 457L336 457L336 569L466 569L466 448L354 448L354 336L242 336L242 121L578 121L578 0L112 0L112 224L0 224L0 345L112 345L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2273,6 +2525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ł": {
     char: "ł",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 569L448 569L448 681L578 681L578 560L466 560L466 448L354 448L354 121L578 121L578 0L336 0L336 112L224 112L224 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2282,6 +2535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ń": {
     char: "Ń",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 0L448 0L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2291,6 +2545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ń": {
     char: "ń",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2300,6 +2555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ņ": {
     char: "Ņ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 0L448 0L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2309,6 +2565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ņ": {
     char: "ņ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2318,6 +2575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ň": {
     char: "Ň",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 0L448 0L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2327,6 +2585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ň": {
     char: "ň",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2336,6 +2595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŉ": {
     char: "ŉ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM0 905L130 905L130 672L0 672L0 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2345,6 +2605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŋ": {
     char: "Ŋ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 -112L466 -112L466 -224L336 -224L336 -112L224 -112L224 9L354 9L354 -103L448 -103L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2354,6 +2615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŋ": {
     char: "ŋ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 -112L466 -112L466 -224L336 -224L336 -112L224 -112L224 9L354 9L354 -103L448 -103L448 448L242 448L242 336L130 336L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2363,6 +2625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ō": {
     char: "Ō",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1017L466 1017L466 896L112 896L112 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2372,6 +2635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ō": {
     char: "ō",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM112 793L466 793L466 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2381,6 +2645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŏ": {
     char: "Ŏ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM0 1129L130 1129L130 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2390,6 +2655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŏ": {
     char: "ŏ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM0 905L130 905L130 793L448 793L448 905L578 905L578 784L466 784L466 672L112 672L112 784L0 784L0 905ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2399,6 +2665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ő": {
     char: "Ő",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1129L242 1129L242 896L112 896L112 1129ZM336 1129L466 1129L466 896L336 896L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2408,6 +2675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ő": {
     char: "ő",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM112 905L242 905L242 672L112 672L112 905ZM336 905L466 905L466 672L336 672L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2417,6 +2685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Œ": {
     char: "Œ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 681L336 681L336 793L578 793L578 672L354 672L354 457L466 457L466 336L354 336L354 121L578 121L578 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L228 119L228 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2426,6 +2695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "œ": {
     char: "œ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L242 569L242 457L336 457L336 569L466 569L466 457L578 457L578 224L354 224L354 121L578 121L578 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2435,6 +2705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŕ": {
     char: "Ŕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 0L448 0L448 336L130 336L130 0L0 0L0 793ZM125 674L125 455L452 455L452 674L125 674ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2444,6 +2715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŕ": {
     char: "ŕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 336L448 336L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2453,6 +2725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŗ": {
     char: "Ŗ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 0L448 0L448 336L130 336L130 0L0 0L0 793ZM125 674L125 455L452 455L452 674L125 674ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2462,6 +2735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŗ": {
     char: "ŗ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 336L448 336L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM224 -103L354 -103L354 -224L224 -224L224 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2471,6 +2745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ř": {
     char: "Ř",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 0L448 0L448 336L130 336L130 0L0 0L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2480,6 +2755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ř": {
     char: "ř",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 336L448 336L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2489,6 +2765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ś": {
     char: "Ś",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2498,6 +2775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ś": {
     char: "ś",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L578 569L578 448L130 448L130 345L466 345L466 233L578 233L578 112L466 112L466 0L0 0L0 121L448 121L448 224L112 224L112 336L0 336L0 457L112 457L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2507,6 +2785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŝ": {
     char: "Ŝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2516,6 +2795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŝ": {
     char: "ŝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L578 569L578 448L130 448L130 345L466 345L466 233L578 233L578 112L466 112L466 0L0 0L0 121L448 121L448 224L112 224L112 336L0 336L0 457L112 457L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2525,6 +2805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ş": {
     char: "Ş",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2534,6 +2815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ş": {
     char: "ş",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 448L130 448L130 345L466 345L466 233L578 233L578 112L466 112L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L0 0L0 121L448 121L448 224L112 224L112 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2543,6 +2825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Š": {
     char: "Š",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2552,6 +2835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "š": {
     char: "š",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L578 569L578 448L130 448L130 345L466 345L466 233L578 233L578 112L466 112L466 0L0 0L0 121L448 121L448 224L112 224L112 336L0 336L0 457L112 457L112 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2561,6 +2845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ţ": {
     char: "Ţ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L354 672L354 9L466 9L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L224 0L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2570,6 +2855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ţ": {
     char: "ţ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 569L466 569L466 448L242 448L242 121L466 121L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L224 0L224 112L112 112L112 448L0 448L0 569L112 569L112 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2579,6 +2865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ť": {
     char: "Ť",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L354 672L354 0L224 0L224 672L0 672L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2588,6 +2875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ť": {
     char: "ť",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 569L466 569L466 448L242 448L242 121L466 121L466 0L224 0L224 112L112 112L112 448L0 448L0 569L112 569L112 793ZM336 905L466 905L466 672L336 672L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2597,6 +2885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŧ": {
     char: "Ŧ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L354 672L354 457L466 457L466 336L354 336L354 0L224 0L224 336L112 336L112 457L224 457L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2606,6 +2895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŧ": {
     char: "ŧ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 569L466 569L466 448L242 448L242 345L354 345L354 224L242 224L242 121L466 121L466 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 448L0 448L0 569L112 569L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2615,6 +2905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ũ": {
     char: "Ũ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM112 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L336 896L336 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2624,6 +2915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ũ": {
     char: "ũ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L130 784L130 672L0 672L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2633,6 +2925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ū": {
     char: "Ū",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM112 1017L466 1017L466 896L112 896L112 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2642,6 +2935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ū": {
     char: "ū",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM112 793L466 793L466 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2651,6 +2945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŭ": {
     char: "Ŭ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM0 1129L130 1129L130 1017L448 1017L448 1129L578 1129L578 1008L466 1008L466 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2660,6 +2955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŭ": {
     char: "ŭ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM0 905L130 905L130 793L336 793L336 905L466 905L466 784L354 784L354 672L112 672L112 784L0 784L0 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2669,6 +2965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ů": {
     char: "Ů",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L354 896L354 784L224 784L224 896L112 896L112 1017L224 1017L224 1129ZM237 1010L237 903L340 903L340 1010L237 1010Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2678,6 +2975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ů": {
     char: "ů",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM224 1017L354 1017L354 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905L224 905L224 1017ZM237 898L237 791L340 791L340 898L237 898Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2687,6 +2985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ű": {
     char: "Ű",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L112 0L112 112L0 112L0 793ZM112 1129L242 1129L242 896L112 896L112 1129ZM336 1129L466 1129L466 896L336 896L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2696,6 +2995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ű": {
     char: "ű",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 569ZM112 905L242 905L242 672L112 672L112 905ZM336 905L466 905L466 672L336 672L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2705,6 +3005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ų": {
     char: "Ų",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 112L466 112L466 0L242 0L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 112L0 112L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2714,6 +3015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ų": {
     char: "ų",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L242 0L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 112L0 112L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -2723,6 +3025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŵ": {
     char: "Ŵ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 233L224 233L224 457L354 457L354 233L448 233L448 793L578 793L578 224L466 224L466 0L336 0L336 224L242 224L242 0L112 0L112 224L0 224L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2732,6 +3035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŵ": {
     char: "ŵ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 233L224 233L224 457L354 457L354 233L448 233L448 569L578 569L578 224L466 224L466 0L336 0L336 224L242 224L242 0L112 0L112 224L0 224L0 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2741,6 +3045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ŷ": {
     char: "Ŷ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L242 1008L242 896L112 896L112 1017L224 1017L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2750,6 +3055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ŷ": {
     char: "ŷ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 233L448 233L448 569L578 569L578 0L466 0L466 -112L0 -112L0 9L448 9L448 112L112 112L112 224L0 224L0 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L242 784L242 672L112 672L112 793L224 793L224 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -2759,6 +3065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ÿ": {
     char: "Ÿ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2768,6 +3075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ź": {
     char: "Ź",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 560L466 560L466 448L354 448L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 345L224 345L224 457L336 457L336 569L448 569L448 672L0 672L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2777,6 +3085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ź": {
     char: "ź",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 121L578 121L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L0 448L0 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2786,6 +3095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ż": {
     char: "Ż",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 560L466 560L466 448L354 448L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 345L224 345L224 457L336 457L336 569L448 569L448 672L0 672L0 793ZM224 1017L354 1017L354 896L224 896L224 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2795,6 +3105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ż": {
     char: "ż",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 121L578 121L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L0 448L0 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2804,6 +3115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ž": {
     char: "Ž",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 560L466 560L466 448L354 448L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 345L224 345L224 457L336 457L336 569L448 569L448 672L0 672L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2813,6 +3125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ž": {
     char: "ž",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 121L578 121L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L0 448L0 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -2822,6 +3135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʰ": {
     char: "ʰ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 569L224 569L224 681L354 681L354 569L466 569L466 336L336 336L336 560L242 560L242 448L130 448L130 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -2831,6 +3145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʱ": {
     char: "ʱ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L242 905L242 784L130 784L130 569L224 569L224 681L354 681L354 569L466 569L466 336L336 336L336 560L242 560L242 448L130 448L130 336L0 336L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -2840,6 +3155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʲ": {
     char: "ʲ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 336L242 336L242 224L112 224L112 345L224 345L224 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -2849,6 +3165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʳ": {
     char: "ʳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 681L466 681L466 560L336 560L336 672L242 672L242 560L130 560L130 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -2858,6 +3175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʴ": {
     char: "ʴ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 336L336 336L336 448L242 448L242 336L112 336L112 448L0 448L0 569L130 569L130 457L224 457L224 569L336 569L336 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -2867,6 +3185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʶ": {
     char: "ʶ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 672L242 672L242 569L354 569L354 448L242 448L242 336L0 336L0 793ZM125 562L125 455L228 455L228 562L125 562Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -2876,6 +3195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʷ": {
     char: "ʷ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L224 569L224 793L354 793L354 569L448 569L448 793L578 793L578 560L466 560L466 448L336 448L336 560L242 560L242 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -2885,6 +3205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʸ": {
     char: "ʸ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 448L242 448L242 336L112 336L112 457L224 457L224 560L112 560L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -2894,6 +3215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˀ": {
     char: "ˀ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 681L466 681L466 560L354 560L354 336L224 336L224 569L336 569L336 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -2903,6 +3225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˁ": {
     char: "ˁ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 672L242 672L242 569L354 569L354 336L224 336L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -2912,6 +3235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˂": {
     char: "˂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 336L242 336L242 233L354 233L354 112L224 112L224 224L112 224L112 345L224 345L224 457Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -2921,6 +3245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˃": {
     char: "˃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L242 457L242 345L354 345L354 224L242 224L242 112L112 112L112 233L224 233L224 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -2930,6 +3255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˄": {
     char: "˄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 345L466 345L466 224L336 224L336 336L242 336L242 224L112 224L112 345L224 345L224 457Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -2939,6 +3265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˅": {
     char: "˅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L242 457L242 345L336 345L336 457L466 457L466 336L354 336L354 224L224 224L224 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -2948,6 +3275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˆ": {
     char: "ˆ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 560L336 560L336 672L242 672L242 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -2957,6 +3285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˇ": {
     char: "ˇ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 672L354 672L354 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -2966,6 +3295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˈ": {
     char: "ˈ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 448L224 448L224 793Z",
     xmin: 224.0,
     ymin: 448.0,
@@ -2975,6 +3305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˉ": {
     char: "ˉ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 672.0,
@@ -2984,6 +3315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˊ": {
     char: "ˊ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 672L242 672L242 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -2993,6 +3325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˋ": {
     char: "ˋ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -3002,6 +3335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˌ": {
     char: "ˌ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 -224L224 -224L224 121Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -3011,6 +3345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˍ": {
     char: "ˍ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 9L466 9L466 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -3020,6 +3355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˎ": {
     char: "ˎ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 9L242 9L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3029,6 +3365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˏ": {
     char: "ˏ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 9L354 9L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 9Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3038,6 +3375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ː": {
     char: "ː",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 448L354 448L354 336L224 336L224 448L112 448L112 569ZM224 233L354 233L354 121L466 121L466 0L112 0L112 121L224 121L224 233Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3047,6 +3385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˑ": {
     char: "ˑ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 448L354 448L354 336L224 336L224 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -3056,6 +3395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˔": {
     char: "˔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 345L354 345L354 121L466 121L466 0L112 0L112 121L224 121L224 345Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3065,6 +3405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˕": {
     char: "˕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 121L466 121L466 0L354 0L354 -224L224 -224L224 0L112 0L112 121Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3074,6 +3415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˖": {
     char: "˖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 345L354 345L354 233L466 233L466 112L354 112L354 0L224 0L224 112L112 112L112 233L224 233L224 345Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3083,6 +3425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˗": {
     char: "˗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L466 233L466 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -3092,6 +3435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˘": {
     char: "˘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 672L354 672L354 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -3101,6 +3445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˙": {
     char: "˙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 672L224 672L224 793Z",
     xmin: 224.0,
     ymin: 672.0,
@@ -3110,6 +3455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˚": {
     char: "˚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 905L354 905L354 793L466 793L466 672L354 672L354 560L224 560L224 672L112 672L112 793L224 793L224 905ZM237 786L237 679L340 679L340 786L237 786Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -3119,6 +3465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˜": {
     char: "˜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 681L448 681L448 793L578 793L578 672L466 672L466 560L336 560L336 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -3128,6 +3475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˝": {
     char: "˝",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 672L130 672L130 560L0 560L0 681L112 681L112 793ZM448 793L578 793L578 672L466 672L466 560L336 560L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -3137,6 +3485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˟": {
     char: "˟",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 457L336 457L336 569L466 569L466 448L354 448L354 345L466 345L466 224L336 224L336 336L242 336L242 224L112 224L112 345L224 345L224 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -3146,6 +3495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˡ": {
     char: "ˡ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 905L354 905L354 457L466 457L466 336L336 336L336 448L224 448L224 905Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -3155,6 +3505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˢ": {
     char: "ˢ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 672L242 672L242 569L466 569L466 448L354 448L354 336L112 336L112 457L224 457L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -3164,6 +3515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˣ": {
     char: "ˣ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L336 681L336 793L466 793L466 672L354 672L354 457L466 457L466 336L336 336L336 448L130 448L130 336L0 336L0 457L112 457L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -3173,6 +3525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˤ": {
     char: "ˤ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 672L242 672L242 569L354 569L354 336L224 336L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -3182,6 +3535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˥": {
     char: "˥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 0L336 0L336 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3191,6 +3545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˦": {
     char: "˦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 0L336 0L336 560L112 560L112 681L336 681L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3200,6 +3555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˧": {
     char: "˧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 0L336 0L336 336L112 336L112 457L336 457L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3209,6 +3565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˨": {
     char: "˨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 0L336 0L336 112L112 112L112 233L336 233L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3218,6 +3575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˩": {
     char: "˩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 0L112 0L112 121L336 121L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3227,6 +3585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˪": {
     char: "˪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 121L466 121L466 0L112 0L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3236,6 +3595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˫": {
     char: "˫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 345L466 345L466 224L242 224L242 0L112 0L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3245,6 +3605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ˬ": {
     char: "ˬ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 9L242 9L242 -103L336 -103L336 9L466 9L466 -112L354 -112L354 -224L224 -224L224 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3254,6 +3615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˭": {
     char: "˭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L112 672L112 793ZM112 569L466 569L466 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -3263,6 +3625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˯": {
     char: "˯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 121L242 121L242 9L336 9L336 121L466 121L466 0L354 0L354 -112L224 -112L224 0L112 0L112 121Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -3272,6 +3635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˰": {
     char: "˰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 9L466 9L466 -112L336 -112L336 0L242 0L242 -112L112 -112L112 9L224 9L224 121Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -3281,6 +3645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˱": {
     char: "˱",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 0L242 0L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 9L224 9L224 121Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3290,6 +3655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˲": {
     char: "˲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 121L242 121L242 9L354 9L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 0L112 0L112 121Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3299,6 +3665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˳": {
     char: "˳",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 121L354 121L354 9L466 9L466 -112L354 -112L354 -224L224 -224L224 -112L112 -112L112 9L224 9L224 121ZM237 2L237 -105L340 -105L340 2L237 2Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3308,6 +3675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˴": {
     char: "˴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L242 457L242 345L354 345L354 224L224 224L224 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -3317,6 +3685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˵": {
     char: "˵",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 457L130 457L130 345L242 345L242 224L112 224L112 336L0 336L0 457ZM336 457L466 457L466 345L578 345L578 224L448 224L448 336L336 336L336 457Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -3326,6 +3695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˶": {
     char: "˶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 457L242 457L242 336L130 336L130 224L0 224L0 345L112 345L112 457ZM448 457L578 457L578 336L466 336L466 224L336 224L336 345L448 345L448 457Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -3335,6 +3705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˷": {
     char: "˷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L354 233L354 121L448 121L448 233L578 233L578 112L466 112L466 0L336 0L336 112L130 112L130 0L0 0L0 121L112 121L112 233Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3344,6 +3715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˸": {
     char: "˸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 672L112 672L112 793ZM112 345L242 345L242 224L112 224L112 345Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -3353,6 +3725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˹": {
     char: "˹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 672L242 672L242 336L112 336L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -3362,6 +3735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˺": {
     char: "˺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 336L224 336L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -3371,6 +3745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˻": {
     char: "˻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L242 457L242 121L354 121L354 0L112 0L112 457Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3380,6 +3755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˼": {
     char: "˼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 0L112 0L112 121L224 121L224 457Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3389,6 +3765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˽": {
     char: "˽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L130 233L130 121L448 121L448 233L578 233L578 0L0 0L0 233Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3398,6 +3775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "˾": {
     char: "˾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L130 233L130 121L578 121L578 0L0 0L0 233Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3407,6 +3785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ͱ": {
     char: "Ͱ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 457L466 457L466 336L242 336L242 0L112 0L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3416,6 +3795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͱ": {
     char: "ͱ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 345L466 345L466 224L242 224L242 0L112 0L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3425,6 +3805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ͳ": {
     char: "Ͳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 560L448 560L448 672L354 672L354 0L224 0L224 672L130 672L130 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3434,6 +3815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͳ": {
     char: "ͳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L354 448L354 -112L224 -112L224 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -3443,6 +3825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ʹ": {
     char: "ʹ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 560L242 560L242 448L112 448L112 569L224 569L224 681Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -3452,6 +3835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "͵": {
     char: "͵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 0L242 0L242 -112L112 -112L112 9L224 9L224 121Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -3461,6 +3845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ͷ": {
     char: "Ͷ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L224 457L224 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L242 448L242 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3470,6 +3855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͷ": {
     char: "ͷ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L224 345L224 457L336 457L336 569L466 569L466 121L578 121L578 0L448 0L448 112L336 112L336 336L242 336L242 224L130 224L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3479,6 +3865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͺ": {
     char: "ͺ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 9L242 9L242 -103L354 -103L354 -224L224 -224L224 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3488,6 +3875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͻ": {
     char: "ͻ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 448L130 448L130 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3497,6 +3885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͼ": {
     char: "ͼ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM224 345L354 345L354 224L224 224L224 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3506,6 +3895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ͽ": {
     char: "ͽ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 448L130 448L130 336L0 336L0 457L112 457L112 569ZM224 345L354 345L354 224L224 224L224 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3515,6 +3905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   ";": {
     char: ";",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 121L354 121L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 0L112 0L112 121ZM112 569L354 569L354 336L224 336L224 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -3524,6 +3915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϳ": {
     char: "Ϳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 672L466 672L466 112L354 112L354 0L112 0L112 112L0 112L0 233L130 233L130 121L336 121L336 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3533,6 +3925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "΄": {
     char: "΄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 672L354 672L354 560L224 560L224 681L336 681L336 793Z",
     xmin: 224.0,
     ymin: 560.0,
@@ -3542,6 +3935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "΅": {
     char: "΅",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 112.0,
     ymin: 672.0,
@@ -3551,6 +3945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ά": {
     char: "Ά",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3560,6 +3955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "·": {
     char: "·",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 336L224 336L224 457Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -3569,6 +3965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Έ": {
     char: "Έ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3578,6 +3975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ή": {
     char: "Ή",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L448 569L448 793L578 793L578 0L448 0L448 448L130 448L130 0L0 0L0 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3587,6 +3985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ί": {
     char: "Ί",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3596,6 +3995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ό": {
     char: "Ό",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3605,6 +4005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ύ": {
     char: "Ύ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3614,6 +4015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ώ": {
     char: "Ώ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 224L466 224L466 121L578 121L578 0L336 0L336 233L448 233L448 672L130 672L130 233L242 233L242 0L0 0L0 121L112 121L112 224L0 224L0 681L112 681L112 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3623,6 +4025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ΐ": {
     char: "ΐ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 569L354 569L354 121L578 121L578 0L336 0L336 112L224 112L224 448L112 448L112 569ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3632,6 +4035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Α": {
     char: "Α",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3641,6 +4045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Β": {
     char: "Β",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L0 0L0 793ZM125 674L125 455L452 455L452 674L125 674ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3650,6 +4055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Γ": {
     char: "Γ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3659,6 +4065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Δ": {
     char: "Δ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L354 793L354 569L466 569L466 233L578 233L578 0L0 0L0 233L112 233L112 569L224 569L224 793ZM237 562L237 226L125 226L125 119L452 119L452 226L340 226L340 562L237 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3668,6 +4075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ε": {
     char: "Ε",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3677,6 +4085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ζ": {
     char: "Ζ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 560L466 560L466 448L354 448L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 345L224 345L224 457L336 457L336 569L448 569L448 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3686,6 +4095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Η": {
     char: "Η",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L448 569L448 793L578 793L578 0L448 0L448 448L130 448L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3695,6 +4105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Θ": {
     char: "Θ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3704,6 +4115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ι": {
     char: "Ι",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3713,6 +4125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Κ": {
     char: "Κ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L224 457L224 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 448L242 448L242 345L354 345L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L224 224L224 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3722,6 +4135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Λ": {
     char: "Λ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 569L466 569L466 233L578 233L578 0L448 0L448 224L336 224L336 560L242 560L242 224L130 224L130 0L0 0L0 233L112 233L112 569L224 569L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3731,6 +4145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Μ": {
     char: "Μ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3740,6 +4155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ν": {
     char: "Ν",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L354 569L354 457L448 457L448 793L578 793L578 0L448 0L448 336L336 336L336 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3749,6 +4165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ξ": {
     char: "Ξ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L578 793L578 672L0 672L0 793ZM0 121L578 121L578 0L0 0L0 121ZM112 457L466 457L466 336L112 336L112 457Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3758,6 +4175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ο": {
     char: "Ο",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3767,6 +4185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Π": {
     char: "Π",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 0L448 0L448 672L130 672L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3776,6 +4195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ρ": {
     char: "Ρ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L466 793L466 681L578 681L578 336L466 336L466 224L130 224L130 0L0 0L0 793ZM125 674L125 343L452 343L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3785,6 +4205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Σ": {
     char: "Σ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 569L242 569L242 457L354 457L354 336L242 336L242 224L130 224L130 121L578 121L578 0L0 0L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3794,6 +4215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Τ": {
     char: "Τ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L354 672L354 0L224 0L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3803,6 +4225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Υ": {
     char: "Υ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3812,6 +4235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Φ": {
     char: "Φ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 569L112 569L112 681L224 681L224 793ZM125 562L125 231L228 231L228 562L125 562ZM349 562L349 231L452 231L452 562L349 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3821,6 +4245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Χ": {
     char: "Χ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 345L466 345L466 233L578 233L578 0L448 0L448 224L336 224L336 336L242 336L242 224L130 224L130 0L0 0L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3830,6 +4255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ψ": {
     char: "Ψ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 345L224 345L224 793L354 793L354 345L448 345L448 793L578 793L578 336L466 336L466 224L354 224L354 0L224 0L224 224L112 224L112 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3839,6 +4265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ω": {
     char: "Ω",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 224L466 224L466 121L578 121L578 0L336 0L336 233L448 233L448 672L130 672L130 233L242 233L242 0L0 0L0 121L112 121L112 224L0 224L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3848,6 +4275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϊ": {
     char: "Ϊ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3857,6 +4285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϋ": {
     char: "Ϋ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3866,6 +4295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ά": {
     char: "ά",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L354 569L354 457L448 457L448 569L578 569L578 336L466 336L466 233L578 233L578 0L448 0L448 224L354 224L354 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L228 119L228 231L340 231L340 450L125 450ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3875,6 +4305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "έ": {
     char: "έ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 345L354 345L354 224L130 224L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 233L112 233L112 336L0 336L0 457L112 457L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3884,6 +4315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ή": {
     char: "ή",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 -224L448 -224L448 448L242 448L242 336L130 336L130 0L0 0L0 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -3893,6 +4325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ί": {
     char: "ί",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L578 121L578 0L336 0L336 112L224 112L224 448L112 448L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3902,6 +4335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ΰ": {
     char: "ΰ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M0 569L130 569L130 121L448 121L448 569L578 569L578 112L466 112L466 0L112 0L112 112L0 112L0 569ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3911,6 +4345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "α": {
     char: "α",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L354 569L354 457L448 457L448 569L578 569L578 336L466 336L466 233L578 233L578 0L448 0L448 224L354 224L354 112L242 112L242 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L228 119L228 231L340 231L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3920,6 +4355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "β": {
     char: "β",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 560L466 560L466 457L578 457L578 112L466 112L466 0L224 0L224 112L130 112L130 -224L0 -224L0 681L112 681L112 793ZM125 674L125 231L237 231L237 119L452 119L452 450L228 450L228 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -3929,6 +4365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "γ": {
     char: "γ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 233L336 233L336 345L448 345L448 569L578 569L578 336L466 336L466 112L354 112L354 -103L466 -103L466 -224L336 -224L336 -112L224 -112L224 224L112 224L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -3938,6 +4375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "δ": {
     char: "δ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L466 793L466 672L242 672L242 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 345L112 345L112 457L224 457L224 560L112 560L112 681L224 681L224 793ZM237 450L237 338L125 338L125 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3947,6 +4385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ε": {
     char: "ε",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 345L354 345L354 224L130 224L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 233L112 233L112 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3956,6 +4395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ζ": {
     char: "ζ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L578 793L578 672L466 672L466 560L354 560L354 448L242 448L242 336L130 336L130 121L466 121L466 9L578 9L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 0L112 0L112 112L0 112L0 345L112 345L112 457L224 457L224 569L336 569L336 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -3965,6 +4405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "η": {
     char: "η",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 -224L448 -224L448 448L242 448L242 336L130 336L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -3974,6 +4415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "θ": {
     char: "θ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -3983,6 +4425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ι": {
     char: "ι",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 121L578 121L578 0L336 0L336 112L224 112L224 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -3992,6 +4435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "κ": {
     char: "κ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L336 345L336 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L130 224L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4001,6 +4445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "λ": {
     char: "λ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 457L466 457L466 121L578 121L578 0L448 0L448 112L336 112L336 448L242 448L242 224L130 224L130 0L0 0L0 233L112 233L112 457L224 457L224 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4010,6 +4455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "μ": {
     char: "μ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L130 0L130 -224L0 -224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4019,6 +4465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ν": {
     char: "ν",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L242 345L242 121L336 121L336 345L448 345L448 569L578 569L578 336L466 336L466 112L354 112L354 0L224 0L224 112L112 112L112 336L0 336L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4028,6 +4475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ξ": {
     char: "ξ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 672L242 672L242 569L466 569L466 448L242 448L242 336L130 336L130 121L466 121L466 9L578 9L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 0L112 0L112 112L0 112L0 345L112 345L112 457L224 457L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4037,6 +4485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ο": {
     char: "ο",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4046,6 +4495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "π": {
     char: "π",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L466 448L466 121L578 121L578 0L448 0L448 112L336 112L336 448L242 448L242 0L112 0L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4055,6 +4505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ρ": {
     char: "ρ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L224 0L224 112L130 112L130 -224L0 -224L0 457L112 457L112 569ZM125 450L125 231L237 231L237 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4064,6 +4515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ς": {
     char: "ς",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L466 121L466 9L578 9L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4073,6 +4525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "σ": {
     char: "σ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L578 569L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 338L340 338L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4082,6 +4535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "τ": {
     char: "τ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L354 448L354 121L578 121L578 0L336 0L336 112L224 112L224 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4091,6 +4545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "υ": {
     char: "υ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L448 121L448 569L578 569L578 112L466 112L466 0L112 0L112 112L0 112L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4100,6 +4555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "φ": {
     char: "φ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 121L224 121L224 457L336 457L336 569L466 569L466 457L578 457L578 112L466 112L466 0L354 0L354 -224L224 -224L224 0L112 0L112 112L0 112L0 569ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4109,6 +4565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "χ": {
     char: "χ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L242 345L242 233L336 233L336 345L448 345L448 569L578 569L578 336L466 336L466 224L354 224L354 121L466 121L466 9L578 9L578 -224L448 -224L448 0L336 0L336 112L242 112L242 0L130 0L130 -224L0 -224L0 9L112 9L112 121L224 121L224 224L112 224L112 336L0 336L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4118,6 +4575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ψ": {
     char: "ψ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L224 121L224 569L354 569L354 121L448 121L448 569L578 569L578 112L466 112L466 0L354 0L354 -224L224 -224L224 0L112 0L112 112L0 112L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4127,6 +4585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ω": {
     char: "ω",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 448L130 448L130 121L224 121L224 345L354 345L354 121L448 121L448 448L336 448L336 569L466 569L466 457L578 457L578 112L466 112L466 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4136,6 +4595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϊ": {
     char: "ϊ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 569L354 569L354 121L578 121L578 0L336 0L336 112L224 112L224 448L112 448L112 569ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -4145,6 +4605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϋ": {
     char: "ϋ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 569L130 569L130 121L448 121L448 569L578 569L578 112L466 112L466 0L112 0L112 112L0 112L0 569ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4154,6 +4615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ό": {
     char: "ό",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4163,6 +4625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ύ": {
     char: "ύ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 121L448 121L448 569L578 569L578 112L466 112L466 0L112 0L112 112L0 112L0 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4172,6 +4635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ώ": {
     char: "ώ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L242 569L242 448L130 448L130 121L224 121L224 345L354 345L354 121L448 121L448 448L336 448L336 569L466 569L466 457L578 457L578 112L466 112L466 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 457L112 457L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4181,6 +4645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϗ": {
     char: "Ϗ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L224 457L224 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 448L242 448L242 345L354 345L354 233L466 233L466 121L578 121L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 112L336 112L336 224L224 224L224 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4190,6 +4655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϐ": {
     char: "ϐ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 560L466 560L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM349 450L349 338L125 338L125 119L452 119L452 450L349 450ZM125 674L125 455L340 455L340 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4199,6 +4665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϑ": {
     char: "ϑ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L354 793L354 681L466 681L466 569L578 569L578 448L466 448L466 112L354 112L354 0L112 0L112 112L0 112L0 345L130 345L130 121L336 121L336 448L112 448L112 560L0 560L0 681L112 681L112 793ZM125 674L125 567L340 567L340 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4208,6 +4675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϒ": {
     char: "ϒ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 681L448 681L448 793L578 793L578 672L466 672L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4217,6 +4685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϓ": {
     char: "ϓ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 681L448 681L448 793L578 793L578 672L466 672L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM112 1129L242 1129L242 1008L130 1008L130 896L0 896L0 1017L112 1017L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4226,6 +4695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϔ": {
     char: "ϔ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 681L448 681L448 793L578 793L578 672L466 672L466 448L354 448L354 0L224 0L224 448L112 448L112 560L0 560L0 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4235,6 +4705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϕ": {
     char: "ϕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 793L354 793L354 569L466 569L466 457L578 457L578 112L466 112L466 0L354 0L354 -224L224 -224L224 0L112 0L112 112L0 112L0 457L112 457L112 569L224 569L224 793ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4244,6 +4715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϖ": {
     char: "ϖ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 448L466 448L466 345L578 345L578 112L466 112L466 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 345L112 345L112 448L0 448L0 569ZM237 450L237 338L125 338L125 119L228 119L228 231L349 231L349 119L452 119L452 338L340 338L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4253,6 +4725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϗ": {
     char: "ϗ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L336 345L336 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 112L336 112L336 224L130 224L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4262,6 +4735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϙ": {
     char: "Ϙ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L354 0L354 -224L224 -224L224 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4271,6 +4745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϙ": {
     char: "ϙ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L354 0L354 -224L224 -224L224 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4280,6 +4755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϛ": {
     char: "Ϛ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 672L242 672L242 560L130 560L130 233L242 233L242 121L466 121L466 9L578 9L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 0L224 0L224 112L112 112L112 224L0 224L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4289,6 +4765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϛ": {
     char: "ϛ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 681L578 681L578 560L466 560L466 448L242 448L242 336L130 336L130 121L466 121L466 9L578 9L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 0L112 0L112 112L0 112L0 345L112 345L112 457L224 457L224 569L448 569L448 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4298,6 +4775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϝ": {
     char: "Ϝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4307,6 +4785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϝ": {
     char: "ϝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 448L130 448L130 233L354 233L354 112L130 112L130 -224L0 -224L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4316,6 +4795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϟ": {
     char: "Ϟ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 672L354 672L354 560L242 560L242 457L578 457L578 336L466 336L466 224L354 224L354 112L242 112L242 0L112 0L112 121L224 121L224 233L336 233L336 336L0 336L0 457L112 457L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4325,6 +4805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϟ": {
     char: "ϟ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 560L242 560L242 457L578 457L578 336L466 336L466 224L354 224L354 0L224 0L224 233L336 233L336 336L0 336L0 457L112 457L112 569L224 569L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4334,6 +4815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϡ": {
     char: "Ϡ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 457L466 457L466 121L578 121L578 0L448 0L448 112L354 112L354 0L224 0L224 121L336 121L336 448L242 448L242 224L130 224L130 0L0 0L0 233L112 233L112 457L224 457L224 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4343,6 +4825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϡ": {
     char: "ϡ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L354 681L354 569L466 569L466 345L578 345L578 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 112L354 112L354 0L224 0L224 121L336 121L336 233L448 233L448 336L336 336L336 448L242 448L242 224L130 224L130 0L0 0L0 233L112 233L112 457L224 457L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4352,6 +4835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϱ": {
     char: "ϱ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 224L466 224L466 112L130 112L130 9L354 9L354 -103L466 -103L466 -224L336 -224L336 -112L112 -112L112 0L0 0L0 457L112 457L112 569ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4361,6 +4845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϲ": {
     char: "ϲ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4370,6 +4855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϳ": {
     char: "ϳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L578 569L578 448L466 448L466 0L354 0L354 -112L112 -112L112 0L0 0L0 121L130 121L130 9L336 9L336 448L224 448L224 569ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4379,6 +4865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϴ": {
     char: "ϴ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4388,6 +4875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϵ": {
     char: "ϵ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 345L354 345L354 224L130 224L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4397,6 +4885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "϶": {
     char: "϶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 224L224 224L224 345L448 345L448 448L130 448L130 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4406,6 +4895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϸ": {
     char: "Ϸ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 569L466 569L466 457L578 457L578 224L466 224L466 112L130 112L130 0L0 0L0 793ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4415,6 +4905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϸ": {
     char: "ϸ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L224 457L224 569L466 569L466 457L578 457L578 112L466 112L466 0L224 0L224 112L130 112L130 -224L0 -224L0 793ZM237 450L237 338L125 338L125 231L237 231L237 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4424,6 +4915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϲ": {
     char: "Ϲ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4433,6 +4925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ϻ": {
     char: "Ϻ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4442,6 +4935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϻ": {
     char: "ϻ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L336 345L336 457L448 457L448 569L578 569L578 0L448 0L448 336L354 336L354 224L224 224L224 336L130 336L130 -224L0 -224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4451,6 +4945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ϼ": {
     char: "ϼ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L466 569L466 457L578 457L578 224L466 224L466 112L242 112L242 9L354 9L354 -112L242 -112L242 -224L112 -224L112 -112L0 -112L0 9L112 9L112 457L224 457L224 569ZM237 450L237 231L452 231L452 450L237 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -4460,6 +4955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ͻ": {
     char: "Ͻ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4469,6 +4965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ͼ": {
     char: "Ͼ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM224 457L354 457L354 336L224 336L224 457Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4478,6 +4975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ͽ": {
     char: "Ͽ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 672L130 672L130 560L0 560L0 681L112 681L112 793ZM224 457L354 457L354 336L224 336L224 457Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4487,6 +4985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ѐ": {
     char: "Ѐ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4496,6 +4995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ё": {
     char: "Ё",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4505,6 +5005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ђ": {
     char: "Ђ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L466 793L466 672L242 672L242 345L336 345L336 457L466 457L466 345L578 345L578 0L466 0L466 -112L336 -112L336 9L448 9L448 336L354 336L354 224L242 224L242 0L112 0L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4514,6 +5015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ѓ": {
     char: "Ѓ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L130 672L130 0L0 0L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4523,6 +5025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Є": {
     char: "Є",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 336L130 336L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4532,6 +5035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ѕ": {
     char: "Ѕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4541,6 +5045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "І": {
     char: "І",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -4550,6 +5055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ї": {
     char: "Ї",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 793L466 793L466 672L354 672L354 121L466 121L466 0L112 0L112 121L224 121L224 672L112 672L112 793ZM112 1017L242 1017L242 896L112 896L112 1017ZM336 1017L466 1017L466 896L336 896L336 1017Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -4559,6 +5065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ј": {
     char: "Ј",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 672L466 672L466 112L354 112L354 0L112 0L112 112L0 112L0 233L130 233L130 121L336 121L336 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4568,6 +5075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Љ": {
     char: "Љ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L354 793L354 457L466 457L466 345L578 345L578 112L466 112L466 0L224 0L224 672L130 672L130 0L0 0L0 681L112 681L112 793ZM349 338L349 119L452 119L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4577,6 +5085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Њ": {
     char: "Њ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L224 457L224 793L354 793L354 457L466 457L466 345L578 345L578 112L466 112L466 0L224 0L224 336L130 336L130 0L0 0L0 793ZM349 338L349 119L452 119L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4586,6 +5095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ћ": {
     char: "Ћ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L466 793L466 672L242 672L242 345L336 345L336 457L466 457L466 345L578 345L578 0L448 0L448 336L354 336L354 224L242 224L242 0L112 0L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4595,6 +5105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ќ": {
     char: "Ќ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 457L466 457L466 345L578 345L578 0L448 0L448 336L336 336L336 448L130 448L130 0L0 0L0 793ZM336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4604,6 +5115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ѝ": {
     char: "Ѝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 457L224 457L224 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L242 448L242 336L130 336L130 0L0 0L0 793ZM224 1129L354 1129L354 1017L466 1017L466 896L336 896L336 1008L224 1008L224 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4613,6 +5125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ў": {
     char: "Ў",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 569L242 569L242 345L336 345L336 569L448 569L448 793L578 793L578 560L466 560L466 336L354 336L354 112L242 112L242 0L112 0L112 121L224 121L224 336L112 336L112 560L0 560L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4622,6 +5135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Џ": {
     char: "Џ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L448 121L448 793L578 793L578 0L354 0L354 -112L224 -112L224 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4631,6 +5145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "А": {
     char: "А",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 0L448 0L448 448L130 448L130 0L0 0L0 681L112 681L112 793ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4640,6 +5155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Б": {
     char: "Б",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L578 793L578 672L130 672L130 569L466 569L466 457L578 457L578 112L466 112L466 0L0 0L0 793ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4649,6 +5165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "В": {
     char: "В",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 793L466 793L466 681L578 681L578 560L466 560L466 457L578 457L578 112L466 112L466 0L0 0L0 793ZM125 450L125 119L452 119L452 450L125 450ZM125 674L125 567L452 567L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4658,6 +5175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Г": {
     char: "Г",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4667,6 +5185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Д": {
     char: "Д",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L578 793L578 -112L448 -112L448 0L130 0L130 -112L0 -112L0 233L112 233L112 569L224 569L224 793ZM349 674L349 562L237 562L237 226L125 226L125 119L452 119L452 674L349 674Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4676,6 +5195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Е": {
     char: "Е",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L130 672L130 457L354 457L354 336L130 336L130 121L578 121L578 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4685,6 +5205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ж": {
     char: "Ж",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L224 457L224 793L354 793L354 457L448 457L448 793L578 793L578 448L466 448L466 345L578 345L578 0L448 0L448 336L354 336L354 0L224 0L224 336L130 336L130 0L0 0L0 345L112 345L112 448L0 448L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4694,6 +5215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "З": {
     char: "З",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L224 336L224 457L448 457L448 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4703,6 +5225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "И": {
     char: "И",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L224 457L224 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L242 448L242 336L130 336L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4712,6 +5235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Й": {
     char: "Й",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 457L224 457L224 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L242 448L242 336L130 336L130 0L0 0L0 793ZM112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1008L354 1008L354 896L224 896L224 1008L112 1008L112 1129Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4721,6 +5245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "К": {
     char: "К",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L336 569L336 681L448 681L448 793L578 793L578 672L466 672L466 560L354 560L354 457L466 457L466 345L578 345L578 0L448 0L448 336L336 336L336 448L130 448L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4730,6 +5255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Л": {
     char: "Л",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 0L448 0L448 672L354 672L354 560L242 560L242 224L130 224L130 0L0 0L0 233L112 233L112 569L224 569L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4739,6 +5265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "М": {
     char: "М",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L336 569L336 681L448 681L448 793L578 793L578 0L448 0L448 560L354 560L354 448L224 448L224 560L130 560L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4748,6 +5275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Н": {
     char: "Н",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L448 569L448 793L578 793L578 0L448 0L448 448L130 448L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4757,6 +5285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "О": {
     char: "О",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 119L452 119L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4766,6 +5295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "П": {
     char: "П",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 0L448 0L448 672L130 672L130 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4775,6 +5305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Р": {
     char: "Р",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 336L130 336L130 0L0 0L0 793ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4784,6 +5315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "С": {
     char: "С",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4793,6 +5325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Т": {
     char: "Т",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L578 793L578 672L354 672L354 0L224 0L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4802,6 +5335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "У": {
     char: "У",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 345L336 345L336 569L448 569L448 793L578 793L578 560L466 560L466 336L354 336L354 112L242 112L242 0L112 0L112 121L224 121L224 336L112 336L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4811,6 +5345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ф": {
     char: "Ф",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 569L112 569L112 681L224 681L224 793ZM125 562L125 231L228 231L228 562L125 562ZM349 562L349 231L452 231L452 562L349 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4820,6 +5355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Х": {
     char: "Х",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 345L466 345L466 233L578 233L578 0L448 0L448 224L336 224L336 336L242 336L242 224L130 224L130 0L0 0L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4829,6 +5365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ц": {
     char: "Ц",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L336 121L336 793L466 793L466 121L578 121L578 -112L448 -112L448 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4838,6 +5375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ч": {
     char: "Ч",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 345L448 345L448 793L578 793L578 0L448 0L448 224L112 224L112 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4847,6 +5385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ш": {
     char: "Ш",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L224 121L224 793L354 793L354 121L448 121L448 793L578 793L578 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4856,6 +5395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Щ": {
     char: "Щ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 121L224 121L224 793L354 793L354 121L448 121L448 793L578 793L578 -112L448 -112L448 0L0 0L0 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4865,6 +5405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ъ": {
     char: "Ъ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L242 793L242 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 672L0 672L0 793ZM237 338L237 119L452 119L452 338L237 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4874,6 +5415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ы": {
     char: "Ы",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L354 457L354 345L448 345L448 793L578 793L578 0L448 0L448 112L354 112L354 0L0 0L0 793ZM125 338L125 119L340 119L340 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4883,6 +5425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ь": {
     char: "Ь",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L466 457L466 345L578 345L578 112L466 112L466 0L0 0L0 793ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4892,6 +5435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Э": {
     char: "Э",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 336L112 336L112 457L448 457L448 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4901,6 +5445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Ю": {
     char: "Ю",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 457L224 457L224 681L336 681L336 793L466 793L466 681L578 681L578 112L466 112L466 0L336 0L336 112L224 112L224 336L130 336L130 0L0 0L0 793ZM349 674L349 119L452 119L452 674L349 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4910,6 +5455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "Я": {
     char: "Я",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L578 793L578 0L448 0L448 336L130 336L130 0L0 0L0 345L112 345L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4919,6 +5465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "а": {
     char: "а",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 233L112 233L112 345L448 345L448 448L112 448L112 569ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4928,6 +5475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "б": {
     char: "б",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 672L130 672L130 457L224 457L224 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM237 450L237 338L125 338L125 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4937,6 +5485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "в": {
     char: "в",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 336L466 336L466 233L578 233L578 112L466 112L466 0L112 0L112 569ZM237 450L237 343L452 343L452 450L237 450ZM237 226L237 119L452 119L452 226L237 226Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -4946,6 +5495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "г": {
     char: "г",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 448L242 448L242 0L112 0L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -4955,6 +5505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "д": {
     char: "д",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L578 569L578 -112L448 -112L448 0L130 0L130 -112L0 -112L0 233L112 233L112 569ZM237 450L237 226L125 226L125 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -4964,6 +5515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "е": {
     char: "е",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4973,6 +5525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ж": {
     char: "ж",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L224 345L224 569L354 569L354 345L448 345L448 569L578 569L578 336L466 336L466 233L578 233L578 0L448 0L448 224L354 224L354 0L224 0L224 224L130 224L130 0L0 0L0 233L112 233L112 336L0 336L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4982,6 +5535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "з": {
     char: "з",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L466 336L466 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 224L224 224L224 345L448 345L448 448L130 448L130 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -4991,6 +5545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "и": {
     char: "и",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L224 233L224 345L336 345L336 457L448 457L448 569L578 569L578 0L448 0L448 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5000,6 +5555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "й": {
     char: "й",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 233L224 233L224 345L336 345L336 457L448 457L448 569L578 569L578 0L448 0L448 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5009,6 +5565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "к": {
     char: "к",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L336 345L336 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L130 224L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5018,6 +5575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "л": {
     char: "л",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 0L448 0L448 448L242 448L242 224L130 224L130 0L0 0L0 233L112 233L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5027,6 +5585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "м": {
     char: "м",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L336 345L336 457L448 457L448 569L578 569L578 0L448 0L448 336L354 336L354 224L224 224L224 336L130 336L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5036,6 +5595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "н": {
     char: "н",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L448 345L448 569L578 569L578 0L448 0L448 224L130 224L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5045,6 +5605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "о": {
     char: "о",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5054,6 +5615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "п": {
     char: "п",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 0L448 0L448 448L130 448L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5063,6 +5625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "р": {
     char: "р",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 224L466 224L466 112L130 112L130 -112L0 -112L0 569ZM237 450L237 338L125 338L125 231L452 231L452 450L237 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5072,6 +5635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "с": {
     char: "с",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5081,6 +5645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "т": {
     char: "т",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L354 448L354 0L224 0L224 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5090,6 +5655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "у": {
     char: "у",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L242 345L242 121L336 121L336 345L448 345L448 569L578 569L578 336L466 336L466 112L354 112L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 112L112 112L112 336L0 336L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -5099,6 +5665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ф": {
     char: "ф",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 793L354 793L354 569L466 569L466 457L578 457L578 112L466 112L466 0L354 0L354 -224L224 -224L224 0L112 0L112 112L0 112L0 457L112 457L112 569L224 569L224 793ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -5108,6 +5675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "х": {
     char: "х",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L242 569L242 345L336 345L336 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L336 0L336 224L242 224L242 0L0 0L0 121L112 121L112 233L224 233L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5117,6 +5685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ц": {
     char: "ц",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L336 121L336 569L466 569L466 121L578 121L578 -112L448 -112L448 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5126,6 +5695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ч": {
     char: "ч",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L448 233L448 569L578 569L578 0L448 0L448 112L112 112L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5135,6 +5705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ш": {
     char: "ш",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L224 121L224 569L354 569L354 121L448 121L448 569L578 569L578 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5144,6 +5715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "щ": {
     char: "щ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L224 121L224 569L354 569L354 121L448 121L448 569L578 569L578 -112L448 -112L448 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5153,6 +5725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ъ": {
     char: "ъ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L242 569L242 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 448L0 448L0 569ZM237 338L237 119L452 119L452 338L237 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5162,6 +5735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ы": {
     char: "ы",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 457L354 457L354 345L448 345L448 569L578 569L578 0L448 0L448 112L354 112L354 0L0 0L0 569ZM125 338L125 119L340 119L340 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5171,6 +5745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ь": {
     char: "ь",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 457L466 457L466 345L578 345L578 112L466 112L466 0L0 0L0 569ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5180,6 +5755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "э": {
     char: "э",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 233L130 233L130 121L448 121L448 224L224 224L224 345L448 345L448 448L130 448L130 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5189,6 +5765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ю": {
     char: "ю",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 345L224 345L224 457L336 457L336 569L466 569L466 457L578 457L578 112L466 112L466 0L336 0L336 112L224 112L224 224L130 224L130 0L0 0L0 569ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5198,6 +5775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "я": {
     char: "я",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L578 569L578 0L448 0L448 224L130 224L130 0L0 0L0 233L112 233L112 336L0 336L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5207,6 +5785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ѐ": {
     char: "ѐ",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L224 784L224 905ZM125 450L125 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5216,6 +5795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ё": {
     char: "ё",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 569L466 569L466 457L578 457L578 224L130 224L130 121L578 121L578 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L452 343L452 450L125 450ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5225,6 +5805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ђ": {
     char: "ђ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 560L242 560L242 345L336 345L336 457L466 457L466 345L578 345L578 0L466 0L466 -112L336 -112L336 9L448 9L448 336L354 336L354 224L242 224L242 0L112 0L112 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5234,6 +5815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ѓ": {
     char: "ѓ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L578 569L578 448L242 448L242 0L112 0L112 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5243,6 +5825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "є": {
     char: "є",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 336L448 336L448 448L130 448L130 345L354 345L354 224L130 224L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5252,6 +5835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ѕ": {
     char: "ѕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 448L130 448L130 345L466 345L466 233L578 233L578 112L466 112L466 0L0 0L0 121L448 121L448 224L112 224L112 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5261,6 +5845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "і": {
     char: "і",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5270,6 +5855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ї": {
     char: "ї",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 569L354 569L354 121L466 121L466 0L112 0L112 121L224 121L224 448L112 448L112 569ZM112 793L242 793L242 672L112 672L112 793ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5279,6 +5865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ј": {
     char: "ј",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L466 569L466 0L354 0L354 -112L112 -112L112 0L0 0L0 121L130 121L130 9L336 9L336 448L224 448L224 569ZM336 793L466 793L466 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5288,6 +5875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "љ": {
     char: "љ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L354 569L354 345L466 345L466 233L578 233L578 112L466 112L466 0L224 0L224 448L130 448L130 0L0 0L0 457L112 457L112 569ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5297,6 +5885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "њ": {
     char: "њ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 345L224 345L224 569L354 569L354 345L466 345L466 233L578 233L578 112L466 112L466 0L224 0L224 224L130 224L130 0L0 0L0 569ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5306,6 +5895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ћ": {
     char: "ћ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 560L242 560L242 345L336 345L336 457L466 457L466 345L578 345L578 0L448 0L448 336L354 336L354 224L242 224L242 0L112 0L112 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5315,6 +5905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ќ": {
     char: "ќ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 345L336 345L336 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L130 224L130 0L0 0L0 569ZM336 905L466 905L466 784L354 784L354 672L224 672L224 793L336 793L336 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5324,6 +5915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ѝ": {
     char: "ѝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 233L224 233L224 345L336 345L336 457L448 457L448 569L578 569L578 0L448 0L448 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 569ZM224 905L354 905L354 793L466 793L466 672L336 672L336 784L224 784L224 905Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5333,6 +5925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ў": {
     char: "ў",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L130 569L130 345L242 345L242 121L336 121L336 345L448 345L448 569L578 569L578 336L466 336L466 112L354 112L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 112L112 112L112 336L0 336L0 569ZM112 905L242 905L242 793L336 793L336 905L466 905L466 784L354 784L354 672L224 672L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -5342,6 +5935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "џ": {
     char: "џ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L448 121L448 569L578 569L578 0L354 0L354 -112L224 -112L224 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5351,6 +5945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "א": {
     char: "א",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L354 345L354 233L448 233L448 569L578 569L578 224L466 224L466 121L578 121L578 0L448 0L448 112L336 112L336 224L224 224L224 336L130 336L130 0L0 0L0 345L112 345L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5360,6 +5955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ב": {
     char: "ב",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 457L466 457L466 121L578 121L578 0L0 0L0 121L336 121L336 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5369,6 +5965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ג": {
     char: "ג",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 121L578 121L578 0L448 0L448 112L354 112L354 0L112 0L112 121L224 121L224 233L336 233L336 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5378,6 +5975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ד": {
     char: "ד",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L466 448L466 0L336 0L336 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5387,6 +5985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ה": {
     char: "ה",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L578 569L578 0L448 0L448 448L0 448L0 569ZM0 345L130 345L130 0L0 0L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5396,6 +5995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ו": {
     char: "ו",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 0L336 0L336 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5405,6 +6005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ז": {
     char: "ז",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 336L354 336L354 0L224 0L224 345L336 345L336 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5414,6 +6015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ח": {
     char: "ח",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 0L112 0L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5423,6 +6025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ט": {
     char: "ט",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 121L448 121L448 448L354 448L354 336L224 336L224 569L466 569L466 457L578 457L578 112L466 112L466 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5432,6 +6035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "י": {
     char: "י",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 336L354 336L354 224L224 224L224 345L336 345L336 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -5441,6 +6045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ך": {
     char: "ך",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 -224L448 -224L448 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -5450,6 +6055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "כ": {
     char: "כ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 121L448 121L448 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5459,6 +6065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ל": {
     char: "ל",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L242 681L242 569L578 569L578 112L466 112L466 0L224 0L224 121L448 121L448 448L112 448L112 681Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5468,6 +6075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ם": {
     char: "ם",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L466 569L466 457L578 457L578 0L0 0L0 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5477,6 +6085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "מ": {
     char: "מ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L224 457L224 569L466 569L466 457L578 457L578 0L224 0L224 121L448 121L448 448L242 448L242 224L130 224L130 0L0 0L0 233L112 233L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5486,6 +6095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ן": {
     char: "ן",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L466 569L466 -224L336 -224L336 448L224 448L224 569Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -5495,6 +6105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "נ": {
     char: "נ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 457L466 457L466 0L112 0L112 121L336 121L336 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5504,6 +6115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ס": {
     char: "ס",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5513,6 +6125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ע": {
     char: "ע",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 345L354 345L354 121L448 121L448 569L578 569L578 112L466 112L466 0L0 0L0 121L224 121L224 336L112 336L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5522,6 +6135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ף": {
     char: "ף",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 -224L448 -224L448 448L242 448L242 345L354 345L354 224L112 224L112 569Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -5531,6 +6145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "פ": {
     char: "פ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 0L112 0L112 121L448 121L448 448L242 448L242 345L354 345L354 224L112 224L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -5540,6 +6155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ץ": {
     char: "ץ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L448 345L448 448L336 448L336 569L578 569L578 336L466 336L466 224L354 224L354 -224L224 -224L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -5549,6 +6165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "צ": {
     char: "צ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L336 345L336 569L466 569L466 336L354 336L354 233L466 233L466 0L0 0L0 121L336 121L336 224L224 224L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5558,6 +6175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ק": {
     char: "ק",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L466 569L466 112L354 112L354 0L224 0L224 121L336 121L336 448L0 448L0 569ZM0 345L130 345L130 -224L0 -224L0 345Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -5567,6 +6185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ר": {
     char: "ר",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 457L466 457L466 0L336 0L336 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5576,6 +6195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ש": {
     char: "ש",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L224 233L224 569L354 569L354 224L242 224L242 121L448 121L448 569L578 569L578 112L466 112L466 0L112 0L112 112L0 112L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5585,6 +6205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ת": {
     char: "ת",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L466 569L466 457L578 457L578 0L448 0L448 448L242 448L242 0L0 0L0 121L112 121L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -5594,6 +6215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "׳": {
     char: "׳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L466 681L466 560L354 560L354 336L224 336L224 569L336 569L336 681Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -5603,6 +6225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "״": {
     char: "״",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L448 569L448 681L578 681L578 560L466 560L466 336L336 336L336 560L242 560L242 336L112 336L112 569L224 569L224 681Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5612,6 +6235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴬ": {
     char: "ᴬ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 905L354 905L354 793L466 793L466 336L336 336L336 560L130 560L130 336L0 336L0 793L112 793L112 905ZM125 786L125 679L340 679L340 786L125 786Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5621,6 +6245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴭ": {
     char: "ᴭ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 905L578 905L578 784L354 784L354 681L466 681L466 560L354 560L354 457L578 457L578 336L224 336L224 560L130 560L130 336L0 336L0 793L112 793L112 905ZM125 786L125 679L228 679L228 786L125 786Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5630,6 +6255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴮ": {
     char: "ᴮ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 905L354 905L354 793L466 793L466 672L354 672L354 569L466 569L466 448L354 448L354 336L0 336L0 905ZM125 786L125 679L340 679L340 786L125 786ZM125 562L125 455L340 455L340 562L125 562Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5639,6 +6265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴰ": {
     char: "ᴰ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 905L354 905L354 793L466 793L466 448L354 448L354 336L0 336L0 905ZM125 786L125 455L340 455L340 786L125 786Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5648,6 +6275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴱ": {
     char: "ᴱ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L466 905L466 784L130 784L130 681L354 681L354 560L130 560L130 457L466 457L466 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5657,6 +6285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴲ": {
     char: "ᴲ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L466 905L466 336L0 336L0 457L336 457L336 560L112 560L112 681L336 681L336 784L0 784L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5666,6 +6295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴳ": {
     char: "ᴳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L466 905L466 784L130 784L130 457L336 457L336 560L224 560L224 681L466 681L466 448L354 448L354 336L112 336L112 448L0 448L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5675,6 +6305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴴ": {
     char: "ᴴ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 681L336 681L336 905L466 905L466 336L336 336L336 560L130 560L130 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5684,6 +6315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴵ": {
     char: "ᴵ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L466 905L466 784L354 784L354 457L466 457L466 336L112 336L112 457L224 457L224 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5693,6 +6325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴶ": {
     char: "ᴶ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L466 905L466 784L354 784L354 448L242 448L242 336L112 336L112 448L0 448L0 569L130 569L130 457L224 457L224 784L112 784L112 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5702,6 +6335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴷ": {
     char: "ᴷ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 681L224 681L224 793L336 793L336 905L466 905L466 784L354 784L354 672L242 672L242 569L354 569L354 457L466 457L466 336L336 336L336 448L224 448L224 560L130 560L130 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5711,6 +6345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴸ": {
     char: "ᴸ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L242 905L242 457L466 457L466 336L112 336L112 905Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5720,6 +6355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴹ": {
     char: "ᴹ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 793L242 793L242 681L336 681L336 793L448 793L448 905L578 905L578 336L448 336L448 672L354 672L354 560L224 560L224 672L130 672L130 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5729,6 +6365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴺ": {
     char: "ᴺ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 793L242 793L242 681L354 681L354 569L448 569L448 905L578 905L578 336L448 336L448 448L336 448L336 560L224 560L224 672L130 672L130 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5738,6 +6375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴻ": {
     char: "ᴻ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 569L224 569L224 681L336 681L336 793L448 793L448 905L578 905L578 336L448 336L448 672L354 672L354 560L242 560L242 448L130 448L130 336L0 336L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5747,6 +6385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴼ": {
     char: "ᴼ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 905L354 905L354 793L466 793L466 448L354 448L354 336L112 336L112 448L0 448L0 793L112 793L112 905ZM125 786L125 455L340 455L340 786L125 786Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5756,6 +6395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴽ": {
     char: "ᴽ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 905L130 905L130 793L336 793L336 905L466 905L466 784L354 784L354 681L466 681L466 448L354 448L354 336L112 336L112 448L0 448L0 681L112 681L112 784L0 784L0 905ZM125 674L125 455L340 455L340 674L125 674Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5765,6 +6405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴾ": {
     char: "ᴾ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 905L354 905L354 793L466 793L466 672L354 672L354 560L130 560L130 336L0 336L0 905ZM125 786L125 679L340 679L340 786L125 786Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5774,6 +6415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᴿ": {
     char: "ᴿ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 905L354 905L354 793L466 793L466 672L354 672L354 569L466 569L466 336L336 336L336 560L130 560L130 336L0 336L0 905ZM125 786L125 679L340 679L340 786L125 786Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5783,6 +6425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵀ": {
     char: "ᵀ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L578 905L578 784L354 784L354 336L224 336L224 784L0 784L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5792,6 +6435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵁ": {
     char: "ᵁ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 457L336 457L336 905L466 905L466 448L354 448L354 336L112 336L112 448L0 448L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5801,6 +6445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵂ": {
     char: "ᵂ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 569L224 569L224 681L354 681L354 569L448 569L448 905L578 905L578 560L466 560L466 336L336 336L336 560L242 560L242 336L112 336L112 560L0 560L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5810,6 +6455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵃ": {
     char: "ᵃ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L466 793L466 457L578 457L578 336L448 336L448 448L354 448L354 336L224 336L224 448L112 448L112 681L224 681L224 793ZM237 674L237 455L340 455L340 674L237 674Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5819,6 +6465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵅ": {
     char: "ᵅ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 457L578 457L578 336L448 336L448 448L354 448L354 336L112 336L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L340 455L340 674L125 674Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5828,6 +6475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵇ": {
     char: "ᵇ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 905L242 905L242 681L354 681L354 569L466 569L466 448L354 448L354 336L112 336L112 905ZM237 562L237 455L340 455L340 562L237 562Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5837,6 +6485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵈ": {
     char: "ᵈ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M336 905L466 905L466 457L578 457L578 336L448 336L448 448L354 448L354 336L224 336L224 448L112 448L112 569L224 569L224 681L336 681L336 905ZM237 562L237 455L340 455L340 562L237 562Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5846,6 +6495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵉ": {
     char: "ᵉ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 560L242 560L242 457L354 457L354 336L224 336L224 448L112 448L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5855,6 +6505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵍ": {
     char: "ᵍ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L466 793L466 336L354 336L354 224L224 224L224 345L336 345L336 448L224 448L224 560L112 560L112 681L224 681L224 793ZM237 674L237 567L340 567L340 674L237 674Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -5864,6 +6515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵎ": {
     char: "ᵎ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 560L224 560L224 793ZM224 457L354 457L354 336L224 336L224 457Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -5873,6 +6525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵏ": {
     char: "ᵏ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L242 905L242 569L336 569L336 681L466 681L466 560L354 560L354 457L466 457L466 336L336 336L336 448L242 448L242 336L112 336L112 905Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -5882,6 +6535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵐ": {
     char: "ᵐ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L336 681L336 793L466 793L466 681L578 681L578 336L448 336L448 672L354 672L354 336L224 336L224 672L130 672L130 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5891,6 +6545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵑ": {
     char: "ᵑ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 681L466 681L466 336L354 336L354 224L224 224L224 345L336 345L336 672L242 672L242 560L130 560L130 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -5900,6 +6555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵒ": {
     char: "ᵒ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L354 793L354 681L466 681L466 448L354 448L354 336L112 336L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L340 455L340 674L125 674Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5909,6 +6565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵖ": {
     char: "ᵖ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 681L466 681L466 448L354 448L354 336L130 336L130 224L0 224L0 793ZM237 674L237 562L125 562L125 455L340 455L340 674L237 674Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -5918,6 +6575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵗ": {
     char: "ᵗ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L242 905L242 793L354 793L354 672L242 672L242 457L354 457L354 336L224 336L224 448L112 448L112 672L0 672L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5927,6 +6585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵘ": {
     char: "ᵘ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 457L336 457L336 793L466 793L466 457L578 457L578 336L448 336L448 448L354 448L354 336L112 336L112 448L0 448L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5936,6 +6595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵛ": {
     char: "ᵛ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 569L242 569L242 457L336 457L336 569L448 569L448 793L578 793L578 560L466 560L466 448L354 448L354 336L224 336L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -5945,6 +6605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵝ": {
     char: "ᵝ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L354 905L354 793L466 793L466 672L354 672L354 569L466 569L466 448L354 448L354 336L224 336L224 457L336 457L336 560L224 560L224 681L336 681L336 784L130 784L130 224L0 224L0 793L112 793L112 905Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -5954,6 +6615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵢ": {
     char: "ᵢ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 121L354 121L354 -112L224 -112L224 121ZM224 345L354 345L354 224L224 224L224 345Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -5963,6 +6625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵣ": {
     char: "ᵣ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 233L224 233L224 345L354 345L354 233L466 233L466 112L336 112L336 224L242 224L242 112L130 112L130 -112L0 -112L0 345Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5972,6 +6635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵤ": {
     char: "ᵤ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 9L336 9L336 345L466 345L466 9L578 9L578 -112L448 -112L448 0L354 0L354 -112L112 -112L112 0L0 0L0 345Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5981,6 +6645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵥ": {
     char: "ᵥ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 121L242 121L242 9L336 9L336 121L448 121L448 345L578 345L578 112L466 112L466 0L354 0L354 -112L224 -112L224 0L112 0L112 112L0 112L0 345Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -5990,6 +6655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ᵦ": {
     char: "ᵦ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L354 457L354 345L466 345L466 224L354 224L354 121L466 121L466 0L354 0L354 -112L224 -112L224 9L336 9L336 112L224 112L224 233L336 233L336 336L130 336L130 -224L0 -224L0 345L112 345L112 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -5999,6 +6665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‐": {
     char: "‐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L466 457L466 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6008,6 +6675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‑": {
     char: "‑",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L466 457L466 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6017,6 +6685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‒": {
     char: "‒",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L578 457L578 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -6026,6 +6695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "–": {
     char: "–",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L578 457L578 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -6035,6 +6705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "—": {
     char: "—",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -6044,6 +6715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "―": {
     char: "―",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -6053,6 +6725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‖": {
     char: "‖",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 905L242 905L242 -112L112 -112L112 905ZM336 905L466 905L466 -112L336 -112L336 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6062,6 +6735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‘": {
     char: "‘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 905L466 905L466 784L354 784L354 560L224 560L224 793L336 793L336 905Z",
     xmin: 224.0,
     ymin: 560.0,
@@ -6071,6 +6745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "’": {
     char: "’",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 560L242 560L242 448L112 448L112 569L224 569L224 793Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -6080,6 +6755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‚": {
     char: "‚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 121Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6089,6 +6765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‛": {
     char: "‛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 569L466 569L466 448L336 448L336 560L224 560L224 793Z",
     xmin: 224.0,
     ymin: 448.0,
@@ -6098,6 +6775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "“": {
     char: "“",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 905L354 905L354 793L448 793L448 905L578 905L578 784L466 784L466 560L336 560L336 784L242 784L242 560L112 560L112 793L224 793L224 905Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -6107,6 +6785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "”": {
     char: "”",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 569L336 569L336 793L466 793L466 560L354 560L354 448L224 448L224 560L130 560L130 448L0 448L0 569L112 569L112 793Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -6116,6 +6795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "„": {
     char: "„",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 121L242 121L242 -103L336 -103L336 121L466 121L466 -112L354 -112L354 -224L224 -224L224 -112L130 -112L130 -224L0 -224L0 -103L112 -103L112 121Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -6125,6 +6805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‟": {
     char: "‟",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 569L336 569L336 793L466 793L466 569L578 569L578 448L448 448L448 560L354 560L354 448L224 448L224 560L112 560L112 793Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -6134,6 +6815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "†": {
     char: "†",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 569L578 569L578 448L354 448L354 0L224 0L224 448L0 448L0 569L224 569L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6143,6 +6825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‡": {
     char: "‡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 569L578 569L578 448L354 448L354 233L578 233L578 112L354 112L354 -112L224 -112L224 112L0 112L0 233L224 233L224 448L0 448L0 569L224 569L224 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6152,6 +6835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "•": {
     char: "•",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 224L112 224L112 569Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -6161,6 +6845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‣": {
     char: "‣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L242 681L242 569L354 569L354 457L466 457L466 336L354 336L354 224L242 224L242 112L112 112L112 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -6170,6 +6855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "․": {
     char: "․",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -6179,6 +6865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‥": {
     char: "‥",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 121L242 121L242 0L112 0L112 121ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6188,6 +6875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "…": {
     char: "…",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 121L130 121L130 0L0 0L0 121ZM224 121L354 121L354 0L224 0L224 121ZM448 121L578 121L578 0L448 0L448 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6197,6 +6885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‧": {
     char: "‧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 345L354 345L354 224L224 224L224 345Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -6206,6 +6895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "′": {
     char: "′",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 672L354 672L354 560L224 560L224 681L336 681L336 793Z",
     xmin: 224.0,
     ymin: 560.0,
@@ -6215,6 +6905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "″": {
     char: "″",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 672L130 672L130 560L0 560L0 681L112 681L112 793ZM448 793L578 793L578 672L466 672L466 560L336 560L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -6224,6 +6915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‴": {
     char: "‴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 681L560 681L560 793L690 793L690 672L578 672L578 560L448 560L448 672L354 672L354 560L224 560L224 672L130 672L130 560L0 560L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -6233,6 +6925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‵": {
     char: "‵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -6242,6 +6935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‶": {
     char: "‶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L130 793L130 681L242 681L242 560L112 560L112 672L0 672L0 793ZM336 793L466 793L466 681L578 681L578 560L448 560L448 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -6251,6 +6945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‷": {
     char: "‷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 681L448 681L448 793L578 793L578 681L690 681L690 560L560 560L560 672L466 672L466 560L336 560L336 672L242 672L242 560L112 560L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -6260,6 +6955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‸": {
     char: "‸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 9L354 9L354 -103L466 -103L466 -224L336 -224L336 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 9Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6269,6 +6965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‹": {
     char: "‹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 569L466 569L466 448L354 448L354 336L242 336L242 233L354 233L354 121L466 121L466 0L336 0L336 112L224 112L224 224L112 224L112 345L224 345L224 457L336 457L336 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6278,6 +6975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "›": {
     char: "›",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 457L354 457L354 345L466 345L466 224L354 224L354 112L242 112L242 0L112 0L112 121L224 121L224 233L336 233L336 336L224 336L224 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6287,6 +6985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‼": {
     char: "‼",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 793L242 793L242 224L112 224L112 793ZM336 793L466 793L466 224L336 224L336 793ZM112 121L242 121L242 0L112 0L112 121ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6296,6 +6995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‽": {
     char: "‽",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 336L354 336L354 224L224 224L224 672L130 672L130 560L0 560L0 681L112 681L112 793ZM349 674L349 455L452 455L452 674L349 674ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6305,6 +7005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‾": {
     char: "‾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1017L578 1017L578 896L0 896L0 1017Z",
     xmin: 0.0,
     ymin: 896.0,
@@ -6314,6 +7015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "‿": {
     char: "‿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 9L130 9L130 -103L448 -103L448 9L578 9L578 -112L466 -112L466 -224L112 -224L112 -112L0 -112L0 9Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -6323,6 +7025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁀": {
     char: "⁀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1017L466 1017L466 905L578 905L578 784L448 784L448 896L130 896L130 784L0 784L0 905L112 905L112 1017Z",
     xmin: 0.0,
     ymin: 784.0,
@@ -6332,6 +7035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁁": {
     char: "⁁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L242 224L242 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 457L448 457L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6341,6 +7045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁂": {
     char: "⁂",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 569L354 569L354 448L224 448L224 569ZM0 233L130 233L130 112L0 112L0 233ZM448 233L578 233L578 112L448 112L448 233Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -6350,6 +7055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁃": {
     char: "⁃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 336L112 336L112 569Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6359,6 +7065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁅": {
     char: "⁅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 905L466 905L466 784L354 784L354 457L466 457L466 336L354 336L354 9L466 9L466 -112L224 -112L224 905Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -6368,6 +7075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁆": {
     char: "⁆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L354 905L354 -112L112 -112L112 9L224 9L224 336L112 336L112 457L224 457L224 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6377,6 +7085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁇": {
     char: "⁇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcdd",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 681L578 681L578 336L466 336L466 224L336 224L336 336L242 336L242 224L112 224L112 345L224 345L224 672L130 672L130 560L0 560L0 681L112 681L112 793ZM349 674L349 343L452 343L452 674L349 674ZM112 121L242 121L242 0L112 0L112 121ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6386,6 +7095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁈": {
     char: "⁈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 793L242 793L242 681L354 681L354 336L242 336L242 224L112 224L112 345L224 345L224 672L130 672L130 560L0 560L0 681L112 681L112 793ZM448 793L578 793L578 224L448 224L448 793ZM112 121L242 121L242 0L112 0L112 121ZM448 121L578 121L578 0L448 0L448 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6395,6 +7105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁉": {
     char: "⁉",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 793L466 793L466 681L578 681L578 336L466 336L466 224L336 224L336 345L448 345L448 672L354 672L354 560L224 560L224 681L336 681L336 793ZM0 793L130 793L130 224L0 224L0 793ZM0 121L130 121L130 0L0 0L0 121ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6404,6 +7115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁋": {
     char: "⁋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L466 793L466 681L578 681L578 448L466 448L466 336L354 336L354 -112L224 -112L224 672L130 672L130 -112L0 -112L0 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6413,6 +7125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁌": {
     char: "⁌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 681L578 681L578 112L112 112L112 224L0 224L0 569L112 569L112 681ZM349 562L349 231L452 231L452 562L349 562Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -6422,6 +7135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁍": {
     char: "⁍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 681L466 681L466 569L578 569L578 224L466 224L466 112L0 112L0 681ZM125 562L125 231L228 231L228 562L125 562Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -6431,6 +7145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁎": {
     char: "⁎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 345L242 345L242 233L336 233L336 345L466 345L466 224L354 224L354 121L466 121L466 0L336 0L336 112L242 112L242 0L112 0L112 121L224 121L224 224L112 224L112 345Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6440,6 +7155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁐": {
     char: "⁐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 560L448 560L448 672L130 672L130 560L0 560L0 681L112 681L112 793ZM0 233L130 233L130 121L448 121L448 233L578 233L578 112L466 112L466 0L112 0L112 112L0 112L0 233Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6449,6 +7165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁑": {
     char: "⁑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 672L354 672L354 569L466 569L466 448L336 448L336 560L242 560L242 448L112 448L112 569L224 569L224 672L112 672L112 793ZM112 345L242 345L242 233L336 233L336 345L466 345L466 224L354 224L354 121L466 121L466 0L336 0L336 112L242 112L242 0L112 0L112 121L224 121L224 224L112 224L112 345Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6458,6 +7175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁒": {
     char: "⁒",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 793L466 793L466 560L354 560L354 224L242 224L242 0L112 0L112 233L224 233L224 569L336 569L336 793ZM112 793L242 793L242 672L112 672L112 793ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6467,6 +7185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁓": {
     char: "⁓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 457L448 457L448 569L578 569L578 448L466 448L466 336L336 336L336 448L130 448L130 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -6476,6 +7195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁔": {
     char: "⁔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 9L466 9L466 -103L578 -103L578 -224L448 -224L448 -112L130 -112L130 -224L0 -224L0 -103L112 -103L112 9Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -6485,6 +7205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁕": {
     char: "⁕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L224 457L224 569L354 569L354 457L448 457L448 569L578 569L578 448L466 448L466 345L578 345L578 224L466 224L466 121L578 121L578 0L448 0L448 112L354 112L354 0L224 0L224 112L130 112L130 0L0 0L0 121L112 121L112 224L0 224L0 345L112 345L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6494,6 +7215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁖": {
     char: "⁖",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 569L466 569L466 448L336 448L336 569ZM0 345L130 345L130 224L0 224L0 345ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6503,6 +7225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁘": {
     char: "⁘",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M224 569L354 569L354 448L224 448L224 569ZM0 345L130 345L130 224L0 224L0 345ZM448 345L578 345L578 224L448 224L448 345ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6512,6 +7235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁙": {
     char: "⁙",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M0 569L130 569L130 448L0 448L0 569ZM448 569L578 569L578 448L448 448L448 569ZM224 345L354 345L354 224L224 224L224 345ZM0 121L130 121L130 0L0 0L0 121ZM448 121L578 121L578 0L448 0L448 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6521,6 +7245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁚": {
     char: "⁚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 672L224 672L224 793ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -6530,6 +7255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁛": {
     char: "⁛",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M224 793L354 793L354 672L224 672L224 793ZM0 457L130 457L130 336L0 336L0 457ZM448 457L578 457L578 336L448 336L448 457ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6539,6 +7265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁜": {
     char: "⁜",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M224 569L354 569L354 345L578 345L578 224L354 224L354 0L224 0L224 224L0 224L0 345L224 345L224 569ZM0 569L130 569L130 448L0 448L0 569ZM448 569L578 569L578 448L448 448L448 569ZM0 121L130 121L130 0L0 0L0 121ZM448 121L578 121L578 0L448 0L448 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6548,6 +7275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁝": {
     char: "⁝",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 793L354 793L354 672L224 672L224 793ZM224 457L354 457L354 336L224 336L224 457ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -6557,6 +7285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁞": {
     char: "⁞",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M224 793L354 793L354 672L224 672L224 793ZM224 569L354 569L354 448L224 448L224 569ZM224 345L354 345L354 224L224 224L224 345ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -6566,6 +7295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁰": {
     char: "⁰",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L354 793L354 681L466 681L466 448L354 448L354 336L224 336L224 448L112 448L112 681L224 681L224 793ZM237 674L237 455L340 455L340 674L237 674Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6575,6 +7305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ⁱ": {
     char: "ⁱ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 336L224 336L224 569ZM224 793L354 793L354 672L224 672L224 793Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -6584,6 +7315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁴": {
     char: "⁴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 336L336 336L336 448L112 448L112 681L242 681L242 569L336 569L336 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6593,6 +7325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁵": {
     char: "⁵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L242 672L242 569L466 569L466 448L354 448L354 336L112 336L112 457L224 457L224 560L112 560L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6602,6 +7335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁶": {
     char: "⁶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 672L242 672L242 569L466 569L466 448L354 448L354 336L224 336L224 448L112 448L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6611,6 +7345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁷": {
     char: "⁷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 560L354 560L354 336L224 336L224 569L336 569L336 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6620,6 +7355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁸": {
     char: "⁸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 905L354 905L354 793L466 793L466 672L354 672L354 569L466 569L466 448L354 448L354 336L224 336L224 448L112 448L112 569L224 569L224 672L112 672L112 793L224 793L224 905ZM237 786L237 679L340 679L340 786L237 786ZM237 562L237 455L340 455L340 562L237 562Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6629,6 +7365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁹": {
     char: "⁹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 448L354 448L354 336L224 336L224 457L336 457L336 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -6638,6 +7375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁺": {
     char: "⁺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 560L354 560L354 448L224 448L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -6647,6 +7385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁻": {
     char: "⁻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L466 681L466 560L112 560L112 681Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -6656,6 +7395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁼": {
     char: "⁼",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 672L112 672L112 793ZM112 569L466 569L466 448L112 448L112 569Z",
     xmin: 112.0,
     ymin: 448.0,
@@ -6665,6 +7405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁽": {
     char: "⁽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 905L466 905L466 784L354 784L354 345L466 345L466 224L336 224L336 336L224 336L224 793L336 793L336 905Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -6674,6 +7415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⁾": {
     char: "⁾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 905L242 905L242 793L354 793L354 336L242 336L242 224L112 224L112 345L224 345L224 784L112 784L112 905Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -6683,6 +7425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ⁿ": {
     char: "ⁿ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L224 681L224 793L354 793L354 681L466 681L466 336L336 336L336 672L242 672L242 560L130 560L130 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -6692,6 +7435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₀": {
     char: "₀",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 233L354 233L354 121L466 121L466 -112L354 -112L354 -224L224 -224L224 -112L112 -112L112 121L224 121L224 233ZM237 114L237 -105L340 -105L340 114L237 114Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6701,6 +7445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₁": {
     char: "₁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 233L354 233L354 -103L466 -103L466 -224L112 -224L112 -103L224 -103L224 0L112 0L112 121L224 121L224 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6710,6 +7455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₂": {
     char: "₂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L354 233L354 121L466 121L466 0L354 0L354 -103L466 -103L466 -224L112 -224L112 -103L224 -103L224 9L336 9L336 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6719,6 +7465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₃": {
     char: "₃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L354 233L354 121L466 121L466 -112L354 -112L354 -224L112 -224L112 -103L336 -103L336 0L224 0L224 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6728,6 +7475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₄": {
     char: "₄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 233L466 233L466 -224L336 -224L336 -112L112 -112L112 121L242 121L242 9L336 9L336 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6737,6 +7485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₅": {
     char: "₅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L466 233L466 112L242 112L242 9L466 9L466 -112L354 -112L354 -224L112 -224L112 -103L224 -103L224 0L112 0L112 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6746,6 +7495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₆": {
     char: "₆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 233L354 233L354 112L242 112L242 9L466 9L466 -112L354 -112L354 -224L224 -224L224 -112L112 -112L112 121L224 121L224 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6755,6 +7505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₇": {
     char: "₇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L466 233L466 0L354 0L354 -224L224 -224L224 9L336 9L336 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6764,6 +7515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₈": {
     char: "₈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 345L354 345L354 233L466 233L466 112L354 112L354 9L466 9L466 -112L354 -112L354 -224L224 -224L224 -112L112 -112L112 9L224 9L224 112L112 112L112 233L224 233L224 345ZM237 226L237 119L340 119L340 226L237 226ZM237 2L237 -105L340 -105L340 2L237 2Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6773,6 +7525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₉": {
     char: "₉",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 233L354 233L354 121L466 121L466 -112L354 -112L354 -224L224 -224L224 -103L336 -103L336 0L112 0L112 121L224 121L224 233Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6782,6 +7535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₊": {
     char: "₊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 233L354 233L354 121L466 121L466 0L354 0L354 -112L224 -112L224 0L112 0L112 121L224 121L224 233Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6791,6 +7545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₋": {
     char: "₋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 121L466 121L466 0L112 0L112 121Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -6800,6 +7555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₌": {
     char: "₌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 233L466 233L466 112L112 112L112 233ZM112 9L466 9L466 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6809,6 +7565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₍": {
     char: "₍",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 345L466 345L466 224L354 224L354 -103L466 -103L466 -224L336 -224L336 -112L224 -112L224 233L336 233L336 345Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -6818,6 +7575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "₎": {
     char: "₎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 345L242 345L242 233L354 233L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 224L112 224L112 345Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -6827,6 +7585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₐ": {
     char: "ₐ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 345L466 345L466 9L578 9L578 -112L448 -112L448 0L354 0L354 -112L224 -112L224 0L112 0L112 233L224 233L224 345ZM237 226L237 7L340 7L340 226L237 226Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6836,6 +7595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₑ": {
     char: "ₑ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 345L354 345L354 233L466 233L466 112L242 112L242 9L466 9L466 -112L224 -112L224 0L112 0L112 233L224 233L224 345Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6845,6 +7605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₒ": {
     char: "ₒ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 345L354 345L354 233L466 233L466 0L354 0L354 -112L112 -112L112 0L0 0L0 233L112 233L112 345ZM125 226L125 7L340 7L340 226L125 226Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6854,6 +7615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₓ": {
     char: "ₓ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 233L336 233L336 345L466 345L466 224L354 224L354 9L466 9L466 -112L336 -112L336 0L130 0L130 -112L0 -112L0 9L112 9L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6863,6 +7625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₕ": {
     char: "ₕ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L130 457L130 121L224 121L224 233L354 233L354 121L466 121L466 -112L336 -112L336 112L242 112L242 0L130 0L130 -112L0 -112L0 457Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6872,6 +7635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₖ": {
     char: "ₖ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L242 457L242 121L336 121L336 233L466 233L466 112L354 112L354 9L466 9L466 -112L336 -112L336 0L242 0L242 -112L112 -112L112 457Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6881,6 +7645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₗ": {
     char: "ₗ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 9L466 9L466 -112L336 -112L336 0L224 0L224 457Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -6890,6 +7655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₘ": {
     char: "ₘ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L242 345L242 233L336 233L336 345L466 345L466 233L578 233L578 -112L448 -112L448 224L354 224L354 -112L224 -112L224 224L130 224L130 -112L0 -112L0 345Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6899,6 +7665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₙ": {
     char: "ₙ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 233L224 233L224 345L354 345L354 233L466 233L466 -112L336 -112L336 224L242 224L242 112L130 112L130 -112L0 -112L0 345Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -6908,6 +7675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₚ": {
     char: "ₚ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 345L130 345L130 233L224 233L224 345L354 345L354 233L466 233L466 0L354 0L354 -112L130 -112L130 -224L0 -224L0 345ZM237 226L237 114L125 114L125 7L340 7L340 226L237 226Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -6917,6 +7685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₛ": {
     char: "ₛ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 345L466 345L466 224L242 224L242 121L466 121L466 0L354 0L354 -112L112 -112L112 9L224 9L224 112L112 112L112 233L224 233L224 345Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6926,6 +7695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ₜ": {
     char: "ₜ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 345L466 345L466 224L354 224L354 9L466 9L466 -112L336 -112L336 0L224 0L224 224L112 224L112 345L224 345L224 457Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -6935,6 +7705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "←": {
     char: "←",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 448L242 448L242 345L578 345L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6944,6 +7715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↑": {
     char: "↑",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L448 224L448 336L354 336L354 0L224 0L224 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6953,6 +7725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "→": {
     char: "→",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 345L336 345L336 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6962,6 +7735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↓": {
     char: "↓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6971,6 +7745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↕": {
     char: "↕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L448 448L448 560L354 560L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 560L130 560L130 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6980,6 +7755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↖": {
     char: "↖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L466 569L466 448L242 448L242 345L354 345L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L224 224L224 336L130 336L130 112L0 112L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6989,6 +7765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↗": {
     char: "↗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L578 569L578 112L448 112L448 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L112 448L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -6998,6 +7775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↘": {
     char: "↘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L354 345L354 233L448 233L448 457L578 457L578 0L112 0L112 121L336 121L336 224L224 224L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7007,6 +7785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↙": {
     char: "↙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 121L466 121L466 0L0 0L0 457L130 457L130 233L224 233L224 345L336 345L336 457L448 457L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7016,6 +7795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↩": {
     char: "↩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 681L578 681L578 336L466 336L466 224L354 224L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569L354 569L354 345L448 345L448 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7025,6 +7805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↪": {
     char: "↪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 672L130 672L130 345L224 345L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 224L112 224L112 336L0 336L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7034,6 +7815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↰": {
     char: "↰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 569L578 569L578 0L448 0L448 448L354 448L354 224L224 224L224 336L112 336L112 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7043,6 +7825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↱": {
     char: "↱",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L466 448L466 336L354 336L354 224L224 224L224 448L130 448L130 0L0 0L0 569L224 569L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7052,6 +7835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↲": {
     char: "↲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 224L354 224L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569L354 569L354 345L448 345L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7061,6 +7845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↳": {
     char: "↳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 345L224 345L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 224L0 224L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7070,6 +7855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↴": {
     char: "↴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L354 793L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7079,6 +7865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↵": {
     char: "↵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569L354 569L354 448L242 448L242 345L448 345L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7088,6 +7875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↶": {
     char: "↶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L466 681L466 569L578 569L578 448L448 448L448 560L354 560L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 569L336 569L336 681Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7097,6 +7885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↷": {
     char: "↷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L242 681L242 569L354 569L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 560L130 560L130 448L0 448L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7106,6 +7895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↸": {
     char: "↸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L466 569L466 448L242 448L242 345L354 345L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L224 224L224 336L130 336L130 112L0 112L0 569ZM0 793L578 793L578 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7115,6 +7905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↺": {
     char: "↺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L578 569L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 457L130 457L130 121L448 121L448 336L354 336L354 224L224 224L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7124,6 +7915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↻": {
     char: "↻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 224L224 224L224 336L130 336L130 121L448 121L448 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 345L112 345L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7133,6 +7925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↼": {
     char: "↼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 448L242 448L242 345L578 345L578 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7142,6 +7935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↽": {
     char: "↽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L578 345L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7151,6 +7945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↾": {
     char: "↾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L448 448L448 560L354 560L354 0L224 0L224 793Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -7160,6 +7955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "↿": {
     char: "↿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 0L224 0L224 560L130 560L130 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7169,6 +7965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇀": {
     char: "⇀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L0 224L0 345L336 345L336 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7178,6 +7975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇁": {
     char: "⇁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7187,6 +7985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇂": {
     char: "⇂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 793Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -7196,6 +7995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇃": {
     char: "⇃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7205,6 +8005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇠": {
     char: "⇠",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 448L242 448L242 345L354 345L354 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM448 345L578 345L578 224L448 224L448 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7214,6 +8015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇡": {
     char: "⇡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L448 224L448 336L354 336L354 224L224 224L224 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 569ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7223,6 +8025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇢": {
     char: "⇢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L224 224L224 345L336 345L336 448L224 448L224 569ZM0 345L130 345L130 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7232,6 +8035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇣": {
     char: "⇣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 345L130 345L130 233L224 233L224 345L354 345L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345ZM224 569L354 569L354 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7241,6 +8045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇦": {
     char: "⇦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L578 569L578 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -7250,6 +8055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇧": {
     char: "⇧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 336L466 336L466 0L112 0L112 336L0 336L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7259,6 +8065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇨": {
     char: "⇨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 224L0 224L0 569L224 569L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -7268,6 +8075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇩": {
     char: "⇩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7277,6 +8085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⇪": {
     char: "⇪",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L466 448L466 224L112 224L112 448L0 448L0 569L112 569L112 681L224 681L224 793ZM112 121L466 121L466 0L112 0L112 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -7286,6 +8095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "─": {
     char: "─",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7295,6 +8105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "━": {
     char: "━",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L690 569L690 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7304,6 +8115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "│": {
     char: "│",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 -224L224 -224L224 1129Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -7313,6 +8125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┃": {
     char: "┃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 -224L112 -224L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7322,6 +8135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┄": {
     char: "┄",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 457L130 457L130 336L0 336L0 457ZM224 457L354 457L354 336L224 336L224 457ZM448 457L578 457L578 336L448 336L448 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7331,6 +8145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┅": {
     char: "┅",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 569L130 569L130 224L0 224L0 569ZM224 569L354 569L354 224L224 224L224 569ZM448 569L578 569L578 224L448 224L448 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7340,6 +8155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┆": {
     char: "┆",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 1129L354 1129L354 784L224 784L224 1129ZM224 681L354 681L354 336L224 336L224 681ZM224 233L354 233L354 -112L224 -112L224 233Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -7349,6 +8165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┇": {
     char: "┇",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 1129L466 1129L466 784L112 784L112 1129ZM112 681L466 681L466 336L112 336L112 681ZM112 233L466 233L466 -112L112 -112L112 233Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -7358,6 +8175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┊": {
     char: "┊",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M224 1129L354 1129L354 896L224 896L224 1129ZM224 793L354 793L354 560L224 560L224 793ZM224 457L354 457L354 224L224 224L224 457ZM224 121L354 121L354 -112L224 -112L224 121Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -7367,6 +8185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┋": {
     char: "┋",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 1129L466 1129L466 896L112 896L112 1129ZM112 793L466 793L466 560L112 560L112 793ZM112 457L466 457L466 224L112 224L112 457ZM112 121L466 121L466 -112L112 -112L112 121Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -7376,6 +8195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┌": {
     char: "┌",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L690 457L690 336L354 336L354 -224L224 -224L224 457Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -7385,6 +8205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┍": {
     char: "┍",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L690 569L690 224L354 224L354 -224L224 -224L224 569Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -7394,6 +8215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┎": {
     char: "┎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L690 457L690 336L466 336L466 -224L112 -224L112 457Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7403,6 +8225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┏": {
     char: "┏",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L690 569L690 224L466 224L466 -224L112 -224L112 569Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7412,6 +8235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┐": {
     char: "┐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L354 457L354 -224L224 -224L224 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7421,6 +8245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┑": {
     char: "┑",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 -224L224 -224L224 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7430,6 +8255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┒": {
     char: "┒",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L466 457L466 -224L112 -224L112 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7439,6 +8265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┓": {
     char: "┓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L466 569L466 -224L112 -224L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7448,6 +8275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "└": {
     char: "└",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L224 336L224 1129Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -7457,6 +8285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┕": {
     char: "┕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L224 224L224 1129Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -7466,6 +8295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┖": {
     char: "┖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L112 336L112 1129Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -7475,6 +8305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┗": {
     char: "┗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L112 224L112 1129Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -7484,6 +8315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┘": {
     char: "┘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7493,6 +8325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┙": {
     char: "┙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7502,6 +8335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┚": {
     char: "┚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7511,6 +8345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┛": {
     char: "┛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7520,6 +8355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "├": {
     char: "├",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L354 336L354 -224L224 -224L224 1129Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -7529,6 +8365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┝": {
     char: "┝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L354 224L354 -224L224 -224L224 1129Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -7538,6 +8375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┞": {
     char: "┞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L354 336L354 -224L224 -224L224 336L112 336L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7547,6 +8385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┟": {
     char: "┟",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L466 336L466 -224L112 -224L112 457L224 457L224 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7556,6 +8395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┠": {
     char: "┠",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L466 336L466 -224L112 -224L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7565,6 +8405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┡": {
     char: "┡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L354 224L354 -224L224 -224L224 224L112 224L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7574,6 +8415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┢": {
     char: "┢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L466 224L466 -224L112 -224L112 569L224 569L224 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7583,6 +8425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┣": {
     char: "┣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L466 224L466 -224L112 -224L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -7592,6 +8435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┤": {
     char: "┤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 -224L224 -224L224 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7601,6 +8445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┥": {
     char: "┥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 -224L224 -224L224 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7610,6 +8455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┦": {
     char: "┦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 336L354 336L354 -224L224 -224L224 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7619,6 +8465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┧": {
     char: "┧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L466 457L466 -224L112 -224L112 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7628,6 +8475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┨": {
     char: "┨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 -224L112 -224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7637,6 +8485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┩": {
     char: "┩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 224L354 224L354 -224L224 -224L224 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7646,6 +8495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┪": {
     char: "┪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L466 569L466 -224L112 -224L112 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7655,6 +8505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┫": {
     char: "┫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 -224L112 -224L112 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7664,6 +8515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┬": {
     char: "┬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 336L354 336L354 -224L224 -224L224 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7673,6 +8525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┭": {
     char: "┭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 457L690 457L690 336L354 336L354 -224L224 -224L224 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7682,6 +8535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┮": {
     char: "┮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L690 569L690 224L354 224L354 -224L224 -224L224 336L0 336L0 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7691,6 +8545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┯": {
     char: "┯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L690 569L690 224L354 224L354 -224L224 -224L224 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7700,6 +8555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┰": {
     char: "┰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 336L466 336L466 -224L112 -224L112 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7709,6 +8565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┱": {
     char: "┱",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L466 569L466 457L690 457L690 336L466 336L466 -224L112 -224L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7718,6 +8575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┲": {
     char: "┲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L690 569L690 224L466 224L466 -224L112 -224L112 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7727,6 +8585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┳": {
     char: "┳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L690 569L690 224L466 224L466 -224L112 -224L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7736,6 +8595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┴": {
     char: "┴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7745,6 +8605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┵": {
     char: "┵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L354 336L354 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7754,6 +8615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┶": {
     char: "┶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L224 224L224 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7763,6 +8625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┷": {
     char: "┷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7772,6 +8635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┸": {
     char: "┸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7781,6 +8645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┹": {
     char: "┹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L466 336L466 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7790,6 +8655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┺": {
     char: "┺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L112 224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7799,6 +8665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┻": {
     char: "┻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7808,6 +8675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┼": {
     char: "┼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L354 336L354 -224L224 -224L224 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7817,6 +8685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┽": {
     char: "┽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L354 336L354 -224L224 -224L224 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7826,6 +8695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┾": {
     char: "┾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L354 224L354 -224L224 -224L224 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7835,6 +8705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "┿": {
     char: "┿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L354 224L354 -224L224 -224L224 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7844,6 +8715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╀": {
     char: "╀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L354 336L354 -224L224 -224L224 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7853,6 +8725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╁": {
     char: "╁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L690 457L690 336L466 336L466 -224L112 -224L112 336L0 336L0 457L224 457L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7862,6 +8735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╂": {
     char: "╂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L466 336L466 -224L112 -224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7871,6 +8745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╃": {
     char: "╃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L466 336L466 224L354 224L354 -224L224 -224L224 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7880,6 +8755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╄": {
     char: "╄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L354 224L354 -224L224 -224L224 224L112 224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7889,6 +8765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╅": {
     char: "╅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L466 569L466 457L690 457L690 336L466 336L466 -224L112 -224L112 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7898,6 +8775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╆": {
     char: "╆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L466 224L466 -224L112 -224L112 336L0 336L0 457L112 457L112 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7907,6 +8785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╇": {
     char: "╇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L354 224L354 -224L224 -224L224 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7916,6 +8795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╈": {
     char: "╈",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 224L466 224L466 -224L112 -224L112 224L0 224L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7925,6 +8805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╉": {
     char: "╉",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L466 336L466 -224L112 -224L112 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7934,6 +8815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╊": {
     char: "╊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L466 224L466 -224L112 -224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7943,6 +8825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╋": {
     char: "╋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 569L690 569L690 224L466 224L466 -224L112 -224L112 224L0 224L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -7952,6 +8835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╌": {
     char: "╌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 457L242 457L242 336L0 336L0 457ZM336 457L578 457L578 336L336 336L336 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -7961,6 +8845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╍": {
     char: "╍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L242 569L242 224L0 224L0 569ZM336 569L578 569L578 224L336 224L336 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7970,6 +8855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╎": {
     char: "╎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 1129L354 1129L354 560L224 560L224 1129ZM224 457L354 457L354 -112L224 -112L224 457Z",
     xmin: 224.0,
     ymin: -112.0,
@@ -7979,6 +8865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╏": {
     char: "╏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 1129L466 1129L466 672L112 672L112 1129ZM112 457L466 457L466 0L112 0L112 457Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -7988,6 +8875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "═": {
     char: "═",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L690 569L690 448L0 448L0 569ZM0 345L690 345L690 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -7997,6 +8885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "║": {
     char: "║",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 1129L242 1129L242 -224L112 -224L112 1129ZM336 1129L466 1129L466 -224L336 -224L336 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8006,6 +8895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╒": {
     char: "╒",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L690 569L690 448L354 448L354 345L690 345L690 224L354 224L354 -224L224 -224L224 569Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -8015,6 +8905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╓": {
     char: "╓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L690 457L690 336L466 336L466 -224L336 -224L336 336L242 336L242 -224L112 -224L112 457Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8024,6 +8915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╔": {
     char: "╔",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 569L690 569L690 448L242 448L242 -224L112 -224L112 569ZM336 345L690 345L690 224L466 224L466 -224L336 -224L336 345Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8033,6 +8925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╕": {
     char: "╕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 -224L224 -224L224 224L0 224L0 345L224 345L224 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8042,6 +8935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╖": {
     char: "╖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L466 457L466 -224L336 -224L336 336L242 336L242 -224L112 -224L112 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8051,6 +8945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╗": {
     char: "╗",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 569L466 569L466 -224L336 -224L336 448L0 448L0 569ZM0 345L242 345L242 -224L112 -224L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8060,6 +8955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╘": {
     char: "╘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 448L354 448L354 345L690 345L690 224L224 224L224 1129Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -8069,6 +8965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╙": {
     char: "╙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L242 1129L242 457L336 457L336 1129L466 1129L466 457L690 457L690 336L112 336L112 1129Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -8078,6 +8975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╚": {
     char: "╚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 1129L242 1129L242 345L690 345L690 224L112 224L112 1129ZM336 1129L466 1129L466 569L690 569L690 448L336 448L336 1129Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -8087,6 +8985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╛": {
     char: "╛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 224L0 224L0 345L224 345L224 448L0 448L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8096,6 +8995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╜": {
     char: "╜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L242 1129L242 457L336 457L336 1129L466 1129L466 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -8105,6 +9005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╝": {
     char: "╝",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 1129L466 1129L466 224L0 224L0 345L336 345L336 1129ZM112 1129L242 1129L242 448L0 448L0 569L112 569L112 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8114,6 +9015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╞": {
     char: "╞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 448L354 448L354 345L690 345L690 224L354 224L354 -224L224 -224L224 1129Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -8123,6 +9025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╟": {
     char: "╟",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 1129L466 1129L466 457L690 457L690 336L466 336L466 -224L336 -224L336 1129ZM112 1129L242 1129L242 -224L112 -224L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8132,6 +9035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╠": {
     char: "╠",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 1129L466 1129L466 569L690 569L690 448L336 448L336 1129ZM336 345L690 345L690 224L466 224L466 -224L336 -224L336 345ZM112 1129L242 1129L242 -224L112 -224L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8141,6 +9045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╡": {
     char: "╡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 -224L224 -224L224 224L0 224L0 345L224 345L224 448L0 448L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8150,6 +9055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╢": {
     char: "╢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 1129L242 1129L242 -224L112 -224L112 336L0 336L0 457L112 457L112 1129ZM336 1129L466 1129L466 -224L336 -224L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8159,6 +9065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╣": {
     char: "╣",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 1129L466 1129L466 -224L336 -224L336 1129ZM112 1129L242 1129L242 448L0 448L0 569L112 569L112 1129ZM0 345L242 345L242 -224L112 -224L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8168,6 +9075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╤": {
     char: "╤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 345L690 345L690 224L354 224L354 -224L224 -224L224 224L0 224L0 345ZM0 569L690 569L690 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8177,6 +9085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╥": {
     char: "╥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 336L466 336L466 -224L336 -224L336 336L242 336L242 -224L112 -224L112 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8186,6 +9095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╦": {
     char: "╦",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 345L690 345L690 224L466 224L466 -224L336 -224L336 345ZM0 345L242 345L242 -224L112 -224L112 224L0 224L0 345ZM0 569L690 569L690 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8195,6 +9105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╧": {
     char: "╧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 1129L354 1129L354 569L690 569L690 448L0 448L0 569L224 569L224 1129ZM0 345L690 345L690 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8204,6 +9115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╨": {
     char: "╨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L242 1129L242 457L336 457L336 1129L466 1129L466 457L690 457L690 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -8213,6 +9125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╩": {
     char: "╩",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 1129L466 1129L466 569L690 569L690 448L336 448L336 1129ZM112 1129L242 1129L242 448L0 448L0 569L112 569L112 1129ZM0 345L690 345L690 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8222,6 +9135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╪": {
     char: "╪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L690 569L690 448L354 448L354 345L690 345L690 224L354 224L354 -224L224 -224L224 224L0 224L0 345L224 345L224 448L0 448L0 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8231,6 +9145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╫": {
     char: "╫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L242 1129L242 457L336 457L336 1129L466 1129L466 457L690 457L690 336L466 336L466 -224L336 -224L336 336L242 336L242 -224L112 -224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8240,6 +9155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╬": {
     char: "╬",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 1129L466 1129L466 569L690 569L690 448L336 448L336 1129ZM336 345L690 345L690 224L466 224L466 -224L336 -224L336 345ZM112 1129L242 1129L242 448L0 448L0 569L112 569L112 1129ZM0 345L242 345L242 -224L112 -224L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8249,6 +9165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╭": {
     char: "╭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 457L690 457L690 336L466 336L466 224L354 224L354 -224L224 -224L224 233L336 233L336 345L448 345L448 457Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -8258,6 +9175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╮": {
     char: "╮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L130 457L130 345L242 345L242 233L354 233L354 -224L224 -224L224 224L112 224L112 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8267,6 +9185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╯": {
     char: "╯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 560L242 560L242 448L130 448L130 336L0 336L0 457L112 457L112 569L224 569L224 1129Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -8276,6 +9195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╰": {
     char: "╰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 569L466 569L466 457L690 457L690 336L448 336L448 448L336 448L336 560L224 560L224 1129Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -8285,6 +9205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╱": {
     char: "╱",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 896L578 896L578 672L466 672L466 448L354 448L354 224L242 224L242 0L130 0L130 -224L0 -224L0 9L112 9L112 233L224 233L224 457L336 457L336 681L448 681L448 905L560 905L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8294,6 +9215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╲": {
     char: "╲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 905L242 905L242 681L354 681L354 457L466 457L466 233L578 233L578 9L690 9L690 -224L560 -224L560 0L448 0L448 224L336 224L336 448L224 448L224 672L112 672L112 896L0 896L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8303,6 +9225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╳": {
     char: "╳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 905L242 905L242 681L448 681L448 905L560 905L560 1129L690 1129L690 896L578 896L578 672L466 672L466 233L578 233L578 9L690 9L690 -224L560 -224L560 0L448 0L448 224L242 224L242 0L130 0L130 -224L0 -224L0 9L112 9L112 233L224 233L224 672L112 672L112 896L0 896L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8312,6 +9235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╴": {
     char: "╴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L354 457L354 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -8321,6 +9245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╵": {
     char: "╵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 336L224 336L224 1129Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -8330,6 +9255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╶": {
     char: "╶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L690 457L690 336L224 336L224 457Z",
     xmin: 224.0,
     ymin: 336.0,
@@ -8339,6 +9265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╷": {
     char: "╷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 -224L224 -224L224 457Z",
     xmin: 224.0,
     ymin: -224.0,
@@ -8348,6 +9275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╸": {
     char: "╸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8357,6 +9285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╹": {
     char: "╹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 336L112 336L112 1129Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -8366,6 +9295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╺": {
     char: "╺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L690 569L690 224L224 224L224 569Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -8375,6 +9305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╻": {
     char: "╻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L466 457L466 -224L112 -224L112 457Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8384,6 +9315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╼": {
     char: "╼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L690 569L690 224L224 224L224 336L0 336L0 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8393,6 +9325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╽": {
     char: "╽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 457L466 457L466 -224L112 -224L112 457L224 457L224 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8402,6 +9335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╾": {
     char: "╾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 457L690 457L690 336L354 336L354 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -8411,6 +9345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "╿": {
     char: "╿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 336L354 336L354 -224L224 -224L224 336L112 336L112 1129Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -8420,6 +9355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▀": {
     char: "▀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 448L0 448L0 1129Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -8429,6 +9365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▁": {
     char: "▁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 -103L690 -103L690 -224L0 -224L0 -103Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8438,6 +9375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▂": {
     char: "▂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 121L690 121L690 -224L0 -224L0 121Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8447,6 +9385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▃": {
     char: "▃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L690 233L690 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8456,6 +9395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▄": {
     char: "▄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L690 457L690 -224L0 -224L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8465,6 +9405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▅": {
     char: "▅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L690 569L690 -224L0 -224L0 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8474,6 +9415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▆": {
     char: "▆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L690 793L690 -224L0 -224L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8483,6 +9425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▇": {
     char: "▇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L690 905L690 -224L0 -224L0 905Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8492,6 +9435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▉": {
     char: "▉",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L578 1129L578 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8501,6 +9445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▊": {
     char: "▊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L466 1129L466 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8510,6 +9455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▋": {
     char: "▋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8519,6 +9465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▌": {
     char: "▌",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8528,6 +9475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▍": {
     char: "▍",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L242 1129L242 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8537,6 +9485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▎": {
     char: "▎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8546,6 +9495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▏": {
     char: "▏",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8555,6 +9505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▐": {
     char: "▐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L336 -224L336 1129Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -8564,6 +9515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "░": {
     char: "░",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddddddddddddddd",
     d: "M0 1129L130 1129L130 1008L0 1008L0 1129ZM224 1129L354 1129L354 1008L224 1008L224 1129ZM448 1129L578 1129L578 1008L448 1008L448 1129ZM0 905L130 905L130 784L0 784L0 905ZM224 905L354 905L354 784L224 784L224 905ZM448 905L578 905L578 784L448 784L448 905ZM0 681L130 681L130 560L0 560L0 681ZM224 681L354 681L354 560L224 560L224 681ZM448 681L578 681L578 560L448 560L448 681ZM0 457L130 457L130 336L0 336L0 457ZM224 457L354 457L354 336L224 336L224 457ZM448 457L578 457L578 336L448 336L448 457ZM0 233L130 233L130 112L0 112L0 233ZM224 233L354 233L354 112L224 112L224 233ZM448 233L578 233L578 112L448 112L448 233ZM0 9L130 9L130 -112L0 -112L0 9ZM224 9L354 9L354 -112L224 -112L224 9ZM448 9L578 9L578 -112L448 -112L448 9Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -8573,6 +9525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▒": {
     char: "▒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccccccccccccc",
     d: "M0 1129L130 1129L130 1017L224 1017L224 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1017L690 1017L690 896L578 896L578 793L690 793L690 672L578 672L578 569L690 569L690 448L578 448L578 345L690 345L690 224L578 224L578 121L690 121L690 0L578 0L578 -103L690 -103L690 -224L560 -224L560 -112L466 -112L466 -224L336 -224L336 -112L242 -112L242 -224L112 -224L112 -112L0 -112L0 9L112 9L112 112L0 112L0 233L112 233L112 336L0 336L0 457L112 457L112 560L0 560L0 681L112 681L112 784L0 784L0 905L112 905L112 1008L0 1008L0 1129ZM237 1010L237 903L340 903L340 1010L237 1010ZM461 1010L461 903L564 903L564 1010L461 1010ZM125 898L125 791L228 791L228 898L125 898ZM349 898L349 791L452 791L452 898L349 898ZM237 786L237 679L340 679L340 786L237 786ZM461 786L461 679L564 679L564 786L461 786ZM125 674L125 567L228 567L228 674L125 674ZM349 674L349 567L452 567L452 674L349 674ZM237 562L237 455L340 455L340 562L237 562ZM461 562L461 455L564 455L564 562L461 562ZM125 450L125 343L228 343L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450ZM237 338L237 231L340 231L340 338L237 338ZM461 338L461 231L564 231L564 338L461 338ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226ZM237 114L237 7L340 7L340 114L237 114ZM461 114L461 7L564 7L564 114L461 114ZM125 2L125 -105L228 -105L228 2L125 2ZM349 2L349 -105L452 -105L452 2L349 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8582,6 +9535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▓": {
     char: "▓",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccc",
     d: "M0 1129L690 1129L690 1008L578 1008L578 905L690 905L690 784L578 784L578 681L690 681L690 560L578 560L578 457L690 457L690 336L578 336L578 233L690 233L690 112L578 112L578 9L690 9L690 -112L578 -112L578 -224L448 -224L448 -112L354 -112L354 -224L224 -224L224 -112L130 -112L130 -224L0 -224L0 1129ZM125 1010L125 903L228 903L228 1010L125 1010ZM349 1010L349 903L452 903L452 1010L349 1010ZM125 786L125 679L228 679L228 786L125 786ZM349 786L349 679L452 679L452 786L349 786ZM125 562L125 455L228 455L228 562L125 562ZM349 562L349 455L452 455L452 562L349 562ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM125 114L125 7L228 7L228 114L125 114ZM349 114L349 7L452 7L452 114L349 114Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8591,6 +9545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▔": {
     char: "▔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 1008.0,
@@ -8600,6 +9555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▕": {
     char: "▕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 -224L560 -224L560 1129Z",
     xmin: 560.0,
     ymin: -224.0,
@@ -8609,6 +9565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▖": {
     char: "▖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L354 457L354 -224L0 -224L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8618,6 +9575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▗": {
     char: "▗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 457L690 457L690 -224L336 -224L336 457Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -8627,6 +9585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▘": {
     char: "▘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 448L0 448L0 1129Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -8636,6 +9595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▙": {
     char: "▙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 457L690 457L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8645,6 +9605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▚": {
     char: "▚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 457L690 457L690 -224L336 -224L336 448L0 448L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8654,6 +9615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▛": {
     char: "▛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 448L354 448L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8663,6 +9625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▜": {
     char: "▜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L336 -224L336 448L0 448L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8672,6 +9635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▝": {
     char: "▝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 448L336 448L336 1129Z",
     xmin: 336.0,
     ymin: 448.0,
@@ -8681,6 +9645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▞": {
     char: "▞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 448L354 448L354 -224L0 -224L0 457L336 457L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8690,6 +9655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▟": {
     char: "▟",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L0 -224L0 457L336 457L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -8699,6 +9665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "■": {
     char: "■",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8708,6 +9675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "□": {
     char: "□",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8717,6 +9685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▢": {
     char: "▢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8726,6 +9695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▣": {
     char: "▣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L452 119L452 450L125 450ZM224 345L354 345L354 224L224 224L224 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8735,6 +9705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▤": {
     char: "▤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 343L452 343L452 450L125 450ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8744,6 +9715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▥": {
     char: "▥",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8753,6 +9725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▦": {
     char: "▦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 343L228 343L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450ZM237 338L237 231L340 231L340 338L237 338ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8762,6 +9735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▧": {
     char: "▧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM237 450L237 343L349 343L349 231L452 231L452 450L237 450ZM125 338L125 119L340 119L340 226L228 226L228 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8771,6 +9745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▨": {
     char: "▨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 231L228 231L228 343L340 343L340 450L125 450ZM349 338L349 226L237 226L237 119L452 119L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8780,6 +9755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▩": {
     char: "▩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM237 450L237 343L340 343L340 450L237 450ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8789,6 +9765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▪": {
     char: "▪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 345L466 345L466 0L112 0L112 345Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8798,6 +9775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▫": {
     char: "▫",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 345L466 345L466 0L112 0L112 345ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8807,6 +9785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▬": {
     char: "▬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L578 345L578 0L0 0L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8816,6 +9795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▭": {
     char: "▭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 345L578 345L578 0L0 0L0 345ZM125 226L125 119L452 119L452 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8825,6 +9805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▮": {
     char: "▮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 0L112 0L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8834,6 +9815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▯": {
     char: "▯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 0L112 0L112 569ZM237 450L237 119L340 119L340 450L237 450Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8843,6 +9825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▲": {
     char: "▲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 345L466 345L466 121L578 121L578 0L0 0L0 121L112 121L112 345L224 345L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8852,6 +9835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "△": {
     char: "△",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 345L466 345L466 121L578 121L578 0L0 0L0 121L112 121L112 345L224 345L224 569ZM237 338L237 119L340 119L340 338L237 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8861,6 +9845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▴": {
     char: "▴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L354 457L354 345L466 345L466 233L578 233L578 112L0 112L0 233L112 233L112 345L224 345L224 457Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -8870,6 +9855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▵": {
     char: "▵",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 457L354 457L354 345L466 345L466 233L578 233L578 112L0 112L0 233L112 233L112 345L224 345L224 457ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -8879,6 +9865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▶": {
     char: "▶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L354 457L354 345L578 345L578 224L354 224L354 112L130 112L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8888,6 +9875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▷": {
     char: "▷",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 457L354 457L354 345L578 345L578 224L354 224L354 112L130 112L130 0L0 0L0 569ZM125 338L125 231L340 231L340 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8897,6 +9885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▸": {
     char: "▸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 457L354 457L354 345L466 345L466 224L354 224L354 112L242 112L242 0L112 0L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8906,6 +9895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▹": {
     char: "▹",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L242 569L242 457L354 457L354 345L466 345L466 224L354 224L354 112L242 112L242 0L112 0L112 569ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8915,6 +9905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "►": {
     char: "►",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L354 457L354 345L578 345L578 224L354 224L354 112L0 112L0 457Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -8924,6 +9915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▻": {
     char: "▻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 457L354 457L354 345L578 345L578 224L354 224L354 112L0 112L0 457ZM125 338L125 231L340 231L340 338L125 338Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -8933,6 +9925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▼": {
     char: "▼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L466 448L466 224L354 224L354 0L224 0L224 224L112 224L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8942,6 +9935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▽": {
     char: "▽",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 448L466 448L466 224L354 224L354 0L224 0L224 224L112 224L112 448L0 448L0 569ZM237 450L237 231L340 231L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8951,6 +9945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▾": {
     char: "▾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 457Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -8960,6 +9955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "▿": {
     char: "▿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 457ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -8969,6 +9965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◀": {
     char: "◀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 0L448 0L448 112L224 112L224 224L0 224L0 345L224 345L224 457L448 457L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8978,6 +9975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◁": {
     char: "◁",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M448 569L578 569L578 0L448 0L448 112L224 112L224 224L0 224L0 345L224 345L224 457L448 457L448 569ZM237 338L237 231L452 231L452 338L237 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -8987,6 +9985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◂": {
     char: "◂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 569L466 569L466 0L336 0L336 112L224 112L224 224L112 224L112 345L224 345L224 457L336 457L336 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -8996,6 +9995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◃": {
     char: "◃",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M336 569L466 569L466 0L336 0L336 112L224 112L224 224L112 224L112 345L224 345L224 457L336 457L336 569ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -9005,6 +10005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◄": {
     char: "◄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 457L578 457L578 112L224 112L224 224L0 224L0 345L224 345L224 457Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -9014,6 +10015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◅": {
     char: "◅",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 457L578 457L578 112L224 112L224 224L0 224L0 345L224 345L224 457ZM237 338L237 231L452 231L452 338L237 338Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -9023,6 +10025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◆": {
     char: "◆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9032,6 +10035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◇": {
     char: "◇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 338L125 338L125 231L237 231L237 119L340 119L340 231L452 231L452 338L340 338L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9041,6 +10045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◈": {
     char: "◈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 343L340 343L340 450L237 450ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9050,6 +10055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◉": {
     char: "◉",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450ZM224 345L354 345L354 224L224 224L224 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9059,6 +10065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◊": {
     char: "◊",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L354 793L354 681L466 681L466 457L578 457L578 336L466 336L466 112L354 112L354 0L224 0L224 112L112 112L112 336L0 336L0 457L112 457L112 681L224 681L224 793ZM237 674L237 450L125 450L125 343L237 343L237 119L340 119L340 343L452 343L452 450L340 450L340 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9068,6 +10075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "○": {
     char: "○",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9077,6 +10085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◌": {
     char: "◌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 569L242 569L242 448L112 448L112 569ZM336 569L466 569L466 448L336 448L336 569ZM0 345L130 345L130 224L0 224L0 345ZM448 345L578 345L578 224L448 224L448 345ZM112 121L242 121L242 0L112 0L112 121ZM336 121L466 121L466 0L336 0L336 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9086,6 +10095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◍": {
     char: "◍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9095,6 +10105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◎": {
     char: "◎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L228 343L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450ZM237 338L237 231L340 231L340 338L237 338ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9104,6 +10115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "●": {
     char: "●",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9113,6 +10125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◐": {
     char: "◐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM237 450L237 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9122,6 +10135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◑": {
     char: "◑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L340 119L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9131,6 +10145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◒": {
     char: "◒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9140,6 +10155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◓": {
     char: "◓",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9149,6 +10165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◔": {
     char: "◔",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 226L228 226L228 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9158,6 +10175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◕": {
     char: "◕",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 231L340 231L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9167,6 +10185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◖": {
     char: "◖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9176,6 +10195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◗": {
     char: "◗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L466 569L466 457L578 457L578 112L466 112L466 0L224 0L224 569Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -9185,6 +10205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◘": {
     char: "◘",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 0L112 0L112 569ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -9194,6 +10215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◙": {
     char: "◙",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 343L228 343L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9203,6 +10225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◚": {
     char: "◚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 224L0 224L0 569ZM125 450L125 343L228 343L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -9212,6 +10235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◛": {
     char: "◛",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 345L578 345L578 0L0 0L0 345ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9221,6 +10245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◜": {
     char: "◜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 448L130 448L130 224L0 224L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -9230,6 +10255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◝": {
     char: "◝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L466 569L466 457L578 457L578 224L448 224L448 448L224 448L224 569Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -9239,6 +10265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◞": {
     char: "◞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 345L578 345L578 112L466 112L466 0L224 0L224 121L448 121L448 345Z",
     xmin: 224.0,
     ymin: 0.0,
@@ -9248,6 +10275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◟": {
     char: "◟",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 121L354 121L354 0L112 0L112 112L0 112L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9257,6 +10285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◠": {
     char: "◠",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 457L578 457L578 224L448 224L448 448L130 448L130 224L0 224L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -9266,6 +10295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◡": {
     char: "◡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 121L448 121L448 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9275,6 +10305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◢": {
     char: "◢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 457L448 457L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9284,6 +10315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◣": {
     char: "◣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L354 345L354 233L466 233L466 121L578 121L578 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9293,6 +10325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◤": {
     char: "◤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9302,6 +10335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◥": {
     char: "◥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L578 569L578 0L448 0L448 112L336 112L336 224L224 224L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9311,6 +10345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◦": {
     char: "◦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 457L354 457L354 345L466 345L466 224L354 224L354 112L224 112L224 224L112 224L112 345L224 345L224 457ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -9320,6 +10355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◧": {
     char: "◧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM237 450L237 119L452 119L452 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9329,6 +10365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◨": {
     char: "◨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L340 119L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9338,6 +10375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◩": {
     char: "◩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM349 450L349 338L237 338L237 226L125 226L125 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9347,6 +10385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◪": {
     char: "◪",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L228 119L228 231L340 231L340 343L452 343L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9356,6 +10395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◫": {
     char: "◫",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9365,6 +10405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◭": {
     char: "◭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 233L578 233L578 0L0 0L0 233L112 233L112 457L224 457L224 569ZM237 450L237 119L452 119L452 226L340 226L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9374,6 +10415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◮": {
     char: "◮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 233L578 233L578 0L0 0L0 233L112 233L112 457L224 457L224 569ZM237 450L237 226L125 226L125 119L340 119L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9383,6 +10425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◯": {
     char: "◯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9392,6 +10435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◰": {
     char: "◰",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM349 450L349 226L125 226L125 119L452 119L452 450L349 450ZM125 450L125 343L228 343L228 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9401,6 +10445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◱": {
     char: "◱",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 343L349 343L349 119L452 119L452 450L125 450ZM125 226L125 119L228 119L228 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9410,6 +10455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◲": {
     char: "◲",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L228 119L228 343L452 343L452 450L125 450ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9419,6 +10465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◳": {
     char: "◳",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L452 119L452 226L228 226L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9428,6 +10475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◴": {
     char: "◴",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM349 450L349 226L125 226L125 119L452 119L452 450L349 450ZM125 450L125 343L228 343L228 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9437,6 +10485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◵": {
     char: "◵",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 343L349 343L349 119L452 119L452 450L125 450ZM125 226L125 119L228 119L228 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9446,6 +10495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◶": {
     char: "◶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L228 119L228 343L452 343L452 450L125 450ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9455,6 +10505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◷": {
     char: "◷",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569ZM125 450L125 119L452 119L452 226L228 226L228 450L125 450ZM349 450L349 343L452 343L452 450L349 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9464,6 +10515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◸": {
     char: "◸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 569ZM125 450L125 231L228 231L228 343L340 343L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9473,6 +10525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◹": {
     char: "◹",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L448 0L448 112L336 112L336 224L224 224L224 336L112 336L112 448L0 448L0 569ZM237 450L237 343L349 343L349 231L452 231L452 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9482,6 +10535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◺": {
     char: "◺",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L130 569L130 457L242 457L242 345L354 345L354 233L466 233L466 121L578 121L578 0L0 0L0 569ZM125 338L125 119L340 119L340 226L228 226L228 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9491,6 +10545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◻": {
     char: "◻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 457L578 457L578 0L112 0L112 457ZM237 338L237 119L452 119L452 338L237 338Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -9500,6 +10555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◼": {
     char: "◼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L578 457L578 0L112 0L112 457Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -9509,6 +10565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "◿": {
     char: "◿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M448 569L578 569L578 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 457L448 457L448 569ZM349 338L349 226L237 226L237 119L452 119L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9518,6 +10575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✅": {
     char: "✅",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dc",
     d: "M224 905L1026 905L1026 793L1138 793L1138 0L1026 0L1026 -112L224 -112L224 0L112 0L112 793L224 793L224 905ZM797 786L797 674L685 674L685 450L573 450L573 226L452 226L452 338L349 338L349 119L461 119L461 7L564 7L564 119L676 119L676 343L788 343L788 567L900 567L900 786L797 786Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -9527,6 +10585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✉": {
     char: "✉",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M4 623L573 623L573 170L4 170L4 623ZM67 507L67 230L511 230L511 507L459 507L459 451L403 451L403 395L347 395L347 339L231 339L231 395L175 395L175 451L119 451L119 507L67 507ZM123 563L123 510L179 510L179 454L235 454L235 398L343 398L343 454L399 454L399 510L455 510L455 563L123 563Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -9536,6 +10595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✊": {
     char: "✊",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dccccc",
     d: "M620 903L797 903L797 847L1021 847L1021 791L1077 791L1077 455L1133 455L1133 170L1077 170L1077 58L1021 58L1021 2L965 2L965 -54L853 -54L853 -110L396 -110L396 -54L284 -54L284 2L228 2L228 58L172 58L172 170L116 170L116 679L172 679L172 735L228 735L228 791L396 791L396 847L620 847L620 903ZM347 451L347 395L179 395L179 174L235 174L235 62L291 62L291 6L403 6L403 -50L847 -50L847 6L959 6L959 62L1015 62L1015 174L1071 174L1071 395L1015 395L1015 451L459 451L459 342L739 342L739 286L795 286L795 230L907 230L907 171L791 171L791 227L735 227L735 283L455 283L455 339L399 339L399 451L347 451ZM627 843L627 510L791 510L791 843L627 843ZM403 787L403 454L455 454L455 510L567 510L567 787L403 787ZM851 787L851 510L1015 510L1015 787L851 787ZM235 731L235 675L179 675L179 454L343 454L343 731L235 731Z",
     xmin: 116.0,
     ymin: -110.0,
@@ -9545,6 +10605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✋": {
     char: "✋",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dc",
     d: "M564 903L741 903L741 847L853 847L853 791L909 791L909 455L956 455L956 511L1077 511L1077 455L1133 455L1133 338L1077 338L1077 170L1021 170L1021 58L965 58L965 2L909 2L909 -54L797 -54L797 -110L452 -110L452 -54L340 -54L340 2L284 2L284 58L228 58L228 170L172 170L172 623L228 623L228 679L340 679L340 791L396 791L396 847L564 847L564 903ZM571 843L571 395L511 395L511 787L403 787L403 339L343 339L343 619L235 619L235 174L291 174L291 62L347 62L347 6L459 6L459 -50L791 -50L791 6L903 6L903 62L959 62L959 174L1015 174L1015 342L1071 342L1071 451L963 451L963 395L907 395L907 283L851 283L851 227L791 227L791 286L847 286L847 787L739 787L739 395L679 395L679 843L571 843Z",
     xmin: 172.0,
     ymin: -110.0,
@@ -9554,6 +10615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✌": {
     char: "✌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 681L242 681L242 457L336 457L336 681L466 681L466 448L354 448L354 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 681ZM237 338L237 231L340 231L340 338L237 338ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9563,6 +10625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✓": {
     char: "✓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 672L466 672L466 448L354 448L354 224L242 224L242 0L112 0L112 224L0 224L0 345L130 345L130 233L224 233L224 457L336 457L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9572,6 +10635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✔": {
     char: "✔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 560L466 560L466 336L354 336L354 112L242 112L242 0L112 0L112 112L0 112L0 345L130 345L130 233L224 233L224 457L336 457L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9581,6 +10645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✕": {
     char: "✕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L336 345L336 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L242 224L242 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9590,6 +10655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✖": {
     char: "✖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L130 793L130 681L242 681L242 569L336 569L336 681L448 681L448 793L578 793L578 560L466 560L466 448L354 448L354 345L466 345L466 233L578 233L578 0L448 0L448 112L336 112L336 224L242 224L242 112L130 112L130 0L0 0L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9599,6 +10665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✗": {
     char: "✗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 672L466 672L466 448L354 448L354 345L466 345L466 233L578 233L578 112L448 112L448 224L336 224L336 336L242 336L242 112L130 112L130 0L0 0L0 121L112 121L112 345L224 345L224 448L112 448L112 560L0 560L0 681L130 681L130 569L242 569L242 457L336 457L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9608,6 +10675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✘": {
     char: "✘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 793L578 793L578 560L466 560L466 448L354 448L354 345L466 345L466 233L578 233L578 112L336 112L336 224L242 224L242 112L130 112L130 0L0 0L0 233L112 233L112 345L224 345L224 448L112 448L112 560L0 560L0 681L242 681L242 569L336 569L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9617,6 +10685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✙": {
     char: "✙",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcd",
     d: "M116 679L461 679L461 567L573 567L573 226L461 226L461 114L116 114L116 226L4 226L4 567L116 567L116 679ZM179 619L179 507L67 507L67 286L179 286L179 174L399 174L399 286L511 286L511 507L399 507L399 619L179 619ZM228 567L349 567L349 455L461 455L461 338L349 338L349 226L228 226L228 338L116 338L116 455L228 455L228 567Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9626,6 +10695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✚": {
     char: "✚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M172 679L405 679L405 511L573 511L573 282L405 282L405 114L172 114L172 282L4 282L4 511L172 511L172 679Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9635,6 +10705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✛": {
     char: "✛",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M228 679L349 679L349 455L573 455L573 338L349 338L349 114L228 114L228 338L4 338L4 455L228 455L228 679ZM235 451L235 342L343 342L343 451L235 451Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9644,6 +10715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✜": {
     char: "✜",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M172 679L405 679L405 511L573 511L573 282L405 282L405 114L172 114L172 282L4 282L4 511L172 511L172 679ZM179 507L179 286L399 286L399 507L179 507Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9653,6 +10725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✡": {
     char: "✡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccccc",
     d: "M284 623L349 623L349 567L405 567L405 511L573 511L573 450L517 450L517 394L461 394L461 343L517 343L517 287L573 287L573 226L405 226L405 170L349 170L349 114L284 114L284 170L228 170L228 226L60 226L60 287L116 287L116 343L172 343L172 394L116 394L116 450L60 450L60 511L228 511L228 567L284 567L284 623ZM291 451L291 395L235 395L235 342L291 342L291 286L343 286L343 342L399 342L399 395L343 395L343 451L291 451ZM291 563L291 510L343 510L343 563L291 563ZM179 451L179 398L231 398L231 451L179 451ZM403 451L403 398L455 398L455 451L403 451ZM179 339L179 286L231 286L231 339L179 339ZM403 339L403 286L455 286L455 339L403 339ZM291 227L291 174L343 174L343 227L291 227Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9662,6 +10735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✢": {
     char: "✢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M284 623L349 623L349 567L405 567L405 506L349 506L349 399L452 399L452 455L517 455L517 399L573 399L573 338L517 338L517 282L452 282L452 338L349 338L349 231L405 231L405 170L349 170L349 114L284 114L284 170L228 170L228 231L284 231L284 338L181 338L181 282L116 282L116 338L60 338L60 399L116 399L116 455L181 455L181 399L284 399L284 506L228 506L228 567L284 567L284 623ZM291 395L291 342L343 342L343 395L291 395Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9671,6 +10745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✣": {
     char: "✣",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M284 623L349 623L349 567L405 567L405 506L349 506L349 450L284 450L284 506L228 506L228 567L284 567L284 623ZM116 455L181 455L181 399L237 399L237 338L181 338L181 282L116 282L116 338L60 338L60 399L116 399L116 455ZM452 455L517 455L517 399L573 399L573 338L517 338L517 282L452 282L452 338L396 338L396 399L452 399L452 455ZM284 287L349 287L349 231L405 231L405 170L349 170L349 114L284 114L284 170L228 170L228 231L284 231L284 287ZM284 399L349 399L349 338L284 338L284 399Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9680,6 +10755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✤": {
     char: "✤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M284 623L349 623L349 567L405 567L405 455L517 455L517 399L573 399L573 338L517 338L517 282L405 282L405 170L349 170L349 114L284 114L284 170L228 170L228 282L116 282L116 338L60 338L60 399L116 399L116 455L228 455L228 567L284 567L284 623ZM235 451L235 398L287 398L287 451L235 451ZM347 451L347 398L399 398L399 451L347 451ZM291 395L291 342L343 342L343 395L291 395ZM235 339L235 286L287 286L287 339L235 339ZM347 339L347 286L399 286L399 339L347 339Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9689,6 +10765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✥": {
     char: "✥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 623L349 623L349 567L405 567L405 506L349 506L349 399L452 399L452 455L517 455L517 399L573 399L573 338L517 338L517 282L452 282L452 338L349 338L349 231L405 231L405 170L349 170L349 114L284 114L284 170L228 170L228 231L284 231L284 338L181 338L181 282L116 282L116 338L60 338L60 399L116 399L116 455L181 455L181 399L284 399L284 506L228 506L228 567L284 567L284 623Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9698,6 +10775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✦": {
     char: "✦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 623L349 623L349 511L405 511L405 455L461 455L461 399L573 399L573 338L461 338L461 282L405 282L405 226L349 226L349 114L284 114L284 226L228 226L228 282L172 282L172 338L60 338L60 399L172 399L172 455L228 455L228 511L284 511L284 623Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9707,6 +10785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✧": {
     char: "✧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M284 623L349 623L349 511L405 511L405 455L461 455L461 399L573 399L573 338L461 338L461 282L405 282L405 226L349 226L349 114L284 114L284 226L228 226L228 282L172 282L172 338L60 338L60 399L172 399L172 455L228 455L228 511L284 511L284 623ZM291 507L291 395L179 395L179 342L291 342L291 230L343 230L343 342L455 342L455 395L343 395L343 507L291 507Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9716,6 +10795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✨": {
     char: "✨",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dddccc",
     d: "M784 793L914 793L914 569L1026 569L1026 457L1250 457L1250 336L1026 336L1026 224L914 224L914 0L784 0L784 224L672 224L672 336L448 336L448 457L672 457L672 569L784 569L784 793ZM224 345L354 345L354 121L578 121L578 0L354 0L354 -224L224 -224L224 0L0 0L0 121L224 121L224 345ZM336 905L466 905L466 793L578 793L578 672L466 672L466 560L336 560L336 672L224 672L224 793L336 793L336 905ZM797 562L797 450L685 450L685 343L797 343L797 231L900 231L900 343L1012 343L1012 450L900 450L900 562L797 562ZM349 786L349 679L452 679L452 786L349 786ZM237 114L237 7L340 7L340 114L237 114Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -9725,6 +10805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✳": {
     char: "✳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 623L349 623L349 455L396 455L396 511L452 511L452 567L517 567L517 506L461 506L461 450L405 450L405 399L573 399L573 338L405 338L405 287L461 287L461 231L517 231L517 170L452 170L452 226L396 226L396 282L349 282L349 114L284 114L284 282L237 282L237 226L181 226L181 170L116 170L116 231L172 231L172 287L228 287L228 338L60 338L60 399L228 399L228 450L172 450L172 506L116 506L116 567L181 567L181 511L237 511L237 455L284 455L284 623Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9734,6 +10815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✴": {
     char: "✴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 623L349 623L349 455L396 455L396 511L452 511L452 567L517 567L517 506L461 506L461 450L405 450L405 399L573 399L573 338L405 338L405 287L461 287L461 231L517 231L517 170L452 170L452 226L396 226L396 282L349 282L349 114L284 114L284 282L237 282L237 226L181 226L181 170L116 170L116 231L172 231L172 287L228 287L228 338L60 338L60 399L228 399L228 450L172 450L172 506L116 506L116 567L181 567L181 511L237 511L237 455L284 455L284 623Z",
     xmin: 60.0,
     ymin: 114.0,
@@ -9743,6 +10825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "✿": {
     char: "✿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M228 679L349 679L349 623L405 623L405 511L452 511L452 567L517 567L517 511L573 511L573 394L517 394L517 338L405 338L405 287L517 287L517 170L461 170L461 114L340 114L340 226L293 226L293 170L237 170L237 114L116 114L116 170L60 170L60 287L172 287L172 338L60 338L60 394L4 394L4 511L60 511L60 567L125 567L125 511L172 511L172 623L228 623L228 679ZM235 451L235 395L179 395L179 342L235 342L235 230L287 230L287 286L343 286L343 342L399 342L399 395L343 395L343 451L235 451ZM179 507L179 454L231 454L231 507L179 507ZM347 507L347 454L399 454L399 507L347 507Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9752,6 +10835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❀": {
     char: "❀",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccccc",
     d: "M228 679L349 679L349 623L405 623L405 511L452 511L452 567L517 567L517 511L573 511L573 394L517 394L517 338L405 338L405 287L517 287L517 170L461 170L461 114L340 114L340 226L293 226L293 170L237 170L237 114L116 114L116 170L60 170L60 287L172 287L172 338L60 338L60 394L4 394L4 511L60 511L60 567L125 567L125 511L172 511L172 623L228 623L228 679ZM235 451L235 395L179 395L179 342L235 342L235 286L343 286L343 342L399 342L399 395L343 395L343 451L235 451ZM123 451L123 398L175 398L175 451L123 451ZM67 507L67 454L119 454L119 507L67 507ZM179 507L179 454L231 454L231 507L179 507ZM459 507L459 454L511 454L511 507L459 507ZM291 563L291 510L343 510L343 563L291 563ZM235 619L235 566L287 566L287 619L235 619ZM403 451L403 398L455 398L455 451L403 451ZM179 283L179 230L231 230L231 283L179 283ZM347 283L347 230L399 230L399 283L347 283ZM123 227L123 174L175 174L175 227L123 227ZM403 227L403 174L455 174L455 227L403 227Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9761,6 +10845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❇": {
     char: "❇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M228 679L349 679L349 511L396 511L396 567L452 567L452 623L517 623L517 562L461 562L461 506L405 506L405 455L573 455L573 338L405 338L405 287L461 287L461 231L517 231L517 170L452 170L452 226L396 226L396 282L349 282L349 114L228 114L228 282L181 282L181 226L125 226L125 170L60 170L60 231L116 231L116 287L172 287L172 338L4 338L4 455L172 455L172 506L116 506L116 562L60 562L60 623L125 623L125 567L181 567L181 511L228 511L228 679ZM235 507L235 454L343 454L343 507L235 507ZM235 339L235 286L343 286L343 339L235 339ZM179 451L179 342L231 342L231 451L179 451ZM347 451L347 342L399 342L399 451L347 451Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9770,6 +10855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❈": {
     char: "❈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccccc",
     d: "M228 679L349 679L349 623L405 623L405 567L452 567L452 623L517 623L517 562L461 562L461 511L517 511L517 455L573 455L573 338L517 338L517 282L461 282L461 231L517 231L517 170L452 170L452 226L405 226L405 170L349 170L349 114L228 114L228 170L172 170L172 226L125 226L125 170L60 170L60 231L116 231L116 282L60 282L60 338L4 338L4 455L60 455L60 511L116 511L116 562L60 562L60 623L125 623L125 567L172 567L172 623L228 623L228 679ZM235 507L235 454L343 454L343 507L235 507ZM235 339L235 286L343 286L343 339L235 339ZM179 451L179 342L231 342L231 451L179 451ZM347 451L347 342L399 342L399 451L347 451ZM123 507L123 454L175 454L175 507L123 507ZM403 507L403 454L455 454L455 507L403 507ZM347 563L347 510L399 510L399 563L347 563ZM123 339L123 286L175 286L175 339L123 339ZM179 563L179 510L231 510L231 563L179 563ZM403 339L403 286L455 286L455 339L403 339ZM179 283L179 230L231 230L231 283L179 283ZM347 283L347 230L399 230L399 283L347 283Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -9779,6 +10865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❌": {
     char: "❌",
     horiz_adv_x: 1344.0,
+    gerber_lp: "d",
     d: "M112 905L354 905L354 793L466 793L466 681L578 681L578 569L672 569L672 681L784 681L784 793L896 793L896 905L1138 905L1138 672L1026 672L1026 560L914 560L914 448L802 448L802 345L914 345L914 233L1026 233L1026 121L1138 121L1138 -112L896 -112L896 0L784 0L784 112L672 112L672 224L578 224L578 112L466 112L466 0L354 0L354 -112L112 -112L112 121L224 121L224 233L336 233L336 345L448 345L448 448L336 448L336 560L224 560L224 672L112 672L112 905Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -9788,6 +10875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❎": {
     char: "❎",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dc",
     d: "M224 905L1026 905L1026 793L1138 793L1138 0L1026 0L1026 -112L224 -112L224 0L112 0L112 793L224 793L224 905ZM349 786L349 567L461 567L461 455L573 455L573 338L461 338L461 226L349 226L349 7L452 7L452 119L564 119L564 231L685 231L685 119L797 119L797 7L900 7L900 226L788 226L788 338L676 338L676 455L788 455L788 567L900 567L900 786L797 786L797 674L685 674L685 562L564 562L564 674L452 674L452 786L349 786Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -9797,6 +10885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❏": {
     char: "❏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L466 569L466 457L578 457L578 0L112 0L112 112L0 112L0 569ZM125 450L125 231L340 231L340 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9806,6 +10895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❐": {
     char: "❐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L578 569L578 112L466 112L466 0L0 0L0 457L112 457L112 569ZM125 338L125 119L340 119L340 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9815,6 +10905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❑": {
     char: "❑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M4 567L461 567L461 511L517 511L517 455L573 455L573 2L116 2L116 58L60 58L60 114L4 114L4 567ZM123 451L123 230L343 230L343 451L123 451Z",
     xmin: 4.0,
     ymin: 2.0,
@@ -9824,6 +10915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❒": {
     char: "❒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M116 567L573 567L573 114L517 114L517 58L461 58L461 2L4 2L4 455L60 455L60 511L116 511L116 567ZM123 339L123 118L343 118L343 339L123 339Z",
     xmin: 4.0,
     ymin: 2.0,
@@ -9833,6 +10925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❓": {
     char: "❓",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dd",
     d: "M452 903L797 903L797 847L853 847L853 791L909 791L909 735L965 735L965 506L909 506L909 450L853 450L853 394L797 394L797 338L741 338L741 170L508 170L508 399L564 399L564 455L620 455L620 511L676 511L676 567L732 567L732 674L517 674L517 562L284 562L284 735L340 735L340 791L396 791L396 847L452 847L452 903ZM564 63L685 63L685 7L741 7L741 -110L685 -110L685 -166L564 -166L564 -110L508 -110L508 7L564 7L564 63Z",
     xmin: 284.0,
     ymin: -166.0,
@@ -9842,6 +10935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❔": {
     char: "❔",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dcdc",
     d: "M452 903L797 903L797 847L853 847L853 791L909 791L909 735L965 735L965 506L909 506L909 450L853 450L853 394L797 394L797 338L741 338L741 170L508 170L508 399L564 399L564 455L620 455L620 511L676 511L676 567L732 567L732 674L517 674L517 562L284 562L284 735L340 735L340 791L396 791L396 847L452 847L452 903ZM459 843L459 787L403 787L403 731L347 731L347 622L455 622L455 678L511 678L511 734L739 734L739 678L795 678L795 563L739 563L739 507L683 507L683 451L627 451L627 395L571 395L571 230L679 230L679 342L735 342L735 398L791 398L791 454L847 454L847 510L903 510L903 731L847 731L847 787L791 787L791 843L459 843ZM564 63L685 63L685 7L741 7L741 -110L685 -110L685 -166L564 -166L564 -110L508 -110L508 7L564 7L564 63ZM571 3L571 -106L679 -106L679 3L571 3Z",
     xmin: 284.0,
     ymin: -166.0,
@@ -9851,6 +10945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❕": {
     char: "❕",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dcdc",
     d: "M508 903L741 903L741 226L685 226L685 170L564 170L564 226L508 226L508 903ZM571 843L571 230L679 230L679 843L571 843ZM564 63L685 63L685 7L741 7L741 -110L685 -110L685 -166L564 -166L564 -110L508 -110L508 7L564 7L564 63ZM571 3L571 -106L679 -106L679 3L571 3Z",
     xmin: 508.0,
     ymin: -166.0,
@@ -9860,6 +10955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❗": {
     char: "❗",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dd",
     d: "M508 903L741 903L741 226L685 226L685 170L564 170L564 226L508 226L508 903ZM564 63L685 63L685 7L741 7L741 -110L685 -110L685 -166L564 -166L564 -110L508 -110L508 7L564 7L564 63Z",
     xmin: 508.0,
     ymin: -166.0,
@@ -9869,6 +10965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❘": {
     char: "❘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M228 791L349 791L349 2L228 2L228 791Z",
     xmin: 228.0,
     ymin: 2.0,
@@ -9878,6 +10975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❙": {
     char: "❙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M172 791L405 791L405 2L172 2L172 791Z",
     xmin: 172.0,
     ymin: 2.0,
@@ -9887,6 +10985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❚": {
     char: "❚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M116 791L461 791L461 2L116 2L116 791Z",
     xmin: 116.0,
     ymin: 2.0,
@@ -9896,6 +10995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❛": {
     char: "❛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 672L242 672L242 569L466 569L466 336L224 336L224 448L112 448L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -9905,6 +11005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❜": {
     char: "❜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L354 793L354 681L466 681L466 448L354 448L354 336L224 336L224 457L336 457L336 560L112 560L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -9914,6 +11015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❝": {
     char: "❝",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 672L130 672L130 569L242 569L242 336L0 336L0 681L112 681L112 793ZM448 793L578 793L578 672L466 672L466 569L578 569L578 336L336 336L336 681L448 681L448 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -9923,6 +11025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❞": {
     char: "❞",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L242 793L242 448L130 448L130 336L0 336L0 457L112 457L112 560L0 560L0 793ZM336 793L578 793L578 448L466 448L466 336L336 336L336 457L448 457L448 560L336 560L336 793Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -9932,6 +11035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❡": {
     char: "❡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M340 623L405 623L405 567L573 567L573 506L405 506L405 -54L349 -54L349 -110L172 -110L172 -54L116 -54L116 63L172 63L172 119L237 119L237 63L293 63L293 2L181 2L181 -49L340 -49L340 170L172 170L172 226L60 226L60 282L4 282L4 455L60 455L60 511L172 511L172 567L340 567L340 623ZM291 507L291 230L343 230L343 507L291 507Z",
     xmin: 4.0,
     ymin: -110.0,
@@ -9941,6 +11045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❢": {
     char: "❢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 681L466 681L466 336L354 336L354 224L224 224L224 336L112 336L112 681L224 681L224 793ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -9950,6 +11055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❣": {
     char: "❣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 569L336 569L336 681L466 681L466 569L578 569L578 448L466 448L466 336L354 336L354 224L224 224L224 336L112 336L112 448L0 448L0 569L112 569L112 681ZM224 121L354 121L354 0L224 0L224 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -9959,6 +11065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❤": {
     char: "❤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L242 681L242 569L336 569L336 681L466 681L466 569L578 569L578 336L466 336L466 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -9968,6 +11075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❥": {
     char: "❥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L112 112L112 224L0 224L0 345L112 345L112 448L0 448L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -9977,6 +11085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❦": {
     char: "❦",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M60 455L237 455L237 399L293 399L293 343L340 343L340 399L461 399L461 343L517 343L517 226L461 226L461 170L405 170L405 114L349 114L349 58L293 58L293 7L349 7L349 -49L508 -49L508 2L452 2L452 63L517 63L517 7L573 7L573 -54L517 -54L517 -110L340 -110L340 -54L228 -54L228 2L172 2L172 58L116 58L116 114L60 114L60 226L4 226L4 399L60 399L60 455ZM452 791L517 791L517 735L573 735L573 618L517 618L517 562L461 562L461 506L349 506L349 450L284 450L284 511L340 511L340 562L284 562L284 618L228 618L228 674L69 674L69 623L125 623L125 562L60 562L60 618L4 618L4 679L60 679L60 735L237 735L237 679L284 679L284 735L349 735L349 679L405 679L405 567L452 567L452 623L508 623L508 730L452 730L452 791ZM291 675L291 622L343 622L343 675L291 675Z",
     xmin: 4.0,
     ymin: -110.0,
@@ -9986,6 +11095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❧": {
     char: "❧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M60 679L125 679L125 618L69 618L69 511L125 511L125 455L228 455L228 506L172 506L172 567L228 567L228 623L349 623L349 567L405 567L405 511L461 511L461 455L508 455L508 511L573 511L573 338L517 338L517 282L461 282L461 226L405 226L405 170L228 170L228 226L172 226L172 338L125 338L125 282L69 282L69 231L125 231L125 170L60 170L60 226L4 226L4 399L60 399L60 506L4 506L4 623L60 623L60 679ZM235 451L235 398L287 398L287 451L235 451ZM67 395L67 342L119 342L119 395L67 395ZM179 395L179 342L231 342L231 395L179 395Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -9995,6 +11105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❨": {
     char: "❨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L578 793L578 672L466 672L466 560L354 560L354 233L466 233L466 121L578 121L578 0L336 0L336 112L224 112L224 224L112 224L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10004,6 +11115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❩": {
     char: "❩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L354 681L354 569L466 569L466 224L354 224L354 112L242 112L242 0L0 0L0 121L112 121L112 233L224 233L224 560L112 560L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10013,6 +11125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❪": {
     char: "❪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L578 793L578 672L466 672L466 448L354 448L354 345L466 345L466 121L578 121L578 0L336 0L336 112L224 112L224 224L112 224L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10022,6 +11135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❫": {
     char: "❫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L354 681L354 569L466 569L466 224L354 224L354 112L242 112L242 0L0 0L0 121L112 121L112 345L224 345L224 448L112 448L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10031,6 +11145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❬": {
     char: "❬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 672L354 672L354 448L242 448L242 345L354 345L354 121L466 121L466 0L336 0L336 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10040,6 +11155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❭": {
     char: "❭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L242 112L242 0L112 0L112 121L224 121L224 345L336 345L336 448L224 448L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10049,6 +11165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❮": {
     char: "❮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L578 793L578 672L466 672L466 560L354 560L354 448L242 448L242 345L354 345L354 233L466 233L466 121L578 121L578 0L336 0L336 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10058,6 +11175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❯": {
     char: "❯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L242 112L242 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 448L224 448L224 560L112 560L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10067,6 +11185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❰": {
     char: "❰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L578 793L578 672L466 672L466 448L354 448L354 345L466 345L466 121L578 121L578 0L336 0L336 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10076,6 +11195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❱": {
     char: "❱",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L242 112L242 0L0 0L0 121L112 121L112 345L224 345L224 448L112 448L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10085,6 +11205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❲": {
     char: "❲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 672L354 672L354 560L242 560L242 233L354 233L354 121L466 121L466 0L336 0L336 112L224 112L224 224L112 224L112 569L224 569L224 681L336 681L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10094,6 +11215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❳": {
     char: "❳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 681L354 681L354 569L466 569L466 224L354 224L354 112L242 112L242 0L112 0L112 121L224 121L224 233L336 233L336 560L224 560L224 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10103,6 +11225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❴": {
     char: "❴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L578 793L578 672L466 672L466 121L578 121L578 0L336 0L336 112L224 112L224 336L112 336L112 457L224 457L224 681L336 681L336 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10112,6 +11235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❵": {
     char: "❵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L242 793L242 681L354 681L354 457L466 457L466 336L354 336L354 112L242 112L242 0L0 0L0 121L112 121L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10121,6 +11245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❶": {
     char: "❶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM237 674L237 562L125 562L125 455L237 455L237 226L125 226L125 119L452 119L452 226L340 226L340 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10130,6 +11255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❷": {
     char: "❷",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 338L125 119L452 119L452 226L228 226L228 338L125 338ZM125 674L125 567L340 567L340 674L125 674ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10139,6 +11265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❸": {
     char: "❸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 567L340 567L340 674L125 674ZM125 226L125 119L340 119L340 226L125 226ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450ZM349 338L349 231L452 231L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10148,6 +11275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❹": {
     char: "❹",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 343L349 343L349 119L452 119L452 674L349 674L349 450L228 450L228 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10157,6 +11285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❺": {
     char: "❺",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 343L349 343L349 231L452 231L452 450L228 450L228 567L452 567L452 674L125 674ZM125 226L125 119L340 119L340 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10166,6 +11295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❻": {
     char: "❻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 562L125 231L228 231L228 343L340 343L340 450L228 450L228 562L125 562ZM237 674L237 567L452 567L452 674L237 674ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10175,6 +11305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❼": {
     char: "❼",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 567L349 567L349 455L452 455L452 674L125 674ZM237 450L237 119L340 119L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10184,6 +11315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❽": {
     char: "❽",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM237 674L237 567L340 567L340 674L237 674ZM125 562L125 455L228 455L228 562L125 562ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10193,6 +11325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❾": {
     char: "❾",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM349 562L349 450L237 450L237 343L349 343L349 231L452 231L452 562L349 562ZM125 226L125 119L340 119L340 226L125 226ZM237 674L237 567L340 567L340 674L237 674ZM125 562L125 455L228 455L228 562L125 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10202,6 +11335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "❿": {
     char: "❿",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M336 681L466 681L466 569L578 569L578 224L466 224L466 112L336 112L336 224L224 224L224 569L336 569L336 681ZM0 681L130 681L130 112L0 112L0 681ZM349 562L349 231L452 231L452 562L349 562Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -10211,6 +11345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➀": {
     char: "➀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 233L466 233L466 112L112 112L112 233L224 233L224 448L112 448L112 569L224 569L224 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10220,6 +11355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➁": {
     char: "➁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L354 681L354 569L466 569L466 448L354 448L354 336L242 336L242 233L466 233L466 112L112 112L112 345L224 345L224 457L336 457L336 560L112 560L112 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10229,6 +11365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➂": {
     char: "➂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L354 681L354 569L466 569L466 448L354 448L354 345L466 345L466 224L354 224L354 112L112 112L112 233L336 233L336 336L224 336L224 457L336 457L336 560L112 560L112 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10238,6 +11375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➃": {
     char: "➃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L242 681L242 457L336 457L336 681L466 681L466 112L336 112L336 336L112 336L112 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10247,6 +11385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➄": {
     char: "➄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L466 681L466 560L242 560L242 457L466 457L466 224L354 224L354 112L112 112L112 233L336 233L336 336L112 336L112 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10256,6 +11395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➅": {
     char: "➅",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 681L466 681L466 560L242 560L242 457L354 457L354 345L466 345L466 224L354 224L354 112L224 112L224 224L112 224L112 569L224 569L224 681ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10265,6 +11405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➆": {
     char: "➆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L466 681L466 448L354 448L354 112L224 112L224 457L336 457L336 560L112 560L112 681Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10274,6 +11415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➇": {
     char: "➇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 681L354 681L354 569L466 569L466 448L354 448L354 345L466 345L466 224L354 224L354 112L224 112L224 224L112 224L112 345L224 345L224 448L112 448L112 569L224 569L224 681ZM237 562L237 455L340 455L340 562L237 562ZM237 338L237 231L340 231L340 338L237 338Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10283,6 +11425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➈": {
     char: "➈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 681L354 681L354 569L466 569L466 224L354 224L354 112L112 112L112 233L336 233L336 336L224 336L224 448L112 448L112 569L224 569L224 681ZM237 562L237 455L340 455L340 562L237 562Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10292,6 +11435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➉": {
     char: "➉",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M336 681L466 681L466 569L578 569L578 224L466 224L466 112L336 112L336 224L224 224L224 569L336 569L336 681ZM0 681L130 681L130 112L0 112L0 681ZM349 562L349 231L452 231L452 562L349 562Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -10301,6 +11445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➊": {
     char: "➊",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM237 674L237 562L125 562L125 455L237 455L237 226L125 226L125 119L452 119L452 226L340 226L340 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10310,6 +11455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➋": {
     char: "➋",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 338L125 119L452 119L452 226L228 226L228 338L125 338ZM125 674L125 567L340 567L340 674L125 674ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10319,6 +11465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➌": {
     char: "➌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 567L340 567L340 674L125 674ZM125 226L125 119L340 119L340 226L125 226ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450ZM349 338L349 231L452 231L452 338L349 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10328,6 +11475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➍": {
     char: "➍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 343L349 343L349 119L452 119L452 674L349 674L349 450L228 450L228 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10337,6 +11485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➎": {
     char: "➎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 343L349 343L349 231L452 231L452 450L228 450L228 567L452 567L452 674L125 674ZM125 226L125 119L340 119L340 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10346,6 +11495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➏": {
     char: "➏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 562L125 231L228 231L228 343L340 343L340 450L228 450L228 562L125 562ZM237 674L237 567L452 567L452 674L237 674ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10355,6 +11505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➐": {
     char: "➐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM125 674L125 567L349 567L349 455L452 455L452 674L125 674ZM237 450L237 119L340 119L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10364,6 +11515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➑": {
     char: "➑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM237 674L237 567L340 567L340 674L237 674ZM125 562L125 455L228 455L228 562L125 562ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10373,6 +11525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➒": {
     char: "➒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 793L466 793L466 681L578 681L578 112L466 112L466 0L112 0L112 112L0 112L0 681L112 681L112 793ZM349 562L349 450L237 450L237 343L349 343L349 231L452 231L452 562L349 562ZM125 226L125 119L340 119L340 226L125 226ZM237 674L237 567L340 567L340 674L237 674ZM125 562L125 455L228 455L228 562L125 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10382,6 +11535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➓": {
     char: "➓",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddc",
     d: "M336 681L466 681L466 569L578 569L578 224L466 224L466 112L336 112L336 224L224 224L224 569L336 569L336 681ZM0 681L130 681L130 112L0 112L0 681ZM349 562L349 231L452 231L452 562L349 562Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -10391,6 +11545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➔": {
     char: "➔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L284 114L284 175L340 175L340 231L396 231L396 282L4 282L4 399L396 399L396 450L340 450L340 506L284 506L284 567Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10400,6 +11555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➕": {
     char: "➕",
     horiz_adv_x: 1344.0,
+    gerber_lp: "d",
     d: "M508 903L741 903L741 511L1133 511L1133 282L741 282L741 -110L508 -110L508 282L116 282L116 511L508 511L508 903Z",
     xmin: 116.0,
     ymin: -110.0,
@@ -10409,6 +11565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➖": {
     char: "➖",
     horiz_adv_x: 1344.0,
+    gerber_lp: "d",
     d: "M116 511L1133 511L1133 282L116 282L116 511Z",
     xmin: 116.0,
     ymin: 282.0,
@@ -10418,6 +11575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➗": {
     char: "➗",
     horiz_adv_x: 1344.0,
+    gerber_lp: "ddd",
     d: "M116 511L1133 511L1133 282L116 282L116 511ZM508 847L741 847L741 618L508 618L508 847ZM508 175L741 175L741 -54L508 -54L508 175Z",
     xmin: 116.0,
     ymin: -54.0,
@@ -10427,6 +11585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➘": {
     char: "➘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M60 623L125 623L125 567L181 567L181 511L237 511L237 455L293 455L293 399L349 399L349 343L396 343L396 399L461 399L461 287L517 287L517 175L573 175L573 58L452 58L452 114L340 114L340 170L228 170L228 231L284 231L284 282L228 282L228 338L172 338L172 394L116 394L116 450L60 450L60 506L4 506L4 567L60 567L60 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10436,6 +11595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➙": {
     char: "➙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M340 511L405 511L405 455L517 455L517 399L573 399L573 282L517 282L517 226L405 226L405 170L340 170L340 231L396 231L396 282L4 282L4 399L396 399L396 450L340 450L340 511Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10445,6 +11605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➚": {
     char: "➚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M452 623L573 623L573 506L517 506L517 394L461 394L461 282L396 282L396 338L349 338L349 282L293 282L293 226L237 226L237 170L181 170L181 114L125 114L125 58L60 58L60 114L4 114L4 175L60 175L60 231L116 231L116 287L172 287L172 343L228 343L228 399L284 399L284 450L228 450L228 511L340 511L340 567L452 567L452 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10454,6 +11615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➛": {
     char: "➛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M116 567L237 567L237 511L349 511L349 455L461 455L461 399L573 399L573 338L461 338L461 282L349 282L349 226L237 226L237 170L116 170L116 231L172 231L172 287L228 287L228 338L4 338L4 399L228 399L228 450L172 450L172 506L116 506L116 567Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10463,6 +11625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➜": {
     char: "➜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 623L349 623L349 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L349 114L349 58L284 58L284 114L228 114L228 175L284 175L284 231L340 231L340 282L4 282L4 399L340 399L340 450L284 450L284 506L228 506L228 567L284 567L284 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10472,6 +11635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➝": {
     char: "➝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M396 511L461 511L461 455L517 455L517 399L573 399L573 338L517 338L517 282L461 282L461 226L396 226L396 338L4 338L4 399L396 399L396 511Z",
     xmin: 4.0,
     ymin: 226.0,
@@ -10481,6 +11645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➞": {
     char: "➞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M396 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L396 170L396 282L4 282L4 399L396 399L396 511Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10490,6 +11655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➟": {
     char: "➟",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M396 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L396 170L396 282L228 282L228 399L396 399L396 511ZM4 399L69 399L69 282L4 282L4 399ZM116 399L181 399L181 282L116 282L116 399Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10499,6 +11665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➠": {
     char: "➠",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M340 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L340 114L340 226L228 226L228 455L340 455L340 567ZM4 455L69 455L69 226L4 226L4 455ZM116 455L181 455L181 226L116 226L116 455Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10508,6 +11675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➡": {
     char: "➡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M340 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L340 114L340 226L4 226L4 455L340 455L340 567Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10517,6 +11685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➢": {
     char: "➢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M4 567L125 567L125 511L293 511L293 455L461 455L461 399L573 399L573 338L461 338L461 282L293 282L293 226L125 226L125 170L4 170L4 231L60 231L60 287L116 287L116 343L172 343L172 394L116 394L116 450L60 450L60 506L4 506L4 567ZM179 451L179 398L235 398L235 342L455 342L455 395L287 395L287 451L179 451Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10526,6 +11695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➣": {
     char: "➣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M4 567L125 567L125 511L293 511L293 455L461 455L461 399L573 399L573 338L461 338L461 282L293 282L293 226L125 226L125 170L4 170L4 231L60 231L60 287L116 287L116 343L172 343L172 394L116 394L116 450L60 450L60 506L4 506L4 567ZM235 395L235 339L179 339L179 286L287 286L287 342L455 342L455 395L235 395Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10535,6 +11705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➤": {
     char: "➤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M4 623L125 623L125 567L237 567L237 511L349 511L349 455L461 455L461 399L573 399L573 338L461 338L461 282L349 282L349 226L237 226L237 170L125 170L125 114L4 114L4 231L60 231L60 343L116 343L116 394L60 394L60 506L4 506L4 623Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10544,6 +11715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➥": {
     char: "➥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M340 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L340 114L340 226L60 226L60 282L4 282L4 511L69 511L69 455L340 455L340 567Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10553,6 +11725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➦": {
     char: "➦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M340 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L340 114L340 226L69 226L69 170L4 170L4 399L60 399L60 455L340 455L340 567Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10562,6 +11735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➧": {
     char: "➧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M228 735L293 735L293 623L349 623L349 511L405 511L405 399L461 399L461 282L405 282L405 170L349 170L349 58L293 58L293 -54L228 -54L228 114L116 114L116 567L228 567L228 735Z",
     xmin: 116.0,
     ymin: -54.0,
@@ -10571,6 +11745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➨": {
     char: "➨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M284 623L349 623L349 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L349 114L349 58L284 58L284 226L4 226L4 455L284 455L284 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10580,6 +11755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➩": {
     char: "➩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M228 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L228 114L228 226L4 226L4 455L228 455L228 567ZM291 507L291 395L67 395L67 286L291 286L291 174L343 174L343 230L399 230L399 286L455 286L455 395L399 395L399 451L343 451L343 507L291 507Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10589,6 +11765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➪": {
     char: "➪",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M228 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L228 114L228 226L4 226L4 455L228 455L228 567ZM347 507L347 395L123 395L123 286L347 286L347 174L399 174L399 230L455 230L455 286L511 286L511 395L455 395L455 451L399 451L399 507L347 507Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10598,6 +11775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➫": {
     char: "➫",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M396 511L461 511L461 455L517 455L517 399L573 399L573 226L461 226L461 170L349 170L349 114L228 114L228 170L4 170L4 343L60 343L60 399L116 399L116 455L396 455L396 511ZM403 451L403 395L123 395L123 339L67 339L67 286L291 286L291 230L343 230L343 286L455 286L455 342L511 342L511 395L455 395L455 451L403 451Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10607,6 +11785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➬": {
     char: "➬",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M228 511L349 511L349 455L461 455L461 399L573 399L573 226L517 226L517 170L461 170L461 114L396 114L396 170L116 170L116 226L60 226L60 282L4 282L4 455L228 455L228 511ZM291 395L291 339L67 339L67 286L123 286L123 230L403 230L403 174L455 174L455 230L511 230L511 283L455 283L455 339L343 339L343 395L291 395Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10616,6 +11795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➭": {
     char: "➭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M228 623L349 623L349 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 226L517 226L517 170L461 170L461 114L405 114L405 58L284 58L284 114L60 114L60 170L4 170L4 511L228 511L228 623ZM291 563L291 451L67 451L67 230L291 230L291 174L343 174L343 230L399 230L399 286L455 286L455 342L511 342L511 395L455 395L455 451L399 451L399 507L343 507L343 563L291 563Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10625,6 +11805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➮": {
     char: "➮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M284 623L405 623L405 567L461 567L461 511L517 511L517 455L573 455L573 282L517 282L517 226L461 226L461 170L405 170L405 114L349 114L349 58L228 58L228 170L4 170L4 511L60 511L60 567L284 567L284 623ZM291 507L291 451L67 451L67 230L291 230L291 118L343 118L343 174L399 174L399 230L455 230L455 286L511 286L511 339L455 339L455 395L399 395L399 451L343 451L343 507L291 507Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10634,6 +11815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➯": {
     char: "➯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M340 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 226L517 226L517 170L461 170L461 114L340 114L340 170L60 170L60 226L4 226L4 343L60 343L60 394L4 394L4 511L340 511L340 567ZM347 507L347 451L67 451L67 398L123 398L123 339L67 339L67 286L347 286L347 230L399 230L399 286L455 286L455 342L511 342L511 395L455 395L455 451L399 451L399 507L347 507Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10643,6 +11825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➰": {
     char: "➰",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dc",
     d: "M224 793L578 793L578 681L672 681L672 793L1026 793L1026 681L1138 681L1138 560L1008 560L1008 672L690 672L690 569L802 569L802 457L914 457L914 112L802 112L802 0L448 0L448 112L336 112L336 457L448 457L448 569L560 569L560 672L242 672L242 560L112 560L112 681L224 681L224 793ZM573 562L573 450L461 450L461 119L788 119L788 450L676 450L676 562L573 562Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -10652,6 +11835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➱": {
     char: "➱",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M340 567L461 567L461 511L517 511L517 455L573 455L573 282L517 282L517 226L461 226L461 170L405 170L405 114L340 114L340 170L4 170L4 287L60 287L60 338L4 338L4 455L60 455L60 511L340 511L340 567ZM347 451L347 395L67 395L67 342L123 342L123 283L67 283L67 230L347 230L347 174L399 174L399 230L455 230L455 286L511 286L511 339L455 339L455 395L399 395L399 451L347 451Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10661,6 +11845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➲": {
     char: "➲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M116 623L461 623L461 567L517 567L517 511L573 511L573 170L517 170L517 114L461 114L461 58L116 58L116 114L60 114L60 170L4 170L4 231L293 231L293 119L340 119L340 175L396 175L396 231L452 231L452 287L508 287L508 394L452 394L452 450L396 450L396 506L340 506L340 562L293 562L293 450L4 450L4 511L60 511L60 567L116 567L116 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10670,6 +11855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➳": {
     char: "➳",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M4 511L69 511L69 455L116 455L116 511L181 511L181 455L228 455L228 511L293 511L293 455L349 455L349 399L396 399L396 511L461 511L461 455L517 455L517 399L573 399L573 338L517 338L517 282L461 282L461 226L396 226L396 338L349 338L349 282L293 282L293 226L228 226L228 282L181 282L181 226L116 226L116 282L69 282L69 226L4 226L4 287L60 287L60 343L116 343L116 394L60 394L60 450L4 450L4 511ZM123 451L123 398L175 398L175 451L123 451ZM235 451L235 398L287 398L287 451L235 451ZM123 339L123 286L175 286L175 339L123 339ZM235 339L235 286L287 286L287 339L235 339Z",
     xmin: 4.0,
     ymin: 226.0,
@@ -10679,6 +11865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➴": {
     char: "➴",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M116 623L181 623L181 567L237 567L237 511L293 511L293 343L349 343L349 287L405 287L405 231L461 231L461 175L508 175L508 287L573 287L573 58L340 58L340 119L452 119L452 170L396 170L396 226L340 226L340 282L284 282L284 338L116 338L116 394L60 394L60 450L4 450L4 511L116 511L116 623ZM123 507L123 454L175 454L175 507L123 507ZM179 451L179 398L231 398L231 451L179 451Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10688,6 +11875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➵": {
     char: "➵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M4 511L237 511L237 455L293 455L293 399L396 399L396 511L461 511L461 455L517 455L517 399L573 399L573 338L517 338L517 282L461 282L461 226L396 226L396 338L293 338L293 282L237 282L237 226L4 226L4 287L60 287L60 343L284 343L284 394L60 394L60 450L4 450L4 511Z",
     xmin: 4.0,
     ymin: 226.0,
@@ -10697,6 +11885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➶": {
     char: "➶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M340 623L573 623L573 394L508 394L508 506L461 506L461 450L405 450L405 394L349 394L349 338L293 338L293 170L237 170L237 114L181 114L181 58L116 58L116 170L4 170L4 231L60 231L60 287L116 287L116 343L284 343L284 399L340 399L340 455L396 455L396 511L452 511L452 562L340 562L340 623ZM179 283L179 230L231 230L231 283L179 283ZM123 227L123 174L175 174L175 227L123 227Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10706,6 +11895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➷": {
     char: "➷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M116 623L237 623L237 567L293 567L293 343L349 343L349 287L405 287L405 231L461 231L461 175L508 175L508 287L573 287L573 58L340 58L340 119L452 119L452 170L396 170L396 226L340 226L340 282L284 282L284 338L60 338L60 394L4 394L4 511L116 511L116 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10715,6 +11905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➸": {
     char: "➸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M4 511L237 511L237 455L293 455L293 399L396 399L396 511L461 511L461 455L517 455L517 399L573 399L573 338L517 338L517 282L461 282L461 226L396 226L396 338L293 338L293 282L237 282L237 226L4 226L4 287L60 287L60 343L116 343L116 394L60 394L60 450L4 450L4 511Z",
     xmin: 4.0,
     ymin: 226.0,
@@ -10724,6 +11915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➹": {
     char: "➹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M340 623L573 623L573 394L508 394L508 506L461 506L461 450L405 450L405 394L349 394L349 338L293 338L293 114L237 114L237 58L116 58L116 170L4 170L4 287L60 287L60 343L284 343L284 399L340 399L340 455L396 455L396 511L452 511L452 562L340 562L340 623Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10733,6 +11925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➺": {
     char: "➺",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M340 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 338L517 338L517 282L461 282L461 226L405 226L405 170L340 170L340 287L452 287L452 343L508 343L508 394L452 394L452 450L340 450L340 567ZM60 455L237 455L237 399L405 399L405 338L237 338L237 282L60 282L60 338L4 338L4 399L60 399L60 455Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10742,6 +11935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➻": {
     char: "➻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M396 567L461 567L461 455L517 455L517 399L573 399L573 338L517 338L517 282L461 282L461 170L396 170L396 226L340 226L340 338L293 338L293 282L181 282L181 226L60 226L60 282L4 282L4 455L60 455L60 511L181 511L181 455L293 455L293 399L340 399L340 511L396 511L396 567ZM347 395L347 342L399 342L399 395L347 395Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10751,6 +11945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➼": {
     char: "➼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M4 511L181 511L181 455L237 455L237 399L396 399L396 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L396 170L396 282L237 282L237 226L181 226L181 170L4 170L4 287L60 287L60 394L4 394L4 511Z",
     xmin: 4.0,
     ymin: 170.0,
@@ -10760,6 +11955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➽": {
     char: "➽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M4 567L237 567L237 511L293 511L293 399L396 399L396 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L396 170L396 282L293 282L293 170L237 170L237 114L4 114L4 287L60 287L60 394L4 394L4 567Z",
     xmin: 4.0,
     ymin: 114.0,
@@ -10769,6 +11965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➾": {
     char: "➾",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M284 623L349 623L349 567L405 567L405 511L461 511L461 455L517 455L517 399L573 399L573 282L517 282L517 226L461 226L461 170L405 170L405 114L349 114L349 58L284 58L284 119L340 119L340 175L396 175L396 231L452 231L452 287L508 287L508 394L452 394L452 450L396 450L396 506L340 506L340 562L284 562L284 623ZM172 567L237 567L237 511L293 511L293 455L349 455L349 394L4 394L4 455L228 455L228 506L172 506L172 567ZM4 287L349 287L349 226L293 226L293 170L237 170L237 114L172 114L172 175L228 175L228 226L4 226L4 287Z",
     xmin: 4.0,
     ymin: 58.0,
@@ -10778,6 +11975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "➿": {
     char: "➿",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dcc",
     d: "M0 793L242 793L242 681L336 681L336 793L914 793L914 681L1008 681L1008 793L1250 793L1250 672L1026 672L1026 569L1138 569L1138 457L1250 457L1250 112L1138 112L1138 0L784 0L784 112L672 112L672 457L784 457L784 569L896 569L896 672L354 672L354 569L466 569L466 457L578 457L578 112L466 112L466 0L112 0L112 112L0 112L0 457L112 457L112 569L224 569L224 672L0 672L0 793ZM237 562L237 450L125 450L125 119L452 119L452 450L340 450L340 562L237 562ZM909 562L909 450L797 450L797 119L1124 119L1124 450L1012 450L1012 562L909 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10787,6 +11985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⟲": {
     char: "⟲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L466 681L466 569L578 569L578 224L448 224L448 560L130 560L130 345L224 345L224 457L354 457L354 112L0 112L0 233L112 233L112 336L0 336L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -10796,6 +11995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⟳": {
     char: "⟳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L466 681L466 569L578 569L578 336L466 336L466 233L578 233L578 112L224 112L224 457L354 457L354 345L448 345L448 560L130 560L130 224L0 224L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -10805,6 +12005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⟵": {
     char: "⟵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 448L242 448L242 345L578 345L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10814,6 +12015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⟶": {
     char: "⟶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 345L336 345L336 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -10823,6 +12025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠁": {
     char: "⠁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L242 681L242 560L112 560L112 681Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -10832,6 +12035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠂": {
     char: "⠂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 457L242 457L242 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10841,6 +12045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠃": {
     char: "⠃",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10850,6 +12055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠄": {
     char: "⠄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10859,6 +12065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠅": {
     char: "⠅",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10868,6 +12075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠆": {
     char: "⠆",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10877,6 +12085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠇": {
     char: "⠇",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10886,6 +12095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠈": {
     char: "⠈",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L466 681L466 560L336 560L336 681Z",
     xmin: 336.0,
     ymin: 560.0,
@@ -10895,6 +12105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠉": {
     char: "⠉",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681Z",
     xmin: 112.0,
     ymin: 560.0,
@@ -10904,6 +12115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠊": {
     char: "⠊",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10913,6 +12125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠋": {
     char: "⠋",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10922,6 +12135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠌": {
     char: "⠌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10931,6 +12145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠍": {
     char: "⠍",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10940,6 +12155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠎": {
     char: "⠎",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10949,6 +12165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠏": {
     char: "⠏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -10958,6 +12175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠐": {
     char: "⠐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 457L466 457L466 336L336 336L336 457Z",
     xmin: 336.0,
     ymin: 336.0,
@@ -10967,6 +12185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠑": {
     char: "⠑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10976,6 +12195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠒": {
     char: "⠒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10985,6 +12205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠓": {
     char: "⠓",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -10994,6 +12215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠔": {
     char: "⠔",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11003,6 +12225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠕": {
     char: "⠕",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11012,6 +12235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠖": {
     char: "⠖",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11021,6 +12245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠗": {
     char: "⠗",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11030,6 +12255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠘": {
     char: "⠘",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 336.0,
     ymin: 336.0,
@@ -11039,6 +12265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠙": {
     char: "⠙",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -11048,6 +12275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠚": {
     char: "⠚",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -11057,6 +12285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠛": {
     char: "⠛",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -11066,6 +12295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠜": {
     char: "⠜",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11075,6 +12305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠝": {
     char: "⠝",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11084,6 +12315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠞": {
     char: "⠞",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11093,6 +12325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠟": {
     char: "⠟",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11102,6 +12335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠠": {
     char: "⠠",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 233L466 233L466 112L336 112L336 233Z",
     xmin: 336.0,
     ymin: 112.0,
@@ -11111,6 +12345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠡": {
     char: "⠡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11120,6 +12355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠢": {
     char: "⠢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11129,6 +12365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠣": {
     char: "⠣",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11138,6 +12375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠤": {
     char: "⠤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11147,6 +12385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠥": {
     char: "⠥",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11156,6 +12395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠦": {
     char: "⠦",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11165,6 +12405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠧": {
     char: "⠧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11174,6 +12415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠨": {
     char: "⠨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 336.0,
     ymin: 112.0,
@@ -11183,6 +12425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠩": {
     char: "⠩",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11192,6 +12435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠪": {
     char: "⠪",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11201,6 +12445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠫": {
     char: "⠫",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11210,6 +12455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠬": {
     char: "⠬",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11219,6 +12465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠭": {
     char: "⠭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11228,6 +12475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠮": {
     char: "⠮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11237,6 +12485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠯": {
     char: "⠯",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11246,6 +12495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠰": {
     char: "⠰",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 336.0,
     ymin: 112.0,
@@ -11255,6 +12505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠱": {
     char: "⠱",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11264,6 +12515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠲": {
     char: "⠲",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11273,6 +12525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠳": {
     char: "⠳",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11282,6 +12535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠴": {
     char: "⠴",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11291,6 +12545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠵": {
     char: "⠵",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11300,6 +12555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠶": {
     char: "⠶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11309,6 +12565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠷": {
     char: "⠷",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11318,6 +12575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠸": {
     char: "⠸",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 336.0,
     ymin: 112.0,
@@ -11327,6 +12585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠹": {
     char: "⠹",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11336,6 +12595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠺": {
     char: "⠺",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11345,6 +12605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠻": {
     char: "⠻",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11354,6 +12615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠼": {
     char: "⠼",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11363,6 +12625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠽": {
     char: "⠽",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11372,6 +12635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠾": {
     char: "⠾",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11381,6 +12645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⠿": {
     char: "⠿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -11390,6 +12655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡀": {
     char: "⡀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11399,6 +12665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡁": {
     char: "⡁",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11408,6 +12675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡂": {
     char: "⡂",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11417,6 +12685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡃": {
     char: "⡃",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11426,6 +12695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡄": {
     char: "⡄",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11435,6 +12705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡅": {
     char: "⡅",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11444,6 +12715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡆": {
     char: "⡆",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11453,6 +12725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡇": {
     char: "⡇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11462,6 +12735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡈": {
     char: "⡈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11471,6 +12745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡉": {
     char: "⡉",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11480,6 +12755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡊": {
     char: "⡊",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11489,6 +12765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡋": {
     char: "⡋",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11498,6 +12775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡌": {
     char: "⡌",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11507,6 +12785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡍": {
     char: "⡍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11516,6 +12795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡎": {
     char: "⡎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11525,6 +12805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡏": {
     char: "⡏",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11534,6 +12815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡐": {
     char: "⡐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11543,6 +12825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡑": {
     char: "⡑",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11552,6 +12835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡒": {
     char: "⡒",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11561,6 +12845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡓": {
     char: "⡓",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11570,6 +12855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡔": {
     char: "⡔",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11579,6 +12865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡕": {
     char: "⡕",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11588,6 +12875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡖": {
     char: "⡖",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11597,6 +12885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡗": {
     char: "⡗",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11606,6 +12895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡘": {
     char: "⡘",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11615,6 +12905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡙": {
     char: "⡙",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11624,6 +12915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡚": {
     char: "⡚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11633,6 +12925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡛": {
     char: "⡛",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11642,6 +12935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡜": {
     char: "⡜",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11651,6 +12945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡝": {
     char: "⡝",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11660,6 +12955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡞": {
     char: "⡞",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11669,6 +12965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡟": {
     char: "⡟",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11678,6 +12975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡠": {
     char: "⡠",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11687,6 +12985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡡": {
     char: "⡡",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11696,6 +12995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡢": {
     char: "⡢",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11705,6 +13005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡣": {
     char: "⡣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11714,6 +13015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡤": {
     char: "⡤",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11723,6 +13025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡥": {
     char: "⡥",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11732,6 +13035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡦": {
     char: "⡦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11741,6 +13045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡧": {
     char: "⡧",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11750,6 +13055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡨": {
     char: "⡨",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11759,6 +13065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡩": {
     char: "⡩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11768,6 +13075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡪": {
     char: "⡪",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11777,6 +13085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡫": {
     char: "⡫",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11786,6 +13095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡬": {
     char: "⡬",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11795,6 +13105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡭": {
     char: "⡭",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11804,6 +13115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡮": {
     char: "⡮",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11813,6 +13125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡯": {
     char: "⡯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11822,6 +13135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡰": {
     char: "⡰",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11831,6 +13145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡱": {
     char: "⡱",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11840,6 +13155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡲": {
     char: "⡲",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11849,6 +13165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡳": {
     char: "⡳",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11858,6 +13175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡴": {
     char: "⡴",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11867,6 +13185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡵": {
     char: "⡵",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11876,6 +13195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡶": {
     char: "⡶",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11885,6 +13205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡷": {
     char: "⡷",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11894,6 +13215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡸": {
     char: "⡸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11903,6 +13225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡹": {
     char: "⡹",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11912,6 +13235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡺": {
     char: "⡺",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11921,6 +13245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡻": {
     char: "⡻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11930,6 +13255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡼": {
     char: "⡼",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11939,6 +13265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡽": {
     char: "⡽",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11948,6 +13275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡾": {
     char: "⡾",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11957,6 +13285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⡿": {
     char: "⡿",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11966,6 +13295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢀": {
     char: "⢀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -11975,6 +13305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢁": {
     char: "⢁",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11984,6 +13315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢂": {
     char: "⢂",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -11993,6 +13325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢃": {
     char: "⢃",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12002,6 +13335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢄": {
     char: "⢄",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12011,6 +13345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢅": {
     char: "⢅",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12020,6 +13355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢆": {
     char: "⢆",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12029,6 +13365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢇": {
     char: "⢇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12038,6 +13375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢈": {
     char: "⢈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12047,6 +13385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢉": {
     char: "⢉",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12056,6 +13395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢊": {
     char: "⢊",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12065,6 +13405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢋": {
     char: "⢋",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12074,6 +13415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢌": {
     char: "⢌",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12083,6 +13425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢍": {
     char: "⢍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12092,6 +13435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢎": {
     char: "⢎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12101,6 +13445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢏": {
     char: "⢏",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12110,6 +13455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢐": {
     char: "⢐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12119,6 +13465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢑": {
     char: "⢑",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12128,6 +13475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢒": {
     char: "⢒",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12137,6 +13485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢓": {
     char: "⢓",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12146,6 +13495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢔": {
     char: "⢔",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12155,6 +13505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢕": {
     char: "⢕",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12164,6 +13515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢖": {
     char: "⢖",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12173,6 +13525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢗": {
     char: "⢗",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12182,6 +13535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢘": {
     char: "⢘",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12191,6 +13545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢙": {
     char: "⢙",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12200,6 +13555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢚": {
     char: "⢚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12209,6 +13565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢛": {
     char: "⢛",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12218,6 +13575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢜": {
     char: "⢜",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12227,6 +13585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢝": {
     char: "⢝",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12236,6 +13595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢞": {
     char: "⢞",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12245,6 +13605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢟": {
     char: "⢟",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12254,6 +13615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢠": {
     char: "⢠",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12263,6 +13625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢡": {
     char: "⢡",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12272,6 +13635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢢": {
     char: "⢢",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12281,6 +13645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢣": {
     char: "⢣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12290,6 +13655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢤": {
     char: "⢤",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12299,6 +13665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢥": {
     char: "⢥",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12308,6 +13675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢦": {
     char: "⢦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12317,6 +13685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢧": {
     char: "⢧",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12326,6 +13695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢨": {
     char: "⢨",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12335,6 +13705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢩": {
     char: "⢩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12344,6 +13715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢪": {
     char: "⢪",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12353,6 +13725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢫": {
     char: "⢫",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12362,6 +13735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢬": {
     char: "⢬",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12371,6 +13745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢭": {
     char: "⢭",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12380,6 +13755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢮": {
     char: "⢮",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12389,6 +13765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢯": {
     char: "⢯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12398,6 +13775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢰": {
     char: "⢰",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12407,6 +13785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢱": {
     char: "⢱",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12416,6 +13795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢲": {
     char: "⢲",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12425,6 +13805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢳": {
     char: "⢳",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12434,6 +13815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢴": {
     char: "⢴",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12443,6 +13825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢵": {
     char: "⢵",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12452,6 +13835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢶": {
     char: "⢶",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12461,6 +13845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢷": {
     char: "⢷",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12470,6 +13855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢸": {
     char: "⢸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -12479,6 +13865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢹": {
     char: "⢹",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12488,6 +13875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢺": {
     char: "⢺",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12497,6 +13885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢻": {
     char: "⢻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12506,6 +13895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢼": {
     char: "⢼",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12515,6 +13905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢽": {
     char: "⢽",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12524,6 +13915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢾": {
     char: "⢾",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12533,6 +13925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⢿": {
     char: "⢿",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12542,6 +13935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣀": {
     char: "⣀",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12551,6 +13945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣁": {
     char: "⣁",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12560,6 +13955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣂": {
     char: "⣂",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12569,6 +13965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣃": {
     char: "⣃",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12578,6 +13975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣄": {
     char: "⣄",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12587,6 +13985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣅": {
     char: "⣅",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12596,6 +13995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣆": {
     char: "⣆",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12605,6 +14005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣇": {
     char: "⣇",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12614,6 +14015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣈": {
     char: "⣈",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12623,6 +14025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣉": {
     char: "⣉",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12632,6 +14035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣊": {
     char: "⣊",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12641,6 +14045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣋": {
     char: "⣋",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12650,6 +14055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣌": {
     char: "⣌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12659,6 +14065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣍": {
     char: "⣍",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12668,6 +14075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣎": {
     char: "⣎",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12677,6 +14085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣏": {
     char: "⣏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12686,6 +14095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣐": {
     char: "⣐",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12695,6 +14105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣑": {
     char: "⣑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12704,6 +14115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣒": {
     char: "⣒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12713,6 +14125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣓": {
     char: "⣓",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12722,6 +14135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣔": {
     char: "⣔",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12731,6 +14145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣕": {
     char: "⣕",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12740,6 +14155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣖": {
     char: "⣖",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12749,6 +14165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣗": {
     char: "⣗",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12758,6 +14175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣘": {
     char: "⣘",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12767,6 +14185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣙": {
     char: "⣙",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12776,6 +14195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣚": {
     char: "⣚",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12785,6 +14205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣛": {
     char: "⣛",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12794,6 +14215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣜": {
     char: "⣜",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12803,6 +14225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣝": {
     char: "⣝",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12812,6 +14235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣞": {
     char: "⣞",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12821,6 +14245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣟": {
     char: "⣟",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12830,6 +14255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣠": {
     char: "⣠",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12839,6 +14265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣡": {
     char: "⣡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12848,6 +14275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣢": {
     char: "⣢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12857,6 +14285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣣": {
     char: "⣣",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12866,6 +14295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣤": {
     char: "⣤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12875,6 +14305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣥": {
     char: "⣥",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12884,6 +14315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣦": {
     char: "⣦",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12893,6 +14325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣧": {
     char: "⣧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12902,6 +14335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣨": {
     char: "⣨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12911,6 +14345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣩": {
     char: "⣩",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12920,6 +14355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣪": {
     char: "⣪",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12929,6 +14365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣫": {
     char: "⣫",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12938,6 +14375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣬": {
     char: "⣬",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12947,6 +14385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣭": {
     char: "⣭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12956,6 +14395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣮": {
     char: "⣮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12965,6 +14405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣯": {
     char: "⣯",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12974,6 +14415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣰": {
     char: "⣰",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12983,6 +14425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣱": {
     char: "⣱",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -12992,6 +14435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣲": {
     char: "⣲",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13001,6 +14445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣳": {
     char: "⣳",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13010,6 +14455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣴": {
     char: "⣴",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13019,6 +14465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣵": {
     char: "⣵",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13028,6 +14475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣶": {
     char: "⣶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13037,6 +14485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣷": {
     char: "⣷",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13046,6 +14495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣸": {
     char: "⣸",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13055,6 +14505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣹": {
     char: "⣹",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13064,6 +14515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣺": {
     char: "⣺",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13073,6 +14525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣻": {
     char: "⣻",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13082,6 +14535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣼": {
     char: "⣼",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13091,6 +14545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣽": {
     char: "⣽",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13100,6 +14555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣾": {
     char: "⣾",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddddddd",
     d: "M336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13109,6 +14565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⣿": {
     char: "⣿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddddd",
     d: "M112 681L242 681L242 560L112 560L112 681ZM336 681L466 681L466 560L336 560L336 681ZM112 457L242 457L242 336L112 336L112 457ZM336 457L466 457L466 336L336 336L336 457ZM112 233L242 233L242 112L112 112L112 233ZM336 233L466 233L466 112L336 112L336 233ZM112 9L242 9L242 -112L112 -112L112 9ZM336 9L466 9L466 -112L336 -112L336 9Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13118,6 +14575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤌": {
     char: "⤌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 448L242 448L242 345L354 345L354 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM448 345L578 345L578 224L448 224L448 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13127,6 +14585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤍": {
     char: "⤍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L224 224L224 345L336 345L336 448L224 448L224 569ZM0 345L130 345L130 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13136,6 +14595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤎": {
     char: "⤎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 448L242 448L242 345L354 345L354 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM448 345L578 345L578 224L448 224L448 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13145,6 +14605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤏": {
     char: "⤏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L224 224L224 345L336 345L336 448L224 448L224 569ZM0 345L130 345L130 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13154,6 +14615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤙": {
     char: "⤙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L336 112L336 224L0 224L0 345L336 345L336 457L448 457L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13163,6 +14625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤚": {
     char: "⤚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L578 345L578 224L242 224L242 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13172,6 +14635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤛": {
     char: "⤛",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M224 569L354 569L354 457L448 457L448 569L578 569L578 448L466 448L466 336L354 336L354 233L466 233L466 121L578 121L578 0L448 0L448 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 343L340 343L340 450L237 450ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13181,6 +14645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤜": {
     char: "⤜",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M0 569L130 569L130 457L224 457L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 336L112 336L112 448L0 448L0 569ZM237 450L237 343L340 343L340 450L237 450ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13190,6 +14655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤡": {
     char: "⤡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 448L242 448L242 345L354 345L354 233L448 233L448 345L578 345L578 0L224 0L224 121L336 121L336 224L224 224L224 336L130 336L130 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13199,6 +14665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤢": {
     char: "⤢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L578 569L578 224L448 224L448 336L354 336L354 224L242 224L242 121L354 121L354 0L0 0L0 345L130 345L130 233L224 233L224 345L336 345L336 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13208,6 +14675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤣": {
     char: "⤣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 448L242 448L242 345L354 345L354 233L466 233L466 0L224 0L224 121L336 121L336 224L224 224L224 336L130 336L130 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13217,6 +14685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤤": {
     char: "⤤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L578 569L578 224L448 224L448 336L354 336L354 224L242 224L242 121L354 121L354 0L112 0L112 233L224 233L224 345L336 345L336 448L224 448L224 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -13226,6 +14695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤥": {
     char: "⤥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 448L242 448L242 345L354 345L354 233L448 233L448 345L578 345L578 0L224 0L224 121L336 121L336 224L224 224L224 336L112 336L112 569Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -13235,6 +14705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤦": {
     char: "⤦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L466 569L466 336L354 336L354 224L242 224L242 121L354 121L354 0L0 0L0 345L130 345L130 233L224 233L224 345L336 345L336 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13244,6 +14715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤴": {
     char: "⤴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L448 224L448 336L354 336L354 112L242 112L242 0L0 0L0 121L224 121L224 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13253,6 +14725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤵": {
     char: "⤵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L242 569L242 457L354 457L354 233L448 233L448 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L130 345L130 233L224 233L224 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13262,6 +14735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤶": {
     char: "⤶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 448L242 448L242 345L448 345L448 569L578 569L578 336L466 336L466 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13271,6 +14745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤷": {
     char: "⤷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 345L336 345L336 448L224 448L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L112 224L112 336L0 336L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13280,6 +14755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤸": {
     char: "⤸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L354 681L354 569L466 569L466 336L354 336L354 224L242 224L242 121L354 121L354 0L0 0L0 345L130 345L130 233L224 233L224 345L336 345L336 560L112 560L112 681Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13289,6 +14765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤹": {
     char: "⤹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L466 681L466 560L242 560L242 345L354 345L354 233L448 233L448 345L578 345L578 0L224 0L224 121L336 121L336 224L224 224L224 336L112 336L112 569L224 569L224 681Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -13298,6 +14775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤺": {
     char: "⤺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 233L224 233L224 345L466 345L466 233L578 233L578 112L448 112L448 224L242 224L242 121L354 121L354 0L0 0L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13307,6 +14785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤻": {
     char: "⤻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L578 569L578 224L448 224L448 336L354 336L354 224L112 224L112 336L0 336L0 457L130 457L130 345L336 345L336 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13316,6 +14795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤾": {
     char: "⤾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L466 569L466 457L578 457L578 112L466 112L466 0L224 0L224 112L130 112L130 0L0 0L0 345L354 345L354 224L242 224L242 121L448 121L448 448L224 448L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13325,6 +14805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⤿": {
     char: "⤿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L354 569L354 448L130 448L130 121L336 121L336 224L224 224L224 345L578 345L578 0L448 0L448 112L354 112L354 0L112 0L112 112L0 112L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13334,6 +14815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥢": {
     char: "⥢",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 672L242 672L242 569L578 569L578 448L0 448L0 569L112 569L112 681L224 681L224 793ZM0 345L578 345L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13343,6 +14825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥣": {
     char: "⥣",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 0L112 0L112 560L0 560L0 681L112 681L112 793ZM336 793L466 793L466 681L578 681L578 560L466 560L466 0L336 0L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13352,6 +14835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥤": {
     char: "⥤",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L0 448L0 569L336 569L336 672L224 672L224 793ZM0 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13361,6 +14845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥥": {
     char: "⥥",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 0L112 0L112 112L0 112L0 233L112 233L112 793ZM336 793L466 793L466 233L578 233L578 112L466 112L466 0L336 0L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13370,6 +14855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥦": {
     char: "⥦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 672L242 672L242 569L578 569L578 448L0 448L0 569L112 569L112 681L224 681L224 793ZM224 345L354 345L354 233L466 233L466 121L578 121L578 0L0 0L0 121L336 121L336 224L224 224L224 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13379,6 +14865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥧": {
     char: "⥧",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L242 672L242 569L354 569L354 448L224 448L224 560L112 560L112 672L0 672L0 793ZM0 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13388,6 +14875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥨": {
     char: "⥨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L0 448L0 569L336 569L336 672L224 672L224 793ZM224 345L354 345L354 224L242 224L242 121L578 121L578 0L0 0L0 121L112 121L112 233L224 233L224 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13397,6 +14885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥩": {
     char: "⥩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L578 793L578 672L466 672L466 560L354 560L354 448L224 448L224 569L336 569L336 672L0 672L0 793ZM0 345L578 345L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13406,6 +14895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥪": {
     char: "⥪",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 672L242 672L242 569L578 569L578 448L0 448L0 569L112 569L112 681L224 681L224 793ZM0 345L578 345L578 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13415,6 +14905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥫": {
     char: "⥫",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 345L578 345L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345ZM0 569L578 569L578 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13424,6 +14915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥬": {
     char: "⥬",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L0 448L0 569L336 569L336 672L224 672L224 793ZM0 345L578 345L578 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13433,6 +14925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥭": {
     char: "⥭",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 345ZM0 569L578 569L578 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13442,6 +14935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥮": {
     char: "⥮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 0L112 0L112 560L0 560L0 681L112 681L112 793ZM336 793L466 793L466 233L578 233L578 112L466 112L466 0L336 0L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13451,6 +14945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥯": {
     char: "⥯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L242 793L242 0L112 0L112 112L0 112L0 233L112 233L112 793ZM336 793L466 793L466 681L578 681L578 560L466 560L466 0L336 0L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13460,6 +14955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⥰": {
     char: "⥰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L466 569L466 457L578 457L578 336L466 336L466 224L0 224L0 345L448 345L448 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13469,6 +14965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬀": {
     char: "⬀",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M112 793L578 793L578 336L448 336L448 448L354 448L354 336L242 336L242 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 672L112 672L112 793ZM349 674L349 567L452 567L452 674L349 674ZM237 562L237 455L340 455L340 562L237 562ZM125 450L125 343L228 343L228 450L125 450Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13478,6 +14975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬁": {
     char: "⬁",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M0 793L466 793L466 672L354 672L354 569L466 569L466 457L578 457L578 336L466 336L466 224L336 224L336 336L224 336L224 448L130 448L130 336L0 336L0 793ZM125 674L125 567L228 567L228 674L125 674ZM237 562L237 455L340 455L340 562L237 562ZM349 450L349 343L452 343L452 450L349 450Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13487,6 +14985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬂": {
     char: "⬂",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M112 569L242 569L242 457L354 457L354 345L448 345L448 457L578 457L578 0L112 0L112 121L224 121L224 224L112 224L112 336L0 336L0 457L112 457L112 569ZM125 450L125 343L228 343L228 450L125 450ZM237 338L237 231L340 231L340 338L237 338ZM349 226L349 119L452 119L452 226L349 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13496,6 +14995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬃": {
     char: "⬃",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M336 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 121L466 121L466 0L0 0L0 457L130 457L130 345L224 345L224 457L336 457L336 569ZM349 450L349 343L452 343L452 450L349 450ZM237 338L237 231L340 231L340 338L237 338ZM125 226L125 119L228 119L228 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13505,6 +15005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬅": {
     char: "⬅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L578 569L578 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -13514,6 +15015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬆": {
     char: "⬆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L466 448L466 0L112 0L112 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13523,6 +15025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬇": {
     char: "⬇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13532,6 +15035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬈": {
     char: "⬈",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L578 793L578 336L448 336L448 448L354 448L354 336L242 336L242 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13541,6 +15045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬉": {
     char: "⬉",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L466 793L466 672L354 672L354 569L466 569L466 457L578 457L578 336L466 336L466 224L336 224L336 336L224 336L224 448L130 448L130 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13550,6 +15055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬊": {
     char: "⬊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L242 569L242 457L354 457L354 345L448 345L448 457L578 457L578 0L112 0L112 121L224 121L224 224L112 224L112 336L0 336L0 457L112 457L112 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13559,6 +15065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬋": {
     char: "⬋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 121L466 121L466 0L0 0L0 457L130 457L130 345L224 345L224 457L336 457L336 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13568,6 +15075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬎": {
     char: "⬎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L354 569L354 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L224 345L224 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13577,6 +15085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬏": {
     char: "⬏",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L354 224L354 0L0 0L0 121L224 121L224 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13586,6 +15095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬐": {
     char: "⬐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L578 569L578 448L354 448L354 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L224 345L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13595,6 +15105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬑": {
     char: "⬑",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L354 224L354 121L578 121L578 0L224 0L224 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13604,6 +15115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬒": {
     char: "⬒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13613,6 +15125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬓": {
     char: "⬓",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 231L452 231L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13622,6 +15135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬔": {
     char: "⬔",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 119L452 119L452 226L340 226L340 338L228 338L228 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13631,6 +15145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬕": {
     char: "⬕",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 569L578 569L578 0L0 0L0 569ZM125 450L125 343L237 343L237 231L349 231L349 119L452 119L452 450L125 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13640,6 +15155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬖": {
     char: "⬖",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 119L340 119L340 231L452 231L452 338L340 338L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13649,6 +15165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬗": {
     char: "⬗",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 338L125 338L125 231L237 231L237 119L340 119L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13658,6 +15175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬘": {
     char: "⬘",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM125 338L125 231L237 231L237 119L340 119L340 231L452 231L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13667,6 +15185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬙": {
     char: "⬙",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 338L125 338L125 231L452 231L452 338L340 338L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13676,6 +15195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬚": {
     char: "⬚",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddddd",
     d: "M0 569L130 569L130 448L0 448L0 569ZM224 569L354 569L354 448L224 448L224 569ZM448 569L578 569L578 448L448 448L448 569ZM0 345L130 345L130 224L0 224L0 345ZM448 345L578 345L578 224L448 224L448 345ZM0 121L130 121L130 0L0 0L0 121ZM224 121L354 121L354 0L224 0L224 121ZM448 121L578 121L578 0L448 0L448 121Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13685,6 +15205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬛": {
     char: "⬛",
     horiz_adv_x: 1344.0,
+    gerber_lp: "d",
     d: "M112 1017L1250 1017L1250 -112L112 -112L112 1017Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13694,6 +15215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬜": {
     char: "⬜",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dc",
     d: "M112 1017L1250 1017L1250 -112L112 -112L112 1017ZM237 898L237 7L1124 7L1124 898L237 898Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13703,6 +15225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬝": {
     char: "⬝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 569L466 569L466 224L112 224L112 569Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -13712,6 +15235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬞": {
     char: "⬞",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 569L466 569L466 224L112 224L112 569ZM237 450L237 343L340 343L340 450L237 450Z",
     xmin: 112.0,
     ymin: 224.0,
@@ -13721,6 +15245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬥": {
     char: "⬥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13730,6 +15255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬦": {
     char: "⬦",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569ZM237 450L237 338L125 338L125 231L237 231L237 119L340 119L340 231L452 231L452 338L340 338L340 450L237 450Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13739,6 +15265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬧": {
     char: "⬧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 457L578 457L578 336L466 336L466 112L354 112L354 0L224 0L224 112L112 112L112 336L0 336L0 457L112 457L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13748,6 +15275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⬨": {
     char: "⬨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L354 793L354 681L466 681L466 457L578 457L578 336L466 336L466 112L354 112L354 0L224 0L224 112L112 112L112 336L0 336L0 457L112 457L112 681L224 681L224 793ZM237 674L237 450L125 450L125 343L237 343L237 119L340 119L340 343L452 343L452 450L340 450L340 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13757,6 +15285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭕": {
     char: "⭕",
     horiz_adv_x: 1344.0,
+    gerber_lp: "dc",
     d: "M336 905L914 905L914 793L1026 793L1026 681L1138 681L1138 112L1026 112L1026 0L914 0L914 -112L336 -112L336 0L224 0L224 112L112 112L112 681L224 681L224 793L336 793L336 905ZM461 674L461 562L349 562L349 231L461 231L461 119L788 119L788 231L900 231L900 562L788 562L788 674L461 674Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -13766,6 +15295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭠": {
     char: "⭠",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 457L578 457L578 336L354 336L354 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -13775,6 +15305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭡": {
     char: "⭡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L354 448L354 0L224 0L224 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13784,6 +15315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭢": {
     char: "⭢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 336L0 336L0 457L224 457L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -13793,6 +15325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭣": {
     char: "⭣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L224 345L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13802,6 +15335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭥": {
     char: "⭥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L354 448L354 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L224 345L224 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13811,6 +15345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭦": {
     char: "⭦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L354 793L354 672L242 672L242 569L354 569L354 457L466 457L466 345L578 345L578 224L448 224L448 336L336 336L336 448L224 448L224 560L130 560L130 448L0 448L0 793Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13820,6 +15355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭧": {
     char: "⭧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 448L448 448L448 560L354 560L354 448L242 448L242 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 569L336 569L336 672L224 672L224 793Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -13829,6 +15365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭨": {
     char: "⭨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 457L242 457L242 345L354 345L354 233L448 233L448 345L578 345L578 0L224 0L224 121L336 121L336 224L224 224L224 336L112 336L112 448L0 448L0 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13838,6 +15375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭩": {
     char: "⭩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 448L466 448L466 336L354 336L354 224L242 224L242 121L354 121L354 0L0 0L0 345L130 345L130 233L224 233L224 345L336 345L336 457L448 457L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13847,6 +15385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭮": {
     char: "⭮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L354 681L354 336L224 336L224 448L130 448L130 233L448 233L448 569L578 569L578 224L466 224L466 112L112 112L112 224L0 224L0 457L112 457L112 560L0 560L0 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -13856,6 +15395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⭯": {
     char: "⭯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L578 681L578 560L466 560L466 457L578 457L578 224L466 224L466 112L112 112L112 224L0 224L0 569L130 569L130 233L448 233L448 448L354 448L354 336L224 336L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -13865,6 +15405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮌": {
     char: "⮌",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 569L466 569L466 457L578 457L578 112L466 112L466 0L0 0L0 121L448 121L448 448L354 448L354 224L224 224L224 336L112 336L112 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13874,6 +15415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮍": {
     char: "⮍",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L354 448L354 112L242 112L242 0L112 0L112 112L0 112L0 345L130 345L130 121L224 121L224 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13883,6 +15425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮎": {
     char: "⮎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L578 793L578 672L130 672L130 345L224 345L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 224L112 224L112 336L0 336L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13892,6 +15435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮏": {
     char: "⮏",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 681L578 681L578 448L448 448L448 672L354 672L354 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L224 345L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13901,6 +15445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮐": {
     char: "⮐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 793L466 793L466 681L578 681L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569L354 569L354 448L242 448L242 345L448 345L448 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13910,6 +15455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮑": {
     char: "⮑",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L242 793L242 672L130 672L130 345L336 345L336 448L224 448L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13919,6 +15465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮒": {
     char: "⮒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 793L578 793L578 224L242 224L242 121L354 121L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 457L224 457L224 569L354 569L354 448L242 448L242 345L448 345L448 672L336 672L336 793ZM0 793L242 793L242 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13928,6 +15475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮓": {
     char: "⮓",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L242 793L242 672L130 672L130 345L336 345L336 448L224 448L224 569L354 569L354 457L466 457L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 121L336 121L336 224L0 224L0 793ZM336 793L578 793L578 672L336 672L336 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13937,6 +15485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮕": {
     char: "⮕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 224L0 224L0 569L224 569L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -13946,6 +15495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮬": {
     char: "⮬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L466 448L466 121L578 121L578 0L224 0L224 112L112 112L112 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13955,6 +15505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮭": {
     char: "⮭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 448L466 448L466 112L354 112L354 0L0 0L0 121L112 121L112 448L0 448L0 569L112 569L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13964,6 +15515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮮": {
     char: "⮮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L578 793L578 672L466 672L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13973,6 +15525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮯": {
     char: "⮯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 793L354 793L354 681L466 681L466 345L578 345L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 345L112 345L112 672L0 672L0 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13982,6 +15535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮺": {
     char: "⮺",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 681L578 681L578 224L466 224L466 0L0 0L0 457L112 457L112 681ZM237 562L237 455L452 455L452 562L237 562ZM125 226L125 119L340 119L340 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -13991,6 +15545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮻": {
     char: "⮻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 681L578 681L578 224L466 224L466 0L0 0L0 457L112 457L112 681ZM125 226L125 119L340 119L340 226L125 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -14000,6 +15555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⮼": {
     char: "⮼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L578 681L578 224L466 224L466 0L0 0L0 457L112 457L112 681Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -14009,6 +15565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯀": {
     char: "⯀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L578 681L578 112L0 112L0 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14018,6 +15575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯁": {
     char: "⯁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 457L112 457L112 569L224 569L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14027,6 +15585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯅": {
     char: "⯅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L354 681L354 457L466 457L466 233L578 233L578 112L0 112L0 233L112 233L112 457L224 457L224 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14036,6 +15595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯆": {
     char: "⯆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L578 681L578 560L466 560L466 336L354 336L354 112L224 112L224 336L112 336L112 560L0 560L0 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14045,6 +15605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯇": {
     char: "⯇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 681L578 681L578 112L448 112L448 224L224 224L224 336L0 336L0 457L224 457L224 569L448 569L448 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14054,6 +15615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯈": {
     char: "⯈",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L130 681L130 569L354 569L354 457L578 457L578 336L354 336L354 224L130 224L130 112L0 112L0 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14063,6 +15625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯊": {
     char: "⯊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 448L0 448L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -14072,6 +15635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯋": {
     char: "⯋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -14081,6 +15645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯑": {
     char: "⯑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 224L466 224L466 112L354 112L354 0L224 0L224 112L112 112L112 224L0 224L0 569L112 569L112 681L224 681L224 793ZM237 674L237 567L340 567L340 674L237 674ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450ZM237 226L237 119L340 119L340 226L237 226Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -14090,6 +15655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯒": {
     char: "⯒",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L354 793L354 681L466 681L466 560L354 560L354 457L578 457L578 336L354 336L354 233L466 233L466 112L354 112L354 0L224 0L224 112L112 112L112 233L224 233L224 336L0 336L0 457L224 457L224 560L112 560L112 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -14099,6 +15665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯾": {
     char: "⯾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 0L0 0L0 121L448 121L448 569Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -14108,6 +15675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "⯿": {
     char: "⯿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 560L354 560L354 457L466 457L466 336L354 336L354 233L466 233L466 0L112 0L112 233L224 233L224 560L112 560L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -14117,6 +15685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ⱼ": {
     char: "ⱼ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 121L354 121L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 121ZM224 345L354 345L354 224L224 224L224 345Z",
     xmin: 112.0,
     ymin: -224.0,
@@ -14126,6 +15695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ⱽ": {
     char: "ⱽ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 681L242 681L242 457L336 457L336 681L448 681L448 905L578 905L578 672L466 672L466 448L354 448L354 336L224 336L224 448L112 448L112 672L0 672L0 905Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -14135,6 +15705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ꟲ": {
     char: "ꟲ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L466 793L466 672L242 672L242 457L466 457L466 336L224 336L224 448L112 448L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -14144,6 +15715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ꟳ": {
     char: "ꟳ",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L242 672L242 569L354 569L354 448L242 448L242 336L112 336L112 793Z",
     xmin: 112.0,
     ymin: 336.0,
@@ -14153,6 +15725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ꟴ": {
     char: "ꟴ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L354 793L354 681L466 681L466 560L354 560L354 457L466 457L466 336L336 336L336 448L242 448L242 336L112 336L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L228 455L228 567L340 567L340 674L125 674Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -14162,6 +15735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "ꟹ": {
     char: "ꟹ",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 681L578 681L578 560L354 560L354 457L578 457L578 336L336 336L336 448L242 448L242 336L112 336L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L228 455L228 674L125 674Z",
     xmin: 0.0,
     ymin: 336.0,
@@ -14171,6 +15745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 457L466 457L466 224L354 224L354 112L130 112L130 -224L0 -224L0 121L112 121L112 233L336 233L336 457ZM0 1129L130 1129L130 336L0 336L0 1129ZM336 793L466 793L466 681L578 681L578 560L448 560L448 672L354 672L354 560L224 560L224 681L336 681L336 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14180,6 +15755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 233L242 233L242 121L354 121L354 9L448 9L448 233L578 233L578 -224L448 -224L448 -112L336 -112L336 0L242 0L242 -224L112 -224L112 233ZM0 793L130 793L130 457L354 457L354 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14189,6 +15765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 233L242 233L242 121L354 121L354 9L448 9L448 233L578 233L578 -224L448 -224L448 -112L336 -112L336 0L242 0L242 -224L112 -224L112 233ZM0 793L354 793L354 672L130 672L130 457L354 457L354 336L0 336L0 793Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14198,6 +15775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 1017L242 1017L242 905L354 905L354 793L466 793L466 681L578 681L578 569L690 569L690 336L578 336L578 224L466 224L466 112L354 112L354 0L242 0L242 -112L130 -112L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14207,6 +15785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 1017L242 1017L242 905L354 905L354 793L466 793L466 681L578 681L578 569L690 569L690 336L578 336L578 224L466 224L466 112L354 112L354 0L242 0L242 -112L130 -112L130 -224L0 -224L0 -103L112 -103L112 9L224 9L224 121L336 121L336 233L448 233L448 345L560 345L560 560L448 560L448 672L336 672L336 784L224 784L224 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14216,6 +15795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 -224L560 -224L560 -112L448 -112L448 0L336 0L336 112L224 112L224 224L112 224L112 336L0 336L0 569L112 569L112 681L224 681L224 793L336 793L336 905L448 905L448 1017L560 1017L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14225,6 +15805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 1008L578 1008L578 896L466 896L466 784L354 784L354 672L242 672L242 560L130 560L130 345L242 345L242 233L354 233L354 121L466 121L466 9L578 9L578 -103L690 -103L690 -224L560 -224L560 -112L448 -112L448 0L336 0L336 112L224 112L224 224L112 224L112 336L0 336L0 569L112 569L112 681L224 681L224 793L336 793L336 905L448 905L448 1017L560 1017L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14234,6 +15815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L242 1129L242 1017L466 1017L466 905L578 905L578 681L690 681L690 224L578 224L578 0L466 0L466 -112L242 -112L242 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14243,6 +15825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L242 1129L242 1017L466 1017L466 905L578 905L578 681L690 681L690 224L578 224L578 0L466 0L466 -112L242 -112L242 -224L0 -224L0 -103L224 -103L224 9L448 9L448 233L560 233L560 672L448 672L448 896L224 896L224 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14252,6 +15835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 1129L690 1129L690 -224L448 -224L448 -112L224 -112L224 0L112 0L112 224L0 224L0 681L112 681L112 905L224 905L224 1017L448 1017L448 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14261,6 +15845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 1129L690 1129L690 1008L466 1008L466 896L242 896L242 672L130 672L130 233L242 233L242 9L466 9L466 -103L690 -103L690 -224L448 -224L448 -112L224 -112L224 0L112 0L112 224L0 224L0 681L112 681L112 905L224 905L224 1017L448 1017L448 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14270,6 +15855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 905L242 905L242 681L354 681L354 457L466 457L466 233L578 233L578 9L690 9L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14279,6 +15865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 905L242 905L242 681L354 681L354 457L466 457L466 233L578 233L578 9L690 9L690 -224L560 -224L560 0L448 0L448 224L336 224L336 448L224 448L224 672L112 672L112 896L0 896L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14288,6 +15875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 -224L0 -224L0 9L112 9L112 233L224 233L224 457L336 457L336 681L448 681L448 905L560 905L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14297,6 +15885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 896L578 896L578 672L466 672L466 448L354 448L354 224L242 224L242 0L130 0L130 -224L0 -224L0 9L112 9L112 233L224 233L224 457L336 457L336 681L448 681L448 905L560 905L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14306,6 +15895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 896L578 896L578 672L466 672L466 448L354 448L354 224L242 224L242 0L130 0L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14315,6 +15905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 896L578 896L578 672L466 672L466 448L354 448L354 224L242 224L242 0L130 0L130 -224L0 -224L0 9L112 9L112 233L224 233L224 457L336 457L336 681L448 681L448 905L560 905L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14324,6 +15915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L560 -224L560 0L448 0L448 224L336 224L336 448L224 448L224 672L112 672L112 896L0 896L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14333,6 +15925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 905L242 905L242 681L354 681L354 457L466 457L466 233L578 233L578 9L690 9L690 -224L560 -224L560 0L448 0L448 224L336 224L336 448L224 448L224 672L112 672L112 896L0 896L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14342,6 +15935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L690 905L690 784L130 784L130 9L690 9L690 -112L0 -112L0 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14351,6 +15945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 905L690 905L690 784L0 784L0 905ZM0 9L690 9L690 -112L0 -112L0 9Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14360,6 +15955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L578 905L578 -112L0 -112L0 9L448 9L448 784L0 784L0 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14369,6 +15965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 905L690 905L690 784L130 784L130 9L690 9L690 -112L0 -112L0 905ZM224 681L690 681L690 112L224 112L224 681Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14378,6 +15975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M0 681L690 681L690 112L0 112L0 681ZM0 905L690 905L690 784L0 784L0 905ZM0 9L690 9L690 -112L0 -112L0 9Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14387,6 +15985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 905L578 905L578 -112L0 -112L0 9L448 9L448 784L0 784L0 905ZM0 681L354 681L354 112L0 112L0 681Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14396,6 +15995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L466 681L466 569L578 569L578 448L448 448L448 560L130 560L130 448L0 448L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -14405,6 +16005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 681L466 681L466 569L578 569L578 224L448 224L448 560L224 560L224 681Z",
     xmin: 224.0,
     ymin: 224.0,
@@ -14414,6 +16015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M448 569L578 569L578 224L466 224L466 112L224 112L224 233L448 233L448 569Z",
     xmin: 224.0,
     ymin: 112.0,
@@ -14423,6 +16025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 345L130 345L130 233L448 233L448 345L578 345L578 224L466 224L466 112L112 112L112 224L0 224L0 345Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14432,6 +16035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 569L130 569L130 233L354 233L354 112L112 112L112 224L0 224L0 569Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -14441,6 +16045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "": {
     char: "",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 681L354 681L354 560L130 560L130 224L0 224L0 569L112 569L112 681Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14450,6 +16055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "�": {
     char: "�",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 112L466 112L466 0L354 0L354 -112L224 -112L224 0L112 0L112 112L0 112L0 569L112 569L112 681L224 681L224 793ZM349 562L349 343L452 343L452 562L349 562ZM237 674L237 567L340 567L340 674L237 674ZM125 562L125 455L228 455L228 562L125 562ZM237 338L237 231L340 231L340 338L237 338ZM237 114L237 7L340 7L340 114L237 114Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -14459,6 +16065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬀": {
     char: "🬀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 672.0,
@@ -14468,6 +16075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬁": {
     char: "🬁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 672L336 672L336 1129Z",
     xmin: 336.0,
     ymin: 672.0,
@@ -14477,6 +16085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬂": {
     char: "🬂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 672.0,
@@ -14486,6 +16095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬃": {
     char: "🬃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L354 681L354 224L0 224L0 681Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14495,6 +16105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬄": {
     char: "🬄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14504,6 +16115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬅": {
     char: "🬅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 672L354 672L354 224L0 224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14513,6 +16125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬆": {
     char: "🬆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L354 672L354 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14522,6 +16135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬇": {
     char: "🬇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L690 681L690 224L336 224L336 681Z",
     xmin: 336.0,
     ymin: 224.0,
@@ -14531,6 +16145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬈": {
     char: "🬈",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 224L336 224L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14540,6 +16155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬉": {
     char: "🬉",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 224L336 224L336 1129Z",
     xmin: 336.0,
     ymin: 224.0,
@@ -14549,6 +16165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬊": {
     char: "🬊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 224L336 224L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14558,6 +16175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬋": {
     char: "🬋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L690 681L690 224L0 224L0 681Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14567,6 +16185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬌": {
     char: "🬌",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14576,6 +16195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬍": {
     char: "🬍",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 224L0 224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14585,6 +16205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬎": {
     char: "🬎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -14594,6 +16215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬏": {
     char: "🬏",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L354 233L354 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14603,6 +16225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬐": {
     char: "🬐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 1129L354 1129L354 672L0 672L0 1129ZM0 233L354 233L354 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14612,6 +16235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬑": {
     char: "🬑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 1129L690 1129L690 672L336 672L336 1129ZM0 233L354 233L354 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14621,6 +16245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬒": {
     char: "🬒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 1129L690 1129L690 672L0 672L0 1129ZM0 233L354 233L354 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14630,6 +16255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬓": {
     char: "🬓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L354 681L354 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14639,6 +16265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬔": {
     char: "🬔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 672L354 672L354 -224L0 -224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14648,6 +16275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬕": {
     char: "🬕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L354 672L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14657,6 +16285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬖": {
     char: "🬖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L690 681L690 224L354 224L354 -224L0 -224L0 233L336 233L336 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14666,6 +16295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬗": {
     char: "🬗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 224L354 224L354 -224L0 -224L0 233L336 233L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14675,6 +16305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬘": {
     char: "🬘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 224L354 224L354 -224L0 -224L0 233L336 233L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14684,6 +16315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬙": {
     char: "🬙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L690 1129L690 224L354 224L354 -224L0 -224L0 233L336 233L336 672L112 672L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14693,6 +16325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬚": {
     char: "🬚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L690 681L690 224L354 224L354 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14702,6 +16335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬛": {
     char: "🬛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 224L354 224L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14711,6 +16345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬜": {
     char: "🬜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 224L354 224L354 -224L0 -224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14720,6 +16355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬝": {
     char: "🬝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 224L354 224L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14729,6 +16365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬞": {
     char: "🬞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 233L690 233L690 -224L336 -224L336 233Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -14738,6 +16375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬟": {
     char: "🬟",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 1129L354 1129L354 672L0 672L0 1129ZM336 233L690 233L690 -224L336 -224L336 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14747,6 +16385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬠": {
     char: "🬠",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 1129L690 1129L690 672L336 672L336 1129ZM336 233L690 233L690 -224L336 -224L336 233Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -14756,6 +16395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬡": {
     char: "🬡",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 1129L690 1129L690 672L0 672L0 1129ZM336 233L690 233L690 -224L336 -224L336 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14765,6 +16405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬢": {
     char: "🬢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L354 681L354 233L690 233L690 -224L336 -224L336 224L0 224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14774,6 +16415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬣": {
     char: "🬣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 233L690 233L690 -224L336 -224L336 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14783,6 +16425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬤": {
     char: "🬤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 672L354 672L354 233L690 233L690 -224L336 -224L336 224L0 224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14792,6 +16435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬥": {
     char: "🬥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L354 672L354 233L690 233L690 -224L336 -224L336 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14801,6 +16445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬦": {
     char: "🬦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L690 681L690 -224L336 -224L336 681Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -14810,6 +16455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬧": {
     char: "🬧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 -224L336 -224L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14819,6 +16465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬨": {
     char: "🬨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L336 -224L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14828,6 +16475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬩": {
     char: "🬩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L690 681L690 -224L336 -224L336 224L0 224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14837,6 +16485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬪": {
     char: "🬪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 -224L336 -224L336 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14846,6 +16495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬫": {
     char: "🬫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L336 -224L336 224L0 224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14855,6 +16505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬬": {
     char: "🬬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L336 -224L336 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14864,6 +16515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬭": {
     char: "🬭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L690 233L690 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14873,6 +16525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬮": {
     char: "🬮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 233L690 233L690 -224L0 -224L0 233ZM0 1129L354 1129L354 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14882,6 +16535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬯": {
     char: "🬯",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 233L690 233L690 -224L0 -224L0 233ZM336 1129L690 1129L690 672L336 672L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14891,6 +16545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬰": {
     char: "🬰",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 1129L690 1129L690 672L0 672L0 1129ZM0 233L690 233L690 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14900,6 +16555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬱": {
     char: "🬱",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L354 681L354 233L690 233L690 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14909,6 +16565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬲": {
     char: "🬲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 233L690 233L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14918,6 +16575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬳": {
     char: "🬳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 672L354 672L354 233L690 233L690 -224L0 -224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14927,6 +16585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬴": {
     char: "🬴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L354 672L354 233L690 233L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14936,6 +16595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬵": {
     char: "🬵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 681L690 681L690 -224L0 -224L0 233L336 233L336 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14945,6 +16605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬶": {
     char: "🬶",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 -224L0 -224L0 233L336 233L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14954,6 +16615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬷": {
     char: "🬷",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L0 -224L0 233L336 233L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14963,6 +16625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬸": {
     char: "🬸",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L0 -224L0 233L336 233L336 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14972,6 +16635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬹": {
     char: "🬹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L690 681L690 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14981,6 +16645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬺": {
     char: "🬺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 681L690 681L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14990,6 +16655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬻": {
     char: "🬻",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L0 -224L0 681L336 681L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -14999,6 +16665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬼": {
     char: "🬼",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L130 233L130 9L242 9L242 -103L354 -103L354 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15008,6 +16675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬽": {
     char: "🬽",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 233L130 233L130 121L242 121L242 9L466 9L466 -103L690 -103L690 -224L0 -224L0 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15017,6 +16685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬾": {
     char: "🬾",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L130 681L130 345L242 345L242 9L354 9L354 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15026,6 +16695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🬿": {
     char: "🬿",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L130 681L130 457L242 457L242 233L354 233L354 121L466 121L466 9L578 9L578 -103L690 -103L690 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15035,6 +16705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭀": {
     char: "🭀",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 681L242 681L242 233L354 233L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15044,6 +16715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭁": {
     char: "🭁",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L0 -224L0 793L112 793L112 905L224 905L224 1017L336 1017L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15053,6 +16725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭂": {
     char: "🭂",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 -224L0 -224L0 681L112 681L112 793L336 793L336 905L448 905L448 1017L560 1017L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15062,6 +16735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭃": {
     char: "🭃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L0 -224L0 233L112 233L112 569L224 569L224 905L336 905L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15071,6 +16745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭄": {
     char: "🭄",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 -224L0 -224L0 233L112 233L112 457L224 457L224 569L336 569L336 793L448 793L448 905L560 905L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15080,6 +16755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭅": {
     char: "🭅",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L0 -224L0 121L112 121L112 457L224 457L224 793L336 793L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15089,6 +16765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭆": {
     char: "🭆",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 681L690 681L690 -224L0 -224L0 233L112 233L112 345L336 345L336 457L448 457L448 569L560 569L560 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15098,6 +16775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭇": {
     char: "🭇",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 233L690 233L690 -224L336 -224L336 -103L448 -103L448 9L560 9L560 233Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15107,6 +16785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭈": {
     char: "🭈",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 233L690 233L690 -224L0 -224L0 -103L224 -103L224 9L448 9L448 121L560 121L560 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15116,6 +16795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭉": {
     char: "🭉",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 681L690 681L690 -224L336 -224L336 9L448 9L448 345L560 345L560 681Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15125,6 +16805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭊": {
     char: "🭊",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 681L690 681L690 -224L0 -224L0 -103L112 -103L112 9L224 9L224 121L336 121L336 233L448 233L448 457L560 457L560 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15134,6 +16815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭋": {
     char: "🭋",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1129L690 1129L690 -224L336 -224L336 233L448 233L448 681L560 681L560 1129Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15143,6 +16825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭌": {
     char: "🭌",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 1017L466 1017L466 905L578 905L578 793L690 793L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15152,6 +16835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭍": {
     char: "🭍",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 1017L242 1017L242 905L354 905L354 793L578 793L578 681L690 681L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15161,6 +16845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭎": {
     char: "🭎",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 905L466 905L466 569L578 569L578 233L690 233L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15170,6 +16855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭏": {
     char: "🭏",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L130 1129L130 905L242 905L242 793L354 793L354 569L466 569L466 457L578 457L578 233L690 233L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15179,6 +16865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭐": {
     char: "🭐",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 793L466 793L466 457L578 457L578 121L690 121L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15188,6 +16875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭑": {
     char: "🭑",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L130 681L130 569L242 569L242 457L354 457L354 345L578 345L578 233L690 233L690 -224L0 -224L0 681Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15197,6 +16885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭒": {
     char: "🭒",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L336 -224L336 -112L224 -112L224 0L112 0L112 112L0 112L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15206,6 +16895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭓": {
     char: "🭓",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L560 -224L560 -112L448 -112L448 0L336 0L336 112L112 112L112 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15215,6 +16905,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭔": {
     char: "🭔",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L336 -224L336 0L224 0L224 336L112 336L112 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15224,6 +16915,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭕": {
     char: "🭕",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L560 -224L560 0L448 0L448 112L336 112L336 336L224 336L224 448L112 448L112 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15233,6 +16925,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭖": {
     char: "🭖",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L336 -224L336 112L224 112L224 448L112 448L112 784L0 784L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15242,6 +16935,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭗": {
     char: "🭗",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 1008L242 1008L242 896L130 896L130 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 672.0,
@@ -15251,6 +16945,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭘": {
     char: "🭘",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 1008L466 1008L466 896L242 896L242 784L130 784L130 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 672.0,
@@ -15260,6 +16955,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭙": {
     char: "🭙",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 896L242 896L242 560L130 560L130 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -15269,6 +16965,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭚": {
     char: "🭚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 1008L578 1008L578 896L466 896L466 784L354 784L354 672L242 672L242 448L130 448L130 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -15278,6 +16975,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭛": {
     char: "🭛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L354 1129L354 672L242 672L242 224L130 224L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15287,6 +16985,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭜": {
     char: "🭜",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L578 672L578 560L354 560L354 448L242 448L242 336L130 336L130 224L0 224L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -15296,6 +16995,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭝": {
     char: "🭝",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 112L578 112L578 0L466 0L466 -112L354 -112L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15305,6 +17005,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭞": {
     char: "🭞",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 224L578 224L578 112L354 112L354 0L242 0L242 -112L130 -112L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15314,6 +17015,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭟": {
     char: "🭟",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L578 672L578 336L466 336L466 0L354 0L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15323,6 +17025,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭠": {
     char: "🭠",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L578 672L578 448L466 448L466 336L354 336L354 112L242 112L242 0L130 0L130 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15332,6 +17035,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭡": {
     char: "🭡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 784L578 784L578 448L466 448L466 112L354 112L354 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15341,6 +17045,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭢": {
     char: "🭢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 672L560 672L560 896L448 896L448 1008L336 1008L336 1129Z",
     xmin: 336.0,
     ymin: 672.0,
@@ -15350,6 +17055,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭣": {
     char: "🭣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 672L560 672L560 784L448 784L448 896L224 896L224 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 672.0,
@@ -15359,6 +17065,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭤": {
     char: "🭤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 224L560 224L560 560L448 560L448 896L336 896L336 1129Z",
     xmin: 336.0,
     ymin: 224.0,
@@ -15368,6 +17075,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭥": {
     char: "🭥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 224L560 224L560 448L448 448L448 672L336 672L336 784L224 784L224 896L112 896L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -15377,6 +17085,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭦": {
     char: "🭦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L690 1129L690 -224L560 -224L560 224L448 224L448 672L336 672L336 1129Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15386,6 +17095,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭧": {
     char: "🭧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 224L560 224L560 336L448 336L448 448L336 448L336 560L112 560L112 672L0 672L0 1129Z",
     xmin: 0.0,
     ymin: 224.0,
@@ -15395,6 +17105,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭨": {
     char: "🭨",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -224L0 -224L0 -103L112 -103L112 121L224 121L224 345L336 345L336 560L224 560L224 784L112 784L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15404,6 +17115,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭩": {
     char: "🭩",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1017L130 1017L130 793L242 793L242 569L448 569L448 793L560 793L560 1017L690 1017L690 -224L0 -224L0 1017Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15413,6 +17125,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭪": {
     char: "🭪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 1008L578 1008L578 784L466 784L466 560L354 560L354 345L466 345L466 121L578 121L578 -103L690 -103L690 -224L0 -224L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15422,6 +17135,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭫": {
     char: "🭫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 -112L560 -112L560 112L448 112L448 336L242 336L242 112L130 112L130 -112L0 -112L0 1129Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15431,6 +17145,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭬": {
     char: "🭬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1017L130 1017L130 793L242 793L242 569L354 569L354 336L242 336L242 112L130 112L130 -112L0 -112L0 1017Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15440,6 +17155,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭭": {
     char: "🭭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 1008L578 1008L578 784L466 784L466 560L224 560L224 784L112 784L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -15449,6 +17165,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭮": {
     char: "🭮",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 1017L690 1017L690 -112L560 -112L560 112L448 112L448 336L336 336L336 569L448 569L448 793L560 793L560 1017Z",
     xmin: 336.0,
     ymin: -112.0,
@@ -15458,6 +17175,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🭯": {
     char: "🭯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 345L466 345L466 121L578 121L578 -103L690 -103L690 -224L0 -224L0 -103L112 -103L112 121L224 121L224 345Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15467,6 +17185,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮌": {
     char: "🮌",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M0 1129L130 1129L130 1017L224 1017L224 1129L354 1129L354 1008L242 1008L242 905L354 905L354 784L242 784L242 681L354 681L354 560L242 560L242 457L354 457L354 336L242 336L242 233L354 233L354 112L242 112L242 9L354 9L354 -112L242 -112L242 -224L112 -224L112 -112L0 -112L0 9L112 9L112 112L0 112L0 233L112 233L112 336L0 336L0 457L112 457L112 560L0 560L0 681L112 681L112 784L0 784L0 905L112 905L112 1008L0 1008L0 1129ZM125 898L125 791L228 791L228 898L125 898ZM125 674L125 567L228 567L228 674L125 674ZM125 450L125 343L228 343L228 450L125 450ZM125 226L125 119L228 119L228 226L125 226ZM125 2L125 -105L228 -105L228 2L125 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15476,6 +17195,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮍": {
     char: "🮍",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M448 1129L578 1129L578 1017L690 1017L690 896L578 896L578 793L690 793L690 672L578 672L578 569L690 569L690 448L578 448L578 345L690 345L690 224L578 224L578 121L690 121L690 0L578 0L578 -103L690 -103L690 -224L560 -224L560 -112L466 -112L466 -224L336 -224L336 -103L448 -103L448 0L336 0L336 121L448 121L448 224L336 224L336 345L448 345L448 448L336 448L336 569L448 569L448 672L336 672L336 793L448 793L448 896L336 896L336 1017L448 1017L448 1129ZM461 1010L461 903L564 903L564 1010L461 1010ZM461 786L461 679L564 679L564 786L461 786ZM461 562L461 455L564 455L564 562L461 562ZM461 338L461 231L564 231L564 338L461 338ZM461 114L461 7L564 7L564 114L461 114Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15485,6 +17205,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮎": {
     char: "🮎",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccc",
     d: "M0 1129L130 1129L130 1017L224 1017L224 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1017L690 1017L690 896L578 896L578 793L690 793L690 672L578 672L578 569L690 569L690 448L560 448L560 560L466 560L466 448L336 448L336 560L242 560L242 448L112 448L112 560L0 560L0 681L112 681L112 784L0 784L0 905L112 905L112 1008L0 1008L0 1129ZM237 1010L237 903L340 903L340 1010L237 1010ZM461 1010L461 903L564 903L564 1010L461 1010ZM125 898L125 791L228 791L228 898L125 898ZM349 898L349 791L452 791L452 898L349 898ZM237 786L237 679L340 679L340 786L237 786ZM461 786L461 679L564 679L564 786L461 786ZM125 674L125 567L228 567L228 674L125 674ZM349 674L349 567L452 567L452 674L349 674Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -15494,6 +17215,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮏": {
     char: "🮏",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccc",
     d: "M0 457L130 457L130 345L224 345L224 457L354 457L354 345L448 345L448 457L578 457L578 345L690 345L690 224L578 224L578 121L690 121L690 0L578 0L578 -103L690 -103L690 -224L560 -224L560 -112L466 -112L466 -224L336 -224L336 -112L242 -112L242 -224L112 -224L112 -112L0 -112L0 9L112 9L112 112L0 112L0 233L112 233L112 336L0 336L0 457ZM237 338L237 231L340 231L340 338L237 338ZM461 338L461 231L564 231L564 338L461 338ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226ZM237 114L237 7L340 7L340 114L237 114ZM461 114L461 7L564 7L564 114L461 114ZM125 2L125 -105L228 -105L228 2L125 2ZM349 2L349 -105L452 -105L452 2L349 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15503,6 +17225,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮐": {
     char: "🮐",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccccccccccccc",
     d: "M112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1017L560 1017L560 1129L690 1129L690 1008L578 1008L578 905L690 905L690 784L578 784L578 681L690 681L690 560L578 560L578 457L690 457L690 336L578 336L578 233L690 233L690 112L578 112L578 9L690 9L690 -112L578 -112L578 -224L448 -224L448 -112L354 -112L354 -224L224 -224L224 -112L130 -112L130 -224L0 -224L0 -103L112 -103L112 0L0 0L0 121L112 121L112 224L0 224L0 345L112 345L112 448L0 448L0 569L112 569L112 672L0 672L0 793L112 793L112 896L0 896L0 1017L112 1017L112 1129ZM125 1010L125 903L228 903L228 1010L125 1010ZM349 1010L349 903L452 903L452 1010L349 1010ZM237 898L237 791L340 791L340 898L237 898ZM461 898L461 791L564 791L564 898L461 898ZM125 786L125 679L228 679L228 786L125 786ZM349 786L349 679L452 679L452 786L349 786ZM237 674L237 567L340 567L340 674L237 674ZM461 674L461 567L564 567L564 674L461 674ZM125 562L125 455L228 455L228 562L125 562ZM349 562L349 455L452 455L452 562L349 562ZM237 450L237 343L340 343L340 450L237 450ZM461 450L461 343L564 343L564 450L461 450ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226ZM461 226L461 119L564 119L564 226L461 226ZM125 114L125 7L228 7L228 114L125 114ZM349 114L349 7L452 7L452 114L349 114ZM237 2L237 -105L340 -105L340 2L237 2ZM461 2L461 -105L564 -105L564 2L461 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15512,6 +17235,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮑": {
     char: "🮑",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccc",
     d: "M0 1129L690 1129L690 336L578 336L578 233L690 233L690 112L578 112L578 9L690 9L690 -112L578 -112L578 -224L448 -224L448 -112L354 -112L354 -224L224 -224L224 -112L130 -112L130 -224L0 -224L0 -103L112 -103L112 0L0 0L0 121L112 121L112 224L0 224L0 345L112 345L112 448L0 448L0 1129ZM237 450L237 343L340 343L340 450L237 450ZM461 450L461 343L564 343L564 450L461 450ZM125 338L125 231L228 231L228 338L125 338ZM349 338L349 231L452 231L452 338L349 338ZM237 226L237 119L340 119L340 226L237 226ZM461 226L461 119L564 119L564 226L461 226ZM125 114L125 7L228 7L228 114L125 114ZM349 114L349 7L452 7L452 114L349 114ZM237 2L237 -105L340 -105L340 2L237 2ZM461 2L461 -105L564 -105L564 2L461 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15521,6 +17245,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮒": {
     char: "🮒",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccc",
     d: "M112 1129L242 1129L242 1017L336 1017L336 1129L466 1129L466 1017L560 1017L560 1129L690 1129L690 1008L578 1008L578 905L690 905L690 784L578 784L578 681L690 681L690 560L578 560L578 457L690 457L690 -224L0 -224L0 569L112 569L112 672L0 672L0 793L112 793L112 896L0 896L0 1017L112 1017L112 1129ZM125 1010L125 903L228 903L228 1010L125 1010ZM349 1010L349 903L452 903L452 1010L349 1010ZM237 898L237 791L340 791L340 898L237 898ZM461 898L461 791L564 791L564 898L461 898ZM125 786L125 679L228 679L228 786L125 786ZM349 786L349 679L452 679L452 786L349 786ZM237 674L237 567L340 567L340 674L237 674ZM461 674L461 567L564 567L564 674L461 674ZM125 562L125 455L228 455L228 562L125 562ZM349 562L349 455L452 455L452 562L349 562Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15530,6 +17255,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮔": {
     char: "🮔",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccccc",
     d: "M112 1129L242 1129L242 1017L336 1017L336 1129L690 1129L690 -224L224 -224L224 -112L130 -112L130 -224L0 -224L0 -103L112 -103L112 0L0 0L0 121L112 121L112 224L0 224L0 345L112 345L112 448L0 448L0 569L112 569L112 672L0 672L0 793L112 793L112 896L0 896L0 1017L112 1017L112 1129ZM125 1010L125 903L228 903L228 1010L125 1010ZM237 898L237 791L340 791L340 898L237 898ZM125 786L125 679L228 679L228 786L125 786ZM237 674L237 567L340 567L340 674L237 674ZM125 562L125 455L228 455L228 562L125 562ZM237 450L237 343L340 343L340 450L237 450ZM125 338L125 231L228 231L228 338L125 338ZM237 226L237 119L340 119L340 226L237 226ZM125 114L125 7L228 7L228 114L125 114ZM237 2L237 -105L340 -105L340 2L237 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15539,6 +17265,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮕": {
     char: "🮕",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M0 1129L130 1129L130 793L224 793L224 1129L354 1129L354 793L448 793L448 1129L578 1129L578 793L690 793L690 448L578 448L578 121L690 121L690 -224L560 -224L560 112L466 112L466 -224L336 -224L336 112L242 112L242 -224L112 -224L112 112L0 112L0 457L112 457L112 784L0 784L0 1129ZM237 786L237 455L340 455L340 786L237 786ZM461 786L461 455L564 455L564 786L461 786ZM125 450L125 119L228 119L228 450L125 450ZM349 450L349 119L452 119L452 450L349 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15548,6 +17275,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮖": {
     char: "🮖",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M112 1129L242 1129L242 793L336 793L336 1129L466 1129L466 793L560 793L560 1129L690 1129L690 784L578 784L578 457L690 457L690 112L578 112L578 -224L448 -224L448 112L354 112L354 -224L224 -224L224 112L130 112L130 -224L0 -224L0 121L112 121L112 448L0 448L0 793L112 793L112 1129ZM125 786L125 455L228 455L228 786L125 786ZM349 786L349 455L452 455L452 786L349 786ZM237 450L237 119L340 119L340 450L237 450ZM461 450L461 119L564 119L564 450L461 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15557,6 +17285,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮗": {
     char: "🮗",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 793L690 793L690 448L0 448L0 793ZM0 121L690 121L690 -224L0 -224L0 121Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15566,6 +17295,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮘": {
     char: "🮘",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M0 1017L130 1017L130 905L242 905L242 793L354 793L354 681L466 681L466 569L578 569L578 457L690 457L690 336L560 336L560 448L448 448L448 560L336 560L336 672L224 672L224 784L112 784L112 896L0 896L0 1017ZM0 681L130 681L130 569L242 569L242 457L354 457L354 345L466 345L466 233L578 233L578 121L690 121L690 0L560 0L560 112L448 112L448 224L336 224L336 336L224 336L224 448L112 448L112 560L0 560L0 681ZM0 345L130 345L130 233L242 233L242 121L354 121L354 9L466 9L466 -103L578 -103L578 -224L448 -224L448 -112L336 -112L336 0L224 0L224 112L112 112L112 224L0 224L0 345ZM224 1129L354 1129L354 1017L466 1017L466 905L578 905L578 793L690 793L690 672L560 672L560 784L448 784L448 896L336 896L336 1008L224 1008L224 1129ZM0 9L130 9L130 -103L242 -103L242 -224L112 -224L112 -112L0 -112L0 9ZM560 1129L690 1129L690 1008L560 1008L560 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15575,6 +17305,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮙": {
     char: "🮙",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddddd",
     d: "M560 1017L690 1017L690 896L578 896L578 784L466 784L466 672L354 672L354 560L242 560L242 448L130 448L130 336L0 336L0 457L112 457L112 569L224 569L224 681L336 681L336 793L448 793L448 905L560 905L560 1017ZM560 681L690 681L690 560L578 560L578 448L466 448L466 336L354 336L354 224L242 224L242 112L130 112L130 0L0 0L0 121L112 121L112 233L224 233L224 345L336 345L336 457L448 457L448 569L560 569L560 681ZM560 345L690 345L690 224L578 224L578 112L466 112L466 0L354 0L354 -112L242 -112L242 -224L112 -224L112 -103L224 -103L224 9L336 9L336 121L448 121L448 233L560 233L560 345ZM336 1129L466 1129L466 1008L354 1008L354 896L242 896L242 784L130 784L130 672L0 672L0 793L112 793L112 905L224 905L224 1017L336 1017L336 1129ZM560 9L690 9L690 -112L578 -112L578 -224L448 -224L448 -103L560 -103L560 9ZM0 1129L130 1129L130 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15584,6 +17315,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮚": {
     char: "🮚",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1129L690 1129L690 1008L578 1008L578 784L466 784L466 121L578 121L578 -103L690 -103L690 -224L0 -224L0 -103L112 -103L112 121L224 121L224 784L112 784L112 1008L0 1008L0 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15593,6 +17325,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮛": {
     char: "🮛",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 1017L130 1017L130 793L242 793L242 569L448 569L448 793L560 793L560 1017L690 1017L690 -112L560 -112L560 112L448 112L448 336L242 336L242 112L130 112L130 -112L0 -112L0 1017Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15602,6 +17335,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮜": {
     char: "🮜",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccc",
     d: "M0 1129L130 1129L130 1017L224 1017L224 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1017L690 1017L690 896L578 896L578 784L466 784L466 672L354 672L354 569L466 569L466 448L354 448L354 336L242 336L242 224L130 224L130 121L242 121L242 0L130 0L130 -112L0 -112L0 9L112 9L112 112L0 112L0 233L112 233L112 336L0 336L0 457L112 457L112 560L0 560L0 681L112 681L112 784L0 784L0 905L112 905L112 1008L0 1008L0 1129ZM237 1010L237 903L340 903L340 1010L237 1010ZM461 1010L461 903L564 903L564 1010L461 1010ZM125 898L125 791L228 791L228 898L125 898ZM349 898L349 791L452 791L452 898L349 898ZM237 786L237 679L340 679L340 786L237 786ZM125 674L125 567L228 567L228 674L125 674ZM237 562L237 455L340 455L340 562L237 562ZM125 450L125 343L228 343L228 450L125 450Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15611,6 +17345,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮝": {
     char: "🮝",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddccccccccc",
     d: "M0 1129L130 1129L130 1017L224 1017L224 1129L354 1129L354 1017L448 1017L448 1129L578 1129L578 1017L690 1017L690 896L578 896L578 793L690 793L690 672L578 672L578 569L690 569L690 448L578 448L578 345L690 345L690 224L578 224L578 121L690 121L690 0L560 0L560 112L448 112L448 224L336 224L336 345L448 345L448 448L336 448L336 560L224 560L224 672L112 672L112 784L0 784L0 905L112 905L112 1008L0 1008L0 1129ZM560 -103L690 -103L690 -224L560 -224L560 -103ZM237 1010L237 903L340 903L340 1010L237 1010ZM461 1010L461 903L564 903L564 1010L461 1010ZM125 898L125 791L228 791L228 898L125 898ZM349 898L349 791L452 791L452 898L349 898ZM237 786L237 679L340 679L340 786L237 786ZM461 786L461 679L564 679L564 786L461 786ZM349 674L349 567L452 567L452 674L349 674ZM461 562L461 455L564 455L564 562L461 562ZM461 338L461 231L564 231L564 338L461 338Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15620,6 +17355,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮞": {
     char: "🮞",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccccccc",
     d: "M560 1017L690 1017L690 896L578 896L578 793L690 793L690 672L578 672L578 569L690 569L690 448L578 448L578 345L690 345L690 224L578 224L578 121L690 121L690 0L578 0L578 -103L690 -103L690 -224L560 -224L560 -112L466 -112L466 -224L336 -224L336 -112L242 -112L242 -224L112 -224L112 -112L0 -112L0 9L112 9L112 121L224 121L224 233L336 233L336 336L224 336L224 457L336 457L336 569L448 569L448 681L560 681L560 784L448 784L448 905L560 905L560 1017ZM461 562L461 455L564 455L564 562L461 562ZM349 450L349 343L452 343L452 450L349 450ZM461 338L461 231L564 231L564 338L461 338ZM349 226L349 119L452 119L452 226L349 226ZM237 114L237 7L340 7L340 114L237 114ZM461 114L461 7L564 7L564 114L461 114ZM125 2L125 -105L228 -105L228 2L125 2ZM349 2L349 -105L452 -105L452 2L349 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15629,6 +17365,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮟": {
     char: "🮟",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddccccccccc",
     d: "M0 905L130 905L130 793L242 793L242 681L354 681L354 560L242 560L242 457L354 457L354 345L466 345L466 233L578 233L578 121L690 121L690 0L578 0L578 -103L690 -103L690 -224L560 -224L560 -112L466 -112L466 -224L336 -224L336 -112L242 -112L242 -224L112 -224L112 -112L0 -112L0 9L112 9L112 112L0 112L0 233L112 233L112 336L0 336L0 457L112 457L112 560L0 560L0 681L112 681L112 784L0 784L0 905ZM0 1129L130 1129L130 1008L0 1008L0 1129ZM125 674L125 567L228 567L228 674L125 674ZM125 450L125 343L228 343L228 450L125 450ZM237 338L237 231L340 231L340 338L237 338ZM125 226L125 119L228 119L228 226L125 226ZM349 226L349 119L452 119L452 226L349 226ZM237 114L237 7L340 7L340 114L237 114ZM461 114L461 7L564 7L564 114L461 114ZM125 2L125 -105L228 -105L228 2L125 2ZM349 2L349 -105L452 -105L452 2L349 2Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15638,6 +17375,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮠": {
     char: "🮠",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 896L242 896L242 672L130 672L130 448L0 448L0 681L112 681L112 905L224 905L224 1129Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -15647,6 +17385,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮡": {
     char: "🮡",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L466 1129L466 905L578 905L578 681L690 681L690 448L560 448L560 672L448 672L448 896L336 896L336 1129Z",
     xmin: 336.0,
     ymin: 448.0,
@@ -15656,6 +17395,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮢": {
     char: "🮢",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L130 457L130 233L242 233L242 9L354 9L354 -224L224 -224L224 0L112 0L112 224L0 224L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15665,6 +17405,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮣": {
     char: "🮣",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M560 457L690 457L690 224L578 224L578 0L466 0L466 -224L336 -224L336 9L448 9L448 233L560 233L560 457Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15674,6 +17415,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮤": {
     char: "🮤",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 896L242 896L242 672L130 672L130 233L242 233L242 9L354 9L354 -224L224 -224L224 0L112 0L112 224L0 224L0 681L112 681L112 905L224 905L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15683,6 +17425,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮥": {
     char: "🮥",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L466 1129L466 905L578 905L578 681L690 681L690 224L578 224L578 0L466 0L466 -224L336 -224L336 9L448 9L448 233L560 233L560 672L448 672L448 896L336 896L336 1129Z",
     xmin: 336.0,
     ymin: -224.0,
@@ -15692,6 +17435,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮦": {
     char: "🮦",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 457L130 457L130 233L242 233L242 9L448 9L448 233L560 233L560 457L690 457L690 224L578 224L578 0L466 0L466 -224L224 -224L224 0L112 0L112 224L0 224L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15701,6 +17445,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮧": {
     char: "🮧",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L466 1129L466 905L578 905L578 681L690 681L690 448L560 448L560 672L448 672L448 896L242 896L242 672L130 672L130 448L0 448L0 681L112 681L112 905L224 905L224 1129Z",
     xmin: 0.0,
     ymin: 448.0,
@@ -15710,6 +17455,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮨": {
     char: "🮨",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M224 1129L354 1129L354 896L242 896L242 672L130 672L130 448L0 448L0 681L112 681L112 905L224 905L224 1129ZM560 457L690 457L690 224L578 224L578 0L466 0L466 -224L336 -224L336 9L448 9L448 233L560 233L560 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15719,6 +17465,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮩": {
     char: "🮩",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M336 1129L466 1129L466 905L578 905L578 681L690 681L690 448L560 448L560 672L448 672L448 896L336 896L336 1129ZM0 457L130 457L130 233L242 233L242 9L354 9L354 -224L224 -224L224 0L112 0L112 224L0 224L0 457Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15728,6 +17475,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮪": {
     char: "🮪",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1129L466 1129L466 905L578 905L578 681L690 681L690 224L578 224L578 0L466 0L466 -224L224 -224L224 0L112 0L112 224L0 224L0 457L130 457L130 233L242 233L242 9L448 9L448 233L560 233L560 672L448 672L448 896L336 896L336 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15737,6 +17485,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮫": {
     char: "🮫",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L354 1129L354 896L242 896L242 672L130 672L130 233L242 233L242 9L448 9L448 233L560 233L560 457L690 457L690 224L578 224L578 0L466 0L466 -224L224 -224L224 0L112 0L112 224L0 224L0 681L112 681L112 905L224 905L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15746,6 +17495,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮬": {
     char: "🮬",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L466 1129L466 905L578 905L578 681L690 681L690 224L578 224L578 0L466 0L466 -224L336 -224L336 9L448 9L448 233L560 233L560 672L448 672L448 896L242 896L242 672L130 672L130 448L0 448L0 681L112 681L112 905L224 905L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15755,6 +17505,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮭": {
     char: "🮭",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 1129L466 1129L466 905L578 905L578 681L690 681L690 336L560 336L560 672L448 672L448 896L242 896L242 672L130 672L130 233L242 233L242 9L354 9L354 -224L224 -224L224 0L112 0L112 224L0 224L0 681L112 681L112 905L224 905L224 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15764,6 +17515,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮮": {
     char: "🮮",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 1129L466 1129L466 905L578 905L578 681L690 681L690 224L578 224L578 0L466 0L466 -224L224 -224L224 0L112 0L112 224L0 224L0 681L112 681L112 905L224 905L224 1129ZM237 898L237 674L125 674L125 231L237 231L237 7L452 7L452 231L564 231L564 674L452 674L452 898L237 898Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15773,6 +17525,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮯": {
     char: "🮯",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 1129L466 1129L466 457L690 457L690 336L466 336L466 -224L112 -224L112 336L0 336L0 457L112 457L112 1129Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15782,6 +17535,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮰": {
     char: "🮰",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L130 905L130 793L242 793L242 681L354 681L354 569L466 569L466 457L578 457L578 345L690 345L690 112L560 112L560 224L336 224L336 336L242 336L242 112L130 112L130 -112L0 -112L0 905Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15791,6 +17545,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮱": {
     char: "🮱",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M0 1129L690 1129L690 -224L0 -224L0 1129ZM461 786L461 567L564 567L564 786L461 786ZM349 562L349 343L452 343L452 562L349 562ZM237 338L237 119L340 119L340 338L237 338ZM125 450L125 343L228 343L228 450L125 450Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15800,6 +17555,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮲": {
     char: "🮲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M336 1017L578 1017L578 793L690 793L690 336L578 336L578 112L466 112L466 0L242 0L242 -112L112 -112L112 121L448 121L448 448L336 448L336 560L242 560L242 336L112 336L112 569L224 569L224 681L448 681L448 784L336 784L336 1017Z",
     xmin: 112.0,
     ymin: -112.0,
@@ -15809,6 +17565,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮳": {
     char: "🮳",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 457L130 457L130 233L242 233L242 121L354 121L354 9L466 9L466 -112L224 -112L224 112L112 112L112 224L0 224L0 457ZM224 793L354 793L354 672L242 672L242 560L0 560L0 681L224 681L224 793Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15818,6 +17575,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮴": {
     char: "🮴",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 1129L690 1129L690 -224L0 -224L0 1129ZM461 786L461 338L340 338L340 450L237 450L237 338L125 338L125 231L237 231L237 119L340 119L340 231L564 231L564 786L461 786Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15827,6 +17585,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮵": {
     char: "🮵",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M336 681L466 681L466 457L690 457L690 336L466 336L466 112L336 112L336 224L224 224L224 336L112 336L112 457L224 457L224 569L336 569L336 681ZM0 1129L690 1129L690 896L0 896L0 1129ZM0 9L690 9L690 -224L0 -224L0 9Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15836,6 +17595,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮶": {
     char: "🮶",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 681L354 681L354 569L466 569L466 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 336L0 336L0 457L224 457L224 681ZM0 1129L690 1129L690 896L0 896L0 1129ZM0 9L690 9L690 -224L0 -224L0 9Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15845,6 +17605,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮷": {
     char: "🮷",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 793L354 793L354 457L578 457L578 336L466 336L466 224L354 224L354 112L224 112L224 224L112 224L112 336L0 336L0 457L224 457L224 793ZM560 1129L690 1129L690 560L560 560L560 1129ZM560 233L690 233L690 -224L560 -224L560 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15854,6 +17615,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮸": {
     char: "🮸",
     horiz_adv_x: 0.0,
+    gerber_lp: "ddd",
     d: "M224 681L354 681L354 569L466 569L466 457L578 457L578 336L354 336L354 0L224 0L224 336L0 336L0 457L112 457L112 569L224 569L224 681ZM560 1129L690 1129L690 560L560 560L560 1129ZM560 233L690 233L690 -224L560 -224L560 233Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15863,6 +17625,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮹": {
     char: "🮹",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M224 793L690 793L690 560L242 560L242 121L690 121L690 0L112 0L112 681L224 681L224 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -15872,6 +17635,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮺": {
     char: "🮺",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L466 681L466 0L0 0L0 121L336 121L336 560L0 560L0 681Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -15881,6 +17645,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮻": {
     char: "🮻",
     horiz_adv_x: 0.0,
+    gerber_lp: "dddd",
     d: "M112 1129L242 1129L242 560L0 560L0 681L112 681L112 1129ZM448 1129L578 1129L578 681L690 681L690 560L448 560L448 1129ZM0 345L242 345L242 -224L112 -224L112 224L0 224L0 345ZM448 345L690 345L690 224L578 224L578 -224L448 -224L448 345Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15890,6 +17655,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮼": {
     char: "🮼",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M0 1129L690 1129L690 -224L0 -224L0 -103L560 -103L560 1008L0 1008L0 1129ZM224 569L466 569L466 336L224 336L224 569Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15899,6 +17665,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮽": {
     char: "🮽",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M112 1129L578 1129L578 905L690 905L690 0L578 0L578 -224L112 -224L112 0L0 0L0 905L112 905L112 1129ZM237 674L237 231L452 231L452 674L237 674ZM125 898L125 679L228 679L228 898L125 898ZM461 898L461 679L564 679L564 898L461 898ZM125 226L125 7L228 7L228 226L125 226ZM461 226L461 7L564 7L564 226L461 226Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15908,6 +17675,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮾": {
     char: "🮾",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 1129L690 1129L690 448L578 448L578 233L690 233L690 -224L448 -224L448 0L354 0L354 -224L0 -224L0 1129ZM461 226L461 7L564 7L564 226L461 226Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15917,6 +17685,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🮿": {
     char: "🮿",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcccc",
     d: "M0 1129L242 1129L242 905L448 905L448 1129L690 1129L690 672L578 672L578 233L690 233L690 -224L448 -224L448 0L242 0L242 -224L0 -224L0 233L112 233L112 672L0 672L0 1129ZM125 898L125 679L228 679L228 898L125 898ZM461 898L461 679L564 679L564 898L461 898ZM125 226L125 7L228 7L228 226L125 226ZM461 226L461 7L564 7L564 226L461 226Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15926,6 +17695,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯀": {
     char: "🯀",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L242 793L242 681L336 681L336 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L336 0L336 112L242 112L242 0L112 0L112 112L0 112L0 345L112 345L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L237 455L237 338L125 338L125 119L228 119L228 231L349 231L349 119L452 119L452 338L340 338L340 455L452 455L452 674L349 674L349 562L228 562L228 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -15935,6 +17705,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯁": {
     char: "🯁",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 905L242 905L242 793L448 793L448 905L690 905L690 784L466 784L466 672L354 672L354 345L560 345L560 457L690 457L690 336L578 336L578 233L690 233L690 112L560 112L560 224L354 224L354 9L690 9L690 -112L336 -112L336 0L242 0L242 -112L0 -112L0 905ZM125 786L125 7L228 7L228 786L125 786Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15944,6 +17715,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯂": {
     char: "🯂",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M0 905L690 905L690 784L466 784L466 681L690 681L690 560L578 560L578 336L466 336L466 112L354 112L354 0L0 0L0 121L336 121L336 224L112 224L112 336L0 336L0 569L336 569L336 672L0 672L0 905ZM349 562L349 450L125 450L125 343L452 343L452 562L349 562Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -15953,6 +17725,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯃": {
     char: "🯃",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 905L466 905L466 793L578 793L578 560L0 560L0 681L448 681L448 784L0 784L0 905Z",
     xmin: 0.0,
     ymin: 560.0,
@@ -15962,6 +17735,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯄": {
     char: "🯄",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccccc",
     d: "M0 1129L690 1129L690 -224L0 -224L0 1129ZM237 450L237 231L340 231L340 343L452 343L452 450L237 450ZM237 786L237 679L452 679L452 786L237 786ZM461 674L461 455L564 455L564 674L461 674ZM125 674L125 567L228 567L228 674L125 674ZM237 114L237 7L340 7L340 114L237 114Z",
     xmin: 0.0,
     ymin: -224.0,
@@ -15971,6 +17745,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯅": {
     char: "🯅",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 1017L466 1017L466 905L578 905L578 672L466 672L466 560L354 560L354 457L466 457L466 345L578 345L578 224L448 224L448 336L354 336L354 121L466 121L466 9L578 9L578 -112L448 -112L448 0L336 0L336 112L242 112L242 0L130 0L130 -112L0 -112L0 9L112 9L112 121L224 121L224 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 560L112 560L112 672L0 672L0 905L112 905L112 1017ZM125 898L125 679L452 679L452 898L125 898Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15980,6 +17755,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯆": {
     char: "🯆",
     horiz_adv_x: 0.0,
+    gerber_lp: "dccc",
     d: "M112 1017L466 1017L466 905L578 905L578 672L466 672L466 569L578 569L578 448L466 448L466 336L354 336L354 121L466 121L466 9L578 9L578 -112L448 -112L448 0L336 0L336 112L242 112L242 0L130 0L130 -112L0 -112L0 9L112 9L112 121L224 121L224 336L112 336L112 448L0 448L0 569L112 569L112 672L0 672L0 905L112 905L112 1017ZM125 898L125 679L452 679L452 898L125 898ZM125 562L125 455L228 455L228 562L125 562ZM349 562L349 455L452 455L452 562L349 562Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15989,6 +17765,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯇": {
     char: "🯇",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 1017L466 1017L466 905L578 905L578 672L466 672L466 569L578 569L578 448L466 448L466 336L354 336L354 121L466 121L466 9L578 9L578 -112L448 -112L448 0L336 0L336 112L242 112L242 -112L112 -112L112 121L224 121L224 336L130 336L130 224L0 224L0 345L112 345L112 457L224 457L224 560L112 560L112 672L0 672L0 905L112 905L112 1017ZM125 898L125 679L452 679L452 898L125 898ZM349 562L349 455L452 455L452 562L349 562Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -15998,6 +17775,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯈": {
     char: "🯈",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 1017L466 1017L466 905L578 905L578 672L466 672L466 560L354 560L354 457L466 457L466 345L578 345L578 224L448 224L448 336L354 336L354 121L466 121L466 -112L336 -112L336 112L242 112L242 0L130 0L130 -112L0 -112L0 9L112 9L112 121L224 121L224 336L112 336L112 448L0 448L0 569L112 569L112 672L0 672L0 905L112 905L112 1017ZM125 898L125 679L452 679L452 898L125 898ZM125 562L125 455L228 455L228 562L125 562Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -16007,6 +17785,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯉": {
     char: "🯉",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 1017L466 1017L466 905L578 905L578 672L466 672L466 560L354 560L354 457L578 457L578 336L466 336L466 233L578 233L578 0L466 0L466 -112L336 -112L336 0L242 0L242 -112L112 -112L112 0L0 0L0 233L112 233L112 336L0 336L0 457L224 457L224 560L112 560L112 672L0 672L0 905L112 905L112 1017ZM237 450L237 226L125 226L125 119L452 119L452 226L340 226L340 450L237 450ZM125 898L125 679L452 679L452 898L125 898Z",
     xmin: 0.0,
     ymin: -112.0,
@@ -16016,6 +17795,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯊": {
     char: "🯊",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M224 793L354 793L354 681L466 681L466 569L578 569L578 0L448 0L448 112L336 112L336 224L242 224L242 112L130 112L130 0L0 0L0 569L112 569L112 681L224 681L224 793ZM237 674L237 562L125 562L125 231L228 231L228 343L349 343L349 231L452 231L452 562L340 562L340 674L237 674Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -16025,6 +17805,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯰": {
     char: "🯰",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 448L448 448L448 672L130 672L130 448L0 448L0 681L112 681L112 793ZM0 345L130 345L130 121L448 121L448 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 345Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -16034,6 +17815,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯱": {
     char: "🯱",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M448 681L578 681L578 448L448 448L448 681ZM448 345L578 345L578 112L448 112L448 345Z",
     xmin: 448.0,
     ymin: 112.0,
@@ -16043,6 +17825,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯲": {
     char: "🯲",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 336L130 336L130 121L466 121L466 0L112 0L112 112L0 112L0 345L112 345L112 457L448 457L448 672L112 672L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -16052,6 +17835,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯳": {
     char: "🯳",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 121L448 121L448 336L112 336L112 457L448 457L448 672L112 672L112 793Z",
     xmin: 112.0,
     ymin: 0.0,
@@ -16061,6 +17845,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯴": {
     char: "🯴",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M0 681L130 681L130 457L448 457L448 681L578 681L578 448L466 448L466 345L578 345L578 112L448 112L448 336L112 336L112 448L0 448L0 681Z",
     xmin: 0.0,
     ymin: 112.0,
@@ -16070,6 +17855,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯵": {
     char: "🯵",
     horiz_adv_x: 0.0,
+    gerber_lp: "d",
     d: "M112 793L466 793L466 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -16079,6 +17865,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯶": {
     char: "🯶",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 672L130 672L130 457L466 457L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 345L112 345L112 448L0 448L0 681L112 681L112 793ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -16088,6 +17875,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯷": {
     char: "🯷",
     horiz_adv_x: 0.0,
+    gerber_lp: "dd",
     d: "M112 793L466 793L466 681L578 681L578 448L448 448L448 672L112 672L112 793ZM448 345L578 345L578 112L448 112L448 345Z",
     xmin: 112.0,
     ymin: 112.0,
@@ -16097,6 +17885,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯸": {
     char: "🯸",
     horiz_adv_x: 0.0,
+    gerber_lp: "dcc",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 112L0 112L0 345L112 345L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674ZM125 338L125 119L452 119L452 338L125 338Z",
     xmin: 0.0,
     ymin: 0.0,
@@ -16106,6 +17895,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   "🯹": {
     char: "🯹",
     horiz_adv_x: 0.0,
+    gerber_lp: "dc",
     d: "M112 793L466 793L466 681L578 681L578 448L466 448L466 345L578 345L578 112L466 112L466 0L112 0L112 121L448 121L448 336L112 336L112 448L0 448L0 681L112 681L112 793ZM125 674L125 455L452 455L452 674L125 674Z",
     xmin: 0.0,
     ymin: 0.0,

@@ -43,6 +43,7 @@ test "gen_path on some simple glyphs" {
     "A": {
       char: "A",
       horiz_adv_x: 0.0,
+      gerber_lp: "dc",
       d: "M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507 723L507 24ZM395 269L395 433L138 433L138 269L395 269Z",
       xmin: 48.0,
       ymin: 24.0,
@@ -52,6 +53,7 @@ test "gen_path on some simple glyphs" {
     "B": {
       char: "B",
       horiz_adv_x: 0.0,
+      gerber_lp: "dc",
       d: "M507 21L48 21L48 723L160 723L160 530L507 530L507 21ZM417 269L417 433L160 433L160 269L417 269Z",
       xmin: 48.0,
       ymin: 21.0,
@@ -61,6 +63,7 @@ test "gen_path on some simple glyphs" {
     "C": {
       char: "C",
       horiz_adv_x: 0.0,
+      gerber_lp: "d",
       d: "M507 21L48 21L48 723L507 723L507 625L160 625L160 269L507 269L507 21Z",
       xmin: 48.0,
       ymin: 21.0,
