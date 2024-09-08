@@ -7,7 +7,7 @@ pub fn translate_path(d : String, x : Double, y : Double) -> String!Error {
   .each(
     fn(cmd) {
       d.write_string(cmd.c)
-      cmd.p.0
+      cmd.p._
       .iter()
       .eachi(
         fn(index, val) {
