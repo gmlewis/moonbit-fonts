@@ -2,28 +2,24 @@
 pub fn translate_path(d : String, x : Double, y : Double) -> String!Error {
   let cmds = split_path!(d)
   let d = Buffer::new()
-  cmds
-  .iter()
-  .each(
-    fn(cmd) {
-      d.write_string(cmd.c)
-      cmd.p._
-      .iter()
-      .eachi(
-        fn(index, val) {
-          if index % 2 == 0 {
-            if index > 0 {
-              d.write_char(' ')
-            }
-            d.write_string(svg_num(x + val))
-          } else {
+  for cmd in cmds {
+    d.write_string(cmd.c)
+    cmd.p._
+    .iter()
+    .eachi(
+      fn(index, val) {
+        if index % 2 == 0 {
+          if index > 0 {
             d.write_char(' ')
-            d.write_string(svg_num(y + val))
           }
-        },
-      )
-    },
-  )
+          d.write_string(svg_num(x + val))
+        } else {
+          d.write_char(' ')
+          d.write_string(svg_num(y + val))
+        }
+      },
+    )
+  }
   d.to_string()
 }
 
