@@ -1,14 +1,14 @@
 /// `translate_path` translates (moves) an SVG path by the provided offsets.
-/// If `y_up` is true, all `y` values are scaled by -1.
+/// If `invert_y` is true, all `y` values are scaled by -1.
 pub fn translate_path(
   d : String,
   x : Double,
   y : Double,
-  y_up~ : Bool = false
+  invert_y~ : Bool = false
 ) -> String!Error {
   let cmds = split_path!(d)
   let d = @buffer.new()
-  let y_scale = if y_up { -1.0 } else { 1.0 }
+  let y_scale = if invert_y { -1.0 } else { 1.0 }
   for cmd in cmds {
     d.write_string(cmd.c)
     cmd.p._
@@ -46,9 +46,9 @@ test "translate" {
   assert_eq!(got, want)
 }
 
-test "translate with y_up=true" {
+test "translate with invert_y=true" {
   let d = "M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507 723L507 24ZM395 269L395 433L138 433L138 269L395 269Z"
-  let got = translate_path!(d, 1000.0, 2000.0, y_up=true)
+  let got = translate_path!(d, 1000.0, 2000.0, invert_y=true)
   let want = "M1507 1976L1048 1976L1048 1470L1395 1470L1395 1375L1048 1375L1048 1277L1507 1277L1507 1976ZM1395 1731L1395 1567L1138 1567L1138 1731L1395 1731Z"
   assert_eq!(got, want)
 }

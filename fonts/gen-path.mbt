@@ -8,9 +8,12 @@
 ///
 /// If you want multiple lines centered horizontally, use `gen_paths` instead.
 ///
-/// Note that the SVG standard states that positive Y is "down" with origin
-/// coordinates in the upper-left. However, it is frequently convenient to have
-/// positive Y be "up" in 3D environments, so `y_up`=true inverts Y values.
+/// Note that the SVG standard states that positive-Y is "down" with origin
+/// coordinates in the upper-left, however, all SVG fonts appear to have their
+/// origin in the lower left with positive-Y moving "up". This package
+/// attempts to convert the SVG paths such that the font is equally readable
+/// in both the "y_up=false" SVG canvas environment or in a 3D "y_up=true"
+/// rendering environment.
 pub fn gen_path(
   self : Font,
   text : String,
@@ -23,7 +26,7 @@ pub fn gen_path(
   let mut ymax = 0.0
   let mut x = 0.0
   let mut y = 0.0
-  let y_scale = if y_up { -1.0 } else { 1.0 }
+  let y_scale = if y_up { 1.0 } else { -1.0 }
   let char = @buffer.new()
   let gerber_lp = @buffer.new()
   let d = @buffer.new()
@@ -34,7 +37,7 @@ pub fn gen_path(
       Some(glyph) => {
         char.write_string(glyph.char)
         gerber_lp.write_string(glyph.gerber_lp)
-        let (glyph_ymin, glyph_ymax) = if y_up {
+        let (glyph_ymin, glyph_ymax) = if y_scale < 0 {
           (-glyph.ymax, -glyph.ymin)
         } else {
           (glyph.ymin, glyph.ymax)
@@ -59,7 +62,7 @@ pub fn gen_path(
             ymax = y + glyph_ymax
           }
         }
-        d.write_string(translate_path!(glyph.d, x, y, y_up~))
+        d.write_string(translate_path!(glyph.d, x, y, invert_y=not(y_up)))
         if glyph.horiz_adv_x > 0.0 {
           x = x + glyph.horiz_adv_x
         } else {
@@ -84,8 +87,8 @@ pub fn gen_path(
   let char = char.to_unchecked_string()
   let gerber_lp = gerber_lp.to_unchecked_string()
   let mut d = d.to_unchecked_string()
-  let topy = if y_up { ymin } else { ymax }
-  let boty = if y_up { ymax } else { ymin }
+  let topy = if y_up { ymax } else { ymin }
+  let boty = if y_up { ymin } else { ymax }
   let (dx, dy) = match anchor {
     Unchanged => (0.0, 0.0)
     TopLeft => (-xmin, -topy)
