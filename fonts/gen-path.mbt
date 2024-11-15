@@ -34,11 +34,16 @@ pub fn gen_path(
       Some(glyph) => {
         char.write_string(glyph.char)
         gerber_lp.write_string(glyph.gerber_lp)
+        let (glyph_ymin, glyph_ymax) = if y_up {
+          (-glyph.ymax, -glyph.ymin)
+        } else {
+          (glyph.ymin, glyph.ymax)
+        }
         if first {
           xmin = glyph.xmin
           xmax = glyph.xmax
-          ymin = glyph.ymin
-          ymax = glyph.ymax
+          ymin = glyph_ymin
+          ymax = glyph_ymax
           first = false
         } else {
           if x + glyph.xmin < xmin {
@@ -47,11 +52,11 @@ pub fn gen_path(
           if x + glyph.xmax > xmax {
             xmax = x + glyph.xmax
           }
-          if y + glyph.ymin < ymin {
-            ymin = y + glyph.ymin
+          if y + glyph_ymin < ymin {
+            ymin = y + glyph_ymin
           }
-          if y + glyph.ymax > ymax {
-            ymax = y + glyph.ymax
+          if y + glyph_ymax > ymax {
+            ymax = y + glyph_ymax
           }
         }
         d.write_string(translate_path!(glyph.d, x, y, y_up~))
@@ -79,9 +84,9 @@ pub fn gen_path(
   let char = char.to_unchecked_string()
   let gerber_lp = gerber_lp.to_unchecked_string()
   let mut d = d.to_unchecked_string()
-  let topy = if y_up { ymax } else { ymin }
-  let boty = if y_up { ymin } else { ymax }
-  let (cx, cy) = match anchor {
+  let topy = if y_up { ymin } else { ymax }
+  let boty = if y_up { ymax } else { ymin }
+  let (dx, dy) = match anchor {
     Unchanged => (0.0, 0.0)
     TopLeft => (-xmin, -topy)
     TopCenter => (-(xmin + xmax) / 2, -topy)
@@ -98,11 +103,11 @@ pub fn gen_path(
     RatioXY(rx, ry) => (-mix(xmin, xmax, rx), -mix(ymin, ymax, ry))
   }
   if anchor != Unchanged {
-    d = translate_path!(d, cx, cy)
-    xmin += cx
-    ymin += cy
-    xmax += cx
-    ymax += cy
+    d = translate_path!(d, dx, dy)
+    xmin += dx
+    ymin += dy
+    xmax += dx
+    ymax += dy
   }
   { char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax }
 }
