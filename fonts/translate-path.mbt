@@ -5,7 +5,7 @@ pub fn translate_path(
   x : Double,
   y : Double,
   invert_y~ : Bool = false
-) -> String!Error {
+) -> String!FontError {
   let cmds = split_path!(d)
   let d = @buffer.new()
   let y_scale = if invert_y { -1.0 } else { 1.0 }

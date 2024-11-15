@@ -1,5 +1,5 @@
 /// `bbox` returns the bounding box of a Glyph path.
-pub fn bbox(d : String) -> Rectangle!Error {
+pub fn bbox(d : String) -> Rectangle!FontError {
   let cmds = split_path!(d)
   let mut xmin = 0.0
   let mut ymin = 0.0

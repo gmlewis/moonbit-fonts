@@ -3,10 +3,8 @@ type Params Array[Double] derive(Show, Eq)
 
 let params_re : @regexp.RegExp = @regexp.compile?("^ *([0-9\\.\\-]+) *,*").unwrap()
 
-pub(all) type! ParseError String derive(Show)
-
 /// `parse_params` parses an SVG command and returns the parameters.
-fn parse_params(d : String) -> Params!Error {
+fn parse_params(d : String) -> Params!FontError {
   let mut d = d
   let params = []
   while d.length() > 0 {
@@ -14,10 +12,17 @@ fn parse_params(d : String) -> Params!Error {
     match match_result.captures() {
       [m, num] => {
         d = d.substring(start=m.length())
-        let n = @strconv.parse_double!(num)
+        let n = try {
+          @strconv.parse_double!(num)
+        } catch {
+          _ => raise FontError("parse_params: unable to parse double: \{num}")
+        }
         params.push(n)
       }
-      e => raise ParseError("unable to parse SVG params \{d}: got \{e}")
+      e =>
+        raise FontError(
+          "parse_params: unable to parse SVG params \{d}: got \{e}",
+        )
     }
   }
   params

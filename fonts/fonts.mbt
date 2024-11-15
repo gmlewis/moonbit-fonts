@@ -7,3 +7,5 @@ pub(all) struct Font {
   descent : Double
   glyphs : Map[String, Glyph]
 } derive(Show, Eq)
+
+pub(all) type! FontError String derive(Show, Eq)

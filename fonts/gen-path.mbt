@@ -19,7 +19,7 @@ pub fn gen_path(
   text : String,
   anchor~ : Anchor = Unchanged,
   y_up~ : Bool = false
-) -> Glyph!Error {
+) -> Glyph!FontError {
   let mut xmin = 0.0
   let mut ymin = 0.0
   let mut xmax = 0.0
@@ -94,16 +94,16 @@ pub fn gen_path(
     TopLeft => (-xmin, -topy)
     TopCenter => (-(xmin + xmax) / 2, -topy)
     TopRight => (-xmax, -topy)
-    CenterLeft => (-xmin, 0)
-    Center => (-(xmin + xmax) / 2, 0)
-    CenterRight => (-xmax, 0)
+    CenterLeft => (-xmin, -(boty + topy) / 2)
+    Center => (-(xmin + xmax) / 2, -(boty + topy) / 2)
+    CenterRight => (-xmax, -(boty + topy) / 2)
     BaselineLeft => (-xmin, 0)
     BaselineCenter => (-(xmin + xmax) / 2, 0)
     BaselineRight => (-xmax, 0)
     BottomLeft => (-xmin, -boty)
     BottomCenter => (-(xmin + xmax) / 2, -boty)
     BottomRight => (-xmax, -boty)
-    RatioXY(rx, ry) => (-mix(xmin, xmax, rx), -mix(ymin, ymax, ry))
+    RatioXY(rx, ry) => (-mix(xmin, xmax, rx), -mix(boty, topy, 1.0 - ry))
   }
   if anchor != Unchanged {
     d = translate_path!(d, dx, dy)
@@ -125,7 +125,7 @@ pub fn gen_paths(
   lines : Array[String],
   anchor~ : Anchor = BaselineLeft,
   y_up~ : Bool = false
-) -> Array[Glyph]!Error {
+) -> Array[Glyph]!FontError {
   let glyphs = Array::new(capacity=lines.length())
   for line in lines {
     glyphs.push(self.gen_path!(line, anchor~, y_up~))
