@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 moon update && moon install && rm -rf target
-moon fmt
-moon test
+# moon fmt
+moon test --target js --package gmlewis/moonbit-fonts/fonts

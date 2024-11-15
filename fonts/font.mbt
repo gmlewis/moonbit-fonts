@@ -1,5 +1,5 @@
 /// `Font` represents an entire font.
-pub struct Font {
+pub(all) struct Font {
   id : String
   horiz_adv_x : Double
   units_per_em : Double

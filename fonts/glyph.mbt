@@ -1,6 +1,6 @@
 /// `Glyph` represents a single glyph within each `Font` and also represents
 /// multiple glyphs combined together using `Font.gen_path`.
-pub struct Glyph {
+pub(all) struct Glyph {
   /// `char` is this glyph.
   char : String
   /// `horiz_adv_x` is the number of font units to advance for this glyph.

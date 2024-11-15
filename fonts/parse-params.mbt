@@ -3,7 +3,7 @@ type Params Array[Double] derive(Show, Eq)
 
 let params_re : @regexp.RegExp = @regexp.compile?("^ *([0-9\\.\\-]+) *,*").unwrap()
 
-pub type! ParseError String derive(Show)
+pub(all) type! ParseError String derive(Show)
 
 /// `parse_params` parses an SVG command and returns the parameters.
 fn parse_params(d : String) -> Params!Error {
