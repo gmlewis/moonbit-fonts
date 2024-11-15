@@ -1,6 +1,8 @@
 /// Anchor represents where to place the origin (0,0) of the glyph relative
 /// to its minimum bounding box.
-enum Anchor {
+pub(all) enum Anchor {
+  /// Unchanged means that the SVG path will not be translated.
+  Unchanged
   TopLeft
   TopCenter
   TopRight
@@ -17,5 +19,7 @@ enum Anchor {
   /// of the glyph's minimum bounding box along the x- and y-axes.
   /// Even though the other Anchor names describe the Y value first (e.g. "TopLeft"),
   /// note that X is first parameter since (x,y) is much easier to remember.
+  ///
+  /// For example, `TopRight` is identical to `Ratio(1,0)`.
   RatioXY(Double, Double)
-}
+} derive(Show, Eq)
