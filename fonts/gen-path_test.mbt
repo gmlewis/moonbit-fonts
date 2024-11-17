@@ -265,7 +265,7 @@ test "gen_path on test_cases" {
       assert_eq!(got.d, tc.want_d)
       assert_eq!(got.gerber_lp, "dcdcddcdd")
       assert_eq!(got.char, "ABC\nBC\rC")
-      let bbox = @fonts.bbox!(got.d)
+      let bbox = @fonts.glyph_bbox!(got.d)
       assert_eq!(got.xmin, bbox.min.x)
       assert_eq!(got.ymin, bbox.min.y)
       assert_eq!(got.xmax, bbox.max.x)

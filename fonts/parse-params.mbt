@@ -1,6 +1,10 @@
 /// `Params` represents the parameters to an SVG command.
 type Params Array[Double] derive(Show, Eq)
 
+pub fn length(self : Params) -> Int {
+  self._.length()
+}
+
 let params_re : @regexp.RegExp = @regexp.compile?("^ *([0-9\\.\\-]+) *,*").unwrap()
 
 /// `parse_params` parses an SVG command and returns the parameters.

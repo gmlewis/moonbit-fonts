@@ -85,6 +85,11 @@ pub fn Rectangle::new() -> Rectangle {
   { min: pt(0, 0), max: pt(0, 0) }
 }
 
+/// `bounds` returns the tuple `(xmin, ymin, xmax, ymax)`.
+pub fn bounds(self : Rectangle) -> (Double, Double, Double, Double) {
+  (self.min.x, self.min.y, self.max.x, self.max.y)
+}
+
 /// copy makes a copy of the provided rectangle without changing it.
 pub fn copy(self : Rectangle) -> Rectangle {
   { min: pt(self.min.x, self.min.y), max: pt(self.max.x, self.max.y) }
@@ -172,6 +177,22 @@ pub fn intersect(self : Rectangle, s : Rectangle) -> Rectangle {
     return Rectangle::new()
   }
   r
+}
+
+/// `extend` extends the current rectangle to include the provided point.
+pub fn extend(self : Rectangle, pt : Point) -> Unit {
+  if pt.x < self.min.x {
+    self.min.x = pt.x
+  }
+  if pt.x > self.max.x {
+    self.max.x = pt.x
+  }
+  if pt.y < self.min.y {
+    self.min.y = pt.y
+  }
+  if pt.y > self.max.y {
+    self.max.y = pt.y
+  }
 }
 
 /// union returns the smallest rectangle that contains both r and s.

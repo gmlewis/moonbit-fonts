@@ -118,17 +118,3 @@ pub fn gen_path(
 fn mix(a : Double, b : Double, t : Double) -> Double {
   (1.0 - t) * a + t * b
 }
-
-/// `gen_paths` handles multiple strings independently.
-pub fn gen_paths(
-  self : Font,
-  lines : Array[String],
-  anchor~ : Anchor = BaselineLeft,
-  y_up~ : Bool = false
-) -> Array[Glyph]!FontError {
-  let glyphs = Array::new(capacity=lines.length())
-  for line in lines {
-    glyphs.push(self.gen_path!(line, anchor~, y_up~))
-  }
-  glyphs
-}
