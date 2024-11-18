@@ -7442,9 +7442,3 @@ pub let font : @fonts.Font = {
   descent: -200.0,
   glyphs,
 }
-
-fn main {
-  let json = font.to_json()
-  let content = json.stringify(indent=2)
-  @fs.write_string_to_file(path="font/baloo/baloo.json", content~)
-}

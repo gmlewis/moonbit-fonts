@@ -1,7 +1,5 @@
 {
-  "is-main": true,
   "import": [
-    "gmlewis/fonts/fonts",
-    "moonbitlang/x/fs"
+    "gmlewis/fonts/fonts"
   ]
 }
