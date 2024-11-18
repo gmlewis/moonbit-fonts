@@ -50,11 +50,16 @@ pub fn Path::from_glyph(
   let mut bbox = Rectangle::new()
   let svg_cmds = split_path!(g.d)
   let cmds = Array::new(capacity=svg_cmds.length())
+  let mut gerber_index = 0
+  let mut gerber_lp = Dark
   for index, svg_cmd in svg_cmds {
-    let gerber_lp = match g.gerber_lp[index] {
-      'd' => Dark
-      'c' => Clear
-      c => raise FontError("Path::from_glyph: unsupported GerberLP '\{c}'")
+    if svg_cmd.c == "M" {
+      gerber_lp = match g.gerber_lp[gerber_index] {
+        'd' => Dark
+        'c' => Clear
+        c => raise FontError("Path::from_glyph: unsupported GerberLP '\{c}'")
+      }
+      gerber_index += 1
     }
     let cmd = PathCmd::from_svg_cmd!(svg_cmd, gerber_lp)
     let cmd = match path_cmd_fn {
@@ -64,14 +69,24 @@ pub fn Path::from_glyph(
     cmds.push(cmd)
 
     // update bbox
-    bbox = if index == 0 { cmd.bbox() } else { bbox.union(cmd.bbox()) }
+    if cmd.cmd != Z {
+      if index == 0 {
+        bbox = cmd.bbox()
+      } else {
+        for p in cmd.params {
+          bbox.extend(pt(p.x, p.y))
+        }
+      }
+    }
   }
+
+  //
   let (xmin, ymin, xmax, ymax) = bbox.bounds()
   { char: g.char, cmds, xmin, ymin, xmax, ymax }
 }
 
 /// `to_glyph` returns a "super" `Glyph` from a `Path`, optionally processing
-/// every `Cmd` with a processing function.
+/// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
 pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
@@ -98,7 +113,15 @@ pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
     d.write_string(params)
 
     // update bbox
-    bbox = if index == 0 { cmd.bbox() } else { bbox.union(cmd.bbox()) }
+    if cmd.cmd != Z {
+      if index == 0 {
+        bbox = cmd.bbox()
+      } else {
+        for p in cmd.params {
+          bbox.extend(pt(p.x, p.y))
+        }
+      }
+    }
   }
 
   //
