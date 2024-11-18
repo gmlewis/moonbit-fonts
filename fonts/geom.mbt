@@ -90,8 +90,8 @@ pub fn bounds(self : Rectangle) -> (Double, Double, Double, Double) {
   (self.min.x, self.min.y, self.max.x, self.max.y)
 }
 
-/// copy makes a copy of the provided rectangle without changing it.
-pub fn copy(self : Rectangle) -> Rectangle {
+/// `clone` makes a copy of the provided rectangle without changing it.
+pub fn clone(self : Rectangle) -> Rectangle {
   { min: pt(self.min.x, self.min.y), max: pt(self.max.x, self.max.y) }
 }
 
@@ -135,7 +135,7 @@ pub fn sub(self : Rectangle, p : Point) -> Rectangle {
 /// of r's dimensions is less than 2*n then an empty rectangle near the center
 /// of r will be returned.
 pub fn inset(self : Rectangle, n : Double) -> Rectangle {
-  let r = self.copy()
+  let r = self.clone()
   if r.dx() < 2.0 * n {
     r.min.x = (r.min.x + r.max.x) / 2
     r.max.x = r.min.x
@@ -156,7 +156,7 @@ pub fn inset(self : Rectangle, n : Double) -> Rectangle {
 /// intersect returns the largest rectangle contained by both r and s. If the
 /// two rectangles do not overlap then the zero rectangle will be returned.
 pub fn intersect(self : Rectangle, s : Rectangle) -> Rectangle {
-  let r = self.copy()
+  let r = self.clone()
   if r.min.x < s.min.x {
     r.min.x = s.min.x
   }
@@ -197,7 +197,7 @@ pub fn extend(self : Rectangle, pt : Point) -> Unit {
 
 /// union returns the smallest rectangle that contains both r and s.
 pub fn union(self : Rectangle, s : Rectangle) -> Rectangle {
-  let r = self.copy()
+  let r = self.clone()
   if r.empty() {
     return s
   }
@@ -256,7 +256,7 @@ pub fn is_in(self : Rectangle, s : Rectangle) -> Bool {
 /// canon returns the canonical version of r. The returned rectangle has minimum
 /// and maximum coordinates swapped if necessary so that it is well-formed.
 pub fn canon(self : Rectangle) -> Rectangle {
-  let r = self.copy()
+  let r = self.clone()
   if r.max.x < r.min.x {
     let tmp = r.min.x
     r.min.x = r.max.x

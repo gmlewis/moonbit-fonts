@@ -92,8 +92,8 @@ pub fn bbox(self : PathCmd) -> Rectangle {
 /// The first argument is the index within the command.
 pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
 
-/// `copy` makes a deep copy of a PatchCmd.
-pub fn copy(self : PathCmd) -> PathCmd {
+/// `clone` makes a deep copy of a PatchCmd.
+pub fn clone(self : PathCmd) -> PathCmd {
   let params = Array::new(capacity=self.params.length())
   for param in self.params {
     let pp : ParamPair = { x: param.x, y: param.y }

@@ -68,7 +68,7 @@ test "every point in f is in g" {
           "Intersect: r=\{r}, s=\{s}, a\{a}: is_zero=\{is_zero} same as overlaps=\{overlaps}",
         )
       }
-      let larger_than_a = [a.copy(), a.copy(), a.copy(), a.copy()]
+      let larger_than_a = [a.clone(), a.clone(), a.clone(), a.clone()]
       larger_than_a[0].min.x -= 1
       larger_than_a[1].min.y -= 1
       larger_than_a[2].max.x += 1
@@ -104,7 +104,7 @@ test "every point in f is in g" {
         // You can't get any smaller than a.
         continue
       }
-      let smaller_than_a = [a.copy(), a.copy(), a.copy(), a.copy()]
+      let smaller_than_a = [a.clone(), a.clone(), a.clone(), a.clone()]
       smaller_than_a[0].min.x += 1
       smaller_than_a[1].min.y += 1
       smaller_than_a[2].max.x -= 1
