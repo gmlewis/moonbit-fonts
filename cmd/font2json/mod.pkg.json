@@ -1,7 +1,0 @@
-{
-  "is_main": true,
-  "import": [
-    "gmlewis/fonts/font/baloo",
-    "moonbitlang/x/fs"
-  ]
-}
