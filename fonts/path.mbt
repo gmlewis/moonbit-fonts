@@ -130,3 +130,19 @@ pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
   let (xmin, ymin, xmax, ymax) = bbox.bounds()
   { char: self.char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax }
 }
+
+/// `copy` makes a deep copy of a Path.
+pub fn copy(self : Path) -> Path {
+  let cmds = Array::new(capacity=self.cmds.length())
+  for cmd in self.cmds {
+    cmds.push(cmd.copy())
+  }
+  {
+    char: self.char,
+    cmds,
+    xmin: self.xmin,
+    ymin: self.ymin,
+    xmax: self.xmax,
+    ymax: self.ymax,
+  }
+}

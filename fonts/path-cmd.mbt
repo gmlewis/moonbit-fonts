@@ -91,3 +91,13 @@ pub fn bbox(self : PathCmd) -> Rectangle {
 /// `PathCmdFn` represents a function that processes or transforms individual commands.
 /// The first argument is the index within the command.
 pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
+
+/// `copy` makes a deep copy of a PatchCmd.
+pub fn copy(self : PathCmd) -> PathCmd {
+  let params = Array::new(capacity=self.params.length())
+  for param in self.params {
+    let pp : ParamPair = { x: param.x, y: param.y }
+    params.push(pp)
+  }
+  { cmd: self.cmd, gerber_lp: self.gerber_lp, params }
+}
