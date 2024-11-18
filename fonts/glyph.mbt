@@ -22,4 +22,4 @@ pub(all) struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)

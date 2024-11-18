@@ -6,6 +6,6 @@ pub(all) struct Font {
   ascent : Double
   descent : Double
   glyphs : Map[String, Glyph]
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 pub(all) type! FontError String derive(Show, Eq)
