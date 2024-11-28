@@ -1,3 +1,5 @@
+const DEFAULT_TOLERANCE = 0.001
+
 /// AffineMatrix represents a 2D affine transform that preserves parallel lines.
 /// See: https://en.wikipedia.org/wiki/Affine_transformation
 pub(all) struct AffineMatrix {
@@ -124,6 +126,12 @@ pub fn mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
   self
 }
 
+/// op_mul multiplies two 2D affine matrices together, returning a new one.
+pub fn op_mul(a : AffineMatrix, b : AffineMatrix) -> AffineMatrix {
+  let am = a.clone()
+  am.mul(b)
+}
+
 /// mul_without_translation multiplies this 2D affine matrix with another,
 /// discarding the transation.
 pub fn mul_without_translation(
@@ -132,6 +140,35 @@ pub fn mul_without_translation(
 ) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, .. } = self
   let { a: m1a, b: m1b, c: m1c, d: m1d, .. } = m
+  self.a = m0a * m1a + m0c * m1b
+  self.b = m0b * m1a + m0d * m1b
+  self.c = m0a * m1c + m0c * m1d
+  self.d = m0b * m1c + m0d * m1d
+  self
+}
+
+/// pre_mul multiplies another matrix `m` by this 2D affine matrix, then
+/// stores and returns the result.
+pub fn pre_mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
+  let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = m
+  let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = self
+  self.a = m0a * m1a + m0c * m1b
+  self.b = m0b * m1a + m0d * m1b
+  self.c = m0a * m1c + m0c * m1d
+  self.d = m0b * m1c + m0d * m1d
+  self.tx = m0a * m1tx + m0c * m1ty + m0tx
+  self.ty = m0b * m1tx + m0d * m1ty + m0ty
+  self
+}
+
+/// pre_mul_without_translation multiplies another matrix `m` by this 2D affine matrix,
+/// discarding the translate, then stores and returns the result.
+pub fn pre_mul_without_translation(
+  self : AffineMatrix,
+  m : AffineMatrix
+) -> AffineMatrix {
+  let { a: m0a, b: m0b, c: m0c, d: m0d, .. } = m
+  let { a: m1a, b: m1b, c: m1c, d: m1d, .. } = self
   self.a = m0a * m1a + m0c * m1b
   self.b = m0b * m1a + m0d * m1b
   self.c = m0a * m1c + m0c * m1d
@@ -186,4 +223,49 @@ pub fn origin(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   self.tx += self.a * x + self.c * y
   self.ty += self.b * x + self.d * y
   self
+}
+
+/// normalize scales the basis vectors of this 2D affine matrix
+/// so that they have unit length.
+pub fn normalize(self : AffineMatrix) -> AffineMatrix {
+  let { a, b, c, d, .. } = self
+  let x = a * a + b * b
+  if x > 0 {
+    let f = 1.0 / x.sqrt()
+    self.a *= f
+    self.b *= f
+  }
+  let y = c * c + d * d
+  if y > 0 {
+    let f = 1.0 / y.sqrt()
+    self.c *= f
+    self.d *= f
+  }
+  self
+}
+
+/// determinant returns the determinant of the 2D affine matrix.
+pub fn determinant(self : AffineMatrix) -> Double {
+  let { a, b, c, d, .. } = self
+  a * d - b * c
+}
+
+/// op_equal returns true if both 2D affine matrices are identical.
+pub fn op_equal(a : AffineMatrix, b : AffineMatrix) -> Bool {
+  a.a == b.a &&
+  a.b == b.b &&
+  a.c == b.c &&
+  a.d == b.d &&
+  a.tx == b.tx &&
+  a.ty == b.ty
+}
+
+/// is_orthogonal returns true if the two basis vectors of the 2D affine matrix
+/// are orthogonal within the provided tolerance.
+pub fn is_orthogonal(
+  self : AffineMatrix,
+  tolerance~ : Double = DEFAULT_TOLERANCE
+) -> Bool {
+  let { a, b, c, d, .. } = self
+  return (a * c + b * d).abs() <= tolerance
 }
