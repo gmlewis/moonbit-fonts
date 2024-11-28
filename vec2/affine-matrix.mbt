@@ -272,7 +272,7 @@ pub fn is_orthogonal(
 
 /// is_invertible returns true if this 2D affine matrix is invertible.
 pub fn is_invertible(self : AffineMatrix) -> Bool {
-  0.0 != self.determinant()
+  self.determinant() != 0
 }
 
 /// is_uniform_scale returns true if both basis vectors of this 2D affine matrix
@@ -283,4 +283,39 @@ pub fn is_uniform_scale(
 ) -> Bool {
   let { a, b, c, d, .. } = self
   (a * a + b * b - (c * c + d * d)).abs() <= tolerance
+}
+
+/// is_mirror returns true if this 2D affine matrix mirrors either axis.
+pub fn is_mirror(self : AffineMatrix) -> Bool {
+  self.determinant() < 0
+}
+
+/// is_identity returns true if this 2D affine matrix is the identity matrix.
+pub fn is_identity(self : AffineMatrix) -> Bool {
+  self.a == 1 &&
+  self.b == 0 &&
+  self.c == 0 &&
+  self.d == 1 &&
+  self.tx == 0 &&
+  self.ty == 0
+}
+
+/// is_nan returns true if any elements of this 2D affine matrix are NaN (not a number).
+pub fn is_nan(self : AffineMatrix) -> Bool {
+  self.a.is_nan() ||
+  self.b.is_nan() ||
+  self.c.is_nan() ||
+  self.d.is_nan() ||
+  self.tx.is_nan() ||
+  self.ty.is_nan()
+}
+
+/// is_inf returns true if any elements of this 2D affine matrix are infinite.
+pub fn is_inf(self : AffineMatrix) -> Bool {
+  self.a.is_inf() ||
+  self.b.is_inf() ||
+  self.c.is_inf() ||
+  self.d.is_inf() ||
+  self.tx.is_inf() ||
+  self.ty.is_inf()
 }
