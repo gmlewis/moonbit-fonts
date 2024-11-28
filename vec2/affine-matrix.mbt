@@ -269,3 +269,18 @@ pub fn is_orthogonal(
   let { a, b, c, d, .. } = self
   return (a * c + b * d).abs() <= tolerance
 }
+
+/// is_invertible returns true if this 2D affine matrix is invertible.
+pub fn is_invertible(self : AffineMatrix) -> Bool {
+  0.0 != self.determinant()
+}
+
+/// is_uniform_scale returns true if both basis vectors of this 2D affine matrix
+/// are of the same length.
+pub fn is_uniform_scale(
+  self : AffineMatrix,
+  tolerance~ : Double = DEFAULT_TOLERANCE
+) -> Bool {
+  let { a, b, c, d, .. } = self
+  (a * a + b * b - (c * c + d * d)).abs() <= tolerance
+}
