@@ -127,8 +127,8 @@ pub fn mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
 }
 
 /// op_mul multiplies two 2D affine matrices together, returning a new one.
-pub fn op_mul(a : AffineMatrix, b : AffineMatrix) -> AffineMatrix {
-  let am = a.clone()
+pub fn op_mul(self : AffineMatrix, b : AffineMatrix) -> AffineMatrix {
+  let am = self.clone()
   am.mul(b)
 }
 
@@ -251,13 +251,13 @@ pub fn determinant(self : AffineMatrix) -> Double {
 }
 
 /// op_equal returns true if both 2D affine matrices are identical.
-pub fn op_equal(a : AffineMatrix, b : AffineMatrix) -> Bool {
-  a.a == b.a &&
-  a.b == b.b &&
-  a.c == b.c &&
-  a.d == b.d &&
-  a.tx == b.tx &&
-  a.ty == b.ty
+pub fn op_equal(self : AffineMatrix, other : AffineMatrix) -> Bool {
+  self.a == other.a &&
+  self.b == other.b &&
+  self.c == other.c &&
+  self.d == other.d &&
+  self.tx == other.tx &&
+  self.ty == other.ty
 }
 
 /// is_orthogonal returns true if the two basis vectors of the 2D affine matrix
@@ -321,8 +321,10 @@ pub fn is_inf(self : AffineMatrix) -> Bool {
 }
 
 fn mod(a : Double, b : Double) -> Double {
-  let mut n = a % b
-  if n < 0 {
+  // let mut n = a % b
+  let tmp = @math.floor(a / b)
+  let mut n = a - tmp * b
+  if n < 0.0 {
     n += b
   }
   if n == b {
@@ -332,7 +334,10 @@ fn mod(a : Double, b : Double) -> Double {
 }
 
 /// to_transform converts this 2D affine matrix to a Transform.
-pub fn to_transform(self : AffineMatrix) -> Transform {
+pub fn to_transform(
+  self : AffineMatrix,
+  origin~ : Vec2 = vec2(0, 0)
+) -> Transform {
   let { a, b, c, d, tx, ty } = self
   let xnz = a * a + b * b > 0.00000001
   let ynz = c * c + d * d > 0.00000001
@@ -355,5 +360,5 @@ pub fn to_transform(self : AffineMatrix) -> Transform {
   let x = @math.cos(-rad)
   let y = @math.sin(-rad)
   let scale = vec2(a * x - b * y, c * y + d * x)
-  { position, rotation, scale, skew, origin: vec2(0, 0) }
+  { position, rotation, scale, skew, origin }
 }
