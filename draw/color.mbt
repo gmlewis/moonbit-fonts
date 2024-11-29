@@ -152,6 +152,139 @@ pub fn Color::from_rgb8_number(value : UInt) -> Color {
   color(r, g, b, 1)
 }
 
+/// clone returns a new copy of this Color.
+pub fn clone(self : Color) -> Color {
+  color(self.r, self.g, self.b, self.a)
+}
+
+/// set sets the RGBA components of this Color.
+pub fn set(
+  self : Color,
+  r : Double,
+  g : Double,
+  b : Double,
+  a : Double
+) -> Color {
+  self.r = r
+  self.g = g
+  self.b = b
+  self.a = a
+  self
+}
+
+/// mix linearly interpolates between this Color and `c` with mixing factor `t`.
+pub fn mix(self : Color, c : Color, t : Double) -> Color {
+  self.r += (c.r - self.r) * t
+  self.g += (c.g - self.g) * t
+  self.b += (c.b - self.b) * t
+  self.a += (c.a - self.a) * t
+  self
+}
+
+/// luminance returns the relative luminance of this color for standard human vision.
+pub fn luminance(self : Color) -> Double {
+  0.2126 * self.r + 0.7152 * self.g + 0.0722 * self.b
+}
+
+/// to_css_string returns a CSS-style string for this color.
+pub fn to_css_string(self : Color) -> String {
+  match self.a {
+    1 => self.to_css_hex_string()
+    _ => self.to_css_rgba_string()
+  }
+}
+
+// to_hex_digit returns a hex digit.
+fn to_hex_digit(v : Byte) -> String {
+  match v & 0x0f {
+    _..<10 as v => "\{v}"
+    10 => "A"
+    11 => "B"
+    12 => "C"
+    13 => "D"
+    14 => "E"
+    15 => "F"
+  }
+}
+
+// to_hex_byte returns a 2-digit hex string (e.g. "FE").
+fn to_hex_byte(v : Byte) -> String {
+  let hi = to_hex_digit(v >> 4)
+  let lo = to_hex_digit(v & 0x0f)
+  "\{hi}\{lo}"
+}
+
+// to_hex returns a 6-digit hex string (e.g. "FEDCBA")
+fn to_hex(v : UInt) -> String {
+  let r = to_hex_byte(((v >> 16) & 0xff).to_byte())
+  let g = to_hex_byte(((v >> 8) & 0xff).to_byte())
+  let b = to_hex_byte((v & 0xff).to_byte())
+  "\{r}\{g}\{b}"
+}
+
+/// to_css_hex_string returns a CSS-style hex string for this color.
+pub fn to_css_hex_string(self : Color) -> String {
+  let s = to_hex(16777216U + self.to_rgb8_number()).substring(start=1)
+  "#\{s}"
+}
+
+fn clamp[T : Compare](v : T, min : T, max : T) -> T {
+  if v < min {
+    min
+  } else if v > max {
+    max
+  } else {
+    v
+  }
+}
+
+/// to_css_rgba_string returns a CSS-style "rgba()" string for this color.
+pub fn to_css_rgba_string(self : Color) -> String {
+  let r = clamp(@math.round(self.r * 255).to_int(), 0, 255)
+  let g = clamp(@math.round(self.g * 255).to_int(), 0, 255)
+  let b = clamp(@math.round(self.b * 255).to_int(), 0, 255)
+  let a = clamp(@math.round(self.a).to_int(), 0, 1)
+  "rgba(\{r},\{g},\{b},\{a})"
+}
+
+/// to_rgb8_number returns a bit-packed number in RGB8 format.
+pub fn to_rgb8_number(self : Color) -> UInt {
+  let r = clamp(@math.round(self.r * 255).to_int(), 0, 255).reinterpret_as_uint()
+  let g = clamp(@math.round(self.g * 255).to_int(), 0, 255).reinterpret_as_uint()
+  let b = clamp(@math.round(self.b * 255).to_int(), 0, 255).reinterpret_as_uint()
+  (r << 16) | (g << 8) | b
+}
+
+/// to_hsva converts this color to the HSVA color space, returning
+/// [hue, saturation, value, alpha] in the range (0..1).
+pub fn to_hsva(self : Color) -> Array[Double] {
+  let mut hue = 0.0
+  let mut t = 0.0
+  let { r, g, b, a: alpha } = self
+  let value = @math.maximum(@math.maximum(r, g), b)
+  let delta = value - @math.minimum(@math.minimum(r, g), b)
+  let f = fn(v) { (value - v) / (6.0 * delta) + 0.5 }
+  if delta != 0 {
+    t = delta / value
+    let red = f(r)
+    let green = f(g)
+    let blue = f(b)
+    hue = if r == value {
+      blue - green
+    } else if g == value {
+      red - blue + 1.0 / 3
+    } else {
+      green - red + 2.0 / 3
+    }
+    if hue < 0 {
+      hue += 1
+    } else if hue > 1 {
+      hue -= 1
+    }
+  }
+  return [hue, t, value, alpha]
+}
+
 let css_colors : Map[String, Array[Int]] = {
   "aliceblue": [240, 248, 255],
   "antiquewhite": [250, 235, 215],
