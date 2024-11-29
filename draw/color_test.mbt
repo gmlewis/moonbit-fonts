@@ -36,38 +36,23 @@ test "@draw.color/out-of-range" {
   inspect!(c1, content="{r: -1, g: 2, b: 1.5, a: -0.5}")
 }
 
-test "@gmlewis/fonts/draw.color/basic_functionality" {
-  inspect!(
-    @gmlewis/fonts/draw.color(1.0, 0.0, 0.0, 1.0),
-    content="{r: 1, g: 0, b: 0, a: 1}",
-  )
-  inspect!(
-    @gmlewis/fonts/draw.color(0.0, 1.0, 0.0, 1.0),
-    content="{r: 0, g: 1, b: 0, a: 1}",
-  )
-  inspect!(
-    @gmlewis/fonts/draw.color(0.0, 0.0, 1.0, 1.0),
-    content="{r: 0, g: 0, b: 1, a: 1}",
-  )
+test "@draw.color/basic_functionality" {
+  inspect!(@draw.color(1.0, 0.0, 0.0, 1.0), content="{r: 1, g: 0, b: 0, a: 1}")
+  inspect!(@draw.color(0.0, 1.0, 0.0, 1.0), content="{r: 0, g: 1, b: 0, a: 1}")
+  inspect!(@draw.color(0.0, 0.0, 1.0, 1.0), content="{r: 0, g: 0, b: 1, a: 1}")
 }
 
-test "@gmlewis/fonts/draw.color/boundaries" {
+test "@draw.color/boundaries" {
+  inspect!(@draw.color(0.0, 0.0, 0.0, 0.0), content="{r: 0, g: 0, b: 0, a: 0}")
+  inspect!(@draw.color(1.0, 1.0, 1.0, 1.0), content="{r: 1, g: 1, b: 1, a: 1}")
   inspect!(
-    @gmlewis/fonts/draw.color(0.0, 0.0, 0.0, 0.0),
-    content="{r: 0, g: 0, b: 0, a: 0}",
-  )
-  inspect!(
-    @gmlewis/fonts/draw.color(1.0, 1.0, 1.0, 1.0),
-    content="{r: 1, g: 1, b: 1, a: 1}",
-  )
-  inspect!(
-    @gmlewis/fonts/draw.color(1.0, 0.5, 0.0, 0.5),
+    @draw.color(1.0, 0.5, 0.0, 0.5),
     content="{r: 1, g: 0.5, b: 0, a: 0.5}",
   )
 }
 
-test "panic @gmlewis/fonts/draw.color/invalid_values" {
-  inspect!(@gmlewis/fonts/draw.color(-0.1, -0.1, -0.1, -0.1), content="")
+test "panic @draw.color/invalid_values" {
+  inspect!(@draw.color(-0.1, -0.1, -0.1, -0.1), content="")
 }
 
 test "@draw.Color::from_hsva/basic_functionality" {
@@ -183,19 +168,19 @@ test "@draw.Color::mix/t_one" {
   inspect!(result.a, content="0.9")
 }
 
-test "@gmlewis/fonts/draw.luminance/zero_color" {
-  let color = @gmlewis/fonts/draw.color(0.0, 0.0, 0.0, 1.0)
-  inspect!(@gmlewis/fonts/draw.luminance(color), content="0")
+test "@draw.luminance/zero_color" {
+  let color = @draw.color(0.0, 0.0, 0.0, 1.0)
+  inspect!(@draw.luminance(color), content="0")
 }
 
-test "@gmlewis/fonts/draw.luminance/one_color" {
-  let color = @gmlewis/fonts/draw.color(1.0, 1.0, 1.0, 1.0)
-  inspect!(@gmlewis/fonts/draw.luminance(color), content="1")
+test "@draw.luminance/one_color" {
+  let color = @draw.color(1.0, 1.0, 1.0, 1.0)
+  inspect!(@draw.luminance(color), content="1")
 }
 
-test "@gmlewis/fonts/draw.luminance/mixed_color" {
-  let color = @gmlewis/fonts/draw.color(0.5, 0.2, 0.7, 1.0)
-  inspect!(@gmlewis/fonts/draw.luminance(color), content="0.29988")
+test "@draw.luminance/mixed_color" {
+  let color = @draw.color(0.5, 0.2, 0.7, 1.0)
+  inspect!(@draw.luminance(color), content="0.29988")
 }
 
 test "@draw.Color::to_css_string/opaque" {
@@ -213,18 +198,18 @@ test "@draw.Color::to_css_string/fully-transparent" {
   inspect!(color.to_css_string(), content="rgba(0,0,255,0)")
 }
 
-test "@gmlewis/fonts/draw.to_css_string/hex_color" {
-  let color = @gmlewis/fonts/draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
+test "@draw.to_css_string/hex_color" {
+  let color = @draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
   inspect!(color.to_css_string(), content="#Fb'\\x00'b'\\x00'b'\\x00'b'\\x00'")
 }
 
-test "@gmlewis/fonts/draw.to_css_string/rgba_color" {
-  let color = @gmlewis/fonts/draw.Color::new(r=0.5, g=0.5, b=0.5, a=0.5)
+test "@draw.to_css_string/rgba_color" {
+  let color = @draw.Color::new(r=0.5, g=0.5, b=0.5, a=0.5)
   inspect!(color.to_css_string(), content="rgba(128,128,128,1)")
 }
 
-test "@gmlewis/fonts/draw.to_css_string/transparent_color" {
-  let color = @gmlewis/fonts/draw.Color::new(r=0.0, g=0.0, b=0.0, a=0.0)
+test "@draw.to_css_string/transparent_color" {
+  let color = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=0.0)
   inspect!(color.to_css_string(), content="rgba(0,0,0,0)")
 }
 
@@ -248,14 +233,14 @@ test "@draw.Color::to_css_hex_string" {
   inspect!(color3.to_css_hex_string(), content="#FFFFF")
 } // Test case for pure white color
 
-test "@gmlewis/fonts/draw.Color::to_css_hex_string/white_color" {
-  let white_color = @gmlewis/fonts/draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
+test "@draw.Color::to_css_hex_string/white_color" {
+  let white_color = @draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
   inspect!(white_color.to_css_hex_string(), content="#FFFFF")
 }
 
 // Test case for pure black color
-test "@gmlewis/fonts/draw.Color::to_css_hex_string/black_color" {
-  let black_color = @gmlewis/fonts/draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
+test "@draw.Color::to_css_hex_string/black_color" {
+  let black_color = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
   inspect!(
     black_color.to_css_hex_string(),
     content="#'\\x00'b'\\x00'b'\\x00'b'\\x00'b'\\x00'b'\\x00'",
@@ -263,8 +248,8 @@ test "@gmlewis/fonts/draw.Color::to_css_hex_string/black_color" {
 }
 
 // Test case for color with mixed components
-test "@gmlewis/fonts/draw.Color::to_css_hex_string/mixed_color" {
-  let mixed_color = @gmlewis/fonts/draw.Color::new(r=0.5, g=0.25, b=0.75, a=1.0)
+test "@draw.Color::to_css_hex_string/mixed_color" {
+  let mixed_color = @draw.Color::new(r=0.5, g=0.25, b=0.75, a=1.0)
   inspect!(
     mixed_color.to_css_hex_string(),
     content="#'\\x08'b'\\x00'b'\\x04'b'\\x00'BF",
@@ -355,20 +340,20 @@ test "@draw.Color::to_hsva/white" {
   inspect!(white.to_hsva(), content="[0, 0, 1, 1]")
 }
 
-test "@gmlewis/fonts/draw.Color::to_hsva/black" {
-  let color = @gmlewis/fonts/draw.Color::new(r=0, g=0, b=0, a=1)
+test "@draw.Color::to_hsva/black" {
+  let color = @draw.Color::new(r=0, g=0, b=0, a=1)
   let hsva = color.to_hsva()
   inspect!(hsva, content="[0, 0, 0, 1]")
 }
 
-test "@gmlewis/fonts/draw.Color::to_hsva/white" {
-  let color = @gmlewis/fonts/draw.Color::new(r=1, g=1, b=1, a=1)
+test "@draw.Color::to_hsva/white" {
+  let color = @draw.Color::new(r=1, g=1, b=1, a=1)
   let hsva = color.to_hsva()
   inspect!(hsva, content="[0, 0, 1, 1]")
 }
 
-test "@gmlewis/fonts/draw.Color::to_hsva/red" {
-  let color = @gmlewis/fonts/draw.Color::new(r=1, g=0, b=0, a=1)
+test "@draw.Color::to_hsva/red" {
+  let color = @draw.Color::new(r=1, g=0, b=0, a=1)
   let hsva = color.to_hsva()
   inspect!(hsva, content="[0, 1, 1, 1]")
 }

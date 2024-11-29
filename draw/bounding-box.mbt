@@ -127,10 +127,10 @@ pub fn boolean_intersect(
   boxes : Array[BoundingBox]
 ) -> BoundingBox? {
   guard boxes.length() > 0
-  let mut xmin = @double.neg_infinity
-  let mut ymin = @double.neg_infinity
-  let mut xmax = @double.infinity
-  let mut ymax = @double.infinity
+  let mut xmin = self.min.x
+  let mut ymin = self.min.y
+  let mut xmax = self.max.x
+  let mut ymax = self.max.y
   for box in boxes {
     xmin = @math.maximum(xmin, box.min.x)
     xmax = @math.minimum(xmax, box.max.x)
