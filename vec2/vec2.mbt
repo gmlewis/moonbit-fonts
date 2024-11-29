@@ -32,6 +32,13 @@ pub fn clone(self : Vec2) -> Vec2 {
   { x: self.x, y: self.y }
 }
 
+/// set sets the x and y components of this Vec2.
+pub fn set(self : Vec2, x : Double, y : Double) -> Vec2 {
+  self.x = x
+  self.y = y
+  self
+}
+
 /// copy copies `v` into this Vec2.
 pub fn copy(self : Vec2, v : Vec2) -> Vec2 {
   self.x = v.x
