@@ -1558,19 +1558,19 @@ test "@draw.max/boundary_case" {
 test "@draw.mix/boundary_t_zero" {
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, 4.0)
-  inspect!(@draw.mix(v1, v2, 0.0), content="{x: 1, y: 2}")
+  inspect!(v1.mix(v2, 0.0), content="{x: 1, y: 2}")
 }
 
 test "@draw.mix/boundary_t_one" {
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, 4.0)
-  inspect!(@draw.mix(v1, v2, 1.0), content="{x: 3, y: 4}")
+  inspect!(v1.mix(v2, 1.0), content="{x: 3, y: 4}")
 }
 
 test "@draw.mix/mid_point" {
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, 4.0)
-  inspect!(@draw.mix(v1, v2, 0.5), content="{x: 2, y: 3}")
+  inspect!(v1.mix(v2, 0.5), content="{x: 2, y: 3}")
 }
 
 test "@draw.dot/basic" {
