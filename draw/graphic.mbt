@@ -190,3 +190,170 @@ pub fn closest_point(
     Path(path) => path.closest_point(point, area_of_interest)
   }
 }
+
+/// primitives returns an array of primitives.
+pub fn primitives(self : Graphic) -> Array[Graphic] {
+  match self {
+    CompoundPath(compound_path) => compound_path.primitives()
+    Group(group) => group.primitives()
+    Path(path) => path.primitives()
+  }
+}
+
+/// reverse reverses this Graphic.
+pub fn reverse(self : Graphic) -> Graphic {
+  match self {
+    CompoundPath(compound_path) => CompoundPath(compound_path.reverse())
+    Group(group) => Group(group.reverse())
+    Path(path) => Path(path.reverse())
+  }
+}
+
+/// all_compound_paths returns all CompoundPaths in this Graphic.
+pub fn all_compound_paths(self : Graphic) -> Array[CompoundPath] {
+  match self {
+    CompoundPath(compound_path) => [compound_path]
+    Group(group) => group.all_compound_paths()
+    Path(path) => []
+  }
+}
+
+/// all_paths returns all Paths in this Graphic.
+pub fn all_paths(self : Graphic) -> Array[Path] {
+  match self {
+    CompoundPath(path) => path.paths
+    Group(group) => group.all_paths()
+    Path(path) => [path]
+  }
+}
+
+/// all_anchors returns all Anchors in this Graphic.
+pub fn all_anchors(self : Graphic) -> Array[Anchor] {
+  match self {
+    CompoundPath(path) => path.all_anchors()
+    Group(group) => group.all_anchors()
+    Path(path) => path.anchors
+  }
+}
+
+/// all_paths_and_compound_paths returns all Paths and CompoundPaths in this Graphic.
+pub fn all_paths_and_compound_paths(self : Graphic) -> Array[Graphic] {
+  match self {
+    CompoundPath(_path) => [self]
+    Group(group) => group.all_paths_and_compound_paths()
+    Path(_path) => [self]
+  }
+}
+
+/// has_style returns true if this Graphic has either a stroke or a fill.
+pub fn has_style(self : Graphic) -> Bool {
+  match self {
+    CompoundPath(path) => path.has_style()
+    Group(group) => group.has_style()
+    Path(path) => path.has_style()
+  }
+}
+
+/// assign_fill assigns a fill to this Graphic.
+pub fn assign_fill(self : Graphic, fill : Fill) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.assign_fill(fill))
+    Group(group) => ignore(group.assign_fill(fill))
+    Path(path) => ignore(path.assign_fill(fill))
+  }
+  self
+}
+
+/// remove_fill a fill style from this Graphic.
+pub fn remove_fill(self : Graphic) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.remove_fill())
+    Group(group) => ignore(group.remove_fill())
+    Path(path) => ignore(path.remove_fill())
+  }
+  self
+}
+
+/// assign_stroke assigns a stroke to this Graphic.
+pub fn assign_stroke(self : Graphic, stroke : Stroke) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.assign_stroke(stroke))
+    Group(group) => ignore(group.assign_stroke(stroke))
+    Path(path) => ignore(path.assign_stroke(stroke))
+  }
+  self
+}
+
+/// remove_stroke a stroke style from this Graphic.
+pub fn remove_stroke(self : Graphic) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.remove_stroke())
+    Group(group) => ignore(group.remove_stroke())
+    Path(path) => ignore(path.remove_stroke())
+  }
+  self
+}
+
+/// assign_style assigns a fill and stroke style to this Graphic.
+pub fn assign_style(self : Graphic, fill : Fill, stroke : Stroke) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.assign_style(fill, stroke))
+    Group(group) => ignore(group.assign_style(fill, stroke))
+    Path(path) => ignore(path.assign_style(fill, stroke))
+  }
+  self
+}
+
+/// copy_style copies the fill and stroke style from `graphic`.
+pub fn copy_style(self : Graphic, graphic : Graphic) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.copy_style(graphic))
+    Group(group) => ignore(group.copy_style(graphic))
+    Path(path) => ignore(path.copy_style(graphic))
+  }
+  self
+}
+
+/// scale_stroke scales the stroke width of this Graphic by `scale_factor`.
+pub fn scale_stroke(self : Graphic, scale_factor : Double) -> Graphic {
+  match self {
+    CompoundPath(path) => ignore(path.scale_stroke(scale_factor))
+    Group(group) => ignore(group.scale_stroke(scale_factor))
+    Path(path) => ignore(path.scale_stroke(scale_factor))
+  }
+  self
+}
+
+/// first_styled returns the first Path or CompoundPath in this Graphic
+/// that has either a fill or a stroke, or None.
+pub fn first_styled(self : Graphic) -> Graphic? {
+  match self {
+    CompoundPath(path) => path.first_styled()
+    Group(group) => group.first_styled()
+    Path(path) => path.first_styled()
+  }
+}
+
+/// Graphic::contains_point returns a function that returns true if this
+/// Graphic contains `point`.
+pub fn Graphic::contains_point(point : Vec2) -> (Graphic) -> Bool {
+  fn(graphic) {
+    match graphic {
+      CompoundPath(path) => path.contains_point(point)
+      Group(group) => group.contains_point(point)
+      Path(path) => path.contains_point(point)
+    }
+  }
+}
+
+/// Graphic::style_contains_point returns a function that returns true if this
+/// Graphic's style contains `point`.
+pub fn Graphic::style_contains_point(point : Vec2) -> (Graphic) -> Bool {
+  fn(graphic) {
+    match graphic {
+      CompoundPath(path) => path.style_contains_point(point)
+      Group(group) => group.style_contains_point(point)
+      Path(path) => path.style_contains_point(point)
+    }
+  }
+}

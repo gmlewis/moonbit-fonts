@@ -1,6 +1,6 @@
 /// Group represents a collection of Graphics elements.
 pub(all) struct Group {
-  items : Array[Graphic]
+  mut items : Array[Graphic]
 }
 
 /// Group::new returns a new group.
@@ -105,4 +105,132 @@ pub fn closest_point(
     }
   }
   closest_point
+}
+
+/// primitives returns a flattened array of all Graphic primitives in this Group.
+pub fn primitives(self : Group) -> Array[Graphic] {
+  self.items.iter().flat_map(fn(item) { item.primitives().iter() }).collect()
+}
+
+/// reverse reverses this Group.
+pub fn reverse(self : Group) -> Group {
+  for item in self.items {
+    ignore(item.reverse())
+  }
+  self.items = self.items.rev()
+  self
+}
+
+/// all_compound_paths returns all compound paths in this Group.
+pub fn all_compound_paths(self : Group) -> Array[CompoundPath] {
+  self.items
+  .iter()
+  .flat_map(fn(item) { item.all_compound_paths().iter() })
+  .collect()
+}
+
+/// all_paths returns all Paths in this Group.
+pub fn all_paths(self : Group) -> Array[Path] {
+  self.items.iter().flat_map(fn(item) { item.all_paths().iter() }).collect()
+}
+
+/// all_anchors returns all Anchors in this Group.
+pub fn all_anchors(self : Group) -> Array[Anchor] {
+  self.items.iter().flat_map(fn(item) { item.all_anchors().iter() }).collect()
+}
+
+/// all_paths_and_compound_paths returns all Paths and CompoundPaths in this Group.
+pub fn all_paths_and_compound_paths(self : Group) -> Array[Graphic] {
+  self.items
+  .iter()
+  .flat_map(fn(item) { item.all_paths_and_compound_paths().iter() })
+  .collect()
+}
+
+/// has_style returns true if this Group has either a stroke or a fill.
+pub fn has_style(self : Group) -> Bool {
+  for item in self.items {
+    if item.has_style() {
+      return true
+    }
+  }
+  false
+}
+
+/// assign_fill assigns a fill to this Group.
+pub fn assign_fill(self : Group, fill : Fill) -> Group {
+  for item in self.items {
+    ignore(item.assign_fill(fill))
+  }
+  self
+}
+
+/// remove_fill removes a fill style from this Group.
+pub fn remove_fill(self : Group) -> Group {
+  for item in self.items {
+    ignore(item.remove_fill())
+  }
+  self
+}
+
+/// assign_stroke assigns a stroke to this Group.
+pub fn assign_stroke(self : Group, stroke : Stroke) -> Group {
+  for item in self.items {
+    ignore(item.assign_stroke(stroke))
+  }
+  self
+}
+
+/// remove_stroke removes a stroke style from this Group.
+pub fn remove_stroke(self : Group) -> Group {
+  for item in self.items {
+    ignore(item.remove_stroke())
+  }
+  self
+}
+
+/// assign_style assigns a fill and stroke style to this Group.
+pub fn assign_style(self : Group, fill : Fill, stroke : Stroke) -> Group {
+  for item in self.items {
+    ignore(item.assign_style(fill, stroke))
+  }
+  self
+}
+
+/// copy_style copies the fill and stroke style from `graphic`.
+pub fn copy_style(self : Group, graphic : Graphic) -> Group {
+  for item in self.items {
+    ignore(item.copy_style(graphic))
+  }
+  self
+}
+
+/// scale_stroke scales the stroke width of this Group by `scale_factor`.
+pub fn scale_stroke(self : Group, scale_factor : Double) -> Group {
+  for item in self.items {
+    ignore(item.scale_stroke(scale_factor))
+  }
+  self
+}
+
+/// first_styled returns the first Path or CompoundPath in this Group
+/// that has either a fill or a stroke, or None.
+pub fn first_styled(self : Group) -> Graphic? {
+  for item in self.items {
+    match item.first_styled() {
+      Some(graphic) => return Some(graphic)
+      _ => ()
+    }
+  }
+  None
+}
+
+/// contains_point returns true if this Group contains `point`.
+pub fn contains_point(self : Group, point : Vec2) -> Bool {
+  Graphic::some(self.items, Graphic::contains_point(point))
+}
+
+/// style_contains_point returns true if this Group's style contains `point`.
+pub fn style_contains_point(self : Group, point : Vec2) -> Bool {
+  Graphic::some(self.items, Graphic::style_contains_point(point))
 }
