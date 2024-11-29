@@ -9,7 +9,7 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-}
+} derive(Show, Eq)
 
 /// AffineMatrix::new returns a new 2D affine matrix.
 pub fn AffineMatrix::new(
@@ -248,16 +248,6 @@ pub fn normalize(self : AffineMatrix) -> AffineMatrix {
 pub fn determinant(self : AffineMatrix) -> Double {
   let { a, b, c, d, .. } = self
   a * d - b * c
-}
-
-/// op_equal returns true if both 2D affine matrices are identical.
-pub fn op_equal(self : AffineMatrix, other : AffineMatrix) -> Bool {
-  self.a == other.a &&
-  self.b == other.b &&
-  self.c == other.c &&
-  self.d == other.d &&
-  self.tx == other.tx &&
-  self.ty == other.ty
 }
 
 /// is_orthogonal returns true if the two basis vectors of the 2D affine matrix

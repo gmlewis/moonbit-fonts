@@ -5,7 +5,7 @@ pub(all) struct Transform {
   scale : Vec2
   skew : Double
   origin : Vec2
-}
+} derive(Show, Eq)
 
 /// Transform::new returns a new identity transform.
 pub fn Transform::new(
