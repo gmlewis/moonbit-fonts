@@ -47,13 +47,13 @@ pub fn affine_transform_without_translation(
 
 /// loose_bounding_box is a simple computation that returns a BoundingBox which
 /// may not be the smallest possible.
-pub fn loose_bounding_box(self : Anchor) -> BoundingBox {
-  BoundingBox::new(min=self.position.clone(), max=self.position.clone())
+pub fn loose_bounding_box(self : Anchor) -> BoundingBox? {
+  Some(BoundingBox::new(min=self.position.clone(), max=self.position.clone()))
 }
 
 /// bounding_box returns a BoundingBox for this Anchor.
-pub fn bounding_box(self : Anchor) -> BoundingBox {
-  BoundingBox::new(min=self.position.clone(), max=self.position.clone())
+pub fn bounding_box(self : Anchor) -> BoundingBox? {
+  Some(BoundingBox::new(min=self.position.clone(), max=self.position.clone()))
 }
 
 /// is_contained_by_bounding_box returns true if this Anchor lies within `box`.

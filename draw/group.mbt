@@ -47,12 +47,12 @@ pub fn affine_transform_without_translation(
 /// loose_bounding_box returns an approximate bounding box for all items
 /// in the Group. It may not be the smallest possible bounding box, but
 /// is cheaper to compute.
-pub fn loose_bounding_box(self : Group) -> BoundingBox {
+pub fn loose_bounding_box(self : Group) -> BoundingBox? {
   Graphic::loose_bounding_box(self.items)
 }
 
 /// bounding_box returns the bounding box for all items in the Group.
-pub fn bounding_box(self : Group) -> BoundingBox {
+pub fn bounding_box(self : Group) -> BoundingBox? {
   Graphic::bounding_box(self.items)
 }
 
@@ -158,7 +158,7 @@ pub fn has_style(self : Group) -> Bool {
 }
 
 /// assign_fill assigns a fill to this Group.
-pub fn assign_fill(self : Group, fill : Fill) -> Group {
+pub fn assign_fill(self : Group, fill : Fill?) -> Group {
   for item in self.items {
     ignore(item.assign_fill(fill))
   }
@@ -174,7 +174,7 @@ pub fn remove_fill(self : Group) -> Group {
 }
 
 /// assign_stroke assigns a stroke to this Group.
-pub fn assign_stroke(self : Group, stroke : Stroke) -> Group {
+pub fn assign_stroke(self : Group, stroke : Stroke?) -> Group {
   for item in self.items {
     ignore(item.assign_stroke(stroke))
   }
@@ -190,7 +190,7 @@ pub fn remove_stroke(self : Group) -> Group {
 }
 
 /// assign_style assigns a fill and stroke style to this Group.
-pub fn assign_style(self : Group, fill : Fill, stroke : Stroke) -> Group {
+pub fn assign_style(self : Group, fill : Fill?, stroke : Stroke?) -> Group {
   for item in self.items {
     ignore(item.assign_style(fill, stroke))
   }
@@ -233,4 +233,26 @@ pub fn contains_point(self : Group, point : Vec2) -> Bool {
 /// style_contains_point returns true if this Group's style contains `point`.
 pub fn style_contains_point(self : Group, point : Vec2) -> Bool {
   Graphic::some(self.items, Graphic::style_contains_point(point))
+}
+
+/// first_fill returns the first fill from this Group.
+pub fn first_fill(self : Group) -> Fill? {
+  for item in self.items {
+    match item.first_fill() {
+      Some(fill) => return Some(fill)
+      _ => ()
+    }
+  }
+  None
+}
+
+/// first_stroke returns the first stroke from this Group.
+pub fn first_stroke(self : Group) -> Stroke? {
+  for item in self.items {
+    match item.first_stroke() {
+      Some(stroke) => return Some(stroke)
+      _ => ()
+    }
+  }
+  None
 }

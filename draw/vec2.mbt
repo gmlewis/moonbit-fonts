@@ -9,6 +9,16 @@ pub fn Vec2::new(x~ : Double = 0, y~ : Double = 0) -> Vec2 {
   { x, y }
 }
 
+/// Vec::infinity returns a new Vec2 with infinite x and y.
+pub fn Vec2::infinity() -> Vec2 {
+  { x: @double.infinity, y: @double.infinity }
+}
+
+/// Vec::neg_infinity returns a new Vec2 with negative infinite x and y.
+pub fn Vec2::neg_infinity() -> Vec2 {
+  { x: @double.neg_infinity, y: @double.neg_infinity }
+}
+
 /// vec2 returns a new Vec2.
 pub fn vec2(x : Double, y : Double) -> Vec2 {
   { x, y }

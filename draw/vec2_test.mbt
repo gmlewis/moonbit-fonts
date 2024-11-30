@@ -499,14 +499,14 @@ test "@draw.transform/standard_scale_rotation" {
     skew=0,
     origin=vec2(0, 0),
   )
-  let result = @draw.transform(v, transform)
+  let result = @draw.Vec2::transform(v, transform)
   inspect!(result, content="{x: -4, y: 2.0000000000000004}")
 }
 
 test "@draw.transform/identity" {
   let v = vec2(1, 2)
   let transform = Transform::new()
-  let result = @draw.transform(v, transform)
+  let result = @draw.Vec2::transform(v, transform)
   inspect!(result, content="{x: 1, y: 2}")
 }
 
@@ -519,7 +519,7 @@ test "@draw.transform/boundary_neg_scale_translation" {
     skew=0,
     origin=vec2(0, 0),
   )
-  let result = @draw.transform(v, transform)
+  let result = @draw.Vec2::transform(v, transform)
   inspect!(result, content="{x: 2, y: 5}")
 }
 
@@ -1577,11 +1577,11 @@ test "@draw.dot/basic" {
   let v1 = Vec2::new(x=3, y=4)
   let v2 = Vec2::new(x=1, y=2)
   // dot product should be 3*1 + 4*2 = 11
-  inspect!(@draw.dot(v1, v2), content="11")
+  inspect!(@draw.Vec2::dot(v1, v2), content="11")
   let v3 = Vec2::new(x=-2, y=3)
   let v4 = Vec2::new(x=4, y=1)
   // dot product should be -2*4 + 3*1 = -5
-  inspect!(@draw.dot(v3, v4), content="-5")
+  inspect!(@draw.Vec2::dot(v3, v4), content="-5")
 }
 
 test "@draw.dot/zero_vector" {

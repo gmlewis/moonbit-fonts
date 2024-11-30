@@ -166,7 +166,7 @@ test "@draw.reverse/basic_functionality" {
     handle_in=@draw.vec2(2.0, 3.0),
     handle_out=@draw.vec2(4.0, 5.0),
   )
-  let reversed_anchor = @draw.reverse(anchor)
+  let reversed_anchor = @draw.Anchor::reverse(anchor)
   inspect!(reversed_anchor.handle_in, content="{x: 4, y: 5}")
   inspect!(reversed_anchor.handle_out, content="{x: 2, y: 3}")
 }
@@ -176,7 +176,7 @@ test "@draw.reverse/identical_handles" {
     handle_in=@draw.vec2(2.0, 2.0),
     handle_out=@draw.vec2(2.0, 2.0),
   )
-  let reversed_anchor = @draw.reverse(anchor)
+  let reversed_anchor = @draw.Anchor::reverse(anchor)
   inspect!(reversed_anchor.handle_in, content="{x: 2, y: 2}")
   inspect!(reversed_anchor.handle_out, content="{x: 2, y: 2}")
 }
@@ -187,7 +187,7 @@ test "@draw.reverse/zero_handles" {
     handle_in=@draw.vec2(0.0, 0.0),
     handle_out=@draw.vec2(0.0, 0.0),
   )
-  let reversed_anchor = @draw.reverse(anchor)
+  let reversed_anchor = @draw.Anchor::reverse(anchor)
   inspect!(reversed_anchor.handle_in, content="{x: 0, y: 0}")
   inspect!(reversed_anchor.handle_out, content="{x: 0, y: 0}")
 }

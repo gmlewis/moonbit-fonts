@@ -2,13 +2,21 @@
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-}
+} derive(Show, Eq)
 
 /// BoundingBox::new returns a new empty BoundingBox.
 pub fn BoundingBox::new(
   min~ : Vec2 = vec2(0, 0),
   max~ : Vec2 = vec2(0, 0)
 ) -> BoundingBox {
+  { min, max }
+}
+
+/// BoundingBox::max_reversed returns a new BoundingBox with min=+infinity
+/// and max=-infinity.
+pub fn BoundingBox::max_reversed() -> BoundingBox {
+  let min = Vec2::infinity()
+  let max = Vec2::neg_infinity()
   { min, max }
 }
 

@@ -1,6 +1,272 @@
 /// CompoundPath represents one or more paths that typically make up a font glyph.
 pub(all) struct CompoundPath {
-  paths : Array[Path]
+  mut paths : Array[Path]
+  mut fill : Fill?
+  mut stroke : Stroke?
+}
+
+/// CompoundPath::new creates a new CompoundPath.
+pub fn CompoundPath::new(
+  paths~ : Array[Path] = [],
+  fill~ : Fill?,
+  stroke~ : Stroke?
+) -> CompoundPath {
+  { paths, fill, stroke }
+}
+
+/// clone makes a new copy of this CompoundPath.
+pub fn clone(self : CompoundPath) -> CompoundPath {
+  let paths = self.paths.map(fn(path) { path.clone() })
+  let fill = clone_option(self.fill)
+  let stroke = clone_option(self.stroke)
+  { paths, fill, stroke }
+}
+
+/// affine_transform transforms this CompoundPath by `affine_matrix`.
+pub fn affine_transform(
+  self : CompoundPath,
+  affine_matrix : AffineMatrix
+) -> CompoundPath {
+  for path in self.paths {
+    ignore(path.affine_transform(affine_matrix))
+  }
+  self
+}
+
+/// affine_transform_without_translation transforms this CompoundPath by `affine_matrix`
+/// without affecting translation.
+pub fn affine_transform_without_translation(
+  self : CompoundPath,
+  affine_matrix : AffineMatrix
+) -> CompoundPath {
+  for path in self.paths {
+    ignore(path.affine_transform_without_translation(affine_matrix))
+  }
+  self
+}
+
+/// assign_fill assigns a fill to this CompoundPath.
+pub fn assign_fill(self : CompoundPath, fill : Fill?) -> CompoundPath {
+  self.fill = fill
+  self
+}
+
+/// assign_stroke assigns a stroke to this CompoundPath.
+pub fn assign_stroke(self : CompoundPath, stroke : Stroke?) -> CompoundPath {
+  self.stroke = stroke
+  self
+}
+
+/// assign_style assigns a stroke and fill style to this CompoundPath.
+pub fn assign_style(
+  self : CompoundPath,
+  fill : Fill?,
   stroke : Stroke?
-  fill : Fill?
+) -> CompoundPath {
+  self.fill = fill
+  self.stroke = stroke
+  self
+}
+
+/// bounding_box returns the smallest axis-aligned bounding box that contains
+/// this CompoundPath or None.
+pub fn bounding_box(self : CompoundPath) -> BoundingBox? {
+  let result = BoundingBox::max_reversed()
+  for i in 0..<self.paths.length() {
+    let bbox = match self.paths[i].bounding_box() {
+      None => continue
+      Some(bbox) => bbox
+    }
+    ignore(result.min.min(bbox.min))
+    ignore(result.max.max(bbox.max))
+  }
+  match result.is_inf() {
+    true => None
+    false => Some(result)
+  }
+}
+
+/// closest_point returns the closest point to `point` that lies on this CompoundPath or None.
+pub fn closest_point(
+  self : CompoundPath,
+  point : Vec2,
+  area_of_interest : BoundingBox?
+) -> Anchor? {
+  let { paths, .. } = self
+  match paths.length() {
+    0 => return None
+    1 => return paths[0].closest_point(point, area_of_interest)
+    _ => ()
+  }
+  let mut closest_point = None
+  let mut closest_distance = @double.infinity
+  for path in paths {
+    let pt = match path.closest_point(point, area_of_interest) {
+      None => continue
+      Some(pt) => pt
+    }
+    let distance = point.distance_squared(pt.position)
+    if distance < closest_distance {
+      closest_point = Some(pt)
+      closest_distance = distance
+    }
+  }
+  closest_point
+}
+
+// TODO:
+// fn closest_point_to_cubic(
+//   a1 : Anchor,
+//   a2 : Anchor,
+//   point : Vec2,
+//   area_of_interest : BoundingBox?
+// ) -> Anchor? {
+// }
+
+/// contains_point returns true if this CompoundPath contains `point`.
+pub fn contains_point(self : CompoundPath, point : Vec2) -> Bool {
+  false // TODO
+}
+
+/// copy_style copies the fill and stroke from `graphic`.
+pub fn copy_style(self : CompoundPath, graphic : Graphic) -> CompoundPath {
+  self.fill = graphic.first_fill()
+  self.stroke = graphic.first_stroke()
+  self
+}
+
+/// first_styled returns this CompoundPath if it is styled or None.
+pub fn first_styled(self : CompoundPath) -> Graphic? {
+  if self.has_style() {
+    Some(CompoundPath(self))
+  } else {
+    None
+  }
+}
+
+/// has_style returns true if this CompoundPath has fill or stroke.
+pub fn has_style(self : CompoundPath) -> Bool {
+  self.fill != None || self.stroke != None
+}
+
+/// is_contained_by_bounding_box returns true if no part of this CompoundPath
+/// lies beyond its min or max.
+pub fn is_contained_by_bounding_box(
+  self : CompoundPath,
+  box : BoundingBox
+) -> Bool {
+  let bbox = self.bounding_box()
+  if None == bbox {
+    return false
+  }
+  let bbox = bbox.unwrap()
+  bbox.contains_bounding_box(box)
+}
+
+/// is_intersected_by_bounding_box returns true if part of this CompoundPath crosses
+/// the boundary between inside and outside of `box`.
+pub fn is_intersected_by_bounding_box(
+  self : CompoundPath,
+  box : BoundingBox
+) -> Bool {
+  // TODO
+  false
+  // let lbb = self.loose_bounding_box()
+  // if None == lbb {
+  //   return false
+  // }
+  // let lbb = lbb.unwrap()
+  // if not(lbb.overlaps_bounding_box(box)) {
+  //   return false
+  // }
+  // let { min, max } = box
+  // let ll = vec2(min.x, min.y)
+  // let lr = vec2(max.x, min.y)
+  // let ur = vec2(max.x, max.y)
+  // let ul = vec2(min.x, max.y)
+  // self
+  // .intersections_with(
+  //   [
+  //     LineSegment::new(ll, lr),
+  //     LineSegment::new(lr, ur),
+  //     LineSegment::new(ur, ul),
+  //     LineSegment::new(ul, ll),
+  //   ],
+  // )
+  // .length() >
+  // 0
+}
+
+/// is_overlapped_by_bounding_box returns if true if a point can be chosen
+/// that is inside both the CompoundPath and `box`.
+pub fn is_overlapped_by_bounding_box(
+  self : CompoundPath,
+  box : BoundingBox
+) -> Bool {
+  self.is_contained_by_bounding_box(box) ||
+  self.is_intersected_by_bounding_box(box)
+}
+
+/// loose_bounding_box returns an approximate bounding box for this CompoundPath.
+/// It may not be the smallest possible bounding box, but is cheaper to compute.
+pub fn loose_bounding_box(self : CompoundPath) -> BoundingBox? {
+  let result = BoundingBox::max_reversed()
+  for i in 0..<self.paths.length() {
+    let bbox = match self.paths[i].loose_bounding_box() {
+      None => continue
+      Some(bbox) => bbox
+    }
+    ignore(result.min.min(bbox.min))
+    ignore(result.max.max(bbox.max))
+  }
+  match result.is_inf() {
+    true => None
+    false => Some(result)
+  }
+}
+
+/// primitives returns a flattened array of Graphics primitives.
+pub fn primitives(self : CompoundPath) -> Array[Graphic] {
+  [CompoundPath(self)]
+}
+
+/// remove_fill removes fill styling from this CompoundPath.
+pub fn remove_fill(self : CompoundPath) -> CompoundPath {
+  self.fill = None
+  self
+}
+
+/// remove_stroke removes stroke styling from this CompoundPath.
+pub fn remove_stroke(self : CompoundPath) -> CompoundPath {
+  self.stroke = None
+  self
+}
+
+/// reverse reverses this CompoundPath.
+pub fn reverse(self : CompoundPath) -> CompoundPath {
+  for path in self.paths {
+    ignore(path.reverse())
+  }
+  self.paths = self.paths.rev()
+  self
+}
+
+/// scale_stroke scales the width of this stroke by `scale_factor`.
+pub fn scale_stroke(self : CompoundPath, scale_factor : Double) -> CompoundPath {
+  match self.stroke {
+    Some(stroke) => stroke.width *= scale_factor
+    _ => ()
+  }
+  self
+}
+
+/// style_contains_point returns true if this path's style contains `point`.
+pub fn style_contains_point(self : CompoundPath, point : Vec2) -> Bool {
+  // TODO
+  false
+}
+
+/// all_anchors returns a flattened array of all anchors in this CompoundPath.
+pub fn all_anchors(self : CompoundPath) -> Array[Anchor] {
+  self.paths.iter().flat_map(fn(path) { path.anchors.iter() }).collect()
 }

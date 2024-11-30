@@ -46,69 +46,81 @@ pub fn affine_transform_without_translation(
 
 /// Graphic::loose_bounding_box returns an approximate bounding box for all items.
 /// It may not be the smallest possible bounding box, but is cheaper to compute.
-pub fn Graphic::loose_bounding_box(items : Array[Graphic]) -> BoundingBox {
+pub fn Graphic::loose_bounding_box(items : Array[Graphic]) -> BoundingBox? {
   if items.length() == 0 {
-    return BoundingBox::new()
+    return None
   }
-
-  // Initialize bbox with the first item's bounding box
-  let mut bbox = match items[0] {
-    CompoundPath(compound_path) => compound_path.loose_bounding_box()
-    Group(group) => group.loose_bounding_box()
-    Path(path) => path.loose_bounding_box()
-  }
+  let bbox = BoundingBox::max_reversed()
 
   // Expand bbox to include all other items
   for i in 0..<items.length() {
     match items[i] {
       CompoundPath(compound_path) => {
-        let item_bbox = compound_path.loose_bounding_box()
+        let item_bbox = match compound_path.loose_bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
         ignore(bbox.expand_to_include_bounding_box(item_bbox))
       }
       Group(group) => {
-        let item_bbox = group.loose_bounding_box()
+        let item_bbox = match group.loose_bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
         ignore(bbox.expand_to_include_bounding_box(item_bbox))
       }
       Path(path) => {
-        let item_bbox = path.loose_bounding_box()
+        let item_bbox = match path.loose_bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
         ignore(bbox.expand_to_include_bounding_box(item_bbox))
       }
     }
   }
-  bbox
+  match bbox.is_inf() {
+    true => None
+    false => Some(bbox)
+  }
 }
 
 /// Graphic::bounding_box returns the bounding box for all items.
-pub fn Graphic::bounding_box(items : Array[Graphic]) -> BoundingBox {
+pub fn Graphic::bounding_box(items : Array[Graphic]) -> BoundingBox? {
   if items.length() == 0 {
-    return BoundingBox::new()
+    return None
   }
-
-  // Initialize bbox with the first item's bounding box
-  let mut bbox = match items[0] {
-    CompoundPath(compound_path) => compound_path.bounding_box()
-    Group(group) => group.bounding_box()
-    Path(path) => path.bounding_box()
-  }
+  let bbox = BoundingBox::max_reversed()
 
   // Expand bbox to include all other items
   for i in 0..<items.length() {
     match items[i] {
       CompoundPath(compound_path) => {
-        let item_bbox = compound_path.bounding_box()
+        let item_bbox = match compound_path.bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
         ignore(bbox.expand_to_include_bounding_box(item_bbox))
       }
       Group(group) => {
-        let item_bbox = group.bounding_box()
+        let item_bbox = match group.bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
         ignore(bbox.expand_to_include_bounding_box(item_bbox))
       }
       Path(path) => {
-        let item_bbox = path.bounding_box()
+        let item_bbox = match path.bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
         ignore(bbox.expand_to_include_bounding_box(item_bbox))
       }
     }
   }
-  bbox
+  match bbox.is_inf() {
+    true => None
+    false => Some(bbox)
+  }
 }
 
 /// Graphic::every returns true if all tests of `func` are true.
@@ -255,7 +267,7 @@ pub fn has_style(self : Graphic) -> Bool {
 }
 
 /// assign_fill assigns a fill to this Graphic.
-pub fn assign_fill(self : Graphic, fill : Fill) -> Graphic {
+pub fn assign_fill(self : Graphic, fill : Fill?) -> Graphic {
   match self {
     CompoundPath(path) => ignore(path.assign_fill(fill))
     Group(group) => ignore(group.assign_fill(fill))
@@ -275,7 +287,7 @@ pub fn remove_fill(self : Graphic) -> Graphic {
 }
 
 /// assign_stroke assigns a stroke to this Graphic.
-pub fn assign_stroke(self : Graphic, stroke : Stroke) -> Graphic {
+pub fn assign_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
   match self {
     CompoundPath(path) => ignore(path.assign_stroke(stroke))
     Group(group) => ignore(group.assign_stroke(stroke))
@@ -295,7 +307,7 @@ pub fn remove_stroke(self : Graphic) -> Graphic {
 }
 
 /// assign_style assigns a fill and stroke style to this Graphic.
-pub fn assign_style(self : Graphic, fill : Fill, stroke : Stroke) -> Graphic {
+pub fn assign_style(self : Graphic, fill : Fill?, stroke : Stroke?) -> Graphic {
   match self {
     CompoundPath(path) => ignore(path.assign_style(fill, stroke))
     Group(group) => ignore(group.assign_style(fill, stroke))
@@ -355,5 +367,23 @@ pub fn Graphic::style_contains_point(point : Vec2) -> (Graphic) -> Bool {
       Group(group) => group.style_contains_point(point)
       Path(path) => path.style_contains_point(point)
     }
+  }
+}
+
+/// first_fill returns the first fill from this Graphic.
+pub fn first_fill(self : Graphic) -> Fill? {
+  match self {
+    CompoundPath(path) => path.fill
+    Group(group) => group.first_fill()
+    Path(path) => path.fill
+  }
+}
+
+/// first_stroke returns the first stroke from this Graphic.
+pub fn first_stroke(self : Graphic) -> Stroke? {
+  match self {
+    CompoundPath(path) => path.stroke
+    Group(group) => group.first_stroke()
+    Path(path) => path.stroke
   }
 }
