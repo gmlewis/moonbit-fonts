@@ -3,7 +3,7 @@ pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
-}
+} derive(Show)
 
 /// CompoundPath::new creates a new CompoundPath.
 pub fn CompoundPath::new(

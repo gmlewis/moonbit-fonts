@@ -8,7 +8,7 @@ pub(all) struct Path {
   mut clear : Bool
   mut fill : Fill?
   mut stroke : Stroke?
-}
+} derive(Show)
 
 /// Path::new creates a new Path.
 pub fn Path::new(
