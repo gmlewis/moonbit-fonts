@@ -15,44 +15,44 @@ test "@draw.Color::new/boundary-values" {
   inspect!(max, content="{r: 1, g: 1, b: 1, a: 1}")
 }
 
-test "@draw.color/standard" {
-  let c1 = @draw.color(1.0, 0.0, 0.0, 1.0) // red
-  let c2 = @draw.color(0.0, 1.0, 0.0, 0.5) // semi-transparent green
-  let c3 = @draw.color(0.0, 0.0, 1.0, 0.0) // transparent blue
+test "@draw.rgba/standard" {
+  let c1 = @draw.rgba(1.0, 0.0, 0.0, 1.0) // red
+  let c2 = @draw.rgba(0.0, 1.0, 0.0, 0.5) // semi-transparent green
+  let c3 = @draw.rgba(0.0, 0.0, 1.0, 0.0) // transparent blue
   inspect!(c1, content="{r: 1, g: 0, b: 0, a: 1}")
   inspect!(c2, content="{r: 0, g: 1, b: 0, a: 0.5}")
   inspect!(c3, content="{r: 0, g: 0, b: 1, a: 0}")
 }
 
-test "@draw.color/edge-cases" {
-  let c1 = @draw.color(0.0, 0.0, 0.0, 0.0) // fully transparent black
-  let c2 = @draw.color(1.0, 1.0, 1.0, 1.0) // fully opaque white
+test "@draw.rgba/edge-cases" {
+  let c1 = @draw.rgba(0.0, 0.0, 0.0, 0.0) // fully transparent black
+  let c2 = @draw.rgba(1.0, 1.0, 1.0, 1.0) // fully opaque white
   inspect!(c1, content="{r: 0, g: 0, b: 0, a: 0}")
   inspect!(c2, content="{r: 1, g: 1, b: 1, a: 1}")
 }
 
-test "@draw.color/out-of-range" {
-  let c1 = @draw.color(-1.0, 2.0, 1.5, -0.5) // values outside normal 0-1 range
+test "@draw.rgba/out-of-range" {
+  let c1 = @draw.rgba(-1.0, 2.0, 1.5, -0.5) // values outside normal 0-1 range
   inspect!(c1, content="{r: -1, g: 2, b: 1.5, a: -0.5}")
 }
 
-test "@draw.color/basic_functionality" {
-  inspect!(@draw.color(1.0, 0.0, 0.0, 1.0), content="{r: 1, g: 0, b: 0, a: 1}")
-  inspect!(@draw.color(0.0, 1.0, 0.0, 1.0), content="{r: 0, g: 1, b: 0, a: 1}")
-  inspect!(@draw.color(0.0, 0.0, 1.0, 1.0), content="{r: 0, g: 0, b: 1, a: 1}")
+test "@draw.rgba/basic_functionality" {
+  inspect!(@draw.rgba(1.0, 0.0, 0.0, 1.0), content="{r: 1, g: 0, b: 0, a: 1}")
+  inspect!(@draw.rgba(0.0, 1.0, 0.0, 1.0), content="{r: 0, g: 1, b: 0, a: 1}")
+  inspect!(@draw.rgba(0.0, 0.0, 1.0, 1.0), content="{r: 0, g: 0, b: 1, a: 1}")
 }
 
-test "@draw.color/boundaries" {
-  inspect!(@draw.color(0.0, 0.0, 0.0, 0.0), content="{r: 0, g: 0, b: 0, a: 0}")
-  inspect!(@draw.color(1.0, 1.0, 1.0, 1.0), content="{r: 1, g: 1, b: 1, a: 1}")
+test "@draw.rgba/boundaries" {
+  inspect!(@draw.rgba(0.0, 0.0, 0.0, 0.0), content="{r: 0, g: 0, b: 0, a: 0}")
+  inspect!(@draw.rgba(1.0, 1.0, 1.0, 1.0), content="{r: 1, g: 1, b: 1, a: 1}")
   inspect!(
-    @draw.color(1.0, 0.5, 0.0, 0.5),
+    @draw.rgba(1.0, 0.5, 0.0, 0.5),
     content="{r: 1, g: 0.5, b: 0, a: 0.5}",
   )
 }
 
-test "panic @draw.color/invalid_values" {
-  inspect!(@draw.color(-0.1, -0.1, -0.1, -0.1), content="")
+test "panic @draw.rgba/invalid_values" {
+  inspect!(@draw.rgba(-0.1, -0.1, -0.1, -0.1), content="")
 }
 
 test "@draw.Color::from_hsva/basic_functionality" {
@@ -169,17 +169,17 @@ test "@draw.Color::mix/t_one" {
 }
 
 test "@draw.luminance/zero_color" {
-  let color = @draw.color(0.0, 0.0, 0.0, 1.0)
+  let color = @draw.rgba(0.0, 0.0, 0.0, 1.0)
   inspect!(@draw.luminance(color), content="0")
 }
 
 test "@draw.luminance/one_color" {
-  let color = @draw.color(1.0, 1.0, 1.0, 1.0)
+  let color = @draw.rgba(1.0, 1.0, 1.0, 1.0)
   inspect!(@draw.luminance(color), content="1")
 }
 
 test "@draw.luminance/mixed_color" {
-  let color = @draw.color(0.5, 0.2, 0.7, 1.0)
+  let color = @draw.rgba(0.5, 0.2, 0.7, 1.0)
   inspect!(@draw.luminance(color), content="0.29988")
 }
 
@@ -300,17 +300,17 @@ test "@draw.Color::to_rgb8_number/primary-colors" {
 }
 
 test "@draw/to_rgb8_number/basic_case" {
-  let result = @draw.to_rgb8_number(@draw.color(1.0, 0.5, 0.0, 1.0))
+  let result = @draw.to_rgb8_number(@draw.rgba(1.0, 0.5, 0.0, 1.0))
   inspect!(result, content="16744448") // Expected: 0xff7f00 which is 16744192 in decimal
 }
 
 test "@draw/to_rgb8_number/lower_boundaries" {
-  let result = @draw.to_rgb8_number(@draw.color(0.0, 0.0, 0.0, 1.0))
+  let result = @draw.to_rgb8_number(@draw.rgba(0.0, 0.0, 0.0, 1.0))
   inspect!(result, content="0") // Expected: 0x000000 which is 0 in decimal
 }
 
 test "@draw/to_rgb8_number/upper_boundaries" {
-  let result = @draw.to_rgb8_number(@draw.color(1.0, 1.0, 1.0, 1.0))
+  let result = @draw.to_rgb8_number(@draw.rgba(1.0, 1.0, 1.0, 1.0))
   inspect!(result, content="16777215") // Expected: 0xffffff which is 16777215 in decimal
 }
 

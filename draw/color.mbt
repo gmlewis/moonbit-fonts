@@ -16,8 +16,8 @@ pub fn Color::new(
   { r, g, b, a }
 }
 
-/// color is a convenience function.
-pub fn color(r : Double, g : Double, b : Double, a : Double) -> Color {
+/// rgba is a convenience function.
+pub fn rgba(r : Double, g : Double, b : Double, a : Double) -> Color {
   { r, g, b, a }
 }
 
@@ -37,12 +37,12 @@ pub fn Color::from_hsva(
   let b = v * (1.0 - s * frac)
   let c = v * (1.0 - s * (1.0 - frac))
   match quad {
-    0 => return color(v, c, a, alpha)
-    1 => return color(b, v, a, alpha)
-    2 => return color(a, v, c, alpha)
-    3 => return color(a, b, v, alpha)
-    4 => return color(c, a, v, alpha)
-    _ => return color(v, a, b, alpha)
+    0 => return rgba(v, c, a, alpha)
+    1 => return rgba(b, v, a, alpha)
+    2 => return rgba(a, v, c, alpha)
+    3 => return rgba(a, b, v, alpha)
+    4 => return rgba(c, a, v, alpha)
+    _ => return rgba(v, a, b, alpha)
   }
 }
 
@@ -91,28 +91,28 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
   if '#' == css_string[0] {
     match css_string.length() {
       4 =>
-        return color(
+        return rgba(
           parse_hex_hex!(css_string[1].to_string()),
           parse_hex_hex!(css_string[2].to_string()),
           parse_hex_hex!(css_string[3].to_string()),
           1,
         )
       5 =>
-        return color(
+        return rgba(
           parse_hex_hex!(css_string[1].to_string()),
           parse_hex_hex!(css_string[2].to_string()),
           parse_hex_hex!(css_string[3].to_string()),
           parse_hex_hex!(css_string[4].to_string()),
         )
       7 =>
-        return color(
+        return rgba(
           parse_hex!(css_string.substring(start=1, end=3)),
           parse_hex!(css_string.substring(start=3, end=5)),
           parse_hex!(css_string.substring(start=5, end=7)),
           1,
         )
       9 =>
-        return color(
+        return rgba(
           parse_hex!(css_string.substring(start=1, end=3)),
           parse_hex!(css_string.substring(start=3, end=5)),
           parse_hex!(css_string.substring(start=5, end=7)),
@@ -126,7 +126,7 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
   let m = rgb_re.matches(css_string)
   match m.captures() {
     [_, r, g, b] =>
-      return color(parse_percent!(r), parse_percent!(g), parse_percent!(b), 1)
+      return rgba(parse_percent!(r), parse_percent!(g), parse_percent!(b), 1)
     _ => ()
   }
 
@@ -134,7 +134,7 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
   let m = rgba_re.matches(css_string)
   match m.captures() {
     [_, r, g, b, a] =>
-      return color(
+      return rgba(
         parse_percent!(r),
         parse_percent!(g),
         parse_percent!(b),
@@ -149,12 +149,12 @@ pub fn Color::from_rgb8_number(value : UInt) -> Color {
   let r = ((value >> 16) & 0xff).reinterpret_as_int().to_double() / 255
   let g = ((value >> 8) & 0xff).reinterpret_as_int().to_double() / 255
   let b = (value & 0xff).reinterpret_as_int().to_double() / 255
-  color(r, g, b, 1)
+  rgba(r, g, b, 1)
 }
 
 /// clone returns a new copy of this Color.
 pub fn clone(self : Color) -> Color {
-  color(self.r, self.g, self.b, self.a)
+  rgba(self.r, self.g, self.b, self.a)
 }
 
 /// set sets the RGBA components of this Color.

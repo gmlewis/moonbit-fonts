@@ -15,8 +15,8 @@ pub fn Path::new(
   anchors~ : Array[Anchor] = [],
   closed~ : Bool = false,
   clear~ : Bool = false,
-  fill~ : Fill?,
-  stroke~ : Stroke?
+  fill~ : Fill? = None,
+  stroke~ : Stroke? = None
 ) -> Path {
   { anchors, closed, clear, fill, stroke }
 }

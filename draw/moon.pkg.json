@@ -1,5 +1,6 @@
 {
   "import": [
+    "gmlewis/fonts/fonts",
     "yj-qin/regexp"
   ]
 }

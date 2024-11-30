@@ -29,7 +29,7 @@ pub(all) enum StrokeJoin {
 
 /// Stroke::new returns a new stroke style.
 pub fn Stroke::new(
-  color~ : Color = color(0, 0, 0, 1),
+  color~ : Color = rgba(0, 0, 0, 1),
   hairline~ : Bool = true,
   width~ : Double = 0.1,
   alignment~ : StrokeAlignment = Centered,

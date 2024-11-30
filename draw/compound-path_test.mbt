@@ -4,7 +4,7 @@ test "@draw.has_style/no_style" {
 }
 
 test "@draw.has_style/fill_only" {
-  let fill = @draw.Fill::new(color=@draw.color(0, 0, 0, 1))
+  let fill = @draw.Fill::new(color=@draw.rgba(0, 0, 0, 1))
   let cp = @draw.CompoundPath::new(paths=[], fill=Some(fill), stroke=None)
   inspect!(cp.has_style(), content="true")
 }
