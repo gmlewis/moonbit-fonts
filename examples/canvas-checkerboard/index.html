@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script>
+    function prototype_to_ffi(prototype) {
+      return Object.fromEntries(
+        Object.entries(Object.getOwnPropertyDescriptors(prototype))
+          .filter(([_key, value]) => value.value)
+          .map(([key, value]) => {
+            if (typeof value.value == 'function')
+              return [key, Function.prototype.call.bind(value.value)]
+            else
+              return [key, () => value.value]
+          })
+      )
+    }
+
+    const [log, flush] = (() => {
+      var buffer = []
+      function flush() {
+        if (buffer.length > 0) {
+          console.log(new TextDecoder("utf-16").decode(new Uint16Array(buffer).valueOf()))
+          buffer = []
+        }
+      }
+      function log(ch) {
+        if (ch == '\n'.charCodeAt(0)) { flush() }
+        else if (ch == '\r'.charCodeAt(0)) { /* noop */ }
+        else { buffer.push(ch) }
+      }
+      return [log, flush]
+    })()
+
+
+    const ctxProto = CanvasRenderingContext2D.prototype
+    ctxProto.setFillColor = function (r, g, b, a) {
+      // console.log(`GML: ctx.setFillColor(${r},${g},${b},${a})`)
+      if (a == 0) { return this.fillStyle = 'none' }
+      r = Math.floor(255 * r)
+      g = Math.floor(255 * g)
+      b = Math.floor(255 * b)
+      this.fillStyle = `rgba(${r},${g},${b},${a})`
+      // console.log(`GML: this.fillStyle=${this.fillStyle}`)
+    }
+    const importObject = {
+      canvas: prototype_to_ffi(ctxProto),
+      math: prototype_to_ffi(Math),
+      spectest: {
+        print_char: log
+      },
+    }
+
+    const canvas = document.getElementById("canvas")
+    if (canvas.getContext) {
+      const ctx = canvas.getContext("2d")
+      const bbox = canvas.getBoundingClientRect()
+      const width = bbox.width
+      const height = bbox.height
+      WebAssembly.instantiateStreaming(fetch("/target/wasm-gc/release/build/examples/canvas-checkerboard/canvas-checkerboard.wasm"), importObject).then(
+        (obj) => {
+          obj.instance.exports["draw"](ctx, width, height)
+          flush()
+        }
+      )
+    }
+  </script>
+</body>
+
+</html>

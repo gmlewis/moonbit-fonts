@@ -354,3 +354,22 @@ pub fn rotate(self : Graphic, angle : Double) -> Graphic {
     Path(path) => path.rotate(angle).as_graphic()
   }
 }
+
+/// fit_to scales and translates a Graphic to fix in `box`.
+pub fn fit_to(self : Graphic, box : BoundingBox) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  if bbox == box {
+    return self
+  }
+  let wscale = box.width() / bbox.width()
+  let hscale = box.height() / bbox.height()
+  let s = @math.minimum(wscale, hscale)
+  let scale = vec2(s, s)
+  let position = box.min - bbox.min
+  let transform = Transform::new(position~, scale~)
+  let affine_matrix = AffineMatrix::from_transform(transform)
+  self.clone().affine_transform(affine_matrix)
+}

@@ -1,0 +1,21 @@
+{
+  "is-main": true,
+  "import": [
+    "gmlewis/fonts/canvas",
+    "gmlewis/fonts/draw",
+    "gmlewis/fonts/examples/checkerboard"
+  ],
+  "link": {
+    "wasm": {
+      "exports": [
+        "draw"
+      ]
+    },
+    "wasm-gc": {
+      "exports": [
+        "draw"
+      ]
+    }
+  }
+
+}
