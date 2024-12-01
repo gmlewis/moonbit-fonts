@@ -1,7 +1,6 @@
 /// Stroke defines a stroke style.
 pub(all) struct Stroke {
   mut color : Color
-  mut hairline : Bool
   mut width : Double
   mut alignment : StrokeAlignment
   mut cap : StrokeCap
@@ -30,14 +29,13 @@ pub(all) enum StrokeJoin {
 /// Stroke::new returns a new stroke style.
 pub fn Stroke::new(
   color~ : Color = rgba(0, 0, 0, 1),
-  hairline~ : Bool = true,
   width~ : Double = 0.1,
   alignment~ : StrokeAlignment = Centered,
   cap~ : StrokeCap = Butt,
   join~ : StrokeJoin = Miter,
   miter_limit~ : Int = 4
 ) -> Stroke {
-  { color, hairline, width, alignment, cap, join, miter_limit }
+  { color, width, alignment, cap, join, miter_limit }
 }
 
 /// stroke is a helper function.
@@ -49,7 +47,6 @@ pub fn stroke(color : Color) -> Stroke {
 pub fn clone(self : Stroke) -> Stroke {
   Stroke::new(
     color=self.color.clone(),
-    hairline=self.hairline,
     width=self.width,
     alignment=self.alignment,
     cap=self.cap,

@@ -1,6 +1,6 @@
 test "@draw.Graphic::bounding_box/empty_array" {
-  let items : Array[@draw.Graphic] = []
-  let result = @draw.Graphic::bounding_box(items)
+  let items = @draw.Group::new(items=[]).as_graphic()
+  let result = items.bounding_box()
   inspect!(result, content="None")
 }
 
@@ -9,8 +9,8 @@ test "@draw.Graphic::bounding_box/single_path" {
   let v2 = @draw.vec2(2.0, 2.0)
   let path = @draw.Path::from_points([v1, v2], true)
   let graphic = @draw.Graphic::Path(path)
-  let items : Array[@draw.Graphic] = [graphic]
-  let result = @draw.Graphic::bounding_box(items)
+  let items = @draw.Group::new(items=[graphic]).as_graphic()
+  let result = items.bounding_box()
   inspect!(result, content="Some({min: {x: 1, y: 1}, max: {x: 2, y: 2}})")
 }
 
@@ -23,7 +23,7 @@ test "@draw.Graphic::bounding_box/multiple_items" {
   let path2 = @draw.Path::from_points([v3, v4], true)
   let graphic1 = @draw.Graphic::Path(path1)
   let graphic2 = @draw.Graphic::Path(path2)
-  let items : Array[@draw.Graphic] = [graphic1, graphic2]
-  let result = @draw.Graphic::bounding_box(items)
+  let items = @draw.Group::new(items=[graphic1, graphic2]).as_graphic()
+  let result = items.bounding_box()
   inspect!(result, content="Some({min: {x: 1, y: 1}, max: {x: 4, y: 4}})")
 }

@@ -53,12 +53,74 @@ pub fn affine_transform_without_translation(
 /// in the Group. It may not be the smallest possible bounding box, but
 /// is cheaper to compute.
 pub fn loose_bounding_box(self : Group) -> BoundingBox? {
-  Graphic::loose_bounding_box(self.items)
+  let bbox = BoundingBox::max_reversed()
+
+  // Expand bbox to include all other items
+  for i in 0..<self.items.length() {
+    match self.items[i] {
+      CompoundPath(compound_path) => {
+        let item_bbox = match compound_path.loose_bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
+        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+      }
+      Group(group) => {
+        let item_bbox = match group.loose_bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
+        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+      }
+      Path(path) => {
+        let item_bbox = match path.loose_bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
+        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+      }
+    }
+  }
+  match bbox.is_inf() {
+    true => None
+    false => Some(bbox)
+  }
 }
 
 /// bounding_box returns the bounding box for all items in the Group.
 pub fn bounding_box(self : Group) -> BoundingBox? {
-  Graphic::bounding_box(self.items)
+  let bbox = BoundingBox::max_reversed()
+
+  // Expand bbox to include all other items
+  for i in 0..<self.items.length() {
+    match self.items[i] {
+      CompoundPath(compound_path) => {
+        let item_bbox = match compound_path.bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
+        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+      }
+      Group(group) => {
+        let item_bbox = match group.bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
+        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+      }
+      Path(path) => {
+        let item_bbox = match path.bounding_box() {
+          None => continue
+          Some(bbox) => bbox
+        }
+        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+      }
+    }
+  }
+  match bbox.is_inf() {
+    true => None
+    false => Some(bbox)
+  }
 }
 
 /// is_contained_by_bounding_box returns true if no part of the Group

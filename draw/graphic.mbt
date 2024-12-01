@@ -44,82 +44,22 @@ pub fn affine_transform_without_translation(
   }
 }
 
-/// Graphic::loose_bounding_box returns an approximate bounding box for all items.
+/// loose_bounding_box returns an approximate bounding box for all items.
 /// It may not be the smallest possible bounding box, but is cheaper to compute.
-pub fn Graphic::loose_bounding_box(items : Array[Graphic]) -> BoundingBox? {
-  if items.length() == 0 {
-    return None
-  }
-  let bbox = BoundingBox::max_reversed()
-
-  // Expand bbox to include all other items
-  for i in 0..<items.length() {
-    match items[i] {
-      CompoundPath(compound_path) => {
-        let item_bbox = match compound_path.loose_bounding_box() {
-          None => continue
-          Some(bbox) => bbox
-        }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
-      }
-      Group(group) => {
-        let item_bbox = match group.loose_bounding_box() {
-          None => continue
-          Some(bbox) => bbox
-        }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
-      }
-      Path(path) => {
-        let item_bbox = match path.loose_bounding_box() {
-          None => continue
-          Some(bbox) => bbox
-        }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
-      }
-    }
-  }
-  match bbox.is_inf() {
-    true => None
-    false => Some(bbox)
+pub fn loose_bounding_box(self : Graphic) -> BoundingBox? {
+  match self {
+    CompoundPath(compound_path) => compound_path.bounding_box()
+    Group(group) => group.bounding_box()
+    Path(path) => path.bounding_box()
   }
 }
 
-/// Graphic::bounding_box returns the bounding box for all items.
-pub fn Graphic::bounding_box(items : Array[Graphic]) -> BoundingBox? {
-  if items.length() == 0 {
-    return None
-  }
-  let bbox = BoundingBox::max_reversed()
-
-  // Expand bbox to include all other items
-  for i in 0..<items.length() {
-    match items[i] {
-      CompoundPath(compound_path) => {
-        let item_bbox = match compound_path.bounding_box() {
-          None => continue
-          Some(bbox) => bbox
-        }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
-      }
-      Group(group) => {
-        let item_bbox = match group.bounding_box() {
-          None => continue
-          Some(bbox) => bbox
-        }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
-      }
-      Path(path) => {
-        let item_bbox = match path.bounding_box() {
-          None => continue
-          Some(bbox) => bbox
-        }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
-      }
-    }
-  }
-  match bbox.is_inf() {
-    true => None
-    false => Some(bbox)
+/// bounding_box returns the bounding box for this Graphic.
+pub fn bounding_box(self : Graphic) -> BoundingBox? {
+  match self {
+    CompoundPath(compound_path) => compound_path.bounding_box()
+    Group(group) => group.bounding_box()
+    Path(path) => path.bounding_box()
   }
 }
 
