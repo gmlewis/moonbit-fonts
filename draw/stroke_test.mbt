@@ -58,7 +58,7 @@ test "@draw.Stroke::new" {
   let color = @draw.rgba(-1, 2, -3, 4) // Invalid color values
   inspect!(
     @draw.Stroke::new(color~),
-    content="{color: {r: -1, g: 2, b: -3, a: 4}, hairline: true, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
+    content="{color: {r: -1, g: 2, b: -3, a: 4}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
   )
 }
 
@@ -67,7 +67,7 @@ test "@draw.stroke/basic" {
   let stroke = @draw.stroke(black)
   inspect!(
     stroke,
-    content="{color: {r: 0, g: 0, b: 0, a: 1}, hairline: true, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
+    content="{color: {r: 0, g: 0, b: 0, a: 1}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
   )
 }
 
@@ -76,7 +76,7 @@ test "@draw.stroke/transparent" {
   let stroke = @draw.stroke(transparent)
   inspect!(
     stroke,
-    content="{color: {r: 1, g: 1, b: 1, a: 0}, hairline: true, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
+    content="{color: {r: 1, g: 1, b: 1, a: 0}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
   )
 }
 
@@ -85,7 +85,7 @@ test "@draw.stroke/partial-transparent" {
   let stroke = @draw.stroke(semi_transparent)
   inspect!(
     stroke,
-    content="{color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}, hairline: true, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
+    content="{color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
   )
 }
 
