@@ -1,11 +1,16 @@
 /// Group represents a collection of Graphics elements.
 pub(all) struct Group {
   mut items : Array[Graphic]
-}
+} derive(Show)
 
 /// Group::new returns a new group.
 pub fn Group::new(items~ : Array[Graphic] = []) -> Group {
   { items, }
+}
+
+/// as_graphic returns a Group as a Graphic.
+pub fn as_graphic(self : Group) -> Graphic {
+  Group(self)
 }
 
 /// group is a convenience function.

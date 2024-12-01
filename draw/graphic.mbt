@@ -3,7 +3,7 @@ pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
   Path(Path)
-}
+} derive(Show)
 
 /// clone returns a new copy of Graphic.
 pub fn clone(self : Graphic) -> Graphic {
@@ -226,7 +226,7 @@ pub fn all_compound_paths(self : Graphic) -> Array[CompoundPath] {
   match self {
     CompoundPath(compound_path) => [compound_path]
     Group(group) => group.all_compound_paths()
-    Path(path) => []
+    Path(_path) => []
   }
 }
 

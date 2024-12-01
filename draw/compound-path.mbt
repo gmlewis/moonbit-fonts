@@ -14,6 +14,11 @@ pub fn CompoundPath::new(
   { paths, fill, stroke }
 }
 
+/// as_graphic returns a CompoundPath as a Graphic.
+pub fn as_graphic(self : CompoundPath) -> Graphic {
+  CompoundPath(self)
+}
+
 /// clone makes a new copy of this CompoundPath.
 pub fn clone(self : CompoundPath) -> CompoundPath {
   let paths = self.paths.map(fn(path) { path.clone() })

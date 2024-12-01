@@ -21,6 +21,11 @@ pub fn Path::new(
   { anchors, closed, clear, fill, stroke }
 }
 
+/// as_graphic returns a Path as a Graphic.
+pub fn as_graphic(self : Path) -> Graphic {
+  Path(self)
+}
+
 /// Path::from_points connects a series of points with lines to form a Path.
 pub fn Path::from_points(points : Array[Vec2], closed : Bool) -> Path {
   let anchors = points.map(fn(pt) { Anchor::new(position=pt) })

@@ -152,6 +152,11 @@ pub fn Color::from_rgb8_number(value : UInt) -> Color {
   rgba(r, g, b, 1)
 }
 
+/// as_fill is a convenience function for setting a fill color.
+pub fn as_fill(self : Color) -> Fill? {
+  Some(fill(self))
+}
+
 /// clone returns a new copy of this Color.
 pub fn clone(self : Color) -> Color {
   rgba(self.r, self.g, self.b, self.a)
