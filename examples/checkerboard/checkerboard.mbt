@@ -16,19 +16,19 @@ let unit_square = @draw.unit_square
 
 let vec2 = @draw.vec2
 
-pub fn checkerboard() -> Array[Graphic] {
+pub fn checkerboard() -> Graphic {
   let board = []
   for y in 0..<8 {
     for x in 0..<8 {
       board.push(square(x, y))
-      if y < 3 && x % 2 == 0 {
+      if y < 3 && (x + y) % 2 == 0 {
         board.push(black_checker(x, y))
-      } else if y > 4 && y % 2 == 0 {
+      } else if y > 4 && (x + y) % 2 == 0 {
         board.push(red_checker(x, y))
       }
     }
   }
-  board
+  Group::new(items=board).as_graphic()
 }
 
 fn single_checker(
@@ -39,6 +39,7 @@ fn single_checker(
 ) -> Graphic {
   let outer_ring = Transform::new(
     position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
+    scale=vec2(0.95, 0.95),
   )
   let inner_ring = Transform::new(
     position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
@@ -52,8 +53,8 @@ fn single_checker(
 }
 
 fn black_checker(x : Int, y : Int) -> Graphic {
-  let light_gray = rgba(0.8, 0.8, 0.8, 1).as_fill()
-  let dark_gray = rgba(0.5, 0.5, 0.5, 1).as_fill()
+  let light_gray = rgba(0.4, 0.4, 0.4, 1).as_fill()
+  let dark_gray = rgba(0.1, 0.1, 0.1, 1).as_fill()
   single_checker(x, y, light_gray, dark_gray)
 }
 
@@ -65,7 +66,7 @@ fn red_checker(x : Int, y : Int) -> Graphic {
 
 fn square(x : Int, y : Int) -> Graphic {
   let fill = fill(
-    if x + y % 2 == 0 {
+    if (x + y) % 2 == 0 {
       rgba(0, 0, 0, 1) // black
     } else {
       rgba(1, 0, 0, 1) // red

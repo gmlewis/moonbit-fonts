@@ -202,7 +202,7 @@ pub fn to_css_string(self : Color) -> String {
 // to_hex_digit returns a hex digit.
 fn to_hex_digit(v : Byte) -> String {
   match v & 0x0f {
-    _..<10 as v => "\{v}"
+    _..<10 as v => "\{v.to_int()}"
     10 => "A"
     11 => "B"
     12 => "C"
@@ -230,7 +230,7 @@ fn to_hex(v : UInt) -> String {
 
 /// to_css_hex_string returns a CSS-style hex string for this color.
 pub fn to_css_hex_string(self : Color) -> String {
-  let s = to_hex(16777216U + self.to_rgb8_number()).substring(start=1)
+  let s = to_hex(16777216U + self.to_rgb8_number())
   "#\{s}"
 }
 
@@ -249,7 +249,7 @@ pub fn to_css_rgba_string(self : Color) -> String {
   let r = clamp(@math.round(self.r * 255).to_int(), 0, 255)
   let g = clamp(@math.round(self.g * 255).to_int(), 0, 255)
   let b = clamp(@math.round(self.b * 255).to_int(), 0, 255)
-  let a = clamp(@math.round(self.a).to_int(), 0, 1)
+  let a = clamp(self.a, 0, 1)
   "rgba(\{r},\{g},\{b},\{a})"
 }
 

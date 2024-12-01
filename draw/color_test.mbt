@@ -185,12 +185,12 @@ test "@draw.luminance/mixed_color" {
 
 test "@draw.Color::to_css_string/opaque" {
   let color = @draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
-  inspect!(color.to_css_string(), content="#Fb'\\x00'b'\\x00'b'\\x00'b'\\x00'")
+  inspect!(color.to_css_string(), content="#FF0000")
 }
 
 test "@draw.Color::to_css_string/transparent" {
   let color = @draw.Color::new(r=0.0, g=1.0, b=0.0, a=0.5)
-  inspect!(color.to_css_string(), content="rgba(0,255,0,1)")
+  inspect!(color.to_css_string(), content="rgba(0,255,0,0.5)")
 }
 
 test "@draw.Color::to_css_string/fully-transparent" {
@@ -200,12 +200,13 @@ test "@draw.Color::to_css_string/fully-transparent" {
 
 test "@draw.to_css_string/hex_color" {
   let color = @draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
-  inspect!(color.to_css_string(), content="#Fb'\\x00'b'\\x00'b'\\x00'b'\\x00'")
+  inspect!(color.to_css_string(), content="#FF0000")
 }
 
 test "@draw.to_css_string/rgba_color" {
   let color = @draw.Color::new(r=0.5, g=0.5, b=0.5, a=0.5)
-  inspect!(color.to_css_string(), content="rgba(128,128,128,1)")
+  let got = color.to_css_string()
+  inspect!(got, content="rgba(128,128,128,0.5)")
 }
 
 test "@draw.to_css_string/transparent_color" {
@@ -216,44 +217,33 @@ test "@draw.to_css_string/transparent_color" {
 test "@draw.Color::to_css_hex_string" {
   // Test basic color conversion
   let color1 = @draw.Color::new(r=0.5, g=0.25, b=0.75)
-  inspect!(
-    color1.to_css_hex_string(),
-    content="#'\\x08'b'\\x00'b'\\x04'b'\\x00'BF",
-  )
+  inspect!(color1.to_css_hex_string(), content="#8040BF")
 
   // Test black color (all components at 0)
   let color2 = @draw.Color::new(r=0.0, g=0.0, b=0.0)
-  inspect!(
-    color2.to_css_hex_string(),
-    content="#'\\x00'b'\\x00'b'\\x00'b'\\x00'b'\\x00'b'\\x00'",
-  )
+  inspect!(color2.to_css_hex_string(), content="#000000")
 
   // Test white color (all components at 1.0)
   let color3 = @draw.Color::new(r=1.0, g=1.0, b=1.0)
-  inspect!(color3.to_css_hex_string(), content="#FFFFF")
+  inspect!(color3.to_css_hex_string(), content="#FFFFFF")
 } // Test case for pure white color
 
 test "@draw.Color::to_css_hex_string/white_color" {
   let white_color = @draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
-  inspect!(white_color.to_css_hex_string(), content="#FFFFF")
+  inspect!(white_color.to_css_hex_string(), content="#FFFFFF")
 }
 
 // Test case for pure black color
 test "@draw.Color::to_css_hex_string/black_color" {
   let black_color = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
-  inspect!(
-    black_color.to_css_hex_string(),
-    content="#'\\x00'b'\\x00'b'\\x00'b'\\x00'b'\\x00'b'\\x00'",
-  )
+  inspect!(black_color.to_css_hex_string(), content="#000000")
 }
 
 // Test case for color with mixed components
 test "@draw.Color::to_css_hex_string/mixed_color" {
   let mixed_color = @draw.Color::new(r=0.5, g=0.25, b=0.75, a=1.0)
-  inspect!(
-    mixed_color.to_css_hex_string(),
-    content="#'\\x08'b'\\x00'b'\\x04'b'\\x00'BF",
-  )
+  let got = mixed_color.to_css_hex_string()
+  inspect!(got, content="#8040BF")
 }
 
 test "@draw.Color::to_css_rgba_string" {
@@ -263,7 +253,7 @@ test "@draw.Color::to_css_rgba_string" {
 
   // Test normal RGB values with partial opacity
   let c2 = @draw.Color::new(r=0.5, g=0.5, b=0.5, a=0.5)
-  inspect!(c2.to_css_rgba_string(), content="rgba(128,128,128,1)")
+  inspect!(c2.to_css_rgba_string(), content="rgba(128,128,128,0.5)")
 }
 
 test "@draw.Color::to_css_rgba_string/boundary" {

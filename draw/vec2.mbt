@@ -222,10 +222,15 @@ pub fn round(self : Vec2) -> Vec2 {
 /// round_to_fixed rounds the components of this vector to the provided
 /// number of digits.
 pub fn round_to_fixed(self : Vec2, digits : Int) -> Vec2 {
-  let exp = @math.exp(digits.to_double() * @math.ln(10.0))
-  let n = 1.0 / exp
-  self.x = @math.round(self.x * exp) * n
-  self.y = @math.round(self.y * exp) * n
+  let num = digits.to_double().abs()
+  let exp = @math.round(@math.exp(num * @math.ln(10.0)))
+  if digits < 0 {
+    self.x = @math.round(self.x / exp) * exp
+    self.y = @math.round(self.y / exp) * exp
+    return self
+  }
+  self.x = @math.round(self.x * exp) / exp
+  self.y = @math.round(self.y * exp) / exp
   self
 }
 

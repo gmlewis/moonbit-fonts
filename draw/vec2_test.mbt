@@ -1412,14 +1412,14 @@ test "@draw.round_to_fixed" {
   // Test the case with negative digits, expecting the components should be rounded to the nearest 10^(-digits).
   let v2 = Vec2::new(x=1234.5678, y=-8765.4321)
   let v2_rounded = @draw.round_to_fixed(v2, -2)
-  inspect!(v2_rounded, content="{x: 1200.0000000000007, y: -8800.000000000005}")
+  inspect!(v2_rounded, content="{x: 1200, y: -8800}")
 }
 
 test "@draw.round_to_fixed/large_digits" {
   // Test extreme case where digits is too large, expecting the result might approximate the original value due to precision limit.
   let v3 = Vec2::new(x=0.123456789, y=-0.987654321)
   let v3_rounded = @draw.round_to_fixed(v3, 50)
-  inspect!(v3_rounded, content="{x: 0.123456789, y: -0.9876543210000001}")
+  inspect!(v3_rounded, content="{x: 0.123456789, y: -0.987654321}")
 } // Test `round_to_multiple` with positive multiple, boundary value just below and exactly at multiple
 
 test "@draw.round_to_multiple/positive_multiple" {

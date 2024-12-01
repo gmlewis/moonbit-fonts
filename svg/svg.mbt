@@ -10,12 +10,28 @@ typealias Path = @draw.Path
 
 typealias Stroke = @draw.Stroke
 
-/// from_graphics returns an SVG from an array of Graphics.
-pub fn from_graphics(items : Array[Graphic]) -> String {
-  let g = Group::new(items~).as_graphic()
-  let bbox = match g.bounding_box() {
+let vec2 = @draw.vec2
+
+/// from_graphics returns an SVG from a Graphic.
+/// Note that if the design was created with Y being "up", then it
+/// must be flipped to render properly as an SVG.
+pub fn from_graphic(g : Graphic, y_up~ : Bool = true) -> String {
+  let mut bbox = match g.bounding_box() {
     Some(box) => box
     _ => return "<svg></svg>"
+  }
+
+  // flip design if necessary
+  let mut g = g
+  if y_up {
+    let height = bbox.height()
+    let transform = @draw.Transform::new(
+      position=vec2(0, height),
+      scale=vec2(1, -1),
+    )
+    let affine_matrix = @draw.AffineMatrix::from_transform(transform)
+    g = g.clone().affine_transform(affine_matrix)
+    bbox = g.bounding_box().unwrap()
   }
   let min = bbox.min.round_to_fixed(2)
   let max = bbox.max.round_to_fixed(2)
@@ -37,8 +53,6 @@ pub fn from_graphics(items : Array[Graphic]) -> String {
   let lines = String::concat(lines, separator="\n")
   $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{max.x} \{max.y}">
   $|\{lines}
-  #|  <path d="M 582 1462 Q 865 1462 995.5 1351.5" stroke="blue" fill="none"/>
-  #|  <path d="M 582 1462 C 770.667 1462 908.5 1425.167 995.5 1351.5" stroke="red" stroke-dasharray="5,5" fill="none"/>
   #|</svg>
 }
 
