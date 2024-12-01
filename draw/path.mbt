@@ -287,7 +287,7 @@ fn closest_point_to_line(
 // }
 
 /// contains_point returns true if this Path contains `point`.
-pub fn contains_point(self : Path, point : Vec2) -> Bool {
+pub fn contains_point(self : Path, _point : Vec2) -> Bool {
   false // TODO
 }
 
@@ -325,7 +325,7 @@ pub fn is_contained_by_bounding_box(self : Path, box : BoundingBox) -> Bool {
 
 /// is_intersected_by_bounding_box returns true if part of this Path crosses
 /// the boundary between inside and outside of `box`.
-pub fn is_intersected_by_bounding_box(self : Path, box : BoundingBox) -> Bool {
+pub fn is_intersected_by_bounding_box(self : Path, _box : BoundingBox) -> Bool {
   // TODO
   false
   // let lbb = self.loose_bounding_box()
@@ -456,7 +456,25 @@ pub fn scale_stroke(self : Path, scale_factor : Double) -> Path {
 }
 
 /// style_contains_point returns true if this path's style contains `point`.
-pub fn style_contains_point(self : Path, point : Vec2) -> Bool {
+pub fn style_contains_point(self : Path, _point : Vec2) -> Bool {
   // TODO
   false
+}
+
+/// translate translates a Path by `v`.
+pub fn translate(self : Path, v : Vec2) -> Path {
+  let affine_matrix = AffineMatrix::from_translation(v)
+  self.affine_transform(affine_matrix)
+}
+
+/// scale scales a Path by `v`.
+pub fn scale(self : Path, v : Vec2) -> Path {
+  let affine_matrix = AffineMatrix::from_scale(v)
+  self.affine_transform(affine_matrix)
+}
+
+/// rotate rotates a Path clockwise by `angle` in degrees.
+pub fn rotate(self : Path, angle : Double) -> Path {
+  let affine_matrix = AffineMatrix::from_rotation(angle)
+  self.affine_transform(affine_matrix)
 }

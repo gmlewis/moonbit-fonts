@@ -129,7 +129,7 @@ pub fn closest_point(
 // }
 
 /// contains_point returns true if this CompoundPath contains `point`.
-pub fn contains_point(self : CompoundPath, point : Vec2) -> Bool {
+pub fn contains_point(self : CompoundPath, _point : Vec2) -> Bool {
   false // TODO
 }
 
@@ -172,7 +172,7 @@ pub fn is_contained_by_bounding_box(
 /// the boundary between inside and outside of `box`.
 pub fn is_intersected_by_bounding_box(
   self : CompoundPath,
-  box : BoundingBox
+  _box : BoundingBox
 ) -> Bool {
   // TODO
   false
@@ -266,7 +266,7 @@ pub fn scale_stroke(self : CompoundPath, scale_factor : Double) -> CompoundPath 
 }
 
 /// style_contains_point returns true if this path's style contains `point`.
-pub fn style_contains_point(self : CompoundPath, point : Vec2) -> Bool {
+pub fn style_contains_point(self : CompoundPath, _point : Vec2) -> Bool {
   // TODO
   false
 }
@@ -274,4 +274,22 @@ pub fn style_contains_point(self : CompoundPath, point : Vec2) -> Bool {
 /// all_anchors returns a flattened array of all anchors in this CompoundPath.
 pub fn all_anchors(self : CompoundPath) -> Array[Anchor] {
   self.paths.iter().flat_map(fn(path) { path.anchors.iter() }).collect()
+}
+
+/// translate translates a CompoundPath by `v`.
+pub fn translate(self : CompoundPath, v : Vec2) -> CompoundPath {
+  let affine_matrix = AffineMatrix::from_translation(v)
+  self.affine_transform(affine_matrix)
+}
+
+/// scale scales a CompoundPath by `v`.
+pub fn scale(self : CompoundPath, v : Vec2) -> CompoundPath {
+  let affine_matrix = AffineMatrix::from_scale(v)
+  self.affine_transform(affine_matrix)
+}
+
+/// rotate rotates a CompoundPath clockwise by `angle` in degrees.
+pub fn rotate(self : CompoundPath, angle : Double) -> CompoundPath {
+  let affine_matrix = AffineMatrix::from_rotation(angle)
+  self.affine_transform(affine_matrix)
 }

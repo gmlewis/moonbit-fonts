@@ -72,8 +72,6 @@ fn square(x : Int, y : Int) -> Graphic {
       rgba(1, 0, 0, 1) // red
     },
   )
-  let transform = Transform::new(
-    position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
-  )
-  unit_square().transform(transform).assign_fill(Some(fill)).as_graphic()
+  let v = vec2(0.5 + x.to_double(), 0.5 + y.to_double())
+  unit_square().translate(v).assign_fill(Some(fill)).as_graphic()
 }

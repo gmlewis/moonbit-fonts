@@ -323,3 +323,21 @@ pub fn first_stroke(self : Group) -> Stroke? {
   }
   None
 }
+
+/// translate translates a Group by `v`.
+pub fn translate(self : Group, v : Vec2) -> Group {
+  let affine_matrix = AffineMatrix::from_translation(v)
+  self.affine_transform(affine_matrix)
+}
+
+/// scale scales a Group by `v`.
+pub fn scale(self : Group, v : Vec2) -> Group {
+  let affine_matrix = AffineMatrix::from_scale(v)
+  self.affine_transform(affine_matrix)
+}
+
+/// rotate rotates a Group clockwise by `angle` in degrees.
+pub fn rotate(self : Group, angle : Double) -> Group {
+  let affine_matrix = AffineMatrix::from_rotation(angle)
+  self.affine_transform(affine_matrix)
+}

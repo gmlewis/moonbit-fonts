@@ -384,7 +384,7 @@ test "@draw.translate/basic_movement" {
   let mat = AffineMatrix::new(a=2, b=3, c=4, d=5, tx=6, ty=7)
   let v = vec2(1, 1)
   inspect!(
-    @draw.translate(mat, v),
+    @draw.AffineMatrix::translate(mat, v),
     content="{a: 2, b: 3, c: 4, d: 5, tx: 12, ty: 15}",
   )
 }
@@ -393,7 +393,7 @@ test "@draw.translate/zero_translation" {
   let mat = AffineMatrix::new(a=2, b=3, c=4, d=5, tx=6, ty=7)
   let v = vec2(0, 0)
   inspect!(
-    @draw.translate(mat, v),
+    @draw.AffineMatrix::translate(mat, v),
     content="{a: 2, b: 3, c: 4, d: 5, tx: 6, ty: 7}",
   )
 }
@@ -402,7 +402,7 @@ test "@draw.translate/negative_translation" {
   let mat = AffineMatrix::new(a=2, b=3, c=4, d=5, tx=6, ty=7)
   let v = vec2(-1, -1)
   inspect!(
-    @draw.translate(mat, v),
+    @draw.AffineMatrix::translate(mat, v),
     content="{a: 2, b: 3, c: 4, d: 5, tx: 0, ty: -1}",
   )
 }

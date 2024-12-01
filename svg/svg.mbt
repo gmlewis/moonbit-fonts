@@ -4,8 +4,6 @@ typealias Fill = @draw.Fill
 
 typealias Graphic = @draw.Graphic
 
-typealias Group = @draw.Group
-
 typealias Path = @draw.Path
 
 typealias Stroke = @draw.Stroke

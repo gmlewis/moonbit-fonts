@@ -327,3 +327,30 @@ pub fn first_stroke(self : Graphic) -> Stroke? {
     Path(path) => path.stroke
   }
 }
+
+/// translate translates a Graphic by `v`.
+pub fn translate(self : Graphic, v : Vec2) -> Graphic {
+  match self {
+    CompoundPath(path) => path.translate(v).as_graphic()
+    Group(group) => group.translate(v).as_graphic()
+    Path(path) => path.translate(v).as_graphic()
+  }
+}
+
+/// scale scales a Graphic by `v`.
+pub fn scale(self : Graphic, v : Vec2) -> Graphic {
+  match self {
+    CompoundPath(path) => path.scale(v).as_graphic()
+    Group(group) => group.scale(v).as_graphic()
+    Path(path) => path.scale(v).as_graphic()
+  }
+}
+
+/// rotate rotates a Graphic clockwise by `angle` in degrees.
+pub fn rotate(self : Graphic, angle : Double) -> Graphic {
+  match self {
+    CompoundPath(path) => path.rotate(angle).as_graphic()
+    Group(group) => group.rotate(angle).as_graphic()
+    Path(path) => path.rotate(angle).as_graphic()
+  }
+}

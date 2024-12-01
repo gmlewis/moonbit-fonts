@@ -1,5 +1,3 @@
-typealias Group = @draw.Group
-
 test "checkerboard" {
   let got = @gmlewis/fonts/examples/checkerboard.checkerboard()
   inspect!(
