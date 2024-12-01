@@ -1,6 +1,6 @@
 {
   "name": "gmlewis/fonts",
-  "version": "0.4.0",
+  "version": "0.1.0",
   "deps": {
     "moonbitlang/x": "0.4.12",
     "yj-qin/regexp": "0.3.1"
@@ -9,6 +9,7 @@
   "repository": "https://github.com/gmlewis/moonbit-fonts",
   "license": "Apache-2.0",
   "keywords": [
+    "html5 canvas",
     "svg",
     "open source",
     "fonts"

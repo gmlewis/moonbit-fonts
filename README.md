@@ -14,15 +14,34 @@ repos which are organized by the first letter of the name of the font:
 
 [MoonBit]: https://www.moonbitlang.com/
 
+## Examples
+
+### checkerboard
+
+`checkerboard` is a simple example to create a `draw.Graphic` using the `@draw` API.
+
+### canvas-checkerboard
+
+`canvas-checkerboard` renders the `checkerboard` Graphic to an HTML5 canvas.
+Type `./run-canvas-checkerboard.sh` in a terminal then open your browser to
+http://localhost:8080/examples/canvas-checkerboard to view it.
+
+### svg-checkerboard
+
+`svg-checkerboard` "renders" the `checkerboard` Graphic to an SVG file.
+Type `moon run examples/svg-checkerboard > examples/svg-checkerboard/checkerboard.svg`
+in a terminal then open this file in your browser to view it.
+For example, `google-chrome examples/svg-checkerboard/checkerboard.svg`.
+
 ## Status
 
 The code has been updated to support compiler:
 
 ```bash
 $ moon version --all
-moon 0.1.20241115 (67c2b06 2024-11-15) ~/.moon/bin/moon
-moonc v0.1.20241115+351cfb074 ~/.moon/bin/moonc
-moonrun 0.1.20241115 (67c2b06 2024-11-15) ~/.moon/bin/moonrun
+moon 0.1.20241125 (6fe6396 2024-11-25) ~/.moon/bin/moon
+moonc v0.1.20241125+34a5d819a ~/.moon/bin/moonc
+moonrun 0.1.20241125 (6fe6396 2024-11-25) ~/.moon/bin/moonrun
 ```
 
 Use `moonup` to manage `moon` compiler versions:
