@@ -1,12 +1,13 @@
-/// `Cmd` represents an SVG command along with its parameters.
+///| `Cmd` represents an SVG command along with its parameters.
 struct Cmd {
   c : String
   p : Params
 } derive(Show, Eq)
 
+///|
 let split_re : @regexp.RegExp = @regexp.compile?("^([MLCQZ])([0-9\\.\\-, ]*)").unwrap()
 
-/// `split_path` splits an SVG path into an array of individual commands.
+///| `split_path` splits an SVG path into an array of individual commands.
 fn split_path(d : String) -> Array[Cmd]!FontError {
   let mut d = d
   let cmds = []

@@ -1,21 +1,31 @@
+///|
 typealias Fill = @draw.Fill
 
+///|
 typealias Graphic = @draw.Graphic
 
+///|
 typealias Group = @draw.Group
 
+///|
 typealias Transform = @draw.Transform
 
+///|
 let fill = @draw.fill
 
+///|
 let rgba = @draw.rgba
 
+///|
 let unit_circle = @draw.unit_circle
 
+///|
 let unit_square = @draw.unit_square
 
+///|
 let vec2 = @draw.vec2
 
+///|
 pub fn checkerboard() -> Graphic {
   let board = []
   for y in 0..<8 {
@@ -31,6 +41,7 @@ pub fn checkerboard() -> Graphic {
   Group::new(items=board).as_graphic()
 }
 
+///|
 fn single_checker(
   x : Int,
   y : Int,
@@ -52,18 +63,21 @@ fn single_checker(
   Group::new(items~).as_graphic()
 }
 
+///|
 fn black_checker(x : Int, y : Int) -> Graphic {
   let light_gray = rgba(0.4, 0.4, 0.4, 1).as_fill()
   let dark_gray = rgba(0.1, 0.1, 0.1, 1).as_fill()
   single_checker(x, y, light_gray, dark_gray)
 }
 
+///|
 fn red_checker(x : Int, y : Int) -> Graphic {
   let light_red = rgba(0.8, 0, 0, 1).as_fill()
   let dark_red = rgba(0.5, 0, 0, 1).as_fill()
   single_checker(x, y, light_red, dark_red)
 }
 
+///|
 fn square(x : Int, y : Int) -> Graphic {
   let fill = fill(
     if (x + y) % 2 == 0 {

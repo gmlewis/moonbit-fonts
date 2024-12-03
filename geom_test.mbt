@@ -5,8 +5,10 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+///|
 type! TestError String derive(Show, Eq)
 
+///|
 fn test_in(f : @fonts.Rectangle, g : @fonts.Rectangle) -> TestError? {
   if not(f.is_in(g)) {
     return Some(TestError("f=\{f}, f.is_in(\{g}): got false, want true"))

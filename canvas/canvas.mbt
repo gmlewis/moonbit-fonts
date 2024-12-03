@@ -1,4 +1,4 @@
-/// from_graphics renders a Graphic to an HTML5 canvas using its native API.
+///| from_graphics renders a Graphic to an HTML5 canvas using its native API.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly in the canvas.
 pub fn from_graphic(self : CanvasCtx, g : Graphic, y_up~ : Bool = true) -> Unit {
@@ -37,14 +37,17 @@ pub fn from_graphic(self : CanvasCtx, g : Graphic, y_up~ : Bool = true) -> Unit 
   )
 }
 
+///|
 fn render_path(self : CanvasCtx, path : Path) -> Unit {
   self.render_paths([path], path.stroke, path.fill)
 }
 
+///|
 fn render_compound_path(self : CanvasCtx, path : CompoundPath) -> Unit {
   self.render_paths(path.paths, path.stroke, path.fill)
 }
 
+///|
 fn render_paths(
   self : CanvasCtx,
   paths : Array[Path],
@@ -64,6 +67,7 @@ fn render_paths(
   }
 }
 
+///|
 fn canvas_commands(self : CanvasCtx, path : Path) -> Unit {
   if path.anchors.length() < 2 {
     return
@@ -103,6 +107,7 @@ fn canvas_commands(self : CanvasCtx, path : Path) -> Unit {
   }
 }
 
+///|
 fn svg_stroke(stroke : Stroke?) -> String {
   // TODO
   match stroke {
@@ -160,6 +165,7 @@ fn svg_stroke(stroke : Stroke?) -> String {
   }
 }
 
+///|
 fn set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
   match fill {
     None => self.set_fill_color(0, 0, 0, 0)

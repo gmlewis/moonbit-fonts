@@ -1,4 +1,4 @@
-/// A `Path` is identical to a `Glyph` but has been optimized internally
+///| A `Path` is identical to a `Glyph` but has been optimized internally
 /// for further manipulation, whereas a `Glyph` is optimized for compact
 /// storage of font data within all the font packages.
 /// A `Path` can be converted to a `Glpyh` and vice versa.
@@ -19,7 +19,7 @@ pub(all) struct Path {
   ymax : Double
 } derive(Show, Eq)
 
-/// `AbsoluteCmd` represents a supported absolute SVG command.
+///| `AbsoluteCmd` represents a supported absolute SVG command.
 pub(all) enum AbsoluteCmd {
   // MoveTo: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#moveto_path_commands
   M
@@ -33,13 +33,13 @@ pub(all) enum AbsoluteCmd {
   Z
 } derive(Show, Eq)
 
-/// `GerberLP` represents whether a subpath is `Dark` or `Clear`.
+///| `GerberLP` represents whether a subpath is `Dark` or `Clear`.
 pub(all) enum GerberLP {
   Dark
   Clear
 } derive(Show, Eq)
 
-/// `from_glyph` returns a `Path` from a `Glyph`, optionally processing
+///| `from_glyph` returns a `Path` from a `Glyph`, optionally processing
 /// every `Cmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `from_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
@@ -85,7 +85,7 @@ pub fn Path::from_glyph(
   { char: g.char, cmds, xmin, ymin, xmax, ymax }
 }
 
-/// `to_glyph` returns a "super" `Glyph` from a `Path`, optionally processing
+///| `to_glyph` returns a "super" `Glyph` from a `Path`, optionally processing
 /// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
@@ -131,7 +131,7 @@ pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
   { char: self.char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax }
 }
 
-/// `clone` makes a deep copy of a Path.
+///| `clone` makes a deep copy of a Path.
 pub fn clone(self : Path) -> Path {
   let cmds = Array::new(capacity=self.cmds.length())
   for cmd in self.cmds {

@@ -1,16 +1,22 @@
+///|
 typealias CompoundPath = @draw.CompoundPath
 
+///|
 typealias Fill = @draw.Fill
 
+///|
 typealias Graphic = @draw.Graphic
 
+///|
 typealias Path = @draw.Path
 
+///|
 typealias Stroke = @draw.Stroke
 
+///|
 let vec2 = @draw.vec2
 
-/// from_graphics returns an SVG from a Graphic.
+///| from_graphics returns an SVG from a Graphic.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly as an SVG.
 pub fn from_graphic(g : Graphic, y_up~ : Bool = true) -> String {
@@ -54,6 +60,7 @@ pub fn from_graphic(g : Graphic, y_up~ : Bool = true) -> String {
   #|</svg>
 }
 
+///|
 fn path_to_svg(path : Path) -> String {
   let d = svg_d([path])
   let stroke = svg_stroke(path.stroke)
@@ -61,6 +68,7 @@ fn path_to_svg(path : Path) -> String {
   $|  <path d="\{d}" \{stroke} \{fill}/>
 }
 
+///|
 fn compound_path_to_svg(path : CompoundPath) -> String {
   let d = svg_d(path.paths)
   let stroke = svg_stroke(path.stroke)
@@ -68,6 +76,7 @@ fn compound_path_to_svg(path : CompoundPath) -> String {
   $|  <path d="\{d}" \{stroke} \{fill}/>
 }
 
+///|
 fn svg_d(paths : Array[Path]) -> String {
   let cmds = []
   for path in paths {
@@ -76,6 +85,7 @@ fn svg_d(paths : Array[Path]) -> String {
   String::concat(cmds)
 }
 
+///|
 fn svg_path(path : Path) -> String {
   if path.anchors.length() < 2 {
     return ""
@@ -119,6 +129,7 @@ fn svg_path(path : Path) -> String {
   String::concat(cmds)
 }
 
+///|
 fn svg_stroke(stroke : Stroke?) -> String {
   match stroke {
     None =>
@@ -175,6 +186,7 @@ fn svg_stroke(stroke : Stroke?) -> String {
   }
 }
 
+///|
 fn svg_fill(fill : Fill?) -> String {
   match fill {
     None =>

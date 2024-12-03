@@ -1,4 +1,4 @@
-/// `glyph_bbox` returns the conservative bounding box of a Glyph path.
+///| `glyph_bbox` returns the conservative bounding box of a Glyph path.
 /// It only supports the absolute SVG commands: M, L, C, Q, Z.
 ///
 /// Note that this function does _NOT_ fully analyze the Cubic or Quadratic

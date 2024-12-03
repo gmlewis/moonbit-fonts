@@ -1,3 +1,4 @@
+///|
 let glyphs : Map[String, @fonts.Glyph] = {
   "A": {
     char: "A",
@@ -31,6 +32,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
   },
 }
 
+///|
 let nullpointer : @fonts.Font = {
   id: "nullpointer",
   horiz_adv_x: 540.0,
@@ -40,6 +42,7 @@ let nullpointer : @fonts.Font = {
   glyphs,
 }
 
+///|
 struct GenPathTestCase {
   name : String
   anchor : @fonts.Anchor
@@ -47,6 +50,7 @@ struct GenPathTestCase {
   want_d : String
 }
 
+///|
 let test_cases : Array[GenPathTestCase] = [
   {
     name: "Unchanged",
