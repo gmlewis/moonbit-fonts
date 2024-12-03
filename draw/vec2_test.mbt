@@ -1,9 +1,13 @@
+///|
 typealias AffineMatrix = @draw.AffineMatrix
 
+///|
 typealias Transform = @draw.Transform
 
+///|
 typealias Vec2 = @draw.Vec2
 
+///|
 let vec2 = @draw.vec2
 
 test "Vec2::new/basic" {
@@ -84,6 +88,7 @@ test "vec2/boundary_values/negative" {
   inspect!(v.y, content="-2")
 }
 
+///|
 fn assert_vec2_approx_eq(
   result : Vec2,
   expect_x : Double,
@@ -147,6 +152,7 @@ test "Vec2::from_angle/out_of_range_angles" {
   inspect!(Vec2::from_angle(-450), content="{x: 3.061675811655574e-16, y: -1}")
 }
 
+///|
 fn assert_approx_eq12(
   result : Vec2,
   expect : Vec2,
@@ -197,6 +203,7 @@ test "Vec2::from_angle_radians/unit-length" {
   }
 }
 
+///|
 fn assert_approx_eq(
   result : Double,
   expect : Double,
@@ -624,6 +631,7 @@ test "@draw.op_add/negative_values" {
   )
 }
 
+///|
 fn assert_vec2_eq(v1 : Vec2, v2 : Vec2, error : Double) -> Unit!Error {
   if (v1.x - v2.x).abs() < error && (v1.y - v2.y).abs() < error {
     ()
@@ -1374,6 +1382,7 @@ test "@draw.round/special-values" {
   inspect!(v.round(), content="{x: 1000000, y: -1000000}")
 }
 
+///|
 fn assert_vec2_approx_eq2(
   result : Vec2,
   expect : Vec2,
@@ -1660,6 +1669,7 @@ test "@draw.cross/arbitrary" {
   inspect!(v2.cross(v1), content="10")
 }
 
+///|
 fn assert_approx_eq_vec(
   result : Vec2,
   expect : Vec2,
@@ -1797,6 +1807,7 @@ test "@draw.rotate/boundary_values" {
   inspect!(rotated_v2.y.abs().round(), content="1") // Due to floating-point precision
 }
 
+///|
 fn assert_vec2_approx_eq3(v1 : Vec2, v2 : Vec2, epsilon : Double) -> Unit!Error {
   if (v1.x - v2.x).abs() > epsilon || (v1.y - v2.y).abs() > epsilon {
     fail!("Expected (\{v2.x}, \{v2.y}), got (\{v1.x}, \{v1.y})")
@@ -1829,6 +1840,7 @@ test "@draw.rotate_radians" {
   )
 }
 
+///|
 fn assert_approx_eq4(
   result : Double,
   expect : Double,
@@ -1944,6 +1956,7 @@ test "@draw.project_onto/zero-vector" {
   inspect!(result, content="{x: 0, y: 0}")
 }
 
+///|
 fn assert_vec2_approx_eq5(
   result : Vec2,
   expect : Vec2,
@@ -2054,6 +2067,7 @@ test "@draw.angle_radians" {
   inspect!(v4.angle_radians(), content="-1.5707963267948966")
 }
 
+///|
 fn assert_approx_eq8(
   result : Double,
   expect : Double,
@@ -2153,6 +2167,7 @@ test "@draw.length/general_vector" {
   inspect!(v.length(), content="5")
 }
 
+///|
 fn assert_approx_eq9(
   result : Double,
   expect : Double,
@@ -2195,6 +2210,7 @@ test "@draw.length_squared/large_coordinates" {
   inspect!(v.length_squared(), content="200000000000000000000")
 }
 
+///|
 fn assert_approx_eq10(
   result : Double,
   expect : Double,
@@ -2258,6 +2274,7 @@ test "@draw.distance_squared/upper_bound" {
   inspect!(v1.distance_squared(v2), content="\{expected}")
 }
 
+///|
 fn assert_approx_eq11(
   result : Double,
   expect : Double,

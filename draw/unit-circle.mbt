@@ -1,4 +1,4 @@
-/// unit_circle constructs a new Group representing a unit circle centered at the origin.
+///| unit_circle constructs a new Group representing a unit circle centered at the origin.
 pub fn unit_circle() -> Group {
   // https://en.wikipedia.org/wiki/Composite_B%C3%A9zier_curve#Approximating_circular_arcs
   let c = 0.2761423749 // k/2 where k ~= 0.5522847498

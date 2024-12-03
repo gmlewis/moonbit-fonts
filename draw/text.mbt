@@ -1,12 +1,14 @@
+///|
 typealias Font = @fonts.Font
 
+///|
 pub(all) enum TextAlign {
   Left
   Center
   Right
 } derive(Show, Eq)
 
-/// text generates a new Graphic (a Group of Group of compound_paths) from a text
+///| text generates a new Graphic (a Group of Group of compound_paths) from a text
 /// string and a font.
 pub fn text(
   text~ : String,
@@ -69,8 +71,10 @@ pub fn text(
   Group(Group::new(items=[Group(group)]))
 }
 
+///|
 let split_re : @regexp.RegExp = @regexp.compile?("^([MLCQZ])([0-9.\\-, ]*)").unwrap()
 
+///|
 fn parse_params(s : String) -> Array[Double] {
   s
   .split(" ")
@@ -87,6 +91,7 @@ fn parse_params(s : String) -> Array[Double] {
 }
 
 // `glyph2compound_path` converts an SVG path into a CompoundPath.
+///|
 fn glyph2compound_path(
   d : String,
   gerber_lp : String,

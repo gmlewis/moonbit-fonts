@@ -1,4 +1,4 @@
-/// `translate_path` translates (moves) an SVG path by the provided offsets.
+///| `translate_path` translates (moves) an SVG path by the provided offsets.
 /// If `invert_y` is true, all `y` values are scaled by -1.
 pub fn translate_path(
   d : String,
@@ -30,6 +30,7 @@ pub fn translate_path(
   d.to_unchecked_string()
 }
 
+///|
 fn svg_num(val : Double) -> String {
   let s = val.to_string()
   if s.ends_with(".0") {
