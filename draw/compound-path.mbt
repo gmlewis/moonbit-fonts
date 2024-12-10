@@ -129,7 +129,10 @@ pub fn closest_point(
 // }
 
 ///| contains_point returns true if this CompoundPath contains `point`.
-pub fn contains_point(self : CompoundPath, _point : Vec2) -> Bool {
+pub fn CompoundPath::contains_point(
+  _self : CompoundPath,
+  _point : Vec2
+) -> Bool {
   false // TODO
 }
 
@@ -170,8 +173,8 @@ pub fn is_contained_by_bounding_box(
 
 ///| is_intersected_by_bounding_box returns true if part of this CompoundPath crosses
 /// the boundary between inside and outside of `box`.
-pub fn is_intersected_by_bounding_box(
-  self : CompoundPath,
+pub fn CompoundPath::is_intersected_by_bounding_box(
+  _self : CompoundPath,
   _box : BoundingBox
 ) -> Bool {
   // TODO
@@ -266,7 +269,10 @@ pub fn scale_stroke(self : CompoundPath, scale_factor : Double) -> CompoundPath 
 }
 
 ///| style_contains_point returns true if this path's style contains `point`.
-pub fn style_contains_point(self : CompoundPath, _point : Vec2) -> Bool {
+pub fn CompoundPath::style_contains_point(
+  _self : CompoundPath,
+  _point : Vec2
+) -> Bool {
   // TODO
   false
 }

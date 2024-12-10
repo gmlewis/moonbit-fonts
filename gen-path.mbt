@@ -84,9 +84,9 @@ pub fn gen_path(
       }
     }
   }
-  let char = char.to_unchecked_string()
-  let gerber_lp = gerber_lp.to_unchecked_string()
-  let mut d = d.to_unchecked_string()
+  let char = char.contents().to_unchecked_string()
+  let gerber_lp = gerber_lp.contents().to_unchecked_string()
+  let mut d = d.contents().to_unchecked_string()
   let topy = if y_up { ymax } else { ymin }
   let boty = if y_up { ymin } else { ymax }
   let (dx, dy) = match anchor {

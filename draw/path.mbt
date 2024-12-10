@@ -291,7 +291,7 @@ fn closest_point_to_line(
 // }
 
 ///| contains_point returns true if this Path contains `point`.
-pub fn contains_point(self : Path, _point : Vec2) -> Bool {
+pub fn Path::contains_point(_self : Path, _point : Vec2) -> Bool {
   false // TODO
 }
 
@@ -329,7 +329,10 @@ pub fn is_contained_by_bounding_box(self : Path, box : BoundingBox) -> Bool {
 
 ///| is_intersected_by_bounding_box returns true if part of this Path crosses
 /// the boundary between inside and outside of `box`.
-pub fn is_intersected_by_bounding_box(self : Path, _box : BoundingBox) -> Bool {
+pub fn Path::is_intersected_by_bounding_box(
+  _self : Path,
+  _box : BoundingBox
+) -> Bool {
   // TODO
   false
   // let lbb = self.loose_bounding_box()
@@ -460,7 +463,7 @@ pub fn scale_stroke(self : Path, scale_factor : Double) -> Path {
 }
 
 ///| style_contains_point returns true if this path's style contains `point`.
-pub fn style_contains_point(self : Path, _point : Vec2) -> Bool {
+pub fn Path::style_contains_point(_self : Path, _point : Vec2) -> Bool {
   // TODO
   false
 }

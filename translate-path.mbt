@@ -27,7 +27,7 @@ pub fn translate_path(
       },
     )
   }
-  d.to_unchecked_string()
+  d.contents().to_unchecked_string()
 }
 
 ///|

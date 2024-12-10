@@ -125,8 +125,8 @@ pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
   }
 
   //
-  let gerber_lp = gerber_lp.to_unchecked_string()
-  let d = d.to_unchecked_string()
+  let gerber_lp = gerber_lp.contents().to_unchecked_string()
+  let d = d.contents().to_unchecked_string()
   let (xmin, ymin, xmax, ymax) = bbox.bounds()
   { char: self.char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax }
 }
