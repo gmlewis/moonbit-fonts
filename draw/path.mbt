@@ -27,7 +27,7 @@ pub fn as_graphic(self : Path) -> Graphic {
 }
 
 ///| Path::from_points connects a series of points with lines to form a Path.
-pub fn Path::from_points(points : Array[Vec2], closed : Bool) -> Path {
+pub fn Path::from_points(points : Array[Vec2], closed~ : Bool = false) -> Path {
   let anchors = points.map(fn(pt) { Anchor::new(position=pt) })
   { anchors, closed, clear: false, fill: None, stroke: None }
 }

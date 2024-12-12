@@ -1,6 +1,6 @@
 test "@draw.Path::from_points/normal" {
   let points = [vec2(0, 0), vec2(1, 1), vec2(2, 0)]
-  let path = @draw.Path::from_points(points, true)
+  let path = @draw.Path::from_points(points, closed=true)
   inspect!(path.anchors.length(), content="3")
   inspect!(path.closed, content="true")
   inspect!(path.clear, content="false")
@@ -8,7 +8,7 @@ test "@draw.Path::from_points/normal" {
 
 test "@draw.Path::from_points/empty" {
   let points : Array[Vec2] = []
-  let path = @draw.Path::from_points(points, false)
+  let path = @draw.Path::from_points(points)
   inspect!(path.anchors.length(), content="0")
   inspect!(path.closed, content="false")
   inspect!(path.clear, content="false")
@@ -16,7 +16,7 @@ test "@draw.Path::from_points/empty" {
 
 test "@draw.Path::from_points/single-point" {
   let points = [vec2(1, 1)]
-  let path = @draw.Path::from_points(points, false)
+  let path = @draw.Path::from_points(points)
   inspect!(path.anchors.length(), content="1")
   inspect!(path.closed, content="false")
   inspect!(path.clear, content="false")
