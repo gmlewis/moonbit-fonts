@@ -27,6 +27,21 @@ pub fn affine_transform(
   }
 }
 
+///| transform provides a convenient API for a common task.
+pub fn transform(
+  self : Graphic,
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0)
+) -> Graphic {
+  let affine_matrix = AffineMatrix::from_transform(
+    Transform::new(position~, rotation~, scale~, skew~, origin~),
+  )
+  self.affine_transform(affine_matrix)
+}
+
 ///| affine_transform_without_translation transforms this graphic by `affine_matrix`
 /// without affecting the translation.
 pub fn affine_transform_without_translation(
