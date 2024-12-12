@@ -8,6 +8,7 @@ update-moonbit-deps
 for i in ../mbt-fonts-* ; do
     echo $i && pushd $i
     VERSION=$(grep version moon.mod.json | sed -e 's/^.* "//g' -e 's/".*$//')
+    ./update.sh
     git commit -sam "Bump version to ${VERSION}"
     git push
     # Special cases:
