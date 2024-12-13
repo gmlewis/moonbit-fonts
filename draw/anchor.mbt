@@ -45,6 +45,21 @@ pub fn affine_transform_without_translation(
   self
 }
 
+///| transform provides a convenient API for a common task.
+pub fn transform(
+  self : Anchor,
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0)
+) -> Anchor {
+  let affine_matrix = AffineMatrix::from_transform(
+    Transform::new(position~, rotation~, scale~, skew~, origin~),
+  )
+  self.affine_transform(affine_matrix)
+}
+
 ///| loose_bounding_box is a simple computation that returns a BoundingBox which
 /// may not be the smallest possible.
 pub fn loose_bounding_box(self : Anchor) -> BoundingBox? {

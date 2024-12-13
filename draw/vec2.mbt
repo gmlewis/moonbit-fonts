@@ -86,8 +86,19 @@ pub fn affine_transform_without_translation(
 }
 
 ///| transform transforms this Vec2.
-pub fn transform(self : Vec2, transform : Transform) -> Vec2 {
-  self.affine_transform(AffineMatrix::from_transform(transform))
+///| transform provides a convenient API for a common task.
+pub fn transform(
+  self : Vec2,
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0)
+) -> Vec2 {
+  let affine_matrix = AffineMatrix::from_transform(
+    Transform::new(position~, rotation~, scale~, skew~, origin~),
+  )
+  self.affine_transform(affine_matrix)
 }
 
 ///| add adds the vector `v` to this vector.

@@ -18,12 +18,6 @@ pub fn group(items : Array[Graphic]) -> Group {
   { items, }
 }
 
-///| transform transforms this Group by `transform`.
-pub fn transform(self : Group, transform : Transform) -> Group {
-  let affine_matrix = AffineMatrix::from_transform(transform)
-  self.affine_transform(affine_matrix)
-}
-
 ///| clone returns a new copy of this Group.
 pub fn clone(self : Group) -> Group {
   group(self.items.map(fn(item) { item.clone() }))
@@ -47,6 +41,21 @@ pub fn affine_transform_without_translation(
     ignore(item.affine_transform_without_translation(affine_matrix))
   }
   self
+}
+
+///| transform provides a convenient API for a common task.
+pub fn transform(
+  self : Group,
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0)
+) -> Group {
+  let affine_matrix = AffineMatrix::from_transform(
+    Transform::new(position~, rotation~, scale~, skew~, origin~),
+  )
+  self.affine_transform(affine_matrix)
 }
 
 ///| loose_bounding_box returns an approximate bounding box for all items

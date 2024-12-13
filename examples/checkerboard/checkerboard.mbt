@@ -48,17 +48,21 @@ fn single_checker(
   outer_fill : Fill?,
   inner_fill : Fill?
 ) -> Graphic {
-  let outer_ring = Transform::new(
-    position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
-    scale=vec2(0.95, 0.95),
-  )
-  let inner_ring = Transform::new(
-    position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
-    scale=vec2(0.8, 0.8),
-  )
   let items = [
-    unit_circle().transform(outer_ring).assign_fill(outer_fill).as_graphic(),
-    unit_circle().transform(inner_ring).assign_fill(inner_fill).as_graphic(),
+    unit_circle()
+    .transform(
+      position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
+      scale=vec2(0.95, 0.95),
+    )
+    .assign_fill(outer_fill)
+    .as_graphic(),
+    unit_circle()
+    .transform(
+      position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
+      scale=vec2(0.8, 0.8),
+    )
+    .assign_fill(inner_fill)
+    .as_graphic(),
   ]
   Group::new(items~).as_graphic()
 }

@@ -72,6 +72,21 @@ pub fn affine_transform_without_translation(
   self
 }
 
+///| transform provides a convenient API for a common task.
+pub fn transform(
+  self : Path,
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0)
+) -> Path {
+  let affine_matrix = AffineMatrix::from_transform(
+    Transform::new(position~, rotation~, scale~, skew~, origin~),
+  )
+  self.affine_transform(affine_matrix)
+}
+
 ///| assign_fill assigns a fill to this Path.
 pub fn assign_fill(self : Path, fill : Fill?) -> Path {
   self.fill = fill

@@ -478,55 +478,59 @@ test "@draw.affine_transform_without_translation/scaling_matrix" {
 
 test "@draw.transform/identity" {
   let v = vec2(1.0, 1.0)
-  let t = @draw.Transform::new() // Identity transform
-  inspect!(v.transform(t), content="{x: 1, y: 1}")
+  inspect!(v.transform(), content="{x: 1, y: 1}")
 }
 
 test "@draw.transform/translation" {
   let v = vec2(1.0, 1.0)
-  let t = @draw.Transform::new(position=vec2(2.0, 3.0))
-  inspect!(v.transform(t), content="{x: 3, y: 4}")
+  let position = vec2(2.0, 3.0)
+  inspect!(v.transform(position~), content="{x: 3, y: 4}")
 }
 
 test "@draw.transform/scale-and-rotate" {
   let v = vec2(1.0, 0.0)
-  let t = @draw.Transform::new(rotation=90.0, scale=vec2(2.0, 2.0))
+  let rotation = 90.0
+  let scale = vec2(2.0, 2.0)
   // After scaling by 2 and rotating 90 degrees, (1,0) should become (0,2)
-  let result = v.transform(t)
+  let result = v.transform(rotation~, scale~)
   inspect!(result.x, content="1.2246703776017889e-16")
   inspect!(result.y, content="2")
 }
 
 test "@draw.transform/standard_scale_rotation" {
   let v = vec2(1, 2)
-  let transform = Transform::new(
-    position=vec2(0, 0),
-    rotation=90.0,
-    scale=vec2(2, 2),
-    skew=0,
-    origin=vec2(0, 0),
+  let position = vec2(0, 0)
+  let rotation = 90.0
+  let scale = vec2(2, 2)
+  let skew = 0.0
+  let origin = vec2(0, 0)
+  let result = @draw.Vec2::transform(
+    v,
+    position~,
+    rotation~,
+    scale~,
+    skew~,
+    origin~,
   )
-  let result = @draw.Vec2::transform(v, transform)
   inspect!(result, content="{x: -4, y: 2.0000000000000004}")
 }
 
 test "@draw.transform/identity" {
   let v = vec2(1, 2)
-  let transform = Transform::new()
-  let result = @draw.Vec2::transform(v, transform)
+  let result = @draw.Vec2::transform(v)
   inspect!(result, content="{x: 1, y: 2}")
 }
 
 test "@draw.transform/boundary_neg_scale_translation" {
   let v = vec2(1, -2)
-  let transform = Transform::new(
+  let result = @draw.Vec2::transform(
+    v,
     position=vec2(3, 4),
     rotation=0,
     scale=vec2(-1, -0.5),
     skew=0,
     origin=vec2(0, 0),
   )
-  let result = @draw.Vec2::transform(v, transform)
   inspect!(result, content="{x: 2, y: 5}")
 }
 
