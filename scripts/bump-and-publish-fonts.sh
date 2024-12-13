@@ -11,21 +11,9 @@ for i in ../mbt-fonts-* ; do
     ./update.sh
     git commit -sam "Bump version to ${VERSION}"
     git push
-    # Special cases:
-    if [[ "$i" == "../mbt-fonts-e" ]] ; then
-	rm e*/e*.json
-	moon publish
-        git checkout -- .
-    elif [[ "$i" == "../mbt-fonts-m" ]] ; then
-	rm $(find . -depth 2 -name "*.json" -not -name moon.pkg.json)
-	moon publish
-        git checkout -- .
-    elif [[ "$i" == "../mbt-fonts-o" ]] ; then
-	rm o*/o*.json
-	moon publish
-        git checkout -- .
-    else  # General case:
-	moon publish
-    fi
+    # Remove JSON font representations before publishing, then restore.
+    rm $(find . -depth 2 -name "*.json" -not -name moon.pkg.json)
+    moon publish
+    git checkout -- .
     popd
 done
