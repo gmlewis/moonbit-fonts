@@ -13,6 +13,8 @@ for i in ../mbt-fonts-* ; do
     git push
     # Remove JSON font representations before publishing, then restore.
     rm $(find . -depth 2 -name "*.json" -not -name moon.pkg.json)
+    # Additionally, mbt-fonts-n is too large - remove notosans*condensed* fonts
+    rm -rf notosans*condensed*
     moon publish
     git checkout -- .
     popd
