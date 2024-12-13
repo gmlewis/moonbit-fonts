@@ -4,7 +4,7 @@ pub(all) struct Anchor {
   mut position : Vec2 // absolute
   mut handle_in : Vec2 // relative
   mut handle_out : Vec2 // relative
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///| Anchor::new returns a new anchor. You must either create new Vec2 points
 /// or clone them before passing them in.

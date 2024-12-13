@@ -388,3 +388,22 @@ pub fn fit_to(self : Graphic, box : BoundingBox) -> Graphic {
   let affine_matrix = AffineMatrix::from_transform(transform)
   self.clone().affine_transform(affine_matrix)
 }
+
+///|
+pub fn to_json(self : Graphic) -> Json {
+  match self {
+    CompoundPath(path) => path.to_json()
+    Group(group) => group.to_json()
+    Path(path) => path.to_json()
+  }
+}
+
+///|
+pub impl @json.FromJson for Graphic with from_json(json, path) {
+  match json.as_object() {
+    _ =>
+      raise @json.JsonDecodeError(
+        (path, "Graphic::from_json: not implemented yet"),
+      )
+  }
+}

@@ -3,7 +3,7 @@ pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(Show)
+} derive(Show, FromJson, ToJson)
 
 ///| CompoundPath::new creates a new CompoundPath.
 pub fn CompoundPath::new(

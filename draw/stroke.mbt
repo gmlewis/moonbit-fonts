@@ -6,28 +6,28 @@ pub(all) struct Stroke {
   mut cap : StrokeCap
   mut join : StrokeJoin
   mut miter_limit : Int
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///|
 pub(all) enum StrokeAlignment {
   Centered
   Inner
   Outer
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///|
 pub(all) enum StrokeCap {
   Butt
   Round
   Square
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///|
 pub(all) enum StrokeJoin {
   Miter
   Round
   Bevel
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///| Stroke::new returns a new stroke style.
 pub fn Stroke::new(

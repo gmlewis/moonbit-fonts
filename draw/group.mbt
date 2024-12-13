@@ -1,7 +1,7 @@
 ///| Group represents a collection of Graphics elements.
 pub(all) struct Group {
   mut items : Array[Graphic]
-} derive(Show)
+} derive(Show, FromJson, ToJson)
 
 ///| Group::new returns a new group.
 pub fn Group::new(items~ : Array[Graphic] = []) -> Group {

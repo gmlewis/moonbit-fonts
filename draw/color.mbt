@@ -4,7 +4,7 @@ pub(all) struct Color {
   mut g : Double
   mut b : Double
   mut a : Double
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///| Color::new returns a new color.
 pub fn Color::new(

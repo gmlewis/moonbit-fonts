@@ -2,7 +2,7 @@
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///| Vec2::new returns a new Vec2.
 pub fn Vec2::new(x~ : Double = 0, y~ : Double = 0) -> Vec2 {

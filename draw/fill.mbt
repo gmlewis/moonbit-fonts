@@ -1,7 +1,7 @@
 ///| Fill defines a fill style.
 pub(all) struct Fill {
   color : Color
-} derive(Show, Eq)
+} derive(Show, Eq, FromJson, ToJson)
 
 ///| Fill::new returns a new fill style.
 pub fn Fill::new(color~ : Color = rgba(0, 0, 0, 1)) -> Fill {

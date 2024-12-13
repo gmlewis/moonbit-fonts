@@ -2400,3 +2400,22 @@ test "@draw.is_inf" {
   let neg_inf = vec2(@double.neg_infinity, @double.neg_infinity)
   inspect!(neg_inf.is_inf(), content="true")
 }
+
+test "@draw.Vec2::to_json" {
+  let v = vec2(1.0, 2.0)
+  let got = v.to_json().stringify()
+  inspect!(
+    got,
+    content=
+      #|{"x":1,"y":2}
+    ,
+  )
+}
+
+test "@draw.Vec2::from_json" {
+  let json_str =
+    #|{"x":1,"y":2}
+  let json = @json.parse!(json_str)
+  let got : Vec2 = @json.from_json!(json)
+  inspect!(got, content="{x: 1, y: 2}")
+}

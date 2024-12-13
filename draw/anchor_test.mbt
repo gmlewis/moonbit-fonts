@@ -191,3 +191,29 @@ test "@draw.reverse/zero_handles" {
   inspect!(reversed_anchor.handle_in, content="{x: 0, y: 0}")
   inspect!(reversed_anchor.handle_out, content="{x: 0, y: 0}")
 }
+
+test "@draw.Anchor::to_json" {
+  let v = @draw.Anchor::new(
+    position=vec2(1, 2),
+    handle_in=vec2(1.1, 2.1),
+    handle_out=vec2(1.2, 2.2),
+  )
+  let got = v.to_json().stringify()
+  inspect!(
+    got,
+    content=
+      #|{"position":{"x":1,"y":2},"handle_in":{"x":1.1,"y":2.1},"handle_out":{"x":1.2,"y":2.2}}
+    ,
+  )
+}
+
+test "@draw.Anchor::from_json" {
+  let json_str =
+    #|{"position":{"x":1,"y":2},"handle_in":{"x":1.1,"y":2.1},"handle_out":{"x":1.2,"y":2.2}}
+  let json = @json.parse!(json_str)
+  let got : @draw.Anchor = @json.from_json!(json)
+  inspect!(
+    got,
+    content="{position: {x: 1, y: 2}, handle_in: {x: 1.1, y: 2.1}, handle_out: {x: 1.2, y: 2.2}}",
+  )
+}
