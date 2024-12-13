@@ -19,6 +19,16 @@ pub fn as_graphic(self : CompoundPath) -> Graphic {
   CompoundPath(self)
 }
 
+///| op_get is a convenience function.
+pub fn op_get(self : CompoundPath, index : Int) -> Path {
+  self.paths[index]
+}
+
+///| op_set is a convenience function.
+pub fn op_set(self : CompoundPath, index : Int, path : Path) -> Unit {
+  self.paths[index] = path
+}
+
 ///| clone makes a new copy of this CompoundPath.
 pub fn clone(self : CompoundPath) -> CompoundPath {
   let paths = self.paths.map(fn(path) { path.clone() })

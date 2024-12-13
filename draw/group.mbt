@@ -13,6 +13,16 @@ pub fn as_graphic(self : Group) -> Graphic {
   Group(self)
 }
 
+///| op_get is a convenience function.
+pub fn op_get(self : Group, index : Int) -> Graphic {
+  self.items[index]
+}
+
+///| op_set is a convenience function.
+pub fn op_set(self : Group, index : Int, graphic : Graphic) -> Unit {
+  self.items[index] = graphic
+}
+
 ///| group is a convenience function.
 pub fn group(items : Array[Graphic]) -> Group {
   { items, }

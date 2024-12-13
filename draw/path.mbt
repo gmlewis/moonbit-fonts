@@ -26,6 +26,16 @@ pub fn as_graphic(self : Path) -> Graphic {
   Path(self)
 }
 
+///| op_get is a convenience function.
+pub fn op_get(self : Path, index : Int) -> Anchor {
+  self.anchors[index]
+}
+
+///| op_set is a convenience function.
+pub fn op_set(self : Path, index : Int, anchor : Anchor) -> Unit {
+  self.anchors[index] = anchor
+}
+
 ///| Path::from_points connects a series of points with lines to form a Path.
 pub fn Path::from_points(points : Array[Vec2], closed~ : Bool = false) -> Path {
   let anchors = points.map(fn(pt) { Anchor::new(position=pt) })
