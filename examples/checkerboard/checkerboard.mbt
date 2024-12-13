@@ -8,9 +8,6 @@ typealias Graphic = @draw.Graphic
 typealias Group = @draw.Group
 
 ///|
-typealias Transform = @draw.Transform
-
-///|
 let fill = @draw.fill
 
 ///|
