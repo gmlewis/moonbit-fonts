@@ -15,7 +15,7 @@ pub fn text(
   font~ : Font,
   align~ : TextAlign = Left,
   size~ : Double = 1
-) -> Graphic!Error {
+) -> Graphic!DrawError {
   let xscale = size / font.units_per_em
   let yscale = -xscale
   let mut x = 0.0
@@ -98,11 +98,11 @@ fn glyph2compound_path(
   pos : Vec2,
   xscale : Double,
   yscale : Double
-) -> CompoundPath!Error {
+) -> CompoundPath!DrawError {
   let paths = []
   let mut anchors = []
   if gerber_lp[0] != 'd' {
-    fail!(
+    raise DrawError(
       "glyph2compound_path: unexpected gerber_lp='\{gerber_lp}' does not start with 'd'",
     )
   }
@@ -115,7 +115,8 @@ fn glyph2compound_path(
     let m = split_re.matches(d)
     let [match_str, cmd, params] = match m.captures() {
       [match_str, cmd, params] => [match_str, cmd, params]
-      _ => fail!("glyph2compound_path: unable to split SVG path '\{d}'")
+      _ =>
+        raise DrawError("glyph2compound_path: unable to split SVG path '\{d}'")
     }
 
     //
@@ -138,7 +139,9 @@ fn glyph2compound_path(
           color = rgba(1, 1, 1, 1)
           path_is_inverted = true
         } else {
-          fail!("glyph2compound_path: bad length of gerber_lp='\{gerber_lp}'")
+          raise DrawError(
+            "glyph2compound_path: bad length of gerber_lp='\{gerber_lp}'",
+          )
         }
         gerber_index += 1
         let params = parse_params(params)
@@ -150,7 +153,7 @@ fn glyph2compound_path(
       }
       "L" => {
         if anchors.length() == 0 {
-          fail!(
+          raise DrawError(
             "glyph2compound_path: unexpected SVG command without prior position: \{match_str}",
           )
         }
@@ -165,7 +168,7 @@ fn glyph2compound_path(
       }
       "C" => {
         if anchors.length() == 0 {
-          fail!(
+          raise DrawError(
             "glyph2compound_path: unexpected SVG command without prior position: \{match_str}",
           )
         }
@@ -189,7 +192,7 @@ fn glyph2compound_path(
       //   case 'Q': {
       "Q" => {
         if anchors.length() == 0 {
-          fail!(
+          raise DrawError(
             "glyph2compound_path: unexpected SVG command without prior position: \{match_str}",
           )
         }
@@ -221,7 +224,7 @@ fn glyph2compound_path(
       }
       "Z" => {
         if anchors.length() == 0 {
-          fail!(
+          raise DrawError(
             "glyph2compound_path: unexpected SVG command without prior segments: \{match_str}",
           )
         }
@@ -234,7 +237,7 @@ fn glyph2compound_path(
         paths.push(path)
         anchors = []
       }
-      _ => fail!("unsupported font command: \{match_str}")
+      _ => raise DrawError("unsupported font command: \{match_str}")
     }
   }
 
