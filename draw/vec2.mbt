@@ -181,11 +181,16 @@ pub fn div_scalar(self : Vec2, s : Double) -> Vec2 {
   self
 }
 
-///| negate multiplies both components by -1.
+///| negate multiplies both components (in-place) by -1.
 pub fn negate(self : Vec2) -> Vec2 {
   self.x *= -1
   self.y *= -1
   self
+}
+
+///| op_neg returns a negated copy of Vec2.
+pub fn op_neg(self : Vec2) -> Vec2 {
+  { x: -self.x, y: -self.y }
 }
 
 ///|

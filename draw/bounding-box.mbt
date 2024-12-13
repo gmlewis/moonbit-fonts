@@ -12,6 +12,18 @@ pub fn BoundingBox::new(
   { min, max }
 }
 
+///| bbox is a convenience function.
+pub fn bbox(
+  minx : Double,
+  miny : Double,
+  maxx : Double,
+  maxy : Double
+) -> BoundingBox {
+  let min = vec2(minx, miny)
+  let max = vec2(maxx, maxy)
+  { min, max }
+}
+
 ///| BoundingBox::max_reversed returns a new BoundingBox with min=+infinity
 /// and max=-infinity.
 pub fn BoundingBox::max_reversed() -> BoundingBox {

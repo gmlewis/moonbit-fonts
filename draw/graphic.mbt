@@ -383,7 +383,7 @@ pub fn fit_to(self : Graphic, box : BoundingBox) -> Graphic {
   let hscale = box.height() / bbox.height()
   let s = @math.minimum(wscale, hscale)
   let scale = vec2(s, s)
-  let position = box.min - bbox.min
+  let position = box.min - scale * bbox.min
   let transform = Transform::new(position~, scale~)
   let affine_matrix = AffineMatrix::from_transform(transform)
   self.clone().affine_transform(affine_matrix)

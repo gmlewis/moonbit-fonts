@@ -27,3 +27,22 @@ test "@draw.Graphic::bounding_box/multiple_items" {
   let result = items.bounding_box()
   inspect!(result, content="Some({min: {x: 1, y: 1}, max: {x: 4, y: 4}})")
 }
+
+///|
+let bbox = @draw.bbox
+
+///|
+let unit_square = @draw.unit_square
+
+test "unit square fit_to handles translation and scaling" {
+  let tests = [
+    // (graphic, dst_bbox)
+    (unit_square(), bbox(0, 0, 300, 300)),
+    (unit_square(), bbox(-100, -100, 500, 500)),
+  ]
+  for tt in tests {
+    let got = tt.0.as_graphic().fit_to(tt.1).bounding_box().unwrap()
+    let want = tt.1
+    assert_eq!(got, want)
+  }
+}
