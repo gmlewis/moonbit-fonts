@@ -22,9 +22,10 @@ test "@draw.Group::bounding_box/multiple_items" {
     [@draw.vec2(1, 1), @draw.vec2(2, 2)],
     closed=true,
   )
-  let group = @draw.Group::new(
-    items=[@draw.Graphic::Path(path1), @draw.Graphic::Path(path2)],
-  )
+  let group = @draw.Group::new(items=[
+    @draw.Graphic::Path(path1),
+    @draw.Graphic::Path(path2),
+  ])
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(-1, -1),
     max=@draw.vec2(2, 2),
@@ -41,9 +42,10 @@ test "@draw.Group::to_json" {
     [@draw.vec2(1, 1), @draw.vec2(2, 2)],
     closed=true,
   )
-  let group = @draw.Group::new(
-    items=[@draw.Graphic::Path(path1), @draw.Graphic::Path(path2)],
-  )
+  let group = @draw.Group::new(items=[
+    @draw.Graphic::Path(path1),
+    @draw.Graphic::Path(path2),
+  ])
   let got = group.to_json().stringify()
   inspect!(
     got,

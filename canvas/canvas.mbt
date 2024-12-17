@@ -23,17 +23,14 @@ pub fn from_graphic(self : CanvasCtx, g : Graphic, y_up~ : Bool = true) -> Unit 
   //
   let paths = g.all_paths_and_compound_paths()
   ignore(
-    Graphic::every(
-      paths,
-      fn(g) {
-        match g {
-          Path(path) => self.render_path(path)
-          CompoundPath(path) => self.render_compound_path(path)
-          _ => ()
-        }
-        true
-      },
-    ),
+    Graphic::every(paths, fn(g) {
+      match g {
+        Path(path) => self.render_path(path)
+        CompoundPath(path) => self.render_compound_path(path)
+        _ => ()
+      }
+      true
+    }),
   )
 }
 

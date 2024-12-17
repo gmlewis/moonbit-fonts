@@ -13,19 +13,17 @@ pub fn translate_path(
     d.write_string(cmd.c)
     cmd.p._
     .iter()
-    .eachi(
-      fn(index, val) {
-        if index % 2 == 0 {
-          if index > 0 {
-            d.write_char(' ')
-          }
-          d.write_string(svg_num(x + val))
-        } else {
+    .eachi(fn(index, val) {
+      if index % 2 == 0 {
+        if index > 0 {
           d.write_char(' ')
-          d.write_string(svg_num(y + y_scale * val))
         }
-      },
-    )
+        d.write_string(svg_num(x + val))
+      } else {
+        d.write_char(' ')
+        d.write_string(svg_num(y + y_scale * val))
+      }
+    })
   }
   d.contents().to_unchecked_string()
 }

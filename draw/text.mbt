@@ -78,15 +78,13 @@ let split_re : @regexp.RegExp = @regexp.compile?("^([MLCQZ])([0-9.\\-, ]*)").unw
 fn parse_params(s : String) -> Array[Double] {
   s
   .split(" ")
-  .map(
-    fn(s) {
-      try {
-        @strconv.parse_double!(s)
-      } catch {
-        _ => 0.0
-      }
-    },
-  )
+  .map(fn(s) {
+    try {
+      @strconv.parse_double!(s)
+    } catch {
+      _ => 0.0
+    }
+  })
   .collect()
 }
 
