@@ -59,7 +59,8 @@ fn move_to(self : CanvasCtx, x : Double, y : Double) = "canvas" "moveTo"
 ///|
 fn line_to(self : CanvasCtx, x : Double, y : Double) = "canvas" "lineTo"
 
-///|
+///| Note that `canvas.setFillColor` is added by the JavaScript host
+/// to set the `fillStyle` property of the canvas context.
 fn set_fill_color(
   self : CanvasCtx,
   r : Double,
@@ -68,7 +69,49 @@ fn set_fill_color(
   a : Double
 ) = "canvas" "setFillColor"
 
+///| Note that `canvas.setStrokeColor` is added by the JavaScript host
+/// to set the `strokeStyle` property of the canvas context.
+fn set_stroke_color(
+  self : CanvasCtx,
+  r : Double,
+  g : Double,
+  b : Double,
+  a : Double
+) = "canvas" "setStrokeColor"
+
 ///|
 fn stroke(self : CanvasCtx) = "canvas" "stroke"
 
 // fn get_pi() -> Double = "math" "PI"
+
+///| Note that `canvas.setLineCapButt` is added by the JavaScript host
+/// to set the `lineCap` property of the canvas context to "butt".
+fn set_line_cap_butt(self : CanvasCtx) = "canvas" "setLineCapButt"
+
+///| Note that `canvas.setLineCapRound` is added by the JavaScript host
+/// to set the `lineCap` property of the canvas context to "round".
+fn set_line_cap_round(self : CanvasCtx) = "canvas" "setLineCapRound"
+
+///| Note that `canvas.setLineCapSquare` is added by the JavaScript host
+/// to set the `lineCap` property of the canvas context to "square".
+fn set_line_cap_square(self : CanvasCtx) = "canvas" "setLineCapSquare"
+
+///| Note that `canvas.setLineJoinMiter` is added by the JavaScript host
+/// to set the `lineJoin` property of the canvas context to "miter".
+fn set_line_join_miter(self : CanvasCtx) = "canvas" "setLineJoinMiter"
+
+///| Note that `canvas.setLineJoinRound` is added by the JavaScript host
+/// to set the `lineJoin` property of the canvas context to "round".
+fn set_line_join_round(self : CanvasCtx) = "canvas" "setLineJoinRound"
+
+///| Note that `canvas.setLineJoinBevel` is added by the JavaScript host
+/// to set the `lineJoin` property of the canvas context to "bevel".
+fn set_line_join_bevel(self : CanvasCtx) = "canvas" "setLineJoinBevel"
+
+///| Note that `canvas.setMiterLimit` is added by the JavaScript host
+/// to set the `miterLimit` property of the canvas context.
+fn set_miter_limit(self : CanvasCtx, miter_limit : Double) = "canvas" "setMiterLimit"
+
+///| Note that `canvas.setLineWidth` is added by the JavaScript host
+/// to set the `lineWidth` property of the canvas context.
+fn set_line_width(self : CanvasCtx, width : Double) = "canvas" "setLineWidth"

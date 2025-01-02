@@ -46,6 +46,21 @@
       this.fillStyle = `rgba(${r},${g},${b},${a})`
       // console.log(`GML: this.fillStyle=${this.fillStyle}`)
     }
+    ctxProto.setStrokeColor = function (r, g, b, a) {
+      if (a == 0) { return this.strokeStyle = 'none' }
+      r = Math.floor(255 * r)
+      g = Math.floor(255 * g)
+      b = Math.floor(255 * b)
+      this.strokeStyle = `rgba(${r},${g},${b},${a})`
+    }
+    ctxProto.setLineCapButt = function () { this.lineCap = 'butt' }
+    ctxProto.setLineCapRound = function () { this.lineCap = 'round' }
+    ctxProto.setLineCapSquare = function () { this.lineCap = 'square' }
+    ctxProto.setLineJoinMiter = function () { this.lineJoin = 'miter' }
+    ctxProto.setLineJoinRound = function () { this.lineJoin = 'round' }
+    ctxProto.setLineJoinBevel = function () { this.lineJoin = 'bevel' }
+    ctxProto.setMiterLimit = function (limit) { this.miterLimit = limit }
+    ctxProto.setLineWidth = function (width) { this.lineWidth = width }
     const importObject = {
       canvas: prototype_to_ffi(ctxProto),
       math: prototype_to_ffi(Math),

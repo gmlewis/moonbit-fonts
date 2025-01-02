@@ -1,9 +1,4 @@
 ///|
-fn main {
-
-}
-
-///|
 let vec2 = @draw.vec2
 
 ///|
@@ -14,4 +9,9 @@ pub fn draw(ctx : @canvas.CanvasCtx, width : Int, height : Int) -> Unit {
   ])
   let b = @checkerboard.checkerboard().fit_to(box)
   @canvas.from_graphic(ctx, b)
+}
+
+///|
+fn main {
+
 }

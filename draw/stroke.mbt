@@ -5,7 +5,7 @@ pub(all) struct Stroke {
   mut alignment : StrokeAlignment
   mut cap : StrokeCap
   mut join : StrokeJoin
-  mut miter_limit : Int
+  mut miter_limit : Double
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
@@ -36,7 +36,7 @@ pub fn Stroke::new(
   alignment~ : StrokeAlignment = Centered,
   cap~ : StrokeCap = Butt,
   join~ : StrokeJoin = Miter,
-  miter_limit~ : Int = 4
+  miter_limit~ : Double = 4
 ) -> Stroke {
   { color, width, alignment, cap, join, miter_limit }
 }

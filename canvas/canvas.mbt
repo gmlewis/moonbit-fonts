@@ -106,60 +106,37 @@ fn canvas_commands(self : CanvasCtx, path : Path) -> Unit {
 }
 
 ///|
-fn svg_stroke(stroke : Stroke?) -> String {
-  // TODO
+fn set_stroke(self : CanvasCtx, stroke : Stroke?) -> Unit {
   match stroke {
-    None =>
-      $|stroke="none"
+    None => self.set_stroke_color(0, 0, 0, 0)
     Some(stroke) => {
-      let parts = []
-      let color = stroke.color.to_css_string()
-      parts.push(
-        $|stroke="\{color}"
-        ,
-      )
+      let c = stroke.color
+      self.set_stroke_color(c.r, c.g, c.b, c.a)
       // TODO: stroke-dasharray
       // TODO: stroke-dashoffset
-      match stroke.cap {
-        Butt => ()
-        Round =>
-          parts.push(
-            $|stroke-linecap="round"
-            ,
-          )
-        Square =>
-          parts.push(
-            $|stroke-linecap="square"
-            ,
-          )
-      }
-      match stroke.join {
-        Miter => ()
-        Round =>
-          parts.push(
-            $|stroke-linejoin="round"
-            ,
-          )
-        Bevel =>
-          parts.push(
-            $|stroke-linejoin="bevel"
-            ,
-          )
-      }
-      if stroke.miter_limit != 4 {
-        parts.push(
-          $|stroke-miterlimit="\{stroke.miter_limit}"
-          ,
-        )
-      }
-      if stroke.width != 1 {
-        parts.push(
-          $|stroke-width="\{stroke.width}"
-          ,
-        )
-      }
-      String::concat(parts, separator=" ")
+      self.set_line_cap(stroke.cap)
+      self.set_line_join(stroke.join)
+      self.set_miter_limit(stroke.miter_limit)
+      self.set_line_width(stroke.width)
     }
+  }
+}
+
+///|
+fn set_line_cap(self : CanvasCtx, line_cap : @draw.StrokeCap) -> Unit {
+  match line_cap {
+    @draw.StrokeCap::Butt => self.set_line_cap_butt()
+    @draw.StrokeCap::Round => self.set_line_cap_round()
+    @draw.StrokeCap::Square => self.set_line_cap_square()
+  }
+}
+
+///|
+fn set_line_join(self : CanvasCtx, line_join : @draw.StrokeJoin) -> Unit {
+  match line_join {
+    @draw.StrokeJoin::Miter => self.set_line_join_miter()
+    @draw.StrokeJoin::Round => self.set_line_join_round()
+    @draw.StrokeJoin::Bevel => self.set_line_join_bevel()
   }
 }
 
@@ -172,10 +149,4 @@ fn set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
       self.set_fill_color(c.r, c.g, c.b, c.a)
     }
   }
-}
-
-///|
-fn CanvasCtx::set_stroke(_self : CanvasCtx, stroke : Stroke?) -> Unit {
-  let _ = svg_stroke(stroke)
-  // TODO: implement
 }
