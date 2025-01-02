@@ -51,6 +51,7 @@ fn render_paths(
   stroke : Stroke?,
   fill : Fill?
 ) -> Unit {
+  self.set_stroke(stroke)
   self.set_fill(fill)
   self.begin_path()
   for path in paths {
@@ -171,4 +172,10 @@ fn set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
       self.set_fill_color(c.r, c.g, c.b, c.a)
     }
   }
+}
+
+///|
+fn CanvasCtx::set_stroke(_self : CanvasCtx, stroke : Stroke?) -> Unit {
+  let _ = svg_stroke(stroke)
+  // TODO: implement
 }
