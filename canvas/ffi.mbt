@@ -115,3 +115,13 @@ fn set_miter_limit(self : CanvasCtx, miter_limit : Double) = "canvas" "setMiterL
 ///| Note that `canvas.setLineWidth` is added by the JavaScript host
 /// to set the `lineWidth` property of the canvas context.
 fn set_line_width(self : CanvasCtx, width : Double) = "canvas" "setLineWidth"
+
+///| Note that `canvas.getInputLength` and `canvas.getInputByteAtOffset` are
+/// convenience functions that allow the JavaScript host to easily pass a
+/// string (such as a JSON blob) to the MoonBit wasm module without needing
+/// to provide another SDK or WIT interface. If these features are not needed,
+/// then the host can supply two functions that both return 0.
+fn get_input_length(self : CanvasCtx) -> Int = "canvas" "getInputLength"
+
+///|
+fn get_input_byte_at_offset(self : CanvasCtx, offset : Int) -> Byte = "canvas" "getInputByteAtOffset"

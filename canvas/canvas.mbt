@@ -150,3 +150,16 @@ fn set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
     }
   }
 }
+
+///|
+pub fn get_input_bytes(self : CanvasCtx) -> Array[Byte] {
+  let length = self.get_input_length()
+  if length <= 0 {
+    return []
+  }
+  let value = Array::new(capacity=length)
+  for i in 0..<length {
+    value.push(self.get_input_byte_at_offset(i))
+  }
+  value
+}
