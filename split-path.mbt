@@ -25,6 +25,7 @@ fn split_path(d : String) -> Array[Cmd]!FontError {
   cmds
 }
 
+///|
 test "split_path" {
   let d = "M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507 723L507 24ZM395 269L395 433L138 433L138 269L395 269Z"
   let got = split_path!(d)

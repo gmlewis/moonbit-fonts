@@ -1,3 +1,4 @@
+///|
 test "svg unit circle is correct" {
   let c = @draw.unit_circle().as_graphic()
   let got = @svg.from_graphic(c, y_up=false)
@@ -11,6 +12,7 @@ test "svg unit circle is correct" {
   )
 }
 
+///|
 test "svg unit square is correct" {
   let c = @draw.unit_square().as_graphic()
   let got = @svg.from_graphic(c, y_up=false)

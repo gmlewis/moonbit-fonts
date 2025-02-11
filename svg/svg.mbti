@@ -1,0 +1,13 @@
+package gmlewis/fonts/svg
+
+alias @gmlewis/fonts/draw as @draw
+
+// Values
+fn from_graphic(@draw.Graphic, y_up~ : Bool = ..) -> String
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

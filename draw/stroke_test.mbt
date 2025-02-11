@@ -1,3 +1,4 @@
+///|
 test "@draw.Stroke::new" {
   // Test default values (black color with full opacity)
   let default_stroke = @draw.Stroke::new()
@@ -14,6 +15,7 @@ test "@draw.Stroke::new" {
   inspect!(custom_stroke.color.a, content="0.5")
 }
 
+///|
 test "@draw.Stroke::new/edge_cases" {
   // Test with extreme values (all components set to maximum)
   let max_stroke = @draw.Stroke::new(color=@draw.rgba(1, 1, 1, 1))
@@ -30,6 +32,7 @@ test "@draw.Stroke::new/edge_cases" {
   inspect!(zero_stroke.color.a, content="0")
 }
 
+///|
 test "@draw.Stroke::new" {
   let color1 = @draw.rgba(0.5, 0.4, 0.3, 1)
   let stroke1 = @draw.Stroke::new(color=color1)
@@ -42,6 +45,7 @@ test "@draw.Stroke::new" {
   inspect!(stroke3.color, content="{r: 1, g: 1, b: 1, a: 1}")
 }
 
+///|
 test "@draw.Stroke::new/boundary" {
   let color1 = @draw.rgba(0, 0, 0, 0)
   let stroke1 = @draw.Stroke::new(color=color1)
@@ -54,6 +58,7 @@ test "@draw.Stroke::new/boundary" {
   inspect!(stroke3.color, content="{r: 1, g: 0, b: 0, a: 1}")
 }
 
+///|
 test "@draw.Stroke::new" {
   let color = @draw.rgba(-1, 2, -3, 4) // Invalid color values
   inspect!(
@@ -62,6 +67,7 @@ test "@draw.Stroke::new" {
   )
 }
 
+///|
 test "@draw.stroke/basic" {
   let black = @draw.rgba(0, 0, 0, 1)
   let stroke = @draw.stroke(black)
@@ -71,6 +77,7 @@ test "@draw.stroke/basic" {
   )
 }
 
+///|
 test "@draw.stroke/transparent" {
   let transparent = @draw.rgba(1, 1, 1, 0)
   let stroke = @draw.stroke(transparent)
@@ -80,6 +87,7 @@ test "@draw.stroke/transparent" {
   )
 }
 
+///|
 test "@draw.stroke/partial-transparent" {
   let semi_transparent = @draw.rgba(0.5, 0.5, 0.5, 0.5)
   let stroke = @draw.stroke(semi_transparent)
@@ -89,12 +97,14 @@ test "@draw.stroke/partial-transparent" {
   )
 }
 
+///|
 test "@draw.clone/stroke-equality" {
   let original = @draw.Stroke::new(color=@draw.rgba(1, 0, 0, 1))
   let cloned = original.clone()
   inspect!(cloned, content=original.to_string())
 }
 
+///|
 test "@draw.clone/stroke-independence" {
   let original = @draw.Stroke::new(color=@draw.rgba(1, 0, 0, 1))
   let cloned = original.clone()
@@ -103,6 +113,7 @@ test "@draw.clone/stroke-independence" {
   inspect!(original.color, content="{r: 1, g: 0, b: 0, a: 1}")
 }
 
+///|
 test "@draw.clone/zero-opacity" {
   let original = @draw.Stroke::new(color=@draw.rgba(1, 1, 1, 0))
   let cloned = original.clone()

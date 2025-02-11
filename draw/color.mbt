@@ -165,7 +165,7 @@ pub fn as_fill(self : Color) -> Fill? {
 }
 
 ///| clone returns a new copy of this Color.
-pub fn clone(self : Color) -> Color {
+pub fn Color::clone(self : Color) -> Color {
   rgba(self.r, self.g, self.b, self.a)
 }
 

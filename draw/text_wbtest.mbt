@@ -1,3 +1,4 @@
+///|
 test "glyph2compound_path converts letter P correctly" {
   let got = glyph2compound_path!(letter_P, "dc", vec2(0, 0), 1, 1)
   inspect!(
@@ -6,6 +7,7 @@ test "glyph2compound_path converts letter P correctly" {
   )
 }
 
+///|
 test "glyph2compound_path converts letter t correctly" {
   let got = glyph2compound_path!(letter_t, "d", vec2(0, 0), 1, 1)
   inspect!(

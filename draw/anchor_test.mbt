@@ -1,3 +1,4 @@
+///|
 test "@draw.Anchor::new/default" {
   let anchor = @draw.Anchor::new()
   inspect!(
@@ -6,6 +7,7 @@ test "@draw.Anchor::new/default" {
   )
 }
 
+///|
 test "@draw.Anchor::new/custom-position" {
   let pos = @draw.vec2(1, 2)
   let anchor = @draw.Anchor::new(position=pos)
@@ -15,6 +17,7 @@ test "@draw.Anchor::new/custom-position" {
   )
 }
 
+///|
 test "@draw.Anchor::new/all-params" {
   let pos = @draw.vec2(1, 2)
   let hin = @draw.vec2(3, 4)
@@ -26,6 +29,7 @@ test "@draw.Anchor::new/all-params" {
   )
 }
 
+///|
 test "@draw.Anchor::new/default" {
   let default_anchor = @draw.Anchor::new()
   inspect!(default_anchor.position, content="{x: 0, y: 0}")
@@ -33,6 +37,7 @@ test "@draw.Anchor::new/default" {
   inspect!(default_anchor.handle_out, content="{x: 0, y: 0}")
 }
 
+///|
 test "@draw.Anchor::new/custom" {
   let custom_position = @draw.vec2(1.5, -2.5)
   let custom_handle_in = @draw.vec2(-3.0, 0.0)
@@ -47,6 +52,7 @@ test "@draw.Anchor::new/custom" {
   inspect!(anchor.handle_out, content="{x: 2, y: 4}")
 }
 
+///|
 test "@draw.Anchor::new/partial_custom" {
   let custom_handle_in = @draw.vec2(-1.0, 1.0)
   let anchor = @draw.Anchor::new(handle_in=custom_handle_in)
@@ -55,6 +61,7 @@ test "@draw.Anchor::new/partial_custom" {
   inspect!(anchor.handle_out, content="{x: 0, y: 0}")
 }
 
+///|
 test "@draw.affine_transform/identity" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(1.0, 2.0),
@@ -68,6 +75,7 @@ test "@draw.affine_transform/identity" {
   inspect!(result.handle_out, content="{x: -0.5, y: -0.5}")
 }
 
+///|
 test "@draw.affine_transform/translation" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(1.0, 1.0),
@@ -83,6 +91,7 @@ test "@draw.affine_transform/translation" {
   inspect!(result.handle_out, content="{x: 1, y: 1}")
 }
 
+///|
 test "@draw.affine_transform/scale-and-rotate" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(1.0, 0.0),
@@ -98,6 +107,7 @@ test "@draw.affine_transform/scale-and-rotate" {
   inspect!(result.handle_out, content="{x: 0, y: 2}")
 }
 
+///|
 test "@draw.affine_transform_without_translation/identity" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(1.0, 2.0),
@@ -111,6 +121,7 @@ test "@draw.affine_transform_without_translation/identity" {
   inspect!(result.handle_out, content="{x: -0.5, y: -0.5}")
 }
 
+///|
 test "@draw.affine_transform_without_translation/rotation" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(1.0, 0.0),
@@ -125,6 +136,7 @@ test "@draw.affine_transform_without_translation/rotation" {
   inspect!(result.handle_out, content="{x: -1, y: 0}")
 }
 
+///|
 test "@draw.affine_transform_without_translation/scale" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(2.0, 3.0),
@@ -139,6 +151,7 @@ test "@draw.affine_transform_without_translation/scale" {
   inspect!(result.handle_out, content="{x: -2, y: -0.5}")
 }
 
+///|
 test "@draw.Anchor::is_contained_by_bounding_box/inside" {
   let pos = @draw.vec2(1, 1)
   let box = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(2, 2))
@@ -146,6 +159,7 @@ test "@draw.Anchor::is_contained_by_bounding_box/inside" {
   inspect!(anchor.is_contained_by_bounding_box(box), content="true")
 }
 
+///|
 test "@draw.Anchor::is_contained_by_bounding_box/on_boundary" {
   let pos = @draw.vec2(0, 0)
   let box = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(2, 2))
@@ -153,6 +167,7 @@ test "@draw.Anchor::is_contained_by_bounding_box/on_boundary" {
   inspect!(anchor.is_contained_by_bounding_box(box), content="true")
 }
 
+///|
 test "@draw.Anchor::is_contained_by_bounding_box/outside" {
   let pos = @draw.vec2(3, 3)
   let box = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(2, 2))
@@ -160,6 +175,7 @@ test "@draw.Anchor::is_contained_by_bounding_box/outside" {
   inspect!(anchor.is_contained_by_bounding_box(box), content="false")
 }
 
+///|
 test "@draw.reverse/basic_functionality" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(1.0, 1.0),
@@ -171,6 +187,7 @@ test "@draw.reverse/basic_functionality" {
   inspect!(reversed_anchor.handle_out, content="{x: 2, y: 3}")
 }
 
+///|
 test "@draw.reverse/identical_handles" {
   let anchor = @draw.Anchor::new(
     handle_in=@draw.vec2(2.0, 2.0),
@@ -181,6 +198,7 @@ test "@draw.reverse/identical_handles" {
   inspect!(reversed_anchor.handle_out, content="{x: 2, y: 2}")
 }
 
+///|
 test "@draw.reverse/zero_handles" {
   let anchor = @draw.Anchor::new(
     position=@draw.vec2(0.0, 0.0),
@@ -192,6 +210,7 @@ test "@draw.reverse/zero_handles" {
   inspect!(reversed_anchor.handle_out, content="{x: 0, y: 0}")
 }
 
+///|
 test "@draw.Anchor::to_json" {
   let v = @draw.Anchor::new(
     position=vec2(1, 2),
@@ -207,6 +226,7 @@ test "@draw.Anchor::to_json" {
   )
 }
 
+///|
 test "@draw.Anchor::from_json" {
   let json_str =
     #|{"position":{"x":1,"y":2},"handle_in":{"x":1.1,"y":2.1},"handle_out":{"x":1.2,"y":2.2}}

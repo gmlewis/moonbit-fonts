@@ -1,8 +1,10 @@
+///|
 test "@draw.Group::bounding_box/empty" {
   let empty_group = @draw.Group::new()
   inspect!(@draw.Group::bounding_box(empty_group), content="None")
 }
 
+///|
 test "@draw.Group::bounding_box/single_item" {
   let path = @draw.Path::from_points(
     [@draw.vec2(0, 0), @draw.vec2(1, 1)],
@@ -13,6 +15,7 @@ test "@draw.Group::bounding_box/single_item" {
   inspect!(@draw.Group::bounding_box(group), content="Some(\{bbox})")
 }
 
+///|
 test "@draw.Group::bounding_box/multiple_items" {
   let path1 = @draw.Path::from_points(
     [@draw.vec2(-1, -1), @draw.vec2(0, 0)],
@@ -33,6 +36,7 @@ test "@draw.Group::bounding_box/multiple_items" {
   inspect!(@draw.Group::bounding_box(group), content="Some(\{bbox})")
 }
 
+///|
 test "@draw.Group::to_json" {
   let path1 = @draw.Path::from_points(
     [@draw.vec2(-1, -1), @draw.vec2(0, 0)],

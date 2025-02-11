@@ -1,0 +1,17 @@
+package gmlewis/fonts/canvas
+
+alias @gmlewis/fonts/draw as @draw
+
+// Values
+
+// Types and methods
+type CanvasCtx
+impl CanvasCtx {
+  from_graphic(Self, @draw.Graphic, y_up~ : Bool = ..) -> Unit
+  get_input_bytes(Self) -> Array[Byte]
+}
+
+// Type aliases
+
+// Traits
+

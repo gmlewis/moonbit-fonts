@@ -47,7 +47,7 @@ pub fn stroke(color : Color) -> Stroke {
 }
 
 ///| clone returns a new copy of this Stroke.
-pub fn clone(self : Stroke) -> Stroke {
+pub fn Stroke::clone(self : Stroke) -> Stroke {
   Stroke::new(
     color=self.color.clone(),
     width=self.width,

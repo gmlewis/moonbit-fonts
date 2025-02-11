@@ -24,6 +24,7 @@ fn test_in(f : @fonts.Rectangle, g : @fonts.Rectangle) -> TestError? {
   None
 }
 
+///|
 test "every point in f is in g" {
   let rects = [
     @fonts.rect(0, 0, 10, 10),

@@ -1,9 +1,11 @@
+///|
 test "@draw.Graphic::bounding_box/empty_array" {
   let items = @draw.Group::new(items=[]).as_graphic()
   let result = items.bounding_box()
   inspect!(result, content="None")
 }
 
+///|
 test "@draw.Graphic::bounding_box/single_path" {
   let v1 = @draw.vec2(1.0, 1.0)
   let v2 = @draw.vec2(2.0, 2.0)
@@ -14,6 +16,7 @@ test "@draw.Graphic::bounding_box/single_path" {
   inspect!(result, content="Some({min: {x: 1, y: 1}, max: {x: 2, y: 2}})")
 }
 
+///|
 test "@draw.Graphic::bounding_box/multiple_items" {
   let v1 = @draw.vec2(1.0, 1.0)
   let v2 = @draw.vec2(2.0, 2.0)
@@ -34,6 +37,7 @@ let bbox = @draw.bbox
 ///|
 let unit_square = @draw.unit_square
 
+///|
 test "unit square fit_to handles translation and scaling" {
   let tests = [
     // (graphic, dst_bbox)

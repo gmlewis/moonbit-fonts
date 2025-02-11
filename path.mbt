@@ -132,7 +132,7 @@ pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
 }
 
 ///| `clone` makes a deep copy of a Path.
-pub fn clone(self : Path) -> Path {
+pub fn Path::clone(self : Path) -> Path {
   let cmds = Array::new(capacity=self.cmds.length())
   for cmd in self.cmds {
     cmds.push(cmd.clone())

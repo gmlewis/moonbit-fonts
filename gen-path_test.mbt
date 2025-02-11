@@ -258,6 +258,7 @@ let test_cases : Array[GenPathTestCase] = [
   },
 ]
 
+///|
 test "gen_path on test_cases" {
   for tc in test_cases {
     let got = nullpointer.gen_path!(

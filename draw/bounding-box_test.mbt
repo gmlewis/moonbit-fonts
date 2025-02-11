@@ -1,3 +1,4 @@
+///|
 test "@draw.BoundingBox::new" {
   // Test default values (both min and max are zero vectors)
   let bb1 = @draw.BoundingBox::new()
@@ -21,6 +22,7 @@ test "@draw.BoundingBox::new" {
   inspect!(bb3.max.y, content="5")
 }
 
+///|
 test "@draw.BoundingBox::new/default_values" {
   let bounding_box = @draw.BoundingBox::new()
   inspect!(bounding_box.min.x, content="0")
@@ -29,6 +31,7 @@ test "@draw.BoundingBox::new/default_values" {
   inspect!(bounding_box.max.y, content="0")
 }
 
+///|
 test "@draw.BoundingBox::new/positive_values" {
   let vec_min = @draw.vec2(1.0, 1.0)
   let vec_max = @draw.vec2(3.0, 4.0)
@@ -39,6 +42,7 @@ test "@draw.BoundingBox::new/positive_values" {
   inspect!(bounding_box.max.y, content="4")
 }
 
+///|
 test "@draw.BoundingBox::new/negative_values" {
   let vec_min = @draw.vec2(-5.0, -5.0)
   let vec_max = @draw.vec2(-1.0, -2.0)
@@ -49,6 +53,7 @@ test "@draw.BoundingBox::new/negative_values" {
   inspect!(bounding_box.max.y, content="-2")
 }
 
+///|
 test "@draw.BoundingBox::from_points/normal" {
   let points = [
     @draw.vec2(-1.0, -1.0),
@@ -63,6 +68,7 @@ test "@draw.BoundingBox::from_points/normal" {
   inspect!(bbox.max.y, content="1")
 }
 
+///|
 test "@draw.BoundingBox::from_points/single_point" {
   let points = [@draw.vec2(3.0, 4.0)]
   let bbox = @draw.BoundingBox::from_points(points)
@@ -72,11 +78,13 @@ test "@draw.BoundingBox::from_points/single_point" {
   inspect!(bbox.max.y, content="4")
 }
 
+///|
 test "panic @draw.BoundingBox::from_points/empty" {
   let points : Array[Vec2] = []
   ignore(@draw.BoundingBox::from_points(points))
 }
 
+///|
 test "@draw.BoundingBox::from_points" {
   let point1 = @draw.vec2(1.0, 2.0)
   let point2 = @draw.vec2(3.0, 4.0)
@@ -86,6 +94,7 @@ test "@draw.BoundingBox::from_points" {
   inspect!(bbox.max, content="{x: 3, y: 4}")
 }
 
+///|
 test "@draw.BoundingBox::from_points/single_point" {
   let point = @draw.vec2(5.0, 5.0)
   let points = [point]
@@ -94,11 +103,13 @@ test "@draw.BoundingBox::from_points/single_point" {
   inspect!(bbox.max, content="{x: 5, y: 5}")
 }
 
+///|
 test "panic @draw.BoundingBox::from_points/empty_array" {
   let points : Array[@draw.Vec2] = []
   ignore(@draw.BoundingBox::from_points(points))
 }
 
+///|
 test "@draw.clone/basic" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(1.0, 2.0),
@@ -111,6 +122,7 @@ test "@draw.clone/basic" {
   inspect!(cloned.max.y, content="4")
 }
 
+///|
 test "@draw.clone/zero_size" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -123,6 +135,7 @@ test "@draw.clone/zero_size" {
   inspect!(cloned.max.y, content="0")
 }
 
+///|
 test "@draw.clone/negative_coords" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(-2.0, -3.0),
@@ -135,6 +148,7 @@ test "@draw.clone/negative_coords" {
   inspect!(cloned.max.y, content="-1")
 }
 
+///|
 test "@draw.BoundingBox::center" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -143,6 +157,7 @@ test "@draw.BoundingBox::center" {
   inspect!(bbox.center(), content="{x: 0.5, y: 0.5}")
 }
 
+///|
 test "@draw.BoundingBox::center/negative-coordinates" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(-1.0, -1.0),
@@ -151,6 +166,7 @@ test "@draw.BoundingBox::center/negative-coordinates" {
   inspect!(bbox.center(), content="{x: 0, y: 0}")
 }
 
+///|
 test "@draw.BoundingBox::center/inf-values" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -159,6 +175,7 @@ test "@draw.BoundingBox::center/inf-values" {
   inspect!(bbox.center(), content="{x: Infinity, y: Infinity}") // Expecting a panic due to invalid operations with infinity values.
 }
 
+///|
 test "@draw.size" {
   // Test zero-sized bounding box
   let zero_box = @draw.BoundingBox::new(
@@ -182,6 +199,7 @@ test "@draw.size" {
   inspect!(neg_box.size(), content="{x: -3, y: -2}")
 }
 
+///|
 test "@draw.width" {
   // Test normal case with positive coordinates
   let box1 = @draw.BoundingBox::new(
@@ -205,6 +223,7 @@ test "@draw.width" {
   inspect!(box3.width(), content="5")
 }
 
+///|
 test "@draw.height" {
   let bbox = @draw.BoundingBox::new(min=@draw.vec2(0, 1), max=@draw.vec2(10, 5))
   inspect!(bbox.height(), content="4")
@@ -220,6 +239,7 @@ test "@draw.height" {
   inspect!(negative_height.height(), content="-4")
 }
 
+///|
 test "@draw.area" {
   // Normal case: positive dimensions
   let box1 = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(5, 4))
@@ -234,6 +254,7 @@ test "@draw.area" {
   inspect!(box3.area(), content="6")
 }
 
+///|
 test "@draw.BoundingBox::area/zero-width-and-height" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -242,6 +263,7 @@ test "@draw.BoundingBox::area/zero-width-and-height" {
   inspect!(bbox.area(), content="0")
 }
 
+///|
 test "@draw.BoundingBox::area/positive-width-and-height-boundary" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -250,6 +272,7 @@ test "@draw.BoundingBox::area/positive-width-and-height-boundary" {
   inspect!(bbox.area(), content="1")
 }
 
+///|
 test "@draw.BoundingBox::area/negative-width-and-height-boundary" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -258,6 +281,7 @@ test "@draw.BoundingBox::area/negative-width-and-height-boundary" {
   inspect!(bbox.area(), content="1")
 }
 
+///|
 test "@draw.BoundingBox::is_inf" {
   // Normal case - neither min nor max is infinite
   let bb1 = @draw.BoundingBox::new(
@@ -281,6 +305,7 @@ test "@draw.BoundingBox::is_inf" {
   inspect!(bb3.is_inf(), content="true")
 }
 
+///|
 test "@draw.BoundingBox::is_nan/both-normal" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(1.0, 2.0),
@@ -289,6 +314,7 @@ test "@draw.BoundingBox::is_nan/both-normal" {
   inspect!(bbox.is_nan(), content="false")
 }
 
+///|
 test "@draw.BoundingBox::is_nan/min-nan" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(@double.not_a_number, 2.0),
@@ -297,6 +323,7 @@ test "@draw.BoundingBox::is_nan/min-nan" {
   inspect!(bbox.is_nan(), content="true")
 }
 
+///|
 test "@draw.BoundingBox::is_nan/max-nan" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(1.0, 2.0),
@@ -305,6 +332,7 @@ test "@draw.BoundingBox::is_nan/max-nan" {
   inspect!(bbox.is_nan(), content="true")
 }
 
+///|
 test "@draw.BoundingBox::is_nan/basic_functionality" {
   let bbox1 = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -332,6 +360,7 @@ test "@draw.BoundingBox::is_nan/basic_functionality" {
   inspect!(@draw.BoundingBox::is_nan(bbox4), content="true")
 }
 
+///|
 test "@draw.BoundingBox::is_nan/invalid_bbox" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(@moonbitlang/core/double.infinity, 0.0),
@@ -340,6 +369,7 @@ test "@draw.BoundingBox::is_nan/invalid_bbox" {
   inspect!(@draw.BoundingBox::is_nan(bbox), content="false")
 }
 
+///|
 test "@draw.BoundingBox::expand_to_include_point/basic" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -353,6 +383,7 @@ test "@draw.BoundingBox::expand_to_include_point/basic" {
   inspect!(result.max.y, content="2")
 }
 
+///|
 test "@draw.BoundingBox::expand_to_include_point/inside" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -366,6 +397,7 @@ test "@draw.BoundingBox::expand_to_include_point/inside" {
   inspect!(result.max.y, content="2")
 }
 
+///|
 test "@draw.BoundingBox::expand_to_include_point/negative" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -379,6 +411,7 @@ test "@draw.BoundingBox::expand_to_include_point/negative" {
   inspect!(result.max.y, content="1")
 }
 
+///|
 test "@draw.BoundingBox::expand_to_include_bounding_box" {
   // Test case where the second box is completely outside the first box
   let box1 = @draw.BoundingBox::new(
@@ -396,6 +429,7 @@ test "@draw.BoundingBox::expand_to_include_bounding_box" {
   inspect!(result.max.y, content="3")
 }
 
+///|
 test "@draw.BoundingBox::expand_to_include_bounding_box/partially_overlapping" {
   // Test case where the boxes partially overlap
   let box1 = @draw.BoundingBox::new(
@@ -413,6 +447,7 @@ test "@draw.BoundingBox::expand_to_include_bounding_box/partially_overlapping" {
   inspect!(result.max.y, content="3")
 }
 
+///|
 test "@draw.BoundingBox::expand_to_include_bounding_box/fully_contained" {
   // Test case where one box is completely inside the other
   let box1 = @draw.BoundingBox::new(
@@ -430,6 +465,7 @@ test "@draw.BoundingBox::expand_to_include_bounding_box/fully_contained" {
   inspect!(result.max.y, content="4")
 }
 
+///|
 test "@draw.BoundingBox::expand_scalar/zero" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(1.0, 1.0),
@@ -442,6 +478,7 @@ test "@draw.BoundingBox::expand_scalar/zero" {
   inspect!(result.max.y, content="2")
 }
 
+///|
 test "@draw.BoundingBox::expand_scalar/positive" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -454,6 +491,7 @@ test "@draw.BoundingBox::expand_scalar/positive" {
   inspect!(result.max.y, content="3")
 }
 
+///|
 test "@draw.BoundingBox::expand_scalar/negative" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(-1.0, -1.0),
@@ -466,6 +504,7 @@ test "@draw.BoundingBox::expand_scalar/negative" {
   inspect!(result.max.y, content="0.5")
 }
 
+///|
 test "@draw.BoundingBox::contains_point/inside" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -475,6 +514,7 @@ test "@draw.BoundingBox::contains_point/inside" {
   inspect!(bbox.contains_point(point), content="true")
 }
 
+///|
 test "@draw.BoundingBox::contains_point/edges" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(-1.0, -1.0),
@@ -491,6 +531,7 @@ test "@draw.BoundingBox::contains_point/edges" {
   inspect!(bbox.contains_point(bottom), content="true")
 }
 
+///|
 test "@draw.BoundingBox::contains_point/outside" {
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
@@ -506,6 +547,7 @@ test "@draw.BoundingBox::contains_point/outside" {
   inspect!(bbox.contains_point(bottom), content="false")
 }
 
+///|
 test "@draw.overlaps_bounding_box/no-overlap" {
   // Two non-overlapping boxes
   let box1 = @draw.BoundingBox::new(
@@ -519,6 +561,7 @@ test "@draw.overlaps_bounding_box/no-overlap" {
   inspect!(box1.overlaps_bounding_box(box2), content="false")
 }
 
+///|
 test "@draw.overlaps_bounding_box/complete-overlap" {
   // One box completely inside another
   let outer = @draw.BoundingBox::new(
@@ -532,6 +575,7 @@ test "@draw.overlaps_bounding_box/complete-overlap" {
   inspect!(outer.overlaps_bounding_box(inner), content="true")
 }
 
+///|
 test "@draw.overlaps_bounding_box/partial-overlap" {
   // Two boxes that partially overlap
   let box1 = @draw.BoundingBox::new(
@@ -545,6 +589,7 @@ test "@draw.overlaps_bounding_box/partial-overlap" {
   inspect!(box1.overlaps_bounding_box(box2), content="false")
 }
 
+///|
 test "@draw.BoundingBox::overlaps_bounding_box/basic-functionality" {
   let bbox1 = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(5, 5))
   let bbox2 = @draw.BoundingBox::new(min=@draw.vec2(3, 3), max=@draw.vec2(7, 7))
@@ -553,6 +598,7 @@ test "@draw.BoundingBox::overlaps_bounding_box/basic-functionality" {
   inspect!(@draw.overlaps_bounding_box(bbox1, bbox3), content="false")
 }
 
+///|
 test "@draw.BoundingBox::overlaps_bounding_box/edge-cases" {
   let bbox1 = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(5, 5))
   let bbox2 = @draw.BoundingBox::new(min=@draw.vec2(5, 5), max=@draw.vec2(5, 5))
@@ -566,6 +612,7 @@ test "@draw.BoundingBox::overlaps_bounding_box/edge-cases" {
   inspect!(@draw.overlaps_bounding_box(bbox1, bbox4), content="false")
 }
 
+///|
 test "@draw.BoundingBox::overlaps_bounding_box/negative-coordinates" {
   let bbox1 = @draw.BoundingBox::new(
     min=@draw.vec2(-5, -5),

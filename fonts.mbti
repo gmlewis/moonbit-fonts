@@ -1,0 +1,183 @@
+package gmlewis/fonts
+
+alias @moonbitlang/core/json as @json
+
+// Values
+let all_fonts : Array[String]
+
+fn glyph_bbox(String) -> Rectangle!FontError
+
+fn pt(Double, Double) -> Point
+
+fn rect(Double, Double, Double, Double) -> Rectangle
+
+fn translate_path(String, Double, Double, invert_y~ : Bool = ..) -> String!FontError
+
+// Types and methods
+pub(all) enum AbsoluteCmd {
+  M
+  L
+  C
+  Q
+  Z
+}
+impl Eq for AbsoluteCmd
+impl Show for AbsoluteCmd
+
+pub(all) enum Anchor {
+  Unchanged
+  TopLeft
+  TopCenter
+  TopRight
+  CenterLeft
+  Center
+  CenterRight
+  BaselineLeft
+  BaselineCenter
+  BaselineRight
+  BottomLeft
+  BottomCenter
+  BottomRight
+  RatioXY(Double, Double)
+}
+impl Eq for Anchor
+impl Show for Anchor
+
+type Cmd
+impl Eq for Cmd
+impl Show for Cmd
+
+pub(all) struct Font {
+  id : String
+  horiz_adv_x : Double
+  units_per_em : Double
+  ascent : Double
+  descent : Double
+  glyphs : Map[String, Glyph]
+}
+impl Font {
+  gen_path(Self, String, anchor~ : Anchor = .., y_up~ : Bool = ..) -> Glyph!FontError
+  gen_paths(Self, Array[String], anchor~ : Anchor = .., y_up~ : Bool = ..) -> Array[Glyph]!FontError
+}
+impl Eq for Font
+impl Show for Font
+impl ToJson for Font
+impl @json.FromJson for Font
+
+pub(all) type! FontError String
+impl Eq for FontError
+impl Show for FontError
+
+pub(all) enum GerberLP {
+  Dark
+  Clear
+}
+impl Eq for GerberLP
+impl Show for GerberLP
+
+pub(all) struct Glyph {
+  char : String
+  horiz_adv_x : Double
+  gerber_lp : String
+  d : String
+  xmin : Double
+  ymin : Double
+  xmax : Double
+  ymax : Double
+}
+impl Eq for Glyph
+impl Show for Glyph
+impl ToJson for Glyph
+impl @json.FromJson for Glyph
+
+pub(all) struct ParamPair {
+  x : Double
+  y : Double
+}
+impl ParamPair {
+  to_string(Self) -> String
+}
+impl Eq for ParamPair
+
+type Params
+impl Params {
+  length(Self) -> Int
+}
+impl Eq for Params
+impl Show for Params
+
+pub(all) struct Path {
+  char : String
+  cmds : Array[PathCmd]
+  xmin : Double
+  ymin : Double
+  xmax : Double
+  ymax : Double
+}
+impl Path {
+  clone(Self) -> Self
+  from_glyph(Glyph, path_cmd_fn~ : PathCmdFn? = ..) -> Self!FontError
+  to_glyph(Self, path_cmd_fn~ : PathCmdFn? = ..) -> Glyph
+}
+impl Eq for Path
+impl Show for Path
+
+pub(all) struct PathCmd {
+  cmd : AbsoluteCmd
+  gerber_lp : GerberLP
+  params : Array[ParamPair]
+}
+impl PathCmd {
+  bbox(Self) -> Rectangle
+  clone(Self) -> Self
+  from_svg_cmd(Cmd, GerberLP) -> Self!FontError
+  to_svg_cmd(Self) -> (Cmd, String)
+}
+impl Eq for PathCmd
+impl Show for PathCmd
+
+pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
+
+pub(all) struct Point {
+  x : Double
+  y : Double
+}
+impl Point {
+  div(Self, Double) -> Self
+  is_in(Self, Rectangle) -> Bool
+  mul(Self, Double) -> Self
+  op_add(Self, Self) -> Self
+  op_equal(Self, Self) -> Bool
+  op_sub(Self, Self) -> Self
+  to_string(Self) -> String
+}
+
+pub(all) struct Rectangle {
+  min : Point
+  max : Point
+}
+impl Rectangle {
+  add(Self, Point) -> Self
+  bounds(Self) -> (Double, Double, Double, Double)
+  canon(Self) -> Self
+  clone(Self) -> Self
+  dx(Self) -> Double
+  dy(Self) -> Double
+  empty(Self) -> Bool
+  extend(Self, Point) -> Unit
+  inset(Self, Double) -> Self
+  intersect(Self, Self) -> Self
+  is_in(Self, Self) -> Bool
+  new() -> Self
+  op_equal(Self, Self) -> Bool
+  overlaps(Self, Self) -> Bool
+  size(Self) -> Point
+  sub(Self, Point) -> Self
+  to_string(Self) -> String
+  union(Self, Self) -> Self
+}
+
+// Type aliases
+
+// Traits
+

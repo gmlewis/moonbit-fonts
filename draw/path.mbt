@@ -22,17 +22,17 @@ pub fn Path::new(
 }
 
 ///| as_graphic returns a Path as a Graphic.
-pub fn as_graphic(self : Path) -> Graphic {
+pub fn Path::as_graphic(self : Path) -> Graphic {
   Path(self)
 }
 
 ///| op_get is a convenience function.
-pub fn op_get(self : Path, index : Int) -> Anchor {
+pub fn Path::op_get(self : Path, index : Int) -> Anchor {
   self.anchors[index]
 }
 
 ///| op_set is a convenience function.
-pub fn op_set(self : Path, index : Int, anchor : Anchor) -> Unit {
+pub fn Path::op_set(self : Path, index : Int, anchor : Anchor) -> Unit {
   self.anchors[index] = anchor
 }
 
@@ -53,7 +53,7 @@ fn clone_option[T : Clonable](v : T?) -> T? {
 }
 
 ///| clone makes a new copy of this Path.
-pub fn clone(self : Path) -> Path {
+pub fn Path::clone(self : Path) -> Path {
   let anchors = self.anchors.map(fn(anchor) { anchor.clone() })
   let closed = self.closed
   let clear = self.clear
@@ -63,7 +63,10 @@ pub fn clone(self : Path) -> Path {
 }
 
 ///| affine_transform transforms this Path by `affine_matrix`.
-pub fn affine_transform(self : Path, affine_matrix : AffineMatrix) -> Path {
+pub fn Path::affine_transform(
+  self : Path,
+  affine_matrix : AffineMatrix
+) -> Path {
   for anchor in self.anchors {
     ignore(anchor.affine_transform(affine_matrix))
   }
@@ -72,7 +75,7 @@ pub fn affine_transform(self : Path, affine_matrix : AffineMatrix) -> Path {
 
 ///| affine_transform_without_translation transforms this Path by `affine_matrix`
 /// without affecting translation.
-pub fn affine_transform_without_translation(
+pub fn Path::affine_transform_without_translation(
   self : Path,
   affine_matrix : AffineMatrix
 ) -> Path {
@@ -83,7 +86,7 @@ pub fn affine_transform_without_translation(
 }
 
 ///| transform provides a convenient API for a common task.
-pub fn transform(
+pub fn Path::transform(
   self : Path,
   position~ : Vec2 = vec2(0, 0),
   rotation~ : Double = 0,
@@ -98,19 +101,19 @@ pub fn transform(
 }
 
 ///| assign_fill assigns a fill to this Path.
-pub fn assign_fill(self : Path, fill : Fill?) -> Path {
+pub fn Path::assign_fill(self : Path, fill : Fill?) -> Path {
   self.fill = fill
   self
 }
 
 ///| assign_stroke assigns a stroke to this Path.
-pub fn assign_stroke(self : Path, stroke : Stroke?) -> Path {
+pub fn Path::assign_stroke(self : Path, stroke : Stroke?) -> Path {
   self.stroke = stroke
   self
 }
 
 ///| assign_style assigns a stroke and fill style to this Path.
-pub fn assign_style(self : Path, fill : Fill?, stroke : Stroke?) -> Path {
+pub fn Path::assign_style(self : Path, fill : Fill?, stroke : Stroke?) -> Path {
   self.fill = fill
   self.stroke = stroke
   self
@@ -194,7 +197,7 @@ fn segment_extents(
 
 ///| bounding_box returns the smallest axis-aligned bounding box that contains
 /// this Path or None.
-pub fn bounding_box(self : Path) -> BoundingBox? {
+pub fn Path::bounding_box(self : Path) -> BoundingBox? {
   let { anchors, closed, .. } = self
   let n = anchors.length()
   if n == 0 {
@@ -244,7 +247,7 @@ pub fn bounding_box(self : Path) -> BoundingBox? {
 }
 
 ///| closest_point returns the closest point to `point` that lies on this Path or None.
-pub fn closest_point(
+pub fn Path::closest_point(
   self : Path,
   point : Vec2,
   area_of_interest : BoundingBox?
@@ -321,14 +324,14 @@ pub fn Path::contains_point(_self : Path, _point : Vec2) -> Bool {
 }
 
 ///| copy_style copies the fill and stroke from `graphic`.
-pub fn copy_style(self : Path, graphic : Graphic) -> Path {
+pub fn Path::copy_style(self : Path, graphic : Graphic) -> Path {
   self.fill = graphic.first_fill()
   self.stroke = graphic.first_stroke()
   self
 }
 
 ///| first_styled returns this Path if it is styled or None.
-pub fn first_styled(self : Path) -> Graphic? {
+pub fn Path::first_styled(self : Path) -> Graphic? {
   if self.has_style() {
     Some(Path(self))
   } else {
@@ -337,13 +340,16 @@ pub fn first_styled(self : Path) -> Graphic? {
 }
 
 ///| has_style returns true if this Path has fill or stroke.
-pub fn has_style(self : Path) -> Bool {
+pub fn Path::has_style(self : Path) -> Bool {
   self.fill != None || self.stroke != None
 }
 
 ///| is_contained_by_bounding_box returns true if no part of this Path
 /// lies beyond its min or max.
-pub fn is_contained_by_bounding_box(self : Path, box : BoundingBox) -> Bool {
+pub fn Path::is_contained_by_bounding_box(
+  self : Path,
+  box : BoundingBox
+) -> Bool {
   let bbox = self.bounding_box()
   if None == bbox {
     return false
@@ -388,14 +394,17 @@ pub fn Path::is_intersected_by_bounding_box(
 
 ///| is_overlapped_by_bounding_box returns if true if a point can be chosen
 /// that is inside both the Path and `box`.
-pub fn is_overlapped_by_bounding_box(self : Path, box : BoundingBox) -> Bool {
+pub fn Path::is_overlapped_by_bounding_box(
+  self : Path,
+  box : BoundingBox
+) -> Bool {
   self.is_contained_by_bounding_box(box) ||
   self.is_intersected_by_bounding_box(box)
 }
 
 ///| loose_bounding_box returns an approximate bounding box for this Path.
 /// It may not be the smallest possible bounding box, but is cheaper to compute.
-pub fn loose_bounding_box(self : Path) -> BoundingBox? {
+pub fn Path::loose_bounding_box(self : Path) -> BoundingBox? {
   let { anchors, closed, .. } = self
   match anchors.length() {
     0 => return None
@@ -453,24 +462,24 @@ pub fn loose_bounding_box(self : Path) -> BoundingBox? {
 }
 
 ///| primitives returns a flattened array of Graphics primitives.
-pub fn primitives(self : Path) -> Array[Graphic] {
+pub fn Path::primitives(self : Path) -> Array[Graphic] {
   [Path(self)]
 }
 
 ///| remove_fill removes fill styling from this Path.
-pub fn remove_fill(self : Path) -> Path {
+pub fn Path::remove_fill(self : Path) -> Path {
   self.fill = None
   self
 }
 
 ///| remove_stroke removes stroke styling from this Path.
-pub fn remove_stroke(self : Path) -> Path {
+pub fn Path::remove_stroke(self : Path) -> Path {
   self.stroke = None
   self
 }
 
 ///| reverse reverses this Path.
-pub fn reverse(self : Path) -> Path {
+pub fn Path::reverse(self : Path) -> Path {
   for anchor in self.anchors {
     ignore(anchor.reverse())
   }
@@ -479,7 +488,7 @@ pub fn reverse(self : Path) -> Path {
 }
 
 ///| scale_stroke scales the width of this stroke by `scale_factor`.
-pub fn scale_stroke(self : Path, scale_factor : Double) -> Path {
+pub fn Path::scale_stroke(self : Path, scale_factor : Double) -> Path {
   match self.stroke {
     Some(stroke) => stroke.width *= scale_factor
     _ => ()
@@ -494,19 +503,19 @@ pub fn Path::style_contains_point(_self : Path, _point : Vec2) -> Bool {
 }
 
 ///| translate translates a Path by `v`.
-pub fn translate(self : Path, v : Vec2) -> Path {
+pub fn Path::translate(self : Path, v : Vec2) -> Path {
   let affine_matrix = AffineMatrix::from_translation(v)
   self.affine_transform(affine_matrix)
 }
 
 ///| scale scales a Path by `v`.
-pub fn scale(self : Path, v : Vec2) -> Path {
+pub fn Path::scale(self : Path, v : Vec2) -> Path {
   let affine_matrix = AffineMatrix::from_scale(v)
   self.affine_transform(affine_matrix)
 }
 
 ///| rotate rotates a Path clockwise by `angle` in degrees.
-pub fn rotate(self : Path, angle : Double) -> Path {
+pub fn Path::rotate(self : Path, angle : Double) -> Path {
   let affine_matrix = AffineMatrix::from_rotation(angle)
   self.affine_transform(affine_matrix)
 }

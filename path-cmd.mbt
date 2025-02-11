@@ -5,7 +5,7 @@ pub(all) struct ParamPair {
 } derive(Eq)
 
 ///|
-pub fn to_string(self : ParamPair) -> String {
+pub fn ParamPair::to_string(self : ParamPair) -> String {
   "(\{svg_num(self.x)},\{svg_num(self.y)})"
 }
 
@@ -97,7 +97,7 @@ pub fn bbox(self : PathCmd) -> Rectangle {
 pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
 
 ///| `clone` makes a deep copy of a PatchCmd.
-pub fn clone(self : PathCmd) -> PathCmd {
+pub fn PathCmd::clone(self : PathCmd) -> PathCmd {
   let params = Array::new(capacity=self.params.length())
   for param in self.params {
     let pp : ParamPair = { x: param.x, y: param.y }

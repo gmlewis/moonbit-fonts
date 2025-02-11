@@ -17,7 +17,7 @@ pub fn Anchor::new(
 }
 
 ///| clone makes a new copy of this Anchor.
-pub fn clone(self : Anchor) -> Anchor {
+pub fn Anchor::clone(self : Anchor) -> Anchor {
   Anchor::new(
     position=self.position.clone(),
     handle_in=self.handle_in.clone(),

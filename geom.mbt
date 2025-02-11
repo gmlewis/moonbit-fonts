@@ -97,7 +97,7 @@ pub fn clone(self : Rectangle) -> Rectangle {
 }
 
 ///| to_string returns a string representation of r like "(3,4)-(6,5)".
-pub fn to_string(self : Rectangle) -> String {
+pub fn Rectangle::to_string(self : Rectangle) -> String {
   "\{self.min}-\{self.max}"
 }
 
@@ -227,7 +227,7 @@ pub fn empty(self : Rectangle) -> Bool {
 
 ///| op_equal reports whether r and s contain the same set of points. All empty
 /// rectangles are considered equal.
-pub fn op_equal(self : Rectangle, s : Rectangle) -> Bool {
+pub fn Rectangle::op_equal(self : Rectangle, s : Rectangle) -> Bool {
   (self.min == s.min && self.max == s.max) || (self.empty() && s.empty())
 }
 
@@ -242,7 +242,7 @@ pub fn overlaps(self : Rectangle, s : Rectangle) -> Bool {
 }
 
 ///| is_in reports whether every point in r is in s.
-pub fn is_in(self : Rectangle, s : Rectangle) -> Bool {
+pub fn Rectangle::is_in(self : Rectangle, s : Rectangle) -> Bool {
   if self.empty() {
     return true
   }

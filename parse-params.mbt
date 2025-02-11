@@ -34,6 +34,7 @@ fn parse_params(d : String) -> Params!FontError {
   params
 }
 
+///|
 test "parse_params" {
   let d = " 343 75 327.5 112 "
   let got = parse_params!(d)

@@ -44,7 +44,7 @@ pub fn BoundingBox::from_points(points : Array[Vec2]) -> BoundingBox {
 }
 
 ///| clone makes a copy of the bounding box.
-pub fn clone(self : BoundingBox) -> BoundingBox {
+pub fn BoundingBox::clone(self : BoundingBox) -> BoundingBox {
   BoundingBox::new(min=self.min.clone(), max=self.max.clone())
 }
 
@@ -75,12 +75,12 @@ pub fn area(self : BoundingBox) -> Double {
 }
 
 ///| is_inf returns true if either min or max is_inf.
-pub fn is_inf(self : BoundingBox) -> Bool {
+pub fn BoundingBox::is_inf(self : BoundingBox) -> Bool {
   self.min.is_inf() || self.max.is_inf()
 }
 
 ///| is_nan returns true if either min or max is_nan.
-pub fn is_nan(self : BoundingBox) -> Bool {
+pub fn BoundingBox::is_nan(self : BoundingBox) -> Bool {
   self.min.is_nan() || self.max.is_nan()
 }
 

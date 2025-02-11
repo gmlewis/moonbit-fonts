@@ -38,6 +38,7 @@ fn svg_num(val : Double) -> String {
   }
 }
 
+///|
 test "translate" {
   let d = "M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507 723L507 24ZM395 269L395 433L138 433L138 269L395 269Z"
   let got = translate_path!(d, 1000.0, 2000.0)
@@ -45,6 +46,7 @@ test "translate" {
   assert_eq!(got, want)
 }
 
+///|
 test "translate with invert_y=true" {
   let d = "M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507 723L507 24ZM395 269L395 433L138 433L138 269L395 269Z"
   let got = translate_path!(d, 1000.0, 2000.0, invert_y=true)

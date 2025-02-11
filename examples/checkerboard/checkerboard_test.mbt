@@ -1,3 +1,4 @@
+///|
 test "checkerboard" {
   let got = @gmlewis/fonts/examples/checkerboard.checkerboard()
   inspect!(
