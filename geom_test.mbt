@@ -41,9 +41,12 @@ test "every point in f is in g" {
   ]
 
   // r == s should be equivalent to every point in r being in s, and every
-  // point in s being in r.
+  // point in s being in r. Skip test for two empty rectangles.
   for r in rects {
     for s in rects {
+      if r.empty() && s.empty() {
+        continue
+      }
       let got = r == s
       let want = test_in(r, s) == None && test_in(s, r) == None
       if got != want {

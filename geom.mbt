@@ -10,7 +10,7 @@
 pub(all) struct Point {
   mut x : Double
   mut y : Double
-}
+} derive(Show, Eq)
 
 ///| to_string returns a string representation of p like "(3,4)".
 pub fn to_string(self : Point) -> String {
@@ -79,7 +79,7 @@ pub fn pt(x : Double, y : Double) -> Point {
 pub(all) struct Rectangle {
   min : Point
   max : Point
-}
+} derive(Show, Eq)
 
 ///| Rectangle::new returns an empty (all zeros) rectangle.
 pub fn Rectangle::new() -> Rectangle {

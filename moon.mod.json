@@ -1,6 +1,6 @@
 {
   "name": "gmlewis/fonts",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "deps": {
     "moonbitlang/x": "0.4.19",
     "yj-qin/regexp": "0.3.4"

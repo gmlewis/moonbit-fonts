@@ -151,6 +151,8 @@ impl Point {
   op_sub(Self, Self) -> Self
   to_string(Self) -> String
 }
+impl Eq for Point
+impl Show for Point
 
 pub(all) struct Rectangle {
   min : Point
@@ -176,6 +178,8 @@ impl Rectangle {
   to_string(Self) -> String
   union(Self, Self) -> Self
 }
+impl Eq for Rectangle
+impl Show for Rectangle
 
 // Type aliases
 
