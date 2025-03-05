@@ -14,6 +14,6 @@ pub fn fill(color : Color) -> Fill {
 }
 
 ///| clone returns a new copy of this Fill.
-pub fn Fill::clone(self : Fill) -> Fill {
+pub impl Clonable for Fill with clone(self) {
   { color: self.color.clone() }
 }

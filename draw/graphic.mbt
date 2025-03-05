@@ -394,7 +394,7 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
 }
 
 ///|
-pub fn Graphic::to_json(self : Graphic) -> Json {
+pub impl ToJson for Graphic with to_json(self) {
   match self {
     CompoundPath(path) => path.to_json()
     Group(group) => group.to_json()

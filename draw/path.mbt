@@ -43,7 +43,7 @@ pub fn Path::from_points(points : Array[Vec2], closed~ : Bool = false) -> Path {
 }
 
 ///|
-trait Clonable {
+pub(open) trait Clonable {
   clone(Self) -> Self
 }
 

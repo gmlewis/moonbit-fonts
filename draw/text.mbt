@@ -111,9 +111,8 @@ fn glyph2compound_path(
   let mut d = d
   while d.length() > 0 {
     let m = split_re.matches(d)
-    guard let [match_str, cmd, params] = m.captures() else {
-      _ =>
-        raise DrawError("glyph2compound_path: unable to split SVG path '\{d}'")
+    guard m.captures() is [match_str, cmd, params] else {
+      raise DrawError("glyph2compound_path: unable to split SVG path '\{d}'")
     }
 
     //

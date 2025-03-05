@@ -200,9 +200,9 @@ pub(all) struct Fill {
   color : Color
 }
 impl Fill {
-  clone(Self) -> Self
   new(color~ : Color = ..) -> Self
 }
+impl Clonable for Fill
 impl Eq for Fill
 impl Show for Fill
 impl ToJson for Fill
@@ -247,11 +247,11 @@ impl Graphic {
   scale_stroke(Self, Double) -> Self
   some(Array[Self], (Self) -> Bool) -> Bool
   style_contains_point(Vec2) -> (Self) -> Bool
-  to_json(Self) -> Json
   transform(Self, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
   translate(Self, Vec2) -> Self
 }
 impl Show for Graphic
+impl ToJson for Graphic
 impl @json.FromJson for Graphic
 
 pub(all) struct Group {
@@ -352,9 +352,9 @@ pub(all) struct Stroke {
   miter_limit : Double
 }
 impl Stroke {
-  clone(Self) -> Self
   new(color~ : Color = .., width~ : Double = .., alignment~ : StrokeAlignment = .., cap~ : StrokeCap = .., join~ : StrokeJoin = .., miter_limit~ : Double = ..) -> Self
 }
+impl Clonable for Stroke
 impl Eq for Stroke
 impl Show for Stroke
 impl ToJson for Stroke
@@ -479,5 +479,7 @@ impl @json.FromJson for Vec2
 // Type aliases
 
 // Traits
-trait Clonable
+pub(open) trait Clonable {
+  clone(Self) -> Self
+}
 
