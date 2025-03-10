@@ -3,6 +3,9 @@ package gmlewis/fonts/canvas
 alias @gmlewis/fonts/draw as @draw
 
 // Values
+fn from_graphic(CanvasCtx, @draw.Graphic, y_up~ : Bool = ..) -> Unit
+
+fn get_input_bytes(CanvasCtx) -> Array[Byte]
 
 // Types and methods
 type CanvasCtx

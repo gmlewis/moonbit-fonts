@@ -4,23 +4,145 @@ alias @gmlewis/fonts as @fonts
 alias @moonbitlang/core/json as @json
 
 // Values
+fn affine_transform(Anchor, AffineMatrix) -> Anchor
+
+fn affine_transform_without_translation(Anchor, AffineMatrix) -> Anchor
+
+fn all_anchors(Anchor) -> Array[Anchor]
+
+fn almost_equals(Vec2, Vec2, tolerance~ : Double = ..) -> Bool
+
+fn area(BoundingBox) -> Double
+
+fn as_fill(Color) -> Fill?
+
+fn assign_style(CompoundPath, Fill?, Stroke?) -> CompoundPath
+
 fn bbox(Double, Double, Double, Double) -> BoundingBox
+
+fn boolean_intersect(BoundingBox, Array[BoundingBox]) -> BoundingBox?
+
+fn bounding_box(Anchor) -> BoundingBox?
+
+fn canonicalize(BoundingBox) -> BoundingBox
+
+fn center(BoundingBox) -> Vec2
+
+fn clone(AffineMatrix) -> AffineMatrix
+
+fn closest_point(Anchor, Vec2, area_of_interest? : BoundingBox) -> Vec2?
+
+fn contains_bounding_box(BoundingBox, BoundingBox) -> Bool
+
+fn contains_point(BoundingBox, Vec2) -> Bool
+
+fn copy(AffineMatrix, AffineMatrix) -> AffineMatrix
+
+fn determinant(AffineMatrix) -> Double
+
+fn expand_scalar(BoundingBox, Double) -> BoundingBox
+
+fn expand_to_include_bounding_box(BoundingBox, BoundingBox) -> BoundingBox
+
+fn expand_to_include_point(BoundingBox, Vec2) -> BoundingBox
 
 fn fill(Color) -> Fill
 
 fn group(Array[Graphic]) -> Group
 
+fn has_tangent_handles(Anchor, tolerance~ : Double = ..) -> Bool
+
+fn has_zero_handles(Anchor) -> Bool
+
+fn height(BoundingBox) -> Double
+
+fn invert(AffineMatrix) -> AffineMatrix
+
+fn is_contained_by_bounding_box(Anchor, BoundingBox) -> Bool
+
+fn is_identity(AffineMatrix) -> Bool
+
+fn is_inf(AffineMatrix) -> Bool
+
+fn is_intersected_by_bounding_box(Anchor, BoundingBox) -> Bool
+
+fn is_invertible(AffineMatrix) -> Bool
+
+fn is_mirror(AffineMatrix) -> Bool
+
+fn is_nan(AffineMatrix) -> Bool
+
+fn is_orthogonal(AffineMatrix, tolerance~ : Double = ..) -> Bool
+
+fn is_overlapped_by_bounding_box(Anchor, BoundingBox) -> Bool
+
+fn is_uniform_scale(AffineMatrix, tolerance~ : Double = ..) -> Bool
+
+fn loose_bounding_box(Anchor) -> BoundingBox?
+
+fn luminance(Color) -> Double
+
+fn mix(Color, Color, Double) -> Color
+
+fn mul(AffineMatrix, AffineMatrix) -> AffineMatrix
+
+fn mul_without_translation(AffineMatrix, AffineMatrix) -> AffineMatrix
+
+fn normalize(AffineMatrix) -> AffineMatrix
+
+fn op_mul(AffineMatrix, AffineMatrix) -> AffineMatrix
+
+fn origin(AffineMatrix, Vec2) -> AffineMatrix
+
+fn overlaps_bounding_box(BoundingBox, BoundingBox) -> Bool
+
+fn pre_mul(AffineMatrix, AffineMatrix) -> AffineMatrix
+
+fn pre_mul_without_translation(AffineMatrix, AffineMatrix) -> AffineMatrix
+
+fn reverse(Anchor) -> Anchor
+
 fn rgba(Double, Double, Double, Double) -> Color
+
+fn rotate(AffineMatrix, Double) -> AffineMatrix
+
+fn scale(AffineMatrix, Vec2) -> AffineMatrix
+
+fn scale_scalar(AffineMatrix, Double) -> AffineMatrix
+
+fn set(Color, Double, Double, Double, Double) -> Color
+
+fn size(BoundingBox) -> Vec2
+
+fn skew(AffineMatrix, Double) -> AffineMatrix
 
 fn stroke(Color) -> Stroke
 
 fn text(text~ : String, font~ : @fonts.Font, align~ : TextAlign = .., size~ : Double = ..) -> Graphic!DrawError
+
+fn to_css_hex_string(Color) -> String
+
+fn to_css_rgba_string(Color) -> String
+
+fn to_css_string(Color) -> String
+
+fn to_hsva(Color) -> Array[Double]
+
+fn to_rgb8_number(Color) -> UInt
+
+fn to_transform(AffineMatrix, origin~ : Vec2 = ..) -> Transform
+
+fn transform(Anchor, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Anchor
+
+fn translate(AffineMatrix, Vec2) -> AffineMatrix
 
 fn unit_circle() -> Group
 
 fn unit_square() -> Group
 
 fn vec2(Double, Double) -> Vec2
+
+fn width(BoundingBox) -> Double
 
 // Types and methods
 pub(all) struct AffineMatrix {

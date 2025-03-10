@@ -3,15 +3,67 @@ package gmlewis/fonts
 alias @moonbitlang/core/json as @json
 
 // Values
+fn add(Rectangle, Point) -> Rectangle
+
 let all_fonts : Array[String]
 
+fn bbox(PathCmd) -> Rectangle
+
+fn bounds(Rectangle) -> (Double, Double, Double, Double)
+
+fn canon(Rectangle) -> Rectangle
+
+fn clone(Rectangle) -> Rectangle
+
+fn div(Point, Double) -> Point
+
+fn dx(Rectangle) -> Double
+
+fn dy(Rectangle) -> Double
+
+fn empty(Rectangle) -> Bool
+
+fn extend(Rectangle, Point) -> Unit
+
+fn gen_path(Font, String, anchor~ : Anchor = .., y_up~ : Bool = ..) -> Glyph!FontError
+
+fn gen_paths(Font, Array[String], anchor~ : Anchor = .., y_up~ : Bool = ..) -> Array[Glyph]!FontError
+
 fn glyph_bbox(String) -> Rectangle!FontError
+
+fn inset(Rectangle, Double) -> Rectangle
+
+fn intersect(Rectangle, Rectangle) -> Rectangle
+
+fn is_in(Point, Rectangle) -> Bool
+
+fn length(Params) -> Int
+
+fn mul(Point, Double) -> Point
+
+fn op_add(Point, Point) -> Point
+
+fn op_equal(Point, Point) -> Bool
+
+fn op_sub(Point, Point) -> Point
+
+fn overlaps(Rectangle, Rectangle) -> Bool
 
 fn pt(Double, Double) -> Point
 
 fn rect(Double, Double, Double, Double) -> Rectangle
 
+fn size(Rectangle) -> Point
+
+fn sub(Rectangle, Point) -> Rectangle
+
+fn to_glyph(Path, path_cmd_fn~ : PathCmdFn? = ..) -> Glyph
+
+fn to_string(Point) -> String
+
 fn translate_path(String, Double, Double, invert_y~ : Bool = ..) -> String!FontError
+
+fn union(Rectangle, Rectangle) -> Rectangle
 
 // Types and methods
 pub(all) enum AbsoluteCmd {
