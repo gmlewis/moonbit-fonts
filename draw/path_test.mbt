@@ -27,13 +27,7 @@ test "@draw.Path::from_points/single-point" {
 
 ///|
 test "@draw.Path::is_contained_by_bounding_box/empty_path" {
-  let path = @draw.Path::new(
-    anchors=[],
-    closed=false,
-    clear=false,
-    fill=None,
-    stroke=None,
-  )
+  let path = @draw.Path::new(anchors=[], closed=false, clear=false)
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
     max=@draw.vec2(10.0, 10.0),
@@ -47,13 +41,7 @@ test "@draw.Path::is_contained_by_bounding_box/empty_path" {
 ///|
 test "@draw.Path::is_contained_by_bounding_box/single_point_path_inside_bbox" {
   let anchor = @draw.Anchor::new(position=@draw.vec2(5.0, 5.0))
-  let path = @draw.Path::new(
-    anchors=[anchor],
-    closed=false,
-    clear=false,
-    fill=None,
-    stroke=None,
-  )
+  let path = @draw.Path::new(anchors=[anchor], closed=false, clear=false)
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),
     max=@draw.vec2(10.0, 10.0),
@@ -72,8 +60,6 @@ test "@draw.Path::is_contained_by_bounding_box/multiple_points_path_partially_in
     anchors=[anchor1, anchor2],
     closed=false,
     clear=false,
-    fill=None,
-    stroke=None,
   )
   let bbox = @draw.BoundingBox::new(
     min=@draw.vec2(0.0, 0.0),

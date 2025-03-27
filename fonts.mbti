@@ -57,7 +57,7 @@ fn size(Rectangle) -> Point
 
 fn sub(Rectangle, Point) -> Rectangle
 
-fn to_glyph(Path, path_cmd_fn~ : PathCmdFn? = ..) -> Glyph
+fn to_glyph(Path, path_cmd_fn? : PathCmdFn) -> Glyph
 
 fn to_string(Point) -> String
 
@@ -168,8 +168,8 @@ pub(all) struct Path {
 }
 impl Path {
   clone(Self) -> Self
-  from_glyph(Glyph, path_cmd_fn~ : PathCmdFn? = ..) -> Self!FontError
-  to_glyph(Self, path_cmd_fn~ : PathCmdFn? = ..) -> Glyph
+  from_glyph(Glyph, path_cmd_fn? : PathCmdFn) -> Self!FontError
+  to_glyph(Self, path_cmd_fn? : PathCmdFn) -> Glyph
 }
 impl Eq for Path
 impl Show for Path

@@ -43,10 +43,7 @@ pub(all) enum GerberLP {
 /// every `Cmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `from_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn Path::from_glyph(
-  g : Glyph,
-  path_cmd_fn~ : PathCmdFn? = None
-) -> Path!FontError {
+pub fn Path::from_glyph(g : Glyph, path_cmd_fn? : PathCmdFn) -> Path!FontError {
   let mut bbox = Rectangle::new()
   let svg_cmds = split_path!(g.d)
   let cmds = Array::new(capacity=svg_cmds.length())
@@ -89,7 +86,7 @@ pub fn Path::from_glyph(
 /// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
+pub fn to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = @buffer.new()
   let d = @buffer.new()
   let mut bbox = Rectangle::new()
@@ -109,8 +106,7 @@ pub fn to_glyph(self : Path, path_cmd_fn~ : PathCmdFn? = None) -> Glyph {
     for p in svg_cmd.p._ {
       params.push(svg_num(p))
     }
-    let params = String::concat(params, separator=" ")
-    d.write_string(params)
+    d.write_string(params.join(" "))
 
     // update bbox
     if cmd.cmd != Z {

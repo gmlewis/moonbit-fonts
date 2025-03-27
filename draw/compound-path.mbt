@@ -8,8 +8,8 @@ pub(all) struct CompoundPath {
 ///| CompoundPath::new creates a new CompoundPath.
 pub fn CompoundPath::new(
   paths~ : Array[Path] = [],
-  fill~ : Fill? = None,
-  stroke~ : Stroke? = None
+  fill? : Fill,
+  stroke? : Stroke
 ) -> CompoundPath {
   { paths, fill, stroke }
 }

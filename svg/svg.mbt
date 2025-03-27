@@ -51,7 +51,7 @@ pub fn from_graphic(g : Graphic, y_up~ : Bool = true) -> String {
       true
     }),
   )
-  let lines = String::concat(lines, separator="\n")
+  let lines = lines.join("\n")
   $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{max.x} \{max.y}">
   $|\{lines}
   #|</svg>
@@ -79,7 +79,7 @@ fn svg_d(paths : Array[Path]) -> String {
   for path in paths {
     cmds.push(svg_path(path))
   }
-  String::concat(cmds)
+  cmds.join("")
 }
 
 ///|
@@ -123,7 +123,7 @@ fn svg_path(path : Path) -> String {
     }
     cmds.push("Z")
   }
-  String::concat(cmds)
+  cmds.join("")
 }
 
 ///|
@@ -178,7 +178,7 @@ fn svg_stroke(stroke : Stroke?) -> String {
           ,
         )
       }
-      String::concat(parts, separator=" ")
+      parts.join(" ")
     }
   }
 }

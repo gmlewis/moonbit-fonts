@@ -296,7 +296,7 @@ impl CompoundPath {
   is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
   is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
   loose_bounding_box(Self) -> BoundingBox?
-  new(paths~ : Array[Path] = .., fill~ : Fill? = .., stroke~ : Stroke? = ..) -> Self
+  new(paths~ : Array[Path] = .., fill? : Fill, stroke? : Stroke) -> Self
   op_get(Self, Int) -> Path
   op_set(Self, Int, Path) -> Unit
   primitives(Self) -> Array[Graphic]
@@ -447,7 +447,7 @@ impl Path {
   is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
   is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
   loose_bounding_box(Self) -> BoundingBox?
-  new(anchors~ : Array[Anchor] = .., closed~ : Bool = .., clear~ : Bool = .., fill~ : Fill? = .., stroke~ : Stroke? = ..) -> Self
+  new(anchors~ : Array[Anchor] = .., closed~ : Bool = .., clear~ : Bool = .., fill? : Fill, stroke? : Stroke) -> Self
   op_get(Self, Int) -> Anchor
   op_set(Self, Int, Anchor) -> Unit
   primitives(Self) -> Array[Graphic]

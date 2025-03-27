@@ -123,7 +123,7 @@ fn glyph2compound_path(
           let path = Path::new(
             anchors~,
             clear=path_is_inverted,
-            fill=Some(fill(color)),
+            fill=fill(color),
           )
           paths.push(path)
           anchors = []
@@ -228,7 +228,7 @@ fn glyph2compound_path(
           anchors~,
           closed=true,
           clear=path_is_inverted,
-          fill=Some(fill(color)),
+          fill=fill(color),
         )
         paths.push(path)
         anchors = []
@@ -239,12 +239,8 @@ fn glyph2compound_path(
 
   //
   if anchors.length() > 0 {
-    let path = Path::new(
-      anchors~,
-      clear=path_is_inverted,
-      fill=Some(fill(color)),
-    )
+    let path = Path::new(anchors~, clear=path_is_inverted, fill=fill(color))
     paths.push(path)
   }
-  CompoundPath::new(paths~, fill=Some(fill(black)))
+  CompoundPath::new(paths~, fill=fill(black))
 }

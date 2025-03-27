@@ -72,11 +72,11 @@ pub fn gen_path(
       None => {
         char.write_char(c)
         match c {
-          '\x0a' => { // \n - advance line and return to far left
+          '\n' => { // advance line and return to far left
             x = 0.0
             y = y - y_scale * (self.units_per_em - self.descent)
           }
-          '\x0d' => // \r - advance line only
+          '\r' => // advance line only
             y = y - y_scale * (self.units_per_em - self.descent)
           // anything else - advance to the right by default width
           _ => x = x + self.horiz_adv_x
