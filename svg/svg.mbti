@@ -1,6 +1,8 @@
-package gmlewis/fonts/svg
+package "gmlewis/fonts/svg"
 
-alias @gmlewis/fonts/draw as @draw
+import(
+  "gmlewis/fonts/draw"
+)
 
 // Values
 fn from_graphic(@draw.Graphic, y_up~ : Bool = ..) -> String

@@ -1,6 +1,8 @@
-package gmlewis/fonts/examples/checkerboard
+package "gmlewis/fonts/examples/checkerboard"
 
-alias @gmlewis/fonts/draw as @draw
+import(
+  "gmlewis/fonts/draw"
+)
 
 // Values
 fn checkerboard() -> @draw.Graphic

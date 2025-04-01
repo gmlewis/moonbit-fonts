@@ -1,7 +1,9 @@
-package gmlewis/fonts/draw
+package "gmlewis/fonts/draw"
 
-alias @gmlewis/fonts as @fonts
-alias @moonbitlang/core/json as @json
+import(
+  "gmlewis/fonts"
+  "moonbitlang/core/json"
+)
 
 // Values
 fn affine_transform(Anchor, AffineMatrix) -> Anchor
@@ -146,12 +148,12 @@ fn width(BoundingBox) -> Double
 
 // Types and methods
 pub(all) struct AffineMatrix {
-  a : Double
-  b : Double
-  c : Double
-  d : Double
-  tx : Double
-  ty : Double
+  mut a : Double
+  mut b : Double
+  mut c : Double
+  mut d : Double
+  mut tx : Double
+  mut ty : Double
 }
 impl AffineMatrix {
   clone(Self) -> Self
@@ -191,9 +193,9 @@ impl Eq for AffineMatrix
 impl Show for AffineMatrix
 
 pub(all) struct Anchor {
-  position : Vec2
-  handle_in : Vec2
-  handle_out : Vec2
+  mut position : Vec2
+  mut handle_in : Vec2
+  mut handle_out : Vec2
 }
 impl Anchor {
   affine_transform(Self, AffineMatrix) -> Self
@@ -218,8 +220,8 @@ impl ToJson for Anchor
 impl @json.FromJson for Anchor
 
 pub(all) struct BoundingBox {
-  min : Vec2
-  max : Vec2
+  mut min : Vec2
+  mut max : Vec2
 }
 impl BoundingBox {
   area(Self) -> Double
@@ -246,10 +248,10 @@ impl Eq for BoundingBox
 impl Show for BoundingBox
 
 pub(all) struct Color {
-  r : Double
-  g : Double
-  b : Double
-  a : Double
+  mut r : Double
+  mut g : Double
+  mut b : Double
+  mut a : Double
 }
 impl Color {
   as_fill(Self) -> Fill?
@@ -273,9 +275,9 @@ impl ToJson for Color
 impl @json.FromJson for Color
 
 pub(all) struct CompoundPath {
-  paths : Array[Path]
-  fill : Fill?
-  stroke : Stroke?
+  mut paths : Array[Path]
+  mut fill : Fill?
+  mut stroke : Stroke?
 }
 impl CompoundPath {
   affine_transform(Self, AffineMatrix) -> Self
@@ -377,7 +379,7 @@ impl ToJson for Graphic
 impl @json.FromJson for Graphic
 
 pub(all) struct Group {
-  items : Array[Graphic]
+  mut items : Array[Graphic]
 }
 impl Group {
   affine_transform(Self, AffineMatrix) -> Self
@@ -422,11 +424,11 @@ impl ToJson for Group
 impl @json.FromJson for Group
 
 pub(all) struct Path {
-  anchors : Array[Anchor]
-  closed : Bool
-  clear : Bool
-  fill : Fill?
-  stroke : Stroke?
+  mut anchors : Array[Anchor]
+  mut closed : Bool
+  mut clear : Bool
+  mut fill : Fill?
+  mut stroke : Stroke?
 }
 impl Path {
   affine_transform(Self, AffineMatrix) -> Self
@@ -466,12 +468,12 @@ impl ToJson for Path
 impl @json.FromJson for Path
 
 pub(all) struct Stroke {
-  color : Color
-  width : Double
-  alignment : StrokeAlignment
-  cap : StrokeCap
-  join : StrokeJoin
-  miter_limit : Double
+  mut color : Color
+  mut width : Double
+  mut alignment : StrokeAlignment
+  mut cap : StrokeCap
+  mut join : StrokeJoin
+  mut miter_limit : Double
 }
 impl Stroke {
   new(color~ : Color = .., width~ : Double = .., alignment~ : StrokeAlignment = .., cap~ : StrokeCap = .., join~ : StrokeJoin = .., miter_limit~ : Double = ..) -> Self
@@ -534,8 +536,8 @@ impl Eq for Transform
 impl Show for Transform
 
 pub(all) struct Vec2 {
-  x : Double
-  y : Double
+  mut x : Double
+  mut y : Double
 }
 impl Vec2 {
   add(Self, Self) -> Self

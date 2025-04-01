@@ -1,6 +1,8 @@
-package gmlewis/fonts/examples/canvas-checkerboard
+package "gmlewis/fonts/examples/canvas-checkerboard"
 
-alias @gmlewis/fonts/canvas as @canvas
+import(
+  "gmlewis/fonts/canvas"
+)
 
 // Values
 fn draw(@canvas.CanvasCtx, Int, Int) -> Unit

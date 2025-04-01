@@ -1,6 +1,8 @@
-package gmlewis/fonts
+package "gmlewis/fonts"
 
-alias @moonbitlang/core/json as @json
+import(
+  "moonbitlang/core/json"
+)
 
 // Values
 fn add(Rectangle, Point) -> Rectangle
@@ -191,8 +193,8 @@ impl Show for PathCmd
 pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
 
 pub(all) struct Point {
-  x : Double
-  y : Double
+  mut x : Double
+  mut y : Double
 }
 impl Point {
   div(Self, Double) -> Self
