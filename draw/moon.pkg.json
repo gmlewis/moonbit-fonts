@@ -2,6 +2,5 @@
   "import": [
     "gmlewis/fonts",
     "yj-qin/regexp"
-  ],
-  "test-import-all": false
+  ]
 }

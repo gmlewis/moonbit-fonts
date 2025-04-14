@@ -1,4 +1,5 @@
-///| Stroke defines a stroke style.
+///|
+/// Stroke defines a stroke style.
 pub(all) struct Stroke {
   mut color : Color
   mut width : Double
@@ -29,7 +30,8 @@ pub(all) enum StrokeJoin {
   Bevel
 } derive(Show, Eq, FromJson, ToJson)
 
-///| Stroke::new returns a new stroke style.
+///|
+/// Stroke::new returns a new stroke style.
 pub fn Stroke::new(
   color~ : Color = rgba(0, 0, 0, 1),
   width~ : Double = 0.1,
@@ -41,12 +43,14 @@ pub fn Stroke::new(
   { color, width, alignment, cap, join, miter_limit }
 }
 
-///| stroke is a helper function.
+///|
+/// stroke is a helper function.
 pub fn stroke(color : Color) -> Stroke {
   Stroke::new(color~)
 }
 
-///| clone returns a new copy of this Stroke.
+///|
+/// clone returns a new copy of this Stroke.
 pub impl Clonable for Stroke with clone(self) {
   Stroke::new(
     color=self.color.clone(),

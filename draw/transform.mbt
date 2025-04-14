@@ -1,4 +1,5 @@
-///| Transform represents transform arguments.
+///|
+/// Transform represents transform arguments.
 pub(all) struct Transform {
   position : Vec2
   rotation : Double
@@ -7,7 +8,8 @@ pub(all) struct Transform {
   origin : Vec2
 } derive(Show, Eq)
 
-///| Transform::new returns a new identity transform.
+///|
+/// Transform::new returns a new identity transform.
 pub fn Transform::new(
   position~ : Vec2 = vec2(0, 0),
   rotation~ : Double = 0,

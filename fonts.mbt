@@ -1,4 +1,5 @@
-///| `Font` represents an entire font.
+///|
+/// `Font` represents an entire font.
 pub(all) struct Font {
   id : String
   horiz_adv_x : Double

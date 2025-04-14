@@ -1,4 +1,5 @@
-///| `translate_path` translates (moves) an SVG path by the provided offsets.
+///|
+/// `translate_path` translates (moves) an SVG path by the provided offsets.
 /// If `invert_y` is true, all `y` values are scaled by -1.
 pub fn translate_path(
   d : String,

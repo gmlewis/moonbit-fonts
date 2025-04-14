@@ -8,7 +8,8 @@ pub(all) enum TextAlign {
   Right
 } derive(Show, Eq)
 
-///| text generates a new Graphic (a Group of Group of compound_paths) from a text
+///|
+/// text generates a new Graphic (a Group of Group of compound_paths) from a text
 /// string and a font.
 pub fn text(
   text~ : String,

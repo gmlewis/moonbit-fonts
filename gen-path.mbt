@@ -1,4 +1,5 @@
-///| `gen_path` "renders" the provided text string into an SVG path
+///|
+/// `gen_path` "renders" the provided text string into an SVG path
 /// using the provided font information. It performs the necessary
 /// path translations in order to combine the individual glyphs into
 /// a "super glyph" that can be rendered as a whole.

@@ -1,4 +1,5 @@
-///| `gen_paths` handles multiple strings independently so that they
+///|
+/// `gen_paths` handles multiple strings independently so that they
 /// can be aligned and distributed more flexibly.
 pub fn gen_paths(
   self : Font,

@@ -1,11 +1,13 @@
-///| CompoundPath represents one or more paths that typically make up a font glyph.
+///|
+/// CompoundPath represents one or more paths that typically make up a font glyph.
 pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
 } derive(Show, FromJson, ToJson)
 
-///| CompoundPath::new creates a new CompoundPath.
+///|
+/// CompoundPath::new creates a new CompoundPath.
 pub fn CompoundPath::new(
   paths~ : Array[Path] = [],
   fill? : Fill,
@@ -14,17 +16,20 @@ pub fn CompoundPath::new(
   { paths, fill, stroke }
 }
 
-///| as_graphic returns a CompoundPath as a Graphic.
+///|
+/// as_graphic returns a CompoundPath as a Graphic.
 pub fn CompoundPath::as_graphic(self : CompoundPath) -> Graphic {
   CompoundPath(self)
 }
 
-///| op_get is a convenience function.
+///|
+/// op_get is a convenience function.
 pub fn CompoundPath::op_get(self : CompoundPath, index : Int) -> Path {
   self.paths[index]
 }
 
-///| op_set is a convenience function.
+///|
+/// op_set is a convenience function.
 pub fn CompoundPath::op_set(
   self : CompoundPath,
   index : Int,
@@ -33,7 +38,8 @@ pub fn CompoundPath::op_set(
   self.paths[index] = path
 }
 
-///| clone makes a new copy of this CompoundPath.
+///|
+/// clone makes a new copy of this CompoundPath.
 pub fn CompoundPath::clone(self : CompoundPath) -> CompoundPath {
   let paths = self.paths.map(fn(path) { path.clone() })
   let fill = clone_option(self.fill)
@@ -41,7 +47,8 @@ pub fn CompoundPath::clone(self : CompoundPath) -> CompoundPath {
   { paths, fill, stroke }
 }
 
-///| affine_transform transforms this CompoundPath by `affine_matrix`.
+///|
+/// affine_transform transforms this CompoundPath by `affine_matrix`.
 pub fn CompoundPath::affine_transform(
   self : CompoundPath,
   affine_matrix : AffineMatrix
@@ -52,7 +59,8 @@ pub fn CompoundPath::affine_transform(
   self
 }
 
-///| affine_transform_without_translation transforms this CompoundPath by `affine_matrix`
+///|
+/// affine_transform_without_translation transforms this CompoundPath by `affine_matrix`
 /// without affecting translation.
 pub fn CompoundPath::affine_transform_without_translation(
   self : CompoundPath,
@@ -64,7 +72,8 @@ pub fn CompoundPath::affine_transform_without_translation(
   self
 }
 
-///| transform provides a convenient API for a common task.
+///|
+/// transform provides a convenient API for a common task.
 pub fn CompoundPath::transform(
   self : CompoundPath,
   position~ : Vec2 = vec2(0, 0),
@@ -79,7 +88,8 @@ pub fn CompoundPath::transform(
   self.affine_transform(affine_matrix)
 }
 
-///| assign_fill assigns a fill to this CompoundPath.
+///|
+/// assign_fill assigns a fill to this CompoundPath.
 pub fn CompoundPath::assign_fill(
   self : CompoundPath,
   fill : Fill?
@@ -88,7 +98,8 @@ pub fn CompoundPath::assign_fill(
   self
 }
 
-///| assign_stroke assigns a stroke to this CompoundPath.
+///|
+/// assign_stroke assigns a stroke to this CompoundPath.
 pub fn CompoundPath::assign_stroke(
   self : CompoundPath,
   stroke : Stroke?
@@ -97,7 +108,8 @@ pub fn CompoundPath::assign_stroke(
   self
 }
 
-///| assign_style assigns a stroke and fill style to this CompoundPath.
+///|
+/// assign_style assigns a stroke and fill style to this CompoundPath.
 pub fn assign_style(
   self : CompoundPath,
   fill : Fill?,
@@ -108,7 +120,8 @@ pub fn assign_style(
   self
 }
 
-///| bounding_box returns the smallest axis-aligned bounding box that contains
+///|
+/// bounding_box returns the smallest axis-aligned bounding box that contains
 /// this CompoundPath or None.
 pub fn CompoundPath::bounding_box(self : CompoundPath) -> BoundingBox? {
   let result = BoundingBox::max_reversed()
@@ -126,7 +139,8 @@ pub fn CompoundPath::bounding_box(self : CompoundPath) -> BoundingBox? {
   }
 }
 
-///| closest_point returns the closest point to `point` that lies on this CompoundPath or None.
+///|
+/// closest_point returns the closest point to `point` that lies on this CompoundPath or None.
 pub fn CompoundPath::closest_point(
   self : CompoundPath,
   point : Vec2,
@@ -163,7 +177,8 @@ pub fn CompoundPath::closest_point(
 // ) -> Anchor? {
 // }
 
-///| contains_point returns true if this CompoundPath contains `point`.
+///|
+/// contains_point returns true if this CompoundPath contains `point`.
 pub fn CompoundPath::contains_point(
   _self : CompoundPath,
   _point : Vec2
@@ -171,7 +186,8 @@ pub fn CompoundPath::contains_point(
   false // TODO
 }
 
-///| copy_style copies the fill and stroke from `graphic`.
+///|
+/// copy_style copies the fill and stroke from `graphic`.
 pub fn CompoundPath::copy_style(
   self : CompoundPath,
   graphic : Graphic
@@ -181,7 +197,8 @@ pub fn CompoundPath::copy_style(
   self
 }
 
-///| first_styled returns this CompoundPath if it is styled or None.
+///|
+/// first_styled returns this CompoundPath if it is styled or None.
 pub fn CompoundPath::first_styled(self : CompoundPath) -> Graphic? {
   if self.has_style() {
     Some(CompoundPath(self))
@@ -190,12 +207,14 @@ pub fn CompoundPath::first_styled(self : CompoundPath) -> Graphic? {
   }
 }
 
-///| has_style returns true if this CompoundPath has fill or stroke.
+///|
+/// has_style returns true if this CompoundPath has fill or stroke.
 pub fn CompoundPath::has_style(self : CompoundPath) -> Bool {
   self.fill != None || self.stroke != None
 }
 
-///| is_contained_by_bounding_box returns true if no part of this CompoundPath
+///|
+/// is_contained_by_bounding_box returns true if no part of this CompoundPath
 /// lies beyond its min or max.
 pub fn CompoundPath::is_contained_by_bounding_box(
   self : CompoundPath,
@@ -209,7 +228,8 @@ pub fn CompoundPath::is_contained_by_bounding_box(
   bbox.contains_bounding_box(box)
 }
 
-///| is_intersected_by_bounding_box returns true if part of this CompoundPath crosses
+///|
+/// is_intersected_by_bounding_box returns true if part of this CompoundPath crosses
 /// the boundary between inside and outside of `box`.
 pub fn CompoundPath::is_intersected_by_bounding_box(
   _self : CompoundPath,
@@ -243,7 +263,8 @@ pub fn CompoundPath::is_intersected_by_bounding_box(
   // 0
 }
 
-///| is_overlapped_by_bounding_box returns if true if a point can be chosen
+///|
+/// is_overlapped_by_bounding_box returns if true if a point can be chosen
 /// that is inside both the CompoundPath and `box`.
 pub fn CompoundPath::is_overlapped_by_bounding_box(
   self : CompoundPath,
@@ -253,7 +274,8 @@ pub fn CompoundPath::is_overlapped_by_bounding_box(
   self.is_intersected_by_bounding_box(box)
 }
 
-///| loose_bounding_box returns an approximate bounding box for this CompoundPath.
+///|
+/// loose_bounding_box returns an approximate bounding box for this CompoundPath.
 /// It may not be the smallest possible bounding box, but is cheaper to compute.
 pub fn CompoundPath::loose_bounding_box(self : CompoundPath) -> BoundingBox? {
   let result = BoundingBox::max_reversed()
@@ -271,24 +293,28 @@ pub fn CompoundPath::loose_bounding_box(self : CompoundPath) -> BoundingBox? {
   }
 }
 
-///| primitives returns a flattened array of Graphics primitives.
+///|
+/// primitives returns a flattened array of Graphics primitives.
 pub fn CompoundPath::primitives(self : CompoundPath) -> Array[Graphic] {
   [CompoundPath(self)]
 }
 
-///| remove_fill removes fill styling from this CompoundPath.
+///|
+/// remove_fill removes fill styling from this CompoundPath.
 pub fn CompoundPath::remove_fill(self : CompoundPath) -> CompoundPath {
   self.fill = None
   self
 }
 
-///| remove_stroke removes stroke styling from this CompoundPath.
+///|
+/// remove_stroke removes stroke styling from this CompoundPath.
 pub fn CompoundPath::remove_stroke(self : CompoundPath) -> CompoundPath {
   self.stroke = None
   self
 }
 
-///| reverse reverses this CompoundPath.
+///|
+/// reverse reverses this CompoundPath.
 pub fn CompoundPath::reverse(self : CompoundPath) -> CompoundPath {
   for path in self.paths {
     ignore(path.reverse())
@@ -297,7 +323,8 @@ pub fn CompoundPath::reverse(self : CompoundPath) -> CompoundPath {
   self
 }
 
-///| scale_stroke scales the width of this stroke by `scale_factor`.
+///|
+/// scale_stroke scales the width of this stroke by `scale_factor`.
 pub fn CompoundPath::scale_stroke(
   self : CompoundPath,
   scale_factor : Double
@@ -309,7 +336,8 @@ pub fn CompoundPath::scale_stroke(
   self
 }
 
-///| style_contains_point returns true if this path's style contains `point`.
+///|
+/// style_contains_point returns true if this path's style contains `point`.
 pub fn CompoundPath::style_contains_point(
   _self : CompoundPath,
   _point : Vec2
@@ -318,24 +346,28 @@ pub fn CompoundPath::style_contains_point(
   false
 }
 
-///| all_anchors returns a flattened array of all anchors in this CompoundPath.
+///|
+/// all_anchors returns a flattened array of all anchors in this CompoundPath.
 pub fn CompoundPath::all_anchors(self : CompoundPath) -> Array[Anchor] {
   self.paths.iter().flat_map(fn(path) { path.anchors.iter() }).collect()
 }
 
-///| translate translates a CompoundPath by `v`.
+///|
+/// translate translates a CompoundPath by `v`.
 pub fn CompoundPath::translate(self : CompoundPath, v : Vec2) -> CompoundPath {
   let affine_matrix = AffineMatrix::from_translation(v)
   self.affine_transform(affine_matrix)
 }
 
-///| scale scales a CompoundPath by `v`.
+///|
+/// scale scales a CompoundPath by `v`.
 pub fn CompoundPath::scale(self : CompoundPath, v : Vec2) -> CompoundPath {
   let affine_matrix = AffineMatrix::from_scale(v)
   self.affine_transform(affine_matrix)
 }
 
-///| rotate rotates a CompoundPath clockwise by `angle` in degrees.
+///|
+/// rotate rotates a CompoundPath clockwise by `angle` in degrees.
 pub fn CompoundPath::rotate(
   self : CompoundPath,
   angle : Double

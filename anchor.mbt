@@ -1,4 +1,5 @@
-///| Anchor represents where to place the origin (0,0) of the glyph relative
+///|
+/// Anchor represents where to place the origin (0,0) of the glyph relative
 /// to its minimum bounding box.
 pub(all) enum Anchor {
   /// Unchanged means that the SVG path will not be translated.

@@ -1,4 +1,5 @@
-///| `Glyph` represents a single glyph within each `Font` and also represents
+///|
+/// `Glyph` represents a single glyph within each `Font` and also represents
 /// multiple glyphs combined together (for example after using `Font.gen_path`
 /// and switching back and forth between `Glyphs` which are optimized for storage,
 /// and `Paths` which are optimized for processing).
