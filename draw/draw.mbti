@@ -577,11 +577,6 @@ impl Vec2 {
   negate(Self) -> Self
   new(x~ : Double = .., y~ : Double = ..) -> Self
   normalize(Self) -> Self
-  op_add(Self, Self) -> Self
-  op_div(Self, Self) -> Self
-  op_mul(Self, Self) -> Self
-  op_neg(Self) -> Self
-  op_sub(Self, Self) -> Self
   project_onto(Self, Self) -> Self
   rotate(Self, Double) -> Self
   rotate90(Self) -> Self
@@ -595,8 +590,13 @@ impl Vec2 {
   sub_scalar(Self, Double) -> Self
   transform(Self, position~ : Self = .., rotation~ : Double = .., scale~ : Self = .., skew~ : Double = .., origin~ : Self = ..) -> Self
 }
+impl Add for Vec2
+impl Div for Vec2
 impl Eq for Vec2
+impl Mul for Vec2
+impl Neg for Vec2
 impl Show for Vec2
+impl Sub for Vec2
 impl ToJson for Vec2
 impl @json.FromJson for Vec2
 

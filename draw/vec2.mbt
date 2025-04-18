@@ -130,7 +130,7 @@ pub fn Vec2::add(self : Vec2, v : Vec2) -> Vec2 {
 ///|
 /// op_add adds vector `other` to this vector without modifying either one
 /// and returns the result.
-pub fn Vec2::op_add(self : Vec2, other : Vec2) -> Vec2 {
+pub impl Add for Vec2 with op_add(self, other) {
   self.clone().add(other)
 }
 
@@ -153,7 +153,7 @@ pub fn Vec2::sub(self : Vec2, v : Vec2) -> Vec2 {
 ///|
 /// op_sub subtracts vector `other` from this vector without modifying either one
 /// and returns the result.
-pub fn Vec2::op_sub(self : Vec2, other : Vec2) -> Vec2 {
+pub impl Sub for Vec2 with op_sub(self, other) {
   self.clone().sub(other)
 }
 
@@ -176,7 +176,7 @@ pub fn Vec2::mul(self : Vec2, v : Vec2) -> Vec2 {
 ///|
 /// op_mul multiplies vector `other` to this vector without modifying either one
 /// and returns the result.
-pub fn Vec2::op_mul(self : Vec2, other : Vec2) -> Vec2 {
+pub impl Mul for Vec2 with op_mul(self, other) {
   self.clone().mul(other)
 }
 
@@ -199,7 +199,7 @@ pub fn Vec2::div(self : Vec2, v : Vec2) -> Vec2 {
 ///|
 /// op_div divides this vector by vector `other` without modifying either one
 /// and returns the result.
-pub fn Vec2::op_div(self : Vec2, other : Vec2) -> Vec2 {
+pub impl Div for Vec2 with op_div(self, other) {
   self.clone().div(other)
 }
 
@@ -221,7 +221,7 @@ pub fn Vec2::negate(self : Vec2) -> Vec2 {
 
 ///|
 /// op_neg returns a negated copy of Vec2.
-pub fn Vec2::op_neg(self : Vec2) -> Vec2 {
+pub impl Neg for Vec2 with op_neg(self) {
   { x: -self.x, y: -self.y }
 }
 
