@@ -81,7 +81,7 @@ fn parse_params(s : String) -> Array[Double] {
   .split(" ")
   .map(fn(s) {
     try {
-      @strconv.parse_double!(s)
+      @strconv.parse_double!(s.to_string())
     } catch {
       _ => 0.0
     }
