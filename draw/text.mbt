@@ -23,7 +23,7 @@ pub fn text(
   let mut y = 0.0
   let compound_paths : Array[Graphic] = []
   for c in text {
-    let glyph = font.glyphs[c.to_string()]
+    let glyph = font.glyphs.get(c.to_string())
     if glyph != None {
       let glyph = glyph.unwrap()
       // console.log(`GML: glyph=${JSON.stringify(glyph)}`)

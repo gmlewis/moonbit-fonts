@@ -94,7 +94,7 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
 /// Color::from_css_string returns a color from a CSS string.
 pub fn Color::from_css_string(css_string : String) -> Color!Error {
   let css_string = css_string.trim(" ").to_lower().to_string()
-  match css_colors[css_string] {
+  match css_colors.get(css_string) {
     Some([r, g, b]) => return css_color(r, g, b)
     _ => ()
   }
