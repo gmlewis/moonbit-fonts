@@ -54,7 +54,7 @@ pub(open) trait Clonable {
 }
 
 ///|
-fn clone_option[T : Clonable](v : T?) -> T? {
+fn[T : Clonable] clone_option(v : T?) -> T? {
   v.map_or(None, fn(v) { Some(v.clone()) })
 }
 

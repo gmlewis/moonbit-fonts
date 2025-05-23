@@ -20,9 +20,7 @@ fn parse_params(d : String) -> Params!FontError {
     match match_result.captures() {
       [m, num] => {
         d = d.substring(start=m.length())
-        let n = try {
-          @strconv.parse_double!(num)
-        } catch {
+        let n = try @strconv.parse_double!(num) catch {
           _ => raise FontError("parse_params: unable to parse double: \{num}")
         }
         params.push(n)

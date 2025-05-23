@@ -258,7 +258,7 @@ pub fn to_css_hex_string(self : Color) -> String {
 }
 
 ///|
-fn clamp[T : Compare](v : T, min : T, max : T) -> T {
+fn[T : Compare] clamp(v : T, min : T, max : T) -> T {
   if v < min {
     min
   } else if v > max {
