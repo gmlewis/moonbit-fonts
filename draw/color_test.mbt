@@ -194,19 +194,19 @@ test "@draw.Color::mix/t_one" {
 ///|
 test "@draw.luminance/zero_color" {
   let color = @draw.rgba(0.0, 0.0, 0.0, 1.0)
-  inspect!(@draw.luminance(color), content="0")
+  inspect!(color.luminance(), content="0")
 }
 
 ///|
 test "@draw.luminance/one_color" {
   let color = @draw.rgba(1.0, 1.0, 1.0, 1.0)
-  inspect!(@draw.luminance(color), content="1")
+  inspect!(color.luminance(), content="1")
 }
 
 ///|
 test "@draw.luminance/mixed_color" {
   let color = @draw.rgba(0.5, 0.2, 0.7, 1.0)
-  inspect!(@draw.luminance(color), content="0.29988")
+  inspect!(color.luminance(), content="0.29988")
 }
 
 ///|
@@ -333,19 +333,19 @@ test "@draw.Color::to_rgb8_number/primary-colors" {
 
 ///|
 test "@draw/to_rgb8_number/basic_case" {
-  let result = @draw.to_rgb8_number(@draw.rgba(1.0, 0.5, 0.0, 1.0))
+  let result = @draw.rgba(1.0, 0.5, 0.0, 1.0).to_rgb8_number()
   inspect!(result, content="16744448") // Expected: 0xff7f00 which is 16744192 in decimal
 }
 
 ///|
 test "@draw/to_rgb8_number/lower_boundaries" {
-  let result = @draw.to_rgb8_number(@draw.rgba(0.0, 0.0, 0.0, 1.0))
+  let result = @draw.rgba(0.0, 0.0, 0.0, 1.0).to_rgb8_number()
   inspect!(result, content="0") // Expected: 0x000000 which is 0 in decimal
 }
 
 ///|
 test "@draw/to_rgb8_number/upper_boundaries" {
-  let result = @draw.to_rgb8_number(@draw.rgba(1.0, 1.0, 1.0, 1.0))
+  let result = @draw.rgba(1.0, 1.0, 1.0, 1.0).to_rgb8_number()
   inspect!(result, content="16777215") // Expected: 0xffffff which is 16777215 in decimal
 }
 

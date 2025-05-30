@@ -593,23 +593,23 @@ test "@draw.overlaps_bounding_box/partial-overlap" {
 test "@draw.BoundingBox::overlaps_bounding_box/basic-functionality" {
   let bbox1 = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(5, 5))
   let bbox2 = @draw.BoundingBox::new(min=@draw.vec2(3, 3), max=@draw.vec2(7, 7))
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox2), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox2), content="false")
   let bbox3 = @draw.BoundingBox::new(min=@draw.vec2(7, 7), max=@draw.vec2(9, 9))
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox3), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox3), content="false")
 }
 
 ///|
 test "@draw.BoundingBox::overlaps_bounding_box/edge-cases" {
   let bbox1 = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(5, 5))
   let bbox2 = @draw.BoundingBox::new(min=@draw.vec2(5, 5), max=@draw.vec2(5, 5))
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox2), content="true")
+  inspect!(bbox1.overlaps_bounding_box(bbox2), content="true")
   let bbox3 = @draw.BoundingBox::new(min=@draw.vec2(6, 6), max=@draw.vec2(6, 6))
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox3), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox3), content="false")
   let bbox4 = @draw.BoundingBox::new(
     min=@draw.vec2(-1, -1),
     max=@draw.vec2(1, 1),
   )
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox4), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox4), content="false")
 }
 
 ///|
@@ -622,12 +622,12 @@ test "@draw.BoundingBox::overlaps_bounding_box/negative-coordinates" {
     min=@draw.vec2(-3, -3),
     max=@draw.vec2(2, 2),
   )
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox2), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox2), content="false")
   let bbox3 = @draw.BoundingBox::new(
     min=@draw.vec2(-6, -6),
     max=@draw.vec2(-5, -5),
   )
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox3), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox3), content="false")
   let bbox4 = @draw.BoundingBox::new(min=@draw.vec2(1, 1), max=@draw.vec2(2, 2))
-  inspect!(@draw.overlaps_bounding_box(bbox1, bbox4), content="false")
+  inspect!(bbox1.overlaps_bounding_box(bbox4), content="false")
 }

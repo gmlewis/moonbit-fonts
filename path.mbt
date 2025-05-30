@@ -55,7 +55,8 @@ pub fn Path::from_glyph(g : Glyph, path_cmd_fn? : PathCmdFn) -> Path!FontError {
   let mut gerber_lp = Dark
   for index, svg_cmd in svg_cmds {
     if svg_cmd.c == "M" {
-      gerber_lp = match g.gerber_lp[gerber_index] {
+      gerber_lp = match
+        g.gerber_lp.unsafe_charcode_at(gerber_index).to_char().unwrap() {
         'd' => Dark
         'c' => Clear
         c => raise FontError("Path::from_glyph: unsupported GerberLP '\{c}'")

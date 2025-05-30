@@ -109,10 +109,8 @@ pub(all) struct Font {
   descent : Double
   glyphs : Map[String, Glyph]
 }
-impl Font {
-  gen_path(Self, String, anchor~ : Anchor = .., y_up~ : Bool = ..) -> Glyph!FontError
-  gen_paths(Self, Array[String], anchor~ : Anchor = .., y_up~ : Bool = ..) -> Array[Glyph]!FontError
-}
+fn Font::gen_path(Self, String, anchor~ : Anchor = .., y_up~ : Bool = ..) -> Glyph!FontError
+fn Font::gen_paths(Self, Array[String], anchor~ : Anchor = .., y_up~ : Bool = ..) -> Array[Glyph]!FontError
 impl Eq for Font
 impl Show for Font
 impl ToJson for Font
@@ -148,15 +146,11 @@ pub(all) struct ParamPair {
   x : Double
   y : Double
 }
-impl ParamPair {
-  to_string(Self) -> String
-}
+fn ParamPair::to_string(Self) -> String
 impl Eq for ParamPair
 
 type Params
-impl Params {
-  length(Self) -> Int
-}
+fn Params::length(Self) -> Int
 impl Eq for Params
 impl Show for Params
 
@@ -168,11 +162,9 @@ pub(all) struct Path {
   xmax : Double
   ymax : Double
 }
-impl Path {
-  clone(Self) -> Self
-  from_glyph(Glyph, path_cmd_fn? : PathCmdFn) -> Self!FontError
-  to_glyph(Self, path_cmd_fn? : PathCmdFn) -> Glyph
-}
+fn Path::clone(Self) -> Self
+fn Path::from_glyph(Glyph, path_cmd_fn? : PathCmdFn) -> Self!FontError
+fn Path::to_glyph(Self, path_cmd_fn? : PathCmdFn) -> Glyph
 impl Eq for Path
 impl Show for Path
 
@@ -181,12 +173,10 @@ pub(all) struct PathCmd {
   gerber_lp : GerberLP
   params : Array[ParamPair]
 }
-impl PathCmd {
-  bbox(Self) -> Rectangle
-  clone(Self) -> Self
-  from_svg_cmd(Cmd, GerberLP) -> Self!FontError
-  to_svg_cmd(Self) -> (Cmd, String)
-}
+fn PathCmd::bbox(Self) -> Rectangle
+fn PathCmd::clone(Self) -> Self
+fn PathCmd::from_svg_cmd(Cmd, GerberLP) -> Self!FontError
+fn PathCmd::to_svg_cmd(Self) -> (Cmd, String)
 impl Eq for PathCmd
 impl Show for PathCmd
 
@@ -196,15 +186,13 @@ pub(all) struct Point {
   mut x : Double
   mut y : Double
 }
-impl Point {
-  div(Self, Double) -> Self
-  is_in(Self, Rectangle) -> Bool
-  mul(Self, Double) -> Self
-  op_add(Self, Self) -> Self
-  op_equal(Self, Self) -> Bool
-  op_sub(Self, Self) -> Self
-  to_string(Self) -> String
-}
+fn Point::div(Self, Double) -> Self
+fn Point::is_in(Self, Rectangle) -> Bool
+fn Point::mul(Self, Double) -> Self
+fn Point::op_add(Self, Self) -> Self
+fn Point::op_equal(Self, Self) -> Bool
+fn Point::op_sub(Self, Self) -> Self
+fn Point::to_string(Self) -> String
 impl Eq for Point
 impl Show for Point
 
@@ -212,26 +200,24 @@ pub(all) struct Rectangle {
   min : Point
   max : Point
 }
-impl Rectangle {
-  add(Self, Point) -> Self
-  bounds(Self) -> (Double, Double, Double, Double)
-  canon(Self) -> Self
-  clone(Self) -> Self
-  dx(Self) -> Double
-  dy(Self) -> Double
-  empty(Self) -> Bool
-  extend(Self, Point) -> Unit
-  inset(Self, Double) -> Self
-  intersect(Self, Self) -> Self
-  is_in(Self, Self) -> Bool
-  new() -> Self
-  op_equal(Self, Self) -> Bool
-  overlaps(Self, Self) -> Bool
-  size(Self) -> Point
-  sub(Self, Point) -> Self
-  to_string(Self) -> String
-  union(Self, Self) -> Self
-}
+fn Rectangle::add(Self, Point) -> Self
+fn Rectangle::bounds(Self) -> (Double, Double, Double, Double)
+fn Rectangle::canon(Self) -> Self
+fn Rectangle::clone(Self) -> Self
+fn Rectangle::dx(Self) -> Double
+fn Rectangle::dy(Self) -> Double
+fn Rectangle::empty(Self) -> Bool
+fn Rectangle::extend(Self, Point) -> Unit
+fn Rectangle::inset(Self, Double) -> Self
+fn Rectangle::intersect(Self, Self) -> Self
+fn Rectangle::is_in(Self, Self) -> Bool
+fn Rectangle::new() -> Self
+fn Rectangle::op_equal(Self, Self) -> Bool
+fn Rectangle::overlaps(Self, Self) -> Bool
+fn Rectangle::size(Self) -> Point
+fn Rectangle::sub(Self, Point) -> Self
+fn Rectangle::to_string(Self) -> String
+fn Rectangle::union(Self, Self) -> Self
 impl Eq for Rectangle
 impl Show for Rectangle
 

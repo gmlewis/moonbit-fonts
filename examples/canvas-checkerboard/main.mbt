@@ -8,7 +8,7 @@ pub fn draw(ctx : @canvas.CanvasCtx, width : Int, height : Int) -> Unit {
     vec2(width.to_double(), height.to_double()),
   ])
   let b = @checkerboard.checkerboard().fit_to(box)
-  @canvas.from_graphic(ctx, b)
+  ctx.from_graphic(b)
 }
 
 ///|

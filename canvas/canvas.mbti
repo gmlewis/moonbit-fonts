@@ -11,10 +11,8 @@ fn get_input_bytes(CanvasCtx) -> Array[Byte]
 
 // Types and methods
 type CanvasCtx
-impl CanvasCtx {
-  from_graphic(Self, @draw.Graphic, y_up~ : Bool = ..) -> Unit
-  get_input_bytes(Self) -> Array[Byte]
-}
+fn CanvasCtx::from_graphic(Self, @draw.Graphic, y_up~ : Bool = ..) -> Unit
+fn CanvasCtx::get_input_bytes(Self) -> Array[Byte]
 
 // Type aliases
 

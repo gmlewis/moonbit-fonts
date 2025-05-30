@@ -98,7 +98,7 @@ fn glyph2compound_path(
 ) -> CompoundPath!DrawError {
   let paths = []
   let mut anchors = []
-  if gerber_lp[0] != 'd' {
+  if gerber_lp.unsafe_charcode_at(0).to_char() != Some('d') {
     raise DrawError(
       "glyph2compound_path: unexpected gerber_lp='\{gerber_lp}' does not start with 'd'",
     )
@@ -127,10 +127,11 @@ fn glyph2compound_path(
           paths.push(path)
           anchors = []
         }
-        if gerber_lp[gerber_index] == 'd' {
+        if gerber_lp.unsafe_charcode_at(gerber_index).to_char() == Some('d') {
           color = rgba(0, 0, 0, 1)
           path_is_inverted = false
-        } else if gerber_lp[gerber_index] == 'c' {
+        } else if gerber_lp.unsafe_charcode_at(gerber_index).to_char() ==
+          Some('c') {
           color = rgba(1, 1, 1, 1)
           path_is_inverted = true
         } else {

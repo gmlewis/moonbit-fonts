@@ -100,21 +100,35 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
   }
 
   //
-  if '#' == css_string[0] {
+  if Some('#') == css_string.unsafe_charcode_at(0).to_char() {
     match css_string.length() {
       4 =>
         return rgba(
-          parse_hex_hex!(css_string[1].to_string()),
-          parse_hex_hex!(css_string[2].to_string()),
-          parse_hex_hex!(css_string[3].to_string()),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(1).to_char().unwrap().to_string(),
+          ),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(2).to_char().unwrap().to_string(),
+          ),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(3).to_char().unwrap().to_string(),
+          ),
           1,
         )
       5 =>
         return rgba(
-          parse_hex_hex!(css_string[1].to_string()),
-          parse_hex_hex!(css_string[2].to_string()),
-          parse_hex_hex!(css_string[3].to_string()),
-          parse_hex_hex!(css_string[4].to_string()),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(1).to_char().unwrap().to_string(),
+          ),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(2).to_char().unwrap().to_string(),
+          ),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(3).to_char().unwrap().to_string(),
+          ),
+          parse_hex_hex!(
+            css_string.unsafe_charcode_at(4).to_char().unwrap().to_string(),
+          ),
         )
       7 =>
         return rgba(

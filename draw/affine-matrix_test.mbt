@@ -224,7 +224,7 @@ test "@draw.AffineMatrix::clone/NaN_values" {
 ///|
 test "@draw.AffineMatrix::invert/basic" {
   let matrix = @draw.AffineMatrix::new(a=2, b=0, c=0, d=2, tx=1, ty=1)
-  let inverted_matrix = @draw.invert(matrix)
+  let inverted_matrix = matrix.invert()
   inspect!(
     inverted_matrix,
     content="{a: 0.5, b: 0, c: 0, d: 0.5, tx: -0.5, ty: -0.5}",
@@ -234,7 +234,7 @@ test "@draw.AffineMatrix::invert/basic" {
 ///|
 test "@draw.AffineMatrix::invert/identity" {
   let identity_matrix = @draw.AffineMatrix::new()
-  let inverted_identity = @draw.invert(identity_matrix)
+  let inverted_identity = identity_matrix.invert()
   inspect!(inverted_identity, content="{a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0}")
 }
 
@@ -248,7 +248,7 @@ test "@draw.AffineMatrix::invert/non_invertible_matrix" {
     tx=1,
     ty=1,
   )
-  ignore(@draw.invert(non_invertible_matrix))
+  ignore(non_invertible_matrix.invert())
 }
 
 ///|
@@ -518,7 +518,7 @@ test "AffineMatrix::skew/negative-angle" {
 ///|
 test "@draw.skew/zero_angle" {
   let matrix = @draw.AffineMatrix::new(a=1, b=2, c=3, d=4, tx=5, ty=6)
-  let result = @draw.skew(matrix, 0)
+  let result = matrix.skew(0)
   inspect!(result.c, content="3")
   inspect!(result.d, content="4")
 }
@@ -526,7 +526,7 @@ test "@draw.skew/zero_angle" {
 ///|
 test "@draw.skew/positive_angle" {
   let matrix = @draw.AffineMatrix::new(a=1, b=2, c=0, d=0, tx=5, ty=6)
-  let result = @draw.skew(matrix, 45)
+  let result = matrix.skew(45)
   inspect!(result.c, content="0.9999999999999999")
   inspect!(result.d, content="1.9999999999999998")
 }
@@ -534,7 +534,7 @@ test "@draw.skew/positive_angle" {
 ///|
 test "@draw.skew/negative_angle" {
   let matrix = @draw.AffineMatrix::new(a=1, b=2, c=0, d=0, tx=5, ty=6)
-  let result = @draw.skew(matrix, -45)
+  let result = matrix.skew(-45)
   inspect!(result.c, content="-0.9999999999999999")
   inspect!(result.d, content="-1.9999999999999998")
 }
@@ -579,7 +579,7 @@ test "@draw.scale/non_uniform" {
 test "@draw.scale_scalar" {
   // Test simple scaling case
   let matrix = AffineMatrix::new(a=1, b=2, c=3, d=4, tx=5, ty=6)
-  let scaled_matrix = @draw.scale_scalar(matrix, 2.0)
+  let scaled_matrix = matrix.scale_scalar(2.0)
   assert_eq!(scaled_matrix.a, 2)
   assert_eq!(scaled_matrix.b, 4)
   assert_eq!(scaled_matrix.c, 6)
@@ -587,7 +587,7 @@ test "@draw.scale_scalar" {
 
   // Test scaling by zero
   let matrix_zero = AffineMatrix::new(a=1, b=2, c=3, d=4, tx=5, ty=6)
-  let scaled_zero_matrix = @draw.scale_scalar(matrix_zero, 0.0)
+  let scaled_zero_matrix = matrix_zero.scale_scalar(0.0)
   assert_eq!(scaled_zero_matrix.a, 0)
   assert_eq!(scaled_zero_matrix.b, 0)
   assert_eq!(scaled_zero_matrix.c, 0)
@@ -595,7 +595,7 @@ test "@draw.scale_scalar" {
 
   // Test scaling by negative number
   let matrix_negative = AffineMatrix::new(a=1, b=2, c=3, d=4, tx=5, ty=6)
-  let scaled_negative_matrix = @draw.scale_scalar(matrix_negative, -1.5)
+  let scaled_negative_matrix = matrix_negative.scale_scalar(-1.5)
   assert_eq!(scaled_negative_matrix.a, -1.5)
   assert_eq!(scaled_negative_matrix.b, -3.0)
   assert_eq!(scaled_negative_matrix.c, -4.5)
@@ -626,19 +626,19 @@ test "@draw.is_invertible/non_zero_determinant" {
 ///|
 test "@draw.is_invertible/identity_matrix" {
   let identity_matrix = AffineMatrix::new(a=1, b=0, c=0, d=1, tx=0, ty=0)
-  inspect!(@draw.is_invertible(identity_matrix), content="true")
+  inspect!(identity_matrix.is_invertible(), content="true")
 }
 
 ///|
 test "@draw.is_invertible/non-invertible_matrix" {
   let non_invertible_matrix = AffineMatrix::new(a=1, b=1, c=2, d=2, tx=0, ty=0)
-  inspect!(@draw.is_invertible(non_invertible_matrix), content="false")
+  inspect!(non_invertible_matrix.is_invertible(), content="false")
 }
 
 ///|
 test "@draw.is_invertible/invertible_matrix" {
   let invertible_matrix = AffineMatrix::new(a=2, b=1, c=1, d=3, tx=0, ty=0)
-  inspect!(@draw.is_invertible(invertible_matrix), content="true")
+  inspect!(invertible_matrix.is_invertible(), content="true")
 }
 
 ///|
@@ -698,19 +698,19 @@ test "AffineMatrix::is_identity/zero" {
 ///|
 test "@draw.is_identity" {
   let matrix = AffineMatrix::new()
-  inspect!(@draw.is_identity(matrix), content="true")
+  inspect!(matrix.is_identity(), content="true")
 }
 
 ///|
 test "@draw.is_identity/non_identity" {
   let matrix = AffineMatrix::new(a=2, b=0, c=0, d=1, tx=0, ty=0)
-  inspect!(@draw.is_identity(matrix), content="false")
+  inspect!(matrix.is_identity(), content="false")
 }
 
 ///|
 test "@draw.is_identity/negative_values" {
   let matrix = AffineMatrix::new(a=1, b=-1, c=0, d=1, tx=0, ty=0)
-  inspect!(@draw.is_identity(matrix), content="false")
+  inspect!(matrix.is_identity(), content="false")
 }
 
 ///|
