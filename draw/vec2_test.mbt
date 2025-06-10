@@ -1,11 +1,11 @@
 ///|
-typealias AffineMatrix = @draw.AffineMatrix
+typealias @draw.AffineMatrix
 
 ///|
-typealias Transform = @draw.Transform
+typealias @draw.Transform
 
 ///|
-typealias Vec2 = @draw.Vec2
+typealias @draw.Vec2
 
 ///|
 let vec2 = @draw.vec2

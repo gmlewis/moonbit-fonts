@@ -1,5 +1,5 @@
 ///|
-typealias Font = @fonts.Font
+typealias @fonts.Font
 
 ///|
 pub(all) enum TextAlign {

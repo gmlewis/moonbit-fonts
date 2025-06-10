@@ -1,11 +1,11 @@
 ///|
-typealias Fill = @draw.Fill
+typealias @draw.Fill
 
 ///|
-typealias Graphic = @draw.Graphic
+typealias @draw.Graphic
 
 ///|
-typealias Group = @draw.Group
+typealias @draw.Group
 
 ///|
 let fill = @draw.fill
