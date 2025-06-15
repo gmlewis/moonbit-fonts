@@ -51,34 +51,34 @@ pub fn Color::from_hsva(
 }
 
 ///|
-fn parse_hex_hex(s : String) -> Double!Error {
-  @strconv.parse_int!("\{s}\{s}", base=16).to_double() / 255
+fn parse_hex_hex(s : String) -> Double raise Error {
+  @strconv.parse_int("\{s}\{s}", base=16).to_double() / 255
 }
 
 ///|
-fn parse_hex(s : String) -> Double!Error {
-  @strconv.parse_int!(s, base=16).to_double() / 255
+fn parse_hex(s : String) -> Double raise Error {
+  @strconv.parse_int(s, base=16).to_double() / 255
 }
 
 ///|
-let percent_re : @regexp.RegExp = @regexp.compile?("^(\\d+)%$").unwrap()
+let percent_re : @regexp.RegExp = (try? @regexp.compile("^(\\d+)%$")).unwrap()
 
 ///|
-let rgb_re : @regexp.RegExp = @regexp.compile?(
+let rgb_re : @regexp.RegExp = (try? @regexp.compile(
   "^rgb\\s*\\(\\s*(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)\\s*\\)$",
-).unwrap()
+)).unwrap()
 
 ///|
-let rgba_re : @regexp.RegExp = @regexp.compile?(
+let rgba_re : @regexp.RegExp = (try? @regexp.compile(
   "^rgba\\s*\\(\\s*(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)\\s*\\)$",
-).unwrap()
+)).unwrap()
 
 ///|
-fn parse_percent(s : String) -> Double!Error {
+fn parse_percent(s : String) -> Double raise Error {
   let m = percent_re.matches(s)
   match m.captures() {
-    [_, v] => @strconv.parse_int!(v, base=10).to_double() / 100
-    _ => @strconv.parse_int!(s, base=10).to_double() / 255
+    [_, v] => @strconv.parse_int(v, base=10).to_double() / 100
+    _ => @strconv.parse_int(s, base=10).to_double() / 255
   }
 }
 
@@ -92,7 +92,7 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
 
 ///|
 /// Color::from_css_string returns a color from a CSS string.
-pub fn Color::from_css_string(css_string : String) -> Color!Error {
+pub fn Color::from_css_string(css_string : String) -> Color raise Error {
   let css_string = css_string.trim(" ").to_lower().to_string()
   match css_colors.get(css_string) {
     Some([r, g, b]) => return css_color(r, g, b)
@@ -104,45 +104,45 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
     match css_string.length() {
       4 =>
         return rgba(
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(1).to_char().unwrap().to_string(),
           ),
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(2).to_char().unwrap().to_string(),
           ),
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(3).to_char().unwrap().to_string(),
           ),
           1,
         )
       5 =>
         return rgba(
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(1).to_char().unwrap().to_string(),
           ),
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(2).to_char().unwrap().to_string(),
           ),
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(3).to_char().unwrap().to_string(),
           ),
-          parse_hex_hex!(
+          parse_hex_hex(
             css_string.unsafe_charcode_at(4).to_char().unwrap().to_string(),
           ),
         )
       7 =>
         return rgba(
-          parse_hex!(css_string.substring(start=1, end=3)),
-          parse_hex!(css_string.substring(start=3, end=5)),
-          parse_hex!(css_string.substring(start=5, end=7)),
+          parse_hex(css_string.substring(start=1, end=3)),
+          parse_hex(css_string.substring(start=3, end=5)),
+          parse_hex(css_string.substring(start=5, end=7)),
           1,
         )
       9 =>
         return rgba(
-          parse_hex!(css_string.substring(start=1, end=3)),
-          parse_hex!(css_string.substring(start=3, end=5)),
-          parse_hex!(css_string.substring(start=5, end=7)),
-          parse_hex!(css_string.substring(start=7, end=9)),
+          parse_hex(css_string.substring(start=1, end=3)),
+          parse_hex(css_string.substring(start=3, end=5)),
+          parse_hex(css_string.substring(start=5, end=7)),
+          parse_hex(css_string.substring(start=7, end=9)),
         )
       _ => ()
     }
@@ -152,7 +152,7 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
   let m = rgb_re.matches(css_string)
   match m.captures() {
     [_, r, g, b] =>
-      return rgba(parse_percent!(r), parse_percent!(g), parse_percent!(b), 1)
+      return rgba(parse_percent(r), parse_percent(g), parse_percent(b), 1)
     _ => ()
   }
 
@@ -161,10 +161,10 @@ pub fn Color::from_css_string(css_string : String) -> Color!Error {
   match m.captures() {
     [_, r, g, b, a] =>
       return rgba(
-        parse_percent!(r),
-        parse_percent!(g),
-        parse_percent!(b),
-        parse_percent!(a),
+        parse_percent(r),
+        parse_percent(g),
+        parse_percent(b),
+        parse_percent(a),
       )
     _ => Color::new()
   }

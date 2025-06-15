@@ -27,7 +27,7 @@ pub(all) struct PathCmd {
 pub fn PathCmd::from_svg_cmd(
   svg_cmd : Cmd,
   gerber_lp : GerberLP
-) -> PathCmd!FontError {
+) -> PathCmd raise FontError {
   let cmd = match svg_cmd.c {
     "M" => M
     "L" => L

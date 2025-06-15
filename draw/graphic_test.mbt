@@ -2,7 +2,7 @@
 test "@draw.Graphic::bounding_box/empty_array" {
   let items = @draw.Group::new(items=[]).as_graphic()
   let result = items.bounding_box()
-  inspect!(result, content="None")
+  inspect(result, content="None")
 }
 
 ///|
@@ -13,14 +13,14 @@ test "@draw.Graphic::bounding_box/single_path" {
   let graphic = @draw.Graphic::Path(path)
   let items = @draw.Group::new(items=[graphic]).as_graphic()
   let result = items.bounding_box()
-  inspect!(result, content="Some({min: {x: 1, y: 1}, max: {x: 2, y: 2}})")
+  inspect(result, content="Some({min: {x: 1, y: 1}, max: {x: 2, y: 2}})")
 }
 
 ///|
 test "@draw.Graphic::bounding_box/multiple_items" {
   let items = test_triangles()
   let result = items.bounding_box()
-  inspect!(result, content="Some({min: {x: 1, y: 1}, max: {x: 5, y: 5}})")
+  inspect(result, content="Some({min: {x: 1, y: 1}, max: {x: 5, y: 5}})")
 }
 
 ///|
@@ -56,6 +56,6 @@ test "unit square fit_to handles translation and scaling" {
   for tt in tests {
     let got = tt.0.fit_to(tt.1).bounding_box().unwrap()
     let want = tt.1
-    assert_eq!(got, want)
+    assert_eq(got, want)
   }
 }

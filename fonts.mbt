@@ -10,4 +10,4 @@ pub(all) struct Font {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
-pub(all) type! FontError String derive(Show, Eq)
+pub(all) suberror FontError String derive(Show, Eq)

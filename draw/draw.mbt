@@ -4,4 +4,4 @@
 
 ///|
 /// DrawError represents an error that occured during graphic generation.
-pub(all) type! DrawError String derive(Show, Eq)
+pub(all) suberror DrawError String derive(Show, Eq)

@@ -1,7 +1,7 @@
 ///|
 test "@draw.Group::bounding_box/empty" {
   let empty_group = @draw.Group::new()
-  inspect!(@draw.Group::bounding_box(empty_group), content="None")
+  inspect(@draw.Group::bounding_box(empty_group), content="None")
 }
 
 ///|
@@ -12,7 +12,7 @@ test "@draw.Group::bounding_box/single_item" {
   )
   let group = @draw.Group::new(items=[@draw.Graphic::Path(path)])
   let bbox = @draw.BoundingBox::new(min=@draw.vec2(0, 0), max=@draw.vec2(1, 1))
-  inspect!(@draw.Group::bounding_box(group), content="Some(\{bbox})")
+  inspect(@draw.Group::bounding_box(group), content="Some(\{bbox})")
 }
 
 ///|
@@ -33,7 +33,7 @@ test "@draw.Group::bounding_box/multiple_items" {
     min=@draw.vec2(-1, -1),
     max=@draw.vec2(2, 2),
   )
-  inspect!(@draw.Group::bounding_box(group), content="Some(\{bbox})")
+  inspect(@draw.Group::bounding_box(group), content="Some(\{bbox})")
 }
 
 ///|
@@ -51,7 +51,7 @@ test "@draw.Group::to_json" {
     @draw.Graphic::Path(path2),
   ])
   let got = group.to_json().stringify()
-  inspect!(
+  inspect(
     got,
     content=
       #|{"items":[{"anchors":[{"position":{"x":-1,"y":-1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false},{"anchors":[{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":2,"y":2},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false}]}

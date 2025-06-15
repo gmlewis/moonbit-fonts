@@ -18,7 +18,8 @@ let vec2 = @draw.vec2
 
 // context of an HTML5 canvas
 ///|
-extern type CanvasCtx
+#external
+type CanvasCtx
 
 // Declare the foreign function interfaces (FFIs)
 

@@ -8,11 +8,11 @@ pub fn length(self : Params) -> Int {
 }
 
 ///|
-let params_re : @regexp.RegExp = @regexp.compile?("^ *([0-9\\.\\-]+) *,*").unwrap()
+let params_re : @regexp.RegExp = (try? @regexp.compile("^ *([0-9\\.\\-]+) *,*")).unwrap()
 
 ///|
 /// `parse_params` parses an SVG command and returns the parameters.
-fn parse_params(d : String) -> Params!FontError {
+fn parse_params(d : String) -> Params raise FontError {
   let mut d = d
   let params = []
   while d.length() > 0 {
@@ -20,7 +20,7 @@ fn parse_params(d : String) -> Params!FontError {
     match match_result.captures() {
       [m, num] => {
         d = d.substring(start=m.length())
-        let n = try @strconv.parse_double!(num) catch {
+        let n = @strconv.parse_double(num) catch {
           _ => raise FontError("parse_params: unable to parse double: \{num}")
         }
         params.push(n)
@@ -37,7 +37,7 @@ fn parse_params(d : String) -> Params!FontError {
 ///|
 test "parse_params" {
   let d = " 343 75 327.5 112 "
-  let got = parse_params!(d)
+  let got = parse_params(d)
   let want = [343.0, 75.0, 327.5, 112.0]
-  assert_eq!(got, want)
+  assert_eq(got, want)
 }

@@ -120,7 +120,7 @@ fn skew(AffineMatrix, Double) -> AffineMatrix
 
 fn stroke(Color) -> Stroke
 
-fn text(text~ : String, font~ : @fonts.Font, align~ : TextAlign = .., size~ : Double = ..) -> Graphic!DrawError
+fn text(text~ : String, font~ : @fonts.Font, align~ : TextAlign = .., size~ : Double = ..) -> Graphic raise DrawError
 
 fn to_css_hex_string(Color) -> String
 
@@ -249,7 +249,7 @@ pub(all) struct Color {
 }
 fn Color::as_fill(Self) -> Fill?
 fn Color::clone(Self) -> Self
-fn Color::from_css_string(String) -> Self!
+fn Color::from_css_string(String) -> Self raise
 fn Color::from_hsva(Double, Double, Double, Double) -> Self
 fn Color::from_rgb8_number(UInt) -> Self
 fn Color::luminance(Self) -> Double
@@ -306,7 +306,7 @@ impl Show for CompoundPath
 impl ToJson for CompoundPath
 impl @json.FromJson for CompoundPath
 
-pub(all) type! DrawError String
+pub(all) suberror DrawError String
 impl Eq for DrawError
 impl Show for DrawError
 

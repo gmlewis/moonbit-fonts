@@ -2,27 +2,27 @@
 test "@draw.Path::from_points/normal" {
   let points = [vec2(0, 0), vec2(1, 1), vec2(2, 0)]
   let path = @draw.Path::from_points(points, closed=true)
-  inspect!(path.anchors.length(), content="3")
-  inspect!(path.closed, content="true")
-  inspect!(path.clear, content="false")
+  inspect(path.anchors.length(), content="3")
+  inspect(path.closed, content="true")
+  inspect(path.clear, content="false")
 }
 
 ///|
 test "@draw.Path::from_points/empty" {
   let points : Array[Vec2] = []
   let path = @draw.Path::from_points(points)
-  inspect!(path.anchors.length(), content="0")
-  inspect!(path.closed, content="false")
-  inspect!(path.clear, content="false")
+  inspect(path.anchors.length(), content="0")
+  inspect(path.closed, content="false")
+  inspect(path.clear, content="false")
 }
 
 ///|
 test "@draw.Path::from_points/single-point" {
   let points = [vec2(1, 1)]
   let path = @draw.Path::from_points(points)
-  inspect!(path.anchors.length(), content="1")
-  inspect!(path.closed, content="false")
-  inspect!(path.clear, content="false")
+  inspect(path.anchors.length(), content="1")
+  inspect(path.closed, content="false")
+  inspect(path.clear, content="false")
 }
 
 ///|
@@ -32,10 +32,7 @@ test "@draw.Path::is_contained_by_bounding_box/empty_path" {
     min=@draw.vec2(0.0, 0.0),
     max=@draw.vec2(10.0, 10.0),
   )
-  inspect!(
-    @draw.Path::is_contained_by_bounding_box(path, bbox),
-    content="false",
-  )
+  inspect(@draw.Path::is_contained_by_bounding_box(path, bbox), content="false")
 }
 
 ///|
@@ -46,10 +43,7 @@ test "@draw.Path::is_contained_by_bounding_box/single_point_path_inside_bbox" {
     min=@draw.vec2(0.0, 0.0),
     max=@draw.vec2(10.0, 10.0),
   )
-  inspect!(
-    @draw.Path::is_contained_by_bounding_box(path, bbox),
-    content="false",
-  )
+  inspect(@draw.Path::is_contained_by_bounding_box(path, bbox), content="false")
 }
 
 ///|
@@ -65,8 +59,5 @@ test "@draw.Path::is_contained_by_bounding_box/multiple_points_path_partially_in
     min=@draw.vec2(0.0, 0.0),
     max=@draw.vec2(10.0, 10.0),
   )
-  inspect!(
-    @draw.Path::is_contained_by_bounding_box(path, bbox),
-    content="false",
-  )
+  inspect(@draw.Path::is_contained_by_bounding_box(path, bbox), content="false")
 }

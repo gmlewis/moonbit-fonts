@@ -261,20 +261,16 @@ let test_cases : Array[GenPathTestCase] = [
 ///|
 test "gen_path on test_cases" {
   for tc in test_cases {
-    let got = nullpointer.gen_path!(
-      "ABC\nBC\rC",
-      anchor=tc.anchor,
-      y_up=tc.y_up,
-    )
-    let bbox = @fonts.glyph_bbox!(got.d)
+    let got = nullpointer.gen_path("ABC\nBC\rC", anchor=tc.anchor, y_up=tc.y_up)
+    let bbox = @fonts.glyph_bbox(got.d)
     try {
-      assert_eq!(got.d, tc.want_d)
-      assert_eq!(got.gerber_lp, "dcdcddcdd")
-      assert_eq!(got.char, "ABC\nBC\rC")
-      assert_eq!(got.xmin, bbox.min.x)
-      assert_eq!(got.ymin, bbox.min.y)
-      assert_eq!(got.xmax, bbox.max.x)
-      assert_eq!(got.ymax, bbox.max.y)
+      assert_eq(got.d, tc.want_d)
+      assert_eq(got.gerber_lp, "dcdcddcdd")
+      assert_eq(got.char, "ABC\nBC\rC")
+      assert_eq(got.xmin, bbox.min.x)
+      assert_eq(got.ymin, bbox.min.y)
+      assert_eq(got.xmax, bbox.max.x)
+      assert_eq(got.ymax, bbox.max.y)
     } catch {
       @fonts.FontError(e) => println("test case '\{tc.name}' failure: \{e}")
       e => {
@@ -284,21 +280,21 @@ test "gen_path on test_cases" {
     }
 
     //
-    let path = @fonts.Path::from_glyph!(got)
+    let path = @fonts.Path::from_glyph(got)
     let got2 = path.to_glyph()
     try {
-      assert_eq!(path.char, "ABC\nBC\rC")
-      assert_eq!(path.xmin, bbox.min.x)
-      assert_eq!(path.ymin, bbox.min.y)
-      assert_eq!(path.xmax, bbox.max.x)
-      assert_eq!(path.ymax, bbox.max.y)
-      assert_eq!(got2.d, tc.want_d)
-      assert_eq!(got2.gerber_lp, "dcdcddcdd")
-      assert_eq!(got2.char, "ABC\nBC\rC")
-      assert_eq!(got2.xmin, bbox.min.x)
-      assert_eq!(got2.ymin, bbox.min.y)
-      assert_eq!(got2.xmax, bbox.max.x)
-      assert_eq!(got2.ymax, bbox.max.y)
+      assert_eq(path.char, "ABC\nBC\rC")
+      assert_eq(path.xmin, bbox.min.x)
+      assert_eq(path.ymin, bbox.min.y)
+      assert_eq(path.xmax, bbox.max.x)
+      assert_eq(path.ymax, bbox.max.y)
+      assert_eq(got2.d, tc.want_d)
+      assert_eq(got2.gerber_lp, "dcdcddcdd")
+      assert_eq(got2.char, "ABC\nBC\rC")
+      assert_eq(got2.xmin, bbox.min.x)
+      assert_eq(got2.ymin, bbox.min.y)
+      assert_eq(got2.xmax, bbox.max.x)
+      assert_eq(got2.ymax, bbox.max.y)
     } catch {
       @fonts.FontError(e) => println("test case '\{tc.name}' failure: \{e}")
       e => {

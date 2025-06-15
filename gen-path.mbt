@@ -20,7 +20,7 @@ pub fn gen_path(
   text : String,
   anchor~ : Anchor = Unchanged,
   y_up~ : Bool = false
-) -> Glyph!FontError {
+) -> Glyph raise FontError {
   let mut xmin = 0.0
   let mut ymin = 0.0
   let mut xmax = 0.0
@@ -63,7 +63,7 @@ pub fn gen_path(
             ymax = y + glyph_ymax
           }
         }
-        d.write_string(translate_path!(glyph.d, x, y, invert_y=not(y_up)))
+        d.write_string(translate_path(glyph.d, x, y, invert_y=not(y_up)))
         if glyph.horiz_adv_x > 0.0 {
           x = x + glyph.horiz_adv_x
         } else {
@@ -107,7 +107,7 @@ pub fn gen_path(
     RatioXY(rx, ry) => (-mix(xmin, xmax, rx), -mix(boty, topy, 1.0 - ry))
   }
   if anchor != Unchanged {
-    d = translate_path!(d, dx, dy)
+    d = translate_path(d, dx, dy)
     xmin += dx
     ymin += dy
     xmax += dx

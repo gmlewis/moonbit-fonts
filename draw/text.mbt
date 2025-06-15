@@ -16,7 +16,7 @@ pub fn text(
   font~ : Font,
   align~ : TextAlign = Left,
   size~ : Double = 1
-) -> Graphic!DrawError {
+) -> Graphic raise DrawError {
   let xscale = size / font.units_per_em
   let yscale = -xscale
   let mut x = 0.0
@@ -27,7 +27,7 @@ pub fn text(
     if glyph != None {
       let glyph = glyph.unwrap()
       // console.log(`GML: glyph=${JSON.stringify(glyph)}`)
-      let cp = glyph2compound_path!(
+      let cp = glyph2compound_path(
         glyph.d,
         glyph.gerber_lp,
         vec2(x, y),
@@ -73,17 +73,15 @@ pub fn text(
 }
 
 ///|
-let split_re : @regexp.RegExp = @regexp.compile?("^([MLCQZ])([0-9.\\-, ]*)").unwrap()
+let split_re : @regexp.RegExp = (try? @regexp.compile(
+  "^([MLCQZ])([0-9.\\-, ]*)",
+)).unwrap()
 
 ///|
 fn parse_params(s : String) -> Array[Double] {
   s
   .split(" ")
-  .map(fn(s) {
-    try @strconv.parse_double!(s.to_string()) catch {
-      _ => 0.0
-    }
-  })
+  .map(fn(s) { @strconv.parse_double(s.to_string()) catch { _ => 0.0 } })
   .collect()
 }
 
@@ -95,7 +93,7 @@ fn glyph2compound_path(
   pos : Vec2,
   xscale : Double,
   yscale : Double
-) -> CompoundPath!DrawError {
+) -> CompoundPath raise DrawError {
   let paths = []
   let mut anchors = []
   if gerber_lp.unsafe_charcode_at(0).to_char() != Some('d') {

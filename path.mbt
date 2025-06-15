@@ -47,9 +47,12 @@ pub(all) enum GerberLP {
 /// every `Cmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `from_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn Path::from_glyph(g : Glyph, path_cmd_fn? : PathCmdFn) -> Path!FontError {
+pub fn Path::from_glyph(
+  g : Glyph,
+  path_cmd_fn? : PathCmdFn
+) -> Path raise FontError {
   let mut bbox = Rectangle::new()
-  let svg_cmds = split_path!(g.d)
+  let svg_cmds = split_path(g.d)
   let cmds = Array::new(capacity=svg_cmds.length())
   let mut gerber_index = 0
   let mut gerber_lp = Dark
@@ -63,7 +66,7 @@ pub fn Path::from_glyph(g : Glyph, path_cmd_fn? : PathCmdFn) -> Path!FontError {
       }
       gerber_index += 1
     }
-    let cmd = PathCmd::from_svg_cmd!(svg_cmd, gerber_lp)
+    let cmd = PathCmd::from_svg_cmd(svg_cmd, gerber_lp)
     let cmd = match path_cmd_fn {
       Some(f) => (f._)(index, cmd)
       _ => cmd

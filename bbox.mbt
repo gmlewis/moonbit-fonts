@@ -8,8 +8,8 @@
 /// of all control points in addition to curve anchor points which may result
 /// in returning a much larger bounding box than is actually needed to fully
 /// contain the glyph.
-pub fn glyph_bbox(d : String) -> Rectangle!FontError {
-  let cmds = split_path!(d)
+pub fn glyph_bbox(d : String) -> Rectangle raise FontError {
+  let cmds = split_path(d)
   let mut xmin = 0.0
   let mut ymin = 0.0
   let mut xmax = 0.0
