@@ -33,10 +33,10 @@ pub fn glyph_bbox(d : String) -> Rectangle raise FontError {
 
   //
   for cmd_idx, cmd in cmds {
-    for index, val in cmd.p._ {
+    for index, val in cmd.p.inner() {
       if cmd.c == "Z" {
         raise FontError(
-          "glyph_bbox: cmd_idx=\{cmd_idx}, index=\{index}, unexpected command 'Z' with params: \{cmd.p._}",
+          "glyph_bbox: cmd_idx=\{cmd_idx}, index=\{index}, unexpected command 'Z' with params: \{cmd.p.inner()}",
         )
       }
       if cmd_idx == 0 && index == 0 {

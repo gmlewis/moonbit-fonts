@@ -233,6 +233,7 @@ pub fn to_css_string(self : Color) -> String {
 }
 
 // to_hex_digit returns a hex digit.
+
 ///|
 fn to_hex_digit(v : Byte) -> String {
   match v & 0x0f {
@@ -248,6 +249,7 @@ fn to_hex_digit(v : Byte) -> String {
 }
 
 // to_hex_byte returns a 2-digit hex string (e.g. "FE").
+
 ///|
 fn to_hex_byte(v : Byte) -> String {
   let hi = to_hex_digit(v >> 4)
@@ -256,6 +258,7 @@ fn to_hex_byte(v : Byte) -> String {
 }
 
 // to_hex returns a 6-digit hex string (e.g. "FEDCBA")
+
 ///|
 fn to_hex(v : UInt) -> String {
   let r = to_hex_byte(((v >> 16) & 0xff).to_byte())

@@ -86,6 +86,7 @@ fn parse_params(s : String) -> Array[Double] {
 }
 
 // `glyph2compound_path` converts an SVG path into a CompoundPath.
+
 ///|
 fn glyph2compound_path(
   d : String,

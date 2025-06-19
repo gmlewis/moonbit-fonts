@@ -6,6 +6,7 @@
 // license that can be found in the LICENSE file.
 
 // A Point is an X, Y coordinate pair. The axes increase right and down.
+
 ///|
 pub(all) struct Point {
   mut x : Double

@@ -428,6 +428,7 @@ test "@draw.affine_transform/identity" {
 }
 
 // Test translation only
+
 ///|
 test "@draw.affine_transform/translation" {
   let v = vec2(1.0, 1.0)
@@ -438,6 +439,7 @@ test "@draw.affine_transform/translation" {
 }
 
 // Test complex transformation
+
 ///|
 test "@draw.affine_transform/complex" {
   let v = vec2(1.0, 2.0)
@@ -1626,6 +1628,7 @@ test "@draw.round_to_multiple/positive_multiple" {
 }
 
 // Test `round_to_multiple` with negative multiple
+
 ///|
 test "@draw.round_to_multiple/negative_multiple" {
   let v = vec2(11.5, 24.3)
@@ -1633,6 +1636,7 @@ test "@draw.round_to_multiple/negative_multiple" {
 }
 
 // Test `round_to_multiple` with zero multiple
+
 ///|
 test "@draw.round_to_multiple/zero_multiple" {
   let v = vec2(8.7, 15.4)

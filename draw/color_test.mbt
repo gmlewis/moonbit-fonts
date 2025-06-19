@@ -168,6 +168,7 @@ test "@draw.Color::mix" {
 }
 
 // Test mixing with t=0 (should return the first color)
+
 ///|
 test "@draw.Color::mix/t_zero" {
   let c1 = @draw.Color::new(r=0.2, g=0.3, b=0.4, a=0.5)
@@ -180,6 +181,7 @@ test "@draw.Color::mix/t_zero" {
 }
 
 // Test mixing with t=1 (should return the second color)
+
 ///|
 test "@draw.Color::mix/t_one" {
   let c1 = @draw.Color::new(r=0.2, g=0.3, b=0.4, a=0.5)
@@ -268,6 +270,7 @@ test "@draw.Color::to_css_hex_string/white_color" {
 }
 
 // Test case for pure black color
+
 ///|
 test "@draw.Color::to_css_hex_string/black_color" {
   let black_color = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
@@ -275,6 +278,7 @@ test "@draw.Color::to_css_hex_string/black_color" {
 }
 
 // Test case for color with mixed components
+
 ///|
 test "@draw.Color::to_css_hex_string/mixed_color" {
   let mixed_color = @draw.Color::new(r=0.5, g=0.25, b=0.75, a=1.0)

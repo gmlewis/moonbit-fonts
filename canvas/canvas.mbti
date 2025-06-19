@@ -5,9 +5,6 @@ import(
 )
 
 // Values
-fn from_graphic(CanvasCtx, @draw.Graphic, y_up~ : Bool = ..) -> Unit
-
-fn get_input_bytes(CanvasCtx) -> Array[Byte]
 
 // Types and methods
 type CanvasCtx

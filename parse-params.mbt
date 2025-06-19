@@ -4,7 +4,7 @@ type Params Array[Double] derive(Show, Eq)
 
 ///|
 pub fn length(self : Params) -> Int {
-  self._.length()
+  self.inner().length()
 }
 
 ///|

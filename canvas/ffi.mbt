@@ -17,6 +17,7 @@ typealias @draw.Stroke
 let vec2 = @draw.vec2
 
 // context of an HTML5 canvas
+
 ///|
 #external
 type CanvasCtx
@@ -24,15 +25,15 @@ type CanvasCtx
 // Declare the foreign function interfaces (FFIs)
 
 ///|
-fn arc(
-  self : CanvasCtx,
-  x : Double,
-  y : Double,
-  radius : Double,
-  start_angle : Double,
-  end_angle : Double,
-  counterclockwise : Bool
-) = "canvas" "arc"
+// fn arc(
+//   self : CanvasCtx,
+//   x : Double,
+//   y : Double,
+//   radius : Double,
+//   start_angle : Double,
+//   end_angle : Double,
+//   counterclockwise : Bool
+// ) = "canvas" "arc"
 
 ///|
 fn begin_path(self : CanvasCtx) = "canvas" "beginPath"

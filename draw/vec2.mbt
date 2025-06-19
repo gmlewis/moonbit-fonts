@@ -103,6 +103,7 @@ pub fn Vec2::affine_transform_without_translation(
 
 ///|
 /// transform transforms this Vec2.
+
 ///|
 /// transform provides a convenient API for a common task.
 pub fn Vec2::transform(

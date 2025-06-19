@@ -37,16 +37,18 @@ pub fn PathCmd::from_svg_cmd(
     c =>
       raise FontError("PathCmd::from_svg_cmd: unsupported SVG command '\{c}'")
   }
-  if svg_cmd.p._.length() % 2 != 0 {
+  if svg_cmd.p.inner().length() % 2 != 0 {
     raise FontError(
       "PathCmd::from_svg_cmd: unexpected odd params length in svg_cmd: \{svg_cmd}",
     )
   }
 
   //
-  let params : Array[ParamPair] = Array::new(capacity=svg_cmd.p._.length() / 2)
+  let params : Array[ParamPair] = Array::new(
+    capacity=svg_cmd.p.inner().length() / 2,
+  )
   let mut x = 0.0
-  for index, param in svg_cmd.p._ {
+  for index, param in svg_cmd.p.inner() {
     if index % 2 == 0 {
       x = param
     } else {
