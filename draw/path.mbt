@@ -164,8 +164,8 @@ fn segment_extents(
         s * s * a * h1.x * 3 +
         s * a * a * h2.x * 3 +
         a * a * a * p2.x
-      lower_left.x = @math.minimum(lower_left.x, l)
-      upper_right.x = @math.maximum(upper_right.x, l)
+      lower_left.x = @cmp.minimum(lower_left.x, l)
+      upper_right.x = @cmp.maximum(upper_right.x, l)
     }
     a = if d1_is_zero { (-v1x + dist1) / v2x } else { d1x / (-v1x + dist1) }
     if a > 0 && a < 1 {
@@ -174,8 +174,8 @@ fn segment_extents(
         s * s * a * h1.x * 3 +
         s * a * a * h2.x * 3 +
         a * a * a * p2.x
-      lower_left.x = @math.minimum(lower_left.x, l)
-      upper_right.x = @math.maximum(upper_right.x, l)
+      lower_left.x = @cmp.minimum(lower_left.x, l)
+      upper_right.x = @cmp.maximum(upper_right.x, l)
     }
   }
   let mut dist2 = v1y * v1y - v2y * d1y
@@ -192,8 +192,8 @@ fn segment_extents(
         a * a * s * h1.y * 3 +
         a * s * s * h2.y * 3 +
         s * s * s * p2.y
-      lower_left.y = @math.minimum(lower_left.y, l)
-      upper_right.y = @math.maximum(upper_right.y, l)
+      lower_left.y = @cmp.minimum(lower_left.y, l)
+      upper_right.y = @cmp.maximum(upper_right.y, l)
     }
     s = if d1_is_zero { (-v1y + dist2) / v2y } else { d1y / (-v1y + dist2) }
     if s > 0 && s < 1 {
@@ -202,8 +202,8 @@ fn segment_extents(
         a * a * s * h1.y * 3 +
         a * s * s * h2.y * 3 +
         s * s * s * p2.y
-      lower_left.y = @math.minimum(lower_left.y, l)
-      upper_right.y = @math.maximum(upper_right.y, l)
+      lower_left.y = @cmp.minimum(lower_left.y, l)
+      upper_right.y = @cmp.maximum(upper_right.y, l)
     }
   }
 }

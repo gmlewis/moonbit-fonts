@@ -1268,14 +1268,14 @@ test "@draw.op_equal/bounds" {
   inspect(Vec2::new(x=0, y=0) == Vec2::new(x=0, y=0), content="true")
 
   // Test with very large vectors
-  let maxValue : Double = @math.maximum(1000000000.0, 1000000000.0)
+  let maxValue : Double = @cmp.maximum(1000000000.0, 1000000000.0)
   inspect(
     Vec2::new(x=maxValue, y=maxValue) == Vec2::new(x=maxValue, y=maxValue),
     content="true",
   )
 
   // Test with very small vectors
-  let minValue : Double = @math.minimum(0.0000001, 0.0000001)
+  let minValue : Double = @cmp.minimum(0.0000001, 0.0000001)
   inspect(
     Vec2::new(x=minValue, y=minValue) == Vec2::new(x=minValue, y=minValue),
     content="true",
@@ -2714,9 +2714,9 @@ test "@draw.Vec2::to_json" {
   let got = v.to_json().stringify()
   inspect(
     got,
-    content=
+    content=(
       #|{"x":1,"y":2}
-    ,
+    ),
   )
 }
 

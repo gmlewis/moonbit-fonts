@@ -421,7 +421,7 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
   }
   let wscale = box.width() / bbox.width()
   let hscale = box.height() / bbox.height()
-  let s = @math.minimum(wscale, hscale)
+  let s = @cmp.minimum(wscale, hscale)
   let scale = vec2(s, s)
   let position = box.min - scale * bbox.min
   let transform = Transform::new(position~, scale~)

@@ -220,9 +220,9 @@ test "@draw.Anchor::to_json" {
   let got = v.to_json().stringify()
   inspect(
     got,
-    content=
+    content=(
       #|{"position":{"x":1,"y":2},"handle_in":{"x":1.1,"y":2.1},"handle_out":{"x":1.2,"y":2.2}}
-    ,
+    ),
   )
 }
 

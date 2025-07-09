@@ -102,8 +102,8 @@ pub fn BoundingBox::is_nan(self : BoundingBox) -> Bool {
 pub fn canonicalize(self : BoundingBox) -> BoundingBox {
   let { x: xmin, y: ymin } = self.min
   let { x: xmax, y: ymax } = self.max
-  let _ = self.min.set(@math.minimum(xmin, xmax), @math.minimum(ymin, ymax))
-  let _ = self.max.set(@math.maximum(xmin, xmax), @math.maximum(ymin, ymax))
+  let _ = self.min.set(@cmp.minimum(xmin, xmax), @cmp.minimum(ymin, ymax))
+  let _ = self.max.set(@cmp.maximum(xmin, xmax), @cmp.maximum(ymin, ymax))
   self
 }
 
@@ -173,13 +173,13 @@ pub fn boolean_intersect(
   let mut xmax = self.max.x
   let mut ymax = self.max.y
   for box in boxes {
-    xmin = @math.maximum(xmin, box.min.x)
-    xmax = @math.minimum(xmax, box.max.x)
+    xmin = @cmp.maximum(xmin, box.min.x)
+    xmax = @cmp.minimum(xmax, box.max.x)
     if xmin > xmax {
       return None
     }
-    ymin = @math.maximum(ymin, box.min.y)
-    ymax = @math.minimum(ymax, box.max.y)
+    ymin = @cmp.maximum(ymin, box.min.y)
+    ymax = @cmp.minimum(ymax, box.max.y)
     if ymin > ymax {
       return None
     }

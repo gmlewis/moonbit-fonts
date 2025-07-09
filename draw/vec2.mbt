@@ -234,7 +234,7 @@ fn almost_equal(v1 : Double, v2 : Double, tolerance : Double) -> Bool {
   }
   let v1 = v1.abs()
   let v2 = v2.abs()
-  delta <= @math.maximum(v1, v2) * tolerance
+  delta <= @cmp.maximum(v1, v2) * tolerance
 }
 
 ///|
@@ -307,8 +307,8 @@ pub fn Vec2::round_to_multiple(self : Vec2, v : Double) -> Vec2 {
 /// min compares the components of this vector and `v` and sets this vector's
 /// components to the minimum of the two.
 pub fn Vec2::min(self : Vec2, v : Vec2) -> Vec2 {
-  self.x = @math.minimum(self.x, v.x)
-  self.y = @math.minimum(self.y, v.y)
+  self.x = @cmp.minimum(self.x, v.x)
+  self.y = @cmp.minimum(self.y, v.y)
   self
 }
 
@@ -316,8 +316,8 @@ pub fn Vec2::min(self : Vec2, v : Vec2) -> Vec2 {
 /// max compares the components of this vector and `v` and sets this vector's
 /// components to the maximum of the two.
 pub fn Vec2::max(self : Vec2, v : Vec2) -> Vec2 {
-  self.x = @math.maximum(self.x, v.x)
-  self.y = @math.maximum(self.y, v.y)
+  self.x = @cmp.maximum(self.x, v.x)
+  self.y = @cmp.maximum(self.y, v.y)
   self
 }
 

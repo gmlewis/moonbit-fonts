@@ -53,9 +53,11 @@ pub fn from_graphic(g : Graphic, y_up~ : Bool = true) -> String {
     }),
   )
   let lines = lines.join("\n")
-  $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{max.x} \{max.y}">
-  $|\{lines}
-  #|</svg>
+  (
+    $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{max.x} \{max.y}">
+    $|\{lines}
+    #|</svg>
+  )
 }
 
 ///|
@@ -63,7 +65,9 @@ fn path_to_svg(path : Path) -> String {
   let d = svg_d([path])
   let stroke = svg_stroke(path.stroke)
   let fill = svg_fill(path.fill)
-  $|  <path d="\{d}" \{stroke} \{fill}/>
+  (
+    $|  <path d="\{d}" \{stroke} \{fill}/>
+  )
 }
 
 ///|
@@ -71,7 +75,9 @@ fn compound_path_to_svg(path : CompoundPath) -> String {
   let d = svg_d(path.paths)
   let stroke = svg_stroke(path.stroke)
   let fill = svg_fill(path.fill)
-  $|  <path d="\{d}" \{stroke} \{fill}/>
+  (
+    $|  <path d="\{d}" \{stroke} \{fill}/>
+  )
 }
 
 ///|
@@ -131,13 +137,16 @@ fn svg_path(path : Path) -> String {
 fn svg_stroke(stroke : Stroke?) -> String {
   match stroke {
     None =>
-      $|stroke="none"
+      (
+        $|stroke="none"
+      )
     Some(stroke) => {
       let parts = []
       let color = stroke.color.to_css_string()
       parts.push(
-        $|stroke="\{color}"
-        ,
+        (
+          $|stroke="\{color}"
+        ),
       )
       // TODO: stroke-dasharray
       // TODO: stroke-dashoffset
@@ -145,38 +154,44 @@ fn svg_stroke(stroke : Stroke?) -> String {
         Butt => ()
         Round =>
           parts.push(
-            $|stroke-linecap="round"
-            ,
+            (
+              $|stroke-linecap="round"
+            ),
           )
         Square =>
           parts.push(
-            $|stroke-linecap="square"
-            ,
+            (
+              $|stroke-linecap="square"
+            ),
           )
       }
       match stroke.join {
         Miter => ()
         Round =>
           parts.push(
-            $|stroke-linejoin="round"
-            ,
+            (
+              $|stroke-linejoin="round"
+            ),
           )
         Bevel =>
           parts.push(
-            $|stroke-linejoin="bevel"
-            ,
+            (
+              $|stroke-linejoin="bevel"
+            ),
           )
       }
       if stroke.miter_limit != 4 {
         parts.push(
-          $|stroke-miterlimit="\{stroke.miter_limit}"
-          ,
+          (
+            $|stroke-miterlimit="\{stroke.miter_limit}"
+          ),
         )
       }
       if stroke.width != 1 {
         parts.push(
-          $|stroke-width="\{stroke.width}"
-          ,
+          (
+            $|stroke-width="\{stroke.width}"
+          ),
         )
       }
       parts.join(" ")
@@ -188,10 +203,14 @@ fn svg_stroke(stroke : Stroke?) -> String {
 fn svg_fill(fill : Fill?) -> String {
   match fill {
     None =>
-      $|fill="none"
+      (
+        $|fill="none"
+      )
     Some(fill) => {
       let color = fill.color.to_css_string()
-      $|fill="\{color}"
+      (
+        $|fill="\{color}"
+      )
     }
   }
 }

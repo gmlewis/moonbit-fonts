@@ -311,8 +311,8 @@ pub fn to_hsva(self : Color) -> Array[Double] {
   let mut hue = 0.0
   let mut t = 0.0
   let { r, g, b, a: alpha } = self
-  let value = @math.maximum(@math.maximum(r, g), b)
-  let delta = value - @math.minimum(@math.minimum(r, g), b)
+  let value = @cmp.maximum(@cmp.maximum(r, g), b)
+  let delta = value - @cmp.minimum(@cmp.minimum(r, g), b)
   let f = fn(v) { (value - v) / (6.0 * delta) + 0.5 }
   if delta != 0 {
     t = delta / value
