@@ -105,7 +105,7 @@ fn assert_vec2_approx_eq(
   result : Vec2,
   expect_x : Double,
   expect_y : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result.x - expect_x).abs() < error && (result.y - expect_y).abs() < error {
     ()
@@ -171,7 +171,7 @@ test "Vec2::from_angle/out_of_range_angles" {
 fn assert_approx_eq12(
   result : Vec2,
   expect : Vec2,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result.x - expect.x).abs() < error && (result.y - expect.y).abs() < error {
     ()
@@ -224,7 +224,7 @@ test "Vec2::from_angle_radians/unit-length" {
 fn assert_approx_eq(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()
@@ -1569,7 +1569,7 @@ test "@draw.round/special-values" {
 fn assert_vec2_approx_eq2(
   result : Vec2,
   expect : Vec2,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result.x - expect.x).abs() < error && (result.y - expect.y).abs() < error {
     ()
@@ -1896,7 +1896,7 @@ test "@draw.Vec2::cross/arbitrary" {
 fn assert_approx_eq_vec(
   result : Vec2,
   expect : Vec2,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result.x - expect.x).abs() < error && (result.y - expect.y).abs() < error {
     ()
@@ -2048,7 +2048,7 @@ test "@draw.rotate/boundary_values" {
 fn assert_vec2_approx_eq3(
   v1 : Vec2,
   v2 : Vec2,
-  epsilon : Double
+  epsilon : Double,
 ) -> Unit raise Error {
   if (v1.x - v2.x).abs() > epsilon || (v1.y - v2.y).abs() > epsilon {
     fail("Expected (\{v2.x}, \{v2.y}), got (\{v1.x}, \{v1.y})")
@@ -2086,7 +2086,7 @@ test "@draw.Vec2::rotate_radians" {
 fn assert_approx_eq4(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()
@@ -2215,7 +2215,7 @@ test "@draw.Vec2::project_onto/zero-vector" {
 fn assert_vec2_approx_eq5(
   result : Vec2,
   expect : Vec2,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result.x - expect.x).abs() < error && (result.y - expect.y).abs() < error {
     ()
@@ -2304,7 +2304,7 @@ test "@draw.angle/zero-vector" {
 fn assert_approx_eq7(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()
@@ -2336,7 +2336,7 @@ test "@draw.angle_radians" {
 fn assert_approx_eq8(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()
@@ -2446,7 +2446,7 @@ test "@draw.Vec2::length/general_vector" {
 fn assert_approx_eq9(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()
@@ -2495,7 +2495,7 @@ test "@draw.Vec2::length_squared/large_coordinates" {
 fn assert_approx_eq10(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()
@@ -2574,7 +2574,7 @@ test "@draw.Vec2::distance_squared/upper_bound" {
 fn assert_approx_eq11(
   result : Double,
   expect : Double,
-  error : Double
+  error : Double,
 ) -> Unit raise Error {
   if (result - expect).abs() < error {
     ()

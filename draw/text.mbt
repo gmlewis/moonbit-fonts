@@ -15,7 +15,7 @@ pub fn text(
   text~ : String,
   font~ : Font,
   align~ : TextAlign = Left,
-  size~ : Double = 1
+  size~ : Double = 1,
 ) -> Graphic raise DrawError {
   let xscale = size / font.units_per_em
   let yscale = -xscale
@@ -93,7 +93,7 @@ fn glyph2compound_path(
   gerber_lp : String,
   pos : Vec2,
   xscale : Double,
-  yscale : Double
+  yscale : Double,
 ) -> CompoundPath raise DrawError {
   let paths = []
   let mut anchors = []

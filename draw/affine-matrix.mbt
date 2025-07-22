@@ -21,7 +21,7 @@ pub fn AffineMatrix::new(
   c~ : Double = 0,
   d~ : Double = 1,
   tx~ : Double = 0,
-  ty~ : Double = 0
+  ty~ : Double = 0,
 ) -> AffineMatrix {
   { a, b, c, d, tx, ty }
 }
@@ -49,7 +49,7 @@ pub fn AffineMatrix::from_translation(v : Vec2) -> AffineMatrix {
 /// translates from p1 to p2.
 pub fn AffineMatrix::from_translation_points(
   p1 : Vec2,
-  p2 : Vec2
+  p2 : Vec2,
 ) -> AffineMatrix {
   AffineMatrix::new(tx=p2.x - p1.x, ty=p2.y - p1.y)
 }
@@ -81,7 +81,7 @@ pub fn AffineMatrix::from_scale_scalar(s : Double) -> AffineMatrix {
 /// from the provided center point.
 pub fn AffineMatrix::from_center_scale(
   center : Vec2,
-  scale : Vec2
+  scale : Vec2,
 ) -> AffineMatrix {
   let { x, y } = center
   AffineMatrix::new(
@@ -152,7 +152,7 @@ pub fn op_mul(self : AffineMatrix, b : AffineMatrix) -> AffineMatrix {
 /// discarding the transation.
 pub fn mul_without_translation(
   self : AffineMatrix,
-  m : AffineMatrix
+  m : AffineMatrix,
 ) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, .. } = self
   let { a: m1a, b: m1b, c: m1c, d: m1d, .. } = m
@@ -183,7 +183,7 @@ pub fn pre_mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
 /// discarding the translate, then stores and returns the result.
 pub fn pre_mul_without_translation(
   self : AffineMatrix,
-  m : AffineMatrix
+  m : AffineMatrix,
 ) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, .. } = m
   let { a: m1a, b: m1b, c: m1c, d: m1d, .. } = self
@@ -281,7 +281,7 @@ pub fn determinant(self : AffineMatrix) -> Double {
 /// are orthogonal within the provided tolerance.
 pub fn is_orthogonal(
   self : AffineMatrix,
-  tolerance~ : Double = DEFAULT_TOLERANCE
+  tolerance~ : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let { a, b, c, d, .. } = self
   return (a * c + b * d).abs() <= tolerance
@@ -298,7 +298,7 @@ pub fn is_invertible(self : AffineMatrix) -> Bool {
 /// are of the same length.
 pub fn is_uniform_scale(
   self : AffineMatrix,
-  tolerance~ : Double = DEFAULT_TOLERANCE
+  tolerance~ : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let { a, b, c, d, .. } = self
   (a * a + b * b - (c * c + d * d)).abs() <= tolerance
@@ -361,7 +361,7 @@ fn mod(a : Double, b : Double) -> Double {
 /// to_transform converts this 2D affine matrix to a Transform.
 pub fn to_transform(
   self : AffineMatrix,
-  origin~ : Vec2 = vec2(0, 0)
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Transform {
   let { a, b, c, d, tx, ty } = self
   let xnz = a * a + b * b > 0.00000001

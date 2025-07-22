@@ -50,7 +50,7 @@ fn render_paths(
   self : CanvasCtx,
   paths : Array[Path],
   stroke : Stroke?,
-  fill : Fill?
+  fill : Fill?,
 ) -> Unit {
   self.set_stroke(stroke)
   self.set_fill(fill)

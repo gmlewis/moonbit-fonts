@@ -49,7 +49,7 @@ pub(all) enum GerberLP {
 /// invidual glyphs and simply transforms the representation.
 pub fn Path::from_glyph(
   g : Glyph,
-  path_cmd_fn? : PathCmdFn
+  path_cmd_fn? : PathCmdFn,
 ) -> Path raise FontError {
   let mut bbox = Rectangle::new()
   let svg_cmds = split_path(g.d)

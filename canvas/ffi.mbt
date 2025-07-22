@@ -49,7 +49,7 @@ fn cubic_bezier_curve_to(
   cp2x : Double,
   cp2y : Double,
   x : Double,
-  y : Double
+  y : Double,
 ) = "canvas" "bezierCurveTo"
 
 ///|
@@ -69,7 +69,7 @@ fn set_fill_color(
   r : Double,
   g : Double,
   b : Double,
-  a : Double
+  a : Double,
 ) = "canvas" "setFillColor"
 
 ///|
@@ -80,7 +80,7 @@ fn set_stroke_color(
   r : Double,
   g : Double,
   b : Double,
-  a : Double
+  a : Double,
 ) = "canvas" "setStrokeColor"
 
 ///|

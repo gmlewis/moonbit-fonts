@@ -19,7 +19,7 @@ pub fn gen_path(
   self : Font,
   text : String,
   anchor~ : Anchor = Unchanged,
-  y_up~ : Bool = false
+  y_up~ : Bool = false,
 ) -> Glyph raise FontError {
   let mut xmin = 0.0
   let mut ymin = 0.0

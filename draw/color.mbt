@@ -13,7 +13,7 @@ pub fn Color::new(
   r~ : Double = 0,
   g~ : Double = 0,
   b~ : Double = 0,
-  a~ : Double = 1
+  a~ : Double = 1,
 ) -> Color {
   { r, g, b, a }
 }
@@ -30,7 +30,7 @@ pub fn Color::from_hsva(
   hue : Double,
   saturation : Double,
   value : Double,
-  alpha : Double
+  alpha : Double,
 ) -> Color {
   let h = hue * 6
   let s = saturation
@@ -198,7 +198,7 @@ pub fn set(
   r : Double,
   g : Double,
   b : Double,
-  a : Double
+  a : Double,
 ) -> Color {
   self.r = r
   self.g = g

@@ -5,7 +5,7 @@ pub fn gen_paths(
   self : Font,
   lines : Array[String],
   anchor~ : Anchor = BaselineLeft,
-  y_up~ : Bool = false
+  y_up~ : Bool = false,
 ) -> Array[Glyph] raise FontError {
   let glyphs = Array::new(capacity=lines.length())
   for line in lines {

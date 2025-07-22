@@ -13,7 +13,7 @@ pub(all) struct Anchor {
 pub fn Anchor::new(
   position~ : Vec2 = vec2(0, 0),
   handle_in~ : Vec2 = vec2(0, 0),
-  handle_out~ : Vec2 = vec2(0, 0)
+  handle_out~ : Vec2 = vec2(0, 0),
 ) -> Anchor {
   { position, handle_in, handle_out }
 }
@@ -42,7 +42,7 @@ pub fn affine_transform(self : Anchor, affine_matrix : AffineMatrix) -> Anchor {
 /// and skew, without affecting its translation.
 pub fn affine_transform_without_translation(
   self : Anchor,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Anchor {
   let _ = self.position.affine_transform_without_translation(affine_matrix)
   let _ = self.handle_in.affine_transform_without_translation(affine_matrix)
@@ -58,7 +58,7 @@ pub fn transform(
   rotation~ : Double = 0,
   scale~ : Vec2 = vec2(1, 1),
   skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0)
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Anchor {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -107,7 +107,7 @@ pub fn is_overlapped_by_bounding_box(self : Anchor, box : BoundingBox) -> Bool {
 pub fn closest_point(
   self : Anchor,
   point : Vec2,
-  area_of_interest? : BoundingBox
+  area_of_interest? : BoundingBox,
 ) -> Vec2? {
   let { position, .. } = self
   match area_of_interest {
@@ -140,7 +140,7 @@ let tmp2 : Vec2 = Vec2::new()
 /// are tangent to each other.
 pub fn has_tangent_handles(
   self : Anchor,
-  tolerance~ : Double = DEFAULT_TOLERANCE
+  tolerance~ : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let _ = tmp1.copy(self.handle_in).normalize()
   let _ = tmp2.copy(self.handle_out).normalize()

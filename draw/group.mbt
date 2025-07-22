@@ -44,7 +44,7 @@ pub fn Group::clone(self : Group) -> Group {
 /// affine_transform transforms this Group by `affine_matrix`.
 pub fn Group::affine_transform(
   self : Group,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Group {
   for item in self.items {
     ignore(item.affine_transform(affine_matrix))
@@ -57,7 +57,7 @@ pub fn Group::affine_transform(
 /// without affecting the translation.
 pub fn Group::affine_transform_without_translation(
   self : Group,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Group {
   for item in self.items {
     ignore(item.affine_transform_without_translation(affine_matrix))
@@ -73,7 +73,7 @@ pub fn Group::transform(
   rotation~ : Double = 0,
   scale~ : Vec2 = vec2(1, 1),
   skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0)
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Group {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -162,7 +162,7 @@ pub fn Group::bounding_box(self : Group) -> BoundingBox? {
 /// lies beyond the box's min and max.
 pub fn Group::is_contained_by_bounding_box(
   self : Group,
-  box : BoundingBox
+  box : BoundingBox,
 ) -> Bool {
   self.items.length() != 0 &&
   Graphic::every(self.items, Graphic::is_contained_by_bounding_box(box))
@@ -173,7 +173,7 @@ pub fn Group::is_contained_by_bounding_box(
 /// crosses the boundary between the inside and outside of `box`.
 pub fn Group::is_intersected_by_bounding_box(
   self : Group,
-  box : BoundingBox
+  box : BoundingBox,
 ) -> Bool {
   Graphic::some(self.items, Graphic::is_intersected_by_bounding_box(box))
 }
@@ -183,7 +183,7 @@ pub fn Group::is_intersected_by_bounding_box(
 /// is inside both the Graphic and the box.
 pub fn Group::is_overlapped_by_bounding_box(
   self : Group,
-  box : BoundingBox
+  box : BoundingBox,
 ) -> Bool {
   Graphic::some(self.items, Graphic::is_overlapped_by_bounding_box(box))
 }
@@ -194,7 +194,7 @@ pub fn Group::is_overlapped_by_bounding_box(
 pub fn Group::closest_point(
   self : Group,
   point : Vec2,
-  area_of_interest : BoundingBox?
+  area_of_interest : BoundingBox?,
 ) -> Anchor? {
   let { items } = self
   match items.length() {
@@ -319,7 +319,7 @@ pub fn Group::remove_stroke(self : Group) -> Group {
 pub fn Group::assign_style(
   self : Group,
   fill : Fill?,
-  stroke : Stroke?
+  stroke : Stroke?,
 ) -> Group {
   for item in self.items {
     ignore(item.assign_style(fill, stroke))

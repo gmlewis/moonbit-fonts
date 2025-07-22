@@ -9,7 +9,7 @@ pub(all) struct BoundingBox {
 /// BoundingBox::new returns a new empty BoundingBox.
 pub fn BoundingBox::new(
   min~ : Vec2 = vec2(0, 0),
-  max~ : Vec2 = vec2(0, 0)
+  max~ : Vec2 = vec2(0, 0),
 ) -> BoundingBox {
   { min, max }
 }
@@ -20,7 +20,7 @@ pub fn bbox(
   minx : Double,
   miny : Double,
   maxx : Double,
-  maxy : Double
+  maxy : Double,
 ) -> BoundingBox {
   let min = vec2(minx, miny)
   let max = vec2(maxx, maxy)
@@ -119,7 +119,7 @@ pub fn expand_to_include_point(self : BoundingBox, point : Vec2) -> BoundingBox 
 /// expand_to_include_bounding_box expands this bounding box to also cover `box`.
 pub fn expand_to_include_bounding_box(
   self : BoundingBox,
-  box : BoundingBox
+  box : BoundingBox,
 ) -> BoundingBox {
   self.expand_to_include_point(box.min).expand_to_include_point(box.max)
 }
@@ -165,7 +165,7 @@ pub fn overlaps_bounding_box(self : BoundingBox, box : BoundingBox) -> Bool {
 /// of this bounding box with one or more boxes if one exists.
 pub fn boolean_intersect(
   self : BoundingBox,
-  boxes : Array[BoundingBox]
+  boxes : Array[BoundingBox],
 ) -> BoundingBox? {
   guard boxes.length() > 0
   let mut xmin = self.min.x

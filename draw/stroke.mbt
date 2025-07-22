@@ -38,7 +38,7 @@ pub fn Stroke::new(
   alignment~ : StrokeAlignment = Centered,
   cap~ : StrokeCap = Butt,
   join~ : StrokeJoin = Miter,
-  miter_limit~ : Double = 4
+  miter_limit~ : Double = 4,
 ) -> Stroke {
   { color, width, alignment, cap, join, miter_limit }
 }

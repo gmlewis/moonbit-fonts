@@ -20,7 +20,7 @@ pub fn Graphic::clone(self : Graphic) -> Graphic {
 /// affine_transform transforms this graphic by `affine_matrix`.
 pub fn Graphic::affine_transform(
   self : Graphic,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Graphic {
   match self {
     CompoundPath(compound_path) =>
@@ -38,7 +38,7 @@ pub fn Graphic::transform(
   rotation~ : Double = 0,
   scale~ : Vec2 = vec2(1, 1),
   skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0)
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Graphic {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -51,7 +51,7 @@ pub fn Graphic::transform(
 /// without affecting the translation.
 pub fn Graphic::affine_transform_without_translation(
   self : Graphic,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Graphic {
   match self {
     CompoundPath(compound_path) =>
@@ -111,7 +111,7 @@ pub fn Graphic::some(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
 /// Graphic::is_contained_by_bounding_box returns a function that tests
 /// if a graphic is contained by the box.
 pub fn Graphic::is_contained_by_bounding_box(
-  box : BoundingBox
+  box : BoundingBox,
 ) -> (Graphic) -> Bool {
   fn(graphic) {
     match graphic {
@@ -127,7 +127,7 @@ pub fn Graphic::is_contained_by_bounding_box(
 /// Graphic::is_intersected_by_bounding_box returns a function that tests
 /// if a graphic is intersected by the box.
 pub fn Graphic::is_intersected_by_bounding_box(
-  box : BoundingBox
+  box : BoundingBox,
 ) -> (Graphic) -> Bool {
   fn(graphic) {
     match graphic {
@@ -143,7 +143,7 @@ pub fn Graphic::is_intersected_by_bounding_box(
 /// Graphic::is_overlapped_by_bounding_box returns a function that tests
 /// if a graphic is overlapped by the box.
 pub fn Graphic::is_overlapped_by_bounding_box(
-  box : BoundingBox
+  box : BoundingBox,
 ) -> (Graphic) -> Bool {
   fn(graphic) {
     match graphic {
@@ -161,7 +161,7 @@ pub fn Graphic::is_overlapped_by_bounding_box(
 pub fn Graphic::closest_point(
   self : Graphic,
   point : Vec2,
-  area_of_interest : BoundingBox?
+  area_of_interest : BoundingBox?,
 ) -> Anchor? {
   match self {
     CompoundPath(compound_path) =>
@@ -290,7 +290,7 @@ pub fn Graphic::remove_stroke(self : Graphic) -> Graphic {
 pub fn Graphic::assign_style(
   self : Graphic,
   fill : Fill?,
-  stroke : Stroke?
+  stroke : Stroke?,
 ) -> Graphic {
   match self {
     CompoundPath(path) => ignore(path.assign_style(fill, stroke))

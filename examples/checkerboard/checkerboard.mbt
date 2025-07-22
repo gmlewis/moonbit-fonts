@@ -43,7 +43,7 @@ fn single_checker(
   x : Int,
   y : Int,
   outer_fill : Fill?,
-  inner_fill : Fill?
+  inner_fill : Fill?,
 ) -> Graphic {
   let items = [
     unit_circle()

@@ -18,7 +18,7 @@ pub fn Path::new(
   closed~ : Bool = false,
   clear~ : Bool = false,
   fill? : Fill,
-  stroke? : Stroke
+  stroke? : Stroke,
 ) -> Path {
   { anchors, closed, clear, fill, stroke }
 }
@@ -73,7 +73,7 @@ pub fn Path::clone(self : Path) -> Path {
 /// affine_transform transforms this Path by `affine_matrix`.
 pub fn Path::affine_transform(
   self : Path,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Path {
   for anchor in self.anchors {
     ignore(anchor.affine_transform(affine_matrix))
@@ -86,7 +86,7 @@ pub fn Path::affine_transform(
 /// without affecting translation.
 pub fn Path::affine_transform_without_translation(
   self : Path,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Path {
   for anchor in self.anchors {
     ignore(anchor.affine_transform_without_translation(affine_matrix))
@@ -102,7 +102,7 @@ pub fn Path::transform(
   rotation~ : Double = 0,
   scale~ : Vec2 = vec2(1, 1),
   skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0)
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Path {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -139,7 +139,7 @@ fn segment_extents(
   h2 : Vec2,
   p2 : Vec2,
   lower_left : Vec2,
-  upper_right : Vec2
+  upper_right : Vec2,
 ) -> Unit {
   ignore(lower_left.copy(p1).min(p2))
   ignore(upper_right.copy(p1).max(p2))
@@ -265,7 +265,7 @@ pub fn Path::bounding_box(self : Path) -> BoundingBox? {
 pub fn Path::closest_point(
   self : Path,
   point : Vec2,
-  area_of_interest : BoundingBox?
+  area_of_interest : BoundingBox?,
 ) -> Anchor? {
   let { anchors, closed, .. } = self
   let num_anchors = anchors.length()
@@ -304,7 +304,7 @@ fn closest_point_to_line(
   a1 : Anchor,
   a2 : Anchor,
   point : Vec2,
-  area_of_interest : BoundingBox?
+  area_of_interest : BoundingBox?,
 ) -> Anchor? {
   let p1 = a1.closest_point(point, area_of_interest?)
   let p2 = a2.closest_point(point, area_of_interest?)
@@ -368,7 +368,7 @@ pub fn Path::has_style(self : Path) -> Bool {
 /// lies beyond its min or max.
 pub fn Path::is_contained_by_bounding_box(
   self : Path,
-  box : BoundingBox
+  box : BoundingBox,
 ) -> Bool {
   let bbox = self.bounding_box()
   if None == bbox {
@@ -383,7 +383,7 @@ pub fn Path::is_contained_by_bounding_box(
 /// the boundary between inside and outside of `box`.
 pub fn Path::is_intersected_by_bounding_box(
   _self : Path,
-  _box : BoundingBox
+  _box : BoundingBox,
 ) -> Bool {
   // TODO
   false
@@ -418,7 +418,7 @@ pub fn Path::is_intersected_by_bounding_box(
 /// that is inside both the Path and `box`.
 pub fn Path::is_overlapped_by_bounding_box(
   self : Path,
-  box : BoundingBox
+  box : BoundingBox,
 ) -> Bool {
   self.is_contained_by_bounding_box(box) ||
   self.is_intersected_by_bounding_box(box)

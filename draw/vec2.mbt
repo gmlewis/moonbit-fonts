@@ -77,7 +77,7 @@ pub fn Vec2::is_valid(self : Vec2) -> Bool {
 /// This is used when transforming a point or position.
 pub fn Vec2::affine_transform(
   self : Vec2,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Vec2 {
   let { x: x0, y: y0 } = self
   let { a, b, c, d, tx, ty } = affine_matrix
@@ -92,7 +92,7 @@ pub fn Vec2::affine_transform(
 /// This is used when transforming a normal or tangent.
 pub fn Vec2::affine_transform_without_translation(
   self : Vec2,
-  affine_matrix : AffineMatrix
+  affine_matrix : AffineMatrix,
 ) -> Vec2 {
   let { x: x0, y: y0 } = self
   let { a, b, c, d, .. } = affine_matrix
@@ -112,7 +112,7 @@ pub fn Vec2::transform(
   rotation~ : Double = 0,
   scale~ : Vec2 = vec2(1, 1),
   skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0)
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Vec2 {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -242,7 +242,7 @@ fn almost_equal(v1 : Double, v2 : Double, tolerance : Double) -> Bool {
 pub fn almost_equals(
   self : Vec2,
   other : Vec2,
-  tolerance~ : Double = DEFAULT_TOLERANCE
+  tolerance~ : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   almost_equal(self.x, other.x, tolerance) &&
   almost_equal(self.y, other.y, tolerance)
