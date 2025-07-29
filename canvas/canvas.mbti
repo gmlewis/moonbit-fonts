@@ -7,6 +7,8 @@ import(
 
 // Values
 
+// Errors
+
 // Types and methods
 type CanvasCtx
 fn CanvasCtx::from_graphic(Self, @draw.Graphic, y_up~ : Bool = ..) -> Unit

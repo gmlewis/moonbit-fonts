@@ -25,6 +25,11 @@ fn unit_square() -> Group
 
 fn vec2(Double, Double) -> Vec2
 
+// Errors
+pub(all) suberror DrawError String
+impl Eq for DrawError
+impl Show for DrawError
+
 // Types and methods
 pub(all) struct AffineMatrix {
   mut a : Double
@@ -184,10 +189,6 @@ fn CompoundPath::translate(Self, Vec2) -> Self
 impl Show for CompoundPath
 impl ToJson for CompoundPath
 impl @json.FromJson for CompoundPath
-
-pub(all) suberror DrawError String
-impl Eq for DrawError
-impl Show for DrawError
 
 pub(all) struct Fill {
   color : Color

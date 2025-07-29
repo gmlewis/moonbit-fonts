@@ -16,6 +16,11 @@ fn rect(Double, Double, Double, Double) -> Rectangle
 
 fn translate_path(String, Double, Double, invert_y~ : Bool = ..) -> String raise FontError
 
+// Errors
+pub(all) suberror FontError String
+impl Eq for FontError
+impl Show for FontError
+
 // Types and methods
 pub(all) enum AbsoluteCmd {
   M
@@ -64,10 +69,6 @@ impl Eq for Font
 impl Show for Font
 impl ToJson for Font
 impl @json.FromJson for Font
-
-pub(all) suberror FontError String
-impl Eq for FontError
-impl Show for FontError
 
 pub(all) enum GerberLP {
   Dark
