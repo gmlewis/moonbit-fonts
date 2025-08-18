@@ -14,7 +14,7 @@ fn pt(Double, Double) -> Point
 
 fn rect(Double, Double, Double, Double) -> Rectangle
 
-fn translate_path(String, Double, Double, invert_y~ : Bool = ..) -> String raise FontError
+fn translate_path(String, Double, Double, invert_y? : Bool) -> String raise FontError
 
 // Errors
 pub(all) suberror FontError String
@@ -63,8 +63,8 @@ pub(all) struct Font {
   descent : Double
   glyphs : Map[String, Glyph]
 }
-fn Font::gen_path(Self, String, anchor~ : Anchor = .., y_up~ : Bool = ..) -> Glyph raise FontError
-fn Font::gen_paths(Self, Array[String], anchor~ : Anchor = .., y_up~ : Bool = ..) -> Array[Glyph] raise FontError
+fn Font::gen_path(Self, String, anchor? : Anchor, y_up? : Bool) -> Glyph raise FontError
+fn Font::gen_paths(Self, Array[String], anchor? : Anchor, y_up? : Bool) -> Array[Glyph] raise FontError
 impl Eq for Font
 impl Show for Font
 impl ToJson for Font
@@ -130,7 +130,7 @@ fn PathCmd::to_svg_cmd(Self) -> (Cmd, String)
 impl Eq for PathCmd
 impl Show for PathCmd
 
-pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
+pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 fn PathCmdFn::inner(Self) -> (Int, PathCmd) -> PathCmd
 
 pub(all) struct Point {

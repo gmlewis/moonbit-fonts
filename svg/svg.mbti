@@ -6,7 +6,7 @@ import(
 )
 
 // Values
-fn from_graphic(@draw.Graphic, y_up~ : Bool = ..) -> String
+fn from_graphic(@draw.Graphic, y_up? : Bool) -> String
 
 // Errors
 

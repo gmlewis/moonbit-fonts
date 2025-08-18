@@ -17,7 +17,7 @@ fn rgba(Double, Double, Double, Double) -> Color
 
 fn stroke(Color) -> Stroke
 
-fn text(text~ : String, font~ : @fonts.Font, align~ : TextAlign = .., size~ : Double = ..) -> Graphic raise DrawError
+fn text(text~ : String, font~ : @fonts.Font, align? : TextAlign, size? : Double) -> Graphic raise DrawError
 
 fn unit_circle() -> Group
 
@@ -55,11 +55,11 @@ fn AffineMatrix::is_inf(Self) -> Bool
 fn AffineMatrix::is_invertible(Self) -> Bool
 fn AffineMatrix::is_mirror(Self) -> Bool
 fn AffineMatrix::is_nan(Self) -> Bool
-fn AffineMatrix::is_orthogonal(Self, tolerance~ : Double = ..) -> Bool
-fn AffineMatrix::is_uniform_scale(Self, tolerance~ : Double = ..) -> Bool
+fn AffineMatrix::is_orthogonal(Self, tolerance? : Double) -> Bool
+fn AffineMatrix::is_uniform_scale(Self, tolerance? : Double) -> Bool
 fn AffineMatrix::mul(Self, Self) -> Self
 fn AffineMatrix::mul_without_translation(Self, Self) -> Self
-fn AffineMatrix::new(a~ : Double = .., b~ : Double = .., c~ : Double = .., d~ : Double = .., tx~ : Double = .., ty~ : Double = ..) -> Self
+fn AffineMatrix::new(a? : Double, b? : Double, c? : Double, d? : Double, tx? : Double, ty? : Double) -> Self
 fn AffineMatrix::normalize(Self) -> Self
 fn AffineMatrix::op_mul(Self, Self) -> Self
 fn AffineMatrix::origin(Self, Vec2) -> Self
@@ -69,7 +69,7 @@ fn AffineMatrix::rotate(Self, Double) -> Self
 fn AffineMatrix::scale(Self, Vec2) -> Self
 fn AffineMatrix::scale_scalar(Self, Double) -> Self
 fn AffineMatrix::skew(Self, Double) -> Self
-fn AffineMatrix::to_transform(Self, origin~ : Vec2 = ..) -> Transform
+fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
 fn AffineMatrix::translate(Self, Vec2) -> Self
 impl Eq for AffineMatrix
 impl Show for AffineMatrix
@@ -85,15 +85,15 @@ fn Anchor::all_anchors(Self) -> Array[Self]
 fn Anchor::bounding_box(Self) -> BoundingBox?
 fn Anchor::clone(Self) -> Self
 fn Anchor::closest_point(Self, Vec2, area_of_interest? : BoundingBox) -> Vec2?
-fn Anchor::has_tangent_handles(Self, tolerance~ : Double = ..) -> Bool
+fn Anchor::has_tangent_handles(Self, tolerance? : Double) -> Bool
 fn Anchor::has_zero_handles(Self) -> Bool
 fn Anchor::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
 fn Anchor::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
 fn Anchor::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
 fn Anchor::loose_bounding_box(Self) -> BoundingBox?
-fn Anchor::new(position~ : Vec2 = .., handle_in~ : Vec2 = .., handle_out~ : Vec2 = ..) -> Self
+fn Anchor::new(position? : Vec2, handle_in? : Vec2, handle_out? : Vec2) -> Self
 fn Anchor::reverse(Self) -> Self
-fn Anchor::transform(Self, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
+fn Anchor::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 impl Eq for Anchor
 impl Show for Anchor
 impl ToJson for Anchor
@@ -118,7 +118,7 @@ fn BoundingBox::height(Self) -> Double
 fn BoundingBox::is_inf(Self) -> Bool
 fn BoundingBox::is_nan(Self) -> Bool
 fn BoundingBox::max_reversed() -> Self
-fn BoundingBox::new(min~ : Vec2 = .., max~ : Vec2 = ..) -> Self
+fn BoundingBox::new(min? : Vec2, max? : Vec2) -> Self
 fn BoundingBox::overlaps_bounding_box(Self, Self) -> Bool
 fn BoundingBox::size(Self) -> Vec2
 fn BoundingBox::width(Self) -> Double
@@ -138,7 +138,7 @@ fn Color::from_hsva(Double, Double, Double, Double) -> Self
 fn Color::from_rgb8_number(UInt) -> Self
 fn Color::luminance(Self) -> Double
 fn Color::mix(Self, Self, Double) -> Self
-fn Color::new(r~ : Double = .., g~ : Double = .., b~ : Double = .., a~ : Double = ..) -> Self
+fn Color::new(r? : Double, g? : Double, b? : Double, a? : Double) -> Self
 fn Color::set(Self, Double, Double, Double, Double) -> Self
 fn Color::to_css_hex_string(Self) -> String
 fn Color::to_css_rgba_string(Self) -> String
@@ -173,7 +173,7 @@ fn CompoundPath::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
 fn CompoundPath::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
 fn CompoundPath::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
 fn CompoundPath::loose_bounding_box(Self) -> BoundingBox?
-fn CompoundPath::new(paths~ : Array[Path] = .., fill? : Fill, stroke? : Stroke) -> Self
+fn CompoundPath::new(paths? : Array[Path], fill? : Fill, stroke? : Stroke) -> Self
 fn CompoundPath::op_get(Self, Int) -> Path
 fn CompoundPath::op_set(Self, Int, Path) -> Unit
 fn CompoundPath::primitives(Self) -> Array[Graphic]
@@ -184,7 +184,7 @@ fn CompoundPath::rotate(Self, Double) -> Self
 fn CompoundPath::scale(Self, Vec2) -> Self
 fn CompoundPath::scale_stroke(Self, Double) -> Self
 fn CompoundPath::style_contains_point(Self, Vec2) -> Bool
-fn CompoundPath::transform(Self, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
+fn CompoundPath::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 fn CompoundPath::translate(Self, Vec2) -> Self
 impl Show for CompoundPath
 impl ToJson for CompoundPath
@@ -193,7 +193,7 @@ impl @json.FromJson for CompoundPath
 pub(all) struct Fill {
   color : Color
 }
-fn Fill::new(color~ : Color = ..) -> Self
+fn Fill::new(color? : Color) -> Self
 impl Clonable for Fill
 impl Eq for Fill
 impl Show for Fill
@@ -238,7 +238,7 @@ fn Graphic::scale(Self, Vec2) -> Self
 fn Graphic::scale_stroke(Self, Double) -> Self
 fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
 fn Graphic::style_contains_point(Vec2) -> (Self) -> Bool
-fn Graphic::transform(Self, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
+fn Graphic::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 fn Graphic::translate(Self, Vec2) -> Self
 impl Show for Graphic
 impl ToJson for Graphic
@@ -270,7 +270,7 @@ fn Group::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
 fn Group::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
 fn Group::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
 fn Group::loose_bounding_box(Self) -> BoundingBox?
-fn Group::new(items~ : Array[Graphic] = ..) -> Self
+fn Group::new(items? : Array[Graphic]) -> Self
 fn Group::op_get(Self, Int) -> Graphic
 fn Group::op_set(Self, Int, Graphic) -> Unit
 fn Group::primitives(Self) -> Array[Graphic]
@@ -281,7 +281,7 @@ fn Group::rotate(Self, Double) -> Self
 fn Group::scale(Self, Vec2) -> Self
 fn Group::scale_stroke(Self, Double) -> Self
 fn Group::style_contains_point(Self, Vec2) -> Bool
-fn Group::transform(Self, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
+fn Group::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 fn Group::translate(Self, Vec2) -> Self
 impl Show for Group
 impl ToJson for Group
@@ -306,13 +306,13 @@ fn Path::closest_point(Self, Vec2, BoundingBox?) -> Anchor?
 fn Path::contains_point(Self, Vec2) -> Bool
 fn Path::copy_style(Self, Graphic) -> Self
 fn Path::first_styled(Self) -> Graphic?
-fn Path::from_points(Array[Vec2], closed~ : Bool = ..) -> Self
+fn Path::from_points(Array[Vec2], closed? : Bool) -> Self
 fn Path::has_style(Self) -> Bool
 fn Path::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
 fn Path::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
 fn Path::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
 fn Path::loose_bounding_box(Self) -> BoundingBox?
-fn Path::new(anchors~ : Array[Anchor] = .., closed~ : Bool = .., clear~ : Bool = .., fill? : Fill, stroke? : Stroke) -> Self
+fn Path::new(anchors? : Array[Anchor], closed? : Bool, clear? : Bool, fill? : Fill, stroke? : Stroke) -> Self
 fn Path::op_get(Self, Int) -> Anchor
 fn Path::op_set(Self, Int, Anchor) -> Unit
 fn Path::primitives(Self) -> Array[Graphic]
@@ -323,7 +323,7 @@ fn Path::rotate(Self, Double) -> Self
 fn Path::scale(Self, Vec2) -> Self
 fn Path::scale_stroke(Self, Double) -> Self
 fn Path::style_contains_point(Self, Vec2) -> Bool
-fn Path::transform(Self, position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
+fn Path::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 fn Path::translate(Self, Vec2) -> Self
 impl Show for Path
 impl ToJson for Path
@@ -337,7 +337,7 @@ pub(all) struct Stroke {
   mut join : StrokeJoin
   mut miter_limit : Double
 }
-fn Stroke::new(color~ : Color = .., width~ : Double = .., alignment~ : StrokeAlignment = .., cap~ : StrokeCap = .., join~ : StrokeJoin = .., miter_limit~ : Double = ..) -> Self
+fn Stroke::new(color? : Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Self
 impl Clonable for Stroke
 impl Eq for Stroke
 impl Show for Stroke
@@ -389,7 +389,7 @@ pub(all) struct Transform {
   skew : Double
   origin : Vec2
 }
-fn Transform::new(position~ : Vec2 = .., rotation~ : Double = .., scale~ : Vec2 = .., skew~ : Double = .., origin~ : Vec2 = ..) -> Self
+fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 impl Eq for Transform
 impl Show for Transform
 
@@ -401,7 +401,7 @@ fn Vec2::add(Self, Self) -> Self
 fn Vec2::add_scalar(Self, Double) -> Self
 fn Vec2::affine_transform(Self, AffineMatrix) -> Self
 fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
-fn Vec2::almost_equals(Self, Self, tolerance~ : Double = ..) -> Bool
+fn Vec2::almost_equals(Self, Self, tolerance? : Double) -> Bool
 fn Vec2::angle(Self) -> Double
 fn Vec2::angle_radians(Self) -> Double
 fn Vec2::apply(Self, (Double) -> Double) -> Self
@@ -432,7 +432,7 @@ fn Vec2::mul(Self, Self) -> Self
 fn Vec2::mul_scalar(Self, Double) -> Self
 fn Vec2::neg_infinity() -> Self
 fn Vec2::negate(Self) -> Self
-fn Vec2::new(x~ : Double = .., y~ : Double = ..) -> Self
+fn Vec2::new(x? : Double, y? : Double) -> Self
 fn Vec2::normalize(Self) -> Self
 fn Vec2::project_onto(Self, Self) -> Self
 fn Vec2::rotate(Self, Double) -> Self
@@ -445,7 +445,7 @@ fn Vec2::round_to_multiple(Self, Double) -> Self
 fn Vec2::set(Self, Double, Double) -> Self
 fn Vec2::sub(Self, Self) -> Self
 fn Vec2::sub_scalar(Self, Double) -> Self
-fn Vec2::transform(Self, position~ : Self = .., rotation~ : Double = .., scale~ : Self = .., skew~ : Double = .., origin~ : Self = ..) -> Self
+fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 impl Add for Vec2
 impl Div for Vec2
 impl Eq for Vec2
