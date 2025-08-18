@@ -100,7 +100,7 @@ pub fn bbox(self : PathCmd) -> Rectangle {
 ///|
 /// `PathCmdFn` represents a function that processes or transforms individual commands.
 /// The first argument is the index within the command.
-pub(all) type PathCmdFn (Int, PathCmd) -> PathCmd
+pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 
 ///|
 /// `clone` makes a deep copy of a PatchCmd.

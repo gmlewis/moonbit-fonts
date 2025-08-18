@@ -119,3 +119,22 @@ test "@draw.clone/zero-opacity" {
   let cloned = original.clone()
   inspect(cloned, content=original.to_string())
 }
+
+///|
+test "@draw.StrokeAlignment/json_roundtrip" {
+  let centered = @draw.StrokeAlignment::Centered
+  let inner = @draw.StrokeAlignment::Inner
+  let outer = @draw.StrokeAlignment::Outer
+  let centered_json = centered.to_json()
+  inspect(centered_json.stringify(), content="\"Centered\"")
+  let inner_json = inner.to_json()
+  inspect(inner_json.stringify(), content="\"Inner\"")
+  let outer_json = outer.to_json()
+  inspect(outer_json.stringify(), content="\"Outer\"")
+  let centered_decoded = @json.from_json(centered_json)
+  let inner_decoded = @json.from_json(inner_json)
+  let outer_decoded = @json.from_json(outer_json)
+  inspect(centered_decoded == centered, content="true")
+  inspect(inner_decoded == inner, content="true")
+  inspect(outer_decoded == outer, content="true")
+}
