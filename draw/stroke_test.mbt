@@ -61,9 +61,16 @@ test "@draw.Stroke::new/boundary" {
 ///|
 test "@draw.Stroke::new" {
   let color = @draw.rgba(-1, 2, -3, 4) // Invalid color values
+  let new_color = @draw.Stroke::new(color~)
   inspect(
-    @draw.Stroke::new(color~),
+    new_color,
     content="{color: {r: -1, g: 2, b: -3, a: 4}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
+  )
+  inspect(
+    new_color.to_json().stringify(),
+    content=(
+      #|{"color":{"r":-1,"g":2,"b":-3,"a":4},"width":0.1,"alignment":"Centered","cap":"Butt","join":"Miter","miter_limit":4}
+    ),
   )
 }
 
@@ -75,6 +82,12 @@ test "@draw.stroke/basic" {
     stroke,
     content="{color: {r: 0, g: 0, b: 0, a: 1}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
   )
+  inspect(
+    stroke.to_json().stringify(),
+    content=(
+      #|{"color":{"r":0,"g":0,"b":0,"a":1},"width":0.1,"alignment":"Centered","cap":"Butt","join":"Miter","miter_limit":4}
+    ),
+  )
 }
 
 ///|
@@ -85,6 +98,12 @@ test "@draw.stroke/transparent" {
     stroke,
     content="{color: {r: 1, g: 1, b: 1, a: 0}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
   )
+  inspect(
+    stroke.to_json().stringify(),
+    content=(
+      #|{"color":{"r":1,"g":1,"b":1,"a":0},"width":0.1,"alignment":"Centered","cap":"Butt","join":"Miter","miter_limit":4}
+    ),
+  )
 }
 
 ///|
@@ -94,6 +113,12 @@ test "@draw.stroke/partial-transparent" {
   inspect(
     stroke,
     content="{color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}, width: 0.1, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4}",
+  )
+  inspect(
+    stroke.to_json().stringify(),
+    content=(
+      #|{"color":{"r":0.5,"g":0.5,"b":0.5,"a":0.5},"width":0.1,"alignment":"Centered","cap":"Butt","join":"Miter","miter_limit":4}
+    ),
   )
 }
 
