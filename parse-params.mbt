@@ -1,6 +1,6 @@
 ///|
 /// `Params` represents the parameters to an SVG command.
-type Params Array[Double] derive(Show, Eq)
+struct Params(Array[Double]) derive(Show, Eq)
 
 ///|
 pub fn length(self : Params) -> Int {
