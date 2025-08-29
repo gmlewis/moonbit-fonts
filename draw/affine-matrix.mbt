@@ -16,12 +16,12 @@ pub(all) struct AffineMatrix {
 ///|
 /// AffineMatrix::new returns a new 2D affine matrix.
 pub fn AffineMatrix::new(
-  a~ : Double = 1,
-  b~ : Double = 0,
-  c~ : Double = 0,
-  d~ : Double = 1,
-  tx~ : Double = 0,
-  ty~ : Double = 0,
+  a? : Double = 1,
+  b? : Double = 0,
+  c? : Double = 0,
+  d? : Double = 1,
+  tx? : Double = 0,
+  ty? : Double = 0,
 ) -> AffineMatrix {
   { a, b, c, d, tx, ty }
 }
@@ -281,7 +281,7 @@ pub fn determinant(self : AffineMatrix) -> Double {
 /// are orthogonal within the provided tolerance.
 pub fn is_orthogonal(
   self : AffineMatrix,
-  tolerance~ : Double = DEFAULT_TOLERANCE,
+  tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let { a, b, c, d, .. } = self
   return (a * c + b * d).abs() <= tolerance
@@ -298,7 +298,7 @@ pub fn is_invertible(self : AffineMatrix) -> Bool {
 /// are of the same length.
 pub fn is_uniform_scale(
   self : AffineMatrix,
-  tolerance~ : Double = DEFAULT_TOLERANCE,
+  tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let { a, b, c, d, .. } = self
   (a * a + b * b - (c * c + d * d)).abs() <= tolerance
@@ -361,7 +361,7 @@ fn mod(a : Double, b : Double) -> Double {
 /// to_transform converts this 2D affine matrix to a Transform.
 pub fn to_transform(
   self : AffineMatrix,
-  origin~ : Vec2 = vec2(0, 0),
+  origin? : Vec2 = vec2(0, 0),
 ) -> Transform {
   let { a, b, c, d, tx, ty } = self
   let xnz = a * a + b * b > 0.00000001

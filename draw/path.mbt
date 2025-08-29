@@ -14,9 +14,9 @@ pub(all) struct Path {
 ///|
 /// Path::new creates a new Path.
 pub fn Path::new(
-  anchors~ : Array[Anchor] = [],
-  closed~ : Bool = false,
-  clear~ : Bool = false,
+  anchors? : Array[Anchor] = [],
+  closed? : Bool = false,
+  clear? : Bool = false,
   fill? : Fill,
   stroke? : Stroke,
 ) -> Path {
@@ -43,7 +43,7 @@ pub fn Path::op_set(self : Path, index : Int, anchor : Anchor) -> Unit {
 
 ///|
 /// Path::from_points connects a series of points with lines to form a Path.
-pub fn Path::from_points(points : Array[Vec2], closed~ : Bool = false) -> Path {
+pub fn Path::from_points(points : Array[Vec2], closed? : Bool = false) -> Path {
   let anchors = points.map(fn(pt) { Anchor::new(position=pt) })
   { anchors, closed, clear: false, fill: None, stroke: None }
 }
@@ -98,11 +98,11 @@ pub fn Path::affine_transform_without_translation(
 /// transform provides a convenient API for a common task.
 pub fn Path::transform(
   self : Path,
-  position~ : Vec2 = vec2(0, 0),
-  rotation~ : Double = 0,
-  scale~ : Vec2 = vec2(1, 1),
-  skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0),
+  position? : Vec2 = vec2(0, 0),
+  rotation? : Double = 0,
+  scale? : Vec2 = vec2(1, 1),
+  skew? : Double = 0,
+  origin? : Vec2 = vec2(0, 0),
 ) -> Path {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),

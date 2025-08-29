@@ -7,7 +7,7 @@ pub(all) struct Vec2 {
 
 ///|
 /// Vec2::new returns a new Vec2.
-pub fn Vec2::new(x~ : Double = 0, y~ : Double = 0) -> Vec2 {
+pub fn Vec2::new(x? : Double = 0, y? : Double = 0) -> Vec2 {
   { x, y }
 }
 
@@ -108,11 +108,11 @@ pub fn Vec2::affine_transform_without_translation(
 /// transform provides a convenient API for a common task.
 pub fn Vec2::transform(
   self : Vec2,
-  position~ : Vec2 = vec2(0, 0),
-  rotation~ : Double = 0,
-  scale~ : Vec2 = vec2(1, 1),
-  skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0),
+  position? : Vec2 = vec2(0, 0),
+  rotation? : Double = 0,
+  scale? : Vec2 = vec2(1, 1),
+  skew? : Double = 0,
+  origin? : Vec2 = vec2(0, 0),
 ) -> Vec2 {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -242,7 +242,7 @@ fn almost_equal(v1 : Double, v2 : Double, tolerance : Double) -> Bool {
 pub fn almost_equals(
   self : Vec2,
   other : Vec2,
-  tolerance~ : Double = DEFAULT_TOLERANCE,
+  tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   almost_equal(self.x, other.x, tolerance) &&
   almost_equal(self.y, other.y, tolerance)

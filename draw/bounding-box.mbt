@@ -8,8 +8,8 @@ pub(all) struct BoundingBox {
 ///|
 /// BoundingBox::new returns a new empty BoundingBox.
 pub fn BoundingBox::new(
-  min~ : Vec2 = vec2(0, 0),
-  max~ : Vec2 = vec2(0, 0),
+  min? : Vec2 = vec2(0, 0),
+  max? : Vec2 = vec2(0, 0),
 ) -> BoundingBox {
   { min, max }
 }

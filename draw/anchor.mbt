@@ -11,9 +11,9 @@ pub(all) struct Anchor {
 /// Anchor::new returns a new anchor. You must either create new Vec2 points
 /// or clone them before passing them in.
 pub fn Anchor::new(
-  position~ : Vec2 = vec2(0, 0),
-  handle_in~ : Vec2 = vec2(0, 0),
-  handle_out~ : Vec2 = vec2(0, 0),
+  position? : Vec2 = vec2(0, 0),
+  handle_in? : Vec2 = vec2(0, 0),
+  handle_out? : Vec2 = vec2(0, 0),
 ) -> Anchor {
   { position, handle_in, handle_out }
 }
@@ -54,11 +54,11 @@ pub fn affine_transform_without_translation(
 /// transform provides a convenient API for a common task.
 pub fn transform(
   self : Anchor,
-  position~ : Vec2 = vec2(0, 0),
-  rotation~ : Double = 0,
-  scale~ : Vec2 = vec2(1, 1),
-  skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0),
+  position? : Vec2 = vec2(0, 0),
+  rotation? : Double = 0,
+  scale? : Vec2 = vec2(1, 1),
+  skew? : Double = 0,
+  origin? : Vec2 = vec2(0, 0),
 ) -> Anchor {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -140,7 +140,7 @@ let tmp2 : Vec2 = Vec2::new()
 /// are tangent to each other.
 pub fn has_tangent_handles(
   self : Anchor,
-  tolerance~ : Double = DEFAULT_TOLERANCE,
+  tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let _ = tmp1.copy(self.handle_in).normalize()
   let _ = tmp2.copy(self.handle_out).normalize()

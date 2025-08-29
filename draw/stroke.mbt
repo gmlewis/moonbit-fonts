@@ -33,12 +33,12 @@ pub(all) enum StrokeJoin {
 ///|
 /// Stroke::new returns a new stroke style.
 pub fn Stroke::new(
-  color~ : Color = rgba(0, 0, 0, 1),
-  width~ : Double = 0.1,
-  alignment~ : StrokeAlignment = Centered,
-  cap~ : StrokeCap = Butt,
-  join~ : StrokeJoin = Miter,
-  miter_limit~ : Double = 4,
+  color? : Color = rgba(0, 0, 0, 1),
+  width? : Double = 0.1,
+  alignment? : StrokeAlignment = Centered,
+  cap? : StrokeCap = Butt,
+  join? : StrokeJoin = Miter,
+  miter_limit? : Double = 4,
 ) -> Stroke {
   { color, width, alignment, cap, join, miter_limit }
 }

@@ -6,7 +6,7 @@ pub(all) struct Group {
 
 ///|
 /// Group::new returns a new group.
-pub fn Group::new(items~ : Array[Graphic] = []) -> Group {
+pub fn Group::new(items? : Array[Graphic] = []) -> Group {
   { items, }
 }
 
@@ -69,11 +69,11 @@ pub fn Group::affine_transform_without_translation(
 /// transform provides a convenient API for a common task.
 pub fn Group::transform(
   self : Group,
-  position~ : Vec2 = vec2(0, 0),
-  rotation~ : Double = 0,
-  scale~ : Vec2 = vec2(1, 1),
-  skew~ : Double = 0,
-  origin~ : Vec2 = vec2(0, 0),
+  position? : Vec2 = vec2(0, 0),
+  rotation? : Double = 0,
+  scale? : Vec2 = vec2(1, 1),
+  skew? : Double = 0,
+  origin? : Vec2 = vec2(0, 0),
 ) -> Group {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),

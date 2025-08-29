@@ -6,7 +6,7 @@ pub(all) struct Fill {
 
 ///|
 /// Fill::new returns a new fill style.
-pub fn Fill::new(color~ : Color = rgba(0, 0, 0, 1)) -> Fill {
+pub fn Fill::new(color? : Color = rgba(0, 0, 0, 1)) -> Fill {
   { color, }
 }
 

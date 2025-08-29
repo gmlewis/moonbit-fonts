@@ -10,10 +10,10 @@ pub(all) struct Color {
 ///|
 /// Color::new returns a new color.
 pub fn Color::new(
-  r~ : Double = 0,
-  g~ : Double = 0,
-  b~ : Double = 0,
-  a~ : Double = 1,
+  r? : Double = 0,
+  g? : Double = 0,
+  b? : Double = 0,
+  a? : Double = 1,
 ) -> Color {
   { r, g, b, a }
 }

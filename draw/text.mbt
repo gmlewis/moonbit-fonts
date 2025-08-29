@@ -14,8 +14,8 @@ pub(all) enum TextAlign {
 pub fn text(
   text~ : String,
   font~ : Font,
-  align~ : TextAlign = Left,
-  size~ : Double = 1,
+  align? : TextAlign = Left,
+  size? : Double = 1,
 ) -> Graphic raise DrawError {
   let xscale = size / font.units_per_em
   let yscale = -xscale

@@ -5,7 +5,7 @@ pub fn translate_path(
   d : String,
   x : Double,
   y : Double,
-  invert_y~ : Bool = false,
+  invert_y? : Bool = false,
 ) -> String raise FontError {
   let cmds = split_path(d)
   let d = @buffer.new()
