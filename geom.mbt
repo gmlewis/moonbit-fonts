@@ -11,7 +11,7 @@
 pub(all) struct Point {
   mut x : Double
   mut y : Double
-} derive(Show, Eq)
+} derive(Show)
 
 ///|
 /// to_string returns a string representation of p like "(3,4)".
@@ -20,14 +20,14 @@ pub fn to_string(self : Point) -> String {
 }
 
 ///|
-/// op_add (+) returns the vector p+q.
-pub fn op_add(self : Point, q : Point) -> Point {
+/// add (+) returns the vector p+q.
+pub impl Add for Point with add(self, q) {
   { x: self.x + q.x, y: self.y + q.y }
 }
 
 ///|
-/// op_sub (-) returns the vector p-q.
-pub fn op_sub(self : Point, q : Point) -> Point {
+/// sub (-) returns the vector p-q.
+pub impl Sub for Point with sub(self, q) {
   { x: self.x - q.x, y: self.y - q.y }
 }
 
@@ -66,8 +66,8 @@ pub fn is_in(self : Point, r : Rectangle) -> Bool {
 // }
 
 ///|
-/// op_equal reports whether p and q are equal.
-pub fn op_equal(self : Point, q : Point) -> Bool {
+/// equal reports whether p and q are equal.
+pub impl Eq for Point with equal(self, q) {
   self.x == q.x && self.y == q.y
 }
 
@@ -89,7 +89,7 @@ pub fn pt(x : Double, y : Double) -> Point {
 pub(all) struct Rectangle {
   min : Point
   max : Point
-} derive(Show, Eq)
+} derive(Show)
 
 ///|
 /// Rectangle::new returns an empty (all zeros) rectangle.
@@ -250,9 +250,9 @@ pub fn empty(self : Rectangle) -> Bool {
 }
 
 ///|
-/// op_equal reports whether r and s contain the same set of points. All empty
+/// equal reports whether r and s contain the same set of points. All empty
 /// rectangles are considered equal.
-pub fn Rectangle::op_equal(self : Rectangle, s : Rectangle) -> Bool {
+pub impl Eq for Rectangle with equal(self, s) {
   (self.min == s.min && self.max == s.max) || (self.empty() && s.empty())
 }
 

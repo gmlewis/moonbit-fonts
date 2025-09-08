@@ -1,5 +1,5 @@
 {
   "import": [
-    "yj-qin/regexp"
+    "moonbitlang/regexp"
   ]
 }

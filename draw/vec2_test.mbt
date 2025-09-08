@@ -596,124 +596,124 @@ test "@draw.transform/boundary_neg_scale_translation" {
 }
 
 ///|
-test "@draw.add" {
+test "@draw.self_add" {
   // Basic vector addition
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, -1.0)
-  let result = v1.add(v2)
+  let result = v1.self_add(v2)
   inspect(result.x, content="4")
   inspect(result.y, content="1")
 
   // Adding zero vector
   let v3 = vec2(5.0, -3.0)
   let zero = vec2(0.0, 0.0)
-  let result2 = v3.add(zero)
+  let result2 = v3.self_add(zero)
   inspect(result2.x, content="5")
   inspect(result2.y, content="-3")
 
   // Adding vector to itself
   let v4 = vec2(2.5, 1.5)
-  let result3 = v4.add(v4)
+  let result3 = v4.self_add(v4)
   inspect(result3.x, content="5")
   inspect(result3.y, content="3")
 }
 
 ///|
-test "@draw.add" {
+test "@draw.self_add" {
   // Basic test case with positive values
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, 4.0)
-  inspect(v1.add(v2), content="{x: 4, y: 6}")
+  inspect(v1.self_add(v2), content="{x: 4, y: 6}")
 }
 
 ///|
-test "@draw.add/boundary" {
+test "@draw.self_add/boundary" {
   // Test case with zero values
   let v1 = vec2(0.0, 0.0)
   let v2 = vec2(0.0, 0.0)
-  inspect(v1.add(v2), content="{x: 0, y: 0}")
+  inspect(v1.self_add(v2), content="{x: 0, y: 0}")
 
   // Test case with negative values
   let v3 = vec2(-1.0, -2.0)
   let v4 = vec2(-3.0, -4.0)
-  inspect(v3.add(v4), content="{x: -4, y: -6}")
+  inspect(v3.self_add(v4), content="{x: -4, y: -6}")
 }
 
 ///|
-test "@draw.add/boundary-large-small" {
+test "@draw.self_add/boundary-large-small" {
   // Test case with large and small values
   let v1 = vec2(1.0e308, 1.0e-308)
   let v2 = vec2(1.0e308, 1.0e-308)
-  inspect(v1.add(v2), content="{x: Infinity, y: 2e-308}")
+  inspect(v1.self_add(v2), content="{x: Infinity, y: 2e-308}")
 }
 
 ///|
-test "@draw.Vec2::op_add" {
+test "@draw.Vec2::add" {
   // Basic vector addition
   inspect(
-    @draw.Vec2::op_add(vec2(1.0, 2.0), vec2(3.0, 4.0)),
+    @draw.Vec2::add(vec2(1.0, 2.0), vec2(3.0, 4.0)),
     content="{x: 4, y: 6}",
   )
 
   // Adding with zero vector should return the same vector
   inspect(
-    @draw.Vec2::op_add(vec2(1.0, 2.0), vec2(0.0, 0.0)),
+    @draw.Vec2::add(vec2(1.0, 2.0), vec2(0.0, 0.0)),
     content="{x: 1, y: 2}",
   )
 
   // Adding negative vectors
   inspect(
-    @draw.Vec2::op_add(vec2(-1.0, -2.0), vec2(-3.0, -4.0)),
+    @draw.Vec2::add(vec2(-1.0, -2.0), vec2(-3.0, -4.0)),
     content="{x: -4, y: -6}",
   )
 }
 
 ///|
-test "@draw.Vec2::op_add/edge_cases" {
+test "@draw.Vec2::add/edge_cases" {
   // Adding large numbers
   inspect(
-    @draw.Vec2::op_add(vec2(1.0e15, 2.0e15), vec2(3.0e15, 4.0e15)),
+    @draw.Vec2::add(vec2(1.0e15, 2.0e15), vec2(3.0e15, 4.0e15)),
     content="{x: 4000000000000000, y: 6000000000000000}",
   )
 
   // Adding small numbers
   inspect(
-    @draw.Vec2::op_add(vec2(1.0e-15, 2.0e-15), vec2(3.0e-15, 4.0e-15)),
+    @draw.Vec2::add(vec2(1.0e-15, 2.0e-15), vec2(3.0e-15, 4.0e-15)),
     content="{x: 4e-15, y: 6.0000000000000005e-15}",
   )
 }
 
 ///|
-test "@draw.Vec2::op_add/commutative" {
+test "@draw.Vec2::add/commutative" {
   // Test commutative property: a + b should equal b + a
   let a = vec2(1.0, 2.0)
   let b = vec2(3.0, 4.0)
-  let sum1 = @draw.Vec2::op_add(a, b)
-  let sum2 = @draw.Vec2::op_add(b, a)
+  let sum1 = @draw.Vec2::add(a, b)
+  let sum2 = @draw.Vec2::add(b, a)
   inspect(sum1, content="{x: 4, y: 6}")
   inspect(sum2, content="{x: 4, y: 6}")
 }
 
 ///|
-test "@draw.Vec2::op_add" {
+test "@draw.Vec2::add" {
   inspect(
-    @draw.Vec2::op_add(vec2(1.0, 2.0), vec2(3.0, 4.0)),
+    @draw.Vec2::add(vec2(1.0, 2.0), vec2(3.0, 4.0)),
     content="{x: 4, y: 6}",
   )
 }
 
 ///|
-test "@draw.Vec2::op_add/zero_vectors" {
+test "@draw.Vec2::add/zero_vectors" {
   inspect(
-    @draw.Vec2::op_add(vec2(0.0, 0.0), vec2(0.0, 0.0)),
+    @draw.Vec2::add(vec2(0.0, 0.0), vec2(0.0, 0.0)),
     content="{x: 0, y: 0}",
   )
 }
 
 ///|
-test "@draw.Vec2::op_add/negative_values" {
+test "@draw.Vec2::add/negative_values" {
   inspect(
-    @draw.Vec2::op_add(vec2(-1.0, -2.0), vec2(-3.0, -4.0)),
+    @draw.Vec2::add(vec2(-1.0, -2.0), vec2(-3.0, -4.0)),
     content="{x: -4, y: -6}",
   )
 }
@@ -728,107 +728,107 @@ fn assert_vec2_eq(v1 : Vec2, v2 : Vec2, error : Double) -> Unit raise Error {
 }
 
 ///|
-test "@draw.Vec2::add_scalar/basic" {
+test "@draw.Vec2::self_add_scalar/basic" {
   let v = vec2(1.0, 2.0)
-  assert_vec2_eq(@draw.Vec2::add_scalar(v, 3.0), vec2(4.0, 5.0), 0.0001)
+  assert_vec2_eq(@draw.Vec2::self_add_scalar(v, 3.0), vec2(4.0, 5.0), 0.0001)
 }
 
 ///|
-test "@draw.Vec2::add_scalar/zero" {
+test "@draw.Vec2::self_add_scalar/zero" {
   let v = vec2(1.0, 2.0)
   let orig = v.clone()
-  assert_vec2_eq(@draw.Vec2::add_scalar(v, 0.0), orig, 0.0001)
+  assert_vec2_eq(@draw.Vec2::self_add_scalar(v, 0.0), orig, 0.0001)
 }
 
 ///|
-test "@draw.Vec2::add_scalar/zero-vector" {
+test "@draw.Vec2::self_add_scalar/zero-vector" {
   let v = vec2(0.0, 0.0)
-  assert_vec2_eq(@draw.Vec2::add_scalar(v, 5.0), vec2(5.0, 5.0), 0.0001)
-  assert_vec2_eq(@draw.Vec2::add_scalar(v, -3.0), vec2(2.0, 2.0), 0.0001)
+  assert_vec2_eq(@draw.Vec2::self_add_scalar(v, 5.0), vec2(5.0, 5.0), 0.0001)
+  assert_vec2_eq(@draw.Vec2::self_add_scalar(v, -3.0), vec2(2.0, 2.0), 0.0001)
 }
 
 ///|
-test "@draw.Vec2::add_scalar/positive_scalar" {
+test "@draw.Vec2::self_add_scalar/positive_scalar" {
   let v = Vec2::new(x=2.0, y=3.0)
-  let result = @draw.Vec2::add_scalar(v, 5.0)
+  let result = @draw.Vec2::self_add_scalar(v, 5.0)
   inspect(result, content="{x: 7, y: 8}")
 }
 
 ///|
-test "@draw.Vec2::add_scalar/zero_scalar" {
+test "@draw.Vec2::self_add_scalar/zero_scalar" {
   let v = Vec2::new(x=2.0, y=3.0)
-  let result = @draw.Vec2::add_scalar(v, 0.0)
+  let result = @draw.Vec2::self_add_scalar(v, 0.0)
   inspect(result, content="{x: 2, y: 3}")
 }
 
 ///|
-test "@draw.Vec2::add_scalar/negative_scalar" {
+test "@draw.Vec2::self_add_scalar/negative_scalar" {
   let v = Vec2::new(x=2.0, y=3.0)
-  let result = @draw.Vec2::add_scalar(v, -1.5)
+  let result = @draw.Vec2::self_add_scalar(v, -1.5)
   inspect(result, content="{x: 0.5, y: 1.5}")
 }
 
 ///|
-test "@draw.Vec2::sub/boundary_positive_and_negative" {
+test "@draw.Vec2::self_sub/boundary_positive_and_negative" {
   let v1 = Vec2::{ x: 5.0, y: 3.0 }
   let v2 = Vec2::{ x: -2.5, y: 7.0 }
-  let result = @draw.Vec2::sub(v1, v2)
+  let result = @draw.Vec2::self_sub(v1, v2)
   inspect(result.x, content="7.5")
   inspect(result.y, content="-4")
 }
 
 ///|
-test "@draw.Vec2::sub/boundary_both_zero" {
+test "@draw.Vec2::self_sub/boundary_both_zero" {
   let v1 = Vec2::{ x: 0.0, y: 0.0 }
   let v2 = Vec2::{ x: 0.0, y: 0.0 }
-  let result = @draw.Vec2::sub(v1, v2)
+  let result = @draw.Vec2::self_sub(v1, v2)
   inspect(result.x, content="0")
   inspect(result.y, content="0")
 }
 
 ///|
-test "@draw.Vec2::sub/boundary_max_min_values" {
+test "@draw.Vec2::self_sub/boundary_max_min_values" {
   let v1 = Vec2::{ x: @double.max_value, y: @double.min_value }
   let v2 = Vec2::{ x: @double.min_value, y: @double.max_value }
-  let result = @draw.Vec2::sub(v1, v2)
+  let result = @draw.Vec2::self_sub(v1, v2)
   inspect(result.x, content="\{@double.max_value - @double.min_value}")
   inspect(result.y, content="\{@double.min_value - @double.max_value}")
 }
 
 ///|
-test "@draw.Vec2::sub" {
+test "@draw.Vec2::self_sub" {
   // Test basic subtraction
   let v1 = vec2(3.0, 4.0)
   let v2 = vec2(1.0, 2.0)
-  let result = v1.sub(v2)
+  let result = v1.self_sub(v2)
   inspect(result.x, content="2")
   inspect(result.y, content="2")
 }
 
 ///|
-test "@draw.Vec2::sub/zero_vector" {
+test "@draw.Vec2::self_sub/zero_vector" {
   // Test subtraction with zero vector
   let v1 = vec2(3.0, 4.0)
   let zero = vec2(0.0, 0.0)
-  let result = v1.sub(zero)
+  let result = v1.self_sub(zero)
   inspect(result.x, content="3")
   inspect(result.y, content="4")
 }
 
 ///|
-test "@draw.Vec2::sub/same_vector" {
+test "@draw.Vec2::self_sub/same_vector" {
   // Test subtraction of a vector from itself
   let v = vec2(3.0, 4.0)
-  let result = v.sub(v)
+  let result = v.self_sub(v)
   inspect(result.x, content="0")
   inspect(result.y, content="0")
 }
 
 ///|
-test "@draw.Vec2::op_sub/basic" {
+test "@draw.Vec2::sub/basic" {
   let v1 = vec2(3.0, 4.0)
   let v2 = vec2(1.0, 1.0)
-  let result = v1.op_sub(v2)
+  let result = v1.sub(v2)
   inspect(result.x, content="2")
   inspect(result.y, content="3")
   // Also verify that the original vectors are unchanged
@@ -839,82 +839,82 @@ test "@draw.Vec2::op_sub/basic" {
 }
 
 ///|
-test "@draw.Vec2::op_sub/zero_vector" {
+test "@draw.Vec2::self_sub/zero_vector" {
   let v1 = vec2(3.0, 4.0)
   let zero = vec2(0.0, 0.0)
-  let result = v1.op_sub(zero)
+  let result = v1.self_sub(zero)
   inspect(result.x, content="3")
   inspect(result.y, content="4")
 }
 
 ///|
-test "@draw.Vec2::op_sub/negative_components" {
+test "@draw.Vec2::self_sub/negative_components" {
   let v1 = vec2(-1.0, 2.0)
   let v2 = vec2(3.0, -4.0)
-  let result = v1.op_sub(v2)
+  let result = v1.self_sub(v2)
   inspect(result.x, content="-4")
   inspect(result.y, content="6")
 }
 
 ///|
-test "@draw.Vec2::op_sub" {
+test "@draw.Vec2::self_sub" {
   let v1 = Vec2::new(x=3.0, y=4.0)
   let v2 = Vec2::new(x=1.0, y=2.0)
-  let result = @draw.Vec2::op_sub(v1, v2)
+  let result = @draw.Vec2::self_sub(v1, v2)
   inspect(result, content="{x: 2, y: 2}")
 }
 
 ///|
-test "@draw.Vec2::op_sub/zero_vector" {
+test "@draw.Vec2::self_sub/zero_vector" {
   let v1 = Vec2::new(x=0.0, y=0.0)
   let v2 = Vec2::new(x=5.0, y=6.0)
-  let result = @draw.Vec2::op_sub(v1, v2)
+  let result = @draw.Vec2::self_sub(v1, v2)
   inspect(result, content="{x: -5, y: -6}")
 }
 
 ///|
-test "@draw.Vec2::op_sub/negative_coordinates" {
+test "@draw.Vec2::self_sub/negative_coordinates" {
   let v1 = Vec2::new(x=-3.0, y=-4.0)
   let v2 = Vec2::new(x=-1.0, y=-2.0)
-  let result = @draw.Vec2::op_sub(v1, v2)
+  let result = @draw.Vec2::self_sub(v1, v2)
   inspect(result, content="{x: -2, y: -2}")
 }
 
 ///|
-test "@draw.Vec2::sub_scalar" {
+test "@draw.Vec2::self_sub_scalar" {
   let v = vec2(3.0, 4.0)
-  inspect(v.sub_scalar(1.0), content="{x: 2, y: 3}")
+  inspect(v.self_sub_scalar(1.0), content="{x: 2, y: 3}")
   let v2 = vec2(-1.0, -2.0)
-  inspect(v2.sub_scalar(-3.0), content="{x: 2, y: 1}")
+  inspect(v2.self_sub_scalar(-3.0), content="{x: 2, y: 1}")
   let v3 = vec2(1.0, 1.0)
-  inspect(v3.sub_scalar(0.0), content="{x: 1, y: 1}")
+  inspect(v3.self_sub_scalar(0.0), content="{x: 1, y: 1}")
 }
 
 ///|
-test "@draw.Vec2::sub_scalar/infinity" {
+test "@draw.Vec2::self_sub_scalar/infinity" {
   let v = vec2(1.0, 1.0)
-  let result = v.sub_scalar(@double.infinity)
+  let result = v.self_sub_scalar(@double.infinity)
   inspect(result.is_valid(), content="false")
 }
 
 ///|
-test "@draw.Vec2::sub_scalar/zero_subtraction" {
+test "@draw.Vec2::self_sub_scalar/zero_subtraction" {
   let vec = Vec2::new(x=3.5, y=2.5)
-  let result = @draw.Vec2::sub_scalar(vec, 0.0)
+  let result = @draw.Vec2::self_sub_scalar(vec, 0.0)
   inspect(result, content="{x: 3.5, y: 2.5}")
 }
 
 ///|
-test "@draw.Vec2::sub_scalar/negative_subtraction" {
+test "@draw.Vec2::self_sub_scalar/negative_subtraction" {
   let vec = Vec2::new(x=-1.0, y=-2.0)
-  let result = @draw.Vec2::sub_scalar(vec, -1.0)
+  let result = @draw.Vec2::self_sub_scalar(vec, -1.0)
   inspect(result, content="{x: 0, y: -1}")
 }
 
 ///|
-test "@draw.Vec2::sub_scalar/large_subtraction" {
+test "@draw.Vec2::self_sub_scalar/large_subtraction" {
   let vec = Vec2::new(x=1.0e15, y=-1.0e15)
-  let result = @draw.Vec2::sub_scalar(vec, 1.0e15)
+  let result = @draw.Vec2::self_sub_scalar(vec, 1.0e15)
   inspect(result, content="{x: 0, y: -2000000000000000}")
 }
 
@@ -922,7 +922,7 @@ test "@draw.Vec2::sub_scalar/large_subtraction" {
 test "Vec2::mul/normal" {
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(3.0, 2.0)
-  let result = v1.mul(v2)
+  let result = v1.self_mul(v2)
   inspect(result.x, content="6")
   inspect(result.y, content="6")
 }
@@ -931,7 +931,7 @@ test "Vec2::mul/normal" {
 test "Vec2::mul/zero" {
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(0.0, 0.0)
-  let result = v1.mul(v2)
+  let result = v1.self_mul(v2)
   inspect(result.x, content="0")
   inspect(result.y, content="0")
 }
@@ -940,43 +940,43 @@ test "Vec2::mul/zero" {
 test "Vec2::mul/negative" {
   let v1 = vec2(2.0, -3.0)
   let v2 = vec2(-3.0, 2.0)
-  let result = v1.mul(v2)
+  let result = v1.self_mul(v2)
   inspect(result.x, content="-6")
   inspect(result.y, content="-6")
 }
 
 ///|
-test "@draw.mul/basic" {
+test "@draw.self_mul/basic" {
   let vec1 = vec2(3.0, 4.0)
   let vec2 = vec2(2.0, 5.0)
-  let result = vec1.mul(vec2)
+  let result = vec1.self_mul(vec2)
   inspect(result.x, content="6")
   inspect(result.y, content="20")
 }
 
 ///|
-test "@draw.mul/with_zero" {
+test "@draw.self_mul/with_zero" {
   let vec1 = vec2(3.0, 4.0)
   let vec2 = vec2(0.0, 0.0)
-  let result = vec1.mul(vec2)
+  let result = vec1.self_mul(vec2)
   inspect(result.x, content="0")
   inspect(result.y, content="0")
 }
 
 ///|
-test "@draw.mul/with_negative" {
+test "@draw.self_mul/with_negative" {
   let vec1 = vec2(3.0, 4.0)
   let vec2 = vec2(-2.0, -5.0)
-  let result = vec1.mul(vec2)
+  let result = vec1.self_mul(vec2)
   inspect(result.x, content="-6")
   inspect(result.y, content="-20")
 }
 
 ///|
-test "@draw.op_mul" {
+test "@draw.mul" {
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(3.0, 4.0)
-  let result = v1.op_mul(v2)
+  let result = v1.mul(v2)
   inspect(result.x, content="6")
   inspect(result.y, content="12")
   // Check that original vectors are not modified
@@ -987,25 +987,25 @@ test "@draw.op_mul" {
 }
 
 ///|
-test "@draw.op_mul/zero" {
+test "@draw.self_mul/zero" {
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(0.0, 0.0)
-  let result = v1.op_mul(v2)
+  let result = v1.self_mul(v2)
   inspect(result.x, content="0")
   inspect(result.y, content="0")
 }
 
 ///|
-test "@draw.op_mul/identity" {
+test "@draw.self_mul/identity" {
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(1.0, 1.0)
-  let result = v1.op_mul(v2)
+  let result = v1.self_mul(v2)
   inspect(result.x, content="2")
   inspect(result.y, content="3")
 }
 
 ///|
-test "@draw.op_mul/basic_functionality" {
+test "@draw.self_mul/basic_functionality" {
   // Test the basic functionality of element-wise multiplication.
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(4.0, 5.0)
@@ -1013,7 +1013,7 @@ test "@draw.op_mul/basic_functionality" {
 }
 
 ///|
-test "@draw.op_mul/zero_vector_multiplication" {
+test "@draw.self_mul/zero_vector_multiplication" {
   // Test the multiplication with a zero vector.
   let v1 = vec2(2.0, 3.0)
   let zero_vector = vec2(0.0, 0.0)
@@ -1021,7 +1021,7 @@ test "@draw.op_mul/zero_vector_multiplication" {
 }
 
 ///|
-test "@draw.op_mul/negative_vector_multiplication" {
+test "@draw.self_mul/negative_vector_multiplication" {
   // Test the multiplication with a negative vector.
   let v1 = vec2(2.0, 3.0)
   let v2 = vec2(-4.0, -5.0)
@@ -1029,173 +1029,176 @@ test "@draw.op_mul/negative_vector_multiplication" {
 }
 
 ///|
-test "@draw.mul_scalar" {
+test "@draw.self_mul_scalar" {
   // Test basic multiplication
   let v1 = vec2(2.0, 3.0)
-  inspect(v1.mul_scalar(2.0), content="{x: 4, y: 6}")
+  inspect(v1.self_mul_scalar(2.0), content="{x: 4, y: 6}")
 
   // Test multiplication with zero
   let v2 = vec2(2.0, 3.0)
-  inspect(v2.mul_scalar(0.0), content="{x: 0, y: 0}")
+  inspect(v2.self_mul_scalar(0.0), content="{x: 0, y: 0}")
 
   // Test multiplication with negative scalar
   let v3 = vec2(2.0, 3.0)
-  inspect(v3.mul_scalar(-2.0), content="{x: -4, y: -6}")
+  inspect(v3.self_mul_scalar(-2.0), content="{x: -4, y: -6}")
 }
 
 ///|
 test "Vec2::mul_scalar/basic_functionality" {
   let v1 = Vec2::new(x=3, y=4)
-  inspect(v1.mul_scalar(2), content="{x: 6, y: 8}")
+  inspect(v1.self_mul_scalar(2), content="{x: 6, y: 8}")
   let v2 = Vec2::new(x=-1, y=5)
-  inspect(v2.mul_scalar(3), content="{x: -3, y: 15}")
+  inspect(v2.self_mul_scalar(3), content="{x: -3, y: 15}")
   let v3 = Vec2::new(x=0, y=0)
-  inspect(v3.mul_scalar(10), content="{x: 0, y: 0}")
+  inspect(v3.self_mul_scalar(10), content="{x: 0, y: 0}")
 }
 
 ///|
 test "Vec2::mul_scalar/edge_case_inf" {
   let v = Vec2::new(x=1, y=2)
-  inspect(v.mul_scalar(@double.infinity), content="{x: Infinity, y: Infinity}")
+  inspect(
+    v.self_mul_scalar(@double.infinity),
+    content="{x: Infinity, y: Infinity}",
+  )
 }
 
 ///|
 test "Vec2::mul_scalar/edge_case_nan" {
   let v = Vec2::new(x=1, y=2)
-  inspect(v.mul_scalar(@double.not_a_number), content="{x: NaN, y: NaN}")
+  inspect(v.self_mul_scalar(@double.not_a_number), content="{x: NaN, y: NaN}")
 }
 
 ///|
-test "@draw.div" {
+test "@draw.self_div" {
   // Basic division
   let v1 = Vec2::{ x: 6.0, y: 8.0 }
   let v2 = Vec2::{ x: 2.0, y: 4.0 }
-  let result = v1.div(v2)
+  let result = v1.self_div(v2)
   inspect(result.x, content="3")
   inspect(result.y, content="2")
 
   // Division by 1 should keep the original values
   let v3 = Vec2::{ x: 5.0, y: 7.0 }
   let v4 = Vec2::{ x: 1.0, y: 1.0 }
-  let result2 = v3.div(v4)
+  let result2 = v3.self_div(v4)
   inspect(result2.x, content="5")
   inspect(result2.y, content="7")
 }
 
 ///|
-test "@draw.div/division_by_zero" {
+test "@draw.self_div/division_by_zero" {
   let v1 = Vec2::{ x: 1.0, y: 1.0 }
   let v2 = Vec2::{ x: 0.0, y: 0.0 }
-  inspect(v1.div(v2), content="{x: Infinity, y: Infinity}")
+  inspect(v1.self_div(v2), content="{x: Infinity, y: Infinity}")
 }
 
 ///|
-test "@draw.div/basic" {
+test "@draw.self_div/basic" {
   let v1 = Vec2::new(x=4.0, y=9.0)
   let v2 = Vec2::new(x=2.0, y=3.0)
-  let result = v1.div(v2)
+  let result = v1.self_div(v2)
   inspect(result, content="{x: 2, y: 3}")
 }
 
 ///|
-test "@draw.div/divide_by_zero" {
+test "@draw.self_div/divide_by_zero" {
   let v1 = Vec2::new(x=4.0, y=9.0)
   let v2 = Vec2::new(x=0.0, y=0.0)
-  inspect(v1.div(v2), content="{x: Infinity, y: Infinity}")
+  inspect(v1.self_div(v2), content="{x: Infinity, y: Infinity}")
 }
 
 ///|
-test "@draw.div/negative_values" {
+test "@draw.self_div/negative_values" {
   let v1 = Vec2::new(x=-6.0, y=-15.0)
   let v2 = Vec2::new(x=3.0, y=-5.0)
-  let result = v1.div(v2)
+  let result = v1.self_div(v2)
   inspect(result, content="{x: -2, y: 3}")
 }
 
 ///|
-test "@draw.Vec2::op_div/basic" {
+test "@draw.Vec2::div/basic" {
   let v1 = Vec2::new(x=8.0, y=4.0)
   let v2 = Vec2::new(x=2.0, y=2.0)
-  inspect(@draw.Vec2::op_div(v1, v2), content="{x: 4, y: 2}")
+  inspect(@draw.Vec2::div(v1, v2), content="{x: 4, y: 2}")
 }
 
 ///|
-test "@draw.Vec2::op_div/negative_division" {
+test "@draw.Vec2::div/negative_division" {
   let v1 = Vec2::new(x=-6.0, y=3.0)
   let v2 = Vec2::new(x=2.0, y=-1.0)
-  inspect(@draw.Vec2::op_div(v1, v2), content="{x: -3, y: -3}")
+  inspect(@draw.Vec2::div(v1, v2), content="{x: -3, y: -3}")
 }
 
 ///|
-test "@draw.Vec2::op_div/divide_by_zero" {
+test "@draw.Vec2::div/divide_by_zero" {
   let v1 = Vec2::new(x=5.0, y=3.0)
   let v2 = Vec2::new(x=0.0, y=0.0)
-  inspect(@draw.Vec2::op_div(v1, v2), content="{x: Infinity, y: Infinity}")
+  inspect(@draw.Vec2::div(v1, v2), content="{x: Infinity, y: Infinity}")
 }
 
 ///|
-test "@draw.Vec2::op_div/regular" {
+test "@draw.Vec2::div/regular" {
   let v1 = vec2(6.0, 8.0)
   let v2 = vec2(2.0, 4.0)
-  let result = @draw.Vec2::op_div(v1, v2)
+  let result = @draw.Vec2::div(v1, v2)
   inspect(result.x, content="3")
   inspect(result.y, content="2")
 }
 
 ///|
-test "@draw.Vec2::op_div/zero-vector" {
+test "@draw.Vec2::div/zero-vector" {
   let v1 = vec2(0.0, 0.0)
   let v2 = vec2(2.0, 4.0)
-  let result = @draw.Vec2::op_div(v1, v2)
+  let result = @draw.Vec2::div(v1, v2)
   inspect(result.x, content="0")
   inspect(result.y, content="0")
 }
 
 ///|
-test "@draw.Vec2::op_div/div-by-zero" {
+test "@draw.Vec2::div/div-by-zero" {
   let v1 = vec2(6.0, 8.0)
   let v2 = vec2(0.0, 0.0)
-  inspect(@draw.Vec2::op_div(v1, v2), content="{x: Infinity, y: Infinity}")
+  inspect(@draw.Vec2::div(v1, v2), content="{x: Infinity, y: Infinity}")
 }
 
 ///|
-test "@draw.div_scalar/basic" {
+test "@draw.self_div_scalar/basic" {
   let v = vec2(2.0, 4.0)
-  let result = v.div_scalar(2.0)
+  let result = v.self_div_scalar(2.0)
   inspect(result.x, content="1")
   inspect(result.y, content="2")
 }
 
 ///|
-test "@draw.div_scalar/identity" {
+test "@draw.self_div_scalar/identity" {
   let v = vec2(3.0, 6.0)
-  let result = v.div_scalar(1.0)
+  let result = v.self_div_scalar(1.0)
   inspect(result.x, content="3")
   inspect(result.y, content="6")
 }
 
 ///|
-test "@draw.div_scalar/zero" {
+test "@draw.self_div_scalar/zero" {
   let v = vec2(1.0, 2.0)
-  inspect(v.div_scalar(0.0), content="{x: Infinity, y: Infinity}")
+  inspect(v.self_div_scalar(0.0), content="{x: Infinity, y: Infinity}")
 }
 
 ///|
-test "@draw.div_scalar/basic_functionality" {
+test "@draw.self_div_scalar/basic_functionality" {
   let v = Vec2::new(x=10, y=20)
-  inspect(v.div_scalar(2.0), content="{x: 5, y: 10}")
+  inspect(v.self_div_scalar(2.0), content="{x: 5, y: 10}")
 }
 
 ///|
-test "@draw.div_scalar/divide_by_zero" {
+test "@draw.self_div_scalar/divide_by_zero" {
   let v = Vec2::new(x=10, y=20)
-  inspect(v.div_scalar(0.0), content="{x: Infinity, y: Infinity}")
+  inspect(v.self_div_scalar(0.0), content="{x: Infinity, y: Infinity}")
 }
 
 ///|
-test "@draw.div_scalar/negative_scalar" {
+test "@draw.self_div_scalar/negative_scalar" {
   let v = Vec2::new(x=10, y=20)
-  inspect(v.div_scalar(-2.0), content="{x: -5, y: -10}")
+  inspect(v.self_div_scalar(-2.0), content="{x: -5, y: -10}")
 }
 
 ///|
@@ -1242,28 +1245,28 @@ test "@draw.negate" {
 }
 
 ///|
-test "@draw.op_equal/identical" {
+test "@draw.equal/identical" {
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(1.0, 2.0)
-  inspect(v1.op_equal(v2), content="true")
+  inspect(v1.equal(v2), content="true")
 }
 
 ///|
-test "@draw.op_equal/different" {
+test "@draw.equal/different" {
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(1.0, 3.0)
-  inspect(v1.op_equal(v2), content="false")
+  inspect(v1.equal(v2), content="false")
 }
 
 ///|
-test "@draw.op_equal/zero" {
+test "@draw.equal/zero" {
   let v1 = vec2(0.0, 0.0)
   let v2 = vec2(0.0, 0.0)
-  inspect(v1.op_equal(v2), content="true")
+  inspect(v1.equal(v2), content="true")
 }
 
 ///|
-test "@draw.op_equal/bounds" {
+test "@draw.equal/bounds" {
   // Test with zero vectors
   inspect(Vec2::new(x=0, y=0) == Vec2::new(x=0, y=0), content="true")
 
@@ -1283,7 +1286,7 @@ test "@draw.op_equal/bounds" {
 }
 
 ///|
-test "@draw.op_equal" {
+test "@draw.equal" {
   // Test with positive vectors
   inspect(Vec2::new(x=3, y=4) == Vec2::new(x=3, y=4), content="true")
 
@@ -1299,7 +1302,7 @@ test "@draw.op_equal" {
 }
 
 ///|
-test "@draw.op_equal/mismatched" {
+test "@draw.equal/mismatched" {
   // Test with different x values
   inspect(Vec2::new(x=3, y=4) == Vec2::new(x=4, y=4), content="false")
 

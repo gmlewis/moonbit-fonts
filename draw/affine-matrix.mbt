@@ -127,8 +127,8 @@ pub fn invert(self : AffineMatrix) -> AffineMatrix {
 }
 
 ///|
-/// mul multiplies this 2D affine matrix with another.
-pub fn mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
+/// self_mul multiplies this 2D affine matrix with another.
+pub fn self_mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = self
   let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = m
   self.a = m0a * m1a + m0c * m1b
@@ -141,10 +141,9 @@ pub fn mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
 }
 
 ///|
-/// op_mul multiplies two 2D affine matrices together, returning a new one.
-pub fn op_mul(self : AffineMatrix, b : AffineMatrix) -> AffineMatrix {
-  let am = self.clone()
-  am.mul(b)
+/// mul multiplies two 2D affine matrices together, returning a new one.
+pub impl Mul for AffineMatrix with mul(self, b) {
+  self.clone().self_mul(b)
 }
 
 ///|

@@ -1,6 +1,6 @@
 {
   "import": [
     "gmlewis/fonts",
-    "yj-qin/regexp"
+    "moonbitlang/regexp"
   ]
 }

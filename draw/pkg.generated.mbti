@@ -57,21 +57,21 @@ fn AffineMatrix::is_mirror(Self) -> Bool
 fn AffineMatrix::is_nan(Self) -> Bool
 fn AffineMatrix::is_orthogonal(Self, tolerance? : Double) -> Bool
 fn AffineMatrix::is_uniform_scale(Self, tolerance? : Double) -> Bool
-fn AffineMatrix::mul(Self, Self) -> Self
 fn AffineMatrix::mul_without_translation(Self, Self) -> Self
 fn AffineMatrix::new(a? : Double, b? : Double, c? : Double, d? : Double, tx? : Double, ty? : Double) -> Self
 fn AffineMatrix::normalize(Self) -> Self
-fn AffineMatrix::op_mul(Self, Self) -> Self
 fn AffineMatrix::origin(Self, Vec2) -> Self
 fn AffineMatrix::pre_mul(Self, Self) -> Self
 fn AffineMatrix::pre_mul_without_translation(Self, Self) -> Self
 fn AffineMatrix::rotate(Self, Double) -> Self
 fn AffineMatrix::scale(Self, Vec2) -> Self
 fn AffineMatrix::scale_scalar(Self, Double) -> Self
+fn AffineMatrix::self_mul(Self, Self) -> Self
 fn AffineMatrix::skew(Self, Double) -> Self
 fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
 fn AffineMatrix::translate(Self, Vec2) -> Self
 impl Eq for AffineMatrix
+impl Mul for AffineMatrix
 impl Show for AffineMatrix
 
 pub(all) struct Anchor {
@@ -397,8 +397,6 @@ pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
 }
-fn Vec2::add(Self, Self) -> Self
-fn Vec2::add_scalar(Self, Double) -> Self
 fn Vec2::affine_transform(Self, AffineMatrix) -> Self
 fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
 fn Vec2::almost_equals(Self, Self, tolerance? : Double) -> Bool
@@ -411,8 +409,6 @@ fn Vec2::copy(Self, Self) -> Self
 fn Vec2::cross(Self, Self) -> Double
 fn Vec2::distance(Self, Self) -> Double
 fn Vec2::distance_squared(Self, Self) -> Double
-fn Vec2::div(Self, Self) -> Self
-fn Vec2::div_scalar(Self, Double) -> Self
 fn Vec2::dot(Self, Self) -> Double
 fn Vec2::floor(Self) -> Self
 fn Vec2::from_angle(Double) -> Self
@@ -428,8 +424,6 @@ fn Vec2::length_squared(Self) -> Double
 fn Vec2::max(Self, Self) -> Self
 fn Vec2::min(Self, Self) -> Self
 fn Vec2::mix(Self, Self, Double) -> Self
-fn Vec2::mul(Self, Self) -> Self
-fn Vec2::mul_scalar(Self, Double) -> Self
 fn Vec2::neg_infinity() -> Self
 fn Vec2::negate(Self) -> Self
 fn Vec2::new(x? : Double, y? : Double) -> Self
@@ -442,9 +436,15 @@ fn Vec2::rotate_radians(Self, Double) -> Self
 fn Vec2::round(Self) -> Self
 fn Vec2::round_to_fixed(Self, Int) -> Self
 fn Vec2::round_to_multiple(Self, Double) -> Self
+fn Vec2::self_add(Self, Self) -> Self
+fn Vec2::self_add_scalar(Self, Double) -> Self
+fn Vec2::self_div(Self, Self) -> Self
+fn Vec2::self_div_scalar(Self, Double) -> Self
+fn Vec2::self_mul(Self, Self) -> Self
+fn Vec2::self_mul_scalar(Self, Double) -> Self
+fn Vec2::self_sub(Self, Self) -> Self
+fn Vec2::self_sub_scalar(Self, Double) -> Self
 fn Vec2::set(Self, Double, Double) -> Self
-fn Vec2::sub(Self, Self) -> Self
-fn Vec2::sub_scalar(Self, Double) -> Self
 fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 impl Add for Vec2
 impl Div for Vec2

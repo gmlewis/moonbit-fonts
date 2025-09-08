@@ -61,23 +61,23 @@ fn parse_hex(s : String) -> Double raise Error {
 }
 
 ///|
-let percent_re : @regexp.RegExp = (try? @regexp.compile("^(\\d+)%$")).unwrap()
+let percent_re : @regexp.Regexp = (try? @regexp.compile("^(\\d+)%$")).unwrap()
 
 ///|
-let rgb_re : @regexp.RegExp = (try? @regexp.compile(
+let rgb_re : @regexp.Regexp = (try? @regexp.compile(
   "^rgb\\s*\\(\\s*(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)\\s*\\)$",
 )).unwrap()
 
 ///|
-let rgba_re : @regexp.RegExp = (try? @regexp.compile(
+let rgba_re : @regexp.Regexp = (try? @regexp.compile(
   "^rgba\\s*\\(\\s*(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)\\s*\\)$",
 )).unwrap()
 
 ///|
-fn parse_percent(s : String) -> Double raise Error {
-  let m = percent_re.matches(s)
-  match m.captures() {
-    [_, v] => @strconv.parse_int(v, base=10).to_double() / 100
+fn parse_percent(s : @string.View) -> Double raise Error {
+  let m = percent_re.match_(s).unwrap()
+  match m.results() {
+    [_, Some(v)] => @strconv.parse_int(v, base=10).to_double() / 100
     _ => @strconv.parse_int(s, base=10).to_double() / 255
   }
 }
@@ -149,17 +149,17 @@ pub fn Color::from_css_string(css_string : String) -> Color raise Error {
   }
 
   //
-  let m = rgb_re.matches(css_string)
-  match m.captures() {
-    [_, r, g, b] =>
+  let m = rgb_re.match_(css_string).unwrap()
+  match m.results() {
+    [_, Some(r), Some(g), Some(b)] =>
       return rgba(parse_percent(r), parse_percent(g), parse_percent(b), 1)
     _ => ()
   }
 
   //
-  let m = rgba_re.matches(css_string)
-  match m.captures() {
-    [_, r, g, b, a] =>
+  let m = rgba_re.match_(css_string).unwrap()
+  match m.results() {
+    [_, Some(r), Some(g), Some(b), Some(a)] =>
       return rgba(
         parse_percent(r),
         parse_percent(g),

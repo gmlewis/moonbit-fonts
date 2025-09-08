@@ -252,10 +252,10 @@ test "@draw.AffineMatrix::invert/non_invertible_matrix" {
 }
 
 ///|
-test "@draw.op_mul/identity" {
+test "@draw.mul/identity" {
   let id = AffineMatrix::new() // identity matrix
   let m = AffineMatrix::new(a=2, b=0, c=0, d=2, tx=1, ty=1) // scale + translate
-  let result = m.op_mul(id)
+  let result = m.mul(id)
   inspect(result.a, content="2")
   inspect(result.b, content="0")
   inspect(result.c, content="0")
@@ -265,21 +265,21 @@ test "@draw.op_mul/identity" {
 }
 
 ///|
-test "@draw.op_mul/translation" {
+test "@draw.mul/translation" {
   // Test translation composition
   let t1 = AffineMatrix::new(a=1, b=0, c=0, d=1, tx=2, ty=3) // translate(2,3)
   let t2 = AffineMatrix::new(a=1, b=0, c=0, d=1, tx=4, ty=5) // translate(4,5)
-  let result = t1.op_mul(t2)
+  let result = t1.mul(t2)
   inspect(result.tx, content="6") // translations should add
   inspect(result.ty, content="8")
 }
 
 ///|
-test "@draw.op_mul/scale_rotate" {
+test "@draw.mul/scale_rotate" {
   // Scale by 2 then rotate 90 degrees
   let s = AffineMatrix::new(a=2, b=0, c=0, d=2, tx=0, ty=0)
   let r = AffineMatrix::new(a=0, b=1, c=-1, d=0, tx=0, ty=0)
-  let result = s.op_mul(r)
+  let result = s.mul(r)
   inspect(result.a, content="0")
   inspect(result.b, content="2")
   inspect(result.c, content="-2")

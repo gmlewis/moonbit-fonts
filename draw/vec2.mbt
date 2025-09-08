@@ -121,92 +121,92 @@ pub fn Vec2::transform(
 }
 
 ///|
-/// add adds the vector `v` to this vector.
-pub fn Vec2::add(self : Vec2, v : Vec2) -> Vec2 {
+/// self_add adds the vector `v` to this vector.
+pub fn Vec2::self_add(self : Vec2, v : Vec2) -> Vec2 {
   self.x += v.x
   self.y += v.y
   self
 }
 
 ///|
-/// op_add adds vector `other` to this vector without modifying either one
+/// add adds vector `other` to this vector without modifying either one
 /// and returns the result.
-pub impl Add for Vec2 with op_add(self, other) {
-  self.clone().add(other)
+pub impl Add for Vec2 with add(self, other) {
+  self.clone().self_add(other)
 }
 
 ///|
-/// add_scalar adds scalar `s` to this vector.
-pub fn Vec2::add_scalar(self : Vec2, s : Double) -> Vec2 {
+/// self_add_scalar adds scalar `s` to this vector.
+pub fn Vec2::self_add_scalar(self : Vec2, s : Double) -> Vec2 {
   self.x += s
   self.y += s
   self
 }
 
 ///|
-/// sub subtracts the vector `v` from this vector.
-pub fn Vec2::sub(self : Vec2, v : Vec2) -> Vec2 {
+/// self_sub subtracts the vector `v` from this vector.
+pub fn Vec2::self_sub(self : Vec2, v : Vec2) -> Vec2 {
   self.x -= v.x
   self.y -= v.y
   self
 }
 
 ///|
-/// op_sub subtracts vector `other` from this vector without modifying either one
+/// sub subtracts vector `other` from this vector without modifying either one
 /// and returns the result.
-pub impl Sub for Vec2 with op_sub(self, other) {
-  self.clone().sub(other)
+pub impl Sub for Vec2 with sub(self, other) {
+  self.clone().self_sub(other)
 }
 
 ///|
-/// sub_scalar subtracts scalar `s` from this vector.
-pub fn Vec2::sub_scalar(self : Vec2, s : Double) -> Vec2 {
+/// self_sub_scalar subtracts scalar `s` from this vector.
+pub fn Vec2::self_sub_scalar(self : Vec2, s : Double) -> Vec2 {
   self.x -= s
   self.y -= s
   self
 }
 
 ///|
-/// mul multiplies the vector `v` to this vector.
-pub fn Vec2::mul(self : Vec2, v : Vec2) -> Vec2 {
+/// self_mul multiplies the vector `v` to this vector.
+pub fn Vec2::self_mul(self : Vec2, v : Vec2) -> Vec2 {
   self.x *= v.x
   self.y *= v.y
   self
 }
 
 ///|
-/// op_mul multiplies vector `other` to this vector without modifying either one
+/// mul multiplies vector `other` to this vector without modifying either one
 /// and returns the result.
-pub impl Mul for Vec2 with op_mul(self, other) {
-  self.clone().mul(other)
+pub impl Mul for Vec2 with mul(self, other) {
+  self.clone().self_mul(other)
 }
 
 ///|
-/// mul_scalar multiplies scalar `s` to this vector.
-pub fn Vec2::mul_scalar(self : Vec2, s : Double) -> Vec2 {
+/// self_mul_scalar multiplies scalar `s` to this vector.
+pub fn Vec2::self_mul_scalar(self : Vec2, s : Double) -> Vec2 {
   self.x *= s
   self.y *= s
   self
 }
 
 ///|
-/// div divides this vector by vector `v`.
-pub fn Vec2::div(self : Vec2, v : Vec2) -> Vec2 {
+/// self_div divides this vector by vector `v`.
+pub fn Vec2::self_div(self : Vec2, v : Vec2) -> Vec2 {
   self.x /= v.x
   self.y /= v.y
   self
 }
 
 ///|
-/// op_div divides this vector by vector `other` without modifying either one
+/// div divides this vector by vector `other` without modifying either one
 /// and returns the result.
-pub impl Div for Vec2 with op_div(self, other) {
-  self.clone().div(other)
+pub impl Div for Vec2 with div(self, other) {
+  self.clone().self_div(other)
 }
 
 ///|
-/// div_scalar divides this vector by scalar `s`.
-pub fn Vec2::div_scalar(self : Vec2, s : Double) -> Vec2 {
+/// self_div_scalar divides this vector by scalar `s`.
+pub fn Vec2::self_div_scalar(self : Vec2, s : Double) -> Vec2 {
   self.x /= s
   self.y /= s
   self
@@ -221,8 +221,8 @@ pub fn Vec2::negate(self : Vec2) -> Vec2 {
 }
 
 ///|
-/// op_neg returns a negated copy of Vec2.
-pub impl Neg for Vec2 with op_neg(self) {
+/// neg returns a negated copy of Vec2.
+pub impl Neg for Vec2 with neg(self) {
   { x: -self.x, y: -self.y }
 }
 
@@ -348,7 +348,7 @@ pub fn Vec2::cross(self : Vec2, v : Vec2) -> Double {
 pub fn Vec2::normalize(self : Vec2) -> Vec2 {
   let v = self.length_squared()
   if v > 0 {
-    return self.mul_scalar(1.0 / v.sqrt())
+    return self.self_mul_scalar(1.0 / v.sqrt())
   }
   self
 }

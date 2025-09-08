@@ -57,13 +57,13 @@ pub fn BoundingBox::clone(self : BoundingBox) -> BoundingBox {
 ///|
 /// center returns the center point of the bounding box (the average of min and max).
 pub fn center(self : BoundingBox) -> Vec2 {
-  self.min.clone().add(self.max).mul_scalar(0.5)
+  self.min.clone().self_add(self.max).self_mul_scalar(0.5)
 }
 
 ///|
 /// size returns a vector representing the (width,height) of the bounding box.
 pub fn size(self : BoundingBox) -> Vec2 {
-  self.max.clone().sub(self.min)
+  self.max.clone().self_sub(self.min)
 }
 
 ///|
@@ -127,8 +127,8 @@ pub fn expand_to_include_bounding_box(
 ///|
 /// expand_scalar expands this bounding box by a scalar distance on all sides.
 pub fn expand_scalar(self : BoundingBox, distance : Double) -> BoundingBox {
-  let _ = self.min.sub_scalar(distance)
-  let _ = self.max.add_scalar(distance)
+  let _ = self.min.self_sub_scalar(distance)
+  let _ = self.max.self_add_scalar(distance)
   self
 }
 

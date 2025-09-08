@@ -73,12 +73,12 @@ pub fn text(
 }
 
 ///|
-let split_re : @regexp.RegExp = (try? @regexp.compile(
+let split_re : @regexp.Regexp = (try? @regexp.compile(
   "^([MLCQZ])([0-9.\\-, ]*)",
 )).unwrap()
 
 ///|
-fn parse_params(s : String) -> Array[Double] {
+fn parse_params(s : @string.View) -> Array[Double] {
   s
   .split(" ")
   .map(fn(s) { @strconv.parse_double(s.to_string()) catch { _ => 0.0 } })
@@ -108,8 +108,12 @@ fn glyph2compound_path(
   let mut path_is_inverted = false
   let mut d = d
   while d.length() > 0 {
-    let m = split_re.matches(d)
-    guard m.captures() is [match_str, cmd, params] else {
+    let m = split_re
+      .match_(d)
+      .or_error(
+        DrawError("glyph2compound_path: unable to split SVG path '\{d}'"),
+      )
+    guard m.results() is [Some(match_str), Some(cmd), Some(params)] else {
       raise DrawError("glyph2compound_path: unable to split SVG path '\{d}'")
     }
 
@@ -142,7 +146,7 @@ fn glyph2compound_path(
         let params = parse_params(params)
         anchors.push(
           Anchor::new(
-            position=vec2(params[0] * xscale, params[1] * yscale).add(pos),
+            position=vec2(params[0] * xscale, params[1] * yscale).self_add(pos),
           ),
         )
       }
@@ -156,7 +160,9 @@ fn glyph2compound_path(
         for i = 0; i < params.length(); i = i + 2 {
           anchors.push(
             Anchor::new(
-              position=vec2(params[i] * xscale, params[i + 1] * yscale).add(pos),
+              position=vec2(params[i] * xscale, params[i + 1] * yscale).self_add(
+                pos,
+              ),
             ),
           )
         }
@@ -173,14 +179,14 @@ fn glyph2compound_path(
               params[i] * xscale,
               params[i + 1] * yscale,
             )
-            .add(pos)
-            .sub(anchors[anchors.length() - 1].position)
-          let anchor_pos = vec2(params[i + 4] * xscale, params[i + 5] * yscale).add(
+            .self_add(pos)
+            .self_sub(anchors[anchors.length() - 1].position)
+          let anchor_pos = vec2(params[i + 4] * xscale, params[i + 5] * yscale).self_add(
             pos,
           )
           let handle_in = vec2(params[i + 2] * xscale, params[i + 3] * yscale)
-            .add(pos)
-            .sub(anchor_pos)
+            .self_add(pos)
+            .self_sub(anchor_pos)
           anchors.push(Anchor::new(position=anchor_pos, handle_in~))
         }
       }
@@ -194,26 +200,29 @@ fn glyph2compound_path(
         let params = parse_params(params)
         for i = 0; i < params.length(); i = i + 4 {
           let start_pt = anchors[anchors.length() - 1].position
-          let quad_ctrl_pt = vec2(params[i] * xscale, params[i + 1] * yscale).add(
+          let quad_ctrl_pt = vec2(params[i] * xscale, params[i + 1] * yscale).self_add(
             pos,
           )
           let cubic1CtrlPt = quad_ctrl_pt
             .clone()
-            .sub(start_pt)
-            .mul_scalar(2.0 / 3)
-            .add(start_pt)
-          anchors[anchors.length() - 1].handle_out = cubic1CtrlPt.sub(
+            .self_sub(start_pt)
+            .self_mul_scalar(2.0 / 3)
+            .self_add(start_pt)
+          anchors[anchors.length() - 1].handle_out = cubic1CtrlPt.self_sub(
             anchors[anchors.length() - 1].position,
           )
-          let end_pt = vec2(params[i + 2] * xscale, params[i + 3] * yscale).add(
+          let end_pt = vec2(params[i + 2] * xscale, params[i + 3] * yscale).self_add(
             pos,
           )
           let cubic2_ctrl_pt = quad_ctrl_pt
-            .sub(end_pt)
-            .mul_scalar(2.0 / 3)
-            .add(end_pt)
+            .self_sub(end_pt)
+            .self_mul_scalar(2.0 / 3)
+            .self_add(end_pt)
           anchors.push(
-            Anchor::new(position=end_pt, handle_in=cubic2_ctrl_pt.sub(end_pt)),
+            Anchor::new(
+              position=end_pt,
+              handle_in=cubic2_ctrl_pt.self_sub(end_pt),
+            ),
           )
         }
       }

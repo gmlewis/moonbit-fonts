@@ -8,7 +8,7 @@ pub fn length(self : Params) -> Int {
 }
 
 ///|
-let params_re : @regexp.RegExp = (try? @regexp.compile("^ *([0-9\\.\\-]+) *,*")).unwrap()
+let params_re : @regexp.Regexp = (try? @regexp.compile("^ *([0-9\\.\\-]+) *,*")).unwrap()
 
 ///|
 /// `parse_params` parses an SVG command and returns the parameters.
@@ -16,9 +16,11 @@ fn parse_params(d : String) -> Params raise FontError {
   let mut d = d
   let params = []
   while d.length() > 0 {
-    let match_result = params_re.matches(d)
-    match match_result.captures() {
-      [m, num] => {
+    let match_result = params_re
+      .match_(d)
+      .or_error(FontError("parse_params: unable to parse SVG params: \{d}"))
+    match match_result.results() {
+      [Some(m), Some(num)] => {
         d = d.substring(start=m.length())
         let n = @strconv.parse_double(num) catch {
           _ => raise FontError("parse_params: unable to parse double: \{num}")

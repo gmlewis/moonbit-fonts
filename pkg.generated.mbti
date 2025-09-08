@@ -140,12 +140,11 @@ pub(all) struct Point {
 fn Point::div(Self, Double) -> Self
 fn Point::is_in(Self, Rectangle) -> Bool
 fn Point::mul(Self, Double) -> Self
-fn Point::op_add(Self, Self) -> Self
-fn Point::op_equal(Self, Self) -> Bool
-fn Point::op_sub(Self, Self) -> Self
 fn Point::to_string(Self) -> String
+impl Add for Point
 impl Eq for Point
 impl Show for Point
+impl Sub for Point
 
 pub(all) struct Rectangle {
   min : Point
@@ -163,7 +162,6 @@ fn Rectangle::inset(Self, Double) -> Self
 fn Rectangle::intersect(Self, Self) -> Self
 fn Rectangle::is_in(Self, Self) -> Bool
 fn Rectangle::new() -> Self
-fn Rectangle::op_equal(Self, Self) -> Bool
 fn Rectangle::overlaps(Self, Self) -> Bool
 fn Rectangle::size(Self) -> Point
 fn Rectangle::sub(Self, Point) -> Self

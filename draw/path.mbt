@@ -228,8 +228,10 @@ pub fn Path::bounding_box(self : Path) -> BoundingBox? {
   for i in 1..<n {
     let last_anchor = anchors[i - 1]
     let current_anchor = anchors[i]
-    ignore(handle1.copy(last_anchor.position).add(last_anchor.handle_out))
-    ignore(handle2.copy(current_anchor.position).add(current_anchor.handle_in))
+    ignore(handle1.copy(last_anchor.position).self_add(last_anchor.handle_out))
+    ignore(
+      handle2.copy(current_anchor.position).self_add(current_anchor.handle_in),
+    )
     segment_extents(
       last_anchor.position,
       handle1,
@@ -244,8 +246,10 @@ pub fn Path::bounding_box(self : Path) -> BoundingBox? {
   if closed {
     let last_anchor = anchors[anchors.length() - 1]
     let current_anchor = anchors[0]
-    ignore(handle1.copy(last_anchor.position).add(last_anchor.handle_out))
-    ignore(handle2.copy(current_anchor.position).add(current_anchor.handle_in))
+    ignore(handle1.copy(last_anchor.position).self_add(last_anchor.handle_out))
+    ignore(
+      handle2.copy(current_anchor.position).self_add(current_anchor.handle_in),
+    )
     segment_extents(
       last_anchor.position,
       handle1,
@@ -442,13 +446,13 @@ pub fn Path::loose_bounding_box(self : Path) -> BoundingBox? {
   )
   ignore(
     bbox.expand_to_include_point(
-      vec.copy(current_anchor.position).add(current_anchor.handle_out),
+      vec.copy(current_anchor.position).self_add(current_anchor.handle_out),
     ),
   )
   if closed {
     ignore(
       bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).add(current_anchor.handle_in),
+        vec.copy(current_anchor.position).self_add(current_anchor.handle_in),
       ),
     )
   }
@@ -458,12 +462,12 @@ pub fn Path::loose_bounding_box(self : Path) -> BoundingBox? {
     ignore(bbox.expand_to_include_point(current_anchor.position))
     ignore(
       bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).add(current_anchor.handle_in),
+        vec.copy(current_anchor.position).self_add(current_anchor.handle_in),
       ),
     )
     ignore(
       bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).add(current_anchor.handle_out),
+        vec.copy(current_anchor.position).self_add(current_anchor.handle_out),
       ),
     )
   }
@@ -471,13 +475,13 @@ pub fn Path::loose_bounding_box(self : Path) -> BoundingBox? {
   ignore(bbox.expand_to_include_point(current_anchor.position))
   ignore(
     bbox.expand_to_include_point(
-      vec.copy(current_anchor.position).add(current_anchor.handle_in),
+      vec.copy(current_anchor.position).self_add(current_anchor.handle_in),
     ),
   )
   if closed {
     ignore(
       bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).add(current_anchor.handle_out),
+        vec.copy(current_anchor.position).self_add(current_anchor.handle_out),
       ),
     )
   }

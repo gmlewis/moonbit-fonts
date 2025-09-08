@@ -6,7 +6,7 @@ struct Cmd {
 } derive(Show, Eq)
 
 ///|
-let split_re : @regexp.RegExp = (try? @regexp.compile(
+let split_re : @regexp.Regexp = (try? @regexp.compile(
   "^([MLCQZ])([0-9\\.\\-, ]*)",
 )).unwrap()
 
@@ -16,11 +16,14 @@ fn split_path(d : String) -> Array[Cmd] raise FontError {
   let mut d = d
   let cmds = []
   while d.length() > 0 {
-    let match_result = split_re.matches(d)
-    match match_result.captures() {
-      [_, c, p] => {
+    let match_result = split_re
+      .match_(d)
+      .or_error(FontError("split_path: unable to parse SVG params: \{d}"))
+    match match_result.results() {
+      [_, Some(c), Some(p)] => {
         d = d.substring(start=c.length() + p.length())
-        let p = parse_params(p)
+        let c = c.to_string()
+        let p = parse_params(p.to_string())
         cmds.push({ c, p })
       }
       _ => raise FontError("split_path: unable to split SVG path \{d}")
