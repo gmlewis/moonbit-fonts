@@ -6,6 +6,8 @@ This is an experimental package to manipulate open source fonts with [MoonBit].
 All fonts are open source and their licenses can all be found in their corresponding
 repos which are organized by the first letter of the name of the font:
 
+`mbt-fonts-*` packages contain hardcoded font data using `Map[String, @fonts.Glyph]`.
+
 * font: https://github.com/gmlewis/mbt-fonts-a/tree/master/aaarghnormal
 * license: https://github.com/gmlewis/go-fonts-a/tree/master/fonts/aaarghnormal
 * ...
