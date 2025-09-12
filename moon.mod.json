@@ -1,9 +1,9 @@
 {
   "name": "gmlewis/fonts",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "deps": {
     "moonbitlang/regexp": "0.3.1",
-    "moonbitlang/x": "0.4.33"
+    "moonbitlang/x": "0.4.34"
   },
   "readme": "README.md",
   "repository": "https://github.com/gmlewis/moonbit-fonts",

@@ -21,7 +21,7 @@ fn parse_params(d : String) -> Params raise FontError {
       .or_error(FontError("parse_params: unable to parse SVG params: \{d}"))
     match match_result.results() {
       [Some(m), Some(num)] => {
-        d = d.substring(start=m.length())
+        d = d.unsafe_substring(start=m.length(), end=d.length())
         let n = @strconv.parse_double(num) catch {
           _ => raise FontError("parse_params: unable to parse double: \{num}")
         }

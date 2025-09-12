@@ -14,21 +14,21 @@ pub(all) enum StrokeAlignment {
   Centered
   Inner
   Outer
-} derive(Show, Eq, FromJson(style="flat"), ToJson(style="flat"))
+} derive(Show, Eq, FromJson, ToJson)
 
 ///|
 pub(all) enum StrokeCap {
   Butt
   Round
   Square
-} derive(Show, Eq, FromJson(style="flat"), ToJson(style="flat"))
+} derive(Show, Eq, FromJson, ToJson)
 
 ///|
 pub(all) enum StrokeJoin {
   Miter
   Round
   Bevel
-} derive(Show, Eq, FromJson(style="flat"), ToJson(style="flat"))
+} derive(Show, Eq, FromJson, ToJson)
 
 ///|
 /// Stroke::new returns a new stroke style.

@@ -21,7 +21,7 @@ fn split_path(d : String) -> Array[Cmd] raise FontError {
       .or_error(FontError("split_path: unable to parse SVG params: \{d}"))
     match match_result.results() {
       [_, Some(c), Some(p)] => {
-        d = d.substring(start=c.length() + p.length())
+        d = d.unsafe_substring(start=c.length() + p.length(), end=d.length())
         let c = c.to_string()
         let p = parse_params(p.to_string())
         cmds.push({ c, p })

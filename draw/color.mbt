@@ -132,17 +132,17 @@ pub fn Color::from_css_string(css_string : String) -> Color raise Error {
         )
       7 =>
         return rgba(
-          parse_hex(css_string.substring(start=1, end=3)),
-          parse_hex(css_string.substring(start=3, end=5)),
-          parse_hex(css_string.substring(start=5, end=7)),
+          parse_hex(css_string.unsafe_substring(start=1, end=3)),
+          parse_hex(css_string.unsafe_substring(start=3, end=5)),
+          parse_hex(css_string.unsafe_substring(start=5, end=7)),
           1,
         )
       9 =>
         return rgba(
-          parse_hex(css_string.substring(start=1, end=3)),
-          parse_hex(css_string.substring(start=3, end=5)),
-          parse_hex(css_string.substring(start=5, end=7)),
-          parse_hex(css_string.substring(start=7, end=9)),
+          parse_hex(css_string.unsafe_substring(start=1, end=3)),
+          parse_hex(css_string.unsafe_substring(start=3, end=5)),
+          parse_hex(css_string.unsafe_substring(start=5, end=7)),
+          parse_hex(css_string.unsafe_substring(start=7, end=9)),
         )
       _ => ()
     }

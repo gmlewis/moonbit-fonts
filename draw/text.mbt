@@ -118,7 +118,7 @@ fn glyph2compound_path(
     }
 
     //
-    d = d.substring(start=match_str.length())
+    d = d.unsafe_substring(start=match_str.length(), end=d.length())
     match cmd {
       "M" => {
         if anchors.length() > 0 {

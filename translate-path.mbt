@@ -34,7 +34,7 @@ pub fn translate_path(
 fn svg_num(val : Double) -> String {
   let s = val.to_string()
   if s.has_suffix(".0") {
-    s.substring(start=0, end=s.length() - 2) // trim ".0" suffix
+    s.unsafe_substring(start=0, end=s.length() - 2) // trim ".0" suffix
   } else {
     s
   }
