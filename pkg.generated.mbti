@@ -131,6 +131,7 @@ impl Eq for PathCmd
 impl Show for PathCmd
 
 pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
+#deprecated
 fn PathCmdFn::inner(Self) -> (Int, PathCmd) -> PathCmd
 
 pub(all) struct Point {
