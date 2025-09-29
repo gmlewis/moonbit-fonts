@@ -1,6 +1,5 @@
 #!/bin/bash -ex
 moon update && moon install && rm -rf target
-moon add moonbitlang/x
 moon add moonbitlang/regexp
 moon fmt && moon info
 moon test --target js
