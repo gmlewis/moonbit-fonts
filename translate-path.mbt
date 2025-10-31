@@ -12,8 +12,7 @@ pub fn translate_path(
   let y_scale = if invert_y { -1.0 } else { 1.0 }
   for cmd in cmds {
     d.write_string(cmd.c)
-    cmd.p
-    .inner()
+    cmd.p.0
     .iter()
     .eachi(fn(index, val) {
       if index % 2 == 0 {

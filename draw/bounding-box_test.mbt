@@ -69,7 +69,7 @@ test "@draw.BoundingBox::from_points/normal" {
 }
 
 ///|
-test "@draw.BoundingBox::from_points/single_point" {
+test "@draw.BoundingBox::from_points/single_point 1" {
   let points = [@draw.vec2(3.0, 4.0)]
   let bbox = @draw.BoundingBox::from_points(points)
   inspect(bbox.min.x, content="3")
@@ -95,7 +95,7 @@ test "@draw.BoundingBox::from_points" {
 }
 
 ///|
-test "@draw.BoundingBox::from_points/single_point" {
+test "@draw.BoundingBox::from_points/single_point 2" {
   let point = @draw.vec2(5.0, 5.0)
   let points = [point]
   let bbox = @draw.BoundingBox::from_points(points)

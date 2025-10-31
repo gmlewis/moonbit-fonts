@@ -1,5 +1,5 @@
 ///|
-test "@draw.Anchor::new/default" {
+test "@draw.Anchor::new/default 1" {
   let anchor = @draw.Anchor::new()
   inspect(
     anchor,
@@ -30,7 +30,7 @@ test "@draw.Anchor::new/all-params" {
 }
 
 ///|
-test "@draw.Anchor::new/default" {
+test "@draw.Anchor::new/default 2" {
   let default_anchor = @draw.Anchor::new()
   inspect(default_anchor.position, content="{x: 0, y: 0}")
   inspect(default_anchor.handle_in, content="{x: 0, y: 0}")

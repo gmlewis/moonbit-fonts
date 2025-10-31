@@ -3,8 +3,8 @@
 struct Params(Array[Double]) derive(Show, Eq)
 
 ///|
-pub fn length(self : Params) -> Int {
-  self.inner().length()
+pub fn Params::length(self : Params) -> Int {
+  self.0.length()
 }
 
 ///|

@@ -74,7 +74,7 @@ let rgba_re : @regexp.Regexp = (try? @regexp.compile(
 )).unwrap()
 
 ///|
-fn parse_percent(s : @string.View) -> Double raise Error {
+fn parse_percent(s : StringView) -> Double raise Error {
   let m = percent_re.match_(s).unwrap()
   match m.results() {
     [_, Some(v)] => @strconv.parse_int(v, base=10).to_double() / 100
@@ -93,7 +93,7 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
 ///|
 /// Color::from_css_string returns a color from a CSS string.
 pub fn Color::from_css_string(css_string : String) -> Color raise Error {
-  let css_string = css_string.trim(" ").to_lower().to_string()
+  let css_string = css_string.trim(char_set=" ").to_lower().to_string()
   match css_colors.get(css_string) {
     Some([r, g, b]) => return css_color(r, g, b)
     _ => ()
@@ -181,7 +181,7 @@ pub fn Color::from_rgb8_number(value : UInt) -> Color {
 
 ///|
 /// as_fill is a convenience function for setting a fill color.
-pub fn as_fill(self : Color) -> Fill? {
+pub fn Color::as_fill(self : Color) -> Fill? {
   Some(fill(self))
 }
 
@@ -193,7 +193,7 @@ pub fn Color::clone(self : Color) -> Color {
 
 ///|
 /// set sets the RGBA components of this Color.
-pub fn set(
+pub fn Color::set(
   self : Color,
   r : Double,
   g : Double,
@@ -209,7 +209,7 @@ pub fn set(
 
 ///|
 /// mix linearly interpolates between this Color and `c` with mixing factor `t`.
-pub fn mix(self : Color, c : Color, t : Double) -> Color {
+pub fn Color::mix(self : Color, c : Color, t : Double) -> Color {
   self.r += (c.r - self.r) * t
   self.g += (c.g - self.g) * t
   self.b += (c.b - self.b) * t
@@ -219,13 +219,13 @@ pub fn mix(self : Color, c : Color, t : Double) -> Color {
 
 ///|
 /// luminance returns the relative luminance of this color for standard human vision.
-pub fn luminance(self : Color) -> Double {
+pub fn Color::luminance(self : Color) -> Double {
   0.2126 * self.r + 0.7152 * self.g + 0.0722 * self.b
 }
 
 ///|
 /// to_css_string returns a CSS-style string for this color.
-pub fn to_css_string(self : Color) -> String {
+pub fn Color::to_css_string(self : Color) -> String {
   match self.a {
     1 => self.to_css_hex_string()
     _ => self.to_css_rgba_string()
@@ -269,7 +269,7 @@ fn to_hex(v : UInt) -> String {
 
 ///|
 /// to_css_hex_string returns a CSS-style hex string for this color.
-pub fn to_css_hex_string(self : Color) -> String {
+pub fn Color::to_css_hex_string(self : Color) -> String {
   let s = to_hex(16777216U + self.to_rgb8_number())
   "#\{s}"
 }
@@ -287,7 +287,7 @@ fn[T : Compare] clamp(v : T, min : T, max : T) -> T {
 
 ///|
 /// to_css_rgba_string returns a CSS-style "rgba()" string for this color.
-pub fn to_css_rgba_string(self : Color) -> String {
+pub fn Color::to_css_rgba_string(self : Color) -> String {
   let r = clamp(@math.round(self.r * 255).to_int(), 0, 255)
   let g = clamp(@math.round(self.g * 255).to_int(), 0, 255)
   let b = clamp(@math.round(self.b * 255).to_int(), 0, 255)
@@ -297,7 +297,7 @@ pub fn to_css_rgba_string(self : Color) -> String {
 
 ///|
 /// to_rgb8_number returns a bit-packed number in RGB8 format.
-pub fn to_rgb8_number(self : Color) -> UInt {
+pub fn Color::to_rgb8_number(self : Color) -> UInt {
   let r = clamp(@math.round(self.r * 255).to_int(), 0, 255).reinterpret_as_uint()
   let g = clamp(@math.round(self.g * 255).to_int(), 0, 255).reinterpret_as_uint()
   let b = clamp(@math.round(self.b * 255).to_int(), 0, 255).reinterpret_as_uint()
@@ -307,7 +307,7 @@ pub fn to_rgb8_number(self : Color) -> UInt {
 ///|
 /// to_hsva converts this color to the HSVA color space, returning
 /// [hue, saturation, value, alpha] in the range (0..1).
-pub fn to_hsva(self : Color) -> Array[Double] {
+pub fn Color::to_hsva(self : Color) -> Array[Double] {
   let mut hue = 0.0
   let mut t = 0.0
   let { r, g, b, a: alpha } = self

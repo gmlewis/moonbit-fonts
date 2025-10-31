@@ -1,7 +1,7 @@
 ///|
 /// `gen_paths` handles multiple strings independently so that they
 /// can be aligned and distributed more flexibly.
-pub fn gen_paths(
+pub fn Font::gen_paths(
   self : Font,
   lines : Array[String],
   anchor? : Anchor = BaselineLeft,

@@ -110,7 +110,7 @@ pub fn CompoundPath::assign_stroke(
 
 ///|
 /// assign_style assigns a stroke and fill style to this CompoundPath.
-pub fn assign_style(
+pub fn CompoundPath::assign_style(
   self : CompoundPath,
   fill : Fill?,
   stroke : Stroke?,

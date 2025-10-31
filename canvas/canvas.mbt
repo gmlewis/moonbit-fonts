@@ -2,7 +2,11 @@
 /// from_graphics renders a Graphic to an HTML5 canvas using its native API.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly in the canvas.
-pub fn from_graphic(self : CanvasCtx, g : Graphic, y_up? : Bool = true) -> Unit {
+pub fn CanvasCtx::from_graphic(
+  self : CanvasCtx,
+  g : Graphic,
+  y_up? : Bool = true,
+) -> Unit {
   let mut bbox = match g.bounding_box() {
     Some(box) => box
     _ => return
@@ -36,17 +40,20 @@ pub fn from_graphic(self : CanvasCtx, g : Graphic, y_up? : Bool = true) -> Unit 
 }
 
 ///|
-fn render_path(self : CanvasCtx, path : Path) -> Unit {
+fn CanvasCtx::render_path(self : CanvasCtx, path : Path) -> Unit {
   self.render_paths([path], path.stroke, path.fill)
 }
 
 ///|
-fn render_compound_path(self : CanvasCtx, path : CompoundPath) -> Unit {
+fn CanvasCtx::render_compound_path(
+  self : CanvasCtx,
+  path : CompoundPath,
+) -> Unit {
   self.render_paths(path.paths, path.stroke, path.fill)
 }
 
 ///|
-fn render_paths(
+fn CanvasCtx::render_paths(
   self : CanvasCtx,
   paths : Array[Path],
   stroke : Stroke?,
@@ -67,7 +74,7 @@ fn render_paths(
 }
 
 ///|
-fn canvas_commands(self : CanvasCtx, path : Path) -> Unit {
+fn CanvasCtx::canvas_commands(self : CanvasCtx, path : Path) -> Unit {
   if path.anchors.length() < 2 {
     return
   }
@@ -107,7 +114,7 @@ fn canvas_commands(self : CanvasCtx, path : Path) -> Unit {
 }
 
 ///|
-fn set_stroke(self : CanvasCtx, stroke : Stroke?) -> Unit {
+fn CanvasCtx::set_stroke(self : CanvasCtx, stroke : Stroke?) -> Unit {
   match stroke {
     None => self.set_stroke_color(0, 0, 0, 0)
     Some(stroke) => {
@@ -124,7 +131,10 @@ fn set_stroke(self : CanvasCtx, stroke : Stroke?) -> Unit {
 }
 
 ///|
-fn set_line_cap(self : CanvasCtx, line_cap : @draw.StrokeCap) -> Unit {
+fn CanvasCtx::set_line_cap(
+  self : CanvasCtx,
+  line_cap : @draw.StrokeCap,
+) -> Unit {
   match line_cap {
     @draw.StrokeCap::Butt => self.set_line_cap_butt()
     @draw.StrokeCap::Round => self.set_line_cap_round()
@@ -133,7 +143,10 @@ fn set_line_cap(self : CanvasCtx, line_cap : @draw.StrokeCap) -> Unit {
 }
 
 ///|
-fn set_line_join(self : CanvasCtx, line_join : @draw.StrokeJoin) -> Unit {
+fn CanvasCtx::set_line_join(
+  self : CanvasCtx,
+  line_join : @draw.StrokeJoin,
+) -> Unit {
   match line_join {
     @draw.StrokeJoin::Miter => self.set_line_join_miter()
     @draw.StrokeJoin::Round => self.set_line_join_round()
@@ -142,7 +155,7 @@ fn set_line_join(self : CanvasCtx, line_join : @draw.StrokeJoin) -> Unit {
 }
 
 ///|
-fn set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
+fn CanvasCtx::set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
   match fill {
     None => self.set_fill_color(0, 0, 0, 0)
     Some(fill) => {
@@ -153,7 +166,7 @@ fn set_fill(self : CanvasCtx, fill : Fill?) -> Unit {
 }
 
 ///|
-pub fn get_input_bytes(self : CanvasCtx) -> Array[Byte] {
+pub fn CanvasCtx::get_input_bytes(self : CanvasCtx) -> Array[Byte] {
   let length = self.get_input_length()
   if length <= 0 {
     return []

@@ -1,11 +1,11 @@
 ///|
-typealias @draw.AffineMatrix
+using @draw {type AffineMatrix}
 
 ///|
-typealias @draw.Transform
+using @draw {type Transform}
 
 ///|
-typealias @draw.Vec2
+using @draw {type Vec2}
 
 ///|
 let vec2 = @draw.vec2
@@ -258,7 +258,7 @@ test "Vec2::from_angle_radians/PI_half" {
 }
 
 ///|
-test "@draw.clone" {
+test "@draw.clone 1" {
   // Test basic functionality
   let v = vec2(3.0, 4.0)
   let cloned = v.clone()
@@ -278,7 +278,7 @@ test "@draw.clone" {
 }
 
 ///|
-test "@draw.clone" {
+test "@draw.clone 2" {
   let vec = Vec2::new(x=0, y=0)
   let cloned_vec = vec.clone()
   inspect(cloned_vec, content="{x: 0, y: 0}")
@@ -532,7 +532,7 @@ test "@draw.affine_transform_without_translation/scaling_matrix" {
 }
 
 ///|
-test "@draw.transform/identity" {
+test "@draw.transform/identity 1" {
   let v = vec2(1.0, 1.0)
   inspect(v.transform(), content="{x: 1, y: 1}")
 }
@@ -575,7 +575,7 @@ test "@draw.transform/standard_scale_rotation" {
 }
 
 ///|
-test "@draw.transform/identity" {
+test "@draw.transform/identity 2" {
   let v = vec2(1, 2)
   let result = @draw.Vec2::transform(v)
   inspect(result, content="{x: 1, y: 2}")
@@ -596,7 +596,7 @@ test "@draw.transform/boundary_neg_scale_translation" {
 }
 
 ///|
-test "@draw.self_add" {
+test "@draw.self_add 1" {
   // Basic vector addition
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, -1.0)
@@ -619,7 +619,7 @@ test "@draw.self_add" {
 }
 
 ///|
-test "@draw.self_add" {
+test "@draw.self_add 2" {
   // Basic test case with positive values
   let v1 = vec2(1.0, 2.0)
   let v2 = vec2(3.0, 4.0)
@@ -648,7 +648,7 @@ test "@draw.self_add/boundary-large-small" {
 }
 
 ///|
-test "@draw.Vec2::add" {
+test "@draw.Vec2::add 1" {
   // Basic vector addition
   inspect(
     @draw.Vec2::add(vec2(1.0, 2.0), vec2(3.0, 4.0)),
@@ -695,7 +695,7 @@ test "@draw.Vec2::add/commutative" {
 }
 
 ///|
-test "@draw.Vec2::add" {
+test "@draw.Vec2::add 2" {
   inspect(
     @draw.Vec2::add(vec2(1.0, 2.0), vec2(3.0, 4.0)),
     content="{x: 4, y: 6}",
@@ -796,7 +796,7 @@ test "@draw.Vec2::self_sub/boundary_max_min_values" {
 }
 
 ///|
-test "@draw.Vec2::self_sub" {
+test "@draw.Vec2::self_sub 1" {
   // Test basic subtraction
   let v1 = vec2(3.0, 4.0)
   let v2 = vec2(1.0, 2.0)
@@ -806,7 +806,7 @@ test "@draw.Vec2::self_sub" {
 }
 
 ///|
-test "@draw.Vec2::self_sub/zero_vector" {
+test "@draw.Vec2::self_sub/zero_vector 1" {
   // Test subtraction with zero vector
   let v1 = vec2(3.0, 4.0)
   let zero = vec2(0.0, 0.0)
@@ -839,7 +839,7 @@ test "@draw.Vec2::sub/basic" {
 }
 
 ///|
-test "@draw.Vec2::self_sub/zero_vector" {
+test "@draw.Vec2::self_sub/zero_vector 2" {
   let v1 = vec2(3.0, 4.0)
   let zero = vec2(0.0, 0.0)
   let result = v1.self_sub(zero)
@@ -857,7 +857,7 @@ test "@draw.Vec2::self_sub/negative_components" {
 }
 
 ///|
-test "@draw.Vec2::self_sub" {
+test "@draw.Vec2::self_sub 2" {
   let v1 = Vec2::new(x=3.0, y=4.0)
   let v2 = Vec2::new(x=1.0, y=2.0)
   let result = @draw.Vec2::self_sub(v1, v2)
@@ -865,7 +865,7 @@ test "@draw.Vec2::self_sub" {
 }
 
 ///|
-test "@draw.Vec2::self_sub/zero_vector" {
+test "@draw.Vec2::self_sub/zero_vector 3" {
   let v1 = Vec2::new(x=0.0, y=0.0)
   let v2 = Vec2::new(x=5.0, y=6.0)
   let result = @draw.Vec2::self_sub(v1, v2)
@@ -1525,7 +1525,7 @@ test "@draw.Vec2::ceil/extreme" {
 }
 
 ///|
-test "@draw.round/basic" {
+test "@draw.round/basic 1" {
   let v = Vec2::new(x=1.6, y=2.3)
   inspect(v.round(), content="{x: 2, y: 2}")
 }
@@ -1543,7 +1543,7 @@ test "@draw.round/zero" {
 }
 
 ///|
-test "@draw.round/basic" {
+test "@draw.round/basic 2" {
   let v = vec2(1.4, 2.6)
   inspect(v.round(), content="{x: 1, y: 3}")
   let v2 = vec2(-1.6, -2.3)
@@ -1991,7 +1991,7 @@ test "@draw.rotate" {
 }
 
 ///|
-test "@draw.rotate90" {
+test "@draw.rotate90 1" {
   // Test 90-degree rotations
   let v = vec2(1.0, 0.0)
   inspect(v.rotate90(), content="{x: 0, y: 1}")
@@ -2147,7 +2147,7 @@ test "@draw::rotate90/zero" {
 }
 
 ///|
-test "@draw.rotate90" {
+test "@draw.rotate90 2" {
   // Test basic vector rotation
   let v = vec2(1.0, 1.0)
   inspect(v.rotate90(), content="{x: -1, y: 1}")
@@ -2426,7 +2426,7 @@ test "@draw.is_clockwise_from/zero" {
 }
 
 ///|
-test "@draw.Vec2::length/zero_vector" {
+test "@draw.Vec2::length/zero_vector 1" {
   let v = Vec2::new(x=0.0, y=0.0)
   inspect(v.length(), content="0")
 }
@@ -2465,7 +2465,7 @@ test "@draw.Vec2::length" {
 }
 
 ///|
-test "@draw.Vec2::length/zero_vector" {
+test "@draw.Vec2::length/zero_vector 2" {
   let v = vec2(0.0, 0.0)
   assert_approx_eq9(@draw.Vec2::length(v), 0.0, 0.000001)
 }

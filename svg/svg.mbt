@@ -1,17 +1,17 @@
 ///|
-typealias @draw.CompoundPath
+using @draw {type CompoundPath}
 
 ///|
-typealias @draw.Fill
+using @draw {type Fill}
 
 ///|
-typealias @draw.Graphic
+using @draw {type Graphic}
 
 ///|
-typealias @draw.Path
+using @draw {type Path}
 
 ///|
-typealias @draw.Stroke
+using @draw {type Stroke}
 
 ///|
 let vec2 = @draw.vec2

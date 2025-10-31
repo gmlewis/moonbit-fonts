@@ -68,7 +68,7 @@ pub fn Path::from_glyph(
     }
     let cmd = PathCmd::from_svg_cmd(svg_cmd, gerber_lp)
     let cmd = match path_cmd_fn {
-      Some(f) => f.inner()(index, cmd)
+      Some(f) => (f.0)(index, cmd)
       _ => cmd
     }
     cmds.push(cmd)
@@ -95,7 +95,7 @@ pub fn Path::from_glyph(
 /// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
+pub fn Path::to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = @buffer.new()
   let d = @buffer.new()
   let mut bbox = Rectangle::new()
@@ -103,7 +103,7 @@ pub fn to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
   //
   for index, cmd in self.cmds {
     let cmd = match path_cmd_fn {
-      Some(f) => f.inner()(index, cmd)
+      Some(f) => (f.0)(index, cmd)
       _ => cmd
     }
     let (svg_cmd, glp) = cmd.to_svg_cmd()
@@ -112,7 +112,7 @@ pub fn to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
       gerber_lp.write_string(glp)
     }
     let params = Array::new(capacity=svg_cmd.p.length())
-    for p in svg_cmd.p.inner() {
+    for p in svg_cmd.p.0 {
       params.push(svg_num(p))
     }
     d.write_string(params.join(" "))

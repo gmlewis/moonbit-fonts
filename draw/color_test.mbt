@@ -90,7 +90,7 @@ test "panic @draw.Color::from_hsva/invalid_hue" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/black" {
+test "@draw.Color::from_rgb8_number/black 1" {
   let black = @draw.Color::from_rgb8_number(0U)
   inspect(black.r, content="0")
   inspect(black.g, content="0")
@@ -99,7 +99,7 @@ test "@draw.Color::from_rgb8_number/black" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/white" {
+test "@draw.Color::from_rgb8_number/white 1" {
   let white = @draw.Color::from_rgb8_number(0xffffffU)
   inspect(white.r, content="1")
   inspect(white.g, content="1")
@@ -127,13 +127,13 @@ test "@draw.Color::from_rgb8_number/primary_colors" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/black" {
+test "@draw.Color::from_rgb8_number/black 2" {
   let color = @draw.Color::from_rgb8_number(0x000000)
   inspect(color, content="{r: 0, g: 0, b: 0, a: 1}")
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/white" {
+test "@draw.Color::from_rgb8_number/white 2" {
   let color = @draw.Color::from_rgb8_number(0xFFFFFF)
   inspect(color, content="{r: 1, g: 1, b: 1, a: 1}")
 }
@@ -369,28 +369,28 @@ test "@draw.Color::to_hsva/primary-secondary" {
 }
 
 ///|
-test "@draw.Color::to_hsva/black" {
+test "@draw.Color::to_hsva/black 1" {
   let black = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
   // Black should have 0 saturation and value
   inspect(black.to_hsva(), content="[0, 0, 0, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/white" {
+test "@draw.Color::to_hsva/white 1" {
   let white = @draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
   // White should have 0 saturation but maximum value
   inspect(white.to_hsva(), content="[0, 0, 1, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/black" {
+test "@draw.Color::to_hsva/black 2" {
   let color = @draw.Color::new(r=0, g=0, b=0, a=1)
   let hsva = color.to_hsva()
   inspect(hsva, content="[0, 0, 0, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/white" {
+test "@draw.Color::to_hsva/white 2" {
   let color = @draw.Color::new(r=1, g=1, b=1, a=1)
   let hsva = color.to_hsva()
   inspect(hsva, content="[0, 0, 1, 1]")

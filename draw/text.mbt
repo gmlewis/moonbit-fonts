@@ -1,5 +1,5 @@
 ///|
-typealias @fonts.Font
+using @fonts {type Font}
 
 ///|
 pub(all) enum TextAlign {
@@ -78,7 +78,7 @@ let split_re : @regexp.Regexp = (try? @regexp.compile(
 )).unwrap()
 
 ///|
-fn parse_params(s : @string.View) -> Array[Double] {
+fn parse_params(s : StringView) -> Array[Double] {
   s
   .split(" ")
   .map(fn(s) { @strconv.parse_double(s.to_string()) catch { _ => 0.0 } })

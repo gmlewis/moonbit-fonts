@@ -15,7 +15,7 @@ pub(all) struct Point {
 
 ///|
 /// to_string returns a string representation of p like "(3,4)".
-pub fn to_string(self : Point) -> String {
+pub fn Point::to_string(self : Point) -> String {
   "(\{self.x},\{self.y})"
 }
 
@@ -33,19 +33,19 @@ pub impl Sub for Point with sub(self, q) {
 
 ///|
 /// mul returns the vector p*k.
-pub fn mul(self : Point, k : Double) -> Point {
+pub fn Point::mul(self : Point, k : Double) -> Point {
   { x: self.x * k, y: self.y * k }
 }
 
 ///|
 /// div returns the vector p/k.
-pub fn div(self : Point, k : Double) -> Point {
+pub fn Point::div(self : Point, k : Double) -> Point {
   { x: self.x / k, y: self.y / k }
 }
 
 ///|
 /// is_in reports whether p is in r.
-pub fn is_in(self : Point, r : Rectangle) -> Bool {
+pub fn Point::is_in(self : Point, r : Rectangle) -> Bool {
   r.min.x <= self.x && self.x < r.max.x && r.min.y <= self.y && self.y < r.max.y
 }
 
@@ -99,13 +99,13 @@ pub fn Rectangle::new() -> Rectangle {
 
 ///|
 /// `bounds` returns the tuple `(xmin, ymin, xmax, ymax)`.
-pub fn bounds(self : Rectangle) -> (Double, Double, Double, Double) {
+pub fn Rectangle::bounds(self : Rectangle) -> (Double, Double, Double, Double) {
   (self.min.x, self.min.y, self.max.x, self.max.y)
 }
 
 ///|
 /// `clone` makes a copy of the provided rectangle without changing it.
-pub fn clone(self : Rectangle) -> Rectangle {
+pub fn Rectangle::clone(self : Rectangle) -> Rectangle {
   { min: pt(self.min.x, self.min.y), max: pt(self.max.x, self.max.y) }
 }
 
@@ -117,25 +117,25 @@ pub fn Rectangle::to_string(self : Rectangle) -> String {
 
 ///|
 /// dx returns r's width.
-pub fn dx(self : Rectangle) -> Double {
+pub fn Rectangle::dx(self : Rectangle) -> Double {
   self.max.x - self.min.x
 }
 
 ///|
 /// dy returns r's height.
-pub fn dy(self : Rectangle) -> Double {
+pub fn Rectangle::dy(self : Rectangle) -> Double {
   self.max.y - self.min.y
 }
 
 ///|
 /// size returns r's width and height.
-pub fn size(self : Rectangle) -> Point {
+pub fn Rectangle::size(self : Rectangle) -> Point {
   { x: self.max.x - self.min.x, y: self.max.y - self.min.y }
 }
 
 ///|
 /// add returns the rectangle r translated by p.
-pub fn add(self : Rectangle, p : Point) -> Rectangle {
+pub fn Rectangle::add(self : Rectangle, p : Point) -> Rectangle {
   {
     min: pt(self.min.x + p.x, self.min.y + p.y),
     max: pt(self.max.x + p.x, self.max.y + p.y),
@@ -144,7 +144,7 @@ pub fn add(self : Rectangle, p : Point) -> Rectangle {
 
 ///|
 /// sub returns the rectangle r translated by -p.
-pub fn sub(self : Rectangle, p : Point) -> Rectangle {
+pub fn Rectangle::sub(self : Rectangle, p : Point) -> Rectangle {
   {
     min: pt(self.min.x - p.x, self.min.y - p.y),
     max: pt(self.max.x - p.x, self.max.y - p.y),
@@ -155,7 +155,7 @@ pub fn sub(self : Rectangle, p : Point) -> Rectangle {
 /// inset returns the rectangle r inset by n, which may be negative. If either
 /// of r's dimensions is less than 2*n then an empty rectangle near the center
 /// of r will be returned.
-pub fn inset(self : Rectangle, n : Double) -> Rectangle {
+pub fn Rectangle::inset(self : Rectangle, n : Double) -> Rectangle {
   let r = self.clone()
   if r.dx() < 2.0 * n {
     r.min.x = (r.min.x + r.max.x) / 2
@@ -177,7 +177,7 @@ pub fn inset(self : Rectangle, n : Double) -> Rectangle {
 ///|
 /// intersect returns the largest rectangle contained by both r and s. If the
 /// two rectangles do not overlap then the zero rectangle will be returned.
-pub fn intersect(self : Rectangle, s : Rectangle) -> Rectangle {
+pub fn Rectangle::intersect(self : Rectangle, s : Rectangle) -> Rectangle {
   let r = self.clone()
   if r.min.x < s.min.x {
     r.min.x = s.min.x
@@ -203,7 +203,7 @@ pub fn intersect(self : Rectangle, s : Rectangle) -> Rectangle {
 
 ///|
 /// `extend` extends the current rectangle to include the provided point.
-pub fn extend(self : Rectangle, pt : Point) -> Unit {
+pub fn Rectangle::extend(self : Rectangle, pt : Point) -> Unit {
   if pt.x < self.min.x {
     self.min.x = pt.x
   }
@@ -220,7 +220,7 @@ pub fn extend(self : Rectangle, pt : Point) -> Unit {
 
 ///|
 /// union returns the smallest rectangle that contains both r and s.
-pub fn union(self : Rectangle, s : Rectangle) -> Rectangle {
+pub fn Rectangle::union(self : Rectangle, s : Rectangle) -> Rectangle {
   let r = self.clone()
   if r.empty() {
     return s
@@ -245,7 +245,7 @@ pub fn union(self : Rectangle, s : Rectangle) -> Rectangle {
 
 ///|
 /// empty reports whether the rectangle contains no points.
-pub fn empty(self : Rectangle) -> Bool {
+pub fn Rectangle::empty(self : Rectangle) -> Bool {
   self.min.x >= self.max.x || self.min.y >= self.max.y
 }
 
@@ -258,7 +258,7 @@ pub impl Eq for Rectangle with equal(self, s) {
 
 ///|
 /// overlaps reports whether r and s have a non-empty intersection.
-pub fn overlaps(self : Rectangle, s : Rectangle) -> Bool {
+pub fn Rectangle::overlaps(self : Rectangle, s : Rectangle) -> Bool {
   not(self.empty()) &&
   not(s.empty()) &&
   self.min.x < s.max.x &&
@@ -284,7 +284,7 @@ pub fn Rectangle::is_in(self : Rectangle, s : Rectangle) -> Bool {
 ///|
 /// canon returns the canonical version of r. The returned rectangle has minimum
 /// and maximum coordinates swapped if necessary so that it is well-formed.
-pub fn canon(self : Rectangle) -> Rectangle {
+pub fn Rectangle::canon(self : Rectangle) -> Rectangle {
   let r = self.clone()
   if r.max.x < r.min.x {
     let tmp = r.min.x

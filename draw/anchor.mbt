@@ -30,7 +30,10 @@ pub fn Anchor::clone(self : Anchor) -> Anchor {
 
 ///|
 /// affine_transform transforms this Anchor by the provided `affine_matrix`.
-pub fn affine_transform(self : Anchor, affine_matrix : AffineMatrix) -> Anchor {
+pub fn Anchor::affine_transform(
+  self : Anchor,
+  affine_matrix : AffineMatrix,
+) -> Anchor {
   let _ = self.position.affine_transform(affine_matrix)
   let _ = self.handle_in.affine_transform_without_translation(affine_matrix)
   let _ = self.handle_out.affine_transform_without_translation(affine_matrix)
@@ -40,7 +43,7 @@ pub fn affine_transform(self : Anchor, affine_matrix : AffineMatrix) -> Anchor {
 ///|
 /// affine_transform_without_translation transforms this Anchor's rotation, scale,
 /// and skew, without affecting its translation.
-pub fn affine_transform_without_translation(
+pub fn Anchor::affine_transform_without_translation(
   self : Anchor,
   affine_matrix : AffineMatrix,
 ) -> Anchor {
@@ -52,7 +55,7 @@ pub fn affine_transform_without_translation(
 
 ///|
 /// transform provides a convenient API for a common task.
-pub fn transform(
+pub fn Anchor::transform(
   self : Anchor,
   position? : Vec2 = vec2(0, 0),
   rotation? : Double = 0,
@@ -69,26 +72,32 @@ pub fn transform(
 ///|
 /// loose_bounding_box is a simple computation that returns a BoundingBox which
 /// may not be the smallest possible.
-pub fn loose_bounding_box(self : Anchor) -> BoundingBox? {
+pub fn Anchor::loose_bounding_box(self : Anchor) -> BoundingBox? {
   Some(BoundingBox::new(min=self.position.clone(), max=self.position.clone()))
 }
 
 ///|
 /// bounding_box returns a BoundingBox for this Anchor.
-pub fn bounding_box(self : Anchor) -> BoundingBox? {
+pub fn Anchor::bounding_box(self : Anchor) -> BoundingBox? {
   Some(BoundingBox::new(min=self.position.clone(), max=self.position.clone()))
 }
 
 ///|
 /// is_contained_by_bounding_box returns true if this Anchor lies within `box`.
-pub fn is_contained_by_bounding_box(self : Anchor, box : BoundingBox) -> Bool {
+pub fn Anchor::is_contained_by_bounding_box(
+  self : Anchor,
+  box : BoundingBox,
+) -> Bool {
   box.contains_point(self.position)
 }
 
 ///|
 /// is_intersected_by_bounding_box returns true if the Anchor lies on the
 /// boundary of `box`.
-pub fn is_intersected_by_bounding_box(self : Anchor, box : BoundingBox) -> Bool {
+pub fn Anchor::is_intersected_by_bounding_box(
+  self : Anchor,
+  box : BoundingBox,
+) -> Bool {
   let { min, max } = box
   let { x, y } = self.position
   (x >= min.x && x <= max.x && (y == min.y || y == max.y)) ||
@@ -97,14 +106,17 @@ pub fn is_intersected_by_bounding_box(self : Anchor, box : BoundingBox) -> Bool 
 
 ///|
 /// is_overlapped_by_bounding_box returns true if the Anchor is within `box`.
-pub fn is_overlapped_by_bounding_box(self : Anchor, box : BoundingBox) -> Bool {
+pub fn Anchor::is_overlapped_by_bounding_box(
+  self : Anchor,
+  box : BoundingBox,
+) -> Bool {
   box.contains_point(self.position)
 }
 
 ///|
 /// closest_point returns the closest point to `point` or None if no point is found.
 /// area_of_interest is used to focus the computation within a smaller region.
-pub fn closest_point(
+pub fn Anchor::closest_point(
   self : Anchor,
   point : Vec2,
   area_of_interest? : BoundingBox,
@@ -122,7 +134,7 @@ pub fn closest_point(
 
 ///|
 /// reverse reverses this Anchor.
-pub fn reverse(self : Anchor) -> Anchor {
+pub fn Anchor::reverse(self : Anchor) -> Anchor {
   let { handle_in, handle_out, .. } = self
   self.handle_in = handle_out
   self.handle_out = handle_in
@@ -138,7 +150,7 @@ let tmp2 : Vec2 = Vec2::new()
 ///|
 /// has_tangent_handles returns true if this Anchor has handles that
 /// are tangent to each other.
-pub fn has_tangent_handles(
+pub fn Anchor::has_tangent_handles(
   self : Anchor,
   tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
@@ -149,12 +161,12 @@ pub fn has_tangent_handles(
 
 ///|
 /// has_zero_handles returns true if this Anchor has handles that are both zero.
-pub fn has_zero_handles(self : Anchor) -> Bool {
+pub fn Anchor::has_zero_handles(self : Anchor) -> Bool {
   self.handle_in.is_zero() && self.handle_out.is_zero()
 }
 
 ///|
 /// all_anchors returns all anchors.
-pub fn all_anchors(self : Anchor) -> Array[Anchor] {
+pub fn Anchor::all_anchors(self : Anchor) -> Array[Anchor] {
   [self]
 }

@@ -37,18 +37,16 @@ pub fn PathCmd::from_svg_cmd(
     c =>
       raise FontError("PathCmd::from_svg_cmd: unsupported SVG command '\{c}'")
   }
-  if svg_cmd.p.inner().length() % 2 != 0 {
+  if svg_cmd.p.0.length() % 2 != 0 {
     raise FontError(
       "PathCmd::from_svg_cmd: unexpected odd params length in svg_cmd: \{svg_cmd}",
     )
   }
 
   //
-  let params : Array[ParamPair] = Array::new(
-    capacity=svg_cmd.p.inner().length() / 2,
-  )
+  let params : Array[ParamPair] = Array::new(capacity=svg_cmd.p.0.length() / 2)
   let mut x = 0.0
-  for index, param in svg_cmd.p.inner() {
+  for index, param in svg_cmd.p.0 {
     if index % 2 == 0 {
       x = param
     } else {
@@ -82,7 +80,7 @@ pub fn PathCmd::to_svg_cmd(self : PathCmd) -> (Cmd, String) {
 
 ///|
 /// `bbox` returns the minimum bounding box of a PathCmd.
-pub fn bbox(self : PathCmd) -> Rectangle {
+pub fn PathCmd::bbox(self : PathCmd) -> Rectangle {
   let r = Rectangle::new()
   for index, pp in self.params {
     if index == 0 {

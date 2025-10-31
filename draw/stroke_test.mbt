@@ -1,5 +1,5 @@
 ///|
-test "@draw.Stroke::new" {
+test "@draw.Stroke::new 1" {
   // Test default values (black color with full opacity)
   let default_stroke = @draw.Stroke::new()
   inspect(default_stroke.color.r, content="0")
@@ -33,7 +33,7 @@ test "@draw.Stroke::new/edge_cases" {
 }
 
 ///|
-test "@draw.Stroke::new" {
+test "@draw.Stroke::new 2" {
   let color1 = @draw.rgba(0.5, 0.4, 0.3, 1)
   let stroke1 = @draw.Stroke::new(color=color1)
   inspect(stroke1.color, content="{r: 0.5, g: 0.4, b: 0.3, a: 1}")
@@ -59,7 +59,7 @@ test "@draw.Stroke::new/boundary" {
 }
 
 ///|
-test "@draw.Stroke::new" {
+test "@draw.Stroke::new 3" {
   let color = @draw.rgba(-1, 2, -3, 4) // Invalid color values
   let new_color = @draw.Stroke::new(color~)
   inspect(

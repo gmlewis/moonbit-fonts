@@ -15,7 +15,7 @@
 /// attempts to convert the SVG paths such that the font is equally readable
 /// in both the "y_up=false" SVG canvas environment or in a 3D "y_up=true"
 /// rendering environment.
-pub fn gen_path(
+pub fn Font::gen_path(
   self : Font,
   text : String,
   anchor? : Anchor = Unchanged,

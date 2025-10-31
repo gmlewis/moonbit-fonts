@@ -94,14 +94,17 @@ pub fn AffineMatrix::from_center_scale(
 
 ///|
 /// clone returns a copy of this 2D affine matrix.
-pub fn clone(self : AffineMatrix) -> AffineMatrix {
+pub fn AffineMatrix::clone(self : AffineMatrix) -> AffineMatrix {
   let { a, b, c, d, tx, ty } = self
   { a, b, c, d, tx, ty }
 }
 
 ///|
 /// copy copies another 2D affine matrix into itself and returns itself.
-pub fn copy(self : AffineMatrix, other : AffineMatrix) -> AffineMatrix {
+pub fn AffineMatrix::copy(
+  self : AffineMatrix,
+  other : AffineMatrix,
+) -> AffineMatrix {
   self.a = other.a
   self.b = other.b
   self.c = other.c
@@ -113,7 +116,7 @@ pub fn copy(self : AffineMatrix, other : AffineMatrix) -> AffineMatrix {
 
 ///|
 /// invert inverts this 2D affine matrix.
-pub fn invert(self : AffineMatrix) -> AffineMatrix {
+pub fn AffineMatrix::invert(self : AffineMatrix) -> AffineMatrix {
   let { a: a0, b: b0, c: c0, d: d0, tx: tx0, ty: ty0 } = self
   let cross = a0 * d0 - b0 * c0
   let dot = b0 * c0 - a0 * d0
@@ -128,7 +131,10 @@ pub fn invert(self : AffineMatrix) -> AffineMatrix {
 
 ///|
 /// self_mul multiplies this 2D affine matrix with another.
-pub fn self_mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
+pub fn AffineMatrix::self_mul(
+  self : AffineMatrix,
+  m : AffineMatrix,
+) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = self
   let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = m
   self.a = m0a * m1a + m0c * m1b
@@ -149,7 +155,7 @@ pub impl Mul for AffineMatrix with mul(self, b) {
 ///|
 /// mul_without_translation multiplies this 2D affine matrix with another,
 /// discarding the transation.
-pub fn mul_without_translation(
+pub fn AffineMatrix::mul_without_translation(
   self : AffineMatrix,
   m : AffineMatrix,
 ) -> AffineMatrix {
@@ -165,7 +171,10 @@ pub fn mul_without_translation(
 ///|
 /// pre_mul multiplies another matrix `m` by this 2D affine matrix, then
 /// stores and returns the result.
-pub fn pre_mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
+pub fn AffineMatrix::pre_mul(
+  self : AffineMatrix,
+  m : AffineMatrix,
+) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = m
   let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = self
   self.a = m0a * m1a + m0c * m1b
@@ -180,7 +189,7 @@ pub fn pre_mul(self : AffineMatrix, m : AffineMatrix) -> AffineMatrix {
 ///|
 /// pre_mul_without_translation multiplies another matrix `m` by this 2D affine matrix,
 /// discarding the translate, then stores and returns the result.
-pub fn pre_mul_without_translation(
+pub fn AffineMatrix::pre_mul_without_translation(
   self : AffineMatrix,
   m : AffineMatrix,
 ) -> AffineMatrix {
@@ -195,7 +204,7 @@ pub fn pre_mul_without_translation(
 
 ///|
 /// translate translates this 2D affine matrix by position `v`.
-pub fn translate(self : AffineMatrix, v : Vec2) -> AffineMatrix {
+pub fn AffineMatrix::translate(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   let { a, b, c, d, .. } = self
   self.tx += a * v.x + c * v.y
   self.ty += b * v.x + d * v.y
@@ -204,13 +213,16 @@ pub fn translate(self : AffineMatrix, v : Vec2) -> AffineMatrix {
 
 ///|
 /// rotate rotates this 2D affine matrix by `angle` degrees.
-pub fn rotate(self : AffineMatrix, angle : Double) -> AffineMatrix {
+pub fn AffineMatrix::rotate(
+  self : AffineMatrix,
+  angle : Double,
+) -> AffineMatrix {
   self.mul(AffineMatrix::from_rotation(angle))
 }
 
 ///|
 /// skew skews the Y basis vector of this 2D affine matrix by `angle` degrees.
-pub fn skew(self : AffineMatrix, angle : Double) -> AffineMatrix {
+pub fn AffineMatrix::skew(self : AffineMatrix, angle : Double) -> AffineMatrix {
   let rad = angle * @math.PI / 180
   let t = @math.tan(rad)
   self.c += t * self.a
@@ -220,7 +232,7 @@ pub fn skew(self : AffineMatrix, angle : Double) -> AffineMatrix {
 
 ///|
 /// scale scales this 2D affine matrix by `v`.
-pub fn scale(self : AffineMatrix, v : Vec2) -> AffineMatrix {
+pub fn AffineMatrix::scale(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   self.a *= v.x
   self.b *= v.x
   self.c *= v.y
@@ -230,7 +242,10 @@ pub fn scale(self : AffineMatrix, v : Vec2) -> AffineMatrix {
 
 ///|
 /// scale_scalar scales this 2D affine matrix uniformly by `s`.
-pub fn scale_scalar(self : AffineMatrix, s : Double) -> AffineMatrix {
+pub fn AffineMatrix::scale_scalar(
+  self : AffineMatrix,
+  s : Double,
+) -> AffineMatrix {
   self.a *= s
   self.b *= s
   self.c *= s
@@ -241,7 +256,7 @@ pub fn scale_scalar(self : AffineMatrix, s : Double) -> AffineMatrix {
 ///|
 /// origin translates the matrix such that the center of future
 /// scale, rotate, and skew transformations will be `v`.
-pub fn origin(self : AffineMatrix, v : Vec2) -> AffineMatrix {
+pub fn AffineMatrix::origin(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   let { x, y } = v
   self.tx += self.a * x + self.c * y
   self.ty += self.b * x + self.d * y
@@ -251,7 +266,7 @@ pub fn origin(self : AffineMatrix, v : Vec2) -> AffineMatrix {
 ///|
 /// normalize scales the basis vectors of this 2D affine matrix
 /// so that they have unit length.
-pub fn normalize(self : AffineMatrix) -> AffineMatrix {
+pub fn AffineMatrix::normalize(self : AffineMatrix) -> AffineMatrix {
   let { a, b, c, d, .. } = self
   let x = a * a + b * b
   if x > 0 {
@@ -270,7 +285,7 @@ pub fn normalize(self : AffineMatrix) -> AffineMatrix {
 
 ///|
 /// determinant returns the determinant of the 2D affine matrix.
-pub fn determinant(self : AffineMatrix) -> Double {
+pub fn AffineMatrix::determinant(self : AffineMatrix) -> Double {
   let { a, b, c, d, .. } = self
   a * d - b * c
 }
@@ -278,7 +293,7 @@ pub fn determinant(self : AffineMatrix) -> Double {
 ///|
 /// is_orthogonal returns true if the two basis vectors of the 2D affine matrix
 /// are orthogonal within the provided tolerance.
-pub fn is_orthogonal(
+pub fn AffineMatrix::is_orthogonal(
   self : AffineMatrix,
   tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
@@ -288,14 +303,14 @@ pub fn is_orthogonal(
 
 ///|
 /// is_invertible returns true if this 2D affine matrix is invertible.
-pub fn is_invertible(self : AffineMatrix) -> Bool {
+pub fn AffineMatrix::is_invertible(self : AffineMatrix) -> Bool {
   self.determinant() != 0
 }
 
 ///|
 /// is_uniform_scale returns true if both basis vectors of this 2D affine matrix
 /// are of the same length.
-pub fn is_uniform_scale(
+pub fn AffineMatrix::is_uniform_scale(
   self : AffineMatrix,
   tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
@@ -305,13 +320,13 @@ pub fn is_uniform_scale(
 
 ///|
 /// is_mirror returns true if this 2D affine matrix mirrors either axis.
-pub fn is_mirror(self : AffineMatrix) -> Bool {
+pub fn AffineMatrix::is_mirror(self : AffineMatrix) -> Bool {
   self.determinant() < 0
 }
 
 ///|
 /// is_identity returns true if this 2D affine matrix is the identity matrix.
-pub fn is_identity(self : AffineMatrix) -> Bool {
+pub fn AffineMatrix::is_identity(self : AffineMatrix) -> Bool {
   self.a == 1 &&
   self.b == 0 &&
   self.c == 0 &&
@@ -322,7 +337,7 @@ pub fn is_identity(self : AffineMatrix) -> Bool {
 
 ///|
 /// is_nan returns true if any elements of this 2D affine matrix are NaN (not a number).
-pub fn is_nan(self : AffineMatrix) -> Bool {
+pub fn AffineMatrix::is_nan(self : AffineMatrix) -> Bool {
   self.a.is_nan() ||
   self.b.is_nan() ||
   self.c.is_nan() ||
@@ -333,7 +348,7 @@ pub fn is_nan(self : AffineMatrix) -> Bool {
 
 ///|
 /// is_inf returns true if any elements of this 2D affine matrix are infinite.
-pub fn is_inf(self : AffineMatrix) -> Bool {
+pub fn AffineMatrix::is_inf(self : AffineMatrix) -> Bool {
   self.a.is_inf() ||
   self.b.is_inf() ||
   self.c.is_inf() ||
@@ -358,7 +373,7 @@ fn mod(a : Double, b : Double) -> Double {
 
 ///|
 /// to_transform converts this 2D affine matrix to a Transform.
-pub fn to_transform(
+pub fn AffineMatrix::to_transform(
   self : AffineMatrix,
   origin? : Vec2 = vec2(0, 0),
 ) -> Transform {

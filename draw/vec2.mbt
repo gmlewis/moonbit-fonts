@@ -239,7 +239,7 @@ fn almost_equal(v1 : Double, v2 : Double, tolerance : Double) -> Bool {
 
 ///|
 /// almost_equals returns true if the vectors are equal within the provided tolerance.
-pub fn almost_equals(
+pub fn Vec2::almost_equals(
   self : Vec2,
   other : Vec2,
   tolerance? : Double = DEFAULT_TOLERANCE,

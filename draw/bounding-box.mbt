@@ -56,32 +56,32 @@ pub fn BoundingBox::clone(self : BoundingBox) -> BoundingBox {
 
 ///|
 /// center returns the center point of the bounding box (the average of min and max).
-pub fn center(self : BoundingBox) -> Vec2 {
+pub fn BoundingBox::center(self : BoundingBox) -> Vec2 {
   self.min.clone().self_add(self.max).self_mul_scalar(0.5)
 }
 
 ///|
 /// size returns a vector representing the (width,height) of the bounding box.
-pub fn size(self : BoundingBox) -> Vec2 {
+pub fn BoundingBox::size(self : BoundingBox) -> Vec2 {
   self.max.clone().self_sub(self.min)
 }
 
 ///|
 /// width returns the width of the bounding box.
-pub fn width(self : BoundingBox) -> Double {
+pub fn BoundingBox::width(self : BoundingBox) -> Double {
   self.max.x - self.min.x
 }
 
 ///|
 /// height returns the height of the bounding box.
-pub fn height(self : BoundingBox) -> Double {
+pub fn BoundingBox::height(self : BoundingBox) -> Double {
   self.max.y - self.min.y
 }
 
 ///|
 /// area represents the signed area of the bounding box (width*height).
 /// If min > max, the area will be negative.
-pub fn area(self : BoundingBox) -> Double {
+pub fn BoundingBox::area(self : BoundingBox) -> Double {
   self.width() * self.height()
 }
 
@@ -99,7 +99,7 @@ pub fn BoundingBox::is_nan(self : BoundingBox) -> Bool {
 
 ///|
 /// canonicalize ensures that min < max.
-pub fn canonicalize(self : BoundingBox) -> BoundingBox {
+pub fn BoundingBox::canonicalize(self : BoundingBox) -> BoundingBox {
   let { x: xmin, y: ymin } = self.min
   let { x: xmax, y: ymax } = self.max
   let _ = self.min.set(@cmp.minimum(xmin, xmax), @cmp.minimum(ymin, ymax))
@@ -109,7 +109,10 @@ pub fn canonicalize(self : BoundingBox) -> BoundingBox {
 
 ///|
 /// expand_to_include_point expands this bounding box to include `point`.
-pub fn expand_to_include_point(self : BoundingBox, point : Vec2) -> BoundingBox {
+pub fn BoundingBox::expand_to_include_point(
+  self : BoundingBox,
+  point : Vec2,
+) -> BoundingBox {
   let _ = self.min.min(point)
   let _ = self.max.max(point)
   self
@@ -117,7 +120,7 @@ pub fn expand_to_include_point(self : BoundingBox, point : Vec2) -> BoundingBox 
 
 ///|
 /// expand_to_include_bounding_box expands this bounding box to also cover `box`.
-pub fn expand_to_include_bounding_box(
+pub fn BoundingBox::expand_to_include_bounding_box(
   self : BoundingBox,
   box : BoundingBox,
 ) -> BoundingBox {
@@ -126,7 +129,10 @@ pub fn expand_to_include_bounding_box(
 
 ///|
 /// expand_scalar expands this bounding box by a scalar distance on all sides.
-pub fn expand_scalar(self : BoundingBox, distance : Double) -> BoundingBox {
+pub fn BoundingBox::expand_scalar(
+  self : BoundingBox,
+  distance : Double,
+) -> BoundingBox {
   let _ = self.min.self_sub_scalar(distance)
   let _ = self.max.self_add_scalar(distance)
   self
@@ -134,14 +140,17 @@ pub fn expand_scalar(self : BoundingBox, distance : Double) -> BoundingBox {
 
 ///|
 /// contains_point returns true if `point` is contained within this bounding box.
-pub fn contains_point(self : BoundingBox, point : Vec2) -> Bool {
+pub fn BoundingBox::contains_point(self : BoundingBox, point : Vec2) -> Bool {
   let { x, y } = point
   x >= self.min.x && x <= self.max.x && y >= self.min.y && y <= self.max.y
 }
 
 ///|
 /// contains_bounding_box returns true if `box` is contained within this bounding box.
-pub fn contains_bounding_box(self : BoundingBox, box : BoundingBox) -> Bool {
+pub fn BoundingBox::contains_bounding_box(
+  self : BoundingBox,
+  box : BoundingBox,
+) -> Bool {
   let { min, max } = box
   min.x >= self.min.x &&
   max.x <= self.max.x &&
@@ -151,7 +160,10 @@ pub fn contains_bounding_box(self : BoundingBox, box : BoundingBox) -> Bool {
 
 ///|
 /// overlaps_bounding_box returns true if any part of `box` overlaps this bounding box.
-pub fn overlaps_bounding_box(self : BoundingBox, box : BoundingBox) -> Bool {
+pub fn BoundingBox::overlaps_bounding_box(
+  self : BoundingBox,
+  box : BoundingBox,
+) -> Bool {
   // TODO: is this correct?
   let { min, max } = box
   min.x >= self.min.x &&
@@ -163,7 +175,7 @@ pub fn overlaps_bounding_box(self : BoundingBox, box : BoundingBox) -> Bool {
 ///|
 /// boolean_intersect returns a new BoundingBox representing the intersection
 /// of this bounding box with one or more boxes if one exists.
-pub fn boolean_intersect(
+pub fn BoundingBox::boolean_intersect(
   self : BoundingBox,
   boxes : Array[BoundingBox],
 ) -> BoundingBox? {
