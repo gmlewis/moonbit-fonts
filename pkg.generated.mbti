@@ -6,7 +6,7 @@ import(
 )
 
 // Values
-let all_fonts : Array[String]
+let all_fonts : ReadOnlyArray[String]
 
 fn glyph_bbox(String) -> Rectangle raise FontError
 

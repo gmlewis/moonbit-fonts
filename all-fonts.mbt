@@ -1,5 +1,5 @@
 ///|
-pub let all_fonts = [
+pub let all_fonts : ReadOnlyArray[String] = [
   "aaarghnormal", "abeezee_italic", "abeezee_regular", "abrilfatface_regular", "acme_regular",
   "actionjackson", "actor_regular", "aguafinascript_regular", "aileron_black", "aileron_blackitalic",
   "aileron_bold", "aileron_bolditalic", "aileron_heavy", "aileron_heavyitalic", "aileron_italic",
