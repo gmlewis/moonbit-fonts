@@ -18,7 +18,9 @@ fn parse_params(d : String) -> Params raise FontError {
   while d.length() > 0 {
     let match_result = params_re
       .match_(d)
-      .or_error(FontError("parse_params: unable to parse SVG params: \{d}"))
+      .unwrap_or_error(
+        FontError("parse_params: unable to parse SVG params: \{d}"),
+      )
     match match_result.results() {
       [Some(m), Some(num)] => {
         d = d.unsafe_substring(start=m.length(), end=d.length())

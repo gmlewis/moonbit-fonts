@@ -110,7 +110,7 @@ fn glyph2compound_path(
   while d.length() > 0 {
     let m = split_re
       .match_(d)
-      .or_error(
+      .unwrap_or_error(
         DrawError("glyph2compound_path: unable to split SVG path '\{d}'"),
       )
     guard m.results() is [Some(match_str), Some(cmd), Some(params)] else {
