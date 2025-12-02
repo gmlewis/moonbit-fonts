@@ -11,8 +11,8 @@ import(
 
 // Types and methods
 type CanvasCtx
-fn CanvasCtx::from_graphic(Self, @draw.Graphic, y_up? : Bool) -> Unit
-fn CanvasCtx::get_input_bytes(Self) -> Array[Byte]
+pub fn CanvasCtx::from_graphic(Self, @draw.Graphic, y_up? : Bool) -> Unit
+pub fn CanvasCtx::get_input_bytes(Self) -> Array[Byte]
 
 // Type aliases
 
