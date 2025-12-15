@@ -1,5 +1,10 @@
 {
   "import": [
     "gmlewis/fonts/draw"
-  ]
+  ],
+  "targets": {
+    "ffi_notjs.mbt": [ "not", "js" ],
+    "ffi.mbt": [ "js" ]
+  },
+  "supported-targets": [ "js" ]
 }

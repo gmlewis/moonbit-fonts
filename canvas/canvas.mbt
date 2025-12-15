@@ -1,4 +1,28 @@
 ///|
+using @draw {type CompoundPath}
+
+///|
+using @draw {type Fill}
+
+///|
+using @draw {type Graphic}
+
+///|
+using @draw {type Path}
+
+///|
+using @draw {type Stroke}
+
+///|
+let vec2 = @draw.vec2
+
+// context of an HTML5 canvas
+
+///|
+#external
+type CanvasCtx
+
+///|
 /// from_graphics renders a Graphic to an HTML5 canvas using its native API.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly in the canvas.
