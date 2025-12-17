@@ -454,15 +454,13 @@ pub fn Graphic::to_profiles(
       if outer.length() < 3 {
         return []
       }
-      let mut holes : Array[Array[Vec2]] = []
+      let holes : Array[Array[Vec2]] = []
       for i in 1..<paths.length() {
         let poly = paths[i].to_polygon(curve_segments)
         if poly.length() >= 3 {
           holes.push(poly)
         }
       }
-      // Use self-assignment to mark `holes` as mut-used (silence unused_mut warning)
-      holes = holes
       [(outer, holes)]
     }
     Group(_) => [] // Not supported
