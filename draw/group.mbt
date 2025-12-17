@@ -270,12 +270,7 @@ pub fn Group::all_paths_and_compound_paths(self : Group) -> Array[Graphic] {
 ///|
 /// has_style returns true if this Group has either a stroke or a fill.
 pub fn Group::has_style(self : Group) -> Bool {
-  for item in self.items {
-    if item.has_style() {
-      return true
-    }
-  }
-  false
+  Graphic::some(self.items, Graphic::has_style)
 }
 
 ///|

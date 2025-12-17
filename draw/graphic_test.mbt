@@ -85,3 +85,24 @@ test "@draw.Graphic::to_profiles/CompoundPath" {
   inspect(profiles[0].1.length(), content="1")
   inspect(profiles[0].1[0].length(), content="4")
 }
+
+///|
+test "@draw.Graphic::to_profiles/Group" {
+  let p_points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
+  let p_path = @draw.Path::from_points(p_points, closed=true)
+  let outer_points = [vec2(0, 0), vec2(10, 0), vec2(10, 10), vec2(0, 10)]
+  let hole_points = [vec2(2, 2), vec2(8, 2), vec2(8, 8), vec2(2, 8)]
+  let outer_path = @draw.Path::from_points(outer_points, closed=true)
+  let hole_path = @draw.Path::from_points(hole_points, closed=true)
+  let compound_path = @draw.CompoundPath::new(paths=[outer_path, hole_path])
+  let grp = @draw.Group::new(items=[
+    @draw.Graphic::Path(p_path),
+    @draw.Graphic::CompoundPath(compound_path),
+  ])
+  let graphic = grp.as_graphic()
+  let profiles = graphic.to_profiles(10)
+  inspect(profiles.length(), content="2")
+  inspect(profiles[0].0.length(), content="4")
+  inspect(profiles[1].0.length(), content="4")
+  inspect(profiles[1].1.length(), content="1")
+}

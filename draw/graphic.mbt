@@ -463,7 +463,11 @@ pub fn Graphic::to_profiles(
       }
       [(outer, holes)]
     }
-    Group(_) => [] // Not supported
+    Group(group) =>
+      group.items
+      .iter()
+      .flat_map(fn(item) { item.to_profiles(curve_segments).iter() })
+      .collect()
   }
 }
 
