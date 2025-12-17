@@ -598,7 +598,7 @@ pub fn Path::to_polygon(self : Path, curve_segments : Int) -> Array[Vec2] {
 ///|
 /// cubic_bezier_at evaluates a cubic Bézier curve at parameter t.
 /// P(t) = (1-t)^3 P0 + 3(1-t)^2 t P1 + 3(1-t) t^2 P2 + t^3 P3
-fn cubic_bezier_at(
+pub fn cubic_bezier_at(
   p0 : Vec2,
   p1 : Vec2,
   p2 : Vec2,
