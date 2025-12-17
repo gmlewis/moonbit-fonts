@@ -46,10 +46,7 @@ pub fn Group::affine_transform(
   self : Group,
   affine_matrix : AffineMatrix,
 ) -> Group {
-  for item in self.items {
-    ignore(item.affine_transform(affine_matrix))
-  }
-  self
+  { items: self.items.map(fn(item) { item.affine_transform(affine_matrix) }) }
 }
 
 ///|
@@ -59,10 +56,11 @@ pub fn Group::affine_transform_without_translation(
   self : Group,
   affine_matrix : AffineMatrix,
 ) -> Group {
-  for item in self.items {
-    ignore(item.affine_transform_without_translation(affine_matrix))
+  {
+    items: self.items.map(fn(item) {
+      item.affine_transform_without_translation(affine_matrix)
+    }),
   }
-  self
 }
 
 ///|
@@ -89,8 +87,8 @@ pub fn Group::loose_bounding_box(self : Group) -> BoundingBox? {
   let bbox = BoundingBox::max_reversed()
 
   // Expand bbox to include all other items
-  for i in 0..<self.items.length() {
-    match self.items[i] {
+  for item in self.items {
+    match item {
       CompoundPath(compound_path) => {
         let item_bbox = match compound_path.loose_bounding_box() {
           None => continue
@@ -126,8 +124,8 @@ pub fn Group::bounding_box(self : Group) -> BoundingBox? {
   let bbox = BoundingBox::max_reversed()
 
   // Expand bbox to include all other items
-  for i in 0..<self.items.length() {
-    match self.items[i] {
+  for item in self.items {
+    match item {
       CompoundPath(compound_path) => {
         let item_bbox = match compound_path.bounding_box() {
           None => continue
@@ -230,11 +228,8 @@ pub fn Group::primitives(self : Group) -> Array[Graphic] {
 ///|
 /// reverse reverses this Group.
 pub fn Group::reverse(self : Group) -> Group {
-  for item in self.items {
-    ignore(item.reverse())
-  }
-  self.items = self.items.rev()
-  self
+  let items = self.items.iter().map(fn(item) { item.reverse() }).collect().rev()
+  { items, }
 }
 
 ///|
@@ -270,48 +265,31 @@ pub fn Group::all_paths_and_compound_paths(self : Group) -> Array[Graphic] {
 ///|
 /// has_style returns true if this Group has either a stroke or a fill.
 pub fn Group::has_style(self : Group) -> Bool {
-  for item in self.items {
-    if item.has_style() {
-      return true
-    }
-  }
-  false
+  Graphic::some(self.items, Graphic::has_style)
 }
 
 ///|
 /// assign_fill assigns a fill to this Group.
 pub fn Group::assign_fill(self : Group, fill : Fill?) -> Group {
-  for item in self.items {
-    ignore(item.assign_fill(fill))
-  }
-  self
+  { items: self.items.map(fn(item) { item.assign_fill(fill) }) }
 }
 
 ///|
 /// remove_fill removes a fill style from this Group.
 pub fn Group::remove_fill(self : Group) -> Group {
-  for item in self.items {
-    ignore(item.remove_fill())
-  }
-  self
+  { items: self.items.map(fn(item) { item.remove_fill() }) }
 }
 
 ///|
 /// assign_stroke assigns a stroke to this Group.
 pub fn Group::assign_stroke(self : Group, stroke : Stroke?) -> Group {
-  for item in self.items {
-    ignore(item.assign_stroke(stroke))
-  }
-  self
+  { items: self.items.map(fn(item) { item.assign_stroke(stroke) }) }
 }
 
 ///|
 /// remove_stroke removes a stroke style from this Group.
 pub fn Group::remove_stroke(self : Group) -> Group {
-  for item in self.items {
-    ignore(item.remove_stroke())
-  }
-  self
+  { items: self.items.map(fn(item) { item.remove_stroke() }) }
 }
 
 ///|
@@ -321,41 +299,33 @@ pub fn Group::assign_style(
   fill : Fill?,
   stroke : Stroke?,
 ) -> Group {
-  for item in self.items {
-    ignore(item.assign_style(fill, stroke))
-  }
-  self
+  { items: self.items.map(fn(item) { item.assign_style(fill, stroke) }) }
 }
 
 ///|
 /// copy_style copies the fill and stroke style from `graphic`.
 pub fn Group::copy_style(self : Group, graphic : Graphic) -> Group {
-  for item in self.items {
-    ignore(item.copy_style(graphic))
-  }
-  self
+  { items: self.items.map(fn(item) { item.copy_style(graphic) }) }
 }
 
 ///|
 /// scale_stroke scales the stroke width of this Group by `scale_factor`.
 pub fn Group::scale_stroke(self : Group, scale_factor : Double) -> Group {
-  for item in self.items {
-    ignore(item.scale_stroke(scale_factor))
-  }
-  self
+  { items: self.items.map(fn(item) { item.scale_stroke(scale_factor) }) }
 }
 
 ///|
 /// first_styled returns the first Path or CompoundPath in this Group
 /// that has either a fill or a stroke, or None.
 pub fn Group::first_styled(self : Group) -> Graphic? {
-  for item in self.items {
-    match item.first_styled() {
-      Some(graphic) => return Some(graphic)
-      _ => ()
-    }
+  let found = self.items
+    .iter()
+    .flat_map(fn(item) { item.first_styled().iter() })
+    .collect()
+  match found.length() {
+    0 => None
+    _ => Some(found[0])
   }
-  None
 }
 
 ///|
@@ -373,25 +343,27 @@ pub fn Group::style_contains_point(self : Group, point : Vec2) -> Bool {
 ///|
 /// first_fill returns the first fill from this Group.
 pub fn Group::first_fill(self : Group) -> Fill? {
-  for item in self.items {
-    match item.first_fill() {
-      Some(fill) => return Some(fill)
-      _ => ()
-    }
+  let found = self.items
+    .iter()
+    .flat_map(fn(item) { item.first_fill().iter() })
+    .collect()
+  match found.length() {
+    0 => None
+    _ => Some(found[0])
   }
-  None
 }
 
 ///|
 /// first_stroke returns the first stroke from this Group.
 pub fn Group::first_stroke(self : Group) -> Stroke? {
-  for item in self.items {
-    match item.first_stroke() {
-      Some(stroke) => return Some(stroke)
-      _ => ()
-    }
+  let found = self.items
+    .iter()
+    .flat_map(fn(item) { item.first_stroke().iter() })
+    .collect()
+  match found.length() {
+    0 => None
+    _ => Some(found[0])
   }
-  None
 }
 
 ///|

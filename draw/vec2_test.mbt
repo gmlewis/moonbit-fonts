@@ -2731,3 +2731,18 @@ test "@draw.Vec2::from_json" {
   let got : Vec2 = @json.from_json(json)
   inspect(got, content="{x: 1, y: 2}")
 }
+
+///|
+test "@draw.Vec2::from_tuple" {
+  let t = (1.0, 2.0)
+  let v = Vec2::from_tuple(t)
+  inspect(v, content="{x: 1, y: 2}")
+}
+
+///|
+test "@draw.Vec2::distance_squared_tuple" {
+  let a = (0.0, 0.0)
+  let b = (3.0, 4.0)
+  let dist_sq = Vec2::distance_squared_tuple(a, b)
+  inspect(dist_sq, content="25")
+}

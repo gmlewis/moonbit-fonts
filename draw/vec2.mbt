@@ -463,3 +463,18 @@ pub fn Vec2::is_nan(self : Vec2) -> Bool {
 pub fn Vec2::is_inf(self : Vec2) -> Bool {
   self.x.is_inf() || self.y.is_inf()
 }
+
+///|
+/// from_tuple creates a Vec2 from a tuple.
+pub fn Vec2::from_tuple(t : (Double, Double)) -> Vec2 {
+  Vec2::new(x=t.0, y=t.1)
+}
+
+///|
+/// distance_squared_tuple returns the squared distance between two tuples.
+pub fn Vec2::distance_squared_tuple(
+  a : (Double, Double),
+  b : (Double, Double),
+) -> Double {
+  Vec2::distance_squared(Vec2::from_tuple(a), Vec2::from_tuple(b))
+}

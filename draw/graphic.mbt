@@ -88,8 +88,8 @@ pub fn Graphic::bounding_box(self : Graphic) -> BoundingBox? {
 ///|
 /// Graphic::every returns true if all tests of `func` are true.
 pub fn Graphic::every(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
-  for i in 0..<items.length() {
-    if not(func(items[i])) {
+  for item in items {
+    if not(func(item)) {
       return false
     }
   }
@@ -99,8 +99,8 @@ pub fn Graphic::every(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool 
 ///|
 /// Graphic::some returns true if any calls to `func` are true.
 pub fn Graphic::some(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
-  for i in 0..<items.length() {
-    if func(items[i]) {
+  for item in items {
+    if func(item) {
       return true
     }
   }
@@ -427,6 +427,48 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
   let transform = Transform::new(position~, scale~)
   let affine_matrix = AffineMatrix::from_transform(transform)
   self.clone().affine_transform(affine_matrix)
+}
+
+///|
+/// to_profiles extracts profiles (outer and holes) from a Graphic.
+/// Returns an array of (outer_polygon, holes_polygons).
+pub fn Graphic::to_profiles(
+  self : Graphic,
+  curve_segments : Int,
+) -> Array[(Array[Vec2], Array[Array[Vec2]])] {
+  match self {
+    Path(path) => {
+      let polygon = path.to_polygon(curve_segments)
+      if polygon.length() >= 3 {
+        [(polygon, [])]
+      } else {
+        []
+      }
+    }
+    CompoundPath(compound_path) => {
+      let paths = compound_path.paths
+      if paths.length() == 0 {
+        return []
+      }
+      let outer = paths[0].to_polygon(curve_segments)
+      if outer.length() < 3 {
+        return []
+      }
+      let holes : Array[Array[Vec2]] = []
+      for i in 1..<paths.length() {
+        let poly = paths[i].to_polygon(curve_segments)
+        if poly.length() >= 3 {
+          holes.push(poly)
+        }
+      }
+      [(outer, holes)]
+    }
+    Group(group) =>
+      group.items
+      .iter()
+      .flat_map(fn(item) { item.to_profiles(curve_segments).iter() })
+      .collect()
+  }
 }
 
 ///|
