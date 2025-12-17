@@ -59,3 +59,29 @@ test "unit square fit_to handles translation and scaling" {
     assert_eq(got, want)
   }
 }
+
+///|
+test "@draw.Graphic::to_profiles/Path" {
+  let points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
+  let path = @draw.Path::from_points(points, closed=true)
+  let graphic = @draw.Graphic::Path(path)
+  let profiles = graphic.to_profiles(10)
+  inspect(profiles.length(), content="1")
+  inspect(profiles[0].0.length(), content="4")
+  inspect(profiles[0].1.length(), content="0")
+}
+
+///|
+test "@draw.Graphic::to_profiles/CompoundPath" {
+  let outer_points = [vec2(0, 0), vec2(10, 0), vec2(10, 10), vec2(0, 10)]
+  let hole_points = [vec2(2, 2), vec2(8, 2), vec2(8, 8), vec2(2, 8)]
+  let outer_path = @draw.Path::from_points(outer_points, closed=true)
+  let hole_path = @draw.Path::from_points(hole_points, closed=true)
+  let compound_path = @draw.CompoundPath::new(paths=[outer_path, hole_path])
+  let graphic = @draw.Graphic::CompoundPath(compound_path)
+  let profiles = graphic.to_profiles(10)
+  inspect(profiles.length(), content="1")
+  inspect(profiles[0].0.length(), content="4")
+  inspect(profiles[0].1.length(), content="1")
+  inspect(profiles[0].1[0].length(), content="4")
+}

@@ -61,3 +61,33 @@ test "@draw.Path::is_contained_by_bounding_box/multiple_points_path_partially_in
   )
   inspect(@draw.Path::is_contained_by_bounding_box(path, bbox), content="false")
 }
+
+///|
+test "@draw.Path::to_polygon/open_path" {
+  let points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
+  let path = @draw.Path::from_points(points, closed=false)
+  let polygon = path.to_polygon(10)
+  inspect(polygon.length(), content="0")
+}
+
+///|
+test "@draw.Path::to_polygon/simple_square" {
+  let points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
+  let path = @draw.Path::from_points(points, closed=true)
+  let polygon = path.to_polygon(10)
+  inspect(polygon.length(), content="4")
+  inspect(polygon[0], content="{x: 0, y: 0}")
+  inspect(polygon[1], content="{x: 1, y: 0}")
+  inspect(polygon[2], content="{x: 1, y: 1}")
+  inspect(polygon[3], content="{x: 0, y: 1}")
+}
+
+///|
+test "@draw.Path::to_polygon/with_curves" {
+  // Create a path with a curve
+  let a1 = @draw.Anchor::new(position=vec2(0, 0), handle_out=vec2(0.5, 0))
+  let a2 = @draw.Anchor::new(position=vec2(1, 1), handle_in=vec2(-0.5, 0))
+  let path = @draw.Path::new(anchors=[a1, a2], closed=true)
+  let polygon = path.to_polygon(5)
+  inspect(polygon.length(), content="5") // 5 segments, but deduped
+}

@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-moon update && moon install && rm -rf target
+moon update && moon install && rm -rf target .mooncakes
 moon add moonbitlang/regexp
 moon fmt && moon info
 moon test --target all

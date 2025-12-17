@@ -555,3 +555,67 @@ pub fn Path::rotate(self : Path, angle : Double) -> Path {
   let affine_matrix = AffineMatrix::from_rotation(angle)
   self.affine_transform(affine_matrix)
 }
+
+///|
+/// to_polygon converts a closed path with Bézier curves into a polygon (array of Vec2 points).
+/// Returns an empty array for open paths.
+pub fn Path::to_polygon(self : Path, curve_segments : Int) -> Array[Vec2] {
+  if !self.closed {
+    return []
+  }
+  let mut points : Array[Vec2] = []
+  let len = self.anchors.length()
+  if len < 2 {
+    return []
+  }
+  for i in 0..<len {
+    let a1 = self.anchors[i]
+    let a2 = self.anchors[(i + 1) % len]
+    let p0 = a1.position
+    let p3 = a2.position
+    let p1 = p0.add(a1.handle_out)
+    let p2 = p3.add(a2.handle_in)
+    // Check if it's a line (handles are zero)
+    if a1.handle_out.x == 0.0 &&
+      a1.handle_out.y == 0.0 &&
+      a2.handle_in.x == 0.0 &&
+      a2.handle_in.y == 0.0 {
+      // Line segment, add the start point (end will be added as start of next)
+      points.push(p0)
+    } else {
+      // Curve segment, sample points
+      for j in 0..<curve_segments {
+        let t = j.to_double() / (curve_segments - 1).to_double()
+        let point = cubic_bezier_at(p0, p1, p2, p3, t)
+        points.push(point)
+      }
+    }
+  }
+  // Use self-assignment to mark `points` as mut-used (silence unused_mut warning)
+  points = points
+  // Deduplicate consecutive points
+  dedupe_points(points, epsilon=0.000000001)
+}
+
+///|
+/// cubic_bezier_at evaluates a cubic Bézier curve at parameter t.
+/// P(t) = (1-t)^3 P0 + 3(1-t)^2 t P1 + 3(1-t) t^2 P2 + t^3 P3
+fn cubic_bezier_at(
+  p0 : Vec2,
+  p1 : Vec2,
+  p2 : Vec2,
+  p3 : Vec2,
+  t : Double,
+) -> Vec2 {
+  let u = 1.0 - t
+  let uu = u * u
+  let tt = t * t
+  let uuu = uu * u
+  let ttt = tt * t
+  let ut3 = 3.0 * uu * t
+  let tu3 = 3.0 * u * tt
+  p0.clone().self_mul_scalar(uuu)
+    .add(p1.clone().self_mul_scalar(ut3))
+    .add(p2.clone().self_mul_scalar(tu3))
+    .add(p3.clone().self_mul_scalar(ttt))
+}

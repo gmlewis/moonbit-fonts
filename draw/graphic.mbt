@@ -430,6 +430,43 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
 }
 
 ///|
+/// to_profiles extracts profiles (outer and holes) from a Graphic.
+/// Returns an array of (outer_polygon, holes_polygons).
+pub fn Graphic::to_profiles(self : Graphic, curve_segments : Int) -> Array[(Array[Vec2], Array[Array[Vec2]])] {
+  match self {
+    Path(path) => {
+      let polygon = path.to_polygon(curve_segments)
+      if polygon.length() >= 3 {
+        [(polygon, [])]
+      } else {
+        []
+      }
+    }
+    CompoundPath(compound_path) => {
+      let paths = compound_path.paths
+      if paths.length() == 0 {
+        return []
+      }
+      let outer = paths[0].to_polygon(curve_segments)
+      if outer.length() < 3 {
+        return []
+      }
+      let mut holes : Array[Array[Vec2]] = []
+      for i in 1..<paths.length() {
+        let poly = paths[i].to_polygon(curve_segments)
+        if poly.length() >= 3 {
+          holes.push(poly)
+        }
+      }
+      // Use self-assignment to mark `holes` as mut-used (silence unused_mut warning)
+      holes = holes
+      [(outer, holes)]
+    }
+    Group(_) => [] // Not supported
+  }
+}
+
+///|
 pub impl ToJson for Graphic with to_json(self) {
   match self {
     CompoundPath(path) => path.to_json()
