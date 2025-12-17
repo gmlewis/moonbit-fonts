@@ -472,6 +472,22 @@ pub fn Graphic::to_profiles(
 }
 
 ///|
+/// to_profiles_tuples returns profiles with points as simple tuples for downstream consumers.
+pub fn Graphic::to_profiles_tuples(
+  self : Graphic,
+  curve_segments : Int,
+) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])] {
+  let profiles = self.to_profiles(curve_segments)
+  profiles.map(fn(p : (Array[Vec2], Array[Array[Vec2]])) {
+    let outer = p.0.map(fn(pt : Vec2) { pt.to_tuple() })
+    let holes = p.1.map(fn(h : Array[Vec2]) {
+      h.map(fn(pt : Vec2) { pt.to_tuple() })
+    })
+    (outer, holes)
+  })
+}
+
+///|
 pub impl ToJson for Graphic with to_json(self) {
   match self {
     CompoundPath(path) => path.to_json()

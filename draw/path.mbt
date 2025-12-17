@@ -596,7 +596,19 @@ pub fn Path::to_polygon(
       }
     }
   }
-  dedupe_points(points, epsilon?)
+  let poly = dedupe_points(points, epsilon?)
+  let eps = match epsilon {
+    None => 1.e-9
+    Some(v) => v
+  }
+  let eps_sq = eps * eps
+  if poly.length() > 1 {
+    let last_idx = poly.length() - 1
+    if poly[0].distance_squared(poly[last_idx]) <= eps_sq {
+      ignore(poly.pop())
+    }
+  }
+  poly
 }
 
 ///|
