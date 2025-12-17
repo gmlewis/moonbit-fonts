@@ -614,8 +614,10 @@ fn cubic_bezier_at(
   let ttt = tt * t
   let ut3 = 3.0 * uu * t
   let tu3 = 3.0 * u * tt
-  p0.clone().self_mul_scalar(uuu)
-    .add(p1.clone().self_mul_scalar(ut3))
-    .add(p2.clone().self_mul_scalar(tu3))
-    .add(p3.clone().self_mul_scalar(ttt))
+  p0
+  .clone()
+  .self_mul_scalar(uuu)
+  .add(p1.clone().self_mul_scalar(ut3))
+  .add(p2.clone().self_mul_scalar(tu3))
+  .add(p3.clone().self_mul_scalar(ttt))
 }

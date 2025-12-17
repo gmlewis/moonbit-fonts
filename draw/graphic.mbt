@@ -432,7 +432,10 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
 ///|
 /// to_profiles extracts profiles (outer and holes) from a Graphic.
 /// Returns an array of (outer_polygon, holes_polygons).
-pub fn Graphic::to_profiles(self : Graphic, curve_segments : Int) -> Array[(Array[Vec2], Array[Array[Vec2]])] {
+pub fn Graphic::to_profiles(
+  self : Graphic,
+  curve_segments : Int,
+) -> Array[(Array[Vec2], Array[Array[Vec2]])] {
   match self {
     Path(path) => {
       let polygon = path.to_polygon(curve_segments)

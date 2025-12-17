@@ -9,7 +9,10 @@ pub(all) suberror DrawError String derive(Show, Eq)
 ///|
 /// dedupe_points removes consecutive near-duplicate points from an array.
 /// Points are considered duplicates if their distance_squared <= epsilon^2.
-pub fn dedupe_points(points : Array[Vec2], epsilon? : Double = 0.000000001) -> Array[Vec2] {
+pub fn dedupe_points(
+  points : Array[Vec2],
+  epsilon? : Double = 0.000000001,
+) -> Array[Vec2] {
   if points.length() <= 1 {
     return points
   }

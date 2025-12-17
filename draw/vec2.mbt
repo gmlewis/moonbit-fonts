@@ -472,6 +472,9 @@ pub fn Vec2::from_tuple(t : (Double, Double)) -> Vec2 {
 
 ///|
 /// distance_squared_tuple returns the squared distance between two tuples.
-pub fn Vec2::distance_squared_tuple(a : (Double, Double), b : (Double, Double)) -> Double {
+pub fn Vec2::distance_squared_tuple(
+  a : (Double, Double),
+  b : (Double, Double),
+) -> Double {
   Vec2::distance_squared(Vec2::from_tuple(a), Vec2::from_tuple(b))
 }
