@@ -9,6 +9,10 @@ import(
 // Values
 pub fn bbox(Double, Double, Double, Double) -> BoundingBox
 
+pub fn cubic_bezier_at(Vec2, Vec2, Vec2, Vec2, Double) -> Vec2
+
+pub fn dedupe_points(Array[Vec2], epsilon? : Double) -> Array[Vec2]
+
 pub fn fill(Color) -> Fill
 
 pub fn group(Array[Graphic]) -> Group
@@ -238,6 +242,7 @@ pub fn Graphic::scale(Self, Vec2) -> Self
 pub fn Graphic::scale_stroke(Self, Double) -> Self
 pub fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::style_contains_point(Vec2) -> (Self) -> Bool
+pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[Vec2], Array[Array[Vec2]])]
 pub fn Graphic::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 pub fn Graphic::translate(Self, Vec2) -> Self
 pub impl Show for Graphic
@@ -323,6 +328,7 @@ pub fn Path::rotate(Self, Double) -> Self
 pub fn Path::scale(Self, Vec2) -> Self
 pub fn Path::scale_stroke(Self, Double) -> Self
 pub fn Path::style_contains_point(Self, Vec2) -> Bool
+pub fn Path::to_polygon(Self, Int) -> Array[Vec2]
 pub fn Path::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 pub fn Path::translate(Self, Vec2) -> Self
 pub impl Show for Path
@@ -409,10 +415,12 @@ pub fn Vec2::copy(Self, Self) -> Self
 pub fn Vec2::cross(Self, Self) -> Double
 pub fn Vec2::distance(Self, Self) -> Double
 pub fn Vec2::distance_squared(Self, Self) -> Double
+pub fn Vec2::distance_squared_tuple((Double, Double), (Double, Double)) -> Double
 pub fn Vec2::dot(Self, Self) -> Double
 pub fn Vec2::floor(Self) -> Self
 pub fn Vec2::from_angle(Double) -> Self
 pub fn Vec2::from_angle_radians(Double) -> Self
+pub fn Vec2::from_tuple((Double, Double)) -> Self
 pub fn Vec2::infinity() -> Self
 pub fn Vec2::is_clockwise_from(Self, Self) -> Bool
 pub fn Vec2::is_inf(Self) -> Bool

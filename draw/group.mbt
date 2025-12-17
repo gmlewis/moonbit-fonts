@@ -276,37 +276,25 @@ pub fn Group::has_style(self : Group) -> Bool {
 ///|
 /// assign_fill assigns a fill to this Group.
 pub fn Group::assign_fill(self : Group, fill : Fill?) -> Group {
-  for item in self.items {
-    ignore(item.assign_fill(fill))
-  }
-  self
+  { items: self.items.map(fn(item) { item.assign_fill(fill) }) }
 }
 
 ///|
 /// remove_fill removes a fill style from this Group.
 pub fn Group::remove_fill(self : Group) -> Group {
-  for item in self.items {
-    ignore(item.remove_fill())
-  }
-  self
+  { items: self.items.map(fn(item) { item.remove_fill() }) }
 }
 
 ///|
 /// assign_stroke assigns a stroke to this Group.
 pub fn Group::assign_stroke(self : Group, stroke : Stroke?) -> Group {
-  for item in self.items {
-    ignore(item.assign_stroke(stroke))
-  }
-  self
+  { items: self.items.map(fn(item) { item.assign_stroke(stroke) }) }
 }
 
 ///|
 /// remove_stroke removes a stroke style from this Group.
 pub fn Group::remove_stroke(self : Group) -> Group {
-  for item in self.items {
-    ignore(item.remove_stroke())
-  }
-  self
+  { items: self.items.map(fn(item) { item.remove_stroke() }) }
 }
 
 ///|
@@ -316,10 +304,7 @@ pub fn Group::assign_style(
   fill : Fill?,
   stroke : Stroke?,
 ) -> Group {
-  for item in self.items {
-    ignore(item.assign_style(fill, stroke))
-  }
-  self
+  { items: self.items.map(fn(item) { item.assign_style(fill, stroke) }) }
 }
 
 ///|
