@@ -46,10 +46,7 @@ pub fn Group::affine_transform(
   self : Group,
   affine_matrix : AffineMatrix,
 ) -> Group {
-  for item in self.items {
-    ignore(item.affine_transform(affine_matrix))
-  }
-  self
+  { items: self.items.map(fn(item) { item.affine_transform(affine_matrix) }) }
 }
 
 ///|
@@ -59,10 +56,11 @@ pub fn Group::affine_transform_without_translation(
   self : Group,
   affine_matrix : AffineMatrix,
 ) -> Group {
-  for item in self.items {
-    ignore(item.affine_transform_without_translation(affine_matrix))
+  {
+    items: self.items.map(fn(item) {
+      item.affine_transform_without_translation(affine_matrix)
+    }),
   }
-  self
 }
 
 ///|
@@ -307,19 +305,13 @@ pub fn Group::assign_style(
 ///|
 /// copy_style copies the fill and stroke style from `graphic`.
 pub fn Group::copy_style(self : Group, graphic : Graphic) -> Group {
-  for item in self.items {
-    ignore(item.copy_style(graphic))
-  }
-  self
+  { items: self.items.map(fn(item) { item.copy_style(graphic) }) }
 }
 
 ///|
 /// scale_stroke scales the stroke width of this Group by `scale_factor`.
 pub fn Group::scale_stroke(self : Group, scale_factor : Double) -> Group {
-  for item in self.items {
-    ignore(item.scale_stroke(scale_factor))
-  }
-  self
+  { items: self.items.map(fn(item) { item.scale_stroke(scale_factor) }) }
 }
 
 ///|
