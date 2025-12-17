@@ -318,13 +318,16 @@ pub fn Group::scale_stroke(self : Group, scale_factor : Double) -> Group {
 /// first_styled returns the first Path or CompoundPath in this Group
 /// that has either a fill or a stroke, or None.
 pub fn Group::first_styled(self : Group) -> Graphic? {
-  for item in self.items {
-    match item.first_styled() {
-      Some(graphic) => return Some(graphic)
-      _ => ()
-    }
+  let found = self.items
+    .iter()
+    .map(fn(item) { item.first_styled() })
+    .filter(fn(g) { g is Some(_) })
+    .map(fn(g) { g.unwrap() })
+    .collect()
+  match found.length() {
+    0 => None
+    _ => Some(found[0])
   }
-  None
 }
 
 ///|
@@ -342,25 +345,31 @@ pub fn Group::style_contains_point(self : Group, point : Vec2) -> Bool {
 ///|
 /// first_fill returns the first fill from this Group.
 pub fn Group::first_fill(self : Group) -> Fill? {
-  for item in self.items {
-    match item.first_fill() {
-      Some(fill) => return Some(fill)
-      _ => ()
-    }
+  let found = self.items
+    .iter()
+    .map(fn(item) { item.first_fill() })
+    .filter(fn(f) { f is Some(_) })
+    .map(fn(f) { f.unwrap() })
+    .collect()
+  match found.length() {
+    0 => None
+    _ => Some(found[0])
   }
-  None
 }
 
 ///|
 /// first_stroke returns the first stroke from this Group.
 pub fn Group::first_stroke(self : Group) -> Stroke? {
-  for item in self.items {
-    match item.first_stroke() {
-      Some(stroke) => return Some(stroke)
-      _ => ()
-    }
+  let found = self.items
+    .iter()
+    .map(fn(item) { item.first_stroke() })
+    .filter(fn(s) { s is Some(_) })
+    .map(fn(s) { s.unwrap() })
+    .collect()
+  match found.length() {
+    0 => None
+    _ => Some(found[0])
   }
-  None
 }
 
 ///|
