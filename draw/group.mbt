@@ -320,9 +320,7 @@ pub fn Group::scale_stroke(self : Group, scale_factor : Double) -> Group {
 pub fn Group::first_styled(self : Group) -> Graphic? {
   let found = self.items
     .iter()
-    .map(fn(item) { item.first_styled() })
-    .filter(fn(g) { g is Some(_) })
-    .map(fn(g) { g.unwrap() })
+    .flat_map(fn(item) { item.first_styled().iter() })
     .collect()
   match found.length() {
     0 => None
@@ -347,9 +345,7 @@ pub fn Group::style_contains_point(self : Group, point : Vec2) -> Bool {
 pub fn Group::first_fill(self : Group) -> Fill? {
   let found = self.items
     .iter()
-    .map(fn(item) { item.first_fill() })
-    .filter(fn(f) { f is Some(_) })
-    .map(fn(f) { f.unwrap() })
+    .flat_map(fn(item) { item.first_fill().iter() })
     .collect()
   match found.length() {
     0 => None
@@ -362,9 +358,7 @@ pub fn Group::first_fill(self : Group) -> Fill? {
 pub fn Group::first_stroke(self : Group) -> Stroke? {
   let found = self.items
     .iter()
-    .map(fn(item) { item.first_stroke() })
-    .filter(fn(s) { s is Some(_) })
-    .map(fn(s) { s.unwrap() })
+    .flat_map(fn(item) { item.first_stroke().iter() })
     .collect()
   match found.length() {
     0 => None
