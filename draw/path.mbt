@@ -516,13 +516,7 @@ pub fn Path::reverse(self : Path) -> Path {
     .map(fn(anchor) { anchor.reverse() })
     .collect()
     .rev()
-  {
-    anchors,
-    closed: self.closed,
-    clear: self.clear,
-    fill: self.fill,
-    stroke: self.stroke,
-  }
+  { ..self, anchors, }
 }
 
 ///|

@@ -53,10 +53,10 @@ pub fn CompoundPath::affine_transform(
   self : CompoundPath,
   affine_matrix : AffineMatrix,
 ) -> CompoundPath {
-  for path in self.paths {
-    ignore(path.affine_transform(affine_matrix))
+  {
+    ..self,
+    paths: self.paths.map(fn(path) { path.affine_transform(affine_matrix) }),
   }
-  self
 }
 
 ///|
@@ -66,10 +66,12 @@ pub fn CompoundPath::affine_transform_without_translation(
   self : CompoundPath,
   affine_matrix : AffineMatrix,
 ) -> CompoundPath {
-  for path in self.paths {
-    ignore(path.affine_transform_without_translation(affine_matrix))
+  {
+    ..self,
+    paths: self.paths.map(fn(path) {
+      path.affine_transform_without_translation(affine_matrix)
+    }),
   }
-  self
 }
 
 ///|
@@ -317,7 +319,7 @@ pub fn CompoundPath::remove_stroke(self : CompoundPath) -> CompoundPath {
 /// reverse reverses this CompoundPath.
 pub fn CompoundPath::reverse(self : CompoundPath) -> CompoundPath {
   let paths = self.paths.iter().map(fn(path) { path.reverse() }).collect().rev()
-  { paths, fill: self.fill, stroke: self.stroke }
+  { ..self, paths, }
 }
 
 ///|
