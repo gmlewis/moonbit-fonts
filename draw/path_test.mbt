@@ -91,3 +91,24 @@ test "@draw.Path::to_polygon/with_curves" {
   let polygon = path.to_polygon(5)
   inspect(polygon.length(), content="5") // 5 segments, but deduped
 }
+
+///|
+test "@draw.Path::to_polygon/epsilon_forwarded_to_dedupe" {
+  // Make two consecutive points very close so dedupe can remove them with a larger epsilon
+  let p1 = vec2(1, 0)
+  let p1b = vec2(1 + 1.e-6, 0)
+  let p3 = vec2(2, 0)
+  let path = @draw.Path::from_points([p1, p1b, p3], closed=true)
+  let poly_default = path.to_polygon(1)
+  let poly_large_eps = @draw.Path::to_polygon(path, 1, epsilon=1.e-3)
+
+  // With a large epsilon the near-duplicate should be removed
+  inspect(poly_default.length(), content="3")
+  inspect(poly_default[0], content="{x: 1, y: 0}")
+  inspect(poly_default[1], content="{x: 1.000001, y: 0}")
+  inspect(poly_default[2], content="{x: 2, y: 0}")
+  inspect(poly_large_eps.length(), content="2")
+  inspect(poly_large_eps[0], content="{x: 1, y: 0}")
+  inspect(poly_large_eps[1], content="{x: 2, y: 0}")
+  inspect(poly_large_eps.length() < poly_default.length(), content="true")
+}

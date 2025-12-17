@@ -560,7 +560,11 @@ pub fn Path::rotate(self : Path, angle : Double) -> Path {
 ///|
 /// to_polygon converts a closed path with Bézier curves into a polygon (array of Vec2 points).
 /// Returns an empty array for open paths.
-pub fn Path::to_polygon(self : Path, curve_segments : Int) -> Array[Vec2] {
+pub fn Path::to_polygon(
+  self : Path,
+  curve_segments : Int,
+  epsilon? : Double,
+) -> Array[Vec2] {
   if !self.closed {
     return []
   }
@@ -592,8 +596,7 @@ pub fn Path::to_polygon(self : Path, curve_segments : Int) -> Array[Vec2] {
       }
     }
   }
-  // Deduplicate consecutive points
-  dedupe_points(points)
+  dedupe_points(points, epsilon?)
 }
 
 ///|
