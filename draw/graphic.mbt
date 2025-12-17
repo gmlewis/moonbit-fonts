@@ -88,8 +88,8 @@ pub fn Graphic::bounding_box(self : Graphic) -> BoundingBox? {
 ///|
 /// Graphic::every returns true if all tests of `func` are true.
 pub fn Graphic::every(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
-  for i in 0..<items.length() {
-    if not(func(items[i])) {
+  for item in items {
+    if not(func(item)) {
       return false
     }
   }
@@ -99,8 +99,8 @@ pub fn Graphic::every(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool 
 ///|
 /// Graphic::some returns true if any calls to `func` are true.
 pub fn Graphic::some(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
-  for i in 0..<items.length() {
-    if func(items[i]) {
+  for item in items {
+    if func(item) {
       return true
     }
   }

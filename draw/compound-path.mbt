@@ -127,8 +127,8 @@ pub fn CompoundPath::assign_style(
 /// this CompoundPath or None.
 pub fn CompoundPath::bounding_box(self : CompoundPath) -> BoundingBox? {
   let result = BoundingBox::max_reversed()
-  for i in 0..<self.paths.length() {
-    let bbox = match self.paths[i].bounding_box() {
+  for path in self.paths {
+    let bbox = match path.bounding_box() {
       None => continue
       Some(bbox) => bbox
     }

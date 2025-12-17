@@ -87,8 +87,8 @@ pub fn Group::loose_bounding_box(self : Group) -> BoundingBox? {
   let bbox = BoundingBox::max_reversed()
 
   // Expand bbox to include all other items
-  for i in 0..<self.items.length() {
-    match self.items[i] {
+  for item in self.items {
+    match item {
       CompoundPath(compound_path) => {
         let item_bbox = match compound_path.loose_bounding_box() {
           None => continue
@@ -124,8 +124,8 @@ pub fn Group::bounding_box(self : Group) -> BoundingBox? {
   let bbox = BoundingBox::max_reversed()
 
   // Expand bbox to include all other items
-  for i in 0..<self.items.length() {
-    match self.items[i] {
+  for item in self.items {
+    match item {
       CompoundPath(compound_path) => {
         let item_bbox = match compound_path.bounding_box() {
           None => continue
