@@ -511,11 +511,18 @@ pub fn Path::remove_stroke(self : Path) -> Path {
 ///|
 /// reverse reverses this Path.
 pub fn Path::reverse(self : Path) -> Path {
-  for anchor in self.anchors {
-    ignore(anchor.reverse())
+  let anchors = self.anchors
+    .iter()
+    .map(fn(anchor) { anchor.reverse() })
+    .collect()
+    .rev()
+  {
+    anchors,
+    closed: self.closed,
+    clear: self.clear,
+    fill: self.fill,
+    stroke: self.stroke,
   }
-  self.anchors = self.anchors.rev()
-  self
 }
 
 ///|

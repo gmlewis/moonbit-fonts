@@ -230,11 +230,8 @@ pub fn Group::primitives(self : Group) -> Array[Graphic] {
 ///|
 /// reverse reverses this Group.
 pub fn Group::reverse(self : Group) -> Group {
-  for item in self.items {
-    ignore(item.reverse())
-  }
-  self.items = self.items.rev()
-  self
+  let items = self.items.iter().map(fn(item) { item.reverse() }).collect().rev()
+  { items, }
 }
 
 ///|

@@ -316,11 +316,8 @@ pub fn CompoundPath::remove_stroke(self : CompoundPath) -> CompoundPath {
 ///|
 /// reverse reverses this CompoundPath.
 pub fn CompoundPath::reverse(self : CompoundPath) -> CompoundPath {
-  for path in self.paths {
-    ignore(path.reverse())
-  }
-  self.paths = self.paths.rev()
-  self
+  let paths = self.paths.iter().map(fn(path) { path.reverse() }).collect().rev()
+  { paths, fill: self.fill, stroke: self.stroke }
 }
 
 ///|
