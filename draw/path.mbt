@@ -563,7 +563,7 @@ pub fn Path::to_polygon(self : Path, curve_segments : Int) -> Array[Vec2] {
   if !self.closed {
     return []
   }
-  let mut points : Array[Vec2] = []
+  let points : Array[Vec2] = []
   let len = self.anchors.length()
   if len < 2 {
     return []
@@ -591,10 +591,8 @@ pub fn Path::to_polygon(self : Path, curve_segments : Int) -> Array[Vec2] {
       }
     }
   }
-  // Use self-assignment to mark `points` as mut-used (silence unused_mut warning)
-  points = points
   // Deduplicate consecutive points
-  dedupe_points(points, epsilon=0.000000001)
+  dedupe_points(points)
 }
 
 ///|
