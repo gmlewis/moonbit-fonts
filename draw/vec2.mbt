@@ -465,6 +465,12 @@ pub fn Vec2::is_inf(self : Vec2) -> Bool {
 }
 
 ///|
+/// to_tuple returns this Vec2 as a (Double, Double) tuple.
+pub fn Vec2::to_tuple(self : Vec2) -> (Double, Double) {
+  (self.x, self.y)
+}
+
+///|
 /// from_tuple creates a Vec2 from a tuple.
 pub fn Vec2::from_tuple(t : (Double, Double)) -> Vec2 {
   Vec2::new(x=t.0, y=t.1)

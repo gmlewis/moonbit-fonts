@@ -243,6 +243,7 @@ pub fn Graphic::scale_stroke(Self, Double) -> Self
 pub fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::style_contains_point(Vec2) -> (Self) -> Bool
 pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[Vec2], Array[Array[Vec2]])]
+pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
 pub fn Graphic::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 pub fn Graphic::translate(Self, Vec2) -> Self
 pub impl Show for Graphic
@@ -453,6 +454,7 @@ pub fn Vec2::self_mul_scalar(Self, Double) -> Self
 pub fn Vec2::self_sub(Self, Self) -> Self
 pub fn Vec2::self_sub_scalar(Self, Double) -> Self
 pub fn Vec2::set(Self, Double, Double) -> Self
+pub fn Vec2::to_tuple(Self) -> (Double, Double)
 pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 pub impl Add for Vec2
 pub impl Div for Vec2

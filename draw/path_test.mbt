@@ -112,3 +112,15 @@ test "@draw.Path::to_polygon/epsilon_forwarded_to_dedupe" {
   inspect(poly_large_eps[1], content="{x: 2, y: 0}")
   inspect(poly_large_eps.length() < poly_default.length(), content="true")
 }
+
+///|
+test "@draw.Path::to_polygon/remove_final_duplicate" {
+  // Two-anchor curve sampling with curve_segments=2 should produce a duplicated closing point
+  let a1 = @draw.Anchor::new(position=vec2(0, 0), handle_out=vec2(0.5, 0))
+  let a2 = @draw.Anchor::new(position=vec2(1, 0), handle_in=vec2(-0.5, 0))
+  let path = @draw.Path::new(anchors=[a1, a2], closed=true)
+  let poly = path.to_polygon(2)
+  inspect(poly.length(), content="2")
+  inspect(poly[0], content="{x: 0, y: 0}")
+  inspect(poly[1], content="{x: 1, y: 0}")
+}

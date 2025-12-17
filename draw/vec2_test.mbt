@@ -2602,6 +2602,14 @@ test "@draw.Vec2::distance_squared/unit_distance" {
 }
 
 ///|
+test "@draw.Vec2::to_tuple/from_tuple/roundtrip" {
+  let v = vec2(1.23, 4.56)
+  let t = @draw.Vec2::to_tuple(v)
+  let v2 = @draw.Vec2::from_tuple(t)
+  inspect(v2, content="{x: 1.23, y: 4.56}")
+}
+
+///|
 test "@draw.Vec2::distance_squared/pythagorean" {
   let v1 = vec2(0.0, 0.0)
   let v2 = vec2(3.0, 4.0)
