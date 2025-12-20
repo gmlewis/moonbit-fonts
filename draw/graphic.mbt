@@ -410,8 +410,12 @@ pub fn Graphic::rotate(self : Graphic, angle : Double) -> Graphic {
 }
 
 ///|
-/// fit_to scales and translates a Graphic to fix in `box`.
-pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
+/// fit_to scales and translates a Graphic to fit in `box`.
+pub fn Graphic::fit_to(
+  self : Graphic,
+  box : BoundingBox,
+  anchor? : @fonts.Anchor = Center,
+) -> Graphic {
   let bbox = match self.bounding_box() {
     None => return self
     Some(bbox) => bbox
@@ -423,7 +427,30 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
   let hscale = box.height() / bbox.height()
   let s = @cmp.minimum(wscale, hscale)
   let scale = vec2(s, s)
-  let position = box.min - scale * bbox.min
+
+  // Calculate alignment offset
+  let scaled_width = bbox.width() * s
+  let scaled_height = bbox.height() * s
+  let extra_width = box.width() - scaled_width
+  let extra_height = box.height() - scaled_height
+  let (offset_x, offset_y) = match anchor {
+    Unchanged => (0.0, 0.0)
+    TopLeft => (0.0, extra_height)
+    TopCenter => (extra_width / 2.0, extra_height)
+    TopRight => (extra_width, extra_height)
+    CenterLeft => (0.0, extra_height / 2.0)
+    Center => (extra_width / 2.0, extra_height / 2.0)
+    CenterRight => (extra_width, extra_height / 2.0)
+    BottomLeft => (0.0, 0.0)
+    BottomCenter => (extra_width / 2.0, 0.0)
+    BottomRight => (extra_width, 0.0)
+    BaselineLeft => (0.0, 0.0)
+    BaselineCenter => (extra_width / 2.0, 0.0)
+    BaselineRight => (extra_width, 0.0)
+    RatioXY(rx, ry) => (extra_width * rx, extra_height * ry)
+  }
+  let offset = vec2(offset_x, offset_y)
+  let position = box.min - scale * bbox.min + offset
   let transform = Transform::new(position~, scale~)
   let affine_matrix = AffineMatrix::from_transform(transform)
   self.clone().affine_transform(affine_matrix)
