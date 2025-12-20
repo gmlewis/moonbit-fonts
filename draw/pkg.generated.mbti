@@ -3,15 +3,16 @@ package "gmlewis/fonts/draw"
 
 import(
   "gmlewis/fonts"
+  "gmlewis/fonts/geom"
   "moonbitlang/core/json"
 )
 
 // Values
-pub fn bbox(Double, Double, Double, Double) -> BoundingBox
+pub fn bbox(Double, Double, Double, Double) -> @geom.BoundingBox
 
-pub fn cubic_bezier_at(Vec2, Vec2, Vec2, Vec2, Double) -> Vec2
+pub fn cubic_bezier_at(@geom.Vec2, @geom.Vec2, @geom.Vec2, @geom.Vec2, Double) -> @geom.Vec2
 
-pub fn dedupe_points(Array[Vec2], epsilon? : Double) -> Array[Vec2]
+pub fn dedupe_points(Array[@geom.Vec2], epsilon? : Double) -> Array[@geom.Vec2]
 
 pub fn fill(Color) -> Fill
 
@@ -27,7 +28,7 @@ pub fn unit_circle() -> Group
 
 pub fn unit_square() -> Group
 
-pub fn vec2(Double, Double) -> Vec2
+pub fn vec2(Double, Double) -> @geom.Vec2
 
 // Errors
 pub(all) suberror DrawError String
@@ -35,99 +36,30 @@ pub impl Eq for DrawError
 pub impl Show for DrawError
 
 // Types and methods
-pub(all) struct AffineMatrix {
-  mut a : Double
-  mut b : Double
-  mut c : Double
-  mut d : Double
-  mut tx : Double
-  mut ty : Double
-}
-pub fn AffineMatrix::clone(Self) -> Self
-pub fn AffineMatrix::copy(Self, Self) -> Self
-pub fn AffineMatrix::determinant(Self) -> Double
-pub fn AffineMatrix::from_center_scale(Vec2, Vec2) -> Self
-pub fn AffineMatrix::from_rotation(Double) -> Self
-pub fn AffineMatrix::from_scale(Vec2) -> Self
-pub fn AffineMatrix::from_scale_scalar(Double) -> Self
-pub fn AffineMatrix::from_transform(Transform) -> Self
-pub fn AffineMatrix::from_translation(Vec2) -> Self
-pub fn AffineMatrix::from_translation_points(Vec2, Vec2) -> Self
-pub fn AffineMatrix::invert(Self) -> Self
-pub fn AffineMatrix::is_identity(Self) -> Bool
-pub fn AffineMatrix::is_inf(Self) -> Bool
-pub fn AffineMatrix::is_invertible(Self) -> Bool
-pub fn AffineMatrix::is_mirror(Self) -> Bool
-pub fn AffineMatrix::is_nan(Self) -> Bool
-pub fn AffineMatrix::is_orthogonal(Self, tolerance? : Double) -> Bool
-pub fn AffineMatrix::is_uniform_scale(Self, tolerance? : Double) -> Bool
-pub fn AffineMatrix::mul_without_translation(Self, Self) -> Self
-pub fn AffineMatrix::new(a? : Double, b? : Double, c? : Double, d? : Double, tx? : Double, ty? : Double) -> Self
-pub fn AffineMatrix::normalize(Self) -> Self
-pub fn AffineMatrix::origin(Self, Vec2) -> Self
-pub fn AffineMatrix::pre_mul(Self, Self) -> Self
-pub fn AffineMatrix::pre_mul_without_translation(Self, Self) -> Self
-pub fn AffineMatrix::rotate(Self, Double) -> Self
-pub fn AffineMatrix::scale(Self, Vec2) -> Self
-pub fn AffineMatrix::scale_scalar(Self, Double) -> Self
-pub fn AffineMatrix::self_mul(Self, Self) -> Self
-pub fn AffineMatrix::skew(Self, Double) -> Self
-pub fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
-pub fn AffineMatrix::translate(Self, Vec2) -> Self
-pub impl Eq for AffineMatrix
-pub impl Mul for AffineMatrix
-pub impl Show for AffineMatrix
-
 pub(all) struct Anchor {
-  mut position : Vec2
-  mut handle_in : Vec2
-  mut handle_out : Vec2
+  mut position : @geom.Vec2
+  mut handle_in : @geom.Vec2
+  mut handle_out : @geom.Vec2
 }
-pub fn Anchor::affine_transform(Self, AffineMatrix) -> Self
-pub fn Anchor::affine_transform_without_translation(Self, AffineMatrix) -> Self
+pub fn Anchor::affine_transform(Self, @geom.AffineMatrix) -> Self
+pub fn Anchor::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Anchor::all_anchors(Self) -> Array[Self]
-pub fn Anchor::bounding_box(Self) -> BoundingBox?
+pub fn Anchor::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Anchor::clone(Self) -> Self
-pub fn Anchor::closest_point(Self, Vec2, area_of_interest? : BoundingBox) -> Vec2?
+pub fn Anchor::closest_point(Self, @geom.Vec2, area_of_interest? : @geom.BoundingBox) -> @geom.Vec2?
 pub fn Anchor::has_tangent_handles(Self, tolerance? : Double) -> Bool
 pub fn Anchor::has_zero_handles(Self) -> Bool
-pub fn Anchor::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Anchor::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Anchor::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Anchor::loose_bounding_box(Self) -> BoundingBox?
-pub fn Anchor::new(position? : Vec2, handle_in? : Vec2, handle_out? : Vec2) -> Self
+pub fn Anchor::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Anchor::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Anchor::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Anchor::loose_bounding_box(Self) -> @geom.BoundingBox?
+pub fn Anchor::new(position? : @geom.Vec2, handle_in? : @geom.Vec2, handle_out? : @geom.Vec2) -> Self
 pub fn Anchor::reverse(Self) -> Self
-pub fn Anchor::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
+pub fn Anchor::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub impl Eq for Anchor
 pub impl Show for Anchor
 pub impl ToJson for Anchor
 pub impl @json.FromJson for Anchor
-
-pub(all) struct BoundingBox {
-  mut min : Vec2
-  mut max : Vec2
-}
-pub fn BoundingBox::area(Self) -> Double
-pub fn BoundingBox::boolean_intersect(Self, Array[Self]) -> Self?
-pub fn BoundingBox::canonicalize(Self) -> Self
-pub fn BoundingBox::center(Self) -> Vec2
-pub fn BoundingBox::clone(Self) -> Self
-pub fn BoundingBox::contains_bounding_box(Self, Self) -> Bool
-pub fn BoundingBox::contains_point(Self, Vec2) -> Bool
-pub fn BoundingBox::expand_scalar(Self, Double) -> Self
-pub fn BoundingBox::expand_to_include_bounding_box(Self, Self) -> Self
-pub fn BoundingBox::expand_to_include_point(Self, Vec2) -> Self
-pub fn BoundingBox::from_points(Array[Vec2]) -> Self
-pub fn BoundingBox::height(Self) -> Double
-pub fn BoundingBox::is_inf(Self) -> Bool
-pub fn BoundingBox::is_nan(Self) -> Bool
-pub fn BoundingBox::max_reversed() -> Self
-pub fn BoundingBox::new(min? : Vec2, max? : Vec2) -> Self
-pub fn BoundingBox::overlaps_bounding_box(Self, Self) -> Bool
-pub fn BoundingBox::size(Self) -> Vec2
-pub fn BoundingBox::width(Self) -> Double
-pub impl Eq for BoundingBox
-pub impl Show for BoundingBox
 
 pub(all) struct Color {
   mut r : Double
@@ -159,24 +91,24 @@ pub(all) struct CompoundPath {
   mut fill : Fill?
   mut stroke : Stroke?
 }
-pub fn CompoundPath::affine_transform(Self, AffineMatrix) -> Self
-pub fn CompoundPath::affine_transform_without_translation(Self, AffineMatrix) -> Self
+pub fn CompoundPath::affine_transform(Self, @geom.AffineMatrix) -> Self
+pub fn CompoundPath::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::all_anchors(Self) -> Array[Anchor]
 pub fn CompoundPath::as_graphic(Self) -> Graphic
 pub fn CompoundPath::assign_fill(Self, Fill?) -> Self
 pub fn CompoundPath::assign_stroke(Self, Stroke?) -> Self
 pub fn CompoundPath::assign_style(Self, Fill?, Stroke?) -> Self
-pub fn CompoundPath::bounding_box(Self) -> BoundingBox?
+pub fn CompoundPath::bounding_box(Self) -> @geom.BoundingBox?
 pub fn CompoundPath::clone(Self) -> Self
-pub fn CompoundPath::closest_point(Self, Vec2, BoundingBox?) -> Anchor?
-pub fn CompoundPath::contains_point(Self, Vec2) -> Bool
+pub fn CompoundPath::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
+pub fn CompoundPath::contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::copy_style(Self, Graphic) -> Self
 pub fn CompoundPath::first_styled(Self) -> Graphic?
 pub fn CompoundPath::has_style(Self) -> Bool
-pub fn CompoundPath::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn CompoundPath::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn CompoundPath::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn CompoundPath::loose_bounding_box(Self) -> BoundingBox?
+pub fn CompoundPath::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn CompoundPath::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn CompoundPath::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn CompoundPath::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn CompoundPath::new(paths? : Array[Path], fill? : Fill, stroke? : Stroke) -> Self
 pub fn CompoundPath::op_get(Self, Int) -> Path
 pub fn CompoundPath::op_set(Self, Int, Path) -> Unit
@@ -185,11 +117,11 @@ pub fn CompoundPath::remove_fill(Self) -> Self
 pub fn CompoundPath::remove_stroke(Self) -> Self
 pub fn CompoundPath::reverse(Self) -> Self
 pub fn CompoundPath::rotate(Self, Double) -> Self
-pub fn CompoundPath::scale(Self, Vec2) -> Self
+pub fn CompoundPath::scale(Self, @geom.Vec2) -> Self
 pub fn CompoundPath::scale_stroke(Self, Double) -> Self
-pub fn CompoundPath::style_contains_point(Self, Vec2) -> Bool
-pub fn CompoundPath::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
-pub fn CompoundPath::translate(Self, Vec2) -> Self
+pub fn CompoundPath::style_contains_point(Self, @geom.Vec2) -> Bool
+pub fn CompoundPath::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
+pub fn CompoundPath::translate(Self, @geom.Vec2) -> Self
 pub impl Show for CompoundPath
 pub impl ToJson for CompoundPath
 pub impl @json.FromJson for CompoundPath
@@ -209,8 +141,8 @@ pub(all) enum Graphic {
   Group(Group)
   Path(Path)
 }
-pub fn Graphic::affine_transform(Self, AffineMatrix) -> Self
-pub fn Graphic::affine_transform_without_translation(Self, AffineMatrix) -> Self
+pub fn Graphic::affine_transform(Self, @geom.AffineMatrix) -> Self
+pub fn Graphic::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::all_anchors(Self) -> Array[Anchor]
 pub fn Graphic::all_compound_paths(Self) -> Array[CompoundPath]
 pub fn Graphic::all_paths(Self) -> Array[Path]
@@ -218,34 +150,34 @@ pub fn Graphic::all_paths_and_compound_paths(Self) -> Array[Self]
 pub fn Graphic::assign_fill(Self, Fill?) -> Self
 pub fn Graphic::assign_stroke(Self, Stroke?) -> Self
 pub fn Graphic::assign_style(Self, Fill?, Stroke?) -> Self
-pub fn Graphic::bounding_box(Self) -> BoundingBox?
+pub fn Graphic::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Graphic::clone(Self) -> Self
-pub fn Graphic::closest_point(Self, Vec2, BoundingBox?) -> Anchor?
-pub fn Graphic::contains_point(Vec2) -> (Self) -> Bool
+pub fn Graphic::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
+pub fn Graphic::contains_point(@geom.Vec2) -> (Self) -> Bool
 pub fn Graphic::copy_style(Self, Self) -> Self
 pub fn Graphic::every(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::first_fill(Self) -> Fill?
 pub fn Graphic::first_stroke(Self) -> Stroke?
 pub fn Graphic::first_styled(Self) -> Self?
-pub fn Graphic::fit_to(Self, BoundingBox, anchor? : @fonts.Alignment) -> Self
+pub fn Graphic::fit_to(Self, @geom.BoundingBox, anchor? : @geom.Alignment) -> Self
 pub fn Graphic::has_style(Self) -> Bool
-pub fn Graphic::is_contained_by_bounding_box(BoundingBox) -> (Self) -> Bool
-pub fn Graphic::is_intersected_by_bounding_box(BoundingBox) -> (Self) -> Bool
-pub fn Graphic::is_overlapped_by_bounding_box(BoundingBox) -> (Self) -> Bool
-pub fn Graphic::loose_bounding_box(Self) -> BoundingBox?
+pub fn Graphic::is_contained_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
+pub fn Graphic::is_intersected_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
+pub fn Graphic::is_overlapped_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
+pub fn Graphic::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Graphic::primitives(Self) -> Array[Self]
 pub fn Graphic::remove_fill(Self) -> Self
 pub fn Graphic::remove_stroke(Self) -> Self
 pub fn Graphic::reverse(Self) -> Self
 pub fn Graphic::rotate(Self, Double) -> Self
-pub fn Graphic::scale(Self, Vec2) -> Self
+pub fn Graphic::scale(Self, @geom.Vec2) -> Self
 pub fn Graphic::scale_stroke(Self, Double) -> Self
 pub fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
-pub fn Graphic::style_contains_point(Vec2) -> (Self) -> Bool
-pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[Vec2], Array[Array[Vec2]])]
+pub fn Graphic::style_contains_point(@geom.Vec2) -> (Self) -> Bool
+pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[@geom.Vec2], Array[Array[@geom.Vec2]])]
 pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
-pub fn Graphic::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
-pub fn Graphic::translate(Self, Vec2) -> Self
+pub fn Graphic::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
+pub fn Graphic::translate(Self, @geom.Vec2) -> Self
 pub impl Show for Graphic
 pub impl ToJson for Graphic
 pub impl @json.FromJson for Graphic
@@ -253,8 +185,8 @@ pub impl @json.FromJson for Graphic
 pub(all) struct Group {
   mut items : Array[Graphic]
 }
-pub fn Group::affine_transform(Self, AffineMatrix) -> Self
-pub fn Group::affine_transform_without_translation(Self, AffineMatrix) -> Self
+pub fn Group::affine_transform(Self, @geom.AffineMatrix) -> Self
+pub fn Group::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Group::all_anchors(Self) -> Array[Anchor]
 pub fn Group::all_compound_paths(Self) -> Array[CompoundPath]
 pub fn Group::all_paths(Self) -> Array[Path]
@@ -263,19 +195,19 @@ pub fn Group::as_graphic(Self) -> Graphic
 pub fn Group::assign_fill(Self, Fill?) -> Self
 pub fn Group::assign_stroke(Self, Stroke?) -> Self
 pub fn Group::assign_style(Self, Fill?, Stroke?) -> Self
-pub fn Group::bounding_box(Self) -> BoundingBox?
+pub fn Group::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Group::clone(Self) -> Self
-pub fn Group::closest_point(Self, Vec2, BoundingBox?) -> Anchor?
-pub fn Group::contains_point(Self, Vec2) -> Bool
+pub fn Group::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
+pub fn Group::contains_point(Self, @geom.Vec2) -> Bool
 pub fn Group::copy_style(Self, Graphic) -> Self
 pub fn Group::first_fill(Self) -> Fill?
 pub fn Group::first_stroke(Self) -> Stroke?
 pub fn Group::first_styled(Self) -> Graphic?
 pub fn Group::has_style(Self) -> Bool
-pub fn Group::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Group::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Group::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Group::loose_bounding_box(Self) -> BoundingBox?
+pub fn Group::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Group::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Group::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Group::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Group::new(items? : Array[Graphic]) -> Self
 pub fn Group::op_get(Self, Int) -> Graphic
 pub fn Group::op_set(Self, Int, Graphic) -> Unit
@@ -284,11 +216,11 @@ pub fn Group::remove_fill(Self) -> Self
 pub fn Group::remove_stroke(Self) -> Self
 pub fn Group::reverse(Self) -> Self
 pub fn Group::rotate(Self, Double) -> Self
-pub fn Group::scale(Self, Vec2) -> Self
+pub fn Group::scale(Self, @geom.Vec2) -> Self
 pub fn Group::scale_stroke(Self, Double) -> Self
-pub fn Group::style_contains_point(Self, Vec2) -> Bool
-pub fn Group::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
-pub fn Group::translate(Self, Vec2) -> Self
+pub fn Group::style_contains_point(Self, @geom.Vec2) -> Bool
+pub fn Group::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
+pub fn Group::translate(Self, @geom.Vec2) -> Self
 pub impl Show for Group
 pub impl ToJson for Group
 pub impl @json.FromJson for Group
@@ -300,24 +232,24 @@ pub(all) struct Path {
   mut fill : Fill?
   mut stroke : Stroke?
 }
-pub fn Path::affine_transform(Self, AffineMatrix) -> Self
-pub fn Path::affine_transform_without_translation(Self, AffineMatrix) -> Self
+pub fn Path::affine_transform(Self, @geom.AffineMatrix) -> Self
+pub fn Path::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Path::as_graphic(Self) -> Graphic
 pub fn Path::assign_fill(Self, Fill?) -> Self
 pub fn Path::assign_stroke(Self, Stroke?) -> Self
 pub fn Path::assign_style(Self, Fill?, Stroke?) -> Self
-pub fn Path::bounding_box(Self) -> BoundingBox?
+pub fn Path::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Path::clone(Self) -> Self
-pub fn Path::closest_point(Self, Vec2, BoundingBox?) -> Anchor?
-pub fn Path::contains_point(Self, Vec2) -> Bool
+pub fn Path::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
+pub fn Path::contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::copy_style(Self, Graphic) -> Self
 pub fn Path::first_styled(Self) -> Graphic?
-pub fn Path::from_points(Array[Vec2], closed? : Bool) -> Self
+pub fn Path::from_points(Array[@geom.Vec2], closed? : Bool) -> Self
 pub fn Path::has_style(Self) -> Bool
-pub fn Path::is_contained_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Path::is_intersected_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Path::is_overlapped_by_bounding_box(Self, BoundingBox) -> Bool
-pub fn Path::loose_bounding_box(Self) -> BoundingBox?
+pub fn Path::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Path::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Path::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
+pub fn Path::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Path::new(anchors? : Array[Anchor], closed? : Bool, clear? : Bool, fill? : Fill, stroke? : Stroke) -> Self
 pub fn Path::op_get(Self, Int) -> Anchor
 pub fn Path::op_set(Self, Int, Anchor) -> Unit
@@ -326,12 +258,12 @@ pub fn Path::remove_fill(Self) -> Self
 pub fn Path::remove_stroke(Self) -> Self
 pub fn Path::reverse(Self) -> Self
 pub fn Path::rotate(Self, Double) -> Self
-pub fn Path::scale(Self, Vec2) -> Self
+pub fn Path::scale(Self, @geom.Vec2) -> Self
 pub fn Path::scale_stroke(Self, Double) -> Self
-pub fn Path::style_contains_point(Self, Vec2) -> Bool
-pub fn Path::to_polygon(Self, Int, epsilon? : Double) -> Array[Vec2]
-pub fn Path::transform(Self, position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
-pub fn Path::translate(Self, Vec2) -> Self
+pub fn Path::style_contains_point(Self, @geom.Vec2) -> Bool
+pub fn Path::to_polygon(Self, Int, epsilon? : Double) -> Array[@geom.Vec2]
+pub fn Path::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
+pub fn Path::translate(Self, @geom.Vec2) -> Self
 pub impl Show for Path
 pub impl ToJson for Path
 pub impl @json.FromJson for Path
@@ -389,84 +321,18 @@ pub(all) enum TextAlign {
 pub impl Eq for TextAlign
 pub impl Show for TextAlign
 
-pub(all) struct Transform {
-  position : Vec2
-  rotation : Double
-  scale : Vec2
-  skew : Double
-  origin : Vec2
-}
-pub fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
-pub impl Eq for Transform
-pub impl Show for Transform
-
-pub(all) struct Vec2 {
-  mut x : Double
-  mut y : Double
-}
-pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
-pub fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
-pub fn Vec2::almost_equals(Self, Self, tolerance? : Double) -> Bool
-pub fn Vec2::angle(Self) -> Double
-pub fn Vec2::angle_radians(Self) -> Double
-pub fn Vec2::apply(Self, (Double) -> Double) -> Self
-pub fn Vec2::ceil(Self) -> Self
-pub fn Vec2::clone(Self) -> Self
-pub fn Vec2::copy(Self, Self) -> Self
-pub fn Vec2::cross(Self, Self) -> Double
-pub fn Vec2::distance(Self, Self) -> Double
-pub fn Vec2::distance_squared(Self, Self) -> Double
-pub fn Vec2::distance_squared_tuple((Double, Double), (Double, Double)) -> Double
-pub fn Vec2::dot(Self, Self) -> Double
-pub fn Vec2::floor(Self) -> Self
-pub fn Vec2::from_angle(Double) -> Self
-pub fn Vec2::from_angle_radians(Double) -> Self
-pub fn Vec2::from_tuple((Double, Double)) -> Self
-pub fn Vec2::infinity() -> Self
-pub fn Vec2::is_clockwise_from(Self, Self) -> Bool
-pub fn Vec2::is_inf(Self) -> Bool
-pub fn Vec2::is_nan(Self) -> Bool
-pub fn Vec2::is_valid(Self) -> Bool
-pub fn Vec2::is_zero(Self) -> Bool
-pub fn Vec2::length(Self) -> Double
-pub fn Vec2::length_squared(Self) -> Double
-pub fn Vec2::max(Self, Self) -> Self
-pub fn Vec2::min(Self, Self) -> Self
-pub fn Vec2::mix(Self, Self, Double) -> Self
-pub fn Vec2::neg_infinity() -> Self
-pub fn Vec2::negate(Self) -> Self
-pub fn Vec2::new(x? : Double, y? : Double) -> Self
-pub fn Vec2::normalize(Self) -> Self
-pub fn Vec2::project_onto(Self, Self) -> Self
-pub fn Vec2::rotate(Self, Double) -> Self
-pub fn Vec2::rotate90(Self) -> Self
-pub fn Vec2::rotate_neg90(Self) -> Self
-pub fn Vec2::rotate_radians(Self, Double) -> Self
-pub fn Vec2::round(Self) -> Self
-pub fn Vec2::round_to_fixed(Self, Int) -> Self
-pub fn Vec2::round_to_multiple(Self, Double) -> Self
-pub fn Vec2::self_add(Self, Self) -> Self
-pub fn Vec2::self_add_scalar(Self, Double) -> Self
-pub fn Vec2::self_div(Self, Self) -> Self
-pub fn Vec2::self_div_scalar(Self, Double) -> Self
-pub fn Vec2::self_mul(Self, Self) -> Self
-pub fn Vec2::self_mul_scalar(Self, Double) -> Self
-pub fn Vec2::self_sub(Self, Self) -> Self
-pub fn Vec2::self_sub_scalar(Self, Double) -> Self
-pub fn Vec2::set(Self, Double, Double) -> Self
-pub fn Vec2::to_tuple(Self) -> (Double, Double)
-pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
-pub impl Add for Vec2
-pub impl Div for Vec2
-pub impl Eq for Vec2
-pub impl Mul for Vec2
-pub impl Neg for Vec2
-pub impl Show for Vec2
-pub impl Sub for Vec2
-pub impl ToJson for Vec2
-pub impl @json.FromJson for Vec2
-
 // Type aliases
+pub using @geom {type AffineMatrix}
+
+pub using @geom {type Alignment}
+
+pub using @geom {type BoundingBox}
+
+pub using @fonts {type Font}
+
+pub using @geom {type Transform}
+
+pub using @geom {type Vec2}
 
 // Traits
 pub(open) trait Clonable {

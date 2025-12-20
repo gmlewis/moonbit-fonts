@@ -1,4 +1,7 @@
 ///|
+using @geom {vec2}
+
+///|
 using @draw {type CompoundPath}
 
 ///|
@@ -14,9 +17,6 @@ using @draw {type Path}
 using @draw {type Stroke}
 
 ///|
-let vec2 = @draw.vec2
-
-///|
 /// from_graphics returns an SVG from a Graphic.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly as an SVG.
@@ -30,11 +30,11 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
   let mut g = g
   if y_up {
     let height = bbox.height()
-    let transform = @draw.Transform::new(
+    let transform = @geom.Transform::new(
       position=vec2(0, height),
       scale=vec2(1, -1),
     )
-    let affine_matrix = @draw.AffineMatrix::from_transform(transform)
+    let affine_matrix = @geom.AffineMatrix::from_transform(transform)
     g = g.clone().affine_transform(affine_matrix)
     bbox = g.bounding_box().unwrap()
   }

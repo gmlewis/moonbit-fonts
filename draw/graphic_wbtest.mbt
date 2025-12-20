@@ -1,5 +1,5 @@
 ///|
-test "@draw.Graphic::to_json of compound_path" {
+test "Graphic::to_json of compound_path" {
   let compound_path = glyph2compound_path(letter_P, "dc", vec2(0, 0), 1, 1)
   let got = compound_path.to_json().stringify()
   inspect(
@@ -11,7 +11,7 @@ test "@draw.Graphic::to_json of compound_path" {
 }
 
 ///|
-test "@draw.Graphic::to_json of group" {
+test "Graphic::to_json of group" {
   let group = unit_square()
   let got = group.to_json().stringify()
   inspect(
@@ -23,7 +23,7 @@ test "@draw.Graphic::to_json of group" {
 }
 
 ///|
-test "@draw.Graphic::to_json of path" {
+test "Graphic::to_json of path" {
   let path = Path::from_points([vec2(0, 0), vec2(1, 1)])
   let got = path.to_json().stringify()
   inspect(

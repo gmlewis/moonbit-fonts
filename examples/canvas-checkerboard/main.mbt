@@ -1,9 +1,9 @@
 ///|
-let vec2 = @draw.vec2
+using @geom {vec2, type BoundingBox}
 
 ///|
 pub fn draw(ctx : @canvas.CanvasCtx, width : Int, height : Int) -> Unit {
-  let box = @draw.BoundingBox::from_points([
+  let box = BoundingBox::from_points([
     vec2(0, 0),
     vec2(width.to_double(), height.to_double()),
   ])

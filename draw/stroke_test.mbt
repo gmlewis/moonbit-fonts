@@ -1,5 +1,5 @@
 ///|
-test "@draw.Stroke::new 1" {
+test "Stroke::Stroke::new 1" {
   // Test default values (black color with full opacity)
   let default_stroke = @draw.Stroke::new()
   inspect(default_stroke.color.r, content="0")
@@ -16,7 +16,7 @@ test "@draw.Stroke::new 1" {
 }
 
 ///|
-test "@draw.Stroke::new/edge_cases" {
+test "Stroke::Stroke::new/edge_cases" {
   // Test with extreme values (all components set to maximum)
   let max_stroke = @draw.Stroke::new(color=@draw.rgba(1, 1, 1, 1))
   inspect(max_stroke.color.r, content="1")
@@ -33,7 +33,7 @@ test "@draw.Stroke::new/edge_cases" {
 }
 
 ///|
-test "@draw.Stroke::new 2" {
+test "Stroke::Stroke::new 2" {
   let color1 = @draw.rgba(0.5, 0.4, 0.3, 1)
   let stroke1 = @draw.Stroke::new(color=color1)
   inspect(stroke1.color, content="{r: 0.5, g: 0.4, b: 0.3, a: 1}")
@@ -46,7 +46,7 @@ test "@draw.Stroke::new 2" {
 }
 
 ///|
-test "@draw.Stroke::new/boundary" {
+test "Stroke::Stroke::new/boundary" {
   let color1 = @draw.rgba(0, 0, 0, 0)
   let stroke1 = @draw.Stroke::new(color=color1)
   inspect(stroke1.color, content="{r: 0, g: 0, b: 0, a: 0}")
@@ -59,7 +59,7 @@ test "@draw.Stroke::new/boundary" {
 }
 
 ///|
-test "@draw.Stroke::new 3" {
+test "Stroke::Stroke::new 3" {
   let color = @draw.rgba(-1, 2, -3, 4) // Invalid color values
   let new_color = @draw.Stroke::new(color~)
   inspect(
@@ -75,7 +75,7 @@ test "@draw.Stroke::new 3" {
 }
 
 ///|
-test "@draw.stroke/basic" {
+test "Stroke::stroke/basic" {
   let black = @draw.rgba(0, 0, 0, 1)
   let stroke = @draw.stroke(black)
   inspect(
@@ -91,7 +91,7 @@ test "@draw.stroke/basic" {
 }
 
 ///|
-test "@draw.stroke/transparent" {
+test "Stroke::stroke/transparent" {
   let transparent = @draw.rgba(1, 1, 1, 0)
   let stroke = @draw.stroke(transparent)
   inspect(
@@ -107,7 +107,7 @@ test "@draw.stroke/transparent" {
 }
 
 ///|
-test "@draw.stroke/partial-transparent" {
+test "Stroke::stroke/partial-transparent" {
   let semi_transparent = @draw.rgba(0.5, 0.5, 0.5, 0.5)
   let stroke = @draw.stroke(semi_transparent)
   inspect(
@@ -123,14 +123,14 @@ test "@draw.stroke/partial-transparent" {
 }
 
 ///|
-test "@draw.clone/stroke-equality" {
+test "Stroke::clone/stroke-equality" {
   let original = @draw.Stroke::new(color=@draw.rgba(1, 0, 0, 1))
   let cloned = original.clone()
   inspect(cloned, content=original.to_string())
 }
 
 ///|
-test "@draw.clone/stroke-independence" {
+test "Stroke::clone/stroke-independence" {
   let original = @draw.Stroke::new(color=@draw.rgba(1, 0, 0, 1))
   let cloned = original.clone()
   let _ = cloned.color.set(0, 1, 0, 1)
@@ -139,14 +139,14 @@ test "@draw.clone/stroke-independence" {
 }
 
 ///|
-test "@draw.clone/zero-opacity" {
+test "Stroke::clone/zero-opacity" {
   let original = @draw.Stroke::new(color=@draw.rgba(1, 1, 1, 0))
   let cloned = original.clone()
   inspect(cloned, content=original.to_string())
 }
 
 ///|
-test "@draw.StrokeAlignment/json_roundtrip" {
+test "Stroke::StrokeAlignment/json_roundtrip" {
   let centered = @draw.StrokeAlignment::Centered
   let inner = @draw.StrokeAlignment::Inner
   let outer = @draw.StrokeAlignment::Outer

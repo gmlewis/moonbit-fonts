@@ -1,4 +1,7 @@
 ///|
+using @geom {type Alignment}
+
+///|
 let glyphs : Map[String, @fonts.Glyph] = {
   "A": {
     char: "A",
@@ -45,7 +48,7 @@ let nullpointer : @fonts.Font = {
 ///|
 struct GenPathTestCase {
   name : String
-  alignment : @fonts.Alignment
+  alignment : Alignment
   y_up : Bool
   want_d : String
 }

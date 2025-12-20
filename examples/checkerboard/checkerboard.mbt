@@ -20,7 +20,7 @@ let unit_circle = @draw.unit_circle
 let unit_square = @draw.unit_square
 
 ///|
-let vec2 = @draw.vec2
+using @geom {vec2}
 
 ///|
 pub fn checkerboard() -> Graphic {

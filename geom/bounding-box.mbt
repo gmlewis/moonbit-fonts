@@ -15,6 +15,11 @@ pub fn BoundingBox::new(
 }
 
 ///|
+pub fn BoundingBox::is_empty(self : BoundingBox) -> Bool {
+  self.min.x >= self.max.x || self.min.y >= self.max.y
+}
+
+///|
 /// bbox is a convenience function.
 pub fn bbox(
   minx : Double,
@@ -159,17 +164,30 @@ pub fn BoundingBox::contains_bounding_box(
 }
 
 ///|
+/// is_in reports whether every point in r is in s.
+pub fn BoundingBox::is_in(self : BoundingBox, s : BoundingBox) -> Bool {
+  if self.is_empty() {
+    return true
+  }
+  // note that self.max is an exclusive bound for r, so that self.in(s)
+  // does not require that self.max.in(s).
+  s.min.x <= self.min.x &&
+  self.max.x <= s.max.x &&
+  s.min.y <= self.min.y &&
+  self.max.y <= s.max.y
+}
+
+///|
 /// overlaps_bounding_box returns true if any part of `box` overlaps this bounding box.
 pub fn BoundingBox::overlaps_bounding_box(
   self : BoundingBox,
   box : BoundingBox,
 ) -> Bool {
-  // TODO: is this correct?
-  let { min, max } = box
-  min.x >= self.min.x &&
-  max.x <= self.max.x &&
-  min.y >= self.min.y &&
-  max.y <= self.max.y
+  let r = self
+  r.min.x < box.max.x &&
+  box.min.x < r.max.x &&
+  r.min.y < box.max.y &&
+  box.min.y < r.max.y
 }
 
 ///|
@@ -197,4 +215,113 @@ pub fn BoundingBox::boolean_intersect(
     }
   }
   Some(BoundingBox::new(min=vec2(xmin, ymin), max=vec2(xmax, ymax)))
+}
+
+///|
+/// `bounds` returns the tuple `(xmin, ymin, xmax, ymax)`.
+pub fn BoundingBox::bounds(
+  self : BoundingBox,
+) -> (Double, Double, Double, Double) {
+  (self.min.x, self.min.y, self.max.x, self.max.y)
+}
+
+///|
+/// dx returns the width of the bounding box.
+pub fn BoundingBox::dx(self : BoundingBox) -> Double {
+  self.max.x - self.min.x
+}
+
+///|
+/// dy returns the height of the bounding box.
+pub fn BoundingBox::dy(self : BoundingBox) -> Double {
+  self.max.y - self.min.y
+}
+
+///|
+/// inset returns the bounding box inset by n, which may be negative. If either
+/// of the dimensions is less than 2*n then an empty bounding box near the center
+/// will be returned.
+pub fn BoundingBox::inset(self : BoundingBox, n : Double) -> BoundingBox {
+  let r = self.clone()
+  if r.width() < 2.0 * n {
+    r.min.x = (r.min.x + r.max.x) / 2
+    r.max.x = r.min.x
+  } else {
+    r.min.x += n
+    r.max.x -= n
+  }
+  if r.height() < 2.0 * n {
+    r.min.y = (r.min.y + r.max.y) / 2
+    r.max.y = r.min.y
+  } else {
+    r.min.y += n
+    r.max.y -= n
+  }
+  r
+}
+
+///|
+/// union returns the smallest bounding box that contains both r and s.
+pub fn BoundingBox::union(self : BoundingBox, s : BoundingBox) -> BoundingBox {
+  let r = self.clone()
+  if r.is_empty() {
+    return s
+  }
+  if s.is_empty() {
+    return r
+  }
+  if r.min.x > s.min.x {
+    r.min.x = s.min.x
+  }
+  if r.min.y > s.min.y {
+    r.min.y = s.min.y
+  }
+  if r.max.x < s.max.x {
+    r.max.x = s.max.x
+  }
+  if r.max.y < s.max.y {
+    r.max.y = s.max.y
+  }
+  r
+}
+
+///|
+/// overlaps reports whether self and s have a non-empty intersection.
+pub fn BoundingBox::overlaps(self : BoundingBox, s : BoundingBox) -> Bool {
+  not(self.is_empty()) &&
+  not(s.is_empty()) &&
+  self.min.x < s.max.x &&
+  s.min.x < self.max.x &&
+  self.min.y < s.max.y &&
+  s.min.y < self.max.y
+}
+
+///|
+/// intersect returns the largest rectangle contained by both self and s. If the
+/// two rectangles do not overlap then an empty rectangle will be returned.
+pub fn BoundingBox::intersect(
+  self : BoundingBox,
+  s : BoundingBox,
+) -> BoundingBox {
+  let r = self.clone()
+  if r.min.x < s.min.x {
+    r.min.x = s.min.x
+  }
+  if r.min.y < s.min.y {
+    r.min.y = s.min.y
+  }
+  if r.max.x > s.max.x {
+    r.max.x = s.max.x
+  }
+  if r.max.y > s.max.y {
+    r.max.y = s.max.y
+  }
+  // Letting r0 and s0 be the values of r and s at the time that the method
+  // is called, this next line is equivalent to:
+  //
+  // if max(r0.Min.X, s0.Min.X) >= min(r0.Max.X, s0.Max.X) || likewiseForY { etc }
+  if r.is_empty() {
+    return BoundingBox::new()
+  }
+  r
 }

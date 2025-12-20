@@ -80,8 +80,8 @@ pub fn PathCmd::to_svg_cmd(self : PathCmd) -> (Cmd, String) {
 
 ///|
 /// `bbox` returns the minimum bounding box of a PathCmd.
-pub fn PathCmd::bbox(self : PathCmd) -> Rectangle {
-  let r = Rectangle::new()
+pub fn PathCmd::bbox(self : PathCmd) -> @geom.BoundingBox {
+  let r = @geom.BoundingBox::max_reversed()
   for index, pp in self.params {
     if index == 0 {
       r.min.x = pp.x
@@ -89,7 +89,8 @@ pub fn PathCmd::bbox(self : PathCmd) -> Rectangle {
       r.max.x = pp.x
       r.max.y = pp.y
     } else {
-      r.extend(pt(pp.x, pp.y))
+      let _ = r.expand_to_include_point(@geom.pt(pp.x, pp.y))
+
     }
   }
   r

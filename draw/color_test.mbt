@@ -1,17 +1,17 @@
 ///|
-test "@draw.Color::new/default-values" {
+test "Color::new/default-values" {
   let color = @draw.Color::new()
   inspect(color, content="{r: 0, g: 0, b: 0, a: 1}")
 }
 
 ///|
-test "@draw.Color::new/custom-values" {
+test "Color::new/custom-values" {
   let color = @draw.Color::new(r=0.5, g=0.7, b=0.9, a=0.3)
   inspect(color, content="{r: 0.5, g: 0.7, b: 0.9, a: 0.3}")
 }
 
 ///|
-test "@draw.Color::new/boundary-values" {
+test "Color::new/boundary-values" {
   let min = @draw.Color::new(r=0, g=0, b=0, a=0)
   inspect(min, content="{r: 0, g: 0, b: 0, a: 0}")
   let max = @draw.Color::new(r=1, g=1, b=1, a=1)
@@ -65,7 +65,7 @@ test "panic @draw.rgba/invalid_values" {
 }
 
 ///|
-test "@draw.Color::from_hsva/basic_functionality" {
+test "Color::from_hsva/basic_functionality" {
   let color1 = @draw.Color::from_hsva(0.0, 1.0, 1.0, 1.0)
   let color2 = @draw.Color::from_hsva(0.5, 1.0, 1.0, 1.0)
   let color3 = @draw.Color::from_hsva(1.0, 1.0, 1.0, 1.0)
@@ -75,7 +75,7 @@ test "@draw.Color::from_hsva/basic_functionality" {
 }
 
 ///|
-test "@draw.Color::from_hsva/boundary_values" {
+test "Color::from_hsva/boundary_values" {
   let color1 = @draw.Color::from_hsva(1.0, 0.0, 0.0, 0.0)
   let color2 = @draw.Color::from_hsva(0.0, 0.0, 0.0, 0.0)
   let color3 = @draw.Color::from_hsva(1.0, 1.0, 1.0, 1.0)
@@ -90,7 +90,7 @@ test "panic @draw.Color::from_hsva/invalid_hue" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/black 1" {
+test "Color::from_rgb8_number/black 1" {
   let black = @draw.Color::from_rgb8_number(0U)
   inspect(black.r, content="0")
   inspect(black.g, content="0")
@@ -99,7 +99,7 @@ test "@draw.Color::from_rgb8_number/black 1" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/white 1" {
+test "Color::from_rgb8_number/white 1" {
   let white = @draw.Color::from_rgb8_number(0xffffffU)
   inspect(white.r, content="1")
   inspect(white.g, content="1")
@@ -108,7 +108,7 @@ test "@draw.Color::from_rgb8_number/white 1" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/primary_colors" {
+test "Color::from_rgb8_number/primary_colors" {
   let red = @draw.Color::from_rgb8_number(0xff0000U)
   inspect(red.r, content="1")
   inspect(red.g, content="0")
@@ -127,37 +127,37 @@ test "@draw.Color::from_rgb8_number/primary_colors" {
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/black 2" {
+test "Color::from_rgb8_number/black 2" {
   let color = @draw.Color::from_rgb8_number(0x000000)
   inspect(color, content="{r: 0, g: 0, b: 0, a: 1}")
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/white 2" {
+test "Color::from_rgb8_number/white 2" {
   let color = @draw.Color::from_rgb8_number(0xFFFFFF)
   inspect(color, content="{r: 1, g: 1, b: 1, a: 1}")
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/red" {
+test "Color::from_rgb8_number/red" {
   let color = @draw.Color::from_rgb8_number(0xFF0000)
   inspect(color, content="{r: 1, g: 0, b: 0, a: 1}")
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/green" {
+test "Color::from_rgb8_number/green" {
   let color = @draw.Color::from_rgb8_number(0x00FF00)
   inspect(color, content="{r: 0, g: 1, b: 0, a: 1}")
 }
 
 ///|
-test "@draw.Color::from_rgb8_number/blue" {
+test "Color::from_rgb8_number/blue" {
   let color = @draw.Color::from_rgb8_number(0x0000FF)
   inspect(color, content="{r: 0, g: 0, b: 1, a: 1}")
 } // Test basic color mixing with t=0.5
 
 ///|
-test "@draw.Color::mix" {
+test "Color::mix" {
   let c1 = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
   let c2 = @draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
   let result = c1.mix(c2, 0.5)
@@ -170,7 +170,7 @@ test "@draw.Color::mix" {
 // Test mixing with t=0 (should return the first color)
 
 ///|
-test "@draw.Color::mix/t_zero" {
+test "Color::mix/t_zero" {
   let c1 = @draw.Color::new(r=0.2, g=0.3, b=0.4, a=0.5)
   let c2 = @draw.Color::new(r=0.6, g=0.7, b=0.8, a=0.9)
   let result = c1.mix(c2, 0.0)
@@ -183,7 +183,7 @@ test "@draw.Color::mix/t_zero" {
 // Test mixing with t=1 (should return the second color)
 
 ///|
-test "@draw.Color::mix/t_one" {
+test "Color::mix/t_one" {
   let c1 = @draw.Color::new(r=0.2, g=0.3, b=0.4, a=0.5)
   let c2 = @draw.Color::new(r=0.6, g=0.7, b=0.8, a=0.9)
   let result = c1.mix(c2, 1.0)
@@ -212,19 +212,19 @@ test "@draw.luminance/mixed_color" {
 }
 
 ///|
-test "@draw.Color::to_css_string/opaque" {
+test "Color::to_css_string/opaque" {
   let color = @draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
   inspect(color.to_css_string(), content="#FF0000")
 }
 
 ///|
-test "@draw.Color::to_css_string/transparent" {
+test "Color::to_css_string/transparent" {
   let color = @draw.Color::new(r=0.0, g=1.0, b=0.0, a=0.5)
   inspect(color.to_css_string(), content="rgba(0,255,0,0.5)")
 }
 
 ///|
-test "@draw.Color::to_css_string/fully-transparent" {
+test "Color::to_css_string/fully-transparent" {
   let color = @draw.Color::new(r=0.0, g=0.0, b=1.0, a=0.0)
   inspect(color.to_css_string(), content="rgba(0,0,255,0)")
 }
@@ -249,7 +249,7 @@ test "@draw.to_css_string/transparent_color" {
 }
 
 ///|
-test "@draw.Color::to_css_hex_string" {
+test "Color::to_css_hex_string" {
   // Test basic color conversion
   let color1 = @draw.Color::new(r=0.5, g=0.25, b=0.75)
   inspect(color1.to_css_hex_string(), content="#8040BF")
@@ -264,7 +264,7 @@ test "@draw.Color::to_css_hex_string" {
 } // Test case for pure white color
 
 ///|
-test "@draw.Color::to_css_hex_string/white_color" {
+test "Color::to_css_hex_string/white_color" {
   let white_color = @draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
   inspect(white_color.to_css_hex_string(), content="#FFFFFF")
 }
@@ -272,7 +272,7 @@ test "@draw.Color::to_css_hex_string/white_color" {
 // Test case for pure black color
 
 ///|
-test "@draw.Color::to_css_hex_string/black_color" {
+test "Color::to_css_hex_string/black_color" {
   let black_color = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
   inspect(black_color.to_css_hex_string(), content="#000000")
 }
@@ -280,14 +280,14 @@ test "@draw.Color::to_css_hex_string/black_color" {
 // Test case for color with mixed components
 
 ///|
-test "@draw.Color::to_css_hex_string/mixed_color" {
+test "Color::to_css_hex_string/mixed_color" {
   let mixed_color = @draw.Color::new(r=0.5, g=0.25, b=0.75, a=1.0)
   let got = mixed_color.to_css_hex_string()
   inspect(got, content="#8040BF")
 }
 
 ///|
-test "@draw.Color::to_css_rgba_string" {
+test "Color::to_css_rgba_string" {
   // Test normal RGB values with full opacity
   let c1 = @draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
   inspect(c1.to_css_rgba_string(), content="rgba(255,0,0,1)")
@@ -298,7 +298,7 @@ test "@draw.Color::to_css_rgba_string" {
 }
 
 ///|
-test "@draw.Color::to_css_rgba_string/boundary" {
+test "Color::to_css_rgba_string/boundary" {
   // Test boundary values (0.0 and 1.0)
   let c1 = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=0.0)
   inspect(c1.to_css_rgba_string(), content="rgba(0,0,0,0)")
@@ -307,26 +307,26 @@ test "@draw.Color::to_css_rgba_string/boundary" {
 }
 
 ///|
-test "@draw.Color::to_css_rgba_string/out-of-range" {
+test "Color::to_css_rgba_string/out-of-range" {
   // Test values outside the normal range
   let c1 = @draw.Color::new(r=2.0, g=-1.0, b=1.5, a=3.0)
   inspect(c1.to_css_rgba_string(), content="rgba(255,0,255,1)")
 }
 
 ///|
-test "@draw.Color::to_rgb8_number/black" {
+test "Color::to_rgb8_number/black" {
   let black = @draw.Color::new(r=0.0, g=0.0, b=0.0)
   inspect(black.to_rgb8_number(), content="0")
 }
 
 ///|
-test "@draw.Color::to_rgb8_number/white" {
+test "Color::to_rgb8_number/white" {
   let white = @draw.Color::new(r=1.0, g=1.0, b=1.0)
   inspect(white.to_rgb8_number(), content="16777215") // 0xFFFFFF
 }
 
 ///|
-test "@draw.Color::to_rgb8_number/primary-colors" {
+test "Color::to_rgb8_number/primary-colors" {
   let red = @draw.Color::new(r=1.0, g=0.0, b=0.0)
   let green = @draw.Color::new(r=0.0, g=1.0, b=0.0)
   let blue = @draw.Color::new(r=0.0, g=0.0, b=1.0)
@@ -354,7 +354,7 @@ test "@draw/to_rgb8_number/upper_boundaries" {
 }
 
 ///|
-test "@draw.Color::to_hsva/primary-secondary" {
+test "Color::to_hsva/primary-secondary" {
   // Red (1,0,0,1) should convert to (0,1,1,1)
   let red = @draw.Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
   inspect(red.to_hsva(), content="[0, 1, 1, 1]")
@@ -369,35 +369,35 @@ test "@draw.Color::to_hsva/primary-secondary" {
 }
 
 ///|
-test "@draw.Color::to_hsva/black 1" {
+test "Color::to_hsva/black 1" {
   let black = @draw.Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
   // Black should have 0 saturation and value
   inspect(black.to_hsva(), content="[0, 0, 0, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/white 1" {
+test "Color::to_hsva/white 1" {
   let white = @draw.Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
   // White should have 0 saturation but maximum value
   inspect(white.to_hsva(), content="[0, 0, 1, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/black 2" {
+test "Color::to_hsva/black 2" {
   let color = @draw.Color::new(r=0, g=0, b=0, a=1)
   let hsva = color.to_hsva()
   inspect(hsva, content="[0, 0, 0, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/white 2" {
+test "Color::to_hsva/white 2" {
   let color = @draw.Color::new(r=1, g=1, b=1, a=1)
   let hsva = color.to_hsva()
   inspect(hsva, content="[0, 0, 1, 1]")
 }
 
 ///|
-test "@draw.Color::to_hsva/red" {
+test "Color::to_hsva/red" {
   let color = @draw.Color::new(r=1, g=0, b=0, a=1)
   let hsva = color.to_hsva()
   inspect(hsva, content="[0, 1, 1, 1]")

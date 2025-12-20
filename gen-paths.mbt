@@ -1,4 +1,7 @@
 ///|
+using @geom {type Alignment}
+
+///|
 /// `gen_paths` handles multiple strings independently so that they
 /// can be aligned and distributed more flexibly.
 pub fn Font::gen_paths(

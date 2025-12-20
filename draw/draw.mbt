@@ -3,6 +3,8 @@
 /// graphics.
 
 ///|
+
+///|
 /// DrawError represents an error that occured during graphic generation.
 pub(all) suberror DrawError String derive(Show, Eq)
 

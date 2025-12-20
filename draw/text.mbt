@@ -1,7 +1,4 @@
 ///|
-using @fonts {type Font}
-
-///|
 pub(all) enum TextAlign {
   Left
   Center

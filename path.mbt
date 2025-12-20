@@ -51,7 +51,7 @@ pub fn SVGPath::from_glyph(
   g : Glyph,
   path_cmd_fn? : PathCmdFn,
 ) -> SVGPath raise FontError {
-  let mut bbox = Rectangle::new()
+  let bbox = @geom.BoundingBox::max_reversed()
   let svg_cmds = split_path(g.d)
   let cmds = Array::new(capacity=svg_cmds.length())
   let mut gerber_index = 0
@@ -76,10 +76,15 @@ pub fn SVGPath::from_glyph(
     // update bbox
     if cmd.cmd != Z {
       if index == 0 {
-        bbox = cmd.bbox()
+        let cmd_bbox = cmd.bbox()
+        bbox.min.x = cmd_bbox.min.x
+        bbox.min.y = cmd_bbox.min.y
+        bbox.max.x = cmd_bbox.max.x
+        bbox.max.y = cmd_bbox.max.y
       } else {
         for p in cmd.params {
-          bbox.extend(pt(p.x, p.y))
+          let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
+
         }
       }
     }
@@ -98,7 +103,7 @@ pub fn SVGPath::from_glyph(
 pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = @buffer.new()
   let d = @buffer.new()
-  let mut bbox = Rectangle::new()
+  let bbox = @geom.BoundingBox::max_reversed()
 
   //
   for index, cmd in self.cmds {
@@ -120,10 +125,15 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
     // update bbox
     if cmd.cmd != Z {
       if index == 0 {
-        bbox = cmd.bbox()
+        let cmd_bbox = cmd.bbox()
+        bbox.min.x = cmd_bbox.min.x
+        bbox.min.y = cmd_bbox.min.y
+        bbox.max.x = cmd_bbox.max.x
+        bbox.max.y = cmd_bbox.max.y
       } else {
         for p in cmd.params {
-          bbox.extend(pt(p.x, p.y))
+          let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
+
         }
       }
     }

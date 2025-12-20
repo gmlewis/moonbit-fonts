@@ -6,6 +6,9 @@ pub(all) struct Vec2 {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
+pub const DEFAULT_TOLERANCE = 0.001
+
+///|
 /// Vec2::new returns a new Vec2.
 pub fn Vec2::new(x? : Double = 0, y? : Double = 0) -> Vec2 {
   { x, y }
@@ -100,9 +103,6 @@ pub fn Vec2::affine_transform_without_translation(
   self.y = b * x0 + d * y0
   self
 }
-
-///|
-/// transform transforms this Vec2.
 
 ///|
 /// transform provides a convenient API for a common task.
@@ -483,4 +483,9 @@ pub fn Vec2::distance_squared_tuple(
   b : (Double, Double),
 ) -> Double {
   Vec2::distance_squared(Vec2::from_tuple(a), Vec2::from_tuple(b))
+}
+
+///|
+pub fn Vec2::is_in(self : Vec2, box : BoundingBox) -> Bool {
+  box.contains_point(self)
 }

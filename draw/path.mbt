@@ -1,5 +1,7 @@
 ///|
 /// Path represents an open or closed path that can be stroked as an outline
+
+///|
 /// or filled. A 'clear' path is sub-path of a Path that defines
 /// regions of the filled path where no fill is added, for example in the
 /// center of the letter 'O'.

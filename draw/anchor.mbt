@@ -1,5 +1,7 @@
 ///|
 /// Anchor represents a single point in a path. Two anchors form a segment.
+
+///|
 /// The position of an Anchor is absolute and the handles are both relative.
 pub(all) struct Anchor {
   mut position : Vec2 // absolute
@@ -152,7 +154,7 @@ let tmp2 : Vec2 = Vec2::new()
 /// are tangent to each other.
 pub fn Anchor::has_tangent_handles(
   self : Anchor,
-  tolerance? : Double = DEFAULT_TOLERANCE,
+  tolerance? : Double = @geom.DEFAULT_TOLERANCE,
 ) -> Bool {
   let _ = tmp1.copy(self.handle_in).normalize()
   let _ = tmp2.copy(self.handle_out).normalize()

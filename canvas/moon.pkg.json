@@ -1,6 +1,7 @@
 {
   "import": [
-    "gmlewis/fonts/draw"
+    "gmlewis/fonts/draw",
+    "gmlewis/fonts/geom"
   ],
   "targets": {
     "ffi_notjs.mbt": [ "not", "js" ],

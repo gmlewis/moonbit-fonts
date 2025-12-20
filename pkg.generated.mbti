@@ -2,17 +2,14 @@
 package "gmlewis/fonts"
 
 import(
+  "gmlewis/fonts/geom"
   "moonbitlang/core/json"
 )
 
 // Values
 pub let all_fonts : ReadOnlyArray[String]
 
-pub fn glyph_bbox(String) -> Rectangle raise FontError
-
-pub fn pt(Double, Double) -> Point
-
-pub fn rect(Double, Double, Double, Double) -> Rectangle
+pub fn glyph_bbox(String) -> @geom.BoundingBox raise FontError
 
 pub fn translate_path(String, Double, Double, invert_y? : Bool) -> String raise FontError
 
@@ -32,25 +29,6 @@ pub(all) enum AbsoluteCmd {
 pub impl Eq for AbsoluteCmd
 pub impl Show for AbsoluteCmd
 
-pub(all) enum Alignment {
-  Unchanged
-  TopLeft
-  TopCenter
-  TopRight
-  CenterLeft
-  Center
-  CenterRight
-  BaselineLeft
-  BaselineCenter
-  BaselineRight
-  BottomLeft
-  BottomCenter
-  BottomRight
-  RatioXY(Double, Double)
-}
-pub impl Eq for Alignment
-pub impl Show for Alignment
-
 type Cmd
 pub impl Eq for Cmd
 pub impl Show for Cmd
@@ -63,8 +41,8 @@ pub(all) struct Font {
   descent : Double
   glyphs : Map[String, Glyph]
 }
-pub fn Font::gen_path(Self, String, alignment? : Alignment, y_up? : Bool) -> Glyph raise FontError
-pub fn Font::gen_paths(Self, Array[String], alignment? : Alignment, y_up? : Bool) -> Array[Glyph] raise FontError
+pub fn Font::gen_path(Self, String, alignment? : @geom.Alignment, y_up? : Bool) -> Glyph raise FontError
+pub fn Font::gen_paths(Self, Array[String], alignment? : @geom.Alignment, y_up? : Bool) -> Array[Glyph] raise FontError
 pub impl Eq for Font
 pub impl Show for Font
 pub impl ToJson for Font
@@ -109,7 +87,7 @@ pub(all) struct PathCmd {
   gerber_lp : GerberLP
   params : Array[ParamPair]
 }
-pub fn PathCmd::bbox(Self) -> Rectangle
+pub fn PathCmd::bbox(Self) -> @geom.BoundingBox
 pub fn PathCmd::clone(Self) -> Self
 pub fn PathCmd::from_svg_cmd(Cmd, GerberLP) -> Self raise FontError
 pub fn PathCmd::to_svg_cmd(Self) -> (Cmd, String)
@@ -119,43 +97,6 @@ pub impl Show for PathCmd
 pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 #deprecated
 pub fn PathCmdFn::inner(Self) -> (Int, PathCmd) -> PathCmd
-
-pub(all) struct Point {
-  mut x : Double
-  mut y : Double
-}
-pub fn Point::div(Self, Double) -> Self
-pub fn Point::is_in(Self, Rectangle) -> Bool
-pub fn Point::mul(Self, Double) -> Self
-pub fn Point::to_string(Self) -> String
-pub impl Add for Point
-pub impl Eq for Point
-pub impl Show for Point
-pub impl Sub for Point
-
-pub(all) struct Rectangle {
-  min : Point
-  max : Point
-}
-pub fn Rectangle::add(Self, Point) -> Self
-pub fn Rectangle::bounds(Self) -> (Double, Double, Double, Double)
-pub fn Rectangle::canon(Self) -> Self
-pub fn Rectangle::clone(Self) -> Self
-pub fn Rectangle::dx(Self) -> Double
-pub fn Rectangle::dy(Self) -> Double
-pub fn Rectangle::empty(Self) -> Bool
-pub fn Rectangle::extend(Self, Point) -> Unit
-pub fn Rectangle::inset(Self, Double) -> Self
-pub fn Rectangle::intersect(Self, Self) -> Self
-pub fn Rectangle::is_in(Self, Self) -> Bool
-pub fn Rectangle::new() -> Self
-pub fn Rectangle::overlaps(Self, Self) -> Bool
-pub fn Rectangle::size(Self) -> Point
-pub fn Rectangle::sub(Self, Point) -> Self
-pub fn Rectangle::to_string(Self) -> String
-pub fn Rectangle::union(Self, Self) -> Self
-pub impl Eq for Rectangle
-pub impl Show for Rectangle
 
 pub(all) struct SVGPath {
   char : String

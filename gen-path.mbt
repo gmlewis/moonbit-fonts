@@ -1,4 +1,6 @@
 ///|
+
+///|
 /// `gen_path` "renders" the provided text string into an SVG path
 /// using the provided font information. It performs the necessary
 /// path translations in order to combine the individual glyphs into
