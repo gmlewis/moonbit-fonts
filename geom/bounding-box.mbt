@@ -54,9 +54,16 @@ pub fn BoundingBox::from_points(points : Array[Vec2]) -> BoundingBox {
 }
 
 ///|
-/// clone makes a copy of the bounding box.
+/// clone makes a new copy of the bounding box.
 pub fn BoundingBox::clone(self : BoundingBox) -> BoundingBox {
   BoundingBox::new(min=self.min.clone(), max=self.max.clone())
+}
+
+///|
+// copy copies the values from other into self.
+pub fn BoundingBox::copy(self : BoundingBox, other : BoundingBox) -> Unit {
+  self.min = other.min.clone()
+  self.max = other.max.clone()
 }
 
 ///|

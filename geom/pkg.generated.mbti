@@ -93,6 +93,7 @@ pub fn BoundingBox::center(Self) -> Vec2
 pub fn BoundingBox::clone(Self) -> Self
 pub fn BoundingBox::contains_bounding_box(Self, Self) -> Bool
 pub fn BoundingBox::contains_point(Self, Vec2) -> Bool
+pub fn BoundingBox::copy(Self, Self) -> Unit
 pub fn BoundingBox::dx(Self) -> Double
 pub fn BoundingBox::dy(Self) -> Double
 pub fn BoundingBox::expand_scalar(Self, Double) -> Self

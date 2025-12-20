@@ -125,11 +125,7 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
     // update bbox
     if cmd.cmd != Z {
       if index == 0 {
-        let cmd_bbox = cmd.bbox()
-        bbox.min.x = cmd_bbox.min.x
-        bbox.min.y = cmd_bbox.min.y
-        bbox.max.x = cmd_bbox.max.x
-        bbox.max.y = cmd_bbox.max.y
+        bbox.copy(cmd.bbox())
       } else {
         for p in cmd.params {
           let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
