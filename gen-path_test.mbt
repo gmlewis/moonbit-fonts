@@ -2,7 +2,7 @@
 using @geom {type Alignment}
 
 ///|
-let glyphs : Map[String, @fonts.Glyph] = {
+let glyphs : Map[String, Glyph] = {
   "A": {
     char: "A",
     horiz_adv_x: 0.0,
@@ -36,7 +36,7 @@ let glyphs : Map[String, @fonts.Glyph] = {
 }
 
 ///|
-let nullpointer : @fonts.Font = {
+let nullpointer : Font = {
   id: "nullpointer",
   horiz_adv_x: 540.0,
   units_per_em: 1000.0,
@@ -269,7 +269,7 @@ test "gen_path on test_cases" {
       alignment=tc.alignment,
       y_up=tc.y_up,
     )
-    let bbox = @fonts.glyph_bbox(got.d)
+    let bbox = glyph_bbox(got.d)
     try {
       assert_eq(got.d, tc.want_d)
       assert_eq(got.gerber_lp, "dcdcddcdd")
@@ -287,7 +287,7 @@ test "gen_path on test_cases" {
     }
 
     //
-    let path = @fonts.SVGPath::from_glyph(got)
+    let path = SVGPath::from_glyph(got)
     let got2 = path.to_glyph()
     try {
       assert_eq(path.char, "ABC\nBC\rC")
