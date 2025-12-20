@@ -4,12 +4,12 @@
 pub fn Font::gen_paths(
   self : Font,
   lines : Array[String],
-  anchor? : Anchor = BaselineLeft,
+  alignment? : Alignment = BaselineLeft,
   y_up? : Bool = false,
 ) -> Array[Glyph] raise FontError {
   let glyphs = Array::new(capacity=lines.length())
   for line in lines {
-    glyphs.push(self.gen_path(line, anchor~, y_up~))
+    glyphs.push(self.gen_path(line, alignment~, y_up~))
   }
   glyphs
 }

@@ -5,7 +5,7 @@
 /// a "super glyph" that can be rendered as a whole.
 ///
 /// Note that `gen_path` operates on the string as a left-justified whole
-/// and anchors the entire path relative to `anchor` accordingly.
+/// and aligns the entire path relative to `alignment` accordingly.
 ///
 /// If you want multiple lines centered horizontally, use `gen_paths` instead.
 ///
@@ -18,7 +18,7 @@
 pub fn Font::gen_path(
   self : Font,
   text : String,
-  anchor? : Anchor = Unchanged,
+  alignment? : Alignment = Unchanged,
   y_up? : Bool = false,
 ) -> Glyph raise FontError {
   let mut xmin = 0.0
@@ -90,7 +90,7 @@ pub fn Font::gen_path(
   let mut d = d.contents().to_unchecked_string()
   let topy = if y_up { ymax } else { ymin }
   let boty = if y_up { ymin } else { ymax }
-  let (dx, dy) = match anchor {
+  let (dx, dy) = match alignment {
     Unchanged => (0.0, 0.0)
     TopLeft => (-xmin, -topy)
     TopCenter => (-(xmin + xmax) / 2, -topy)
@@ -106,7 +106,7 @@ pub fn Font::gen_path(
     BottomRight => (-xmax, -boty)
     RatioXY(rx, ry) => (-mix(xmin, xmax, rx), -mix(boty, topy, 1.0 - ry))
   }
-  if anchor != Unchanged {
+  if alignment != Unchanged {
     d = translate_path(d, dx, dy)
     xmin += dx
     ymin += dy

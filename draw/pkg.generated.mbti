@@ -227,7 +227,7 @@ pub fn Graphic::every(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::first_fill(Self) -> Fill?
 pub fn Graphic::first_stroke(Self) -> Stroke?
 pub fn Graphic::first_styled(Self) -> Self?
-pub fn Graphic::fit_to(Self, BoundingBox, anchor? : @fonts.Anchor) -> Self
+pub fn Graphic::fit_to(Self, BoundingBox, anchor? : @fonts.Alignment) -> Self
 pub fn Graphic::has_style(Self) -> Bool
 pub fn Graphic::is_contained_by_bounding_box(BoundingBox) -> (Self) -> Bool
 pub fn Graphic::is_intersected_by_bounding_box(BoundingBox) -> (Self) -> Bool

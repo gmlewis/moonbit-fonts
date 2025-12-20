@@ -1,9 +1,9 @@
 ///|
-/// A `Path` is identical to a `Glyph` but has been optimized internally
+/// An `SVGPath` is identical to a `Glyph` but has been optimized internally
 /// for further manipulation, whereas a `Glyph` is optimized for compact
 /// storage of font data within all the font packages.
-/// A `Path` can be converted to a `Glpyh` and vice versa.
-pub(all) struct Path {
+/// An `SVGPath` can be converted to a `Glpyh` and vice versa.
+pub(all) struct SVGPath {
   /// `char` represents all the glyphs contained in this path.
   /// It is identical to the `Glyph.char` field.
   char : String
@@ -43,14 +43,14 @@ pub(all) enum GerberLP {
 } derive(Show, Eq)
 
 ///|
-/// `from_glyph` returns a `Path` from a `Glyph`, optionally processing
+/// `from_glyph` returns an `SVGPath` from a `Glyph`, optionally processing
 /// every `Cmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `from_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn Path::from_glyph(
+pub fn SVGPath::from_glyph(
   g : Glyph,
   path_cmd_fn? : PathCmdFn,
-) -> Path raise FontError {
+) -> SVGPath raise FontError {
   let mut bbox = Rectangle::new()
   let svg_cmds = split_path(g.d)
   let cmds = Array::new(capacity=svg_cmds.length())
@@ -62,7 +62,7 @@ pub fn Path::from_glyph(
         g.gerber_lp.unsafe_charcode_at(gerber_index).to_char().unwrap() {
         'd' => Dark
         'c' => Clear
-        c => raise FontError("Path::from_glyph: unsupported GerberLP '\{c}'")
+        c => raise FontError("SVGPath::from_glyph: unsupported GerberLP '\{c}'")
       }
       gerber_index += 1
     }
@@ -91,11 +91,11 @@ pub fn Path::from_glyph(
 }
 
 ///|
-/// `to_glyph` returns a "super" `Glyph` from a `Path`, optionally processing
+/// `to_glyph` returns a "super" `Glyph` from an `SVGPath`, optionally processing
 /// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn Path::to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
+pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = @buffer.new()
   let d = @buffer.new()
   let mut bbox = Rectangle::new()
@@ -137,8 +137,8 @@ pub fn Path::to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
 }
 
 ///|
-/// `clone` makes a deep copy of a Path.
-pub fn Path::clone(self : Path) -> Path {
+/// `clone` makes a deep copy of an SVGPath.
+pub fn SVGPath::clone(self : SVGPath) -> SVGPath {
   let cmds = Array::new(capacity=self.cmds.length())
   for cmd in self.cmds {
     cmds.push(cmd.clone())

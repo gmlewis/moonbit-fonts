@@ -414,7 +414,7 @@ pub fn Graphic::rotate(self : Graphic, angle : Double) -> Graphic {
 pub fn Graphic::fit_to(
   self : Graphic,
   box : BoundingBox,
-  anchor? : @fonts.Anchor = Center,
+  anchor? : @fonts.Alignment = Center,
 ) -> Graphic {
   let bbox = match self.bounding_box() {
     None => return self
