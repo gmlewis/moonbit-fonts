@@ -261,7 +261,7 @@ pub fn BoundingBox::inset(self : BoundingBox, n : Double) -> BoundingBox {
 }
 
 ///|
-/// union returns the smallest bounding box that contains both r and s.
+/// union returns the smallest bounding box that contains both self and s.
 pub fn BoundingBox::union(self : BoundingBox, s : BoundingBox) -> BoundingBox {
   let r = self.clone()
   if r.is_empty() {
