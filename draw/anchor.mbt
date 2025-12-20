@@ -1,7 +1,5 @@
 ///|
 /// Anchor represents a single point in a path. Two anchors form a segment.
-
-///|
 /// The position of an Anchor is absolute and the handles are both relative.
 pub(all) struct Anchor {
   mut position : Vec2 // absolute
