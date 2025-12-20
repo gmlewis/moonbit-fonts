@@ -1,44 +1,41 @@
 ///|
-test "@draw.Graphic::bounding_box/empty_array" {
-  let items = @draw.Group::new(items=[]).as_graphic()
+test "Graphic::bounding_box/empty_array" {
+  let items = Group::new(items=[]).as_graphic()
   let result = items.bounding_box()
   inspect(result, content="None")
 }
 
 ///|
-test "@draw.Graphic::bounding_box/single_path" {
-  let v1 = @draw.vec2(1.0, 1.0)
-  let v2 = @draw.vec2(2.0, 2.0)
-  let path = @draw.Path::from_points([v1, v2], closed=true)
-  let graphic = @draw.Graphic::Path(path)
-  let items = @draw.Group::new(items=[graphic]).as_graphic()
+test "Graphic::bounding_box/single_path" {
+  let v1 = vec2(1.0, 1.0)
+  let v2 = vec2(2.0, 2.0)
+  let path = Path::from_points([v1, v2], closed=true)
+  let graphic = Graphic::Path(path)
+  let items = Group::new(items=[graphic]).as_graphic()
   let result = items.bounding_box()
   inspect(result, content="Some({min: {x: 1, y: 1}, max: {x: 2, y: 2}})")
 }
 
 ///|
-test "@draw.Graphic::bounding_box/multiple_items" {
+test "Graphic::bounding_box/multiple_items" {
   let items = test_triangles()
   let result = items.bounding_box()
   inspect(result, content="Some({min: {x: 1, y: 1}, max: {x: 5, y: 5}})")
 }
 
 ///|
-fn test_triangles() -> @draw.Graphic {
-  let v1 = @draw.vec2(1.0, 1.0)
-  let v2 = @draw.vec2(2.0, 2.0)
-  let v3 = @draw.vec2(1.0, 3.0)
-  let path1 = @draw.Path::from_points([v1, v2, v3], closed=true)
-  let v4 = @draw.vec2(4.0, 4.0)
-  let v5 = @draw.vec2(5.0, 5.0)
-  let path2 = @draw.Path::from_points([v3, v4, v5], closed=true)
-  let graphic1 = @draw.Graphic::Path(path1)
-  let graphic2 = @draw.Graphic::Path(path2)
-  @draw.Group::new(items=[graphic1, graphic2]).as_graphic()
+fn test_triangles() -> Graphic {
+  let v1 = vec2(1.0, 1.0)
+  let v2 = vec2(2.0, 2.0)
+  let v3 = vec2(1.0, 3.0)
+  let path1 = Path::from_points([v1, v2, v3], closed=true)
+  let v4 = vec2(4.0, 4.0)
+  let v5 = vec2(5.0, 5.0)
+  let path2 = Path::from_points([v3, v4, v5], closed=true)
+  let graphic1 = Graphic::Path(path1)
+  let graphic2 = Graphic::Path(path2)
+  Group::new(items=[graphic1, graphic2]).as_graphic()
 }
-
-///|
-let bbox = @draw.bbox
 
 ///|
 let unit_square : @draw.Graphic = @draw.unit_square().as_graphic()
@@ -89,7 +86,7 @@ test "unit square fit_to handles translation and scaling with alignment" {
 }
 
 ///|
-test "@draw.Graphic::to_profiles/Path" {
+test "Graphic::to_profiles/Path" {
   let points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
   let path = Path::from_points(points, closed=true)
   let graphic = Graphic::Path(path)
@@ -100,7 +97,7 @@ test "@draw.Graphic::to_profiles/Path" {
 }
 
 ///|
-test "@draw.Graphic::to_profiles/CompoundPath" {
+test "Graphic::to_profiles/CompoundPath" {
   let outer_points = [vec2(0, 0), vec2(10, 0), vec2(10, 10), vec2(0, 10)]
   let hole_points = [vec2(2, 2), vec2(8, 2), vec2(8, 8), vec2(2, 8)]
   let outer_path = Path::from_points(outer_points, closed=true)
@@ -115,7 +112,7 @@ test "@draw.Graphic::to_profiles/CompoundPath" {
 }
 
 ///|
-test "@draw.Graphic::to_profiles/Group" {
+test "Graphic::to_profiles/Group" {
   let p_points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
   let p_path = Path::from_points(p_points, closed=true)
   let outer_points = [vec2(0, 0), vec2(10, 0), vec2(10, 10), vec2(0, 10)]
@@ -136,7 +133,7 @@ test "@draw.Graphic::to_profiles/Group" {
 }
 
 ///|
-test "@draw.Graphic::to_profiles_tuples/Path" {
+test "Graphic::to_profiles_tuples/Path" {
   let points = [vec2(0, 0), vec2(1, 0), vec2(1, 1), vec2(0, 1)]
   let path = Path::from_points(points, closed=true)
   let graphic = Graphic::Path(path)
@@ -150,7 +147,7 @@ test "@draw.Graphic::to_profiles_tuples/Path" {
 }
 
 ///|
-test "@draw.Graphic::to_profiles_tuples/CompoundPath" {
+test "Graphic::to_profiles_tuples/CompoundPath" {
   let outer_points = [vec2(0, 0), vec2(10, 0), vec2(10, 10), vec2(0, 10)]
   let hole_points = [vec2(2, 2), vec2(8, 2), vec2(8, 8), vec2(2, 8)]
   let outer_path = Path::from_points(outer_points, closed=true)
