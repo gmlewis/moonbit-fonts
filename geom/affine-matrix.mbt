@@ -355,7 +355,7 @@ pub fn AffineMatrix::is_inf(self : AffineMatrix) -> Bool {
 }
 
 ///|
-fn matrix_mod(a : Double, b : Double) -> Double {
+fn signed_mod(a : Double, b : Double) -> Double {
   let tmp = @math.floor(a / b)
   let mut n = a - tmp * b
   if n < 0.0 {
@@ -382,7 +382,7 @@ pub fn AffineMatrix::to_transform(
     rad = @math.atan2(b, a)
     if ynz {
       skew = (rad - @math.atan2(-c, d)) * 180 / @math.PI
-      skew = matrix_mod(skew, 180)
+      skew = signed_mod(skew, 180)
       if skew > 90 {
         skew -= 180
       }
@@ -391,7 +391,7 @@ pub fn AffineMatrix::to_transform(
     rad = @math.atan2(-c, d)
   }
   let position = vec2(tx, ty)
-  let rotation = matrix_mod(rad * 180 / @math.PI, 360)
+  let rotation = signed_mod(rad * 180 / @math.PI, 360)
   let x = @math.cos(-rad)
   let y = @math.sin(-rad)
   let scale = vec2(a * x - b * y, c * y + d * x)
