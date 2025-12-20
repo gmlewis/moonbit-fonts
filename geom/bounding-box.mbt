@@ -164,7 +164,7 @@ pub fn BoundingBox::contains_bounding_box(
 }
 
 ///|
-/// is_in reports whether every point in r is in s.
+/// is_in reports whether every point in self is in s.
 pub fn BoundingBox::is_in(self : BoundingBox, s : BoundingBox) -> Bool {
   if self.is_empty() {
     return true
