@@ -4,8 +4,19 @@
     "gmlewis/fonts/geom"
   ],
   "targets": {
-    "ffi_notjs.mbt": [ "not", "js" ],
-    "ffi.mbt": [ "js" ]
+    "ffi_notjs.mbt": [
+      "native",
+      "llvm"
+    ],
+    "ffi.mbt": [
+      "wasm",
+      "wasm-gc",
+      "js"
+    ]
   },
-  "supported-targets": [ "js" ]
+  "supported-targets": [
+    "wasm",
+    "wasm-gc",
+    "js"
+  ]
 }
