@@ -283,6 +283,12 @@ pub fn Group::has_style(self : Group) -> Bool {
 }
 
 ///|
+/// `with_style` returns a new `Group` with the provided fill and/or stroke applied.
+pub fn Group::with_style(self : Group, fill? : Fill, stroke? : Stroke) -> Group {
+  self.assign_style(fill, stroke)
+}
+
+///|
 /// assign_fill assigns a fill to this Group.
 pub fn Group::assign_fill(self : Group, fill : Fill?) -> Group {
   { items: self.items.map(fn(item) { item.assign_fill(fill) }) }

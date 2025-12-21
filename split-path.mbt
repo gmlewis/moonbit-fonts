@@ -7,7 +7,8 @@ struct Cmd {
 
 ///|
 let split_re : @regexp.Regexp = (try? @regexp.compile(
-  "^([MLCQZ])([0-9\\.\\-, ]*)",
+  "^([MLCQZ])([0-9\\.\\-,\\s]*)",
+  flags="m",
 )).unwrap()
 
 ///|
@@ -36,7 +37,9 @@ fn split_path(d : String) -> Array[Cmd] raise FontError {
 
 ///|
 test "split_path" {
-  let d = "M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507 723L507 24ZM395 269L395 433L138 433L138 269L395 269Z"
+  let d =
+    #|M507 24L48 24L48 530L395 530L395 625L48 625L48 723L507
+    #|723L507 24ZM395 269L395 433L138 433L138 269L395 269Z
   let got = split_path(d)
   let want = [
     { c: "M", p: Params([507.0, 24.0]) },

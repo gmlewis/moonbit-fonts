@@ -19,16 +19,6 @@ pub impl Add for Graphic with add(self, other) {
 }
 
 ///|
-/// `with_style` returns a new `Graphic` with the provided fill and stroke applied.
-pub fn Graphic::with_style(
-  self : Graphic,
-  fill? : Fill,
-  stroke? : Stroke,
-) -> Graphic {
-  self.assign_style(fill, stroke)
-}
-
-///|
 /// clone returns a new copy of Graphic.
 pub fn Graphic::clone(self : Graphic) -> Graphic {
   match self {
@@ -261,6 +251,16 @@ pub fn Graphic::has_style(self : Graphic) -> Bool {
     Group(group) => group.has_style()
     Path(path) => path.has_style()
   }
+}
+
+///|
+/// `with_style` returns a new `Graphic` with the provided fill and/or stroke applied.
+pub fn Graphic::with_style(
+  self : Graphic,
+  fill? : Fill,
+  stroke? : Stroke,
+) -> Graphic {
+  self.assign_style(fill, stroke)
 }
 
 ///|

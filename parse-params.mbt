@@ -8,7 +8,10 @@ pub fn Params::length(self : Params) -> Int {
 }
 
 ///|
-let params_re : @regexp.Regexp = (try? @regexp.compile("^ *([0-9\\.\\-]+) *,*")).unwrap()
+let params_re : @regexp.Regexp = (try? @regexp.compile(
+  "^ *([0-9\\.\\-]+)\\s*,*",
+  flags="m",
+)).unwrap()
 
 ///|
 /// `parse_params` parses an SVG command and returns the parameters.
@@ -42,6 +45,13 @@ fn parse_params(d : String) -> Params raise FontError {
 test "parse_params" {
   let d = " 343 75 327.5 112 "
   let got = parse_params(d)
-  let want = [343.0, 75.0, 327.5, 112.0]
-  assert_eq(got, want)
+  inspect(got, content="Params([343, 75, 327.5, 112])")
+  // Check newlines:
+  let d =
+    #|343
+    #|75
+    #|327.5
+    #|112
+  let got = parse_params(d)
+  inspect(got, content="Params([343, 75, 327.5, 112])")
 }

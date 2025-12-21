@@ -217,8 +217,14 @@ pub fn Color::from_rgb8_number(value : UInt) -> Color {
 
 ///|
 /// as_fill is a convenience function for setting a fill color.
-pub fn Color::as_fill(self : Color) -> Fill? {
-  Some(fill(self))
+pub fn Color::as_fill(self : Color) -> Fill {
+  fill(self)
+}
+
+///|
+/// as_stroke is a convenience function for setting a stroke color.
+pub fn Color::as_stroke(self : Color) -> Stroke {
+  stroke(self)
 }
 
 ///|
