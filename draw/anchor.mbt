@@ -34,10 +34,14 @@ pub fn Anchor::affine_transform(
   self : Anchor,
   affine_matrix : AffineMatrix,
 ) -> Anchor {
-  let _ = self.position.affine_transform(affine_matrix)
-  let _ = self.handle_in.affine_transform_without_translation(affine_matrix)
-  let _ = self.handle_out.affine_transform_without_translation(affine_matrix)
-  self
+  let position = self.position.affine_transform(affine_matrix)
+  let handle_in = self.handle_in.affine_transform_without_translation(
+    affine_matrix,
+  )
+  let handle_out = self.handle_out.affine_transform_without_translation(
+    affine_matrix,
+  )
+  { position, handle_in, handle_out }
 }
 
 ///|
@@ -47,10 +51,16 @@ pub fn Anchor::affine_transform_without_translation(
   self : Anchor,
   affine_matrix : AffineMatrix,
 ) -> Anchor {
-  let _ = self.position.affine_transform_without_translation(affine_matrix)
-  let _ = self.handle_in.affine_transform_without_translation(affine_matrix)
-  let _ = self.handle_out.affine_transform_without_translation(affine_matrix)
-  self
+  let position = self.position.affine_transform_without_translation(
+    affine_matrix,
+  )
+  let handle_in = self.handle_in.affine_transform_without_translation(
+    affine_matrix,
+  )
+  let handle_out = self.handle_out.affine_transform_without_translation(
+    affine_matrix,
+  )
+  { position, handle_in, handle_out }
 }
 
 ///|

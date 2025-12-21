@@ -75,10 +75,10 @@ pub fn Path::affine_transform(
   self : Path,
   affine_matrix : AffineMatrix,
 ) -> Path {
-  for anchor in self.anchors {
-    ignore(anchor.affine_transform(affine_matrix))
-  }
-  self
+  let new_anchors = self.anchors.map(fn(anchor) {
+    anchor.affine_transform(affine_matrix)
+  })
+  { ..self, anchors: new_anchors }
 }
 
 ///|
@@ -88,10 +88,10 @@ pub fn Path::affine_transform_without_translation(
   self : Path,
   affine_matrix : AffineMatrix,
 ) -> Path {
-  for anchor in self.anchors {
-    ignore(anchor.affine_transform_without_translation(affine_matrix))
-  }
-  self
+  let new_anchors = self.anchors.map(fn(anchor) {
+    anchor.affine_transform_without_translation(affine_matrix)
+  })
+  { ..self, anchors: new_anchors }
 }
 
 ///|
@@ -254,8 +254,8 @@ pub fn Path::bounding_box(self : Path) -> BoundingBox? {
       lower_left,
       upper_right,
     )
-    ignore(bbox.min.min(lower_left))
-    ignore(bbox.max.max(upper_right))
+    bbox.min.min(lower_left)
+    bbox.max.max(upper_right)
   }
   Some(bbox)
 }

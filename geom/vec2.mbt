@@ -82,9 +82,9 @@ pub fn Vec2::affine_transform(
 ) -> Vec2 {
   let { x: x0, y: y0 } = self
   let { a, b, c, d, tx, ty } = affine_matrix
-  self.x = a * x0 + c * y0 + tx
-  self.y = b * x0 + d * y0 + ty
-  self
+  let x = a * x0 + c * y0 + tx
+  let y = b * x0 + d * y0 + ty
+  { x, y }
 }
 
 ///|
@@ -97,9 +97,9 @@ pub fn Vec2::affine_transform_without_translation(
 ) -> Vec2 {
   let { x: x0, y: y0 } = self
   let { a, b, c, d, .. } = affine_matrix
-  self.x = a * x0 + c * y0
-  self.y = b * x0 + d * y0
-  self
+  let x = a * x0 + c * y0
+  let y = b * x0 + d * y0
+  { x, y }
 }
 
 ///|

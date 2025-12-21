@@ -94,21 +94,21 @@ pub fn Group::loose_bounding_box(self : Group) -> BoundingBox? {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Group(group) => {
         let item_bbox = match group.loose_bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Path(path) => {
         let item_bbox = match path.loose_bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
     }
   }
@@ -131,21 +131,21 @@ pub fn Group::bounding_box(self : Group) -> BoundingBox? {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Group(group) => {
         let item_bbox = match group.bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Path(path) => {
         let item_bbox = match path.bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
     }
   }

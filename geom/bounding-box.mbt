@@ -47,8 +47,7 @@ pub fn BoundingBox::from_points(points : Array[Vec2]) -> BoundingBox {
   guard points.length() > 0
   let bbox = BoundingBox::new(min=points[0].clone(), max=points[0].clone())
   for i in 1..<points.length() {
-    let _ = bbox.expand_to_include_point(points[i])
-
+    bbox.expand_to_include_point(points[i])
   }
   bbox
 }
@@ -111,12 +110,11 @@ pub fn BoundingBox::is_nan(self : BoundingBox) -> Bool {
 
 ///|
 /// canonicalize ensures that min < max.
-pub fn BoundingBox::canonicalize(self : BoundingBox) -> BoundingBox {
+pub fn BoundingBox::canonicalize(self : BoundingBox) -> Unit {
   let { x: xmin, y: ymin } = self.min
   let { x: xmax, y: ymax } = self.max
-  let _ = self.min.set(@cmp.minimum(xmin, xmax), @cmp.minimum(ymin, ymax))
-  let _ = self.max.set(@cmp.maximum(xmin, xmax), @cmp.maximum(ymin, ymax))
-  self
+  self.min.set(@cmp.minimum(xmin, xmax), @cmp.minimum(ymin, ymax))
+  self.max.set(@cmp.maximum(xmin, xmax), @cmp.maximum(ymin, ymax))
 }
 
 ///|
@@ -125,9 +123,8 @@ pub fn BoundingBox::expand_to_include_point(
   self : BoundingBox,
   point : Vec2,
 ) -> Unit {
-  let _ = self.min.min(point)
-  let _ = self.max.max(point)
-
+  self.min.min(point)
+  self.max.max(point)
 }
 
 ///|
@@ -145,10 +142,9 @@ pub fn BoundingBox::expand_to_include_bounding_box(
 pub fn BoundingBox::expand_scalar(
   self : BoundingBox,
   distance : Double,
-) -> BoundingBox {
-  let _ = self.min.self_sub_scalar(distance)
-  let _ = self.max.self_add_scalar(distance)
-  self
+) -> Unit {
+  self.min.self_sub_scalar(distance)
+  self.max.self_add_scalar(distance)
 }
 
 ///|

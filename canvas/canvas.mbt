@@ -40,16 +40,13 @@ pub fn CanvasCtx::from_graphic(
 
   //
   let paths = g.all_paths_and_compound_paths()
-  ignore(
-    Graphic::every(paths, fn(g) {
-      match g {
-        Path(path) => self.render_path(path)
-        CompoundPath(path) => self.render_compound_path(path)
-        _ => ()
-      }
-      true
-    }),
-  )
+  for path in paths {
+    match path {
+      Path(path) => self.render_path(path)
+      CompoundPath(path) => self.render_compound_path(path)
+      _ => ()
+    }
+  }
 }
 
 ///|

@@ -88,7 +88,7 @@ pub(all) struct BoundingBox {
 pub fn BoundingBox::area(Self) -> Double
 pub fn BoundingBox::boolean_intersect(Self, Array[Self]) -> Self?
 pub fn BoundingBox::bounds(Self) -> (Double, Double, Double, Double)
-pub fn BoundingBox::canonicalize(Self) -> Self
+pub fn BoundingBox::canonicalize(Self) -> Unit
 pub fn BoundingBox::center(Self) -> Vec2
 pub fn BoundingBox::clone(Self) -> Self
 pub fn BoundingBox::contains_bounding_box(Self, Self) -> Bool
@@ -96,7 +96,7 @@ pub fn BoundingBox::contains_point(Self, Vec2) -> Bool
 pub fn BoundingBox::copy(Self, Self) -> Unit
 pub fn BoundingBox::dx(Self) -> Double
 pub fn BoundingBox::dy(Self) -> Double
-pub fn BoundingBox::expand_scalar(Self, Double) -> Self
+pub fn BoundingBox::expand_scalar(Self, Double) -> Unit
 pub fn BoundingBox::expand_to_include_bounding_box(Self, Self) -> Unit
 pub fn BoundingBox::expand_to_include_point(Self, Vec2) -> Unit
 pub fn BoundingBox::from_points(Array[Vec2]) -> Self
