@@ -32,6 +32,13 @@ The corresponding GitHub repositories are:
 See the [examples/quick-start](examples/quick-start) directory for a valid example
 of how to use this package.
 
+## Gallery
+
+* [Alignment Gallery](examples/alignment-gallery): Visual reference for text alignment.
+* [Styled Text](examples/styled-text): Demonstration of fills, strokes, and CSS colors.
+* [SVG Checkerboard](examples/svg-checkerboard): Basic graphic rendering.
+* [Quick Start](examples/quick-start): Simple text rendering.
+
 ## Examples
 
 ### checkerboard
