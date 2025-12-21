@@ -21,30 +21,8 @@ repos which are organized by the first letter of the name of the font:
 
 ## Quick Start
 
-To use this package, you will also need to import one or more font data packages
-(e.g., `mbt-fonts-a`).
-
-```moonbit
-import @gmlewis/fonts/draw
-import @gmlewis/fonts/svg
-// Import a font package, e.g. aaarghnormal from mbt-fonts-a
-import @gmlewis/mbt-fonts-a/aaarghnormal
-
-fn main {
-  // Use the font to create a graphic
-  let font = @aaarghnormal.font
-  let text = "Hello MoonBit!"
-  let graphic = try {
-    @draw.to_graphic!(font, text, size=72.0)
-  } catch {
-    _ => return
-  }
-
-  // Render the graphic to an SVG string
-  let svg_str = @svg.from_graphic(graphic)
-  println(svg_str)
-}
-```
+See the [examples/quick-start](examples/quick-start) directory for a valid example
+of how to use this package.
 
 ## Examples
 
