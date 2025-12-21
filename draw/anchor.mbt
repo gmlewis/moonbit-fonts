@@ -154,8 +154,8 @@ pub fn Anchor::has_tangent_handles(
   self : Anchor,
   tolerance? : Double = @geom.DEFAULT_TOLERANCE,
 ) -> Bool {
-  let _ = tmp1.copy(self.handle_in).normalize()
-  let _ = tmp2.copy(self.handle_out).normalize()
+  tmp1..copy(self.handle_in).normalize()
+  tmp2..copy(self.handle_out).normalize()
   tmp1.dot(tmp2) <= tolerance - 1
 }
 

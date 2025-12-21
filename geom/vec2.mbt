@@ -55,18 +55,16 @@ pub fn Vec2::clone(self : Vec2) -> Vec2 {
 
 ///|
 /// set sets the x and y components of this Vec2.
-pub fn Vec2::set(self : Vec2, x : Double, y : Double) -> Vec2 {
+pub fn Vec2::set(self : Vec2, x : Double, y : Double) -> Unit {
   self.x = x
   self.y = y
-  self
 }
 
 ///|
 /// copy copies `v` into this Vec2.
-pub fn Vec2::copy(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::copy(self : Vec2, v : Vec2) -> Unit {
   self.x = v.x
   self.y = v.y
-  self
 }
 
 ///|
@@ -122,102 +120,113 @@ pub fn Vec2::transform(
 
 ///|
 /// self_add adds the vector `v` to this vector.
-pub fn Vec2::self_add(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::self_add(self : Vec2, v : Vec2) -> Unit {
   self.x += v.x
   self.y += v.y
-  self
 }
 
 ///|
 /// add adds vector `other` to this vector without modifying either one
 /// and returns the result.
 pub impl Add for Vec2 with add(self, other) {
-  self.clone().self_add(other)
+  let result = self.clone()
+  result.self_add(other)
+  result
+}
+
+///|
+/// add_scalar adds scalar `s` to self and returns a new vector.
+pub fn Vec2::add_scalar(self : Vec2, s : Double) -> Vec2 {
+  vec2(self.x + s, self.y + s)
 }
 
 ///|
 /// self_add_scalar adds scalar `s` to this vector.
-pub fn Vec2::self_add_scalar(self : Vec2, s : Double) -> Vec2 {
+pub fn Vec2::self_add_scalar(self : Vec2, s : Double) -> Unit {
   self.x += s
   self.y += s
-  self
 }
 
 ///|
 /// self_sub subtracts the vector `v` from this vector.
-pub fn Vec2::self_sub(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::self_sub(self : Vec2, v : Vec2) -> Unit {
   self.x -= v.x
   self.y -= v.y
-  self
 }
 
 ///|
 /// sub subtracts vector `other` from this vector without modifying either one
 /// and returns the result.
 pub impl Sub for Vec2 with sub(self, other) {
-  self.clone().self_sub(other)
+  let result = self.clone()
+  result.self_sub(other)
+  result
 }
 
 ///|
 /// self_sub_scalar subtracts scalar `s` from this vector.
-pub fn Vec2::self_sub_scalar(self : Vec2, s : Double) -> Vec2 {
+pub fn Vec2::self_sub_scalar(self : Vec2, s : Double) -> Unit {
   self.x -= s
   self.y -= s
-  self
 }
 
 ///|
 /// self_mul multiplies the vector `v` to this vector.
-pub fn Vec2::self_mul(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::self_mul(self : Vec2, v : Vec2) -> Unit {
   self.x *= v.x
   self.y *= v.y
-  self
 }
 
 ///|
 /// mul multiplies vector `other` to this vector without modifying either one
 /// and returns the result.
 pub impl Mul for Vec2 with mul(self, other) {
-  self.clone().self_mul(other)
+  let result = self.clone()
+  result.self_mul(other)
+  result
+}
+
+///|
+/// mul_scalar multiplies scalar `s` to self and returns a new vector.
+pub fn Vec2::mul_scalar(self : Vec2, s : Double) -> Vec2 {
+  vec2(self.x * s, self.y * s)
 }
 
 ///|
 /// self_mul_scalar multiplies scalar `s` to this vector.
-pub fn Vec2::self_mul_scalar(self : Vec2, s : Double) -> Vec2 {
+pub fn Vec2::self_mul_scalar(self : Vec2, s : Double) -> Unit {
   self.x *= s
   self.y *= s
-  self
 }
 
 ///|
 /// self_div divides this vector by vector `v`.
-pub fn Vec2::self_div(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::self_div(self : Vec2, v : Vec2) -> Unit {
   self.x /= v.x
   self.y /= v.y
-  self
 }
 
 ///|
 /// div divides this vector by vector `other` without modifying either one
 /// and returns the result.
 pub impl Div for Vec2 with div(self, other) {
-  self.clone().self_div(other)
+  let result = self.clone()
+  result.self_div(other)
+  result
 }
 
 ///|
 /// self_div_scalar divides this vector by scalar `s`.
-pub fn Vec2::self_div_scalar(self : Vec2, s : Double) -> Vec2 {
+pub fn Vec2::self_div_scalar(self : Vec2, s : Double) -> Unit {
   self.x /= s
   self.y /= s
-  self
 }
 
 ///|
 /// negate multiplies both components (in-place) by -1.
-pub fn Vec2::negate(self : Vec2) -> Vec2 {
+pub fn Vec2::negate(self : Vec2) -> Unit {
   self.x *= -1
   self.y *= -1
-  self
 }
 
 ///|
@@ -306,19 +315,17 @@ pub fn Vec2::round_to_multiple(self : Vec2, v : Double) -> Vec2 {
 ///|
 /// min compares the components of this vector and `v` and sets this vector's
 /// components to the minimum of the two.
-pub fn Vec2::min(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::min(self : Vec2, v : Vec2) -> Unit {
   self.x = @cmp.minimum(self.x, v.x)
   self.y = @cmp.minimum(self.y, v.y)
-  self
 }
 
 ///|
 /// max compares the components of this vector and `v` and sets this vector's
 /// components to the maximum of the two.
-pub fn Vec2::max(self : Vec2, v : Vec2) -> Vec2 {
+pub fn Vec2::max(self : Vec2, v : Vec2) -> Unit {
   self.x = @cmp.maximum(self.x, v.x)
   self.y = @cmp.maximum(self.y, v.y)
-  self
 }
 
 ///|
@@ -345,12 +352,11 @@ pub fn Vec2::cross(self : Vec2, v : Vec2) -> Double {
 ///|
 /// normalize scales this vector so that its length is 1.
 /// Note that this vector must already have a non-zero length.
-pub fn Vec2::normalize(self : Vec2) -> Vec2 {
+pub fn Vec2::normalize(self : Vec2) -> Unit {
   let v = self.length_squared()
   if v > 0 {
-    return self.self_mul_scalar(1.0 / v.sqrt())
+    self.self_mul_scalar(1.0 / v.sqrt())
   }
-  self
 }
 
 ///|

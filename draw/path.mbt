@@ -141,8 +141,8 @@ fn segment_extents(
   lower_left : Vec2,
   upper_right : Vec2,
 ) -> Unit {
-  ignore(lower_left.copy(p1).min(p2))
-  ignore(upper_right.copy(p1).max(p2))
+  lower_left..copy(p1).min(p2)
+  upper_right..copy(p1).max(p2)
   let d1x = h1.x - p1.x
   let d1y = h1.y - p1.y
   let v1x = p1.x - h1.x * 2 + h2.x
@@ -228,10 +228,8 @@ pub fn Path::bounding_box(self : Path) -> BoundingBox? {
   for i in 1..<n {
     let last_anchor = anchors[i - 1]
     let current_anchor = anchors[i]
-    ignore(handle1.copy(last_anchor.position).self_add(last_anchor.handle_out))
-    ignore(
-      handle2.copy(current_anchor.position).self_add(current_anchor.handle_in),
-    )
+    handle1..copy(last_anchor.position).self_add(last_anchor.handle_out)
+    handle2..copy(current_anchor.position).self_add(current_anchor.handle_in)
     segment_extents(
       last_anchor.position,
       handle1,
@@ -240,16 +238,14 @@ pub fn Path::bounding_box(self : Path) -> BoundingBox? {
       lower_left,
       upper_right,
     )
-    ignore(bbox.min.min(lower_left))
-    ignore(bbox.max.max(upper_right))
+    bbox.min.min(lower_left)
+    bbox.max.max(upper_right)
   }
   if closed {
     let last_anchor = anchors[anchors.length() - 1]
     let current_anchor = anchors[0]
-    ignore(handle1.copy(last_anchor.position).self_add(last_anchor.handle_out))
-    ignore(
-      handle2.copy(current_anchor.position).self_add(current_anchor.handle_in),
-    )
+    handle1..copy(last_anchor.position).self_add(last_anchor.handle_out)
+    handle2..copy(current_anchor.position).self_add(current_anchor.handle_in)
     segment_extents(
       last_anchor.position,
       handle1,
@@ -438,51 +434,38 @@ pub fn Path::loose_bounding_box(self : Path) -> BoundingBox? {
     1 => return anchors[0].loose_bounding_box()
     _ => ()
   }
-  let vec = Vec2::new()
   let mut current_anchor = anchors[0]
   let bbox = BoundingBox::new(
     min=current_anchor.position.clone(),
     max=current_anchor.position.clone(),
   )
-  ignore(
-    bbox.expand_to_include_point(
-      vec.copy(current_anchor.position).self_add(current_anchor.handle_out),
-    ),
+  bbox.expand_to_include_point(
+    current_anchor.position.add(current_anchor.handle_out),
   )
   if closed {
-    ignore(
-      bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).self_add(current_anchor.handle_in),
-      ),
+    bbox.expand_to_include_point(
+      current_anchor.position.add(current_anchor.handle_in),
     )
   }
   let last_index = anchors.length() - 1
   for i in 1..<last_index {
     current_anchor = anchors[i]
-    ignore(bbox.expand_to_include_point(current_anchor.position))
-    ignore(
-      bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).self_add(current_anchor.handle_in),
-      ),
+    bbox.expand_to_include_point(current_anchor.position)
+    bbox.expand_to_include_point(
+      current_anchor.position.add(current_anchor.handle_in),
     )
-    ignore(
-      bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).self_add(current_anchor.handle_out),
-      ),
+    bbox.expand_to_include_point(
+      current_anchor.position.add(current_anchor.handle_out),
     )
   }
   current_anchor = anchors[last_index]
-  ignore(bbox.expand_to_include_point(current_anchor.position))
-  ignore(
-    bbox.expand_to_include_point(
-      vec.copy(current_anchor.position).self_add(current_anchor.handle_in),
-    ),
+  bbox.expand_to_include_point(current_anchor.position)
+  bbox.expand_to_include_point(
+    current_anchor.position.add(current_anchor.handle_in),
   )
   if closed {
-    ignore(
-      bbox.expand_to_include_point(
-        vec.copy(current_anchor.position).self_add(current_anchor.handle_out),
-      ),
+    bbox.expand_to_include_point(
+      current_anchor.position.add(current_anchor.handle_out),
     )
   }
   Some(bbox)
@@ -630,8 +613,8 @@ pub fn cubic_bezier_at(
   let tu3 = 3.0 * u * tt
   p0
   .clone()
-  .self_mul_scalar(uuu)
-  .add(p1.clone().self_mul_scalar(ut3))
-  .add(p2.clone().self_mul_scalar(tu3))
-  .add(p3.clone().self_mul_scalar(ttt))
+  ..self_mul_scalar(uuu)
+  .add(p1.mul_scalar(ut3))
+  .add(p2.mul_scalar(tu3))
+  .add(p3.mul_scalar(ttt))
 }

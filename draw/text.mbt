@@ -143,7 +143,7 @@ fn glyph2compound_path(
         let params = parse_params(params)
         anchors.push(
           Anchor::new(
-            position=vec2(params[0] * xscale, params[1] * yscale).self_add(pos),
+            position=vec2(params[0] * xscale, params[1] * yscale).add(pos),
           ),
         )
       }
@@ -157,9 +157,7 @@ fn glyph2compound_path(
         for i = 0; i < params.length(); i = i + 2 {
           anchors.push(
             Anchor::new(
-              position=vec2(params[i] * xscale, params[i + 1] * yscale).self_add(
-                pos,
-              ),
+              position=vec2(params[i] * xscale, params[i + 1] * yscale).add(pos),
             ),
           )
         }
@@ -176,14 +174,14 @@ fn glyph2compound_path(
               params[i] * xscale,
               params[i + 1] * yscale,
             )
-            .self_add(pos)
-            .self_sub(anchors[anchors.length() - 1].position)
-          let anchor_pos = vec2(params[i + 4] * xscale, params[i + 5] * yscale).self_add(
+            .add(pos)
+            .sub(anchors[anchors.length() - 1].position)
+          let anchor_pos = vec2(params[i + 4] * xscale, params[i + 5] * yscale).add(
             pos,
           )
           let handle_in = vec2(params[i + 2] * xscale, params[i + 3] * yscale)
-            .self_add(pos)
-            .self_sub(anchor_pos)
+            .add(pos)
+            .sub(anchor_pos)
           anchors.push(Anchor::new(position=anchor_pos, handle_in~))
         }
       }
@@ -197,29 +195,25 @@ fn glyph2compound_path(
         let params = parse_params(params)
         for i = 0; i < params.length(); i = i + 4 {
           let start_pt = anchors[anchors.length() - 1].position
-          let quad_ctrl_pt = vec2(params[i] * xscale, params[i + 1] * yscale).self_add(
+          let quad_ctrl_pt = vec2(params[i] * xscale, params[i + 1] * yscale).add(
             pos,
           )
           let cubic1CtrlPt = quad_ctrl_pt
-            .clone()
-            .self_sub(start_pt)
-            .self_mul_scalar(2.0 / 3)
-            .self_add(start_pt)
-          anchors[anchors.length() - 1].handle_out = cubic1CtrlPt.self_sub(
+            .sub(start_pt)
+            .mul_scalar(2.0 / 3)
+            .add(start_pt)
+          anchors[anchors.length() - 1].handle_out = cubic1CtrlPt.sub(
             anchors[anchors.length() - 1].position,
           )
-          let end_pt = vec2(params[i + 2] * xscale, params[i + 3] * yscale).self_add(
+          let end_pt = vec2(params[i + 2] * xscale, params[i + 3] * yscale).add(
             pos,
           )
           let cubic2_ctrl_pt = quad_ctrl_pt
-            .self_sub(end_pt)
-            .self_mul_scalar(2.0 / 3)
-            .self_add(end_pt)
+            .sub(end_pt)
+            .mul_scalar(2.0 / 3)
+            .add(end_pt)
           anchors.push(
-            Anchor::new(
-              position=end_pt,
-              handle_in=cubic2_ctrl_pt.self_sub(end_pt),
-            ),
+            Anchor::new(position=end_pt, handle_in=cubic2_ctrl_pt.sub(end_pt)),
           )
         }
       }

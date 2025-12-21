@@ -97,8 +97,8 @@ pub fn BoundingBox::copy(Self, Self) -> Unit
 pub fn BoundingBox::dx(Self) -> Double
 pub fn BoundingBox::dy(Self) -> Double
 pub fn BoundingBox::expand_scalar(Self, Double) -> Self
-pub fn BoundingBox::expand_to_include_bounding_box(Self, Self) -> Self
-pub fn BoundingBox::expand_to_include_point(Self, Vec2) -> Self
+pub fn BoundingBox::expand_to_include_bounding_box(Self, Self) -> Unit
+pub fn BoundingBox::expand_to_include_point(Self, Vec2) -> Unit
 pub fn BoundingBox::from_points(Array[Vec2]) -> Self
 pub fn BoundingBox::height(Self) -> Double
 pub fn BoundingBox::inset(Self, Double) -> Self
@@ -132,6 +132,7 @@ pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
 }
+pub fn Vec2::add_scalar(Self, Double) -> Self
 pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
 pub fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
 pub fn Vec2::almost_equals(Self, Self, tolerance? : Double) -> Bool
@@ -140,7 +141,7 @@ pub fn Vec2::angle_radians(Self) -> Double
 pub fn Vec2::apply(Self, (Double) -> Double) -> Self
 pub fn Vec2::ceil(Self) -> Self
 pub fn Vec2::clone(Self) -> Self
-pub fn Vec2::copy(Self, Self) -> Self
+pub fn Vec2::copy(Self, Self) -> Unit
 pub fn Vec2::cross(Self, Self) -> Double
 pub fn Vec2::distance(Self, Self) -> Double
 pub fn Vec2::distance_squared(Self, Self) -> Double
@@ -159,13 +160,14 @@ pub fn Vec2::is_valid(Self) -> Bool
 pub fn Vec2::is_zero(Self) -> Bool
 pub fn Vec2::length(Self) -> Double
 pub fn Vec2::length_squared(Self) -> Double
-pub fn Vec2::max(Self, Self) -> Self
-pub fn Vec2::min(Self, Self) -> Self
+pub fn Vec2::max(Self, Self) -> Unit
+pub fn Vec2::min(Self, Self) -> Unit
 pub fn Vec2::mix(Self, Self, Double) -> Self
+pub fn Vec2::mul_scalar(Self, Double) -> Self
 pub fn Vec2::neg_infinity() -> Self
-pub fn Vec2::negate(Self) -> Self
+pub fn Vec2::negate(Self) -> Unit
 pub fn Vec2::new(x? : Double, y? : Double) -> Self
-pub fn Vec2::normalize(Self) -> Self
+pub fn Vec2::normalize(Self) -> Unit
 pub fn Vec2::project_onto(Self, Self) -> Self
 pub fn Vec2::rotate(Self, Double) -> Self
 pub fn Vec2::rotate90(Self) -> Self
@@ -174,15 +176,15 @@ pub fn Vec2::rotate_radians(Self, Double) -> Self
 pub fn Vec2::round(Self) -> Self
 pub fn Vec2::round_to_fixed(Self, Int) -> Self
 pub fn Vec2::round_to_multiple(Self, Double) -> Self
-pub fn Vec2::self_add(Self, Self) -> Self
-pub fn Vec2::self_add_scalar(Self, Double) -> Self
-pub fn Vec2::self_div(Self, Self) -> Self
-pub fn Vec2::self_div_scalar(Self, Double) -> Self
-pub fn Vec2::self_mul(Self, Self) -> Self
-pub fn Vec2::self_mul_scalar(Self, Double) -> Self
-pub fn Vec2::self_sub(Self, Self) -> Self
-pub fn Vec2::self_sub_scalar(Self, Double) -> Self
-pub fn Vec2::set(Self, Double, Double) -> Self
+pub fn Vec2::self_add(Self, Self) -> Unit
+pub fn Vec2::self_add_scalar(Self, Double) -> Unit
+pub fn Vec2::self_div(Self, Self) -> Unit
+pub fn Vec2::self_div_scalar(Self, Double) -> Unit
+pub fn Vec2::self_mul(Self, Self) -> Unit
+pub fn Vec2::self_mul_scalar(Self, Double) -> Unit
+pub fn Vec2::self_sub(Self, Self) -> Unit
+pub fn Vec2::self_sub_scalar(Self, Double) -> Unit
+pub fn Vec2::set(Self, Double, Double) -> Unit
 pub fn Vec2::to_tuple(Self) -> (Double, Double)
 pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 pub impl Add for Vec2

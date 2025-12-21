@@ -69,13 +69,13 @@ pub fn BoundingBox::copy(self : BoundingBox, other : BoundingBox) -> Unit {
 ///|
 /// center returns the center point of the bounding box (the average of min and max).
 pub fn BoundingBox::center(self : BoundingBox) -> Vec2 {
-  self.min.clone().self_add(self.max).self_mul_scalar(0.5)
+  self.min.add(self.max).mul_scalar(0.5)
 }
 
 ///|
 /// size returns a vector representing the (width,height) of the bounding box.
 pub fn BoundingBox::size(self : BoundingBox) -> Vec2 {
-  self.max.clone().self_sub(self.min)
+  self.max.sub(self.min)
 }
 
 ///|
@@ -124,10 +124,10 @@ pub fn BoundingBox::canonicalize(self : BoundingBox) -> BoundingBox {
 pub fn BoundingBox::expand_to_include_point(
   self : BoundingBox,
   point : Vec2,
-) -> BoundingBox {
+) -> Unit {
   let _ = self.min.min(point)
   let _ = self.max.max(point)
-  self
+
 }
 
 ///|
@@ -135,8 +135,9 @@ pub fn BoundingBox::expand_to_include_point(
 pub fn BoundingBox::expand_to_include_bounding_box(
   self : BoundingBox,
   box : BoundingBox,
-) -> BoundingBox {
-  self.expand_to_include_point(box.min).expand_to_include_point(box.max)
+) -> Unit {
+  self.expand_to_include_point(box.min)
+  self.expand_to_include_point(box.max)
 }
 
 ///|
