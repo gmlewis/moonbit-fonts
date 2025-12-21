@@ -127,32 +127,3 @@ fn svgpath2compound_path(
   }
   CompoundPath::new(paths~, fill=fill(black))
 }
-
-///|
-fn glyph2compound_path(
-  d : String,
-  gerber_lp : String,
-  pos : Vec2,
-  xscale : Double,
-  yscale : Double,
-) -> CompoundPath raise DrawError {
-  let glyph : Glyph = {
-    char: "",
-    horiz_adv_x: 0.0,
-    gerber_lp,
-    d,
-    xmin: 0.0,
-    ymin: 0.0,
-    xmax: 0.0,
-    ymax: 0.0,
-  }
-  let svgpath = SVGPath::from_glyph(glyph) catch {
-    e => raise DrawError("glyph2compound_path: \{e}")
-  }
-  let cp = svgpath2compound_path(svgpath, xscale, yscale)
-  if not(pos.is_zero()) {
-    cp.translate(pos)
-  } else {
-    cp
-  }
-}
