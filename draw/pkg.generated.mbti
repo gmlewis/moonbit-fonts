@@ -218,6 +218,7 @@ pub fn Group::reverse(Self) -> Self
 pub fn Group::rotate(Self, Double) -> Self
 pub fn Group::scale(Self, @geom.Vec2) -> Self
 pub fn Group::scale_stroke(Self, Double) -> Self
+pub fn Group::self_transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Unit
 pub fn Group::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Group::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Group::translate(Self, @geom.Vec2) -> Self

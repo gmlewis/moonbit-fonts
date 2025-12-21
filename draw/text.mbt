@@ -56,14 +56,14 @@ pub fn text(
     if bbox != None {
       let bbox = bbox.unwrap()
       let position = vec2(-(bbox.max.x + bbox.min.x) / 2, 0)
-      ignore(group.transform(position~))
+      group.self_transform(position~)
     }
   } else if align == Right {
     let bbox = group.bounding_box()
     if bbox != None {
       let bbox = bbox.unwrap()
       let position = vec2(-bbox.max.x, 0)
-      ignore(group.transform(position~))
+      group.self_transform(position~)
     }
   }
   Group(Group::new(items=[Group(group)]))

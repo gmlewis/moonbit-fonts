@@ -242,84 +242,77 @@ pub fn Graphic::has_style(self : Graphic) -> Bool {
 }
 
 ///|
-/// assign_fill assigns a fill to this Graphic.
+/// assign_fill assigns a fill to this Graphic, returning a new Graphpic.
 pub fn Graphic::assign_fill(self : Graphic, fill : Fill?) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.assign_fill(fill))
-    Group(group) => ignore(group.assign_fill(fill))
-    Path(path) => ignore(path.assign_fill(fill))
+    CompoundPath(path) => CompoundPath(path.assign_fill(fill))
+    Group(group) => Group(group.assign_fill(fill))
+    Path(path) => Path(path.assign_fill(fill))
   }
-  self
 }
 
 ///|
-/// remove_fill a fill style from this Graphic.
+/// remove_fill a fill style from this Graphic, returning a new Graphic.
 pub fn Graphic::remove_fill(self : Graphic) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.remove_fill())
-    Group(group) => ignore(group.remove_fill())
-    Path(path) => ignore(path.remove_fill())
+    CompoundPath(path) => CompoundPath(path.remove_fill())
+    Group(group) => Group(group.remove_fill())
+    Path(path) => Path(path.remove_fill())
   }
-  self
 }
 
 ///|
-/// assign_stroke assigns a stroke to this Graphic.
+/// assign_stroke assigns a stroke to this Graphic, returning a new Graphic.
 pub fn Graphic::assign_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.assign_stroke(stroke))
-    Group(group) => ignore(group.assign_stroke(stroke))
-    Path(path) => ignore(path.assign_stroke(stroke))
+    CompoundPath(path) => CompoundPath(path.assign_stroke(stroke))
+    Group(group) => Group(group.assign_stroke(stroke))
+    Path(path) => Path(path.assign_stroke(stroke))
   }
-  self
 }
 
 ///|
-/// remove_stroke a stroke style from this Graphic.
+/// remove_stroke a stroke style from this Graphic, returning a new Graphic.
 pub fn Graphic::remove_stroke(self : Graphic) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.remove_stroke())
-    Group(group) => ignore(group.remove_stroke())
-    Path(path) => ignore(path.remove_stroke())
+    CompoundPath(path) => CompoundPath(path.remove_stroke())
+    Group(group) => Group(group.remove_stroke())
+    Path(path) => Path(path.remove_stroke())
   }
-  self
 }
 
 ///|
-/// assign_style assigns a fill and stroke style to this Graphic.
+/// assign_style assigns a fill and stroke style to this Graphic, returning a new Graphic.
 pub fn Graphic::assign_style(
   self : Graphic,
   fill : Fill?,
   stroke : Stroke?,
 ) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.assign_style(fill, stroke))
-    Group(group) => ignore(group.assign_style(fill, stroke))
-    Path(path) => ignore(path.assign_style(fill, stroke))
+    CompoundPath(path) => CompoundPath(path.assign_style(fill, stroke))
+    Group(group) => Group(group.assign_style(fill, stroke))
+    Path(path) => Path(path.assign_style(fill, stroke))
   }
-  self
 }
 
 ///|
-/// copy_style copies the fill and stroke style from `graphic`.
+/// copy_style copies the fill and stroke style from `graphic`, returning a new graphic.
 pub fn Graphic::copy_style(self : Graphic, graphic : Graphic) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.copy_style(graphic))
-    Group(group) => ignore(group.copy_style(graphic))
-    Path(path) => ignore(path.copy_style(graphic))
+    CompoundPath(path) => CompoundPath(path.copy_style(graphic))
+    Group(group) => Group(group.copy_style(graphic))
+    Path(path) => Path(path.copy_style(graphic))
   }
-  self
 }
 
 ///|
-/// scale_stroke scales the stroke width of this Graphic by `scale_factor`.
+/// scale_stroke scales the stroke width of this Graphic by `scale_factor`, returning a new Graphic.
 pub fn Graphic::scale_stroke(self : Graphic, scale_factor : Double) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.scale_stroke(scale_factor))
-    Group(group) => ignore(group.scale_stroke(scale_factor))
-    Path(path) => ignore(path.scale_stroke(scale_factor))
+    CompoundPath(path) => CompoundPath(path.scale_stroke(scale_factor))
+    Group(group) => Group(group.scale_stroke(scale_factor))
+    Path(path) => Path(path.scale_stroke(scale_factor))
   }
-  self
 }
 
 ///|

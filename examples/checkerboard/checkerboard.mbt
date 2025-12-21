@@ -1,17 +1,5 @@
 ///|
-using @draw {type Fill}
-
-///|
-using @draw {type Graphic}
-
-///|
-using @draw {type Group}
-
-///|
-let fill = @draw.fill
-
-///|
-let rgba = @draw.rgba
+using @draw {type Fill, type Graphic, type Group, fill, rgba}
 
 ///|
 let unit_circle = @draw.unit_circle
