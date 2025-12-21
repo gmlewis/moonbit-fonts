@@ -24,6 +24,8 @@ pub fn stroke(Color) -> Stroke
 
 pub fn text(text~ : String, font~ : @fonts.Font, align? : TextAlign, size? : Double) -> Graphic raise DrawError
 
+pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignment) -> Graphic raise DrawError
+
 pub fn unit_circle() -> Group
 
 pub fn unit_square() -> Group
@@ -323,6 +325,8 @@ pub impl Eq for TextAlign
 pub impl Show for TextAlign
 
 // Type aliases
+pub using @fonts {type AbsoluteCmd}
+
 pub using @geom {type AffineMatrix}
 
 pub using @geom {type Alignment}
@@ -330,6 +334,14 @@ pub using @geom {type Alignment}
 pub using @geom {type BoundingBox}
 
 pub using @fonts {type Font}
+
+pub using @fonts {type GerberLP}
+
+pub using @fonts {type Glyph}
+
+pub using @fonts {type PathCmd}
+
+pub using @fonts {type SVGPath}
 
 pub using @geom {type Transform}
 

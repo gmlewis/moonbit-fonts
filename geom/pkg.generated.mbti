@@ -14,6 +14,8 @@ pub fn pt(Double, Double) -> Vec2
 
 pub fn rect(Double, Double, Double, Double) -> BoundingBox
 
+pub fn round_to_fixed(Double, Int) -> Double
+
 pub fn vec2(Double, Double) -> Vec2
 
 // Errors

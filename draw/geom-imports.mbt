@@ -10,4 +10,11 @@ pub using @geom {
 }
 
 ///|
-pub using @fonts {type Font}
+pub using @fonts {
+  type AbsoluteCmd,
+  type Font,
+  type GerberLP,
+  type Glyph,
+  type PathCmd,
+  type SVGPath,
+}

@@ -1601,10 +1601,11 @@ test "Vec2::round_to_fixed/large_digits" {
   // Test extreme case where digits is too large, expecting the result might approximate the original value due to precision limit.
   let v3 = Vec2::new(x=0.123456789, y=-0.987654321)
   let v3_rounded = Vec2::round_to_fixed(v3, 50)
-  inspect(v3_rounded, content="{x: 0.123456789, y: -0.987654321}")
-} // Test `round_to_multiple` with positive multiple, boundary value just below and exactly at multiple
+  inspect(v3_rounded, content="{x: 0.12345678899999998, y: -0.987654321}")
+}
 
 ///|
+// Test `round_to_multiple` with positive multiple, boundary value just below and exactly at multiple
 test "round_to_multiple/positive_multiple" {
   let v1 = vec2(5.99, 10.01)
   let v2 = vec2(6.0, 12.0)

@@ -6,6 +6,25 @@ pub(all) enum TextAlign {
 } derive(Show, Eq)
 
 ///|
+/// to_graphic generates a new Graphic from a text string and a font.
+pub fn to_graphic(
+  font : Font,
+  text : String,
+  size? : Double = 1.0,
+  alignment? : Alignment = Unchanged,
+) -> Graphic raise DrawError {
+  let glyph = font.gen_path(text, alignment~, y_up=true) catch {
+    e => raise DrawError("to_graphic: \{e}")
+  }
+  let xscale = size / font.units_per_em
+  let yscale = -xscale
+  let svgpath = SVGPath::from_glyph(glyph) catch {
+    e => raise DrawError("to_graphic: \{e}")
+  }
+  svgpath2compound_path(svgpath, xscale, yscale).as_graphic()
+}
+
+///|
 /// text generates a new Graphic (a Group of Group of compound_paths) from a text
 /// string and a font.
 pub fn text(
@@ -14,75 +33,100 @@ pub fn text(
   align? : TextAlign = Left,
   size? : Double = 1,
 ) -> Graphic raise DrawError {
-  let xscale = size / font.units_per_em
-  let yscale = -xscale
-  let mut x = 0.0
-  let mut y = 0.0
-  let compound_paths : Array[Graphic] = []
-  for c in text {
-    let glyph = font.glyphs.get(c.to_string())
-    if glyph != None {
-      let glyph = glyph.unwrap()
-      // console.log(`GML: glyph=${JSON.stringify(glyph)}`)
-      let cp = glyph2compound_path(
-        glyph.d,
-        glyph.gerber_lp,
-        vec2(x, y),
-        xscale,
-        yscale,
-      )
-      compound_paths.push(CompoundPath(cp))
-      if glyph.horiz_adv_x > 0 {
-        x = x + xscale * glyph.horiz_adv_x
-      } else {
-        x = x + xscale * font.horiz_adv_x
+  let alignment : Alignment = match align {
+    Left => BaselineLeft
+    Center => BaselineCenter
+    Right => BaselineRight
+  }
+  to_graphic(font, text, size~, alignment~)
+}
+
+///|
+fn svgpath2compound_path(
+  svgpath : SVGPath,
+  xscale : Double,
+  yscale : Double,
+) -> CompoundPath {
+  let paths = []
+  let mut anchors = []
+  let black = rgba(0, 0, 0, 1)
+  let white = rgba(1, 1, 1, 1)
+  let mut current_gerber_lp = GerberLP::Dark
+  for cmd in svgpath.cmds {
+    match cmd.cmd {
+      M => {
+        if anchors.length() > 0 {
+          let color = if current_gerber_lp == Dark { black } else { white }
+          let path = Path::new(
+            anchors~,
+            clear=current_gerber_lp == Clear,
+            fill=fill(color),
+          )
+          paths.push(path)
+          anchors = []
+        }
+        current_gerber_lp = cmd.gerber_lp
+        for p in cmd.params {
+          anchors.push(Anchor::new(position=vec2(p.x * xscale, p.y * yscale)))
+        }
       }
-    } else if c == '\n' { // advance line and return to far left
-      x = 0
-      y = y - yscale * (font.units_per_em - font.descent)
-    } else if c == '\r' { // advance line only
-      y = y - yscale * (font.units_per_em - font.descent)
-    } else {
-      // anything else - advance to the right by default width
-      x = x + xscale * font.horiz_adv_x
+      L =>
+        for p in cmd.params {
+          anchors.push(Anchor::new(position=vec2(p.x * xscale, p.y * yscale)))
+        }
+      C =>
+        for i = 0; i < cmd.params.length(); i = i + 3 {
+          let c1 = cmd.params[i]
+          let c2 = cmd.params[i + 1]
+          let end = cmd.params[i + 2]
+          let prev_anchor = anchors[anchors.length() - 1]
+          prev_anchor.handle_out = vec2(c1.x * xscale, c1.y * yscale).sub(
+            prev_anchor.position,
+          )
+          let end_pos = vec2(end.x * xscale, end.y * yscale)
+          let h_in = vec2(c2.x * xscale, c2.y * yscale).sub(end_pos)
+          anchors.push(Anchor::new(position=end_pos, handle_in=h_in))
+        }
+      Q =>
+        for i = 0; i < cmd.params.length(); i = i + 2 {
+          let cp = cmd.params[i]
+          let end = cmd.params[i + 1]
+          let start_pt = anchors[anchors.length() - 1].position
+          let quad_ctrl_pt = vec2(cp.x * xscale, cp.y * yscale)
+          let c1 = quad_ctrl_pt
+            .sub(start_pt)
+            .mul_scalar(2.0 / 3.0)
+            .add(start_pt)
+          anchors[anchors.length() - 1].handle_out = c1.sub(start_pt)
+          let end_pt = vec2(end.x * xscale, end.y * yscale)
+          let c2 = quad_ctrl_pt.sub(end_pt).mul_scalar(2.0 / 3.0).add(end_pt)
+          anchors.push(Anchor::new(position=end_pt, handle_in=c2.sub(end_pt)))
+        }
+      Z =>
+        if anchors.length() > 0 {
+          let color = if current_gerber_lp == Dark { black } else { white }
+          let path = Path::new(
+            anchors~,
+            closed=true,
+            clear=current_gerber_lp == Clear,
+            fill=fill(color),
+          )
+          paths.push(path)
+          anchors = []
+        }
     }
   }
-
-  //
-  let group = Group::new(items=compound_paths)
-  // Use default positioning of initial glyph
-  if align == Center {
-    let bbox = group.bounding_box()
-    if bbox != None {
-      let bbox = bbox.unwrap()
-      let position = vec2(-(bbox.max.x + bbox.min.x) / 2, 0)
-      group.self_transform(position~)
-    }
-  } else if align == Right {
-    let bbox = group.bounding_box()
-    if bbox != None {
-      let bbox = bbox.unwrap()
-      let position = vec2(-bbox.max.x, 0)
-      group.self_transform(position~)
-    }
+  if anchors.length() > 0 {
+    let color = if current_gerber_lp == Dark { black } else { white }
+    let path = Path::new(
+      anchors~,
+      clear=current_gerber_lp == Clear,
+      fill=fill(color),
+    )
+    paths.push(path)
   }
-  Group(Group::new(items=[Group(group)]))
+  CompoundPath::new(paths~, fill=fill(black))
 }
-
-///|
-let split_re : @regexp.Regexp = (try? @regexp.compile(
-  "^([MLCQZ])([0-9.\\-, ]*)",
-)).unwrap()
-
-///|
-fn parse_params(s : StringView) -> Array[Double] {
-  s
-  .split(" ")
-  .map(fn(s) { @strconv.parse_double(s.to_string()) catch { _ => 0.0 } })
-  .collect()
-}
-
-// `glyph2compound_path` converts an SVG path into a CompoundPath.
 
 ///|
 fn glyph2compound_path(
@@ -92,154 +136,23 @@ fn glyph2compound_path(
   xscale : Double,
   yscale : Double,
 ) -> CompoundPath raise DrawError {
-  let paths = []
-  let mut anchors = []
-  if gerber_lp.unsafe_charcode_at(0).to_char() != Some('d') {
-    raise DrawError(
-      "glyph2compound_path: unexpected gerber_lp='\{gerber_lp}' does not start with 'd'",
-    )
+  let glyph : Glyph = {
+    char: "",
+    horiz_adv_x: 0.0,
+    gerber_lp,
+    d,
+    xmin: 0.0,
+    ymin: 0.0,
+    xmax: 0.0,
+    ymax: 0.0,
   }
-  let mut gerber_index = 0
-  let black = rgba(0, 0, 0, 1)
-  let mut color = black // start with black
-  let mut path_is_inverted = false
-  let mut d = d
-  while d.length() > 0 {
-    let m = split_re
-      .match_(d)
-      .unwrap_or_error(
-        DrawError("glyph2compound_path: unable to split SVG path '\{d}'"),
-      )
-    guard m.results() is [Some(match_str), Some(cmd), Some(params)] else {
-      raise DrawError("glyph2compound_path: unable to split SVG path '\{d}'")
-    }
-
-    //
-    d = d.unsafe_substring(start=match_str.length(), end=d.length())
-    match cmd {
-      "M" => {
-        if anchors.length() > 0 {
-          let path = Path::new(
-            anchors~,
-            clear=path_is_inverted,
-            fill=fill(color),
-          )
-          paths.push(path)
-          anchors = []
-        }
-        if gerber_lp.unsafe_charcode_at(gerber_index).to_char() == Some('d') {
-          color = rgba(0, 0, 0, 1)
-          path_is_inverted = false
-        } else if gerber_lp.unsafe_charcode_at(gerber_index).to_char() ==
-          Some('c') {
-          color = rgba(1, 1, 1, 1)
-          path_is_inverted = true
-        } else {
-          raise DrawError(
-            "glyph2compound_path: bad length of gerber_lp='\{gerber_lp}'",
-          )
-        }
-        gerber_index += 1
-        let params = parse_params(params)
-        anchors.push(
-          Anchor::new(
-            position=vec2(params[0] * xscale, params[1] * yscale).add(pos),
-          ),
-        )
-      }
-      "L" => {
-        if anchors.length() == 0 {
-          raise DrawError(
-            "glyph2compound_path: unexpected SVG command without prior position: \{match_str}",
-          )
-        }
-        let params = parse_params(params)
-        for i = 0; i < params.length(); i = i + 2 {
-          anchors.push(
-            Anchor::new(
-              position=vec2(params[i] * xscale, params[i + 1] * yscale).add(pos),
-            ),
-          )
-        }
-      }
-      "C" => {
-        if anchors.length() == 0 {
-          raise DrawError(
-            "glyph2compound_path: unexpected SVG command without prior position: \{match_str}",
-          )
-        }
-        let params = parse_params(match_str)
-        for i = 0; i < params.length(); i = i + 6 {
-          anchors[anchors.length() - 1].handle_out = vec2(
-              params[i] * xscale,
-              params[i + 1] * yscale,
-            )
-            .add(pos)
-            .sub(anchors[anchors.length() - 1].position)
-          let anchor_pos = vec2(params[i + 4] * xscale, params[i + 5] * yscale).add(
-            pos,
-          )
-          let handle_in = vec2(params[i + 2] * xscale, params[i + 3] * yscale)
-            .add(pos)
-            .sub(anchor_pos)
-          anchors.push(Anchor::new(position=anchor_pos, handle_in~))
-        }
-      }
-      //   case 'Q': {
-      "Q" => {
-        if anchors.length() == 0 {
-          raise DrawError(
-            "glyph2compound_path: unexpected SVG command without prior position: \{match_str}",
-          )
-        }
-        let params = parse_params(params)
-        for i = 0; i < params.length(); i = i + 4 {
-          let start_pt = anchors[anchors.length() - 1].position
-          let quad_ctrl_pt = vec2(params[i] * xscale, params[i + 1] * yscale).add(
-            pos,
-          )
-          let cubic1CtrlPt = quad_ctrl_pt
-            .sub(start_pt)
-            .mul_scalar(2.0 / 3)
-            .add(start_pt)
-          anchors[anchors.length() - 1].handle_out = cubic1CtrlPt.sub(
-            anchors[anchors.length() - 1].position,
-          )
-          let end_pt = vec2(params[i + 2] * xscale, params[i + 3] * yscale).add(
-            pos,
-          )
-          let cubic2_ctrl_pt = quad_ctrl_pt
-            .sub(end_pt)
-            .mul_scalar(2.0 / 3)
-            .add(end_pt)
-          anchors.push(
-            Anchor::new(position=end_pt, handle_in=cubic2_ctrl_pt.sub(end_pt)),
-          )
-        }
-      }
-      "Z" => {
-        if anchors.length() == 0 {
-          raise DrawError(
-            "glyph2compound_path: unexpected SVG command without prior segments: \{match_str}",
-          )
-        }
-        let path = Path::new(
-          anchors~,
-          closed=true,
-          clear=path_is_inverted,
-          fill=fill(color),
-        )
-        paths.push(path)
-        anchors = []
-      }
-      _ => raise DrawError("unsupported font command: \{match_str}")
-    }
+  let svgpath = SVGPath::from_glyph(glyph) catch {
+    e => raise DrawError("glyph2compound_path: \{e}")
   }
-
-  //
-  if anchors.length() > 0 {
-    let path = Path::new(anchors~, clear=path_is_inverted, fill=fill(color))
-    paths.push(path)
+  let cp = svgpath2compound_path(svgpath, xscale, yscale)
+  if not(pos.is_zero()) {
+    cp.translate(pos)
+  } else {
+    cp
   }
-  CompoundPath::new(paths~, fill=fill(black))
 }

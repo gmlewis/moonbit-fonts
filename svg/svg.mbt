@@ -39,7 +39,8 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
     bbox = g.bounding_box().unwrap()
   }
   let min = bbox.min.round_to_fixed(2)
-  let max = bbox.max.round_to_fixed(2)
+  let width = @geom.round_to_fixed(bbox.width(), 2)
+  let height = @geom.round_to_fixed(bbox.height(), 2)
   let paths = g.all_paths_and_compound_paths()
   let lines = Array::new(capacity=paths.length())
   for path in paths {
@@ -51,7 +52,7 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
   }
   let lines = lines.join("\n")
   (
-    $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{max.x} \{max.y}">
+    $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{width} \{height}">
     $|\{lines}
     #|</svg>
   )

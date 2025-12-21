@@ -287,15 +287,8 @@ pub fn Vec2::round(self : Vec2) -> Vec2 {
 /// round_to_fixed rounds the components of this vector to the provided
 /// number of digits.
 pub fn Vec2::round_to_fixed(self : Vec2, digits : Int) -> Vec2 {
-  let num = digits.to_double().abs()
-  let exp = @math.round(@math.exp(num * @math.ln(10.0)))
-  if digits < 0 {
-    self.x = @math.round(self.x / exp) * exp
-    self.y = @math.round(self.y / exp) * exp
-    return self
-  }
-  self.x = @math.round(self.x * exp) / exp
-  self.y = @math.round(self.y * exp) / exp
+  self.x = round_to_fixed(self.x, digits)
+  self.y = round_to_fixed(self.y, digits)
   self
 }
 
