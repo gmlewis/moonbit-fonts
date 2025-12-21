@@ -2,10 +2,8 @@
   "name": "examples/styled-text",
   "version": "0.1.0",
   "deps": {
-    "gmlewis/fonts": {
-      "path": "../.."
-    },
-    "gmlewis/fonts-a": "0.17.1"
+    "gmlewis/fonts": "0.18.0",
+    "gmlewis/fonts-a": "0.18.0"
   },
   "readme": "README.md",
   "repository": "https://github.com/gmlewis/moonbit-fonts",

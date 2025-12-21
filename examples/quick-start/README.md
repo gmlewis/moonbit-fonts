@@ -6,5 +6,6 @@ This is a simple example showing how to render text using an external font packa
 
 ## How to run
 ```bash
-moon run examples/quick-start > examples/quick-start/quick-start.svg
+cd examples/quick-start
+moon run . > quick-start.svg
 ```
