@@ -241,22 +241,22 @@ pub fn Color::set(
   g : Double,
   b : Double,
   a : Double,
-) -> Color {
+) -> Unit {
   self.r = r
   self.g = g
   self.b = b
   self.a = a
-  self
 }
 
 ///|
-/// mix linearly interpolates between this Color and `c` with mixing factor `t`.
+/// mix linearly interpolates between this Color and `c` with mixing factor `t`,
+/// returning a new Color.
 pub fn Color::mix(self : Color, c : Color, t : Double) -> Color {
-  self.r += (c.r - self.r) * t
-  self.g += (c.g - self.g) * t
-  self.b += (c.b - self.b) * t
-  self.a += (c.a - self.a) * t
-  self
+  let r = self.r + (c.r - self.r) * t
+  let g = self.g + (c.g - self.g) * t
+  let b = self.b + (c.b - self.b) * t
+  let a = self.a + (c.a - self.a) * t
+  rgba(r, g, b, a)
 }
 
 ///|

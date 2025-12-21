@@ -91,35 +91,31 @@ pub fn CompoundPath::transform(
 }
 
 ///|
-/// assign_fill assigns a fill to this CompoundPath.
-pub fn CompoundPath::assign_fill(
+/// with_fill returns a new CompoundPath with this fill applied.
+pub fn CompoundPath::with_fill(
   self : CompoundPath,
   fill : Fill?,
 ) -> CompoundPath {
-  self.fill = fill
-  self
+  { ..self, fill, }
 }
 
 ///|
-/// assign_stroke assigns a stroke to this CompoundPath.
-pub fn CompoundPath::assign_stroke(
+/// with_stroke returns a new CompoundPath with this stroke applied.
+pub fn CompoundPath::with_stroke(
   self : CompoundPath,
   stroke : Stroke?,
 ) -> CompoundPath {
-  self.stroke = stroke
-  self
+  { ..self, stroke, }
 }
 
 ///|
-/// assign_style assigns a stroke and fill style to this CompoundPath.
-pub fn CompoundPath::assign_style(
+/// with_style returns a new CompoundPath with this fill and stroke applied.
+pub fn CompoundPath::with_style(
   self : CompoundPath,
-  fill : Fill?,
-  stroke : Stroke?,
+  fill? : Fill,
+  stroke? : Stroke,
 ) -> CompoundPath {
-  self.fill = fill
-  self.stroke = stroke
-  self
+  { ..self, fill, stroke }
 }
 
 ///|
@@ -189,14 +185,14 @@ pub fn CompoundPath::contains_point(
 }
 
 ///|
-/// copy_style copies the fill and stroke from `graphic`.
+/// copy_style copies the fill and stroke from `graphic` and returns a new CompoundPath.
 pub fn CompoundPath::copy_style(
   self : CompoundPath,
   graphic : Graphic,
 ) -> CompoundPath {
-  self.fill = graphic.first_fill()
-  self.stroke = graphic.first_stroke()
-  self
+  let fill = graphic.first_fill()
+  let stroke = graphic.first_stroke()
+  { ..self, fill, stroke }
 }
 
 ///|
@@ -302,37 +298,38 @@ pub fn CompoundPath::primitives(self : CompoundPath) -> Array[Graphic] {
 }
 
 ///|
-/// remove_fill removes fill styling from this CompoundPath.
+/// remove_fill returns a new CompoundPath without fill styling.
 pub fn CompoundPath::remove_fill(self : CompoundPath) -> CompoundPath {
-  self.fill = None
-  self
+  { ..self, fill: None }
 }
 
 ///|
-/// remove_stroke removes stroke styling from this CompoundPath.
+/// remove_stroke returns a new CompoundPath without stroke styling.
 pub fn CompoundPath::remove_stroke(self : CompoundPath) -> CompoundPath {
-  self.stroke = None
-  self
+  { ..self, stroke: None }
 }
 
 ///|
-/// reverse reverses this CompoundPath.
+/// reverse returns a new CompoundPath with all paths reversed.
 pub fn CompoundPath::reverse(self : CompoundPath) -> CompoundPath {
   let paths = self.paths.iter().map(fn(path) { path.reverse() }).collect().rev()
   { ..self, paths, }
 }
 
 ///|
-/// scale_stroke scales the width of this stroke by `scale_factor`.
+/// scale_stroke returns a new CompoundPath with the width of its stroke (if any) scaled by `scale_factor`.
 pub fn CompoundPath::scale_stroke(
   self : CompoundPath,
   scale_factor : Double,
 ) -> CompoundPath {
   match self.stroke {
-    Some(stroke) => stroke.width *= scale_factor
-    _ => ()
+    Some(stroke) => {
+      let width = stroke.width * scale_factor
+      let new_stroke = { ..stroke, width, }
+      { ..self, stroke: Some(new_stroke) }
+    }
+    _ => self
   }
-  self
 }
 
 ///|

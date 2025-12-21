@@ -111,25 +111,21 @@ pub fn Path::transform(
 }
 
 ///|
-/// assign_fill assigns a fill to this Path.
-pub fn Path::assign_fill(self : Path, fill : Fill?) -> Path {
-  self.fill = fill
-  self
+/// with_fill returns a new Path with the provided fill applied.
+pub fn Path::with_fill(self : Path, fill : Fill?) -> Path {
+  { ..self, fill, }
 }
 
 ///|
-/// assign_stroke assigns a stroke to this Path.
-pub fn Path::assign_stroke(self : Path, stroke : Stroke?) -> Path {
-  self.stroke = stroke
-  self
+/// with_stroke returns a new Path with the provided stroke applied.
+pub fn Path::with_stroke(self : Path, stroke : Stroke?) -> Path {
+  { ..self, stroke, }
 }
 
 ///|
-/// assign_style assigns a stroke and fill style to this Path.
-pub fn Path::assign_style(self : Path, fill : Fill?, stroke : Stroke?) -> Path {
-  self.fill = fill
-  self.stroke = stroke
-  self
+/// with_style returns a new Path with the provided fill and stroke applied.
+pub fn Path::with_style(self : Path, fill? : Fill, stroke? : Stroke) -> Path {
+  { ..self, fill, stroke }
 }
 
 ///|

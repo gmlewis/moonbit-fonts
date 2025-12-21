@@ -143,12 +143,10 @@ pub fn Anchor::closest_point(
 }
 
 ///|
-/// reverse reverses this Anchor.
+/// reverse returns a new reverse of this Anchor.
 pub fn Anchor::reverse(self : Anchor) -> Anchor {
   let { handle_in, handle_out, .. } = self
-  self.handle_in = handle_out
-  self.handle_out = handle_in
-  self
+  { ..self, handle_in: handle_out, handle_out: handle_in }
 }
 
 ///|

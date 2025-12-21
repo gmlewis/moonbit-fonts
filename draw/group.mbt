@@ -283,15 +283,9 @@ pub fn Group::has_style(self : Group) -> Bool {
 }
 
 ///|
-/// `with_style` returns a new `Group` with the provided fill and/or stroke applied.
-pub fn Group::with_style(self : Group, fill? : Fill, stroke? : Stroke) -> Group {
-  self.assign_style(fill, stroke)
-}
-
-///|
-/// assign_fill assigns a fill to this Group.
-pub fn Group::assign_fill(self : Group, fill : Fill?) -> Group {
-  { items: self.items.map(fn(item) { item.assign_fill(fill) }) }
+/// with_fill returns a new Group with the provided fill applied.
+pub fn Group::with_fill(self : Group, fill : Fill?) -> Group {
+  { items: self.items.map(fn(item) { item.with_fill(fill) }) }
 }
 
 ///|
@@ -301,9 +295,9 @@ pub fn Group::remove_fill(self : Group) -> Group {
 }
 
 ///|
-/// assign_stroke assigns a stroke to this Group.
-pub fn Group::assign_stroke(self : Group, stroke : Stroke?) -> Group {
-  { items: self.items.map(fn(item) { item.assign_stroke(stroke) }) }
+/// with_stroke returns a new Group with the provided stroke applied.
+pub fn Group::with_stroke(self : Group, stroke : Stroke?) -> Group {
+  { items: self.items.map(fn(item) { item.with_stroke(stroke) }) }
 }
 
 ///|
@@ -313,13 +307,9 @@ pub fn Group::remove_stroke(self : Group) -> Group {
 }
 
 ///|
-/// assign_style assigns a fill and stroke style to this Group.
-pub fn Group::assign_style(
-  self : Group,
-  fill : Fill?,
-  stroke : Stroke?,
-) -> Group {
-  { items: self.items.map(fn(item) { item.assign_style(fill, stroke) }) }
+/// with_style returns a new Group with the provided fill and stroke applied.
+pub fn Group::with_style(self : Group, fill? : Fill, stroke? : Stroke) -> Group {
+  { items: self.items.map(fn(item) { item.with_style(fill?, stroke?) }) }
 }
 
 ///|

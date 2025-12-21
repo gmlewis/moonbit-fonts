@@ -254,22 +254,12 @@ pub fn Graphic::has_style(self : Graphic) -> Bool {
 }
 
 ///|
-/// `with_style` returns a new `Graphic` with the provided fill and/or stroke applied.
-pub fn Graphic::with_style(
-  self : Graphic,
-  fill? : Fill,
-  stroke? : Stroke,
-) -> Graphic {
-  self.assign_style(fill, stroke)
-}
-
-///|
-/// assign_fill assigns a fill to this Graphic, returning a new Graphpic.
-pub fn Graphic::assign_fill(self : Graphic, fill : Fill?) -> Graphic {
+/// with_fill returns a new Graphic with the provided fill applied.
+pub fn Graphic::with_fill(self : Graphic, fill : Fill?) -> Graphic {
   match self {
-    CompoundPath(path) => CompoundPath(path.assign_fill(fill))
-    Group(group) => Group(group.assign_fill(fill))
-    Path(path) => Path(path.assign_fill(fill))
+    CompoundPath(path) => CompoundPath(path.with_fill(fill))
+    Group(group) => Group(group.with_fill(fill))
+    Path(path) => Path(path.with_fill(fill))
   }
 }
 
@@ -284,12 +274,12 @@ pub fn Graphic::remove_fill(self : Graphic) -> Graphic {
 }
 
 ///|
-/// assign_stroke assigns a stroke to this Graphic, returning a new Graphic.
-pub fn Graphic::assign_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
+/// with_stroke returns a new Graphic with the provided stroke applied.
+pub fn Graphic::with_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
   match self {
-    CompoundPath(path) => CompoundPath(path.assign_stroke(stroke))
-    Group(group) => Group(group.assign_stroke(stroke))
-    Path(path) => Path(path.assign_stroke(stroke))
+    CompoundPath(path) => CompoundPath(path.with_stroke(stroke))
+    Group(group) => Group(group.with_stroke(stroke))
+    Path(path) => Path(path.with_stroke(stroke))
   }
 }
 
@@ -304,16 +294,16 @@ pub fn Graphic::remove_stroke(self : Graphic) -> Graphic {
 }
 
 ///|
-/// assign_style assigns a fill and stroke style to this Graphic, returning a new Graphic.
-pub fn Graphic::assign_style(
+/// `with_style` returns a new `Graphic` with the provided fill and stroke applied.
+pub fn Graphic::with_style(
   self : Graphic,
-  fill : Fill?,
-  stroke : Stroke?,
+  fill? : Fill,
+  stroke? : Stroke,
 ) -> Graphic {
   match self {
-    CompoundPath(path) => CompoundPath(path.assign_style(fill, stroke))
-    Group(group) => Group(group.assign_style(fill, stroke))
-    Path(path) => Path(path.assign_style(fill, stroke))
+    CompoundPath(path) => CompoundPath(path.with_style(fill?, stroke?))
+    Group(group) => Group(group.with_style(fill?, stroke?))
+    Path(path) => Path(path.with_style(fill?, stroke?))
   }
 }
 
