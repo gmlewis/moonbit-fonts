@@ -7,6 +7,28 @@ pub(all) enum Graphic {
 } derive(Show)
 
 ///|
+/// `op_add` allows composing two Graphics into a Group using the `+` operator.
+pub impl Add for Graphic with add(self, other) {
+  let items = match (self, other) {
+    (Group(g1), Group(g2)) => g1.items + g2.items
+    (Group(g1), _) => g1.items + [other]
+    (_, Group(g2)) => [self] + g2.items
+    _ => [self, other]
+  }
+  Group({ items, })
+}
+
+///|
+/// `with_style` returns a new `Graphic` with the provided fill and stroke applied.
+pub fn Graphic::with_style(
+  self : Graphic,
+  fill? : Fill,
+  stroke? : Stroke,
+) -> Graphic {
+  self.assign_style(fill, stroke)
+}
+
+///|
 /// clone returns a new copy of Graphic.
 pub fn Graphic::clone(self : Graphic) -> Graphic {
   match self {
@@ -242,84 +264,77 @@ pub fn Graphic::has_style(self : Graphic) -> Bool {
 }
 
 ///|
-/// assign_fill assigns a fill to this Graphic.
+/// assign_fill assigns a fill to this Graphic, returning a new Graphpic.
 pub fn Graphic::assign_fill(self : Graphic, fill : Fill?) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.assign_fill(fill))
-    Group(group) => ignore(group.assign_fill(fill))
-    Path(path) => ignore(path.assign_fill(fill))
+    CompoundPath(path) => CompoundPath(path.assign_fill(fill))
+    Group(group) => Group(group.assign_fill(fill))
+    Path(path) => Path(path.assign_fill(fill))
   }
-  self
 }
 
 ///|
-/// remove_fill a fill style from this Graphic.
+/// remove_fill a fill style from this Graphic, returning a new Graphic.
 pub fn Graphic::remove_fill(self : Graphic) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.remove_fill())
-    Group(group) => ignore(group.remove_fill())
-    Path(path) => ignore(path.remove_fill())
+    CompoundPath(path) => CompoundPath(path.remove_fill())
+    Group(group) => Group(group.remove_fill())
+    Path(path) => Path(path.remove_fill())
   }
-  self
 }
 
 ///|
-/// assign_stroke assigns a stroke to this Graphic.
+/// assign_stroke assigns a stroke to this Graphic, returning a new Graphic.
 pub fn Graphic::assign_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.assign_stroke(stroke))
-    Group(group) => ignore(group.assign_stroke(stroke))
-    Path(path) => ignore(path.assign_stroke(stroke))
+    CompoundPath(path) => CompoundPath(path.assign_stroke(stroke))
+    Group(group) => Group(group.assign_stroke(stroke))
+    Path(path) => Path(path.assign_stroke(stroke))
   }
-  self
 }
 
 ///|
-/// remove_stroke a stroke style from this Graphic.
+/// remove_stroke a stroke style from this Graphic, returning a new Graphic.
 pub fn Graphic::remove_stroke(self : Graphic) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.remove_stroke())
-    Group(group) => ignore(group.remove_stroke())
-    Path(path) => ignore(path.remove_stroke())
+    CompoundPath(path) => CompoundPath(path.remove_stroke())
+    Group(group) => Group(group.remove_stroke())
+    Path(path) => Path(path.remove_stroke())
   }
-  self
 }
 
 ///|
-/// assign_style assigns a fill and stroke style to this Graphic.
+/// assign_style assigns a fill and stroke style to this Graphic, returning a new Graphic.
 pub fn Graphic::assign_style(
   self : Graphic,
   fill : Fill?,
   stroke : Stroke?,
 ) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.assign_style(fill, stroke))
-    Group(group) => ignore(group.assign_style(fill, stroke))
-    Path(path) => ignore(path.assign_style(fill, stroke))
+    CompoundPath(path) => CompoundPath(path.assign_style(fill, stroke))
+    Group(group) => Group(group.assign_style(fill, stroke))
+    Path(path) => Path(path.assign_style(fill, stroke))
   }
-  self
 }
 
 ///|
-/// copy_style copies the fill and stroke style from `graphic`.
+/// copy_style copies the fill and stroke style from `graphic`, returning a new graphic.
 pub fn Graphic::copy_style(self : Graphic, graphic : Graphic) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.copy_style(graphic))
-    Group(group) => ignore(group.copy_style(graphic))
-    Path(path) => ignore(path.copy_style(graphic))
+    CompoundPath(path) => CompoundPath(path.copy_style(graphic))
+    Group(group) => Group(group.copy_style(graphic))
+    Path(path) => Path(path.copy_style(graphic))
   }
-  self
 }
 
 ///|
-/// scale_stroke scales the stroke width of this Graphic by `scale_factor`.
+/// scale_stroke scales the stroke width of this Graphic by `scale_factor`, returning a new Graphic.
 pub fn Graphic::scale_stroke(self : Graphic, scale_factor : Double) -> Graphic {
   match self {
-    CompoundPath(path) => ignore(path.scale_stroke(scale_factor))
-    Group(group) => ignore(group.scale_stroke(scale_factor))
-    Path(path) => ignore(path.scale_stroke(scale_factor))
+    CompoundPath(path) => CompoundPath(path.scale_stroke(scale_factor))
+    Group(group) => Group(group.scale_stroke(scale_factor))
+    Path(path) => Path(path.scale_stroke(scale_factor))
   }
-  self
 }
 
 ///|
@@ -410,8 +425,38 @@ pub fn Graphic::rotate(self : Graphic, angle : Double) -> Graphic {
 }
 
 ///|
-/// fit_to scales and translates a Graphic to fix in `box`.
-pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
+/// `scale_to_fit` scales a `Graphic` to fit inside `box` while preserving aspect ratio.
+pub fn Graphic::scale_to_fit(
+  self : Graphic,
+  box : BoundingBox,
+  anchor? : Alignment = Center,
+) -> Graphic {
+  self.fit_to(box, anchor~)
+}
+
+///|
+/// `scale_to_fill` scales a `Graphic` to completely fill `box`, ignoring aspect ratio.
+pub fn Graphic::scale_to_fill(self : Graphic, box : BoundingBox) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  let wscale = box.width() / bbox.width()
+  let hscale = box.height() / bbox.height()
+  let scale = vec2(wscale, hscale)
+  let position = box.min - scale * bbox.min
+  let transform = Transform::new(position~, scale~)
+  let affine_matrix = AffineMatrix::from_transform(transform)
+  self.clone().affine_transform(affine_matrix)
+}
+
+///|
+/// fit_to scales and translates a Graphic to fit in `box`.
+pub fn Graphic::fit_to(
+  self : Graphic,
+  box : BoundingBox,
+  anchor? : Alignment = Center,
+) -> Graphic {
   let bbox = match self.bounding_box() {
     None => return self
     Some(bbox) => bbox
@@ -423,7 +468,30 @@ pub fn Graphic::fit_to(self : Graphic, box : BoundingBox) -> Graphic {
   let hscale = box.height() / bbox.height()
   let s = @cmp.minimum(wscale, hscale)
   let scale = vec2(s, s)
-  let position = box.min - scale * bbox.min
+
+  // Calculate alignment offset
+  let scaled_width = bbox.width() * s
+  let scaled_height = bbox.height() * s
+  let extra_width = box.width() - scaled_width
+  let extra_height = box.height() - scaled_height
+  let (offset_x, offset_y) = match anchor {
+    Unchanged => (0.0, 0.0)
+    TopLeft => (0.0, extra_height)
+    TopCenter => (extra_width / 2.0, extra_height)
+    TopRight => (extra_width, extra_height)
+    CenterLeft => (0.0, extra_height / 2.0)
+    Center => (extra_width / 2.0, extra_height / 2.0)
+    CenterRight => (extra_width, extra_height / 2.0)
+    BottomLeft => (0.0, 0.0)
+    BottomCenter => (extra_width / 2.0, 0.0)
+    BottomRight => (extra_width, 0.0)
+    BaselineLeft => (0.0, 0.0)
+    BaselineCenter => (extra_width / 2.0, 0.0)
+    BaselineRight => (extra_width, 0.0)
+    RatioXY(rx, ry) => (extra_width * rx, extra_height * ry)
+  }
+  let offset = vec2(offset_x, offset_y)
+  let position = box.min - scale * bbox.min + offset
   let transform = Transform::new(position~, scale~)
   let affine_matrix = AffineMatrix::from_transform(transform)
   self.clone().affine_transform(affine_matrix)

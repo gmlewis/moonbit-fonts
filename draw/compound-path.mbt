@@ -132,8 +132,8 @@ pub fn CompoundPath::bounding_box(self : CompoundPath) -> BoundingBox? {
       None => continue
       Some(bbox) => bbox
     }
-    ignore(result.min.min(bbox.min))
-    ignore(result.max.max(bbox.max))
+    result.min.min(bbox.min)
+    result.max.max(bbox.max)
   }
   match result.is_inf() {
     true => None
@@ -286,8 +286,8 @@ pub fn CompoundPath::loose_bounding_box(self : CompoundPath) -> BoundingBox? {
       None => continue
       Some(bbox) => bbox
     }
-    ignore(result.min.min(bbox.min))
-    ignore(result.max.max(bbox.max))
+    result.min.min(bbox.min)
+    result.max.max(bbox.max)
   }
   match result.is_inf() {
     true => None

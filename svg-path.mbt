@@ -1,9 +1,9 @@
 ///|
-/// A `Path` is identical to a `Glyph` but has been optimized internally
+/// An `SVGPath` is identical to a `Glyph` but has been optimized internally
 /// for further manipulation, whereas a `Glyph` is optimized for compact
 /// storage of font data within all the font packages.
-/// A `Path` can be converted to a `Glpyh` and vice versa.
-pub(all) struct Path {
+/// An `SVGPath` can be converted to a `Glpyh` and vice versa.
+pub(all) struct SVGPath {
   /// `char` represents all the glyphs contained in this path.
   /// It is identical to the `Glyph.char` field.
   char : String
@@ -23,35 +23,42 @@ pub(all) struct Path {
 ///|
 /// `AbsoluteCmd` represents a supported absolute SVG command.
 pub(all) enum AbsoluteCmd {
-  // MoveTo: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#moveto_path_commands
+  /// `M` is the MoveTo command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#moveto_path_commands
   M
-  // LineTo: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#lineto_path_commands
+  /// `L` is the LineTo command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#lineto_path_commands
   L
-  // Cubic Bézier curve: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#cubic_b%C3%A9zier_curve
+  /// `C` is the Cubic Bézier curve command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#cubic_b%C3%A9zier_curve
   C
-  // Quadratic Bézier curve: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#quadratic_b%C3%A9zier_curve
+  /// `Q` is the Quadratic Bézier curve command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#quadratic_b%C3%A9zier_curve
   Q
-  // ClosePath: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#closepath
+  /// `Z` is the ClosePath command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#closepath
   Z
 } derive(Show, Eq)
 
 ///|
 /// `GerberLP` represents whether a subpath is `Dark` or `Clear`.
 pub(all) enum GerberLP {
+  /// `Dark` means the subpath is filled.
   Dark
+  /// `Clear` means the subpath is a hole.
   Clear
 } derive(Show, Eq)
 
 ///|
-/// `from_glyph` returns a `Path` from a `Glyph`, optionally processing
+/// `from_glyph` returns an `SVGPath` from a `Glyph`, optionally processing
 /// every `Cmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `from_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn Path::from_glyph(
+pub fn SVGPath::from_glyph(
   g : Glyph,
   path_cmd_fn? : PathCmdFn,
-) -> Path raise FontError {
-  let mut bbox = Rectangle::new()
+) -> SVGPath raise FontError {
+  let bbox = @geom.BoundingBox::max_reversed()
   let svg_cmds = split_path(g.d)
   let cmds = Array::new(capacity=svg_cmds.length())
   let mut gerber_index = 0
@@ -62,7 +69,7 @@ pub fn Path::from_glyph(
         g.gerber_lp.unsafe_charcode_at(gerber_index).to_char().unwrap() {
         'd' => Dark
         'c' => Clear
-        c => raise FontError("Path::from_glyph: unsupported GerberLP '\{c}'")
+        c => raise FontError("SVGPath::from_glyph: unsupported GerberLP '\{c}'")
       }
       gerber_index += 1
     }
@@ -76,10 +83,15 @@ pub fn Path::from_glyph(
     // update bbox
     if cmd.cmd != Z {
       if index == 0 {
-        bbox = cmd.bbox()
+        let cmd_bbox = cmd.bbox()
+        bbox.min.x = cmd_bbox.min.x
+        bbox.min.y = cmd_bbox.min.y
+        bbox.max.x = cmd_bbox.max.x
+        bbox.max.y = cmd_bbox.max.y
       } else {
         for p in cmd.params {
-          bbox.extend(pt(p.x, p.y))
+          let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
+
         }
       }
     }
@@ -91,14 +103,14 @@ pub fn Path::from_glyph(
 }
 
 ///|
-/// `to_glyph` returns a "super" `Glyph` from a `Path`, optionally processing
+/// `to_glyph` returns a "super" `Glyph` from an `SVGPath`, optionally processing
 /// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// invidual glyphs and simply transforms the representation.
-pub fn Path::to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
+pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = @buffer.new()
   let d = @buffer.new()
-  let mut bbox = Rectangle::new()
+  let bbox = @geom.BoundingBox::max_reversed()
 
   //
   for index, cmd in self.cmds {
@@ -120,10 +132,11 @@ pub fn Path::to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
     // update bbox
     if cmd.cmd != Z {
       if index == 0 {
-        bbox = cmd.bbox()
+        bbox.copy(cmd.bbox())
       } else {
         for p in cmd.params {
-          bbox.extend(pt(p.x, p.y))
+          let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
+
         }
       }
     }
@@ -137,8 +150,8 @@ pub fn Path::to_glyph(self : Path, path_cmd_fn? : PathCmdFn) -> Glyph {
 }
 
 ///|
-/// `clone` makes a deep copy of a Path.
-pub fn Path::clone(self : Path) -> Path {
+/// `clone` makes a deep copy of an SVGPath.
+pub fn SVGPath::clone(self : SVGPath) -> SVGPath {
   let cmds = Array::new(capacity=self.cmds.length())
   for cmd in self.cmds {
     cmds.push(cmd.clone())

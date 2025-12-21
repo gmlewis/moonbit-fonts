@@ -1,21 +1,10 @@
 ///|
-using @draw {type CompoundPath}
+using @geom {vec2}
 
 ///|
-using @draw {type Fill}
+using @draw {type CompoundPath, type Fill, type Graphic, type Path, type Stroke}
 
 ///|
-using @draw {type Graphic}
-
-///|
-using @draw {type Path}
-
-///|
-using @draw {type Stroke}
-
-///|
-let vec2 = @draw.vec2
-
 // context of an HTML5 canvas
 
 ///|
@@ -40,27 +29,24 @@ pub fn CanvasCtx::from_graphic(
   let mut g = g
   if y_up {
     let height = bbox.height()
-    let transform = @draw.Transform::new(
+    let transform = @geom.Transform::new(
       position=vec2(0, height),
       scale=vec2(1, -1),
     )
-    let affine_matrix = @draw.AffineMatrix::from_transform(transform)
+    let affine_matrix = @geom.AffineMatrix::from_transform(transform)
     g = g.clone().affine_transform(affine_matrix)
     bbox = g.bounding_box().unwrap()
   }
 
   //
   let paths = g.all_paths_and_compound_paths()
-  ignore(
-    Graphic::every(paths, fn(g) {
-      match g {
-        Path(path) => self.render_path(path)
-        CompoundPath(path) => self.render_compound_path(path)
-        _ => ()
-      }
-      true
-    }),
-  )
+  for path in paths {
+    match path {
+      Path(path) => self.render_path(path)
+      CompoundPath(path) => self.render_compound_path(path)
+      _ => ()
+    }
+  }
 }
 
 ///|

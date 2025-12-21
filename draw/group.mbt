@@ -41,7 +41,7 @@ pub fn Group::clone(self : Group) -> Group {
 }
 
 ///|
-/// affine_transform transforms this Group by `affine_matrix`.
+/// affine_transform transforms this Group by `affine_matrix`, returning a new Group.
 pub fn Group::affine_transform(
   self : Group,
   affine_matrix : AffineMatrix,
@@ -64,7 +64,7 @@ pub fn Group::affine_transform_without_translation(
 }
 
 ///|
-/// transform provides a convenient API for a common task.
+/// transform provides a convenient API for a common task, returning a new Group.
 pub fn Group::transform(
   self : Group,
   position? : Vec2 = vec2(0, 0),
@@ -77,6 +77,20 @@ pub fn Group::transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
   )
   self.affine_transform(affine_matrix)
+}
+
+///|
+/// self_transform provides a convenient API for a common task, modifying the group in-place.
+pub fn Group::self_transform(
+  self : Group,
+  position? : Vec2 = vec2(0, 0),
+  rotation? : Double = 0,
+  scale? : Vec2 = vec2(1, 1),
+  skew? : Double = 0,
+  origin? : Vec2 = vec2(0, 0),
+) -> Unit {
+  let new_group = self.transform(position~, rotation~, scale~, skew~, origin~)
+  self.items = new_group.items
 }
 
 ///|
@@ -94,21 +108,21 @@ pub fn Group::loose_bounding_box(self : Group) -> BoundingBox? {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Group(group) => {
         let item_bbox = match group.loose_bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Path(path) => {
         let item_bbox = match path.loose_bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
     }
   }
@@ -131,21 +145,21 @@ pub fn Group::bounding_box(self : Group) -> BoundingBox? {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Group(group) => {
         let item_bbox = match group.bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
       Path(path) => {
         let item_bbox = match path.bounding_box() {
           None => continue
           Some(bbox) => bbox
         }
-        ignore(bbox.expand_to_include_bounding_box(item_bbox))
+        bbox.expand_to_include_bounding_box(item_bbox)
       }
     }
   }

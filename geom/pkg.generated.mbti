@@ -1,0 +1,205 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "gmlewis/fonts/geom"
+
+import(
+  "moonbitlang/core/json"
+)
+
+// Values
+pub const DEFAULT_TOLERANCE : Double = 0.001
+
+pub fn bbox(Double, Double, Double, Double) -> BoundingBox
+
+pub fn pt(Double, Double) -> Vec2
+
+pub fn rect(Double, Double, Double, Double) -> BoundingBox
+
+pub fn round_to_fixed(Double, Int) -> Double
+
+pub fn vec2(Double, Double) -> Vec2
+
+// Errors
+
+// Types and methods
+pub(all) struct AffineMatrix {
+  mut a : Double
+  mut b : Double
+  mut c : Double
+  mut d : Double
+  mut tx : Double
+  mut ty : Double
+}
+pub fn AffineMatrix::clone(Self) -> Self
+pub fn AffineMatrix::copy(Self, Self) -> Unit
+pub fn AffineMatrix::determinant(Self) -> Double
+pub fn AffineMatrix::from_center_scale(Vec2, Vec2) -> Self
+pub fn AffineMatrix::from_rotation(Double) -> Self
+pub fn AffineMatrix::from_scale(Vec2) -> Self
+pub fn AffineMatrix::from_scale_scalar(Double) -> Self
+pub fn AffineMatrix::from_transform(Transform) -> Self
+pub fn AffineMatrix::from_translation(Vec2) -> Self
+pub fn AffineMatrix::from_translation_points(Vec2, Vec2) -> Self
+pub fn AffineMatrix::invert(Self) -> Self
+pub fn AffineMatrix::is_identity(Self) -> Bool
+pub fn AffineMatrix::is_inf(Self) -> Bool
+pub fn AffineMatrix::is_invertible(Self) -> Bool
+pub fn AffineMatrix::is_mirror(Self) -> Bool
+pub fn AffineMatrix::is_nan(Self) -> Bool
+pub fn AffineMatrix::is_orthogonal(Self, tolerance? : Double) -> Bool
+pub fn AffineMatrix::is_uniform_scale(Self, tolerance? : Double) -> Bool
+pub fn AffineMatrix::mul_without_translation(Self, Self) -> Self
+pub fn AffineMatrix::new(a? : Double, b? : Double, c? : Double, d? : Double, tx? : Double, ty? : Double) -> Self
+pub fn AffineMatrix::normalize(Self) -> Self
+pub fn AffineMatrix::origin(Self, Vec2) -> Self
+pub fn AffineMatrix::pre_mul(Self, Self) -> Self
+pub fn AffineMatrix::pre_mul_without_translation(Self, Self) -> Self
+pub fn AffineMatrix::rotate(Self, Double) -> Self
+pub fn AffineMatrix::scale(Self, Vec2) -> Self
+pub fn AffineMatrix::scale_scalar(Self, Double) -> Self
+pub fn AffineMatrix::self_mul(Self, Self) -> Unit
+pub fn AffineMatrix::skew(Self, Double) -> Self
+pub fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
+pub fn AffineMatrix::translate(Self, Vec2) -> Self
+pub impl Eq for AffineMatrix
+pub impl Mul for AffineMatrix
+pub impl Show for AffineMatrix
+
+pub(all) enum Alignment {
+  Unchanged
+  TopLeft
+  TopCenter
+  TopRight
+  CenterLeft
+  Center
+  CenterRight
+  BaselineLeft
+  BaselineCenter
+  BaselineRight
+  BottomLeft
+  BottomCenter
+  BottomRight
+  RatioXY(Double, Double)
+}
+pub impl Eq for Alignment
+pub impl Show for Alignment
+
+pub(all) struct BoundingBox {
+  mut min : Vec2
+  mut max : Vec2
+}
+pub fn BoundingBox::area(Self) -> Double
+pub fn BoundingBox::boolean_intersect(Self, Array[Self]) -> Self?
+pub fn BoundingBox::bounds(Self) -> (Double, Double, Double, Double)
+pub fn BoundingBox::canonicalize(Self) -> Unit
+pub fn BoundingBox::center(Self) -> Vec2
+pub fn BoundingBox::clone(Self) -> Self
+pub fn BoundingBox::contains_bounding_box(Self, Self) -> Bool
+pub fn BoundingBox::contains_point(Self, Vec2) -> Bool
+pub fn BoundingBox::copy(Self, Self) -> Unit
+pub fn BoundingBox::dx(Self) -> Double
+pub fn BoundingBox::dy(Self) -> Double
+pub fn BoundingBox::expand_scalar(Self, Double) -> Unit
+pub fn BoundingBox::expand_to_include_bounding_box(Self, Self) -> Unit
+pub fn BoundingBox::expand_to_include_point(Self, Vec2) -> Unit
+pub fn BoundingBox::from_points(Array[Vec2]) -> Self
+pub fn BoundingBox::height(Self) -> Double
+pub fn BoundingBox::inset(Self, Double) -> Self
+pub fn BoundingBox::intersect(Self, Self) -> Self
+pub fn BoundingBox::is_empty(Self) -> Bool
+pub fn BoundingBox::is_in(Self, Self) -> Bool
+pub fn BoundingBox::is_inf(Self) -> Bool
+pub fn BoundingBox::is_nan(Self) -> Bool
+pub fn BoundingBox::max_reversed() -> Self
+pub fn BoundingBox::new(min? : Vec2, max? : Vec2) -> Self
+pub fn BoundingBox::overlaps(Self, Self) -> Bool
+pub fn BoundingBox::overlaps_bounding_box(Self, Self) -> Bool
+pub fn BoundingBox::size(Self) -> Vec2
+pub fn BoundingBox::union(Self, Self) -> Self
+pub fn BoundingBox::width(Self) -> Double
+pub impl Eq for BoundingBox
+pub impl Show for BoundingBox
+
+pub(all) struct Transform {
+  position : Vec2
+  rotation : Double
+  scale : Vec2
+  skew : Double
+  origin : Vec2
+}
+pub fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
+pub impl Eq for Transform
+pub impl Show for Transform
+
+pub(all) struct Vec2 {
+  mut x : Double
+  mut y : Double
+}
+pub fn Vec2::add_scalar(Self, Double) -> Self
+pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
+pub fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
+pub fn Vec2::almost_equals(Self, Self, tolerance? : Double) -> Bool
+pub fn Vec2::angle(Self) -> Double
+pub fn Vec2::angle_radians(Self) -> Double
+pub fn Vec2::apply(Self, (Double) -> Double) -> Self
+pub fn Vec2::ceil(Self) -> Self
+pub fn Vec2::clone(Self) -> Self
+pub fn Vec2::copy(Self, Self) -> Unit
+pub fn Vec2::cross(Self, Self) -> Double
+pub fn Vec2::distance(Self, Self) -> Double
+pub fn Vec2::distance_squared(Self, Self) -> Double
+pub fn Vec2::distance_squared_tuple((Double, Double), (Double, Double)) -> Double
+pub fn Vec2::dot(Self, Self) -> Double
+pub fn Vec2::floor(Self) -> Self
+pub fn Vec2::from_angle(Double) -> Self
+pub fn Vec2::from_angle_radians(Double) -> Self
+pub fn Vec2::from_tuple((Double, Double)) -> Self
+pub fn Vec2::infinity() -> Self
+pub fn Vec2::is_clockwise_from(Self, Self) -> Bool
+pub fn Vec2::is_in(Self, BoundingBox) -> Bool
+pub fn Vec2::is_inf(Self) -> Bool
+pub fn Vec2::is_nan(Self) -> Bool
+pub fn Vec2::is_valid(Self) -> Bool
+pub fn Vec2::is_zero(Self) -> Bool
+pub fn Vec2::length(Self) -> Double
+pub fn Vec2::length_squared(Self) -> Double
+pub fn Vec2::max(Self, Self) -> Unit
+pub fn Vec2::min(Self, Self) -> Unit
+pub fn Vec2::mix(Self, Self, Double) -> Self
+pub fn Vec2::mul_scalar(Self, Double) -> Self
+pub fn Vec2::neg_infinity() -> Self
+pub fn Vec2::negate(Self) -> Unit
+pub fn Vec2::new(x? : Double, y? : Double) -> Self
+pub fn Vec2::normalize(Self) -> Unit
+pub fn Vec2::project_onto(Self, Self) -> Self
+pub fn Vec2::rotate(Self, Double) -> Self
+pub fn Vec2::rotate90(Self) -> Self
+pub fn Vec2::rotate_neg90(Self) -> Self
+pub fn Vec2::rotate_radians(Self, Double) -> Self
+pub fn Vec2::round(Self) -> Self
+pub fn Vec2::round_to_fixed(Self, Int) -> Self
+pub fn Vec2::round_to_multiple(Self, Double) -> Self
+pub fn Vec2::self_add(Self, Self) -> Unit
+pub fn Vec2::self_add_scalar(Self, Double) -> Unit
+pub fn Vec2::self_div(Self, Self) -> Unit
+pub fn Vec2::self_div_scalar(Self, Double) -> Unit
+pub fn Vec2::self_mul(Self, Self) -> Unit
+pub fn Vec2::self_mul_scalar(Self, Double) -> Unit
+pub fn Vec2::self_sub(Self, Self) -> Unit
+pub fn Vec2::self_sub_scalar(Self, Double) -> Unit
+pub fn Vec2::set(Self, Double, Double) -> Unit
+pub fn Vec2::to_tuple(Self) -> (Double, Double)
+pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
+pub impl Add for Vec2
+pub impl Div for Vec2
+pub impl Eq for Vec2
+pub impl Mul for Vec2
+pub impl Neg for Vec2
+pub impl Show for Vec2
+pub impl Sub for Vec2
+pub impl ToJson for Vec2
+pub impl @json.FromJson for Vec2
+
+// Type aliases
+
+// Traits
+

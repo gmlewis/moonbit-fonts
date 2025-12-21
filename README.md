@@ -8,6 +8,14 @@ repos which are organized by the first letter of the name of the font:
 
 `mbt-fonts-*` packages contain hardcoded font data using `Map[String, @fonts.Glyph]`.
 
+To add a font dependency, use the MoonBit package name (which follows the `gmlewis/fonts-<letter>/<fontname>` pattern).
+For example, to add the `baloo` font, run:
+```bash
+moon add gmlewis/fonts-b/baloo
+```
+
+The corresponding GitHub repositories are:
+
 * font: https://github.com/gmlewis/mbt-fonts-a/tree/master/aaarghnormal
 * license: https://github.com/gmlewis/go-fonts-a/tree/master/fonts/aaarghnormal
 * ...
@@ -18,6 +26,18 @@ repos which are organized by the first letter of the name of the font:
 * license: https://github.com/gmlewis/go-fonts-z/tree/master/fonts/znikomitno24
 
 [MoonBit]: https://www.moonbitlang.com/
+
+## Quick Start
+
+See the [examples/quick-start](examples/quick-start) directory for a valid example
+of how to use this package.
+
+## Gallery
+
+* [Alignment Gallery](examples/alignment-gallery): Visual reference for text alignment.
+* [Styled Text](examples/styled-text): Demonstration of fills, strokes, and CSS colors.
+* [SVG Checkerboard](examples/svg-checkerboard): Basic graphic rendering.
+* [Quick Start](examples/quick-start): Simple text rendering.
 
 ## Examples
 

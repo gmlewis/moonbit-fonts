@@ -1,17 +1,5 @@
 ///|
-using @draw {type Fill}
-
-///|
-using @draw {type Graphic}
-
-///|
-using @draw {type Group}
-
-///|
-let fill = @draw.fill
-
-///|
-let rgba = @draw.rgba
+using @draw {type Fill, type Graphic, type Group, fill, rgba}
 
 ///|
 let unit_circle = @draw.unit_circle
@@ -20,7 +8,7 @@ let unit_circle = @draw.unit_circle
 let unit_square = @draw.unit_square
 
 ///|
-let vec2 = @draw.vec2
+using @geom {vec2}
 
 ///|
 pub fn checkerboard() -> Graphic {

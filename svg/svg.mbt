@@ -1,4 +1,7 @@
 ///|
+using @geom {vec2}
+
+///|
 using @draw {type CompoundPath}
 
 ///|
@@ -14,10 +17,7 @@ using @draw {type Path}
 using @draw {type Stroke}
 
 ///|
-let vec2 = @draw.vec2
-
-///|
-/// from_graphics returns an SVG from a Graphic.
+/// `from_graphic` returns an SVG string from a `Graphic`.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly as an SVG.
 pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
@@ -30,31 +30,29 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
   let mut g = g
   if y_up {
     let height = bbox.height()
-    let transform = @draw.Transform::new(
+    let transform = @geom.Transform::new(
       position=vec2(0, height),
       scale=vec2(1, -1),
     )
-    let affine_matrix = @draw.AffineMatrix::from_transform(transform)
+    let affine_matrix = @geom.AffineMatrix::from_transform(transform)
     g = g.clone().affine_transform(affine_matrix)
     bbox = g.bounding_box().unwrap()
   }
   let min = bbox.min.round_to_fixed(2)
-  let max = bbox.max.round_to_fixed(2)
+  let width = @geom.round_to_fixed(bbox.width(), 2)
+  let height = @geom.round_to_fixed(bbox.height(), 2)
   let paths = g.all_paths_and_compound_paths()
   let lines = Array::new(capacity=paths.length())
-  ignore(
-    Graphic::every(paths, fn(g) {
-      match g {
-        Path(path) => lines.push(path_to_svg(path))
-        CompoundPath(path) => lines.push(compound_path_to_svg(path))
-        _ => ()
-      }
-      true
-    }),
-  )
+  for path in paths {
+    match path {
+      Path(path) => lines.push(path_to_svg(path))
+      CompoundPath(path) => lines.push(compound_path_to_svg(path))
+      _ => ()
+    }
+  }
   let lines = lines.join("\n")
   (
-    $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{max.x} \{max.y}">
+    $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{width} \{height}">
     $|\{lines}
     #|</svg>
   )

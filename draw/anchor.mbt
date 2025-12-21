@@ -34,10 +34,14 @@ pub fn Anchor::affine_transform(
   self : Anchor,
   affine_matrix : AffineMatrix,
 ) -> Anchor {
-  let _ = self.position.affine_transform(affine_matrix)
-  let _ = self.handle_in.affine_transform_without_translation(affine_matrix)
-  let _ = self.handle_out.affine_transform_without_translation(affine_matrix)
-  self
+  let position = self.position.affine_transform(affine_matrix)
+  let handle_in = self.handle_in.affine_transform_without_translation(
+    affine_matrix,
+  )
+  let handle_out = self.handle_out.affine_transform_without_translation(
+    affine_matrix,
+  )
+  { position, handle_in, handle_out }
 }
 
 ///|
@@ -47,10 +51,16 @@ pub fn Anchor::affine_transform_without_translation(
   self : Anchor,
   affine_matrix : AffineMatrix,
 ) -> Anchor {
-  let _ = self.position.affine_transform_without_translation(affine_matrix)
-  let _ = self.handle_in.affine_transform_without_translation(affine_matrix)
-  let _ = self.handle_out.affine_transform_without_translation(affine_matrix)
-  self
+  let position = self.position.affine_transform_without_translation(
+    affine_matrix,
+  )
+  let handle_in = self.handle_in.affine_transform_without_translation(
+    affine_matrix,
+  )
+  let handle_out = self.handle_out.affine_transform_without_translation(
+    affine_matrix,
+  )
+  { position, handle_in, handle_out }
 }
 
 ///|
@@ -152,10 +162,10 @@ let tmp2 : Vec2 = Vec2::new()
 /// are tangent to each other.
 pub fn Anchor::has_tangent_handles(
   self : Anchor,
-  tolerance? : Double = DEFAULT_TOLERANCE,
+  tolerance? : Double = @geom.DEFAULT_TOLERANCE,
 ) -> Bool {
-  let _ = tmp1.copy(self.handle_in).normalize()
-  let _ = tmp2.copy(self.handle_out).normalize()
+  tmp1..copy(self.handle_in).normalize()
+  tmp2..copy(self.handle_out).normalize()
   tmp1.dot(tmp2) <= tolerance - 1
 }
 

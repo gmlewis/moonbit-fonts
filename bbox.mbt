@@ -8,7 +8,7 @@
 /// of all control points in addition to curve anchor points which may result
 /// in returning a much larger bounding box than is actually needed to fully
 /// contain the glyph.
-pub fn glyph_bbox(d : String) -> Rectangle raise FontError {
+pub fn glyph_bbox(d : String) -> @geom.BoundingBox raise FontError {
   let cmds = split_path(d)
   let mut xmin = 0.0
   let mut ymin = 0.0
@@ -62,5 +62,5 @@ pub fn glyph_bbox(d : String) -> Rectangle raise FontError {
       }
     }
   }
-  rect(xmin, ymin, xmax, ymax)
+  @geom.rect(xmin, ymin, xmax, ymax)
 }
