@@ -1,7 +1,11 @@
 ///|
+/// `TextAlign` specifies the horizontal alignment of text.
 pub(all) enum TextAlign {
+  /// `Left` aligns text to the left.
   Left
+  /// `Center` centers the text.
   Center
+  /// `Right` aligns text to the right.
   Right
 } derive(Show, Eq)
 

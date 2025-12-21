@@ -17,7 +17,7 @@ using @draw {type Path}
 using @draw {type Stroke}
 
 ///|
-/// from_graphics returns an SVG from a Graphic.
+/// `from_graphic` returns an SVG string from a `Graphic`.
 /// Note that if the design was created with Y being "up", then it
 /// must be flipped to render properly as an SVG.
 pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {

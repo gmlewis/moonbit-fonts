@@ -6,6 +6,7 @@ pub(all) struct Vec2 {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
+/// `DEFAULT_TOLERANCE` is the default tolerance used for floating point comparisons.
 pub const DEFAULT_TOLERANCE = 0.001
 
 ///|

@@ -23,22 +23,29 @@ pub(all) struct SVGPath {
 ///|
 /// `AbsoluteCmd` represents a supported absolute SVG command.
 pub(all) enum AbsoluteCmd {
-  // MoveTo: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#moveto_path_commands
+  /// `M` is the MoveTo command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#moveto_path_commands
   M
-  // LineTo: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#lineto_path_commands
+  /// `L` is the LineTo command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#lineto_path_commands
   L
-  // Cubic Bézier curve: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#cubic_b%C3%A9zier_curve
+  /// `C` is the Cubic Bézier curve command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#cubic_b%C3%A9zier_curve
   C
-  // Quadratic Bézier curve: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#quadratic_b%C3%A9zier_curve
+  /// `Q` is the Quadratic Bézier curve command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#quadratic_b%C3%A9zier_curve
   Q
-  // ClosePath: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#closepath
+  /// `Z` is the ClosePath command:
+  /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#closepath
   Z
 } derive(Show, Eq)
 
 ///|
 /// `GerberLP` represents whether a subpath is `Dark` or `Clear`.
 pub(all) enum GerberLP {
+  /// `Dark` means the subpath is filled.
   Dark
+  /// `Clear` means the subpath is a hole.
   Clear
 } derive(Show, Eq)
 

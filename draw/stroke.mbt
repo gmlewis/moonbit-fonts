@@ -10,23 +10,35 @@ pub(all) struct Stroke {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
+/// `StrokeAlignment` defines where the stroke is placed relative to the path.
 pub(all) enum StrokeAlignment {
+  /// `Centered` places the stroke centered on the path.
   Centered
+  /// `Inner` places the stroke inside the path.
   Inner
+  /// `Outer` places the stroke outside the path.
   Outer
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
+/// `StrokeCap` defines the shape used at the end of open paths.
 pub(all) enum StrokeCap {
+  /// `Butt` ends the stroke exactly at the path end.
   Butt
+  /// `Round` adds a semi-circle at the path end.
   Round
+  /// `Square` adds a square at the path end.
   Square
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
+/// `StrokeJoin` defines the shape used at the corners of paths.
 pub(all) enum StrokeJoin {
+  /// `Miter` creates a sharp corner.
   Miter
+  /// `Round` creates a rounded corner.
   Round
+  /// `Bevel` creates a flattened corner.
   Bevel
 } derive(Show, Eq, FromJson, ToJson)
 

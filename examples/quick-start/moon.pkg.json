@@ -1,0 +1,8 @@
+{
+  "is-main": true,
+  "import": [
+    "gmlewis/fonts-a/aaarghnormal",
+    "gmlewis/fonts/draw",
+    "gmlewis/fonts/svg"
+  ]
+}

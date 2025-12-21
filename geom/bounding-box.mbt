@@ -15,6 +15,7 @@ pub fn BoundingBox::new(
 }
 
 ///|
+/// `is_empty` returns true if the bounding box has no area.
 pub fn BoundingBox::is_empty(self : BoundingBox) -> Bool {
   self.min.x >= self.max.x || self.min.y >= self.max.y
 }

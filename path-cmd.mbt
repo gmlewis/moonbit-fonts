@@ -6,6 +6,7 @@ pub(all) struct ParamPair {
 } derive(Eq)
 
 ///|
+/// `to_string` returns a string representation of a `ParamPair`.
 pub fn ParamPair::to_string(self : ParamPair) -> String {
   "(\{svg_num(self.x)},\{svg_num(self.y)})"
 }
@@ -16,7 +17,7 @@ impl Show for ParamPair with output(self, logger) {
 }
 
 ///|
-/// `Cmd` represents an individual absolute SVG command.
+/// `PathCmd` represents an individual absolute SVG command.
 pub(all) struct PathCmd {
   cmd : AbsoluteCmd
   gerber_lp : GerberLP
@@ -24,6 +25,7 @@ pub(all) struct PathCmd {
 } derive(Show, Eq)
 
 ///|
+/// `from_svg_cmd` creates a `PathCmd` from a raw SVG command and a `GerberLP`.
 pub fn PathCmd::from_svg_cmd(
   svg_cmd : Cmd,
   gerber_lp : GerberLP,
@@ -59,6 +61,7 @@ pub fn PathCmd::from_svg_cmd(
 }
 
 ///|
+/// `to_svg_cmd` converts a `PathCmd` back to a raw SVG command and its `GerberLP` code.
 pub fn PathCmd::to_svg_cmd(self : PathCmd) -> (Cmd, String) {
   let gerber_lp = match self.cmd {
     M =>
@@ -79,7 +82,7 @@ pub fn PathCmd::to_svg_cmd(self : PathCmd) -> (Cmd, String) {
 }
 
 ///|
-/// `bbox` returns the minimum bounding box of a PathCmd.
+/// `bbox` returns the minimum bounding box of a `PathCmd`.
 pub fn PathCmd::bbox(self : PathCmd) -> @geom.BoundingBox {
   let r = @geom.BoundingBox::max_reversed()
   for index, pp in self.params {
@@ -102,7 +105,7 @@ pub fn PathCmd::bbox(self : PathCmd) -> @geom.BoundingBox {
 pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 
 ///|
-/// `clone` makes a deep copy of a PatchCmd.
+/// `clone` makes a deep copy of a `PathCmd`.
 pub fn PathCmd::clone(self : PathCmd) -> PathCmd {
   let params = Array::new(capacity=self.params.length())
   for param in self.params {

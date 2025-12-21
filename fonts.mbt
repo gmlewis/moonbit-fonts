@@ -10,4 +10,5 @@ pub(all) struct Font {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
+/// `FontError` represents an error that occured during font processing.
 pub(all) suberror FontError String derive(Show, Eq)
