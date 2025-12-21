@@ -8,7 +8,7 @@ pub(all) struct Color {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
-/// Color::new returns a new color.
+/// `Color::new` returns a new color.
 pub fn Color::new(
   r? : Double = 0,
   g? : Double = 0,
@@ -19,7 +19,43 @@ pub fn Color::new(
 }
 
 ///|
-/// rgba is a convenience function.
+/// `black` returns the color black.
+pub fn Color::black() -> Color {
+  rgba(0, 0, 0, 1)
+}
+
+///|
+/// `white` returns the color white.
+pub fn Color::white() -> Color {
+  rgba(1, 1, 1, 1)
+}
+
+///|
+/// `red` returns the color red.
+pub fn Color::red() -> Color {
+  rgba(1, 0, 0, 1)
+}
+
+///|
+/// `green` returns the color green.
+pub fn Color::green() -> Color {
+  rgba(0, 1, 0, 1)
+}
+
+///|
+/// `blue` returns the color blue.
+pub fn Color::blue() -> Color {
+  rgba(0, 0, 1, 1)
+}
+
+///|
+/// `transparent` returns a fully transparent color.
+pub fn Color::transparent() -> Color {
+  rgba(0, 0, 0, 0)
+}
+
+///|
+/// `rgba` is a convenience function.
 pub fn rgba(r : Double, g : Double, b : Double, a : Double) -> Color {
   { r, g, b, a }
 }

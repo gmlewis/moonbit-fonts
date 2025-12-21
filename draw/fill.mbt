@@ -17,6 +17,12 @@ pub fn fill(color : Color) -> Fill {
 }
 
 ///|
+/// `Fill::from_string` returns a new fill style from a CSS color string.
+pub fn Fill::from_string(css_string : String) -> Fill raise Error {
+  { color: Color::from_css_string(css_string) }
+}
+
+///|
 /// clone returns a new copy of this Fill.
 pub impl Clonable for Fill with clone(self) {
   { color: self.color.clone() }

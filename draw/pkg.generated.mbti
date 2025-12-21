@@ -22,7 +22,7 @@ pub fn rgba(Double, Double, Double, Double) -> Color
 
 pub fn stroke(Color) -> Stroke
 
-pub fn text(text~ : String, font~ : @fonts.Font, align? : TextAlign, size? : Double) -> Graphic raise DrawError
+pub fn text(@fonts.Font, String, size? : Double, align? : TextAlign) -> Graphic raise DrawError
 
 pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignment) -> Graphic raise DrawError
 
@@ -70,19 +70,25 @@ pub(all) struct Color {
   mut a : Double
 }
 pub fn Color::as_fill(Self) -> Fill?
+pub fn Color::black() -> Self
+pub fn Color::blue() -> Self
 pub fn Color::clone(Self) -> Self
 pub fn Color::from_css_string(String) -> Self raise
 pub fn Color::from_hsva(Double, Double, Double, Double) -> Self
 pub fn Color::from_rgb8_number(UInt) -> Self
+pub fn Color::green() -> Self
 pub fn Color::luminance(Self) -> Double
 pub fn Color::mix(Self, Self, Double) -> Self
 pub fn Color::new(r? : Double, g? : Double, b? : Double, a? : Double) -> Self
+pub fn Color::red() -> Self
 pub fn Color::set(Self, Double, Double, Double, Double) -> Self
 pub fn Color::to_css_hex_string(Self) -> String
 pub fn Color::to_css_rgba_string(Self) -> String
 pub fn Color::to_css_string(Self) -> String
 pub fn Color::to_hsva(Self) -> Array[Double]
 pub fn Color::to_rgb8_number(Self) -> UInt
+pub fn Color::transparent() -> Self
+pub fn Color::white() -> Self
 pub impl Eq for Color
 pub impl Show for Color
 pub impl ToJson for Color
@@ -131,6 +137,7 @@ pub impl @json.FromJson for CompoundPath
 pub(all) struct Fill {
   color : Color
 }
+pub fn Fill::from_string(String) -> Self raise
 pub fn Fill::new(color? : Color) -> Self
 pub impl Clonable for Fill
 pub impl Eq for Fill
@@ -174,12 +181,16 @@ pub fn Graphic::reverse(Self) -> Self
 pub fn Graphic::rotate(Self, Double) -> Self
 pub fn Graphic::scale(Self, @geom.Vec2) -> Self
 pub fn Graphic::scale_stroke(Self, Double) -> Self
+pub fn Graphic::scale_to_fill(Self, @geom.BoundingBox) -> Self
+pub fn Graphic::scale_to_fit(Self, @geom.BoundingBox, anchor? : @geom.Alignment) -> Self
 pub fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::style_contains_point(@geom.Vec2) -> (Self) -> Bool
 pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[@geom.Vec2], Array[Array[@geom.Vec2]])]
 pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
 pub fn Graphic::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Graphic::translate(Self, @geom.Vec2) -> Self
+pub fn Graphic::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
+pub impl Add for Graphic
 pub impl Show for Graphic
 pub impl ToJson for Graphic
 pub impl @json.FromJson for Graphic

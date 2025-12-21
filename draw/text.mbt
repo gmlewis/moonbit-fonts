@@ -10,7 +10,7 @@ pub(all) enum TextAlign {
 } derive(Show, Eq)
 
 ///|
-/// to_graphic generates a new Graphic from a text string and a font.
+/// `to_graphic` generates a new `Graphic` from a text string and a font.
 pub fn to_graphic(
   font : Font,
   text : String,
@@ -29,13 +29,12 @@ pub fn to_graphic(
 }
 
 ///|
-/// text generates a new Graphic (a Group of Group of compound_paths) from a text
-/// string and a font.
+/// `text` is a convenience wrapper around `to_graphic` that uses `TextAlign`.
 pub fn text(
-  text~ : String,
-  font~ : Font,
+  font : Font,
+  text : String,
+  size? : Double = 1.0,
   align? : TextAlign = Left,
-  size? : Double = 1,
 ) -> Graphic raise DrawError {
   let alignment : Alignment = match align {
     Left => BaselineLeft

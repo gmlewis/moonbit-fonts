@@ -7,6 +7,28 @@ pub(all) enum Graphic {
 } derive(Show)
 
 ///|
+/// `op_add` allows composing two Graphics into a Group using the `+` operator.
+pub impl Add for Graphic with add(self, other) {
+  let items = match (self, other) {
+    (Group(g1), Group(g2)) => g1.items + g2.items
+    (Group(g1), _) => g1.items + [other]
+    (_, Group(g2)) => [self] + g2.items
+    _ => [self, other]
+  }
+  Group({ items, })
+}
+
+///|
+/// `with_style` returns a new `Graphic` with the provided fill and stroke applied.
+pub fn Graphic::with_style(
+  self : Graphic,
+  fill? : Fill,
+  stroke? : Stroke,
+) -> Graphic {
+  self.assign_style(fill, stroke)
+}
+
+///|
 /// clone returns a new copy of Graphic.
 pub fn Graphic::clone(self : Graphic) -> Graphic {
   match self {
@@ -400,6 +422,32 @@ pub fn Graphic::rotate(self : Graphic, angle : Double) -> Graphic {
     Group(group) => group.rotate(angle).as_graphic()
     Path(path) => path.rotate(angle).as_graphic()
   }
+}
+
+///|
+/// `scale_to_fit` scales a `Graphic` to fit inside `box` while preserving aspect ratio.
+pub fn Graphic::scale_to_fit(
+  self : Graphic,
+  box : BoundingBox,
+  anchor? : Alignment = Center,
+) -> Graphic {
+  self.fit_to(box, anchor~)
+}
+
+///|
+/// `scale_to_fill` scales a `Graphic` to completely fill `box`, ignoring aspect ratio.
+pub fn Graphic::scale_to_fill(self : Graphic, box : BoundingBox) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  let wscale = box.width() / bbox.width()
+  let hscale = box.height() / bbox.height()
+  let scale = vec2(wscale, hscale)
+  let position = box.min - scale * bbox.min
+  let transform = Transform::new(position~, scale~)
+  let affine_matrix = AffineMatrix::from_transform(transform)
+  self.clone().affine_transform(affine_matrix)
 }
 
 ///|
