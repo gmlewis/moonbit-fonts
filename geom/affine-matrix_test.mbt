@@ -241,7 +241,11 @@ test "AffineMatrix::invert/identity" {
 ///|
 test "AffineMatrix::invert/non_invertible_matrix" {
   let non_invertible_matrix = AffineMatrix::new(a=1, b=1, c=2, d=2, tx=1, ty=1)
-  ignore(non_invertible_matrix.invert())
+  let result = non_invertible_matrix.invert()
+  inspect(
+    result,
+    content="{a: Infinity, b: Infinity, c: Infinity, d: Infinity, tx: NaN, ty: NaN}",
+  )
 }
 
 ///|

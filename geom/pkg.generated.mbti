@@ -28,7 +28,7 @@ pub(all) struct AffineMatrix {
   mut ty : Double
 }
 pub fn AffineMatrix::clone(Self) -> Self
-pub fn AffineMatrix::copy(Self, Self) -> Self
+pub fn AffineMatrix::copy(Self, Self) -> Unit
 pub fn AffineMatrix::determinant(Self) -> Double
 pub fn AffineMatrix::from_center_scale(Vec2, Vec2) -> Self
 pub fn AffineMatrix::from_rotation(Double) -> Self
@@ -54,7 +54,7 @@ pub fn AffineMatrix::pre_mul_without_translation(Self, Self) -> Self
 pub fn AffineMatrix::rotate(Self, Double) -> Self
 pub fn AffineMatrix::scale(Self, Vec2) -> Self
 pub fn AffineMatrix::scale_scalar(Self, Double) -> Self
-pub fn AffineMatrix::self_mul(Self, Self) -> Self
+pub fn AffineMatrix::self_mul(Self, Self) -> Unit
 pub fn AffineMatrix::skew(Self, Double) -> Self
 pub fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
 pub fn AffineMatrix::translate(Self, Vec2) -> Self

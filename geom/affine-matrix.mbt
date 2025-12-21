@@ -92,46 +92,39 @@ pub fn AffineMatrix::from_center_scale(
 ///|
 /// clone returns a copy of this 2D affine matrix.
 pub fn AffineMatrix::clone(self : AffineMatrix) -> AffineMatrix {
-  let { a, b, c, d, tx, ty } = self
-  { a, b, c, d, tx, ty }
+  { ..self }
 }
 
 ///|
-/// copy copies another 2D affine matrix into itself and returns itself.
-pub fn AffineMatrix::copy(
-  self : AffineMatrix,
-  other : AffineMatrix,
-) -> AffineMatrix {
+/// copy copies another 2D affine matrix into itself.
+pub fn AffineMatrix::copy(self : AffineMatrix, other : AffineMatrix) -> Unit {
   self.a = other.a
   self.b = other.b
   self.c = other.c
   self.d = other.d
   self.tx = other.tx
   self.ty = other.ty
-  self
 }
 
 ///|
-/// invert inverts this 2D affine matrix.
+/// invert inverts this 2D affine matrix, returning a new one.
 pub fn AffineMatrix::invert(self : AffineMatrix) -> AffineMatrix {
   let { a: a0, b: b0, c: c0, d: d0, tx: tx0, ty: ty0 } = self
   let cross = a0 * d0 - b0 * c0
   let dot = b0 * c0 - a0 * d0
-  self.a = d0 / cross
-  self.b = b0 / dot
-  self.c = c0 / dot
-  self.d = a0 / cross
-  self.tx = (d0 * tx0 - c0 * ty0) / dot
-  self.ty = (b0 * tx0 - a0 * ty0) / cross
-  self
+  let result = self.clone()
+  result.a = d0 / cross
+  result.b = b0 / dot
+  result.c = c0 / dot
+  result.d = a0 / cross
+  result.tx = (d0 * tx0 - c0 * ty0) / dot
+  result.ty = (b0 * tx0 - a0 * ty0) / cross
+  result
 }
 
 ///|
-/// self_mul multiplies this 2D affine matrix with another.
-pub fn AffineMatrix::self_mul(
-  self : AffineMatrix,
-  m : AffineMatrix,
-) -> AffineMatrix {
+/// self_mul multiplies this 2D affine matrix with another, storing the result in itself.
+pub fn AffineMatrix::self_mul(self : AffineMatrix, m : AffineMatrix) -> Unit {
   let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = self
   let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = m
   self.a = m0a * m1a + m0c * m1b
@@ -140,76 +133,79 @@ pub fn AffineMatrix::self_mul(
   self.d = m0b * m1c + m0d * m1d
   self.tx = m0a * m1tx + m0c * m1ty + m0tx
   self.ty = m0b * m1tx + m0d * m1ty + m0ty
-  self
 }
 
 ///|
 /// mul multiplies two 2D affine matrices together, returning a new one.
 pub impl Mul for AffineMatrix with mul(self, b) {
-  self.clone().self_mul(b)
+  let result = self.clone()
+  result.self_mul(b)
+  result
 }
 
 ///|
 /// mul_without_translation multiplies this 2D affine matrix with another,
-/// discarding the transation.
+/// discarding the transation, and returning a new one.
 pub fn AffineMatrix::mul_without_translation(
   self : AffineMatrix,
   m : AffineMatrix,
 ) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, .. } = self
   let { a: m1a, b: m1b, c: m1c, d: m1d, .. } = m
-  self.a = m0a * m1a + m0c * m1b
-  self.b = m0b * m1a + m0d * m1b
-  self.c = m0a * m1c + m0c * m1d
-  self.d = m0b * m1c + m0d * m1d
-  self
+  let result = self.clone()
+  result.a = m0a * m1a + m0c * m1b
+  result.b = m0b * m1a + m0d * m1b
+  result.c = m0a * m1c + m0c * m1d
+  result.d = m0b * m1c + m0d * m1d
+  result
 }
 
 ///|
-/// pre_mul multiplies another matrix `m` by this 2D affine matrix, then
-/// stores and returns the result.
+/// pre_mul multiplies another matrix `m` by this 2D affine matrix, returning a new one.
 pub fn AffineMatrix::pre_mul(
   self : AffineMatrix,
   m : AffineMatrix,
 ) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = m
   let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = self
-  self.a = m0a * m1a + m0c * m1b
-  self.b = m0b * m1a + m0d * m1b
-  self.c = m0a * m1c + m0c * m1d
-  self.d = m0b * m1c + m0d * m1d
-  self.tx = m0a * m1tx + m0c * m1ty + m0tx
-  self.ty = m0b * m1tx + m0d * m1ty + m0ty
-  self
+  let result = self.clone()
+  result.a = m0a * m1a + m0c * m1b
+  result.b = m0b * m1a + m0d * m1b
+  result.c = m0a * m1c + m0c * m1d
+  result.d = m0b * m1c + m0d * m1d
+  result.tx = m0a * m1tx + m0c * m1ty + m0tx
+  result.ty = m0b * m1tx + m0d * m1ty + m0ty
+  result
 }
 
 ///|
 /// pre_mul_without_translation multiplies another matrix `m` by this 2D affine matrix,
-/// discarding the translate, then stores and returns the result.
+/// discarding the translate and returning a new affine matrix.
 pub fn AffineMatrix::pre_mul_without_translation(
   self : AffineMatrix,
   m : AffineMatrix,
 ) -> AffineMatrix {
   let { a: m0a, b: m0b, c: m0c, d: m0d, .. } = m
   let { a: m1a, b: m1b, c: m1c, d: m1d, .. } = self
-  self.a = m0a * m1a + m0c * m1b
-  self.b = m0b * m1a + m0d * m1b
-  self.c = m0a * m1c + m0c * m1d
-  self.d = m0b * m1c + m0d * m1d
-  self
+  let result = self.clone()
+  result.a = m0a * m1a + m0c * m1b
+  result.b = m0b * m1a + m0d * m1b
+  result.c = m0a * m1c + m0c * m1d
+  result.d = m0b * m1c + m0d * m1d
+  result
 }
 
 ///|
-/// translate translates this 2D affine matrix by position `v`.
+/// translate translates this 2D affine matrix by position `v`, returning a new one.
 pub fn AffineMatrix::translate(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   let { a, b, c, d, .. } = self
-  self.tx += a * v.x + c * v.y
-  self.ty += b * v.x + d * v.y
-  self
+  let tx = self.tx + a * v.x + c * v.y
+  let ty = self.ty + b * v.x + d * v.y
+  { ..self, tx, ty }
 }
 
 ///|
-/// rotate rotates this 2D affine matrix by `angle` degrees.
+/// rotate rotates this 2D affine matrix by `angle` degrees, returning a new one.
 pub fn AffineMatrix::rotate(
   self : AffineMatrix,
   angle : Double,
@@ -218,66 +214,67 @@ pub fn AffineMatrix::rotate(
 }
 
 ///|
-/// skew skews the Y basis vector of this 2D affine matrix by `angle` degrees.
+/// skew skews the Y basis vector of this 2D affine matrix by `angle` degrees, returning a new one.
 pub fn AffineMatrix::skew(self : AffineMatrix, angle : Double) -> AffineMatrix {
   let rad = angle * @math.PI / 180
   let t = @math.tan(rad)
-  self.c += t * self.a
-  self.d += t * self.b
-  self
+  let c = self.c + t * self.a
+  let d = self.d + t * self.b
+  { ..self, c, d }
 }
 
 ///|
-/// scale scales this 2D affine matrix by `v`.
+/// scale scales this 2D affine matrix by `v`, returning a new one.
 pub fn AffineMatrix::scale(self : AffineMatrix, v : Vec2) -> AffineMatrix {
-  self.a *= v.x
-  self.b *= v.x
-  self.c *= v.y
-  self.d *= v.y
-  self
+  let a = self.a * v.x
+  let b = self.b * v.x
+  let c = self.c * v.y
+  let d = self.d * v.y
+  { ..self, a, b, c, d }
 }
 
 ///|
-/// scale_scalar scales this 2D affine matrix uniformly by `s`.
+/// scale_scalar scales this 2D affine matrix uniformly by `s`, returning a new one.
 pub fn AffineMatrix::scale_scalar(
   self : AffineMatrix,
   s : Double,
 ) -> AffineMatrix {
-  self.a *= s
-  self.b *= s
-  self.c *= s
-  self.d *= s
-  self
+  let a = self.a * s
+  let b = self.b * s
+  let c = self.c * s
+  let d = self.d * s
+  { ..self, a, b, c, d }
 }
 
 ///|
 /// origin translates the matrix such that the center of future
-/// scale, rotate, and skew transformations will be `v`.
+/// scale, rotate, and skew transformations will be `v`, returning a new one.
 pub fn AffineMatrix::origin(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   let { x, y } = v
-  self.tx += self.a * x + self.c * y
-  self.ty += self.b * x + self.d * y
-  self
+  let tx = self.tx + self.a * x + self.c * y
+  let ty = self.ty + self.b * x + self.d * y
+  { ..self, tx, ty }
 }
 
 ///|
 /// normalize scales the basis vectors of this 2D affine matrix
-/// so that they have unit length.
+/// so that they have unit length, returning a new one.
 pub fn AffineMatrix::normalize(self : AffineMatrix) -> AffineMatrix {
   let { a, b, c, d, .. } = self
+  let result = self.clone()
   let x = a * a + b * b
   if x > 0 {
     let f = 1.0 / x.sqrt()
-    self.a *= f
-    self.b *= f
+    result.a *= f
+    result.b *= f
   }
   let y = c * c + d * d
   if y > 0 {
     let f = 1.0 / y.sqrt()
-    self.c *= f
-    self.d *= f
+    result.c *= f
+    result.d *= f
   }
-  self
+  result
 }
 
 ///|
@@ -295,7 +292,7 @@ pub fn AffineMatrix::is_orthogonal(
   tolerance? : Double = DEFAULT_TOLERANCE,
 ) -> Bool {
   let { a, b, c, d, .. } = self
-  return (a * c + b * d).abs() <= tolerance
+  (a * c + b * d).abs() <= tolerance
 }
 
 ///|
