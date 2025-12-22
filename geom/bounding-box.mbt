@@ -1,5 +1,5 @@
 ///|
-/// BoundingBox represents a minimum bounding box as an axis-aligned rectangle.
+/// `BoundingBox` represents a minimum bounding box as an axis-aligned rectangle.
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2

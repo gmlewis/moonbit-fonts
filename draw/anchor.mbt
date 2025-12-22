@@ -1,6 +1,6 @@
 ///|
-/// Anchor represents a single point in a path. Two anchors form a segment.
-/// The position of an Anchor is absolute and the handles are both relative.
+/// `Anchor` represents a single point in a path. Two anchors form a segment.
+/// The position of an `Anchor` is absolute and the handles are both relative.
 pub(all) struct Anchor {
   mut position : Vec2 // absolute
   mut handle_in : Vec2 // relative
@@ -8,7 +8,7 @@ pub(all) struct Anchor {
 } derive(Show, Eq, FromJson, ToJson)
 
 ///|
-/// Anchor::new returns a new anchor. You must either create new Vec2 points
+/// `Anchor::new` returns a new anchor. You must either create new `Vec2` points
 /// or clone them before passing them in.
 pub fn Anchor::new(
   position? : Vec2 = vec2(0, 0),
@@ -19,7 +19,7 @@ pub fn Anchor::new(
 }
 
 ///|
-/// clone makes a new copy of this Anchor.
+/// `clone` makes a new copy of this `Anchor`.
 pub fn Anchor::clone(self : Anchor) -> Anchor {
   Anchor::new(
     position=self.position.clone(),
@@ -29,7 +29,7 @@ pub fn Anchor::clone(self : Anchor) -> Anchor {
 }
 
 ///|
-/// affine_transform transforms this Anchor by the provided `affine_matrix`.
+/// `affine_transform` transforms this `Anchor` by the provided `affine_matrix`.
 pub fn Anchor::affine_transform(
   self : Anchor,
   affine_matrix : AffineMatrix,
@@ -45,7 +45,7 @@ pub fn Anchor::affine_transform(
 }
 
 ///|
-/// affine_transform_without_translation transforms this Anchor's rotation, scale,
+/// `affine_transform_without_translation` transforms this `Anchor`'s rotation, scale,
 /// and skew, without affecting its translation.
 pub fn Anchor::affine_transform_without_translation(
   self : Anchor,
@@ -64,7 +64,7 @@ pub fn Anchor::affine_transform_without_translation(
 }
 
 ///|
-/// transform provides a convenient API for a common task.
+/// `transform` provides a convenient API for a common task.
 pub fn Anchor::transform(
   self : Anchor,
   position? : Vec2 = vec2(0, 0),
@@ -80,20 +80,20 @@ pub fn Anchor::transform(
 }
 
 ///|
-/// loose_bounding_box is a simple computation that returns a BoundingBox which
+/// `loose_bounding_box` is a simple computation that returns a `BoundingBox` which
 /// may not be the smallest possible.
 pub fn Anchor::loose_bounding_box(self : Anchor) -> BoundingBox? {
   Some(BoundingBox::new(min=self.position.clone(), max=self.position.clone()))
 }
 
 ///|
-/// bounding_box returns a BoundingBox for this Anchor.
+/// `bounding_box` returns a `BoundingBox` for this `Anchor`.
 pub fn Anchor::bounding_box(self : Anchor) -> BoundingBox? {
   Some(BoundingBox::new(min=self.position.clone(), max=self.position.clone()))
 }
 
 ///|
-/// is_contained_by_bounding_box returns true if this Anchor lies within `box`.
+/// `is_contained_by_bounding_box` returns true if this `Anchor` lies within `box`.
 pub fn Anchor::is_contained_by_bounding_box(
   self : Anchor,
   box : BoundingBox,
@@ -102,7 +102,7 @@ pub fn Anchor::is_contained_by_bounding_box(
 }
 
 ///|
-/// is_intersected_by_bounding_box returns true if the Anchor lies on the
+/// `is_intersected_by_bounding_box` returns true if the `Anchor` lies on the
 /// boundary of `box`.
 pub fn Anchor::is_intersected_by_bounding_box(
   self : Anchor,
@@ -115,7 +115,7 @@ pub fn Anchor::is_intersected_by_bounding_box(
 }
 
 ///|
-/// is_overlapped_by_bounding_box returns true if the Anchor is within `box`.
+/// `is_overlapped_by_bounding_box` returns true if the `Anchor` is within `box`.
 pub fn Anchor::is_overlapped_by_bounding_box(
   self : Anchor,
   box : BoundingBox,
@@ -124,8 +124,8 @@ pub fn Anchor::is_overlapped_by_bounding_box(
 }
 
 ///|
-/// closest_point returns the closest point to `point` or None if no point is found.
-/// area_of_interest is used to focus the computation within a smaller region.
+/// `closest_point` returns the closest point to `point` or `None` if no point is found.
+/// `area_of_interest` is used to focus the computation within a smaller region.
 pub fn Anchor::closest_point(
   self : Anchor,
   point : Vec2,
@@ -143,12 +143,10 @@ pub fn Anchor::closest_point(
 }
 
 ///|
-/// reverse reverses this Anchor.
+/// `reverse` returns a new reverse of this `Anchor`.
 pub fn Anchor::reverse(self : Anchor) -> Anchor {
   let { handle_in, handle_out, .. } = self
-  self.handle_in = handle_out
-  self.handle_out = handle_in
-  self
+  { ..self, handle_in: handle_out, handle_out: handle_in }
 }
 
 ///|
@@ -158,7 +156,7 @@ let tmp1 : Vec2 = Vec2::new()
 let tmp2 : Vec2 = Vec2::new()
 
 ///|
-/// has_tangent_handles returns true if this Anchor has handles that
+/// `has_tangent_handles` returns true if this `Anchor` has handles that
 /// are tangent to each other.
 pub fn Anchor::has_tangent_handles(
   self : Anchor,
@@ -170,13 +168,13 @@ pub fn Anchor::has_tangent_handles(
 }
 
 ///|
-/// has_zero_handles returns true if this Anchor has handles that are both zero.
+/// `has_zero_handles` returns true if this `Anchor` has handles that are both zero.
 pub fn Anchor::has_zero_handles(self : Anchor) -> Bool {
   self.handle_in.is_zero() && self.handle_out.is_zero()
 }
 
 ///|
-/// all_anchors returns all anchors.
+/// `all_anchors` returns all anchors.
 pub fn Anchor::all_anchors(self : Anchor) -> Array[Anchor] {
   [self]
 }

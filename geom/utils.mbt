@@ -1,11 +1,11 @@
 ///|
-/// pt is shorthand for vec2(x, y).
+/// `pt` is shorthand for `vec2(x, y)`.
 pub fn pt(x : Double, y : Double) -> Vec2 {
   vec2(x, y)
 }
 
 ///|
-/// rect is shorthand for @draw.bbox(x0, y0, x1, y1).
+/// `rect` is shorthand for `@draw.bbox(x0, y0, x1, y1)`.
 /// The returned bounding box has minimum and maximum coordinates swapped if necessary.
 pub fn rect(x0 : Double, y0 : Double, x1 : Double, y1 : Double) -> BoundingBox {
   let (x0, x1) = if x0 > x1 { (x1, x0) } else { (x0, x1) }
@@ -14,7 +14,7 @@ pub fn rect(x0 : Double, y0 : Double, x1 : Double, y1 : Double) -> BoundingBox {
 }
 
 ///|
-/// round_to_fixed rounds a Double to the provided number of digits.
+/// `round_to_fixed` rounds a `Double` to the provided number of digits.
 pub fn round_to_fixed(val : Double, digits : Int) -> Double {
   let num = digits.to_double().abs()
   let exp = 10.0.pow(num)

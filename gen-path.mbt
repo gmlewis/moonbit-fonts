@@ -11,11 +11,11 @@
 ///
 /// If you want multiple lines centered horizontally, use `gen_paths` instead.
 ///
-/// Note that the SVG standard states that positive-Y is "down" with origin
+/// Note that the SVG standard states that `positive-Y` is "down" with origin
 /// coordinates in the upper-left, however, all SVG fonts appear to have their
-/// origin in the lower left with positive-Y moving "up". This package
+/// origin in the lower left with `positive-Y` moving "up". This package
 /// attempts to convert the SVG paths such that the font is equally readable
-/// in both the "y_up=false" SVG canvas environment or in a 3D "y_up=true"
+/// in both the `y_up=false` SVG canvas environment or in a 3D `y_up=true`
 /// rendering environment.
 pub fn Font::gen_path(
   self : Font,

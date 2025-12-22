@@ -2,7 +2,7 @@
 /// An `SVGPath` is identical to a `Glyph` but has been optimized internally
 /// for further manipulation, whereas a `Glyph` is optimized for compact
 /// storage of font data within all the font packages.
-/// An `SVGPath` can be converted to a `Glpyh` and vice versa.
+/// An `SVGPath` can be converted to a `Glyph` and vice versa.
 pub(all) struct SVGPath {
   /// `char` represents all the glyphs contained in this path.
   /// It is identical to the `Glyph.char` field.
@@ -53,7 +53,7 @@ pub(all) enum GerberLP {
 /// `from_glyph` returns an `SVGPath` from a `Glyph`, optionally processing
 /// every `Cmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `from_glyph` makes no attempt to process the
-/// invidual glyphs and simply transforms the representation.
+/// individual glyphs and simply transforms the representation.
 pub fn SVGPath::from_glyph(
   g : Glyph,
   path_cmd_fn? : PathCmdFn,
@@ -106,7 +106,7 @@ pub fn SVGPath::from_glyph(
 /// `to_glyph` returns a "super" `Glyph` from an `SVGPath`, optionally processing
 /// every `PathCmd` with a processing function.
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
-/// invidual glyphs and simply transforms the representation.
+/// individual glyphs and simply transforms the representation.
 pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = @buffer.new()
   let d = @buffer.new()

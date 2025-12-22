@@ -20,7 +20,7 @@ pub fn group(Array[Graphic]) -> Group
 
 pub fn rgba(Double, Double, Double, Double) -> Color
 
-pub fn stroke(Color) -> Stroke
+pub fn stroke(Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 
 pub fn text(@fonts.Font, String, size? : Double, align? : TextAlign) -> Graphic raise DrawError
 
@@ -69,7 +69,8 @@ pub(all) struct Color {
   mut b : Double
   mut a : Double
 }
-pub fn Color::as_fill(Self) -> Fill?
+pub fn Color::as_fill(Self) -> Fill
+pub fn Color::as_stroke(Self, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 pub fn Color::black() -> Self
 pub fn Color::blue() -> Self
 pub fn Color::clone(Self) -> Self
@@ -81,7 +82,7 @@ pub fn Color::luminance(Self) -> Double
 pub fn Color::mix(Self, Self, Double) -> Self
 pub fn Color::new(r? : Double, g? : Double, b? : Double, a? : Double) -> Self
 pub fn Color::red() -> Self
-pub fn Color::set(Self, Double, Double, Double, Double) -> Self
+pub fn Color::set(Self, Double, Double, Double, Double) -> Unit
 pub fn Color::to_css_hex_string(Self) -> String
 pub fn Color::to_css_rgba_string(Self) -> String
 pub fn Color::to_css_string(Self) -> String
@@ -103,9 +104,6 @@ pub fn CompoundPath::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::all_anchors(Self) -> Array[Anchor]
 pub fn CompoundPath::as_graphic(Self) -> Graphic
-pub fn CompoundPath::assign_fill(Self, Fill?) -> Self
-pub fn CompoundPath::assign_stroke(Self, Stroke?) -> Self
-pub fn CompoundPath::assign_style(Self, Fill?, Stroke?) -> Self
 pub fn CompoundPath::bounding_box(Self) -> @geom.BoundingBox?
 pub fn CompoundPath::clone(Self) -> Self
 pub fn CompoundPath::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
@@ -130,6 +128,9 @@ pub fn CompoundPath::scale_stroke(Self, Double) -> Self
 pub fn CompoundPath::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn CompoundPath::translate(Self, @geom.Vec2) -> Self
+pub fn CompoundPath::with_fill(Self, Fill?) -> Self
+pub fn CompoundPath::with_stroke(Self, Stroke?) -> Self
+pub fn CompoundPath::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
 pub impl Show for CompoundPath
 pub impl ToJson for CompoundPath
 pub impl @json.FromJson for CompoundPath
@@ -156,9 +157,6 @@ pub fn Graphic::all_anchors(Self) -> Array[Anchor]
 pub fn Graphic::all_compound_paths(Self) -> Array[CompoundPath]
 pub fn Graphic::all_paths(Self) -> Array[Path]
 pub fn Graphic::all_paths_and_compound_paths(Self) -> Array[Self]
-pub fn Graphic::assign_fill(Self, Fill?) -> Self
-pub fn Graphic::assign_stroke(Self, Stroke?) -> Self
-pub fn Graphic::assign_style(Self, Fill?, Stroke?) -> Self
 pub fn Graphic::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Graphic::clone(Self) -> Self
 pub fn Graphic::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
@@ -189,6 +187,8 @@ pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[@geom.Vec2], Array[Array[
 pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
 pub fn Graphic::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Graphic::translate(Self, @geom.Vec2) -> Self
+pub fn Graphic::with_fill(Self, Fill?) -> Self
+pub fn Graphic::with_stroke(Self, Stroke?) -> Self
 pub fn Graphic::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
 pub impl Add for Graphic
 pub impl Show for Graphic
@@ -205,9 +205,6 @@ pub fn Group::all_compound_paths(Self) -> Array[CompoundPath]
 pub fn Group::all_paths(Self) -> Array[Path]
 pub fn Group::all_paths_and_compound_paths(Self) -> Array[Graphic]
 pub fn Group::as_graphic(Self) -> Graphic
-pub fn Group::assign_fill(Self, Fill?) -> Self
-pub fn Group::assign_stroke(Self, Stroke?) -> Self
-pub fn Group::assign_style(Self, Fill?, Stroke?) -> Self
 pub fn Group::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Group::clone(Self) -> Self
 pub fn Group::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
@@ -235,6 +232,9 @@ pub fn Group::self_transform(Self, position? : @geom.Vec2, rotation? : Double, s
 pub fn Group::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Group::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Group::translate(Self, @geom.Vec2) -> Self
+pub fn Group::with_fill(Self, Fill?) -> Self
+pub fn Group::with_stroke(Self, Stroke?) -> Self
+pub fn Group::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
 pub impl Show for Group
 pub impl ToJson for Group
 pub impl @json.FromJson for Group
@@ -249,9 +249,6 @@ pub(all) struct Path {
 pub fn Path::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Path::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Path::as_graphic(Self) -> Graphic
-pub fn Path::assign_fill(Self, Fill?) -> Self
-pub fn Path::assign_stroke(Self, Stroke?) -> Self
-pub fn Path::assign_style(Self, Fill?, Stroke?) -> Self
 pub fn Path::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Path::clone(Self) -> Self
 pub fn Path::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
@@ -278,6 +275,9 @@ pub fn Path::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::to_polygon(Self, Int, epsilon? : Double) -> Array[@geom.Vec2]
 pub fn Path::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Path::translate(Self, @geom.Vec2) -> Self
+pub fn Path::with_fill(Self, Fill?) -> Self
+pub fn Path::with_stroke(Self, Stroke?) -> Self
+pub fn Path::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
 pub impl Show for Path
 pub impl ToJson for Path
 pub impl @json.FromJson for Path

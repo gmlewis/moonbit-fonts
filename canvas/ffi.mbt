@@ -66,32 +66,32 @@ fn CanvasCtx::stroke(self : CanvasCtx) = "canvas" "stroke"
 
 ///|
 /// Note that `canvas.setLineCapButt` is added by the JavaScript host
-/// to set the `lineCap` property of the canvas context to "butt".
+/// to set the `lineCap` property of the canvas context to `butt`.
 fn CanvasCtx::set_line_cap_butt(self : CanvasCtx) = "canvas" "setLineCapButt"
 
 ///|
 /// Note that `canvas.setLineCapRound` is added by the JavaScript host
-/// to set the `lineCap` property of the canvas context to "round".
+/// to set the `lineCap` property of the canvas context to `round`.
 fn CanvasCtx::set_line_cap_round(self : CanvasCtx) = "canvas" "setLineCapRound"
 
 ///|
 /// Note that `canvas.setLineCapSquare` is added by the JavaScript host
-/// to set the `lineCap` property of the canvas context to "square".
+/// to set the `lineCap` property of the canvas context to `square`.
 fn CanvasCtx::set_line_cap_square(self : CanvasCtx) = "canvas" "setLineCapSquare"
 
 ///|
 /// Note that `canvas.setLineJoinMiter` is added by the JavaScript host
-/// to set the `lineJoin` property of the canvas context to "miter".
+/// to set the `lineJoin` property of the canvas context to `miter`.
 fn CanvasCtx::set_line_join_miter(self : CanvasCtx) = "canvas" "setLineJoinMiter"
 
 ///|
 /// Note that `canvas.setLineJoinRound` is added by the JavaScript host
-/// to set the `lineJoin` property of the canvas context to "round".
+/// to set the `lineJoin` property of the canvas context to `round`.
 fn CanvasCtx::set_line_join_round(self : CanvasCtx) = "canvas" "setLineJoinRound"
 
 ///|
 /// Note that `canvas.setLineJoinBevel` is added by the JavaScript host
-/// to set the `lineJoin` property of the canvas context to "bevel".
+/// to set the `lineJoin` property of the canvas context to `bevel`.
 fn CanvasCtx::set_line_join_bevel(self : CanvasCtx) = "canvas" "setLineJoinBevel"
 
 ///|

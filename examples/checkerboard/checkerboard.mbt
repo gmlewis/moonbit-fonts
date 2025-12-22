@@ -30,8 +30,8 @@ pub fn checkerboard() -> Graphic {
 fn single_checker(
   x : Int,
   y : Int,
-  outer_fill : Fill?,
-  inner_fill : Fill?,
+  outer_fill : Fill,
+  inner_fill : Fill,
 ) -> Graphic {
   let items = [
     unit_circle()
@@ -39,14 +39,14 @@ fn single_checker(
       position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
       scale=vec2(0.95, 0.95),
     )
-    .assign_fill(outer_fill)
+    .with_style(fill=outer_fill)
     .as_graphic(),
     unit_circle()
     .transform(
       position=vec2(0.5 + x.to_double(), 0.5 + y.to_double()),
       scale=vec2(0.8, 0.8),
     )
-    .assign_fill(inner_fill)
+    .with_style(fill=inner_fill)
     .as_graphic(),
   ]
   Group::new(items~).as_graphic()
@@ -76,5 +76,5 @@ fn square(x : Int, y : Int) -> Graphic {
     },
   )
   let v = vec2(0.5 + x.to_double(), 0.5 + y.to_double())
-  unit_square().translate(v).assign_fill(Some(fill)).as_graphic()
+  unit_square().translate(v).with_style(fill~).as_graphic()
 }
