@@ -10,15 +10,21 @@ import(
 // Values
 pub fn bbox(Double, Double, Double, Double) -> @geom.BoundingBox
 
+pub fn column(Array[Graphic], alignment? : @geom.Alignment, spacing? : Double) -> Graphic
+
 pub fn cubic_bezier_at(@geom.Vec2, @geom.Vec2, @geom.Vec2, @geom.Vec2, Double) -> @geom.Vec2
 
 pub fn dedupe_points(Array[@geom.Vec2], epsilon? : Double) -> Array[@geom.Vec2]
 
 pub fn fill(Color) -> Fill
 
+pub fn grid(Array[Graphic], Int, h_spacing? : Double, v_spacing? : Double) -> Graphic
+
 pub fn group(Array[Graphic]) -> Group
 
 pub fn rgba(Double, Double, Double, Double) -> Color
+
+pub fn row(Array[Graphic], alignment? : @geom.Alignment, spacing? : Double) -> Graphic
 
 pub fn stroke(Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 
