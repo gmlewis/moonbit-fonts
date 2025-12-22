@@ -488,6 +488,45 @@ pub fn Graphic::fit_to(
 }
 
 ///|
+/// `with_margin` returns a new `Graphic` (a `Group`) that includes `self` plus
+/// unstyled `Path` elements that expand the bounding box by the requested
+/// margin amounts on each side.
+pub fn Graphic::with_margin(
+  self : Graphic,
+  top? : Double,
+  right? : Double,
+  bottom? : Double,
+  left? : Double,
+) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  let t = match top {
+    Some(v) => v
+    None => 0.0
+  }
+  let r = match right {
+    Some(v) => v
+    None => 0.0
+  }
+  let b = match bottom {
+    Some(v) => v
+    None => 0.0
+  }
+  let l = match left {
+    Some(v) => v
+    None => 0.0
+  }
+  let p1 = vec2(bbox.min.x - l, bbox.min.y - b)
+  let p2 = vec2(bbox.max.x + r, bbox.min.y - b)
+  let p3 = vec2(bbox.max.x + r, bbox.max.y + t)
+  let p4 = vec2(bbox.min.x - l, bbox.max.y + t)
+  let margin_path = Path::from_points([p1, p2, p3, p4], closed=true)
+  Group({ items: [self, Path(margin_path)] })
+}
+
+///|
 /// `to_profiles` extracts profiles (outer and holes) from a `Graphic`.
 /// Returns an array of (outer_polygon, holes_polygons).
 pub fn Graphic::to_profiles(
