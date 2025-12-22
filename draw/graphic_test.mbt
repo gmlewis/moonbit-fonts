@@ -177,3 +177,26 @@ test "Graphic::with_margin" {
   // New bbox should be min:(-4, -3), max:(12, 11)
   inspect(result, content="Some({min: {x: -4, y: -3}, max: {x: 12, y: 11}})")
 }
+
+///|
+test "Graphic from_json/to_json roundtrip" {
+  let tests = [ // CompoundPath
+    (
+      #|{"paths":[{"anchors":[{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false},{"anchors":[{"position":{"x":2,"y":2},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":3,"y":3},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":false,"clear":false}],"fill":{"color":{"r":1,"g":0,"b":0,"a":1}}}
+    ), // Group
+    (
+      #|{"items":[{"anchors":[{"position":{"x":-1,"y":-1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false},{"anchors":[{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":2,"y":2},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false}]}
+    ), // Path
+    (
+      #|{"anchors":[{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false}
+    ),
+  ]
+  for tt in tests {
+    let json_str = tt
+    let json = @json.parse(json_str)
+    let graphic : Graphic = @json.from_json(json)
+    let got_json = graphic.to_json()
+    let got_json_str = got_json.stringify()
+    assert_eq(got_json_str, json_str)
+  }
+}

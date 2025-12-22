@@ -16,12 +16,13 @@ pub fn to_graphic(
   text : String,
   size? : Double = 1.0,
   alignment? : Alignment = Unchanged,
+  y_up? : Bool = false,
 ) -> Graphic raise DrawError {
-  let glyph = font.gen_path(text, alignment~, y_up=true) catch {
+  let glyph = font.gen_path(text, alignment~, y_up~) catch {
     e => raise DrawError("to_graphic: \{e}")
   }
   let xscale = size / font.units_per_em
-  let yscale = -xscale
+  let yscale = xscale
   let svgpath = SVGPath::from_glyph(glyph) catch {
     e => raise DrawError("to_graphic: \{e}")
   }
@@ -35,13 +36,14 @@ pub fn text(
   text : String,
   size? : Double = 1.0,
   align? : TextAlign = Left,
+  y_up? : Bool = false,
 ) -> Graphic raise DrawError {
   let alignment : Alignment = match align {
     Left => BaselineLeft
     Center => BaselineCenter
     Right => BaselineRight
   }
-  to_graphic(font, text, size~, alignment~)
+  to_graphic(font, text, size~, alignment~, y_up~)
 }
 
 ///|
