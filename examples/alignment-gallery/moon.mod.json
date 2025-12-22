@@ -2,8 +2,8 @@
   "name": "examples/alignment-gallery",
   "version": "0.1.0",
   "deps": {
-    "gmlewis/fonts": "0.18.0",
-    "gmlewis/fonts-a": "0.18.0"
+    "gmlewis/fonts": "0.18.1",
+    "gmlewis/fonts-a": "0.18.1"
   },
   "readme": "README.md",
   "repository": "https://github.com/gmlewis/moonbit-fonts",
