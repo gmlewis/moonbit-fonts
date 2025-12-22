@@ -5,8 +5,7 @@
     "gmlewis/fonts": {
       "path": "../.."
     },
-    "gmlewis/fonts-a": "0.18.1",
-    "gmlewis/fonts-b": "0.18.2"
+    "gmlewis/fonts-a": "0.18.3"
   },
   "readme": "README.md",
   "repository": "https://github.com/gmlewis/moonbit-fonts",
