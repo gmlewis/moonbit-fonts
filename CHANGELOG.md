@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1/0/).
   - `assign_stroke` => `with_stroke`
   - `assign_style` => `with_style`
 
+### Fixed
+- Improved docstring consistency by using backticks for all code entities.
+- Fixed typos in docstrings ("conservative", "occurred", "Glyph", "individual", "super-glyphs").
+- Corrected internal code references in docstrings (e.g., `Vec::infinity` -> `Vec2::infinity`, `Ratio` -> `RatioXY`).
+
 ## [0.18.0] - 2025-12-21
 
 ### Added
