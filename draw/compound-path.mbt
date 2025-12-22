@@ -1,5 +1,5 @@
 ///|
-/// CompoundPath represents one or more paths that typically make up a font glyph.
+/// `CompoundPath` represents one or more paths that typically make up a font glyph.
 pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?

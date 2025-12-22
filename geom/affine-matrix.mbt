@@ -1,5 +1,5 @@
 ///|
-/// AffineMatrix represents a 2D affine transform that preserves parallel lines.
+/// `AffineMatrix` represents a 2D affine transform that preserves parallel lines.
 /// See: https://en.wikipedia.org/wiki/Affine_transformation
 pub(all) struct AffineMatrix {
   mut a : Double

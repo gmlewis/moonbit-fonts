@@ -12,8 +12,8 @@ using @draw {type CompoundPath, type Fill, type Graphic, type Path, type Stroke}
 type CanvasCtx
 
 ///|
-/// from_graphics renders a Graphic to an HTML5 canvas using its native API.
-/// Note that if the design was created with Y being "up", then it
+/// `CanvasCtx::from_graphic` renders a `Graphic` to an HTML5 canvas using its native API.
+/// Note that if the design was created with `Y` being "up", then it
 /// must be flipped to render properly in the canvas.
 pub fn CanvasCtx::from_graphic(
   self : CanvasCtx,

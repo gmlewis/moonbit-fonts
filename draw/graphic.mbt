@@ -1,5 +1,5 @@
 ///|
-/// Graphic represents a drawable graphic element.
+/// `Graphic` represents a drawable graphic element.
 pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
@@ -7,7 +7,7 @@ pub(all) enum Graphic {
 } derive(Show)
 
 ///|
-/// `op_add` allows composing two Graphics into a Group using the `+` operator.
+/// `op_add` allows composing two `Graphic`s into a `Group` using the `+` operator.
 pub impl Add for Graphic with add(self, other) {
   let items = match (self, other) {
     (Group(g1), Group(g2)) => g1.items + g2.items
@@ -19,7 +19,7 @@ pub impl Add for Graphic with add(self, other) {
 }
 
 ///|
-/// clone returns a new copy of Graphic.
+/// `clone` returns a new copy of `Graphic`.
 pub fn Graphic::clone(self : Graphic) -> Graphic {
   match self {
     CompoundPath(compound_path) => CompoundPath(compound_path.clone())
@@ -29,7 +29,7 @@ pub fn Graphic::clone(self : Graphic) -> Graphic {
 }
 
 ///|
-/// affine_transform transforms this graphic by `affine_matrix`.
+/// `affine_transform` transforms this graphic by `affine_matrix`.
 pub fn Graphic::affine_transform(
   self : Graphic,
   affine_matrix : AffineMatrix,
@@ -43,7 +43,7 @@ pub fn Graphic::affine_transform(
 }
 
 ///|
-/// transform provides a convenient API for a common task.
+/// `transform` provides a convenient API for a common task.
 pub fn Graphic::transform(
   self : Graphic,
   position? : Vec2 = vec2(0, 0),
@@ -59,7 +59,7 @@ pub fn Graphic::transform(
 }
 
 ///|
-/// affine_transform_without_translation transforms this graphic by `affine_matrix`
+/// `affine_transform_without_translation` transforms this graphic by `affine_matrix`
 /// without affecting the translation.
 pub fn Graphic::affine_transform_without_translation(
   self : Graphic,
@@ -77,7 +77,7 @@ pub fn Graphic::affine_transform_without_translation(
 }
 
 ///|
-/// loose_bounding_box returns an approximate bounding box for all items.
+/// `loose_bounding_box` returns an approximate bounding box for all items.
 /// It may not be the smallest possible bounding box, but is cheaper to compute.
 pub fn Graphic::loose_bounding_box(self : Graphic) -> BoundingBox? {
   match self {
@@ -88,7 +88,7 @@ pub fn Graphic::loose_bounding_box(self : Graphic) -> BoundingBox? {
 }
 
 ///|
-/// bounding_box returns the bounding box for this Graphic.
+/// `bounding_box` returns the bounding box for this `Graphic`.
 pub fn Graphic::bounding_box(self : Graphic) -> BoundingBox? {
   match self {
     CompoundPath(compound_path) => compound_path.bounding_box()
@@ -98,7 +98,7 @@ pub fn Graphic::bounding_box(self : Graphic) -> BoundingBox? {
 }
 
 ///|
-/// Graphic::every returns true if all tests of `func` are true.
+/// `Graphic::every` returns true if all tests of `func` are true.
 pub fn Graphic::every(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
   for item in items {
     if not(func(item)) {
@@ -109,7 +109,7 @@ pub fn Graphic::every(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool 
 }
 
 ///|
-/// Graphic::some returns true if any calls to `func` are true.
+/// `Graphic::some` returns true if any calls to `func` are true.
 pub fn Graphic::some(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
   for item in items {
     if func(item) {
@@ -120,7 +120,7 @@ pub fn Graphic::some(items : Array[Graphic], func : (Graphic) -> Bool) -> Bool {
 }
 
 ///|
-/// Graphic::is_contained_by_bounding_box returns a function that tests
+/// `Graphic::is_contained_by_bounding_box` returns a function that tests
 /// if a graphic is contained by the box.
 pub fn Graphic::is_contained_by_bounding_box(
   box : BoundingBox,
@@ -136,7 +136,7 @@ pub fn Graphic::is_contained_by_bounding_box(
 }
 
 ///|
-/// Graphic::is_intersected_by_bounding_box returns a function that tests
+/// `Graphic::is_intersected_by_bounding_box` returns a function that tests
 /// if a graphic is intersected by the box.
 pub fn Graphic::is_intersected_by_bounding_box(
   box : BoundingBox,
@@ -152,7 +152,7 @@ pub fn Graphic::is_intersected_by_bounding_box(
 }
 
 ///|
-/// Graphic::is_overlapped_by_bounding_box returns a function that tests
+/// `Graphic::is_overlapped_by_bounding_box` returns a function that tests
 /// if a graphic is overlapped by the box.
 pub fn Graphic::is_overlapped_by_bounding_box(
   box : BoundingBox,
@@ -168,8 +168,8 @@ pub fn Graphic::is_overlapped_by_bounding_box(
 }
 
 ///|
-/// closest_point returns the closest Anchor to `point` that lies on this Graphic
-/// or None.
+/// `closest_point` returns the closest `Anchor` to `point` that lies on this `Graphic`
+/// or `None`.
 pub fn Graphic::closest_point(
   self : Graphic,
   point : Vec2,
@@ -184,7 +184,7 @@ pub fn Graphic::closest_point(
 }
 
 ///|
-/// primitives returns an array of primitives.
+/// `primitives` returns an array of primitives.
 pub fn Graphic::primitives(self : Graphic) -> Array[Graphic] {
   match self {
     CompoundPath(compound_path) => compound_path.primitives()
@@ -194,7 +194,7 @@ pub fn Graphic::primitives(self : Graphic) -> Array[Graphic] {
 }
 
 ///|
-/// reverse reverses this Graphic.
+/// `reverse` reverses this `Graphic`.
 pub fn Graphic::reverse(self : Graphic) -> Graphic {
   match self {
     CompoundPath(compound_path) => CompoundPath(compound_path.reverse())
@@ -204,7 +204,7 @@ pub fn Graphic::reverse(self : Graphic) -> Graphic {
 }
 
 ///|
-/// all_compound_paths returns all CompoundPaths in this Graphic.
+/// `all_compound_paths` returns all `CompoundPath`s in this `Graphic`.
 pub fn Graphic::all_compound_paths(self : Graphic) -> Array[CompoundPath] {
   match self {
     CompoundPath(compound_path) => [compound_path]
@@ -214,7 +214,7 @@ pub fn Graphic::all_compound_paths(self : Graphic) -> Array[CompoundPath] {
 }
 
 ///|
-/// all_paths returns all Paths in this Graphic.
+/// `all_paths` returns all `Path`s in this `Graphic`.
 pub fn Graphic::all_paths(self : Graphic) -> Array[Path] {
   match self {
     CompoundPath(path) => path.paths
@@ -224,7 +224,7 @@ pub fn Graphic::all_paths(self : Graphic) -> Array[Path] {
 }
 
 ///|
-/// all_anchors returns all Anchors in this Graphic.
+/// `all_anchors` returns all `Anchor`s in this `Graphic`.
 pub fn Graphic::all_anchors(self : Graphic) -> Array[Anchor] {
   match self {
     CompoundPath(path) => path.all_anchors()
@@ -234,7 +234,7 @@ pub fn Graphic::all_anchors(self : Graphic) -> Array[Anchor] {
 }
 
 ///|
-/// all_paths_and_compound_paths returns all Paths and CompoundPaths in this Graphic.
+/// `all_paths_and_compound_paths` returns all `Path`s and `CompoundPath`s in this `Graphic`.
 pub fn Graphic::all_paths_and_compound_paths(self : Graphic) -> Array[Graphic] {
   match self {
     CompoundPath(_path) => [self]
@@ -244,7 +244,7 @@ pub fn Graphic::all_paths_and_compound_paths(self : Graphic) -> Array[Graphic] {
 }
 
 ///|
-/// has_style returns true if this Graphic has either a stroke or a fill.
+/// `has_style` returns true if this `Graphic` has either a stroke or a fill.
 pub fn Graphic::has_style(self : Graphic) -> Bool {
   match self {
     CompoundPath(path) => path.has_style()
@@ -254,7 +254,7 @@ pub fn Graphic::has_style(self : Graphic) -> Bool {
 }
 
 ///|
-/// with_fill returns a new Graphic with the provided fill applied.
+/// `with_fill` returns a new `Graphic` with the provided fill applied.
 pub fn Graphic::with_fill(self : Graphic, fill : Fill?) -> Graphic {
   match self {
     CompoundPath(path) => CompoundPath(path.with_fill(fill))
@@ -264,7 +264,7 @@ pub fn Graphic::with_fill(self : Graphic, fill : Fill?) -> Graphic {
 }
 
 ///|
-/// remove_fill a fill style from this Graphic, returning a new Graphic.
+/// `remove_fill` removes a fill style from this `Graphic`, returning a new `Graphic`.
 pub fn Graphic::remove_fill(self : Graphic) -> Graphic {
   match self {
     CompoundPath(path) => CompoundPath(path.remove_fill())
@@ -274,7 +274,7 @@ pub fn Graphic::remove_fill(self : Graphic) -> Graphic {
 }
 
 ///|
-/// with_stroke returns a new Graphic with the provided stroke applied.
+/// `with_stroke` returns a new `Graphic` with the provided stroke applied.
 pub fn Graphic::with_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
   match self {
     CompoundPath(path) => CompoundPath(path.with_stroke(stroke))
@@ -284,7 +284,7 @@ pub fn Graphic::with_stroke(self : Graphic, stroke : Stroke?) -> Graphic {
 }
 
 ///|
-/// remove_stroke a stroke style from this Graphic, returning a new Graphic.
+/// `remove_stroke` removes a stroke style from this `Graphic`, returning a new `Graphic`.
 pub fn Graphic::remove_stroke(self : Graphic) -> Graphic {
   match self {
     CompoundPath(path) => CompoundPath(path.remove_stroke())
@@ -308,7 +308,7 @@ pub fn Graphic::with_style(
 }
 
 ///|
-/// copy_style copies the fill and stroke style from `graphic`, returning a new graphic.
+/// `copy_style` copies the fill and stroke style from `graphic`, returning a new graphic.
 pub fn Graphic::copy_style(self : Graphic, graphic : Graphic) -> Graphic {
   match self {
     CompoundPath(path) => CompoundPath(path.copy_style(graphic))
@@ -318,7 +318,7 @@ pub fn Graphic::copy_style(self : Graphic, graphic : Graphic) -> Graphic {
 }
 
 ///|
-/// scale_stroke scales the stroke width of this Graphic by `scale_factor`, returning a new Graphic.
+/// `scale_stroke` scales the stroke width of this `Graphic` by `scale_factor`, returning a new `Graphic`.
 pub fn Graphic::scale_stroke(self : Graphic, scale_factor : Double) -> Graphic {
   match self {
     CompoundPath(path) => CompoundPath(path.scale_stroke(scale_factor))
@@ -328,8 +328,8 @@ pub fn Graphic::scale_stroke(self : Graphic, scale_factor : Double) -> Graphic {
 }
 
 ///|
-/// first_styled returns the first Path or CompoundPath in this Graphic
-/// that has either a fill or a stroke, or None.
+/// `first_styled` returns the first `Path` or `CompoundPath` in this `Graphic`
+/// that has either a fill or a stroke, or `None`.
 pub fn Graphic::first_styled(self : Graphic) -> Graphic? {
   match self {
     CompoundPath(path) => path.first_styled()
@@ -339,8 +339,8 @@ pub fn Graphic::first_styled(self : Graphic) -> Graphic? {
 }
 
 ///|
-/// Graphic::contains_point returns a function that returns true if this
-/// Graphic contains `point`.
+/// `Graphic::contains_point` returns a function that returns true if this
+/// `Graphic` contains `point`.
 pub fn Graphic::contains_point(point : Vec2) -> (Graphic) -> Bool {
   fn(graphic) {
     match graphic {
@@ -352,8 +352,8 @@ pub fn Graphic::contains_point(point : Vec2) -> (Graphic) -> Bool {
 }
 
 ///|
-/// Graphic::style_contains_point returns a function that returns true if this
-/// Graphic's style contains `point`.
+/// `Graphic::style_contains_point` returns a function that returns true if this
+/// `Graphic`'s style contains `point`.
 pub fn Graphic::style_contains_point(point : Vec2) -> (Graphic) -> Bool {
   fn(graphic) {
     match graphic {
@@ -365,7 +365,7 @@ pub fn Graphic::style_contains_point(point : Vec2) -> (Graphic) -> Bool {
 }
 
 ///|
-/// first_fill returns the first fill from this Graphic.
+/// `first_fill` returns the first fill from this `Graphic`.
 pub fn Graphic::first_fill(self : Graphic) -> Fill? {
   match self {
     CompoundPath(path) => path.fill
@@ -375,7 +375,7 @@ pub fn Graphic::first_fill(self : Graphic) -> Fill? {
 }
 
 ///|
-/// first_stroke returns the first stroke from this Graphic.
+/// `first_stroke` returns the first stroke from this `Graphic`.
 pub fn Graphic::first_stroke(self : Graphic) -> Stroke? {
   match self {
     CompoundPath(path) => path.stroke
@@ -385,7 +385,7 @@ pub fn Graphic::first_stroke(self : Graphic) -> Stroke? {
 }
 
 ///|
-/// translate translates a Graphic by `v`.
+/// `translate` translates a `Graphic` by `v`.
 pub fn Graphic::translate(self : Graphic, v : Vec2) -> Graphic {
   match self {
     CompoundPath(path) => path.translate(v).as_graphic()
@@ -395,7 +395,7 @@ pub fn Graphic::translate(self : Graphic, v : Vec2) -> Graphic {
 }
 
 ///|
-/// scale scales a Graphic by `v`.
+/// `scale` scales a `Graphic` by `v`.
 pub fn Graphic::scale(self : Graphic, v : Vec2) -> Graphic {
   match self {
     CompoundPath(path) => path.scale(v).as_graphic()
@@ -405,7 +405,7 @@ pub fn Graphic::scale(self : Graphic, v : Vec2) -> Graphic {
 }
 
 ///|
-/// rotate rotates a Graphic clockwise by `angle` in degrees.
+/// `rotate` rotates a `Graphic` clockwise by `angle` in degrees.
 pub fn Graphic::rotate(self : Graphic, angle : Double) -> Graphic {
   match self {
     CompoundPath(path) => path.rotate(angle).as_graphic()
@@ -441,7 +441,7 @@ pub fn Graphic::scale_to_fill(self : Graphic, box : BoundingBox) -> Graphic {
 }
 
 ///|
-/// fit_to scales and translates a Graphic to fit in `box`.
+/// `fit_to` scales and translates a `Graphic` to fit in `box`.
 pub fn Graphic::fit_to(
   self : Graphic,
   box : BoundingBox,
@@ -488,7 +488,7 @@ pub fn Graphic::fit_to(
 }
 
 ///|
-/// to_profiles extracts profiles (outer and holes) from a Graphic.
+/// `to_profiles` extracts profiles (outer and holes) from a `Graphic`.
 /// Returns an array of (outer_polygon, holes_polygons).
 pub fn Graphic::to_profiles(
   self : Graphic,
@@ -530,7 +530,7 @@ pub fn Graphic::to_profiles(
 }
 
 ///|
-/// to_profiles_tuples returns profiles with points as simple tuples for downstream consumers.
+/// `to_profiles_tuples` returns profiles with points as simple tuples for downstream consumers.
 pub fn Graphic::to_profiles_tuples(
   self : Graphic,
   curve_segments : Int,

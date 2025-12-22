@@ -1,5 +1,5 @@
 ///|
-/// Color represents a color in RGBA color space.
+/// `Color` represents a color in RGBA color space.
 pub(all) struct Color {
   mut r : Double
   mut g : Double
@@ -61,7 +61,7 @@ pub fn rgba(r : Double, g : Double, b : Double, a : Double) -> Color {
 }
 
 ///|
-/// Color::from_hsva creates a color by converting HSVA space to RGBA.
+/// `Color::from_hsva` creates a color by converting HSVA space to RGBA.
 pub fn Color::from_hsva(
   hue : Double,
   saturation : Double,
@@ -127,7 +127,7 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
 }
 
 ///|
-/// Color::from_css_string returns a color from a CSS string.
+/// `Color::from_css_string` returns a color from a CSS string.
 pub fn Color::from_css_string(css_string : String) -> Color raise Error {
   let css_string = css_string.trim(char_set=" ").to_lower().to_string()
   match css_colors.get(css_string) {
@@ -207,7 +207,7 @@ pub fn Color::from_css_string(css_string : String) -> Color raise Error {
 }
 
 ///|
-/// Color::from_rgb8_number returns a color from a bit-packed RGB8 format.
+/// `Color::from_rgb8_number` returns a color from a bit-packed RGB8 format.
 pub fn Color::from_rgb8_number(value : UInt) -> Color {
   let r = ((value >> 16) & 0xff).reinterpret_as_int().to_double() / 255
   let g = ((value >> 8) & 0xff).reinterpret_as_int().to_double() / 255
@@ -216,13 +216,13 @@ pub fn Color::from_rgb8_number(value : UInt) -> Color {
 }
 
 ///|
-/// as_fill is a convenience function for setting a fill color.
+/// `as_fill` is a convenience function for setting a fill color.
 pub fn Color::as_fill(self : Color) -> Fill {
   fill(self)
 }
 
 ///|
-/// as_stroke is a convenience function for setting a stroke color.
+/// `as_stroke` is a convenience function for setting a stroke color.
 pub fn Color::as_stroke(
   self : Color,
   width? : Double = 0.1,
@@ -235,13 +235,13 @@ pub fn Color::as_stroke(
 }
 
 ///|
-/// clone returns a new copy of this Color.
+/// `clone` returns a new copy of this `Color`.
 pub fn Color::clone(self : Color) -> Color {
   rgba(self.r, self.g, self.b, self.a)
 }
 
 ///|
-/// set sets the RGBA components of this Color.
+/// `set` sets the RGBA components of this `Color`.
 pub fn Color::set(
   self : Color,
   r : Double,
@@ -256,8 +256,8 @@ pub fn Color::set(
 }
 
 ///|
-/// mix linearly interpolates between this Color and `c` with mixing factor `t`,
-/// returning a new Color.
+/// `mix` linearly interpolates between this `Color` and `c` with mixing factor `t`,
+/// returning a new `Color`.
 pub fn Color::mix(self : Color, c : Color, t : Double) -> Color {
   let r = self.r + (c.r - self.r) * t
   let g = self.g + (c.g - self.g) * t
@@ -267,13 +267,13 @@ pub fn Color::mix(self : Color, c : Color, t : Double) -> Color {
 }
 
 ///|
-/// luminance returns the relative luminance of this color for standard human vision.
+/// `luminance` returns the relative luminance of this color for standard human vision.
 pub fn Color::luminance(self : Color) -> Double {
   0.2126 * self.r + 0.7152 * self.g + 0.0722 * self.b
 }
 
 ///|
-/// to_css_string returns a CSS-style string for this color.
+/// `to_css_string` returns a CSS-style string for this color.
 pub fn Color::to_css_string(self : Color) -> String {
   match self.a {
     1 => self.to_css_hex_string()
@@ -317,7 +317,7 @@ fn to_hex(v : UInt) -> String {
 }
 
 ///|
-/// to_css_hex_string returns a CSS-style hex string for this color.
+/// `to_css_hex_string` returns a CSS-style hex string for this color.
 pub fn Color::to_css_hex_string(self : Color) -> String {
   let s = to_hex(16777216U + self.to_rgb8_number())
   "#\{s}"
@@ -335,7 +335,7 @@ fn[T : Compare] clamp(v : T, min : T, max : T) -> T {
 }
 
 ///|
-/// to_css_rgba_string returns a CSS-style "rgba()" string for this color.
+/// `to_css_rgba_string` returns a CSS-style "rgba()" string for this color.
 pub fn Color::to_css_rgba_string(self : Color) -> String {
   let r = clamp(@math.round(self.r * 255).to_int(), 0, 255)
   let g = clamp(@math.round(self.g * 255).to_int(), 0, 255)
@@ -345,7 +345,7 @@ pub fn Color::to_css_rgba_string(self : Color) -> String {
 }
 
 ///|
-/// to_rgb8_number returns a bit-packed number in RGB8 format.
+/// `to_rgb8_number` returns a bit-packed number in RGB8 format.
 pub fn Color::to_rgb8_number(self : Color) -> UInt {
   let r = clamp(@math.round(self.r * 255).to_int(), 0, 255).reinterpret_as_uint()
   let g = clamp(@math.round(self.g * 255).to_int(), 0, 255).reinterpret_as_uint()
@@ -354,7 +354,7 @@ pub fn Color::to_rgb8_number(self : Color) -> UInt {
 }
 
 ///|
-/// to_hsva converts this color to the HSVA color space, returning
+/// `to_hsva` converts this color to the HSVA color space, returning
 /// [hue, saturation, value, alpha] in the range (0..1).
 pub fn Color::to_hsva(self : Color) -> Array[Double] {
   let mut hue = 0.0

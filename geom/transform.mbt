@@ -1,5 +1,5 @@
 ///|
-/// Transform represents transform arguments.
+/// `Transform` represents transform arguments.
 pub(all) struct Transform {
   position : Vec2
   rotation : Double

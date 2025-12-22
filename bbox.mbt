@@ -1,10 +1,10 @@
 ///|
-/// `glyph_bbox` returns the conservative bounding box of a Glyph path.
-/// It only supports the absolute SVG commands: M, L, C, Q, Z.
+/// `glyph_bbox` returns the conservative bounding box of a `Glyph` path.
+/// It only supports the absolute SVG commands: `M`, `L`, `C`, `Q`, `Z`.
 ///
-/// Note that this function does _NOT_ fully analyze the Cubic or Quadratic
+/// Note that this function does _NOT_ fully analyze the `Cubic` or `Quadratic`
 /// Bézier curves to determine their exact bounding boxes, but instead
-/// takes a naive and concervative approach by encapsulating the bounds
+/// takes a naive and conservative approach by encapsulating the bounds
 /// of all control points in addition to curve anchor points which may result
 /// in returning a much larger bounding box than is actually needed to fully
 /// contain the glyph.
