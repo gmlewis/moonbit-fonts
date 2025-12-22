@@ -259,11 +259,11 @@ pub fn Vec2::almost_equals(
 }
 
 ///|
-/// apply applies the provided `func` to both components of this vector.
+/// apply applies the provided `func` to both components of this vector and returns a new one.
 pub fn Vec2::apply(self : Vec2, func : (Double) -> Double) -> Vec2 {
-  self.x = func(self.x)
-  self.y = func(self.y)
-  self
+  let x = func(self.x)
+  let y = func(self.y)
+  { x, y }
 }
 
 ///|
@@ -286,24 +286,24 @@ pub fn Vec2::round(self : Vec2) -> Vec2 {
 
 ///|
 /// round_to_fixed rounds the components of this vector to the provided
-/// number of digits.
+/// number of digits and returns a new one.
 pub fn Vec2::round_to_fixed(self : Vec2, digits : Int) -> Vec2 {
-  self.x = round_to_fixed(self.x, digits)
-  self.y = round_to_fixed(self.y, digits)
-  self
+  let x = round_to_fixed(self.x, digits)
+  let y = round_to_fixed(self.y, digits)
+  { x, y }
 }
 
 ///|
-/// round_to_multiple rounds the components of this vector to the closes
-/// multiple of `v`.
+/// round_to_multiple rounds the components of this vector to the closest
+/// multiple of `v` and returns a new one.
 pub fn Vec2::round_to_multiple(self : Vec2, v : Double) -> Vec2 {
   if 0.0 == v {
     return self
   }
   let t = 1.0 / v
-  self.x = @math.round(self.x * t) * v
-  self.y = @math.round(self.y * t) * v
-  self
+  let x = @math.round(self.x * t) * v
+  let y = @math.round(self.y * t) * v
+  { x, y }
 }
 
 ///|
@@ -324,11 +324,11 @@ pub fn Vec2::max(self : Vec2, v : Vec2) -> Unit {
 
 ///|
 /// mix linearly interpolates this vector to the vector `v` by the mixing
-/// factor `t` (0..1).
+/// factor `t` (0..1) and returns a new one.
 pub fn Vec2::mix(self : Vec2, v : Vec2, t : Double) -> Vec2 {
-  self.x += (v.x - self.x) * t
-  self.y += (v.y - self.y) * t
-  self
+  let x = self.x + (v.x - self.x) * t
+  let y = self.y + (v.y - self.y) * t
+  { x, y }
 }
 
 ///|
@@ -361,44 +361,46 @@ pub fn Vec2::rotate(self : Vec2, angle : Double) -> Vec2 {
 }
 
 ///|
-/// rotate_radians rotates this vector clockwise by `rad` in radians.
+/// rotate_radians rotates this vector clockwise by `rad` in radians and returns a new one.
 pub fn Vec2::rotate_radians(self : Vec2, rad : Double) -> Vec2 {
   let rx = @math.cos(rad)
   let ry = @math.sin(rad)
   let { x: x0, y: y0 } = self
-  self.x = x0 * rx - y0 * ry
-  self.y = x0 * ry + y0 * rx
-  self
+  let x = x0 * rx - y0 * ry
+  let y = x0 * ry + y0 * rx
+  { x, y }
 }
 
 ///|
-/// rotate90 rotates this vector clockwise by 90°.
+/// rotate90 rotates this vector clockwise by 90° and returns a new one.
 pub fn Vec2::rotate90(self : Vec2) -> Vec2 {
   let { x: x0, y: y0 } = self
-  self.x = -y0
-  self.y = x0
-  self
+  let x = -y0
+  let y = x0
+  { x, y }
 }
 
 ///|
-/// rotate_neg90 rotates this vector counter-clockwise by 90°.
+/// rotate_neg90 rotates this vector counter-clockwise by 90° and returns a new one.
 pub fn Vec2::rotate_neg90(self : Vec2) -> Vec2 {
   let { x: x0, y: y0 } = self
-  self.x = y0
-  self.y = -x0
-  self
+  let x = y0
+  let y = -x0
+  { x, y }
 }
 
 ///|
-/// project_onto projects this vector onto a non-zero vector `v`.
+/// project_onto projects this vector onto a non-zero vector `v` and returns a new one.
 pub fn Vec2::project_onto(self : Vec2, v : Vec2) -> Vec2 {
   let t = v.length_squared()
   if t > 0 {
     let n = self.dot(v) / t
-    self.x = v.x * n
-    self.y = v.y * n
+    let x = v.x * n
+    let y = v.y * n
+    { x, y }
+  } else {
+    self
   }
-  self
 }
 
 ///|

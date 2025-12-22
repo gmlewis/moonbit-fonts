@@ -336,11 +336,11 @@ pub fn Path::contains_point(_self : Path, _point : Vec2) -> Bool {
 }
 
 ///|
-/// copy_style copies the fill and stroke from `graphic`.
+/// copy_style copies the fill and stroke from `graphic` and returns a new Path.
 pub fn Path::copy_style(self : Path, graphic : Graphic) -> Path {
-  self.fill = graphic.first_fill()
-  self.stroke = graphic.first_stroke()
-  self
+  let fill = graphic.first_fill()
+  let stroke = graphic.first_stroke()
+  { ..self, fill, stroke }
 }
 
 ///|
@@ -474,21 +474,19 @@ pub fn Path::primitives(self : Path) -> Array[Graphic] {
 }
 
 ///|
-/// remove_fill removes fill styling from this Path.
+/// remove_fill returns a new Path without fill styling.
 pub fn Path::remove_fill(self : Path) -> Path {
-  self.fill = None
-  self
+  { ..self, fill: None }
 }
 
 ///|
-/// remove_stroke removes stroke styling from this Path.
+/// remove_stroke returns a new Path without stroke styling.
 pub fn Path::remove_stroke(self : Path) -> Path {
-  self.stroke = None
-  self
+  { ..self, stroke: None }
 }
 
 ///|
-/// reverse reverses this Path.
+/// reverse returns a new Path with all anchors reversed.
 pub fn Path::reverse(self : Path) -> Path {
   let anchors = self.anchors
     .iter()
@@ -499,13 +497,16 @@ pub fn Path::reverse(self : Path) -> Path {
 }
 
 ///|
-/// scale_stroke scales the width of this stroke by `scale_factor`.
+/// scale_stroke returns a new Path with the width of its stroke (if any) scaled by `scale_factor`.
 pub fn Path::scale_stroke(self : Path, scale_factor : Double) -> Path {
   match self.stroke {
-    Some(stroke) => stroke.width *= scale_factor
-    _ => ()
+    Some(stroke) => {
+      let width = stroke.width * scale_factor
+      let new_stroke = { ..stroke, width, }
+      { ..self, stroke: Some(new_stroke) }
+    }
+    _ => self
   }
-  self
 }
 
 ///|

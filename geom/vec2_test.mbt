@@ -1971,20 +1971,28 @@ test "normalize/negative_length" {
 test "rotate" {
   // Test 90-degree rotations
   let v = vec2(1.0, 0.0)
-  inspect(v.rotate(90.0), content="{x: 6.123233995736766e-17, y: 1}")
-  inspect(v.rotate(90.0), content="{x: -1, y: 1.2246467991473532e-16}")
-  inspect(v.rotate(90.0), content="{x: -1.8369701987210297e-16, y: -1}")
-  inspect(v.rotate(90.0), content="{x: 1, y: -2.4492935982947064e-16}")
+  let v = v.rotate(90.0)
+  inspect(v, content="{x: 6.123233995736766e-17, y: 1}")
+  let v = v.rotate(90.0)
+  inspect(v, content="{x: -1, y: 1.2246467991473532e-16}")
+  let v = v.rotate(90.0)
+  inspect(v, content="{x: -1.8369701987210297e-16, y: -1}")
+  let v = v.rotate(90.0)
+  inspect(v, content="{x: 1, y: -2.4492935982947064e-16}")
 }
 
 ///|
 test "rotate90 1" {
   // Test 90-degree rotations
   let v = vec2(1.0, 0.0)
-  inspect(v.rotate90(), content="{x: 0, y: 1}")
-  inspect(v.rotate90(), content="{x: -1, y: 0}")
-  inspect(v.rotate90(), content="{x: 0, y: -1}")
-  inspect(v.rotate90(), content="{x: 1, y: 0}")
+  let v = v.rotate90()
+  inspect(v, content="{x: 0, y: 1}")
+  let v = v.rotate90()
+  inspect(v, content="{x: -1, y: 0}")
+  let v = v.rotate90()
+  inspect(v, content="{x: 0, y: -1}")
+  let v = v.rotate90()
+  inspect(v, content="{x: 1, y: 0}")
 }
 
 ///|
@@ -2001,7 +2009,7 @@ test "rotate/360-plus" {
   // Test angles greater than 360 degrees
   let v = vec2(1.0, 0.0)
   inspect(v.rotate(450.0), content="{x: 3.061616997868383e-16, y: 1}")
-  inspect(v.rotate(-450.0), content="{x: 1, y: 0}")
+  inspect(v.rotate(-450.0), content="{x: 3.061616997868383e-16, y: -1}")
 }
 
 ///|
