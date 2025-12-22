@@ -488,6 +488,68 @@ pub fn Graphic::fit_to(
 }
 
 ///|
+/// `with_margin` returns a new `Graphic` (a `Group`) that includes `self` plus
+/// unstyled `Path` elements that expand the bounding box by the requested
+/// margin amounts on each side.
+pub fn Graphic::with_margin(
+  self : Graphic,
+  top? : Double,
+  right? : Double,
+  bottom? : Double,
+  left? : Double,
+) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  let t = match top {
+    Some(v) => v
+    None => 0.0
+  }
+  let r = match right {
+    Some(v) => v
+    None => 0.0
+  }
+  let b = match bottom {
+    Some(v) => v
+    None => 0.0
+  }
+  let l = match left {
+    Some(v) => v
+    None => 0.0
+  }
+  let p1 = vec2(bbox.min.x - l, bbox.min.y - b)
+  let p2 = vec2(bbox.max.x + r, bbox.min.y - b)
+  let p3 = vec2(bbox.max.x + r, bbox.max.y + t)
+  let p4 = vec2(bbox.min.x - l, bbox.max.y + t)
+  let margin_path = Path::from_points([p1, p2, p3, p4], closed=true)
+  Group({ items: [self, Path(margin_path)] })
+}
+
+///|
+/// `with_background` returns a new `Graphic` (a `Group`) that includes a solid
+/// background rectangle of the provided `color` behind the current graphic.
+/// The background rectangle is sized to match the current bounding box.
+pub fn Graphic::with_background(self : Graphic, color : Color) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  let background = Path::from_points(
+      [
+        bbox.min.clone(),
+        vec2(bbox.max.x, bbox.min.y),
+        bbox.max.clone(),
+        vec2(bbox.min.x, bbox.max.y),
+      ],
+      closed=true,
+    )
+    .as_graphic()
+    .with_style(fill=color.as_fill())
+  Group({ items: [background, self] })
+}
+
+///|
 /// `to_profiles` extracts profiles (outer and holes) from a `Graphic`.
 /// Returns an array of (outer_polygon, holes_polygons).
 pub fn Graphic::to_profiles(

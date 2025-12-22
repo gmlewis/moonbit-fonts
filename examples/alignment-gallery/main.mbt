@@ -51,18 +51,7 @@ fn main {
     }
     scene = scene + cross + label + desc
   }
-  let bbox = scene.bounding_box().unwrap()
-  let background = @draw.Path::from_points(
-      [
-        @geom.vec2(bbox.min.x, bbox.min.y),
-        @geom.vec2(bbox.max.x, bbox.min.y),
-        @geom.vec2(bbox.max.x, bbox.max.y),
-        @geom.vec2(bbox.min.x, bbox.max.y),
-      ],
-      closed=true,
-    )
-    .as_graphic()
-    .with_style(fill=@draw.Color::white().as_fill())
-  scene = background + scene
-  println(@svg.from_graphic(scene, y_up=false))
+  println(
+    @svg.from_graphic(scene.with_background(@draw.Color::white()), y_up=false),
+  )
 }

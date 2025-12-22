@@ -162,3 +162,18 @@ test "Graphic::to_profiles_tuples/CompoundPath" {
   let v = Vec2::from_tuple(first_tuple)
   inspect(v, content="{x: 2, y: 2}")
 }
+
+///|
+test "Graphic::with_margin" {
+  let points = [vec2(0, 0), vec2(10, 10)]
+  let path = Path::from_points(points, closed=true)
+  let graphic = Graphic::Path(path)
+
+  // Test adding margins
+  let margined = graphic.with_margin(top=1.0, right=2.0, bottom=3.0, left=4.0)
+  let result = margined.bounding_box()
+
+  // Original bbox was min:(0,0), max:(10,10)
+  // New bbox should be min:(-4, -3), max:(12, 11)
+  inspect(result, content="Some({min: {x: -4, y: -3}, max: {x: 12, y: 11}})")
+}
