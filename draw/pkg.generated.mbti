@@ -18,7 +18,7 @@ pub fn dedupe_points(Array[@geom.Vec2], epsilon? : Double) -> Array[@geom.Vec2]
 
 pub fn fill(Color) -> Fill
 
-pub fn grid(Array[Graphic], Int, h_spacing? : Double, v_spacing? : Double) -> Graphic
+pub fn grid(Array[Graphic], Int, alignment? : @geom.Alignment, h_spacing? : Double, v_spacing? : Double) -> Graphic
 
 pub fn group(Array[Graphic]) -> Group
 

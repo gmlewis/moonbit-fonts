@@ -125,10 +125,12 @@ pub fn column(
 
 ///|
 /// `grid` arranges an array of `Graphic` elements in a grid with `cols` columns.
+/// `alignment` specifies the alignment of each item within its grid cell (defaults to `Center`).
 /// `h_spacing` and `v_spacing` specify the distance between elements.
 pub fn grid(
   items : Array[Graphic],
   cols : Int,
+  alignment? : Alignment,
   h_spacing? : Double,
   v_spacing? : Double,
 ) -> Graphic {
@@ -143,17 +145,70 @@ pub fn grid(
     Some(v) => v
     None => 0.0
   }
-  let rows = []
-  let mut current_row = []
-  for item in items {
-    current_row.push(item)
-    if current_row.length() == cols {
-      rows.push(row(current_row, spacing=hs))
-      current_row = []
+  let align = match alignment {
+    Some(v) => v
+    None => Center
+  }
+  let num_rows = (items.length() + cols - 1) / cols
+  let col_widths = Array::make(cols, 0.0)
+  let row_heights = Array::make(num_rows, 0.0)
+  let bboxes = items.map(fn(item) {
+    match item.bounding_box() {
+      Some(b) => b
+      None => bbox(0, 0, 0, 0)
+    }
+  })
+
+  // Calculate column widths and row heights
+  for i, box in bboxes {
+    let r = i / cols
+    let c = i % cols
+    let w = box.width()
+    let h = box.height()
+    if w > col_widths[c] {
+      col_widths[c] = w
+    }
+    if h > row_heights[r] {
+      row_heights[r] = h
     }
   }
-  if current_row.length() > 0 {
-    rows.push(row(current_row, spacing=hs))
+  let positioned_items = []
+  let mut current_y = 0.0
+  for r in 0..<num_rows {
+    let mut current_x = 0.0
+    for c in 0..<cols {
+      let i = r * cols + c
+      if i >= items.length() {
+        break
+      }
+      let item = items[i]
+      let box = bboxes[i]
+      let cell_w = col_widths[c]
+      let cell_h = row_heights[r]
+      let extra_width = cell_w - box.width()
+      let extra_height = cell_h - box.height()
+      let (offset_x, offset_y) = match align {
+        Unchanged => (0.0, 0.0)
+        TopLeft => (0.0, extra_height)
+        TopCenter => (extra_width / 2.0, extra_height)
+        TopRight => (extra_width, extra_height)
+        CenterLeft => (0.0, extra_height / 2.0)
+        Center => (extra_width / 2.0, extra_height / 2.0)
+        CenterRight => (extra_width, extra_height / 2.0)
+        BottomLeft => (0.0, 0.0)
+        BottomCenter => (extra_width / 2.0, 0.0)
+        BottomRight => (extra_width, 0.0)
+        BaselineLeft => (0.0, 0.0)
+        BaselineCenter => (extra_width / 2.0, 0.0)
+        BaselineRight => (extra_width, 0.0)
+        RatioXY(rx, ry) => (extra_width * rx, extra_height * ry)
+      }
+      let tx = current_x + offset_x - box.min.x
+      let ty = current_y + offset_y - box.max.y
+      positioned_items.push(item.translate(vec2(tx, ty)))
+      current_x += cell_w + hs
+    }
+    current_y -= row_heights[r] + vs
   }
-  column(rows, spacing=vs)
+  Group::new(items=positioned_items).as_graphic()
 }

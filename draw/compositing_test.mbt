@@ -54,23 +54,25 @@ test "column layout comprehensive" {
 
 ///|
 test "grid layout comprehensive" {
-  let sq = @draw.unit_square().as_graphic() // 1x1, bbox: (-0.5, -0.5) to (0.5, 0.5)
-
-  // 2x2 grid, all 1x1 squares
-  // row spacing 1.0, col spacing 1.0
-  // Each row will be width 1+1+1 = 3, height 1
-  // Column of 2 rows will be height 1+1+1 = 3, width 3
-  let g = grid([sq, sq, sq, sq], 2, h_spacing=1.0, v_spacing=1.0)
-  let bbox = g.bounding_box().unwrap()
-  inspect(bbox.width(), content="3")
-  inspect(bbox.height(), content="3")
-
-  // Test with different item counts
-  let g2 = grid([sq, sq, sq], 2, h_spacing=1.0, v_spacing=1.0)
-  let bbox2 = g2.bounding_box().unwrap()
-  // Row 1: width 3, height 1
-  // Row 2: width 1, height 1
-  // Column: width 3 (max of rows), height 3
-  inspect(bbox2.width(), content="3")
-  inspect(bbox2.height(), content="3")
+  let sq = @draw.unit_square().as_graphic() // 1x1
+  let tests = [
+    // (alignment, h_spacing, v_spacing, expected_width, expected_height)
+    (Alignment::TopLeft, 0.0, 0.0, 2.0, 2.0),
+    (TopCenter, 1.0, 1.0, 3.0, 3.0),
+    (Center, 0.5, 0.5, 2.5, 2.5),
+    (BottomRight, 0.0, 0.0, 2.0, 2.0),
+  ]
+  for tt in tests {
+    let res = grid(
+        [sq, sq, sq, sq],
+        2,
+        alignment=tt.0,
+        h_spacing=tt.1,
+        v_spacing=tt.2,
+      )
+      .bounding_box()
+      .unwrap()
+    assert_eq(res.width(), tt.3)
+    assert_eq(res.height(), tt.4)
+  }
 }
