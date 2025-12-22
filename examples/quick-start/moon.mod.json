@@ -2,7 +2,9 @@
   "name": "examples/quick-start",
   "version": "0.1.0",
   "deps": {
-    "gmlewis/fonts": "0.18.1",
+    "gmlewis/fonts": {
+      "path": "../.."
+    },
     "gmlewis/fonts-a": "0.18.1"
   },
   "readme": "README.md",

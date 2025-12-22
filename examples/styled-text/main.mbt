@@ -20,18 +20,12 @@ fn main {
       _ => return
     }
   let scene = t1 + t2 + t3
-  let bbox = scene.bounding_box().unwrap()
-  bbox.expand_scalar(0.1)
-  let background = @draw.Path::from_points(
-      [
-        @geom.vec2(bbox.min.x, bbox.min.y),
-        @geom.vec2(bbox.max.x, bbox.min.y),
-        @geom.vec2(bbox.max.x, bbox.max.y),
-        @geom.vec2(bbox.min.x, bbox.max.y),
-      ],
-      closed=true,
-    )
-    .as_graphic()
-    .with_style(fill=@draw.Color::white().as_fill())
-  println(@svg.from_graphic(background + scene, y_up=false))
+  println(
+    @svg.from_graphic(
+      scene
+      .with_margin(top=0.1, right=0.1, bottom=0.1, left=0.1)
+      .with_background(@draw.Color::white()),
+      y_up=false,
+    ),
+  )
 }

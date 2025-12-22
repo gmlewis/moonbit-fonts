@@ -187,6 +187,7 @@ pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[@geom.Vec2], Array[Array[
 pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
 pub fn Graphic::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Graphic::translate(Self, @geom.Vec2) -> Self
+pub fn Graphic::with_background(Self, Color) -> Self
 pub fn Graphic::with_fill(Self, Fill?) -> Self
 pub fn Graphic::with_margin(Self, top? : Double, right? : Double, bottom? : Double, left? : Double) -> Self
 pub fn Graphic::with_stroke(Self, Stroke?) -> Self

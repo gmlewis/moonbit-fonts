@@ -15,24 +15,16 @@ fn main {
     }
 
   // Compose graphics using the new `+` operator!
+
   let graphic = hello + sub
 
-  // Add a white background
-  let bbox = graphic.bounding_box().unwrap()
-  bbox.expand_scalar(0.1)
-  let background = @draw.Path::from_points(
-      [
-        @geom.vec2(bbox.min.x, bbox.min.y),
-        @geom.vec2(bbox.max.x, bbox.min.y),
-        @geom.vec2(bbox.max.x, bbox.max.y),
-        @geom.vec2(bbox.min.x, bbox.max.y),
-      ],
-      closed=true,
-    )
-    .as_graphic()
-    .with_style(fill=@draw.Color::white().as_fill())
+  // Render the final graphic to an SVG string with padding and a background
 
-  // Render the final graphic to an SVG string
-  let svg_str = @svg.from_graphic(background + graphic, y_up=false)
+  let svg_str = @svg.from_graphic(
+    graphic
+    .with_margin(top=0.1, right=0.1, bottom=0.1, left=0.1)
+    .with_background(@draw.Color::white()),
+    y_up=false,
+  )
   println(svg_str)
 }

@@ -527,6 +527,29 @@ pub fn Graphic::with_margin(
 }
 
 ///|
+/// `with_background` returns a new `Graphic` (a `Group`) that includes a solid
+/// background rectangle of the provided `color` behind the current graphic.
+/// The background rectangle is sized to match the current bounding box.
+pub fn Graphic::with_background(self : Graphic, color : Color) -> Graphic {
+  let bbox = match self.bounding_box() {
+    None => return self
+    Some(bbox) => bbox
+  }
+  let background = Path::from_points(
+      [
+        vec2(bbox.min.x, bbox.min.y),
+        vec2(bbox.max.x, bbox.min.y),
+        vec2(bbox.max.x, bbox.max.y),
+        vec2(bbox.min.x, bbox.max.y),
+      ],
+      closed=true,
+    )
+    .as_graphic()
+    .with_style(fill=color.as_fill())
+  Group({ items: [background, self] })
+}
+
+///|
 /// `to_profiles` extracts profiles (outer and holes) from a `Graphic`.
 /// Returns an array of (outer_polygon, holes_polygons).
 pub fn Graphic::to_profiles(
