@@ -111,3 +111,13 @@ test "Path::to_polygon/remove_final_duplicate" {
   inspect(poly[0], content="{x: 0, y: 0}")
   inspect(poly[1], content="{x: 1, y: 0}")
 }
+
+///|
+test "Path from_json/to_json roundtrip" {
+  let json_str =
+    #|{"anchors":[{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false}
+  let json = @json.parse(json_str)
+  let path_from_json : Path = @json.from_json(json)
+  let got_json = path_from_json.to_json().stringify()
+  inspect(got_json, content=json_str)
+}

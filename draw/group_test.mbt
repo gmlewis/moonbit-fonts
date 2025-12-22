@@ -35,10 +35,14 @@ test "Group::to_json" {
   )
 }
 
-// test "Group::from_json" {
-//   let json_str =
-//     #|{"items":[{"anchors":[{"position":{"x":-1,"y":-1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false},{"anchors":[{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":2,"y":2},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false}]}
-//   let json = @json.parse!(json_str)
-//   let got : Group = @json.from_json!(json)
-//   inspect!(got, content="{x: 1, y: 2}")
-// }
+///|
+test "Group::from_json" {
+  let json_str =
+    #|{"items":[{"anchors":[{"position":{"x":-1,"y":-1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":0,"y":0},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false},{"anchors":[{"position":{"x":1,"y":1},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}},{"position":{"x":2,"y":2},"handle_in":{"x":0,"y":0},"handle_out":{"x":0,"y":0}}],"closed":true,"clear":false}]}
+  let json = @json.parse(json_str)
+  let got : Group = @json.from_json(json)
+  inspect(
+    got,
+    content="{items: [Path({anchors: [{position: {x: -1, y: -1}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 0, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}], closed: true, clear: false, fill: None, stroke: None}), Path({anchors: [{position: {x: 1, y: 1}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 2, y: 2}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}], closed: true, clear: false, fill: None, stroke: None})]}",
+  )
+}

@@ -28,9 +28,9 @@ pub fn row(Array[Graphic], alignment? : @geom.Alignment, spacing? : Double) -> G
 
 pub fn stroke(Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 
-pub fn text(@fonts.Font, String, size? : Double, align? : TextAlign) -> Graphic raise DrawError
+pub fn text(@fonts.Font, String, size? : Double, align? : TextAlign, y_up? : Bool) -> Graphic raise DrawError
 
-pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignment) -> Graphic raise DrawError
+pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignment, y_up? : Bool) -> Graphic raise DrawError
 
 pub fn unit_circle() -> Group
 
