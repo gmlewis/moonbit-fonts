@@ -223,8 +223,15 @@ pub fn Color::as_fill(self : Color) -> Fill {
 
 ///|
 /// as_stroke is a convenience function for setting a stroke color.
-pub fn Color::as_stroke(self : Color) -> Stroke {
-  stroke(self)
+pub fn Color::as_stroke(
+  self : Color,
+  width? : Double = 0.1,
+  alignment? : StrokeAlignment = Centered,
+  cap? : StrokeCap = Butt,
+  join? : StrokeJoin = Miter,
+  miter_limit? : Double = 4,
+) -> Stroke {
+  stroke(self, width~, alignment~, cap~, join~, miter_limit~)
 }
 
 ///|

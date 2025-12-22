@@ -20,7 +20,7 @@ pub fn group(Array[Graphic]) -> Group
 
 pub fn rgba(Double, Double, Double, Double) -> Color
 
-pub fn stroke(Color) -> Stroke
+pub fn stroke(Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 
 pub fn text(@fonts.Font, String, size? : Double, align? : TextAlign) -> Graphic raise DrawError
 
@@ -70,7 +70,7 @@ pub(all) struct Color {
   mut a : Double
 }
 pub fn Color::as_fill(Self) -> Fill
-pub fn Color::as_stroke(Self) -> Stroke
+pub fn Color::as_stroke(Self, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 pub fn Color::black() -> Self
 pub fn Color::blue() -> Self
 pub fn Color::clone(Self) -> Self

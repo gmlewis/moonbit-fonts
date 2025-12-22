@@ -57,8 +57,15 @@ pub fn Stroke::new(
 
 ///|
 /// stroke is a helper function.
-pub fn stroke(color : Color) -> Stroke {
-  Stroke::new(color~)
+pub fn stroke(
+  color : Color,
+  width? : Double = 0.1,
+  alignment? : StrokeAlignment = Centered,
+  cap? : StrokeCap = Butt,
+  join? : StrokeJoin = Miter,
+  miter_limit? : Double = 4,
+) -> Stroke {
+  Stroke::new(color~, width~, alignment~, cap~, join~, miter_limit~)
 }
 
 ///|
