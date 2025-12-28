@@ -200,3 +200,41 @@ test "Graphic from_json/to_json roundtrip" {
     assert_eq(got_json_str, json_str)
   }
 }
+
+///|
+test "Graphic::to_profiles works correctly on baloo '%' glyph" {
+  let glyphs : Map[String, @fonts.Glyph] = {
+    "%": {
+      char: "%",
+      horiz_adv_x: 799.0,
+      gerber_lp: "dddcc",
+      d: "M538 617Q572 612 598.5 598.5Q625 585 627 562Q627 546 619 529Q611 512 598 494L252 -7Q220 -2 198.5 11.5Q177 25 175 48Q175 64 177.5 79.5Q180 95 193 115L538 617ZM351 458Q351 383 306 341Q261 299 190 299Q118 299 73.5 341Q29 383 29 458Q29 532 73.5 574Q118 616 190 616Q261 616 306 574Q351 532 351 458ZM770 151Q770 76 725 34Q680 -8 609 -8Q537 -8 492.5 34Q448 76 448 151Q448 225 492.5 267Q537 309 609 309Q680 309 725 267Q770 225 770 151ZM150 458Q150 428 161.5 413.5Q173 399 190 399Q207 399 218.5 413.5Q230 428 230 458Q230 487 218.5 501Q207 515 190 515Q173 515 161.5 501Q150 487 150 458ZM569 151Q569 121 580.5 106.5Q592 92 609 92Q626 92 637.5 106.5Q649 121 649 151Q649 180 637.5 194Q626 208 609 208Q592 208 580.5 194Q569 180 569 151Z",
+      xmin: 29.0,
+      ymin: -8.0,
+      xmax: 770.0,
+      ymax: 617.0,
+    },
+  }
+  let font : @fonts.Font = {
+    id: "baloo",
+    horiz_adv_x: 298.0,
+    units_per_em: 1000.0,
+    ascent: 800.0,
+    descent: -200.0,
+    glyphs,
+  }
+  let graphic = @draw.text(font, "%", size=100, y_up=false)
+  let profiles = graphic.to_profiles(5)
+  inspect(profiles.length(), content="3")
+  let profile0 = profiles[0]
+  inspect(profile0.0.length(), content="34") // outer path of '%'
+  inspect(profile0.1.length(), content="0") // no holes
+  let profile1 = profiles[1]
+  inspect(profile1.0.length(), content="32") // outer path of first 'o'
+  inspect(profile1.1.length(), content="1") // one hole
+  inspect(profile1.1[0].length(), content="32") // hole path of first 'o'
+  let profile2 = profiles[2]
+  inspect(profile2.0.length(), content="32") // outer path of second 'o'
+  inspect(profile2.1.length(), content="1") // one hole
+  inspect(profile2.1[0].length(), content="32") // hole path of second 'o'
+}
