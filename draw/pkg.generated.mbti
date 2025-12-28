@@ -22,6 +22,8 @@ pub fn grid(Array[Graphic], Int, alignment? : @geom.Alignment, h_spacing? : Doub
 
 pub fn group(Array[Graphic]) -> Group
 
+pub fn is_point_in_poly(@geom.Vec2, Array[@geom.Vec2]) -> Bool
+
 pub fn rgba(Double, Double, Double, Double) -> Color
 
 pub fn row(Array[Graphic], alignment? : @geom.Alignment, spacing? : Double) -> Graphic

@@ -38,9 +38,9 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
     g = g.clone().affine_transform(affine_matrix)
     bbox = g.bounding_box().unwrap()
   }
-  let min = bbox.min.round_to_fixed(2)
-  let width = @geom.round_to_fixed(bbox.width(), 2)
-  let height = @geom.round_to_fixed(bbox.height(), 2)
+  let min = bbox.min.round_to_fixed(4)
+  let width = @geom.round_to_fixed(bbox.width(), 4)
+  let height = @geom.round_to_fixed(bbox.height(), 4)
   let paths = g.all_paths_and_compound_paths()
   let lines = Array::new(capacity=paths.length())
   for path in paths {
@@ -96,7 +96,7 @@ fn svg_path(path : Path) -> String {
   for index, anchor in path.anchors {
     let pos = anchor.position
     if index == 0 {
-      let pos = pos.round_to_fixed(2)
+      let pos = pos.round_to_fixed(4)
       cmds.push("M\{pos.x} \{pos.y}")
       continue
     }
@@ -107,9 +107,9 @@ fn svg_path(path : Path) -> String {
       cmds.push("L\{pos.x} \{pos.y}")
     } else {
       let last_pos = last_anchor.position
-      let p1 = (h1 + last_pos).round_to_fixed(2)
-      let p2 = (h2 + pos).round_to_fixed(2)
-      let pos = pos.round_to_fixed(2)
+      let p1 = (h1 + last_pos).round_to_fixed(4)
+      let p2 = (h2 + pos).round_to_fixed(4)
+      let pos = pos.round_to_fixed(4)
       cmds.push("C\{p1.x} \{p1.y} \{p2.x} \{p2.y} \{pos.x} \{pos.y}")
     }
   }
@@ -121,9 +121,9 @@ fn svg_path(path : Path) -> String {
     if not(h1.is_zero()) || not(h2.is_zero()) {
       let last_pos = last_anchor.position
       let pos = anchor.position
-      let p1 = (h1 + last_pos).round_to_fixed(2)
-      let p2 = (h2 + pos).round_to_fixed(2)
-      let pos = pos.round_to_fixed(2)
+      let p1 = (h1 + last_pos).round_to_fixed(4)
+      let p2 = (h2 + pos).round_to_fixed(4)
+      let pos = pos.round_to_fixed(4)
       cmds.push("C\{p1.x} \{p1.y} \{p2.x} \{p2.y} \{pos.x} \{pos.y}")
     }
     cmds.push("Z")

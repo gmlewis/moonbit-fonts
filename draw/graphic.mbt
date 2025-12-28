@@ -570,18 +570,56 @@ pub fn Graphic::to_profiles(
       if paths.length() == 0 {
         return []
       }
-      let outer = paths[0].to_polygon(curve_segments)
-      if outer.length() < 3 {
+      let polygons = paths.map(fn(p) { p.to_polygon(curve_segments) })
+      // Filter out invalid polygons
+      let active_polys = polygons.filter(fn(p) { p.length() >= 3 })
+      if active_polys.length() == 0 {
         return []
       }
-      let holes : Array[Array[Vec2]] = []
-      for i in 1..<paths.length() {
-        let poly = paths[i].to_polygon(curve_segments)
-        if poly.length() >= 3 {
-          holes.push(poly)
-        }
+      let bboxes = active_polys.map(fn(p) { BoundingBox::from_points(p) })
+
+      // Sort by area descending to process outer paths first
+      let indices = Array::make(active_polys.length(), 0)
+      for i in 0..<indices.length() {
+        indices[i] = i
       }
-      [(outer, holes)]
+      indices.sort_by(fn(i, j) {
+        let area_i = bboxes[i].area().abs()
+        let area_j = bboxes[j].area().abs()
+        if area_i > area_j {
+          -1
+        } else if area_i < area_j {
+          1
+        } else {
+          0
+        }
+      })
+      let result : Array[(Array[Vec2], Array[Array[Vec2]])] = []
+      let assigned = Array::make(active_polys.length(), false)
+      for i in 0..<indices.length() {
+        let idx_i = indices[i]
+        if assigned[idx_i] {
+          continue
+        }
+        let outer = active_polys[idx_i]
+        let bbox_i = bboxes[idx_i]
+        let holes : Array[Array[Vec2]] = []
+        assigned[idx_i] = true
+        for j = i + 1; j < indices.length(); j = j + 1 {
+          let idx_j = indices[j]
+          if assigned[idx_j] {
+            continue
+          }
+          let potential_hole = active_polys[idx_j]
+          let test_pt = bboxes[idx_j].center()
+          if bbox_i.contains_point(test_pt) && is_point_in_poly(test_pt, outer) {
+            holes.push(potential_hole)
+            assigned[idx_j] = true
+          }
+        }
+        result.push((outer, holes))
+      }
+      result
     }
     Group(group) =>
       group.items
@@ -633,4 +671,19 @@ pub impl @json.FromJson for Graphic with from_json(json, json_path) {
   raise @json.JsonDecodeError(
     (json_path, "Failed to parse JSON as any Graphic variant"),
   )
+}
+
+///|
+pub fn is_point_in_poly(pt : Vec2, poly : Array[Vec2]) -> Bool {
+  let mut inside = false
+  let n = poly.length()
+  for i in 0..<n {
+    let p1 = poly[i]
+    let p2 = poly[(i + 1) % n]
+    if (p1.y > pt.y) != (p2.y > pt.y) &&
+      pt.x < (p2.x - p1.x) * (pt.y - p1.y) / (p2.y - p1.y) + p1.x {
+      inside = not(inside)
+    }
+  }
+  inside
 }
