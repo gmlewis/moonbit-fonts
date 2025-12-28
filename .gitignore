@@ -2,3 +2,4 @@ target/
 .mooncakes/
 *.jpg
 *.png
+*.svg
