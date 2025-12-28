@@ -6,7 +6,7 @@ test "svg unit circle is correct" {
     got,
     content=(
       #|<svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 1 1">
-      #|  <path d="M0 -0.5C0.28 -0.5 0.5 -0.28 0.5 0C0.5 0.28 0.28 0.5 0 0.5C-0.28 0.5 -0.5 0.28 -0.5 0C-0.5 -0.28 -0.28 -0.5 0 -0.5Z" stroke="none" fill="none"/>
+      #|  <path d="M0 -0.5C0.2761 -0.5 0.5 -0.2761 0.5 0C0.5 0.2761 0.2761 0.5 0 0.5C-0.2761 0.5 -0.5 0.2761 -0.5 0C-0.5 -0.2761 -0.2761 -0.5 0 -0.5Z" stroke="none" fill="none"/>
       #|</svg>
     ),
   )
