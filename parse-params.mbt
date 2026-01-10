@@ -8,10 +8,10 @@ pub fn Params::length(self : Params) -> Int {
 }
 
 ///|
-let params_re : @regexp.Regexp = (try? @regexp.compile(
+let params_re : @regexp.Regexp = try! @regexp.compile(
   "^ *([0-9\\.\\-]+)\\s*,*",
   flags="m",
-)).unwrap()
+)
 
 ///|
 /// `parse_params` parses an SVG command and returns the parameters.

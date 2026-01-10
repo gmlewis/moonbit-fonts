@@ -6,10 +6,10 @@ struct Cmd {
 } derive(Show, Eq)
 
 ///|
-let split_re : @regexp.Regexp = (try? @regexp.compile(
+let split_re : @regexp.Regexp = try! @regexp.compile(
   "^([MLCQZ])([0-9\\.\\-,\\s]*)",
   flags="m",
-)).unwrap()
+)
 
 ///|
 /// `split_path` splits an SVG path into an array of individual commands.

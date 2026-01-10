@@ -17,7 +17,7 @@ pub fn rect(x0 : Double, y0 : Double, x1 : Double, y1 : Double) -> BoundingBox {
 /// `round_to_fixed` rounds a `Double` to the provided number of digits.
 pub fn round_to_fixed(val : Double, digits : Int) -> Double {
   let num = digits.to_double().abs()
-  let exp = 10.0.pow(num)
+  let exp = @math.pow(10, num)
   if digits < 0 {
     return (val / exp).round() * exp
   }

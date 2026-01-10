@@ -12,7 +12,9 @@ pub fn glyph_bbox(String) -> @geom.BoundingBox raise FontError
 pub fn translate_path(String, Double, Double, invert_y? : Bool) -> String raise FontError
 
 // Errors
-pub(all) suberror FontError String
+pub(all) suberror FontError {
+  FontError(String)
+}
 pub impl Eq for FontError
 pub impl Show for FontError
 

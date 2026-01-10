@@ -41,7 +41,9 @@ pub fn unit_square() -> Group
 pub fn vec2(Double, Double) -> @geom.Vec2
 
 // Errors
-pub(all) suberror DrawError String
+pub(all) suberror DrawError {
+  DrawError(String)
+}
 pub impl Eq for DrawError
 pub impl Show for DrawError
 

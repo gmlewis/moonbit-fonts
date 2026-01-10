@@ -6,7 +6,9 @@
 // license that can be found in the LICENSE file.
 
 ///|
-suberror TestError String derive(Show, Eq)
+suberror TestError {
+  TestError(String)
+} derive(Show, Eq)
 
 ///|
 test "BoundingBox::new" {

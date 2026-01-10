@@ -11,4 +11,6 @@ pub(all) struct Font {
 
 ///|
 /// `FontError` represents an error that occurred during font processing.
-pub(all) suberror FontError String derive(Show, Eq)
+pub(all) suberror FontError {
+  FontError(String)
+} derive(Show, Eq)

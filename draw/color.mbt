@@ -97,17 +97,17 @@ fn parse_hex(s : String) -> Double raise Error {
 }
 
 ///|
-let percent_re : @regexp.Regexp = (try? @regexp.compile("^(\\d+)%$")).unwrap()
+let percent_re : @regexp.Regexp = try! @regexp.compile("^(\\d+)%$")
 
 ///|
-let rgb_re : @regexp.Regexp = (try? @regexp.compile(
+let rgb_re : @regexp.Regexp = try! @regexp.compile(
   "^rgb\\s*\\(\\s*(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)\\s*\\)$",
-)).unwrap()
+)
 
 ///|
-let rgba_re : @regexp.Regexp = (try? @regexp.compile(
+let rgba_re : @regexp.Regexp = try! @regexp.compile(
   "^rgba\\s*\\(\\s*(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)[\\s,]+(\\d+%?)\\s*\\)$",
-)).unwrap()
+)
 
 ///|
 fn parse_percent(s : StringView) -> Double raise Error {

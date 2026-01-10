@@ -78,7 +78,7 @@ def generate_moon_mod(font_packages, root_dir):
     """Generates moon.mod.json content."""
     # We need to map the font repos to their local paths
     # font_packages examples: gmlewis/fonts-a/abeezee_regular
-    # root_dir is the absolute path to moonbit-fonts
+    # root_dir is the absolute path to gmlewis/fonts
     
     # Deduplicate repos
     repos = set()
@@ -91,7 +91,7 @@ def generate_moon_mod(font_packages, root_dir):
     
     for repo in repos:
         # The repo name is like gmlewis/fonts-a
-        # The physical path is ../mbt-fonts-a relative to moonbit-fonts
+        # The physical path is ../mbt-fonts-a relative to gmlewis/fonts
         repo_suffix = repo.split('-')[-1]
         phys_repo_path = os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}")
         deps[repo] = { "path": phys_repo_path }
@@ -177,7 +177,7 @@ def generate_main_mbt(lines, family_info):
     return "\n".join(mbt)
 
 def main():
-    parser = argparse.ArgumentParser(description="Quickly render text to SVG using moonbit-fonts")
+    parser = argparse.ArgumentParser(description="Quickly render text to SVG using gmlewis/fonts")
     parser.add_argument("input", nargs="?", help="Input file (Markdown/Text), defaults to stdin")
     parser.add_argument("-f", "--font", default="aaarghnormal", help="Font family name (fuzzy matching supported)")
     parser.add_argument("-o", "--output", help="Output SVG file (defaults to stdout)")

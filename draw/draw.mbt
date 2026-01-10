@@ -4,7 +4,9 @@
 
 ///|
 /// DrawError represents an error that occured during graphic generation.
-pub(all) suberror DrawError String derive(Show, Eq)
+pub(all) suberror DrawError {
+  DrawError(String)
+} derive(Show, Eq)
 
 ///|
 /// dedupe_points removes consecutive near-duplicate points from an array.
