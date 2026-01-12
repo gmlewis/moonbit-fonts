@@ -115,7 +115,7 @@ def generate_moon_pkg(font_packages):
         ] + font_packages
     }, indent=2)
 
-def generate_main_mbt(lines, family_info):
+def generate_main_mbt(lines, family_info, y_up):
     """Generates main.mbt content."""
     # family_info is a map of variant -> package_name
     # We'll map variants to import aliases
@@ -142,6 +142,9 @@ def generate_main_mbt(lines, family_info):
     else:
         mbt.append(f"  let font_italic = font_regular")
 
+    y_up_val = "true" if y_up else "false"
+    mbt.append(f"  let y_up = {y_up_val}")
+    mbt.append(f"  let y_step = if y_up {{ -1.2 }} else {{ 1.2 }}")
     mbt.append("  let mut scene = @draw.group([]).as_graphic()")
     mbt.append("  let mut y_offset = 0.0")
 
@@ -156,31 +159,27 @@ def generate_main_mbt(lines, family_info):
             line = line[1:-1]
 
         # 2. Escape quotes for MoonBit string literal
-        safe_line = line.replace('"', '\\"')
+        safe_line = line.replace('"', '\"')
 
         mbt.append(f"  let t{i} = try {{")
-        mbt.append(f"    @draw.text({font_var}, \"{safe_line}\").translate(@geom.vec2(0.0, y_offset))")
+        mbt.append(f"    @draw.text({font_var}, \"{safe_line}\", y_up=y_up).translate(@geom.vec2(0.0, y_offset))")
         mbt.append(f"  }} catch {{ _ => @draw.group([]).as_graphic() }}")
         mbt.append(f"  scene = scene + t{i}")
-        mbt.append(f"  y_offset = y_offset + 1.2")
+        mbt.append(f"  y_offset = y_offset + y_step")
 
-    mbt.append("  println(")
-    mbt.append("    @svg.from_graphic(")
-    mbt.append("      scene")
-    mbt.append("      .with_margin(top=0.1, right=0.1, bottom=0.1, left=0.1)")
-    mbt.append("      .with_background(@draw.Color::white()),")
-    mbt.append("      y_up=false,")
-    mbt.append("    ),")
-    mbt.append("  )")
+    mbt.append("  println(scene.to_json().stringify())")
     mbt.append("}")
 
     return "\n".join(mbt)
 
 def main():
-    parser = argparse.ArgumentParser(description="Quickly render text to SVG using gmlewis/fonts")
+    parser = argparse.ArgumentParser(description="Quickly render text to JSON using gmlewis/fonts")
     parser.add_argument("input", nargs="?", help="Input file (Markdown/Text), defaults to stdin")
     parser.add_argument("-f", "--font", default="aaarghnormal", help="Font family name (fuzzy matching supported)")
-    parser.add_argument("-o", "--output", help="Output SVG file (defaults to stdout)")
+    parser.add_argument("-o", "--output", help="Output JSON file (defaults to stdout)")
+    parser.add_argument("--y-up", action="store_true", dest="y_up", help="Use y-up coordinates (default)")
+    parser.add_argument("--y-down", action="store_false", dest="y_up", help="Use y-down coordinates")
+    parser.set_defaults(y_up=True)
     parser.add_argument("--keep", action="store_true", help="Keep the temporary MoonBit project directory")
     parser.add_argument("--list-fonts", action="store_true", help="List all available font families and exit")
 
@@ -223,6 +222,8 @@ def main():
 
     # Create temporary project
     tmp_dir = tempfile.mkdtemp(prefix="moon-render-")
+    if args.keep:
+        print(f"Project directory: {tmp_dir}", file=sys.stderr)
     try:
         # Write files
         with open(os.path.join(tmp_dir, "moon.mod.json"), "w") as f:
@@ -232,34 +233,47 @@ def main():
             f.write(generate_moon_pkg(font_packages))
 
         with open(os.path.join(tmp_dir, "main.mbt"), "w") as f:
-            f.write(generate_main_mbt(lines, family_info))
+            f.write(generate_main_mbt(lines, family_info, args.y_up))
 
         # Run moon run
-        result = subprocess.run(["moon", "run", "main.mbt"], cwd=tmp_dir, capture_output=True, text=True)
+        result = subprocess.run(["moon", "run", "main.mbt", "--target", "native"], cwd=tmp_dir, capture_output=True, text=True)
 
         if result.returncode != 0:
             print("Error running moon run:")
-            print(result.stderr)
+            print("-- STDOUT --", file=sys.stderr)
+            print(result.stdout, file=sys.stderr)
+            print("-- STDERR --", file=sys.stderr)
+            print(result.stderr, file=sys.stderr)
             if not args.keep:
                 print(f"Temp directory kept at: {tmp_dir}")
             sys.exit(1)
 
-        svg_content = result.stdout
-        # Filter out compiler noise (like "Using cached...") by finding the actual SVG tags
-        svg_match = re.search(r"<svg.*</svg>", svg_content, re.DOTALL)
-        if svg_match:
-            svg_content = svg_match.group(0)
-        else:
-            print("Error: Could not find SVG content in moon output.")
+        json_content = result.stdout
+        # Filter out compiler noise (like "Using cached...")
+        # We assume the last line (or the only line with starting with {{) is our JSON
+        lines = json_content.strip().splitlines()
+        json_output = None
+        for line in reversed(lines):
+            line = line.strip()
+            if line.startswith('{') and line.endswith('}'):
+                json_output = line
+                break
+        
+        if not json_output:
+            print("Error: Could not find JSON content in moon output.")
+            print("-- STDOUT --", file=sys.stderr)
+            print(result.stdout, file=sys.stderr)
+            print("-- STDERR --", file=sys.stderr)
+            print(result.stderr, file=sys.stderr)
             if not args.keep:
-                print(f"Stdout was: {result.stdout}")
+                print(f"Temp directory kept at: {tmp_dir}")
             sys.exit(1)
 
         if args.output:
             with open(args.output, "w") as f:
-                f.write(svg_content)
+                f.write(json_output)
         else:
-            print(svg_content)
+            print(json_output)
 
         if args.keep:
             print(f"Project kept at: {tmp_dir}", file=sys.stderr)

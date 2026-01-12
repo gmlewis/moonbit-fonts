@@ -58,6 +58,55 @@ Type `moon run examples/svg-checkerboard > examples/svg-checkerboard/checkerboar
 in a terminal then open this file in your browser to view it.
 For example, `google-chrome examples/svg-checkerboard/checkerboard.svg`.
 
+## Scripts
+
+A few utility scripts are available in the `scripts/` directory to help with common tasks.
+
+### `render-to-svg.py`
+
+Quickly render text to an SVG file using any available font. This script handles creating a temporary MoonBit project, importing the necessary font packages, and running the code to generate the SVG.
+
+**Examples:**
+
+```bash
+# Render "Hello World" using the default font (aaarghnormal)
+./scripts/render-to-svg.py "Hello World" -o hello.svg
+
+# Render text using a specific font (e.g. baloo)
+./scripts/render-to-svg.py "Custom Font" -f baloo -o custom.svg
+
+# List all available font families
+./scripts/render-to-svg.py --list-fonts
+
+# Use Markdown-style markers for bold/italic if the font family supports them
+./scripts/render-to-svg.py "**Bold Text** and *Italic Text*" -f aileron -o styled.svg
+```
+
+### `render-to-json.py`
+
+Similar to `render-to-svg.py`, but outputs a serialized JSON representation of the `draw.Graphic` object instead of an SVG. This is useful for passing graphic data to other tools.
+
+**Examples:**
+
+```bash
+# Render text to JSON
+./scripts/render-to-json.py "Data Graphic" -f abeezee -o graphic.json
+```
+
+### `sample-all-fonts.py`
+
+Generates one or more SVG files showing a sample of text rendered in every available font. This is useful for visual font selection.
+
+**Examples:**
+
+```bash
+# Generate sample SVGs for all fonts (in batches of 221)
+./scripts/sample-all-fonts.py -o all-fonts.svg "The quick brown fox"
+
+# Use a specific label font
+./scripts/sample-all-fonts.py -o samples.svg --label-font aileron_bold
+```
+
 ## Status
 
 The code has been updated to support compiler:
