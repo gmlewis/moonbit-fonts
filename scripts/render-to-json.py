@@ -182,7 +182,8 @@ def main():
             with open(args.input, "r") as f:
                 lines = f.read().splitlines()
         else:
-            lines = [args.input]
+            # Handle literal \n in string input
+            lines = args.input.replace('\\n', '\n').splitlines()
     else:
         if sys.stdin.isatty():
             print("Enter text to render (Ctrl-D to finish):")
