@@ -24,10 +24,8 @@ def get_font_map():
             full_name = parts[-1]
 
             # Improved heuristic for family and variant
-            # Examples: abeezee_italic, abeezee_regular, aaarghnormal, youngserif_regular
             if '_' in full_name:
                 family, variant = full_name.rsplit('_', 1)
-                # Further refine variant
                 if variant in ['regular', 'italic', 'bold', 'bolditalic']:
                     pass
                 elif 'italic' in variant and 'bold' in variant:
@@ -36,13 +34,9 @@ def get_font_map():
                     variant = 'bold'
                 elif 'italic' in variant:
                     variant = 'italic'
-                else:
-                    # Keep as is, maybe it's something like 'medium' or 'light'
-                    pass
             else:
                 family = full_name
                 variant = 'regular'
-                # Check for common variants embedded in the name
                 if 'bolditalic' in full_name.lower(): variant = 'bolditalic'
                 elif 'bold' in full_name.lower(): variant = 'bold'
                 elif 'italic' in full_name.lower(): variant = 'italic'
@@ -51,11 +45,9 @@ def get_font_map():
             if family not in font_map:
                 font_map[family] = {}
 
-            # Prioritize standard names
             if variant == 'regular' or variant not in font_map[family]:
                 font_map[family][variant] = pkg
             elif variant in ['bold', 'italic', 'bolditalic']:
-                # Prefer exact standard variant names
                 if '_' + variant in full_name:
                     font_map[family][variant] = pkg
 
@@ -63,35 +55,24 @@ def get_font_map():
 
 def find_best_font(family_query, font_map):
     """Finds the best font family match."""
-    # Exact match first
     if family_query in font_map:
         return family_query
-
-    # Fuzzy match: prefix
     matches = [f for f in font_map.keys() if f.startswith(family_query)]
     if matches:
         return matches[0]
-
     return None
 
 def generate_moon_mod(font_packages, root_dir):
     """Generates moon.mod.json content."""
-    # We need to map the font repos to their local paths
-    # font_packages examples: gmlewis/fonts-a/abeezee_regular
-    # root_dir is the absolute path to gmlewis/fonts
-
-    # Deduplicate repos
     repos = set()
     for pkg in font_packages:
-        repos.add('/'.join(pkg.split('/')[:2])) # e.g., gmlewis/fonts-a
+        repos.add('/'.join(pkg.split('/')[:2]))
 
     deps = {
         "gmlewis/fonts": { "path": root_dir }
     }
 
     for repo in repos:
-        # The repo name is like gmlewis/fonts-a
-        # The physical path is ../mbt-fonts-a relative to gmlewis/fonts
         repo_suffix = repo.split('-')[-1]
         phys_repo_path = os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}")
         deps[repo] = { "path": phys_repo_path }
@@ -115,18 +96,13 @@ def generate_moon_pkg(font_packages):
         ] + font_packages
     }, indent=2)
 
-def generate_main_mbt(lines, family_info):
+def generate_main_mbt(lines, family_info, alignment):
     """Generates main.mbt content."""
-    # family_info is a map of variant -> package_name
-    # We'll map variants to import aliases
-
     import_aliases = {}
     for variant, pkg in family_info.items():
-        # Alias is the last part of the package name
         alias = pkg.split('/')[-1]
         import_aliases[variant] = alias
 
-    # Choose a default font
     default_alias = import_aliases.get('regular', list(import_aliases.values())[0])
 
     mbt = ["fn main {"]
@@ -142,11 +118,16 @@ def generate_main_mbt(lines, family_info):
     else:
         mbt.append(f"  let font_italic = font_regular")
 
-    mbt.append("  let mut scene = @draw.group([]).as_graphic()")
-    mbt.append("  let mut y_offset = 0.0")
+    # Map Python align string to MoonBit alignment
+    align_map = {
+        'left': 'CenterLeft',
+        'center': 'Center',
+        'right': 'CenterRight'
+    }
+    mb_align = align_map.get(alignment, 'CenterLeft')
 
-    for i, line in enumerate(lines):
-        # 1. Detect and strip markers BEFORE escaping for MoonBit
+    mbt.append("  let lines = [")
+    for line in lines:
         font_var = "font_regular"
         if (line.startswith("**") and line.endswith("**")) or (line.startswith("__") and line.endswith("__")):
             font_var = "font_bold"
@@ -154,15 +135,11 @@ def generate_main_mbt(lines, family_info):
         elif (line.startswith("*") and line.endswith("*")) or (line.startswith("_") and line.endswith("_")):
             font_var = "font_italic"
             line = line[1:-1]
+        safe_line = line.replace('"', '\"')
+        mbt.append(f"    try {{ @draw.text({font_var}, \"{safe_line}\") }} catch {{ _ => @draw.group([]).as_graphic() }},")
+    mbt.append("  ]")
 
-        # 2. Escape quotes for MoonBit string literal
-        safe_line = line.replace('"', '\\"')
-
-        mbt.append(f"  let t{i} = try {{")
-        mbt.append(f"    @draw.text({font_var}, \"{safe_line}\").translate(@geom.vec2(0.0, y_offset))")
-        mbt.append(f"  }} catch {{ _ => @draw.group([]).as_graphic() }}")
-        mbt.append(f"  scene = scene + t{i}")
-        mbt.append(f"  y_offset = y_offset + 1.2")
+    mbt.append(f"  let scene = @draw.column(lines, alignment=@geom.{mb_align}, spacing=0.2)")
 
     mbt.append("  println(")
     mbt.append("    @svg.from_graphic(")
@@ -170,7 +147,7 @@ def generate_main_mbt(lines, family_info):
     mbt.append("      .with_margin(top=0.1, right=0.1, bottom=0.1, left=0.1)")
     mbt.append("      .with_background(@draw.Color::white()),")
     mbt.append("      y_up=false,")
-    mbt.append("    ),")
+    mbt.append("    ).to_string()")
     mbt.append("  )")
     mbt.append("}")
 
@@ -178,9 +155,10 @@ def generate_main_mbt(lines, family_info):
 
 def main():
     parser = argparse.ArgumentParser(description="Quickly render text to SVG using gmlewis/fonts")
-    parser.add_argument("input", nargs="?", help="Input file (Markdown/Text), defaults to stdin")
+    parser.add_argument("input", nargs="?", help="Input file (Markdown/Text) or string, defaults to stdin")
     parser.add_argument("-f", "--font", default="aaarghnormal", help="Font family name (fuzzy matching supported)")
     parser.add_argument("-o", "--output", help="Output SVG file (defaults to stdout)")
+    parser.add_argument("-a", "--align", choices=['left', 'center', 'right'], default='left', help="Horizontal alignment (default: left)")
     parser.add_argument("--keep", action="store_true", help="Keep the temporary MoonBit project directory")
     parser.add_argument("--list-fonts", action="store_true", help="List all available font families and exit")
 
@@ -194,7 +172,6 @@ def main():
             print(f"{family} ({variants})")
         return
 
-    # Find the font
     family = find_best_font(args.font, font_map)
     if not family:
         print(f"Error: Could not find font family matching '{args.font}'")
@@ -203,7 +180,6 @@ def main():
     family_info = font_map[family]
     font_packages = list(family_info.values())
 
-    # Read input
     if args.input:
         if os.path.exists(args.input):
             with open(args.input, "r") as f:
@@ -220,22 +196,16 @@ def main():
         return
 
     root_dir = os.getcwd()
-
-    # Create temporary project
     tmp_dir = tempfile.mkdtemp(prefix="moon-render-")
     try:
-        # Write files
         with open(os.path.join(tmp_dir, "moon.mod.json"), "w") as f:
             f.write(generate_moon_mod(font_packages, root_dir))
-
         with open(os.path.join(tmp_dir, "moon.pkg.json"), "w") as f:
             f.write(generate_moon_pkg(font_packages))
-
         with open(os.path.join(tmp_dir, "main.mbt"), "w") as f:
-            f.write(generate_main_mbt(lines, family_info))
+            f.write(generate_main_mbt(lines, family_info, args.align))
 
-        # Run moon run
-        result = subprocess.run(["moon", "run", "main.mbt"], cwd=tmp_dir, capture_output=True, text=True)
+        result = subprocess.run(["moon", "run", "main.mbt", "--target", "native"], cwd=tmp_dir, capture_output=True, text=True)
 
         if result.returncode != 0:
             print("Error running moon run:")
@@ -245,7 +215,6 @@ def main():
             sys.exit(1)
 
         svg_content = result.stdout
-        # Filter out compiler noise (like "Using cached...") by finding the actual SVG tags
         svg_match = re.search(r"<svg.*</svg>", svg_content, re.DOTALL)
         if svg_match:
             svg_content = svg_match.group(0)
@@ -263,7 +232,6 @@ def main():
 
         if args.keep:
             print(f"Project kept at: {tmp_dir}", file=sys.stderr)
-
     finally:
         if not args.keep:
             shutil.rmtree(tmp_dir)

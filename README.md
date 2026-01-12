@@ -64,13 +64,16 @@ A few utility scripts are available in the `scripts/` directory to help with com
 
 ### `render-to-svg.py`
 
-Quickly render text to an SVG file using any available font. This script handles creating a temporary MoonBit project, importing the necessary font packages, and running the code to generate the SVG.
+Quickly render text to an SVG file using any available font. This script handles creating a temporary MoonBit project, importing the necessary font packages, and running the code to generate the SVG. It supports multi-line text and custom alignment.
 
 **Examples:**
 
 ```bash
 # Render "Hello World" using the default font (aaarghnormal)
 ./scripts/render-to-svg.py "Hello World" -o hello.svg
+
+# Render multi-line text with horizontal centering
+./scripts/render-to-svg.py "Line 1\nLine 2 Centered" -a center -o centered.svg
 
 # Render text using a specific font (e.g. baloo)
 ./scripts/render-to-svg.py "Custom Font" -f baloo -o custom.svg
@@ -84,13 +87,16 @@ Quickly render text to an SVG file using any available font. This script handles
 
 ### `render-to-json.py`
 
-Similar to `render-to-svg.py`, but outputs a serialized JSON representation of the `draw.Graphic` object instead of an SVG. This is useful for passing graphic data to other tools.
+Similar to `render-to-svg.py`, but outputs a serialized JSON representation of the `draw.Graphic` object instead of an SVG. This is useful for passing graphic data to other tools like ray tracers. It defaults to `y-up` coordinates.
 
 **Examples:**
 
 ```bash
-# Render text to JSON
+# Render text to JSON (defaults to y-up)
 ./scripts/render-to-json.py "Data Graphic" -f abeezee -o graphic.json
+
+# Render multi-line text with right-alignment and y-down coordinates
+./scripts/render-to-json.py "Line 1\nLine 2" -a right --y-down -o down.json
 ```
 
 ### `sample-all-fonts.py`
