@@ -14,6 +14,6 @@ async test "load_font failure" {
       assert_true(msg.contains("Font 'nonexistent_font' not found"))
       assert_true(msg.contains("python3 scripts/compress-all-fonts.py"))
     }
-    e => fail("Unexpected error: \{e}")
+    e => fail("Unexpected error type: \{e}")
   }
 }
