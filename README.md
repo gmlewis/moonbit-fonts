@@ -27,6 +27,37 @@ The corresponding GitHub repositories are:
 
 [MoonBit]: https://www.moonbitlang.com/
 
+## Dynamic Font Loading
+
+For projects that need to load fonts on-demand by name (e.g., from a configuration file)
+without compiling every font into the binary, you can use the `Font::load_font` API.
+
+This requires the `all-fonts/` directory to be available on your filesystem.
+This directory contains compressed JSON files for each font (e.g., `baloo.json.gz`).
+
+### Usage
+
+```moonbit
+// Load a font by name
+let font = @fonts.Font::load_font("baloo")
+```
+
+### Search Logic
+
+`load_font` searches for the font in the following order:
+1.  Relative to the current working directory: `all-fonts/{font_name}.json.gz`.
+2.  Relative to the `MOONBIT_FONTS_DIR` environment variable: `${MOONBIT_FONTS_DIR}/all-fonts/{font_name}.json.gz`.
+
+### Setting up `MOONBIT_FONTS_DIR`
+
+If you have a central location for your font data, set the environment variable:
+
+```bash
+export MOONBIT_FONTS_DIR=/path/to/your/gmlewis/fonts/repo
+```
+
+The directory should contain an `all-fonts/` subdirectory with the `.json.gz` files.
+
 ## Quick Start
 
 See the [examples/quick-start](examples/quick-start) directory for a valid example
