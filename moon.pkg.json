@@ -1,6 +1,11 @@
 {
   "import": [
     "moonbitlang/regexp",
-    "gmlewis/fonts/geom"
+    "gmlewis/fonts/geom",
+    "gmlewis/gzip",
+    "gmlewis/io",
+    "gmlewis/flate",
+    "moonbitlang/async",
+    {"path": "moonbitlang/async/fs", "alias": "afs"}
   ]
 }
