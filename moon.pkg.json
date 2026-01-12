@@ -1,12 +1,13 @@
 {
   "import": [
+    "gmlewis/base64",
+    "gmlewis/flate",
     "gmlewis/fonts/geom",
     "gmlewis/gzip",
     "gmlewis/io",
-    "gmlewis/flate",
-    "gmlewis/base64",
     "moonbitlang/async/fs",
-    "moonbitlang/regexp"
+    "moonbitlang/regexp",
+    "moonbitlang/x/sys"
   ],
   "test-import": [
     "moonbitlang/async"
