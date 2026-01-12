@@ -2,10 +2,12 @@
 /// `load_font` attempts to load a font by its name from the `all-fonts` directory.
 /// It first looks in the current directory's `all-fonts/` subdirectory.
 /// If not found, it checks the `MOONBIT_FONTS_DIR` environment variable and,
-/// if set, looks for the font at `${MOONBIT_FONTS_DIR}/all-fonts/{font_name}.json.gz`.
-/// It expects the font to be in a compressed JSON format (e.g., `font_name.json.gz`).
-/// If the font is not found, it raises a `FontError` with instructions on how to
-/// generate the font.
+/// `load_font` attempts to load a font by its simple name from the `all-fonts` directory.
+/// It expects the font to be in a compressed JSON format (e.g., `font_name.json.gz`),
+/// where `font_name` is the short font name (for example, `"baloo"`), not the full
+/// package path. For the `baloo` font from package `gmlewis/fonts-b/baloo`, use
+/// `load_font("baloo")`. If the font is not found, it raises a `FontError` with
+/// instructions on how to generate the font.
 pub async fn Font::load_font(font_name : String) -> Font raise FontError {
   let local_font_path = "all-fonts/\{font_name}.json.gz"
   let env_dir = @sys.get_env_var("MOONBIT_FONTS_DIR")
