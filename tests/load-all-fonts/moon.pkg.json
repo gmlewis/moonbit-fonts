@@ -2,6 +2,7 @@
   "is-main": true,
   "import": [
     "gmlewis/fonts",
+    "gmlewis/fonts/loader",
     "moonbitlang/async",
     "moonbitlang/async/fs",
     "moonbitlang/async/stdio"

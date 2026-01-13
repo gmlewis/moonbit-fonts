@@ -1,6 +1,7 @@
 ///|
 async fn main {
-  let data = @fs.read_file("all-fonts.txt")
+  // must be run from this directory
+  let data = @fs.read_file("../../all-fonts.txt")
   let content = data.text()
   let lines = content.split("\n")
   let mut total = 0
@@ -35,7 +36,7 @@ async fn main {
     }
     write_progress("Loading \{short_name}... ")
     try {
-      let font = @fonts.Font::load_font(short_name)
+      let font = @loader.load_font(short_name)
       write_progress("OK: \{font.id} has \{font.glyphs.length()} glyphs.\n")
     } catch {
       e => {

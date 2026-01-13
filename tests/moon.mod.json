@@ -1,9 +1,15 @@
 {
-  "name": "gmlewis/fonts/tests/load-all-fonts",
+  "name": "gmlewis/fonts/tests",
   "version": "0.19.0",
   "deps": {
     "gmlewis/base64": "0.15.5",
     "gmlewis/flate": "0.36.0",
+    "gmlewis/fonts": {
+      "path": "../"
+    },
+    "gmlewis/fonts/loader": {
+      "path": "../loader"
+    },
     "gmlewis/gzip": "0.34.0",
     "gmlewis/io": "0.23.0",
     "moonbitlang/async": "0.16.0",
@@ -20,5 +26,6 @@
     "open source",
     "fonts"
   ],
+  "preferred-target": "native",
   "description": "Workaround to keep async code isolated."
 }
