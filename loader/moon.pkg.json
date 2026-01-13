@@ -1,0 +1,20 @@
+{
+  "import": [
+    "gmlewis/base64",
+    "gmlewis/flate",
+    "gmlewis/fonts/geom",
+    "gmlewis/gzip",
+    "gmlewis/io",
+    "moonbitlang/async/fs",
+    "moonbitlang/regexp",
+    "moonbitlang/x/sys"
+  ],
+  "targets": {
+    "load-font-native.mbt": [ "native" ],
+    "load-font-native_test.mbt": [ "native" ],
+    "load-font-notnative.mbt": [ "not", "native" ]
+  },
+  "test-import": [
+    "moonbitlang/async"
+  ]
+}
