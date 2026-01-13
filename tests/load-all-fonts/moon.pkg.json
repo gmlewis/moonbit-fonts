@@ -1,0 +1,9 @@
+{
+  "is-main": true,
+  "import": [
+    "gmlewis/fonts",
+    "moonbitlang/async",
+    "moonbitlang/async/fs",
+    "moonbitlang/async/stdio"
+  ]
+}
