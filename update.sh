@@ -7,6 +7,7 @@ moon test --target all
 moon run examples/svg-checkerboard > examples/svg-checkerboard/checkerboard.svg
 # google-chrome examples/svg-checkerboard/checkerboard.svg
 
+pushd loader && ./update.sh && popd
 pushd examples/alignment-gallery && ./update.sh && popd
 pushd examples/layout-gallery && ./update.sh && popd
 pushd examples/quick-start && ./update.sh && popd
