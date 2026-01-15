@@ -42,14 +42,13 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
   let width = @geom.round_to_fixed(bbox.width(), 4)
   let height = @geom.round_to_fixed(bbox.height(), 4)
   let paths = g.all_paths_and_compound_paths()
-  let lines = Array::new(capacity=paths.length())
-  for path in paths {
-    match path {
-      Path(path) => lines.push(path_to_svg(path))
-      CompoundPath(path) => lines.push(compound_path_to_svg(path))
-      _ => ()
+  let lines = Array::makei(paths.length(), fn(i) {
+    match paths[i] {
+      Path(path) => path_to_svg(path)
+      CompoundPath(path) => compound_path_to_svg(path)
+      _ => ""
     }
-  }
+  }).filter(fn(s) { s != "" })
   let lines = lines.join("\n")
   (
     $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{width} \{height}">

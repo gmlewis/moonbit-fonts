@@ -10,9 +10,7 @@ pub fn Font::gen_paths(
   alignment? : Alignment = BaselineLeft,
   y_up? : Bool = false,
 ) -> Array[Glyph] raise FontError {
-  let glyphs = Array::new(capacity=lines.length())
-  for line in lines {
-    glyphs.push(self.gen_path(line, alignment~, y_up~))
-  }
-  glyphs
+  Array::makei(lines.length(), fn(i) {
+    self.gen_path(lines[i], alignment~, y_up~)
+  })
 }

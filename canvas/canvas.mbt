@@ -181,9 +181,5 @@ pub fn CanvasCtx::get_input_bytes(self : CanvasCtx) -> Array[Byte] {
   if length <= 0 {
     return []
   }
-  let value = Array::new(capacity=length)
-  for i in 0..<length {
-    value.push(self.get_input_byte_at_offset(i))
-  }
-  value
+  Array::makei(length, fn(i) { self.get_input_byte_at_offset(i) })
 }

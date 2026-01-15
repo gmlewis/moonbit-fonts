@@ -1,5 +1,6 @@
 ///|
-/// unit_square constructs a new Group representing a unit square centered at the origin.
+/// unit_square constructs a new Group representing a unit square
+/// with sides of length 1 that is centered at the origin.
 pub fn unit_square() -> Group {
   let c = 0.5
   let a1 = Anchor::new(position=vec2(-c, -c))

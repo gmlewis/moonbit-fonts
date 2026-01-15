@@ -46,15 +46,11 @@ pub fn PathCmd::from_svg_cmd(
   }
 
   //
-  let params : Array[ParamPair] = Array::new(capacity=svg_cmd.p.0.length() / 2)
-  let mut x = 0.0
-  for index, param in svg_cmd.p.0 {
-    if index % 2 == 0 {
-      x = param
-    } else {
-      params.push({ x, y: param })
-    }
-  }
+  let params : Array[ParamPair] = Array::makei(svg_cmd.p.0.length() / 2, fn(i) {
+    let x = svg_cmd.p.0[i * 2]
+    let y = svg_cmd.p.0[i * 2 + 1]
+    { x, y }
+  })
 
   //
   { cmd, gerber_lp, params }
@@ -71,11 +67,14 @@ pub fn PathCmd::to_svg_cmd(self : PathCmd) -> (Cmd, String) {
       }
     _ => ""
   }
-  let p : Array[Double] = Array::new(capacity=self.params.length() * 2)
-  for pp in self.params {
-    p.push(pp.x)
-    p.push(pp.y)
-  }
+  let p : Array[Double] = Array::makei(self.params.length() * 2, fn(i) {
+    let pp = self.params[i / 2]
+    if i % 2 == 0 {
+      pp.x
+    } else {
+      pp.y
+    }
+  })
   let c = "\{self.cmd}"
   let cmd = { c, p }
   (cmd, gerber_lp)
@@ -107,10 +106,9 @@ pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 ///|
 /// `clone` makes a deep copy of a `PathCmd`.
 pub fn PathCmd::clone(self : PathCmd) -> PathCmd {
-  let params = Array::new(capacity=self.params.length())
-  for param in self.params {
-    let pp : ParamPair = { x: param.x, y: param.y }
-    params.push(pp)
-  }
+  let params = Array::makei(self.params.length(), fn(i) {
+    let param = self.params[i]
+    { x: param.x, y: param.y }
+  })
   { cmd: self.cmd, gerber_lp: self.gerber_lp, params }
 }

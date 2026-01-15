@@ -123,10 +123,9 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
     if glp != "" {
       gerber_lp.write_string(glp)
     }
-    let params = Array::new(capacity=svg_cmd.p.length())
-    for p in svg_cmd.p.0 {
-      params.push(svg_num(p))
-    }
+    let params = Array::makei(svg_cmd.p.0.length(), fn(i) {
+      svg_num(svg_cmd.p.0[i])
+    })
     d.write_string(params.join(" "))
 
     // update bbox
@@ -152,10 +151,7 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
 ///|
 /// `clone` makes a deep copy of an SVGPath.
 pub fn SVGPath::clone(self : SVGPath) -> SVGPath {
-  let cmds = Array::new(capacity=self.cmds.length())
-  for cmd in self.cmds {
-    cmds.push(cmd.clone())
-  }
+  let cmds = Array::makei(self.cmds.length(), fn(i) { self.cmds[i].clone() })
   {
     char: self.char,
     cmds,

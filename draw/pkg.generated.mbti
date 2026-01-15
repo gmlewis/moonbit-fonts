@@ -36,6 +36,8 @@ pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignm
 
 pub fn unit_circle() -> Group
 
+pub fn unit_ngon(Int, start_degrees? : Int) -> Group
+
 pub fn unit_square() -> Group
 
 pub fn vec2(Double, Double) -> @geom.Vec2
