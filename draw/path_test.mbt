@@ -80,6 +80,16 @@ test "Path::to_polygon/with_curves" {
 }
 
 ///|
+test "Path::to_polygon/with_curves with curve_segments=1" {
+  // Create a path with a curve
+  let a1 = Anchor::new(position=vec2(0, 0), handle_out=vec2(0.5, 0))
+  let a2 = Anchor::new(position=vec2(1, 1), handle_in=vec2(-0.5, 0))
+  let path = Path::new(anchors=[a1, a2], closed=true)
+  let polygon = path.to_polygon(1)
+  inspect(polygon, content="[{x: 0, y: 0}, {x: 1, y: 1}]")
+}
+
+///|
 test "Path::to_polygon/epsilon_forwarded_to_dedupe" {
   // Make two consecutive points very close so dedupe can remove them with a larger epsilon
   let p1 = vec2(1, 0)

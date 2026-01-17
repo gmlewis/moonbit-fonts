@@ -561,10 +561,13 @@ pub fn Path::to_polygon(
     let p1 = p0.add(a1.handle_out)
     let p2 = p3.add(a2.handle_in)
     // Check if it's a line (handles are zero)
-    if a1.handle_out.x == 0.0 &&
-      a1.handle_out.y == 0.0 &&
-      a2.handle_in.x == 0.0 &&
-      a2.handle_in.y == 0.0 {
+    if (
+        a1.handle_out.x == 0.0 &&
+        a1.handle_out.y == 0.0 &&
+        a2.handle_in.x == 0.0 &&
+        a2.handle_in.y == 0.0
+      ) ||
+      curve_segments <= 1 {
       // Line segment, add the start point (end will be added as start of next)
       points.push(p0)
     } else {
