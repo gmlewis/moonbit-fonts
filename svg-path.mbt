@@ -66,7 +66,7 @@ pub fn SVGPath::from_glyph(
   for index, svg_cmd in svg_cmds {
     if svg_cmd.c == "M" {
       gerber_lp = match
-        g.gerber_lp.unsafe_charcode_at(gerber_index).to_char().unwrap() {
+        g.gerber_lp.unsafe_get(gerber_index).to_char().unwrap() {
         'd' => Dark
         'c' => Clear
         c => raise FontError("SVGPath::from_glyph: unsupported GerberLP '\{c}'")

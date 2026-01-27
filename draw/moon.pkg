@@ -1,0 +1,11 @@
+import {
+  "gmlewis/fonts",
+  "gmlewis/fonts/geom",
+  "moonbitlang/core/builtin",
+  "moonbitlang/core/cmp",
+  "moonbitlang/core/double",
+  "moonbitlang/core/json",
+  "moonbitlang/core/math",
+  "moonbitlang/core/strconv",
+  "moonbitlang/regexp",
+}

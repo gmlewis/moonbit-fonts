@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts/geom"
 
-import(
-  "moonbitlang/core/json"
-)
+import {
+  "moonbitlang/core/json",
+}
 
 // Values
 pub const DEFAULT_TOLERANCE : Double = 0.001

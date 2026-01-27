@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts"
 
-import(
-  "gmlewis/fonts/geom"
-  "moonbitlang/core/json"
-)
+import {
+  "gmlewis/fonts/geom",
+  "moonbitlang/core/json",
+}
 
 // Values
 pub fn glyph_bbox(String) -> @geom.BoundingBox raise FontError

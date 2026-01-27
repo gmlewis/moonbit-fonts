@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts/svg"
 
-import(
-  "gmlewis/fonts/draw"
-)
+import {
+  "gmlewis/fonts/draw",
+}
 
 // Values
 pub fn from_graphic(@draw.Graphic, y_up? : Bool) -> String

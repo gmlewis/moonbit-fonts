@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts/canvas"
 
-import(
-  "gmlewis/fonts/draw"
-)
+import {
+  "gmlewis/fonts/draw",
+}
 
 // Values
 

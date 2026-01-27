@@ -1,0 +1,15 @@
+import {
+  "gmlewis/base64",
+  "gmlewis/flate",
+  "gmlewis/fonts",
+  "gmlewis/gzip",
+  "gmlewis/io",
+  "moonbitlang/async/fs",
+  "moonbitlang/core/builtin",
+  "moonbitlang/core/json",
+  "moonbitlang/x/sys",
+}
+
+import "test" {
+  "moonbitlang/async",
+}

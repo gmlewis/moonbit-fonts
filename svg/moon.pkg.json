@@ -1,9 +1,0 @@
-{
-  "import": [
-    "gmlewis/fonts/draw",
-    "gmlewis/fonts/geom"
-  ],
-  "test-import": [
-    "gmlewis/fonts"
-  ]
-}

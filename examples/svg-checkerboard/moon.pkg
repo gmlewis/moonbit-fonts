@@ -1,0 +1,9 @@
+import {
+  "gmlewis/fonts/examples/checkerboard",
+  "gmlewis/fonts/svg",
+  "moonbitlang/core/builtin",
+}
+
+options(
+  "is-main": true,
+)

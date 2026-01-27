@@ -1,9 +1,0 @@
-{
-  "is-main": true,
-  "import": [
-    "gmlewis/fonts/draw",
-    "gmlewis/fonts/geom",
-    "gmlewis/fonts/svg",
-    "gmlewis/fonts-b/baloo"
-  ]
-}

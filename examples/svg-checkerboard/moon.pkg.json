@@ -1,7 +1,0 @@
-{
-  "is-main": true,
-  "import": [
-    "gmlewis/fonts/examples/checkerboard",
-    "gmlewis/fonts/svg"
-  ]
-}

@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts/examples/canvas-checkerboard"
 
-import(
-  "gmlewis/fonts/canvas"
-)
+import {
+  "gmlewis/fonts/canvas",
+}
 
 // Values
 pub fn draw(@canvas.CanvasCtx, Int, Int) -> Unit

@@ -1,0 +1,9 @@
+import {
+  "gmlewis/fonts/draw",
+  "gmlewis/fonts/geom",
+  "moonbitlang/core/builtin",
+}
+
+import "test" {
+  "gmlewis/fonts",
+}

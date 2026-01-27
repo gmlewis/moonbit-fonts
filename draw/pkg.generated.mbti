@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts/draw"
 
-import(
-  "gmlewis/fonts"
-  "gmlewis/fonts/geom"
-  "moonbitlang/core/json"
-)
+import {
+  "gmlewis/fonts",
+  "gmlewis/fonts/geom",
+  "moonbitlang/core/json",
+}
 
 // Values
 pub fn bbox(Double, Double, Double, Double) -> @geom.BoundingBox

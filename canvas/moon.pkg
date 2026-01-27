@@ -1,0 +1,13 @@
+import {
+  "gmlewis/fonts/draw",
+  "gmlewis/fonts/geom",
+  "moonbitlang/core/builtin",
+}
+
+options(
+  "supported-targets": [ "wasm", "wasm-gc", "js" ],
+  targets: {
+    "ffi.mbt": [ "wasm", "wasm-gc", "js" ],
+    "ffi_notjs.mbt": [ "native", "llvm" ],
+  },
+)

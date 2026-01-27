@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "gmlewis/fonts/examples/checkerboard"
 
-import(
-  "gmlewis/fonts/draw"
-)
+import {
+  "gmlewis/fonts/draw",
+}
 
 // Values
 pub fn checkerboard() -> @draw.Graphic
