@@ -92,7 +92,6 @@ pub fn PathCmd::bbox(self : PathCmd) -> @geom.BoundingBox {
       r.max.y = pp.y
     } else {
       let _ = r.expand_to_include_point(@geom.pt(pp.x, pp.y))
-
     }
   }
   r

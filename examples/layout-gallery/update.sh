@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-moon install && rm -rf target .mooncakes
+rm -rf target .mooncakes
 moon add --no-update gmlewis/fonts-a
 moon fmt && moon info
 moon run . > layout-gallery.svg

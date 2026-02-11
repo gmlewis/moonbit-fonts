@@ -4,6 +4,6 @@ import {
   "moonbitlang/core/builtin",
 }
 
-import "test" {
+import {
   "gmlewis/fonts",
-}
+} for "test"

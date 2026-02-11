@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-moon install && rm -rf target .mooncakes
+rm -rf target .mooncakes
 moon add --no-update gmlewis/base64
 moon add --no-update gmlewis/flate
 moon add --no-update gmlewis/gzip
@@ -12,4 +12,4 @@ moon fmt && moon info --target native
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 export MOONBIT_FONTS_DIR=$(realpath ${SCRIPT_DIR}/..)
-moon test --target native
+moon test -j 12 --target native

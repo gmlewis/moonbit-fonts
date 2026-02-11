@@ -91,7 +91,6 @@ pub fn SVGPath::from_glyph(
       } else {
         for p in cmd.params {
           let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
-
         }
       }
     }
@@ -135,7 +134,6 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
       } else {
         for p in cmd.params {
           let _ = bbox.expand_to_include_point(@geom.pt(p.x, p.y))
-
         }
       }
     }
