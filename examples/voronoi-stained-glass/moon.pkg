@@ -1,8 +1,9 @@
 import {
+  "gmlewis/fonts",
   "gmlewis/fonts/draw",
   "gmlewis/fonts/geom",
   "gmlewis/fonts/svg",
-  "gmlewis/fonts-a/aaarghnormal",
+  "gmlewis/fonts-b/baloo",
   "moonbitlang/core/builtin",
 }
 

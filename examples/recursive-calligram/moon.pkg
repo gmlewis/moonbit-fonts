@@ -1,9 +1,11 @@
 import {
+  "gmlewis/fonts",
   "gmlewis/fonts/draw",
   "gmlewis/fonts/geom",
   "gmlewis/fonts/svg",
   "gmlewis/fonts-a/aaarghnormal",
   "moonbitlang/core/builtin",
+  "moonbitlang/core/math",
 }
 
 options(

@@ -1,2 +1,5 @@
-#!/bin/bash
-moon run main.mbt > living-hinge-box.svg
+#!/bin/bash -ex
+rm -rf _build .mooncakes
+moon add --no-update gmlewis/fonts-a
+moon fmt && moon info
+moon run . > living-hinge-box.svg

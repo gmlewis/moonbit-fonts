@@ -20,7 +20,7 @@ fn main {
 ///|
 fn generate_mandala(
   font : @fonts.Font,
-  name : String
+  name : String,
 ) -> Result[@draw.Graphic, @draw.DrawError] {
   let seed = hash_string(name)
   let prng = PRNG::new(seed)
@@ -29,9 +29,9 @@ fn generate_mandala(
   let text_graphic = @draw.text(font, name, size=1.0) catch {
     e => return Err(e)
   }
-  
+
   let styled_text = text_graphic.with_style(fill=@draw.Color::black().as_fill())
-  
+
   // Center the text
   let bbox = styled_text.bounding_box().unwrap_or(@geom.BoundingBox::new())
   let center_offset = @geom.vec2(-bbox.center().x, -bbox.center().y)
@@ -42,12 +42,12 @@ fn generate_mandala(
   // 2. Generate rings
   let num_rings = 4 + (seed % 3).reinterpret_as_int()
   let mut radius = bbox.width() / 2.0 + 0.2
-  
+
   for i in 0..<num_rings {
     let segments = 6 + (prng.next() % 12).reinterpret_as_int()
     let hue = prng.next_double()
     let color = @draw.Color::from_hsva(hue, 0.7, 0.9, 0.6)
-    
+
     let motif = match i % 3 {
       0 => {
         let w = 0.2 + prng.next_double() * 0.3
@@ -66,9 +66,9 @@ fn generate_mandala(
     }
     let ring_graphic = motif.with_style(
       fill=color.as_fill(),
-      stroke=color.mix(@draw.Color::black(), 0.3).as_stroke(width=0.01)
+      stroke=color.mix(@draw.Color::black(), 0.3).as_stroke(width=0.01),
     )
-    
+
     mandala = mandala + repeat_radial(ring_graphic, segments)
     radius += 0.5 + prng.next_double() * 0.3
   }
@@ -114,7 +114,10 @@ fn create_diamond(r : Double, width : Double, height : Double) -> @draw.Graphic 
 
 ///|
 fn create_circle_at(r_center : Double, r : Double) -> @draw.Graphic {
-  @draw.unit_circle().as_graphic().scale(@geom.vec2(r * 2.0, r * 2.0)).translate(@geom.vec2(0, r_center))
+  @draw.unit_circle()
+  .as_graphic()
+  .scale(@geom.vec2(r * 2.0, r * 2.0))
+  .translate(@geom.vec2(0, r_center))
 }
 
 ///|

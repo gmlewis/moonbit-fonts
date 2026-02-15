@@ -1,0 +1,16 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "gmlewis/bio-mechanical-nameplate"
+
+// Values
+
+// Errors
+
+// Types and methods
+type Node
+
+type PRNG
+
+// Type aliases
+
+// Traits
+

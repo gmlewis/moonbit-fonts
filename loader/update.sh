@@ -1,5 +1,5 @@
 #!/bin/bash -ex
-rm -rf target .mooncakes
+rm -rf _build .mooncakes
 moon add --no-update gmlewis/base64
 moon add --no-update gmlewis/flate
 moon add --no-update gmlewis/gzip

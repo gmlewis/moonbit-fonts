@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "deps": {
     "gmlewis/fonts": {
-      "path": "../../"
+      "path": "../.."
     },
-    "gmlewis/fonts-a": "0.18.3",
-    "gmlewis/fonts-b": "0.18.3"
+    "gmlewis/fonts-b": "0.19.3"
   },
   "readme": "README.md",
   "repository": "https://github.com/gmlewis/moonbit-fonts",

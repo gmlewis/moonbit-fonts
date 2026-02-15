@@ -1,4 +1,5 @@
 import {
+  "gmlewis/fonts",
   "gmlewis/fonts/draw",
   "gmlewis/fonts/geom",
   "gmlewis/fonts/svg",

@@ -1,0 +1,14 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "gmlewis/generative-mandala"
+
+// Values
+
+// Errors
+
+// Types and methods
+type PRNG
+
+// Type aliases
+
+// Traits
+
