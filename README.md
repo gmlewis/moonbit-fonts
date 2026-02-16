@@ -63,6 +63,53 @@ The directory should contain an `all-fonts/` subdirectory with the `.json.gz` fi
 See the [examples/quick-start](examples/quick-start) directory for a valid example
 of how to use this package.
 
+## Functional Per-Grapheme Text Styling
+
+The `@draw.text_with` API allows custom styling per grapheme without relying on
+internal `Path` / `CompoundPath` structure.
+
+### Callback Model
+
+- `@draw.text_with_style_fn((ctx) => action)` creates a callback.
+- `ctx` is `GlyphStyleContext` with:
+    - `grapheme_index`
+    - `grapheme`
+    - `line_index`
+    - `grapheme_index_in_line`
+- Return a `GlyphStyleAction` via helpers:
+    - `@draw.glyph_style_use_default()`
+    - `@draw.glyph_style_override(stroke=?, fill=?)`
+    - `@draw.glyph_style_skip()`
+
+### Example (marker-based styling)
+
+This example skips `*`, colors the next visible glyph red, and keeps all others black:
+
+```moonbit
+let y_label = @draw.text_with(
+    font,
+    text,
+    align=Right,
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
+        if ctx.grapheme == "*" {
+            @draw.glyph_style_skip()
+        } else if ctx.grapheme_index == 1 {
+            @draw.glyph_style_override(fill=red_fill)
+        } else {
+            @draw.glyph_style_override(fill=black_fill)
+        }
+    }),
+)
+.transform(scale=vec2(0.2, 0.2), position=y_tick_pos + vec2(-0.02, 0.05))
+
+graph.push(y_label)
+```
+
+### Tuple Compatibility API
+
+If you prefer the original tuple callback style, use `@draw.text_with_tuple` with
+`@draw.text_with_tuple_style_fn((index, grapheme) -> (stroke?, fill?))`.
+
 ## Gallery
 
 * [Alignment Gallery](examples/alignment-gallery): Visual reference for text alignment.

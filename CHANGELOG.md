@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1/0/).
 
+## [0.19.4] - 2026-02-15
+
+### Added
+- `draw.text_with` for per-grapheme functional styling via callback.
+- New callback/context/action API for text styling:
+  - `GlyphStyleContext` (`grapheme_index`, `grapheme`, `line_index`, `grapheme_index_in_line`)
+  - `GlyphStyleAction` (`UseDefault`, `Override(stroke?, fill?)`, `Skip`)
+  - `TextWithStyleFn`
+- Public helper constructors/actions for ergonomic usage:
+  - `text_with_style_fn`
+  - `glyph_style_use_default`
+  - `glyph_style_override`
+  - `glyph_style_skip`
+- Backward-compatible tuple callback API:
+  - `draw.text_with_tuple`
+  - `TextWithTupleStyleFn`
+  - `text_with_tuple_style_fn`
+- New tests in `draw/text_test.mbt` covering:
+  - `Override`, `UseDefault`, and `Skip`
+  - context behavior across newlines (`line_index`, `grapheme_index_in_line`)
+  - alignment behavior (`Left`, `Center`, `Right`) including with skipped marker glyphs.
+
+### Changed
+- README now documents the functional per-grapheme text styling model and includes a marker-based styling example.
+
 ## [0.18.1] - 2025-12-21
 
 ### Changed

@@ -18,6 +18,12 @@ pub fn dedupe_points(Array[@geom.Vec2], epsilon? : Double) -> Array[@geom.Vec2]
 
 pub fn fill(Color) -> Fill
 
+pub fn glyph_style_override(stroke? : Stroke, fill? : Fill) -> GlyphStyleAction
+
+pub fn glyph_style_skip() -> GlyphStyleAction
+
+pub fn glyph_style_use_default() -> GlyphStyleAction
+
 pub fn grid(Array[Graphic], Int, alignment? : @geom.Alignment, h_spacing? : Double, v_spacing? : Double) -> Graphic
 
 pub fn group(Array[Graphic]) -> Group
@@ -31,6 +37,14 @@ pub fn row(Array[Graphic], alignment? : @geom.Alignment, spacing? : Double) -> G
 pub fn stroke(Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 
 pub fn text(@fonts.Font, String, size? : Double, align? : TextAlign, y_up? : Bool) -> Graphic raise DrawError
+
+pub fn text_with(@fonts.Font, String, size? : Double, align? : TextAlign, y_up? : Bool, style_fn? : TextWithStyleFn) -> Graphic raise DrawError
+
+pub fn text_with_style_fn((GlyphStyleContext) -> GlyphStyleAction) -> TextWithStyleFn
+
+pub fn text_with_tuple(@fonts.Font, String, size? : Double, align? : TextAlign, y_up? : Bool, style_fn? : TextWithTupleStyleFn) -> Graphic raise DrawError
+
+pub fn text_with_tuple_style_fn((Int, String) -> (Stroke?, Fill?)) -> TextWithTupleStyleFn
 
 pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignment, y_up? : Bool) -> Graphic raise DrawError
 
@@ -157,6 +171,19 @@ pub impl Eq for Fill
 pub impl Show for Fill
 pub impl ToJson for Fill
 pub impl @json.FromJson for Fill
+
+pub enum GlyphStyleAction {
+  UseDefault
+  Override(Stroke?, Fill?)
+  Skip
+}
+
+pub struct GlyphStyleContext {
+  grapheme_index : Int
+  grapheme : String
+  line_index : Int
+  grapheme_index_in_line : Int
+}
 
 pub(all) enum Graphic {
   CompoundPath(CompoundPath)
@@ -348,6 +375,14 @@ pub(all) enum TextAlign {
 }
 pub impl Eq for TextAlign
 pub impl Show for TextAlign
+
+pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)
+#deprecated
+pub fn TextWithStyleFn::inner(Self) -> (GlyphStyleContext) -> GlyphStyleAction
+
+pub struct TextWithTupleStyleFn((Int, String) -> (Stroke?, Fill?))
+#deprecated
+pub fn TextWithTupleStyleFn::inner(Self) -> (Int, String) -> (Stroke?, Fill?)
 
 // Type aliases
 pub using @fonts {type AbsoluteCmd}

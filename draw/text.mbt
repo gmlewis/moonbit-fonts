@@ -139,3 +139,216 @@ fn svgpath2compound_path(
   }
   CompoundPath::new(paths~, fill=fill(black))
 }
+
+///|
+/// `GlyphStyleContext` provides callback context for `text_with`.
+pub struct GlyphStyleContext {
+  grapheme_index : Int
+  grapheme : String
+  line_index : Int
+  grapheme_index_in_line : Int
+}
+
+///|
+/// `GlyphStyleAction` controls styling/visibility for a grapheme in `text_with`.
+pub enum GlyphStyleAction {
+  UseDefault
+  Override(Stroke?, Fill?)
+  Skip
+}
+
+///|
+/// `TextWithStyleFn` is a functional-style callback for `text_with`.
+pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)
+
+///|
+/// `TextWithTupleStyleFn` is a compatibility callback that returns `(stroke?, fill?)`.
+pub struct TextWithTupleStyleFn((Int, String) -> (Stroke?, Fill?))
+
+///|
+/// `text_with_style_fn` creates a style callback value for `text_with`.
+pub fn text_with_style_fn(
+  func : (GlyphStyleContext) -> GlyphStyleAction,
+) -> TextWithStyleFn {
+  TextWithStyleFn(func)
+}
+
+///|
+/// `text_with_tuple_style_fn` creates a tuple-style callback value for `text_with_tuple`.
+pub fn text_with_tuple_style_fn(
+  func : (Int, String) -> (Stroke?, Fill?),
+) -> TextWithTupleStyleFn {
+  TextWithTupleStyleFn(func)
+}
+
+///|
+/// `glyph_style_use_default` keeps the glyph's default style.
+pub fn glyph_style_use_default() -> GlyphStyleAction {
+  UseDefault
+}
+
+///|
+/// `glyph_style_override` overrides one or both style fields for a glyph.
+pub fn glyph_style_override(stroke? : Stroke, fill? : Fill) -> GlyphStyleAction {
+  Override(stroke, fill)
+}
+
+///|
+/// `glyph_style_skip` skips rendering the glyph.
+pub fn glyph_style_skip() -> GlyphStyleAction {
+  Skip
+}
+
+///|
+/// `text_with` generates text like `text`, with optional per-grapheme style actions.
+///
+/// The callback runs once per grapheme and may:
+/// - `UseDefault`: keep existing style,
+/// - `Override(stroke?, fill?)`: override one or both style fields,
+/// - `Skip`: skip rendering this grapheme.
+pub fn text_with(
+  font : Font,
+  text : String,
+  size? : Double = 1.0,
+  align? : TextAlign = Left,
+  y_up? : Bool = false,
+  style_fn? : TextWithStyleFn,
+) -> Graphic raise DrawError {
+  let xscale = size / font.units_per_em
+  let mut x = 0.0
+  let mut y = 0.0
+  let y_scale = if y_up { 1.0 } else { -1.0 }
+  let items : Array[Graphic] = []
+  let mut grapheme_index = 0
+  let mut line_index = 0
+  let mut grapheme_index_in_line = 0
+
+  for c in text {
+    let grapheme = c.to_string()
+    let this_index = grapheme_index
+    let this_line_index = line_index
+    let this_grapheme_index_in_line = grapheme_index_in_line
+    grapheme_index += 1
+    grapheme_index_in_line += 1
+    let style_action = match style_fn {
+      None => UseDefault
+      Some(style_fn) =>
+        (style_fn.0)({
+          grapheme_index: this_index,
+          grapheme,
+          line_index: this_line_index,
+          grapheme_index_in_line: this_grapheme_index_in_line,
+        })
+    }
+    match font.glyphs.get(grapheme) {
+      Some(glyph) => {
+        match style_action {
+          Skip => {
+            if glyph.horiz_adv_x > 0.0 {
+              x = x + glyph.horiz_adv_x
+            } else {
+              x = x + font.horiz_adv_x
+            }
+            continue
+          }
+          _ => ()
+        }
+        let glyph_graphic = to_graphic(
+          font,
+          grapheme,
+          size~,
+          alignment=Unchanged,
+          y_up~,
+        ) catch {
+          e => raise DrawError("text_with: \{e}")
+        }
+        let glyph_graphic = glyph_graphic.transform(
+          position=vec2(x * xscale, y * xscale),
+        )
+        let styled_glyph = match style_action {
+          UseDefault => glyph_graphic
+          Override(stroke_override, fill_override) => {
+            let stroke = match stroke_override {
+              Some(stroke) => Some(stroke)
+              None => glyph_graphic.first_stroke()
+            }
+            let fill = match fill_override {
+              Some(fill) => Some(fill)
+              None => glyph_graphic.first_fill()
+            }
+            glyph_graphic.with_style(fill?, stroke?)
+          }
+          Skip => glyph_graphic
+        }
+        items.push(styled_glyph)
+        if glyph.horiz_adv_x > 0.0 {
+          x = x + glyph.horiz_adv_x
+        } else {
+          x = x + font.horiz_adv_x
+        }
+      }
+      None =>
+        match c {
+          '\n' => {
+            x = 0.0
+            y = y - y_scale * (font.units_per_em - font.descent)
+            line_index += 1
+            grapheme_index_in_line = 0
+          }
+          '\r' => {
+            y = y - y_scale * (font.units_per_em - font.descent)
+            line_index += 1
+            grapheme_index_in_line = 0
+          }
+          _ => x = x + font.horiz_adv_x
+        }
+    }
+  }
+
+  let mut result = Group::new(items~).as_graphic()
+  let alignment : Alignment = match align {
+    Left => BaselineLeft
+    Center => BaselineCenter
+    Right => BaselineRight
+  }
+  if alignment != BaselineLeft {
+    match result.bounding_box() {
+      None => ()
+      Some(box) => {
+        let dx = match alignment {
+          BaselineCenter => -(box.min.x + box.max.x) / 2.0
+          BaselineRight => -box.max.x
+          _ => 0.0
+        }
+        result = result.translate(vec2(dx, 0))
+      }
+    }
+  }
+  result
+}
+
+///|
+/// `text_with_tuple` provides backward-compatible tuple callback styling.
+///
+/// The callback returns `(stroke?, fill?)` and maps directly to
+/// `GlyphStyleAction::Override`.
+pub fn text_with_tuple(
+  font : Font,
+  text : String,
+  size? : Double = 1.0,
+  align? : TextAlign = Left,
+  y_up? : Bool = false,
+  style_fn? : TextWithTupleStyleFn,
+) -> Graphic raise DrawError {
+  let style_fn = match style_fn {
+    None => None
+    Some(style_fn) =>
+      Some(
+        TextWithStyleFn(fn(ctx) {
+          let (stroke, fill) = (style_fn.0)(ctx.grapheme_index, ctx.grapheme)
+          Override(stroke, fill)
+        }),
+      )
+  }
+  text_with(font, text, size~, align~, y_up~, style_fn?)
+}
