@@ -130,6 +130,9 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
 /// `Color::from_css_string` returns a color from a CSS string.
 pub fn Color::from_css_string(css_string : String) -> Color raise Error {
   let css_string = css_string.trim(char_set=" ").to_lower().to_string()
+  if css_string.is_empty() {
+    return Color::new()
+  }
   match css_colors.get(css_string) {
     Some([r, g, b]) => return css_color(r, g, b)
     _ => ()

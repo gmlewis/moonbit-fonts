@@ -65,8 +65,19 @@ pub fn SVGPath::from_glyph(
   let mut gerber_lp = Dark
   for index, svg_cmd in svg_cmds {
     if svg_cmd.c == "M" {
-      gerber_lp = match
-        g.gerber_lp.unsafe_get(gerber_index).to_char().unwrap() {
+      if gerber_index >= g.gerber_lp.length() {
+        raise FontError(
+          "SVGPath::from_glyph: gerber_lp index out of range: index=\{gerber_index}, length=\{g.gerber_lp.length()} for path '\{g.char}'",
+        )
+      }
+      let glp = match g.gerber_lp.unsafe_get(gerber_index).to_char() {
+        Some(c) => c
+        None =>
+          raise FontError(
+            "SVGPath::from_glyph: invalid GerberLP character at index \{gerber_index} for path '\{g.char}'",
+          )
+      }
+      gerber_lp = match glp {
         'd' => Dark
         'c' => Clear
         c => raise FontError("SVGPath::from_glyph: unsupported GerberLP '\{c}'")

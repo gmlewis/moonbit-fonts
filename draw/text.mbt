@@ -80,7 +80,10 @@ fn svgpath2compound_path(
           anchors.push(Anchor::new(position=vec2(p.x * xscale, p.y * yscale)))
         }
       C =>
-        for i = 0; i < cmd.params.length(); i = i + 3 {
+        for i = 0; i + 2 < cmd.params.length(); i = i + 3 {
+          if anchors.length() == 0 {
+            continue
+          }
           let c1 = cmd.params[i]
           let c2 = cmd.params[i + 1]
           let end = cmd.params[i + 2]
@@ -93,16 +96,20 @@ fn svgpath2compound_path(
           anchors.push(Anchor::new(position=end_pos, handle_in=h_in))
         }
       Q =>
-        for i = 0; i < cmd.params.length(); i = i + 2 {
+        for i = 0; i + 1 < cmd.params.length(); i = i + 2 {
+          if anchors.length() == 0 {
+            continue
+          }
           let cp = cmd.params[i]
           let end = cmd.params[i + 1]
-          let start_pt = anchors[anchors.length() - 1].position
+          let prev_anchor = anchors[anchors.length() - 1]
+          let start_pt = prev_anchor.position
           let quad_ctrl_pt = vec2(cp.x * xscale, cp.y * yscale)
           let c1 = quad_ctrl_pt
             .sub(start_pt)
             .mul_scalar(2.0 / 3.0)
             .add(start_pt)
-          anchors[anchors.length() - 1].handle_out = c1.sub(start_pt)
+          prev_anchor.handle_out = c1.sub(start_pt)
           let end_pt = vec2(end.x * xscale, end.y * yscale)
           let c2 = quad_ctrl_pt.sub(end_pt).mul_scalar(2.0 / 3.0).add(end_pt)
           anchors.push(Anchor::new(position=end_pt, handle_in=c2.sub(end_pt)))
