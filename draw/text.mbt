@@ -147,13 +147,29 @@ pub struct GlyphStyleContext {
   grapheme : String
   line_index : Int
   grapheme_index_in_line : Int
+  pen_position : Vec2
+  pen_position_scaled : Vec2
+  has_glyph : Bool
+  glyph_horiz_adv_x : Double
+  glyph_horiz_adv_x_scaled : Double
+}
+
+///|
+/// `GlyphTransform` represents optional per-glyph transform operations.
+pub struct GlyphTransform {
+  position : Vec2
+  rotation : Double
+  scale : Vec2
+  skew : Double
+  origin : Vec2
+  affine_matrix : AffineMatrix?
 }
 
 ///|
 /// `GlyphStyleAction` controls styling/visibility for a grapheme in `text_with`.
 pub enum GlyphStyleAction {
-  UseDefault
-  Override(Stroke?, Fill?)
+  UseDefault(GlyphTransform)
+  Override(Stroke?, Fill?, GlyphTransform)
   Skip
 }
 
@@ -182,15 +198,34 @@ pub fn text_with_tuple_style_fn(
 }
 
 ///|
+/// `glyph_transform` creates a per-glyph transform.
+pub fn glyph_transform(
+  position? : Vec2 = vec2(0, 0),
+  rotation? : Double = 0,
+  scale? : Vec2 = vec2(1, 1),
+  skew? : Double = 0,
+  origin? : Vec2 = vec2(0, 0),
+  affine_matrix? : AffineMatrix,
+) -> GlyphTransform {
+  { position, rotation, scale, skew, origin, affine_matrix }
+}
+
+///|
 /// `glyph_style_use_default` keeps the glyph's default style.
-pub fn glyph_style_use_default() -> GlyphStyleAction {
-  UseDefault
+pub fn glyph_style_use_default(
+  transform? : GlyphTransform = glyph_transform(),
+) -> GlyphStyleAction {
+  UseDefault(transform)
 }
 
 ///|
 /// `glyph_style_override` overrides one or both style fields for a glyph.
-pub fn glyph_style_override(stroke? : Stroke, fill? : Fill) -> GlyphStyleAction {
-  Override(stroke, fill)
+pub fn glyph_style_override(
+  stroke? : Stroke,
+  fill? : Fill,
+  transform? : GlyphTransform = glyph_transform(),
+) -> GlyphStyleAction {
+  Override(stroke, fill, transform)
 }
 
 ///|
@@ -203,8 +238,8 @@ pub fn glyph_style_skip() -> GlyphStyleAction {
 /// `text_with` generates text like `text`, with optional per-grapheme style actions.
 ///
 /// The callback runs once per grapheme and may:
-/// - `UseDefault`: keep existing style,
-/// - `Override(stroke?, fill?)`: override one or both style fields,
+/// - `UseDefault(transform)`: keep existing style with optional transform,
+/// - `Override(stroke?, fill?, transform)`: override style with optional transform,
 /// - `Skip`: skip rendering this grapheme.
 pub fn text_with(
   font : Font,
@@ -225,30 +260,47 @@ pub fn text_with(
 
   for c in text {
     let grapheme = c.to_string()
+    let glyph_option = font.glyphs.get(grapheme)
+    let has_glyph = match glyph_option {
+      Some(_glyph) => true
+      None => false
+    }
+    let glyph_horiz_adv_x = match glyph_option {
+      Some(glyph) =>
+        if glyph.horiz_adv_x > 0.0 {
+          glyph.horiz_adv_x
+        } else {
+          font.horiz_adv_x
+        }
+      None => font.horiz_adv_x
+    }
     let this_index = grapheme_index
     let this_line_index = line_index
     let this_grapheme_index_in_line = grapheme_index_in_line
+    let this_pen_position = vec2(x, y)
+    let this_pen_position_scaled = vec2(x * xscale, y * xscale)
     grapheme_index += 1
     grapheme_index_in_line += 1
     let style_action = match style_fn {
-      None => UseDefault
+      None => UseDefault(glyph_transform())
       Some(style_fn) =>
         (style_fn.0)({
           grapheme_index: this_index,
           grapheme,
           line_index: this_line_index,
           grapheme_index_in_line: this_grapheme_index_in_line,
+          pen_position: this_pen_position,
+          pen_position_scaled: this_pen_position_scaled,
+          has_glyph,
+          glyph_horiz_adv_x,
+          glyph_horiz_adv_x_scaled: glyph_horiz_adv_x * xscale,
         })
     }
-    match font.glyphs.get(grapheme) {
-      Some(glyph) => {
+    match glyph_option {
+      Some(_glyph) => {
         match style_action {
           Skip => {
-            if glyph.horiz_adv_x > 0.0 {
-              x = x + glyph.horiz_adv_x
-            } else {
-              x = x + font.horiz_adv_x
-            }
+            x = x + glyph_horiz_adv_x
             continue
           }
           _ => ()
@@ -266,8 +318,9 @@ pub fn text_with(
           position=vec2(x * xscale, y * xscale),
         )
         let styled_glyph = match style_action {
-          UseDefault => glyph_graphic
-          Override(stroke_override, fill_override) => {
+          UseDefault(transform) =>
+            apply_glyph_transform(glyph_graphic, transform)
+          Override(stroke_override, fill_override, transform) => {
             let stroke = match stroke_override {
               Some(stroke) => Some(stroke)
               None => glyph_graphic.first_stroke()
@@ -276,16 +329,13 @@ pub fn text_with(
               Some(fill) => Some(fill)
               None => glyph_graphic.first_fill()
             }
-            glyph_graphic.with_style(fill?, stroke?)
+            let styled = glyph_graphic.with_style(fill?, stroke?)
+            apply_glyph_transform(styled, transform)
           }
           Skip => glyph_graphic
         }
         items.push(styled_glyph)
-        if glyph.horiz_adv_x > 0.0 {
-          x = x + glyph.horiz_adv_x
-        } else {
-          x = x + font.horiz_adv_x
-        }
+        x = x + glyph_horiz_adv_x
       }
       None =>
         match c {
@@ -346,9 +396,27 @@ pub fn text_with_tuple(
       Some(
         TextWithStyleFn(fn(ctx) {
           let (stroke, fill) = (style_fn.0)(ctx.grapheme_index, ctx.grapheme)
-          Override(stroke, fill)
+          Override(stroke, fill, glyph_transform())
         }),
       )
   }
   text_with(font, text, size~, align~, y_up~, style_fn?)
+}
+
+///|
+fn apply_glyph_transform(
+  graphic : Graphic,
+  transform : GlyphTransform,
+) -> Graphic {
+  let graphic = graphic.transform(
+    position=transform.position,
+    rotation=transform.rotation,
+    scale=transform.scale,
+    skew=transform.skew,
+    origin=transform.origin,
+  )
+  match transform.affine_matrix {
+    None => graphic
+    Some(affine_matrix) => graphic.affine_transform(affine_matrix)
+  }
 }

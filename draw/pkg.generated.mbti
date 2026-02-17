@@ -18,11 +18,13 @@ pub fn dedupe_points(Array[@geom.Vec2], epsilon? : Double) -> Array[@geom.Vec2]
 
 pub fn fill(Color) -> Fill
 
-pub fn glyph_style_override(stroke? : Stroke, fill? : Fill) -> GlyphStyleAction
+pub fn glyph_style_override(stroke? : Stroke, fill? : Fill, transform? : GlyphTransform) -> GlyphStyleAction
 
 pub fn glyph_style_skip() -> GlyphStyleAction
 
-pub fn glyph_style_use_default() -> GlyphStyleAction
+pub fn glyph_style_use_default(transform? : GlyphTransform) -> GlyphStyleAction
+
+pub fn glyph_transform(position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2, affine_matrix? : @geom.AffineMatrix) -> GlyphTransform
 
 pub fn grid(Array[Graphic], Int, alignment? : @geom.Alignment, h_spacing? : Double, v_spacing? : Double) -> Graphic
 
@@ -173,8 +175,8 @@ pub impl ToJson for Fill
 pub impl @json.FromJson for Fill
 
 pub enum GlyphStyleAction {
-  UseDefault
-  Override(Stroke?, Fill?)
+  UseDefault(GlyphTransform)
+  Override(Stroke?, Fill?, GlyphTransform)
   Skip
 }
 
@@ -183,6 +185,20 @@ pub struct GlyphStyleContext {
   grapheme : String
   line_index : Int
   grapheme_index_in_line : Int
+  pen_position : @geom.Vec2
+  pen_position_scaled : @geom.Vec2
+  has_glyph : Bool
+  glyph_horiz_adv_x : Double
+  glyph_horiz_adv_x_scaled : Double
+}
+
+pub struct GlyphTransform {
+  position : @geom.Vec2
+  rotation : Double
+  scale : @geom.Vec2
+  skew : Double
+  origin : @geom.Vec2
+  affine_matrix : @geom.AffineMatrix?
 }
 
 pub(all) enum Graphic {

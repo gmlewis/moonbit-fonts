@@ -250,3 +250,75 @@ test "text_with/alignment with Skip marker" {
   inspect(right_bbox.min.x, content="-20")
   inspect(right_bbox.max.x, content="0")
 }
+
+///|
+test "text_with/context pen_position_scaled can drive translation" {
+  let graphic = text_with(
+    text_test_font,
+    "AA",
+    size=100,
+    style_fn=text_with_style_fn(fn(ctx) {
+      if ctx.grapheme_index == 1 {
+        glyph_style_use_default(
+          transform=glyph_transform(position=ctx.pen_position_scaled),
+        )
+      } else {
+        glyph_style_use_default()
+      }
+    }),
+  )
+  let bbox = graphic.bounding_box().unwrap()
+  inspect(bbox.min.x, content="0")
+  inspect(bbox.max.x, content="32")
+}
+
+///|
+test "text_with/glyph_transform scale" {
+  let graphic = text_with(
+    text_test_font,
+    "A",
+    size=100,
+    style_fn=text_with_style_fn(fn(_ctx) {
+      glyph_style_use_default(transform=glyph_transform(scale=vec2(2, 1)))
+    }),
+  )
+  let bbox = graphic.bounding_box().unwrap()
+  inspect(bbox.min.x, content="0")
+  inspect(bbox.max.x, content="16")
+}
+
+///|
+test "text_with/glyph_transform rotation" {
+  let graphic = text_with(
+    text_test_font,
+    "A",
+    size=100,
+    style_fn=text_with_style_fn(fn(_ctx) {
+      glyph_style_use_default(transform=glyph_transform(rotation=90))
+    }),
+  )
+  let bbox = graphic.bounding_box().unwrap()
+  let width = bbox.max.x - bbox.min.x
+  let height = bbox.max.y - bbox.min.y
+  inspect(width > 9.99 && width < 10.01, content="true")
+  inspect(height > 7.99 && height < 8.01, content="true")
+}
+
+///|
+test "text_with/glyph_transform affine_matrix" {
+  let graphic = text_with(
+    text_test_font,
+    "A",
+    size=100,
+    style_fn=text_with_style_fn(fn(_ctx) {
+      glyph_style_use_default(
+        transform=glyph_transform(
+          affine_matrix=AffineMatrix::new(a=1, d=1, tx=3, ty=4),
+        ),
+      )
+    }),
+  )
+  let bbox = graphic.bounding_box().unwrap()
+  inspect(bbox.min.x, content="3")
+  inspect(bbox.max.x, content="11")
+}

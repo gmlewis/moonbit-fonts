@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1/0/).
 
+## [0.19.5] - 2026-02-17
+
+### Added
+- Per-glyph transform support in `draw.text_with` callback actions via `GlyphTransform`:
+  - `glyph_transform(position?, rotation?, scale?, skew?, origin?, affine_matrix?)`
+  - Action payload support for translation, rotation, scale, skew, origin, and optional affine matrix.
+- Richer `GlyphStyleContext` fields for coordinate-aware callbacks:
+  - `pen_position`, `pen_position_scaled`
+  - `has_glyph`, `glyph_horiz_adv_x`, `glyph_horiz_adv_x_scaled`
+- New tests in `draw/text_test.mbt` demonstrating:
+  - context-driven per-glyph translation,
+  - per-glyph scale,
+  - per-glyph rotation,
+  - per-glyph affine matrix application.
+
+### Changed
+- **BREAKING**: `GlyphStyleAction` shape changed from
+  - `UseDefault | Override(stroke?, fill?) | Skip`
+  to
+  - `UseDefault(GlyphTransform) | Override(stroke?, fill?, GlyphTransform) | Skip`.
+- `glyph_style_use_default` and `glyph_style_override` now accept an optional `transform` argument.
+- `text_with_tuple` compatibility adapter updated to map tuple callbacks to the new action shape.
+
 ## [0.19.4] - 2026-02-15
 
 ### Added
