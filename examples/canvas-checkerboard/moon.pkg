@@ -12,4 +12,5 @@ options(
     "wasm": { "exports": [ "draw" ] },
     "wasm-gc": { "exports": [ "draw" ] },
   },
+  "supported-targets": "+wasm+wasm-gc",
 )

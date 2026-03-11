@@ -5,7 +5,7 @@ import {
 }
 
 options(
-  "supported-targets": [ "wasm", "wasm-gc", "js" ],
+  "supported-targets": "+js+wasm+wasm-gc",
   targets: {
     "ffi.mbt": [ "wasm", "wasm-gc", "js" ],
     "ffi_notjs.mbt": [ "native", "llvm" ],

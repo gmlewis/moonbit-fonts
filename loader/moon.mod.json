@@ -1,15 +1,15 @@
 {
   "name": "gmlewis/fonts/loader",
-  "version": "0.19.5",
+  "version": "0.19.6",
   "deps": {
     "gmlewis/base64": "0.16.2",
-    "gmlewis/flate": "0.36.2",
+    "gmlewis/flate": "0.36.3",
     "gmlewis/fonts": {
       "path": "../"
     },
-    "gmlewis/gzip": "0.34.2",
-    "gmlewis/io": "0.23.2",
-    "moonbitlang/async": "0.16.6",
+    "gmlewis/gzip": "0.34.3",
+    "gmlewis/io": "0.23.3",
+    "moonbitlang/async": "0.16.7",
     "moonbitlang/regexp": "0.3.5",
     "moonbitlang/x": "0.4.40"
   },
