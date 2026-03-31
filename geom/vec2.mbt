@@ -71,7 +71,7 @@ pub fn Vec2::copy(self : Vec2, v : Vec2) -> Unit {
 ///|
 /// `is_valid` returns whether or not this `Vec2` is valid.
 pub fn Vec2::is_valid(self : Vec2) -> Bool {
-  not(self.x.is_inf() || self.x.is_nan() || self.y.is_inf() || self.y.is_nan())
+  !(self.x.is_inf() || self.x.is_nan() || self.y.is_inf() || self.y.is_nan())
 }
 
 ///|

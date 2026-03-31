@@ -63,7 +63,7 @@ fn generate_recursive_calligram(
 
       // Check if inside silhouette and doesn't overlap others
       if is_bbox_in_circle(new_bbox, center, radius) &&
-        not(overlaps_any(new_bbox, placed_boxes)) {
+        !overlaps_any(new_bbox, placed_boxes) {
         let color = @draw.Color::from_hsva(prng.next_double(), 0.7, 0.5, 1.0)
         result = result + centered_text.with_style(fill=color.as_fill())
         placed_boxes.push(new_bbox)

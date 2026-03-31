@@ -293,8 +293,8 @@ pub fn BoundingBox::union(self : BoundingBox, s : BoundingBox) -> BoundingBox {
 ///|
 /// overlaps reports whether self and s have a non-empty intersection.
 pub fn BoundingBox::overlaps(self : BoundingBox, s : BoundingBox) -> Bool {
-  not(self.is_empty()) &&
-  not(s.is_empty()) &&
+  !self.is_empty() &&
+  !s.is_empty() &&
   self.min.x < s.max.x &&
   s.min.x < self.max.x &&
   self.min.y < s.max.y &&

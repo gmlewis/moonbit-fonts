@@ -88,12 +88,12 @@ pub fn Color::from_hsva(
 
 ///|
 fn parse_hex_hex(s : String) -> Double raise Error {
-  @strconv.parse_int("\{s}\{s}", base=16).to_double() / 255
+  @string.parse_int("\{s}\{s}", base=16).to_double() / 255
 }
 
 ///|
 fn parse_hex(s : String) -> Double raise Error {
-  @strconv.parse_int(s, base=16).to_double() / 255
+  @string.parse_int(s, base=16).to_double() / 255
 }
 
 ///|
@@ -113,8 +113,8 @@ let rgba_re : @regexp.Regexp = try! @regexp.compile(
 fn parse_percent(s : StringView) -> Double raise Error {
   let m = percent_re.match_(s).unwrap()
   match m.results() {
-    [_, Some(v)] => @strconv.parse_int(v, base=10).to_double() / 100
-    _ => @strconv.parse_int(s, base=10).to_double() / 255
+    [_, Some(v)] => @string.parse_int(v, base=10).to_double() / 100
+    _ => @string.parse_int(s, base=10).to_double() / 255
   }
 }
 

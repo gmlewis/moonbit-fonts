@@ -28,7 +28,7 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-}
+} derive(Eq, Show)
 pub fn AffineMatrix::clone(Self) -> Self
 pub fn AffineMatrix::copy(Self, Self) -> Unit
 pub fn AffineMatrix::determinant(Self) -> Double
@@ -60,9 +60,7 @@ pub fn AffineMatrix::self_mul(Self, Self) -> Unit
 pub fn AffineMatrix::skew(Self, Double) -> Self
 pub fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
 pub fn AffineMatrix::translate(Self, Vec2) -> Self
-pub impl Eq for AffineMatrix
 pub impl Mul for AffineMatrix
-pub impl Show for AffineMatrix
 
 pub(all) enum Alignment {
   Unchanged
@@ -79,14 +77,12 @@ pub(all) enum Alignment {
   BottomCenter
   BottomRight
   RatioXY(Double, Double)
-}
-pub impl Eq for Alignment
-pub impl Show for Alignment
+} derive(Eq, Show)
 
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-}
+} derive(Eq, Show)
 pub fn BoundingBox::area(Self) -> Double
 pub fn BoundingBox::boolean_intersect(Self, Array[Self]) -> Self?
 pub fn BoundingBox::bounds(Self) -> (Double, Double, Double, Double)
@@ -116,8 +112,6 @@ pub fn BoundingBox::overlaps_bounding_box(Self, Self) -> Bool
 pub fn BoundingBox::size(Self) -> Vec2
 pub fn BoundingBox::union(Self, Self) -> Self
 pub fn BoundingBox::width(Self) -> Double
-pub impl Eq for BoundingBox
-pub impl Show for BoundingBox
 
 pub(all) struct Transform {
   position : Vec2
@@ -125,15 +119,13 @@ pub(all) struct Transform {
   scale : Vec2
   skew : Double
   origin : Vec2
-}
+} derive(Eq, Show)
 pub fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
-pub impl Eq for Transform
-pub impl Show for Transform
 
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-}
+} derive(Eq, Show, ToJson, @json.FromJson)
 pub fn Vec2::add_scalar(Self, Double) -> Self
 pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
 pub fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
@@ -191,13 +183,9 @@ pub fn Vec2::to_tuple(Self) -> (Double, Double)
 pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 pub impl Add for Vec2
 pub impl Div for Vec2
-pub impl Eq for Vec2
 pub impl Mul for Vec2
 pub impl Neg for Vec2
-pub impl Show for Vec2
 pub impl Sub for Vec2
-pub impl ToJson for Vec2
-pub impl @json.FromJson for Vec2
 
 // Type aliases
 

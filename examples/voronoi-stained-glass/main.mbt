@@ -165,7 +165,7 @@ fn is_point_in_profiles(
           break
         }
       }
-      if not(in_hole) {
+      if !in_hole {
         return true
       }
     }
@@ -212,7 +212,7 @@ fn is_point_in_poly(pt : @draw.Vec2, poly : Array[@draw.Vec2]) -> Bool {
     let p2 = poly[(i + 1) % n]
     if (p1.y > pt.y) != (p2.y > pt.y) &&
       pt.x < (p2.x - p1.x) * (pt.y - p1.y) / (p2.y - p1.y) + p1.x {
-      inside = not(inside)
+      inside = !inside
     }
   }
   inside

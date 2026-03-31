@@ -65,7 +65,7 @@ pub fn Font::gen_path(
             ymax = y + glyph_ymax
           }
         }
-        d.write_string(translate_path(glyph.d, x, y, invert_y=not(y_up)))
+        d.write_string(translate_path(glyph.d, x, y, invert_y=!y_up))
         if glyph.horiz_adv_x > 0.0 {
           x = x + glyph.horiz_adv_x
         } else {

@@ -2129,9 +2129,9 @@ test "@draw::rotate90/basic" {
 
 ///|
 test "@draw::rotate90/boundary" {
-  let v1 = Vec2::new(x=@int.max_value.to_double(), y=@int.min_value.to_double())
+  let v1 = Vec2::new(x=@int.MAX_VALUE.to_double(), y=@int.MIN_VALUE.to_double())
   inspect(v1.rotate90(), content="{x: 2147483648, y: 2147483647}")
-  let v2 = Vec2::new(x=@int.min_value.to_double(), y=@int.max_value.to_double())
+  let v2 = Vec2::new(x=@int.MIN_VALUE.to_double(), y=@int.MAX_VALUE.to_double())
   inspect(v2.rotate90(), content="{x: -2147483647, y: -2147483648}")
 }
 

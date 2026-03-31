@@ -104,13 +104,13 @@ test "BoundingBox::overlaps_bounding_box" {
 
 ///|
 fn test_in(f : BoundingBox, g : BoundingBox) -> TestError? {
-  if not(f.is_in(g)) {
+  if !f.is_in(g) {
     return Some(TestError("f=\{f}, f.is_in(\{g}): got false, want true"))
   }
   for y = f.min.y; y < f.max.y; y = y + 1 {
     for x = f.min.x; x < f.max.x; x = x + 1 {
       let p = pt(x, y)
-      if not(p.is_in(g)) {
+      if !p.is_in(g) {
         return Some(TestError("p=\{p}, p.is_in(\{g}): got false, want true"))
       }
     }

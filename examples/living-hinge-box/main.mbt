@@ -97,7 +97,7 @@ fn generate_living_hinge_box(
 
       // Check if the cut intersects the text
       let mid = p1.add(p2).mul_scalar(0.5)
-      if not(is_point_in_profiles(mid, text_profiles)) {
+      if !is_point_in_profiles(mid, text_profiles) {
         let cut = @draw.Path::from_points([p1, p2], closed=false)
           .as_graphic()
           .with_style(stroke=@draw.Color::red().as_stroke(width=0.01))
@@ -130,7 +130,7 @@ fn is_point_in_profiles(
           break
         }
       }
-      if not(in_hole) {
+      if !in_hole {
         return true
       }
     }
@@ -147,7 +147,7 @@ fn is_point_in_poly(pt : @geom.Vec2, poly : Array[@geom.Vec2]) -> Bool {
     let p2 = poly[(i + 1) % n]
     if (p1.y > pt.y) != (p2.y > pt.y) &&
       pt.x < (p2.x - p1.x) * (pt.y - p1.y) / (p2.y - p1.y) + p1.x {
-      inside = not(inside)
+      inside = !inside
     }
   }
   inside

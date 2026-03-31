@@ -117,7 +117,7 @@ fn svg_path(path : Path) -> String {
     let anchor = path.anchors[0]
     let h1 = last_anchor.handle_out
     let h2 = anchor.handle_in
-    if not(h1.is_zero()) || not(h2.is_zero()) {
+    if !h1.is_zero() || !h2.is_zero() {
       let last_pos = last_anchor.position
       let pos = anchor.position
       let p1 = (h1 + last_pos).round_to_fixed(4)

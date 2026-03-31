@@ -6,11 +6,12 @@ import {
   "moonbitlang/core/builtin",
 }
 
+supported_targets = "+wasm+wasm-gc"
+
 options(
   "is-main": true,
   link: {
     "wasm": { "exports": [ "draw" ] },
     "wasm-gc": { "exports": [ "draw" ] },
   },
-  "supported-targets": "+wasm+wasm-gc",
 )

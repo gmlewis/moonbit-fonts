@@ -14,9 +14,7 @@ pub fn translate_path(String, Double, Double, invert_y? : Bool) -> String raise 
 // Errors
 pub(all) suberror FontError {
   FontError(String)
-}
-pub impl Eq for FontError
-pub impl Show for FontError
+} derive(Eq, Show)
 
 // Types and methods
 pub(all) enum AbsoluteCmd {
@@ -25,13 +23,9 @@ pub(all) enum AbsoluteCmd {
   C
   Q
   Z
-}
-pub impl Eq for AbsoluteCmd
-pub impl Show for AbsoluteCmd
+} derive(Eq, Show)
 
-type Cmd
-pub impl Eq for Cmd
-pub impl Show for Cmd
+type Cmd derive(Eq, Show)
 
 pub(all) struct Font {
   id : String
@@ -40,20 +34,14 @@ pub(all) struct Font {
   ascent : Double
   descent : Double
   glyphs : Map[String, Glyph]
-}
+} derive(Eq, Show, ToJson, @json.FromJson)
 pub fn Font::gen_path(Self, String, alignment? : @geom.Alignment, y_up? : Bool) -> Glyph raise FontError
 pub fn Font::gen_paths(Self, Array[String], alignment? : @geom.Alignment, y_up? : Bool) -> Array[Glyph] raise FontError
-pub impl Eq for Font
-pub impl Show for Font
-pub impl ToJson for Font
-pub impl @json.FromJson for Font
 
 pub(all) enum GerberLP {
   Dark
   Clear
-}
-pub impl Eq for GerberLP
-pub impl Show for GerberLP
+} derive(Eq, Show)
 
 pub(all) struct Glyph {
   char : String
@@ -64,35 +52,26 @@ pub(all) struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-}
-pub impl Eq for Glyph
-pub impl Show for Glyph
-pub impl ToJson for Glyph
-pub impl @json.FromJson for Glyph
+} derive(Eq, Show, ToJson, @json.FromJson)
 
 pub(all) struct ParamPair {
   x : Double
   y : Double
-}
+} derive(Eq)
 pub fn ParamPair::to_string(Self) -> String
-pub impl Eq for ParamPair
 
-type Params
+type Params derive(Eq, Show)
 pub fn Params::length(Self) -> Int
-pub impl Eq for Params
-pub impl Show for Params
 
 pub(all) struct PathCmd {
   cmd : AbsoluteCmd
   gerber_lp : GerberLP
   params : Array[ParamPair]
-}
+} derive(Eq, Show)
 pub fn PathCmd::bbox(Self) -> @geom.BoundingBox
 pub fn PathCmd::clone(Self) -> Self
 pub fn PathCmd::from_svg_cmd(Cmd, GerberLP) -> Self raise FontError
 pub fn PathCmd::to_svg_cmd(Self) -> (Cmd, String)
-pub impl Eq for PathCmd
-pub impl Show for PathCmd
 
 pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 #deprecated
@@ -105,12 +84,10 @@ pub(all) struct SVGPath {
   ymin : Double
   xmax : Double
   ymax : Double
-}
+} derive(Eq, Show)
 pub fn SVGPath::clone(Self) -> Self
 pub fn SVGPath::from_glyph(Glyph, path_cmd_fn? : PathCmdFn) -> Self raise FontError
 pub fn SVGPath::to_glyph(Self, path_cmd_fn? : PathCmdFn) -> Glyph
-pub impl Eq for SVGPath
-pub impl Show for SVGPath
 
 // Type aliases
 

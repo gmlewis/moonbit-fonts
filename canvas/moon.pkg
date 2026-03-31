@@ -4,8 +4,9 @@ import {
   "moonbitlang/core/builtin",
 }
 
+supported_targets = "+js+wasm+wasm-gc"
+
 options(
-  "supported-targets": "+js+wasm+wasm-gc",
   targets: {
     "ffi.mbt": [ "wasm", "wasm-gc", "js" ],
     "ffi_notjs.mbt": [ "native", "llvm" ],
