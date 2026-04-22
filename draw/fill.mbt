@@ -2,7 +2,28 @@
 /// `Fill` defines a fill style.
 pub(all) struct Fill {
   color : Color
-} derive(Show, Eq, FromJson, ToJson)
+} derive(Eq, FromJson, ToJson)
+
+///|
+pub impl Show for Fill with output(self, logger) {
+  let { color } = self
+  logger.write_string(
+    (
+      $|{color: \{color}}
+    ),
+  )
+}
+
+///|
+test "Fill show interface" {
+  let fill = Fill::new(color=rgba(1, 0, 0, 1))
+  inspect(
+    fill,
+    content=(
+      #|{color: {r: 1, g: 0, b: 0, a: 1}}
+    ),
+  )
+}
 
 ///|
 /// `Fill::new` returns a new fill style.

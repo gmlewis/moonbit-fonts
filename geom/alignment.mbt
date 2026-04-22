@@ -23,4 +23,122 @@ pub(all) enum Alignment {
   ///
   /// For example, `TopRight` is identical to `RatioXY(1,0)`.
   RatioXY(Double, Double)
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for Alignment with output(self, logger) {
+  match self {
+    Unchanged =>
+      logger.write_string(
+        (
+          $|Unchanged
+        ),
+      )
+    TopLeft =>
+      logger.write_string(
+        (
+          $|TopLeft
+        ),
+      )
+    TopCenter =>
+      logger.write_string(
+        (
+          $|TopCenter
+        ),
+      )
+    TopRight =>
+      logger.write_string(
+        (
+          $|TopRight
+        ),
+      )
+    CenterLeft =>
+      logger.write_string(
+        (
+          $|CenterLeft
+        ),
+      )
+    Center =>
+      logger.write_string(
+        (
+          $|Center
+        ),
+      )
+    CenterRight =>
+      logger.write_string(
+        (
+          $|CenterRight
+        ),
+      )
+    BaselineLeft =>
+      logger.write_string(
+        (
+          $|BaselineLeft
+        ),
+      )
+    BaselineCenter =>
+      logger.write_string(
+        (
+          $|BaselineCenter
+        ),
+      )
+    BaselineRight =>
+      logger.write_string(
+        (
+          $|BaselineRight
+        ),
+      )
+    BottomLeft =>
+      logger.write_string(
+        (
+          $|BottomLeft
+        ),
+      )
+    BottomCenter =>
+      logger.write_string(
+        (
+          $|BottomCenter
+        ),
+      )
+    BottomRight =>
+      logger.write_string(
+        (
+          $|BottomRight
+        ),
+      )
+    RatioXY(x, y) =>
+      logger.write_string(
+        (
+          $|RatioXY(\{x}, \{y})
+        ),
+      )
+  }
+}
+
+///|
+test "Alignment show interface" {
+  inspect(
+    Unchanged,
+    content=(
+      #|Unchanged
+    ),
+  )
+  inspect(
+    TopLeft,
+    content=(
+      #|TopLeft
+    ),
+  )
+  inspect(
+    Center,
+    content=(
+      #|Center
+    ),
+  )
+  inspect(
+    RatioXY(0.5, 0.5),
+    content=(
+      #|RatioXY(0.5, 0.5)
+    ),
+  )
+}

@@ -3,7 +3,28 @@
 struct Cmd {
   c : String
   p : Params
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for Cmd with output(self, logger) {
+  let { c, p } = self
+  logger.write_string(
+    (
+      $|{c: \{c.escape(quote=true)}, p: \{p}}
+    ),
+  )
+}
+
+///|
+test "Cmd show interface" {
+  let cmd = { c: "M", p: Params([10.0, 20.0]) }
+  inspect(
+    cmd,
+    content=(
+      #|{c: "M", p: Params([10, 20])}
+    ),
+  )
+}
 
 ///|
 let split_re : @regexp.Regexp = try! @regexp.compile(

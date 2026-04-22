@@ -6,7 +6,17 @@
 /// DrawError represents an error that occured during graphic generation.
 pub(all) suberror DrawError {
   DrawError(String)
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for DrawError with output(self, logger) {
+  let DrawError(err) = self
+  logger.write_string(
+    (
+      $|DrawError(\{err.escape(quote=true)})
+    ),
+  )
+}
 
 ///|
 /// dedupe_points removes consecutive near-duplicate points from an array.

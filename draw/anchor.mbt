@@ -5,7 +5,32 @@ pub(all) struct Anchor {
   mut position : Vec2 // absolute
   mut handle_in : Vec2 // relative
   mut handle_out : Vec2 // relative
-} derive(Show, Eq, FromJson, ToJson)
+} derive(Eq, FromJson, ToJson)
+
+///|
+pub impl Show for Anchor with output(self, logging) {
+  let { position, handle_in, handle_out } = self
+  logging.write_string(
+    (
+      $|{position: \{position.to_string()}, handle_in: \{handle_in.to_string()}, handle_out: \{handle_out.to_string()}}
+    ),
+  )
+}
+
+///|
+test "Anchor show interface" {
+  let anchor = Anchor::new(
+    position=vec2(1, 2),
+    handle_in=vec2(3, 4),
+    handle_out=vec2(5, 6),
+  )
+  inspect(
+    anchor,
+    content=(
+      #|{position: {x: 1, y: 2}, handle_in: {x: 3, y: 4}, handle_out: {x: 5, y: 6}}
+    ),
+  )
+}
 
 ///|
 /// `Anchor::new` returns a new anchor. You must either create new `Vec2` points

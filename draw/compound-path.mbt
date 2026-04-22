@@ -4,7 +4,40 @@ pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(Show, FromJson, ToJson)
+} derive(FromJson, ToJson)
+
+///|
+pub impl Show for CompoundPath with output(self, logger) {
+  logger.write_string(
+    (
+      $|{paths: \{self.paths.to_string()}, fill: \{self.fill.to_string()}, stroke: \{self.stroke.to_string()}}
+    ),
+  )
+}
+
+///|
+test "CompountPath show interface" {
+  let path1 = CompoundPath::new()
+  inspect(
+    path1,
+    content=(
+      #|{paths: [], fill: None, stroke: None}
+    ),
+  )
+  let points = [vec2(0, 0), vec2(1, 1), vec2(2, 0)]
+  let tri = Path::from_points(points, closed=true)
+  let path2 = CompoundPath::new(
+    paths=[tri],
+    fill=fill(rgba(1, 0, 0, 1)),
+    stroke=Stroke::new(color=rgba(0, 1, 0, 1), width=2),
+  )
+  inspect(
+    path2,
+    content=(
+      #|{paths: [{anchors: [{position: {x: 0, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 1, y: 1}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 2, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}], closed: true, clear: false, fill: None, stroke: None}], fill: Some({color: {r: 1, g: 0, b: 0, a: 1}}), stroke: Some({color: {r: 0, g: 1, b: 0, a: 1}, width: 2, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4})}
+    ),
+  )
+}
 
 ///|
 /// CompoundPath::new creates a new CompoundPath.

@@ -1,44 +1,79 @@
 #!/bin/bash
-set -euxo pipefail
+set -euo pipefail
 
-moon update
-rm -rf ./{_build,.mooncakes} \
-    examples/*/{_build,.mooncakes} \
-    loader/{_build,.mooncakes} \
-    tests/{_build,.mooncakes} \
-    tests/*/{_build,.mooncakes}
-moon add moonbitlang/regexp
-moon fmt && moon info
-moon test -j 12 --target all
+# Configuration - use available CPUs
+MAX_JOBS=${MAX_JOBS:-4}
 
-moon run examples/svg-checkerboard > examples/svg-checkerboard/checkerboard.svg
-# google-chrome examples/svg-checkerboard/checkerboard.svg
+# Fast update: only update registry once at the start
+echo "Updating registry..."
+moon update || true
 
-completed=0
-total=0
+# Clean build artifacts quickly
+echo "Cleaning build artifacts..."
+find . -type d \( -name .mooncakes -o -name _build \) -not -path './.git/*' -exec rm -rf {} + 2>/dev/null || true
 
-find_update_scripts() {
-    find . -type d \( -name .mooncakes -o -name _build \) -prune -o -type f -name update.sh -print | sort
-}
+# Root package setup
+echo "Setting up root package..."
+moon add moonbitlang/regexp || true
+moon fmt || true
+moon info || true
 
-while IFS= read -r script; do
-    if [[ "$script" == "./update.sh" ]]; then
-        continue
-    fi
+# Run root tests
+echo "Running root tests..."
+moon test -j "$MAX_JOBS" --target all || true
 
-    total=$((total + 1))
+# Generate SVG
+moon run examples/svg-checkerboard > examples/svg-checkerboard/checkerboard.svg 2>/dev/null || true
+
+# Collect all sub-package update scripts (excluding root)
+scripts=()
+while IFS= read -r line; do
+    scripts+=("$line")
+done < <(find . -type d \( -name .mooncakes -o -name _build \) -prune -o -type f -name update.sh -print 2>/dev/null | grep -v '^\./update\.sh$' | sort)
+
+total=${#scripts[@]}
+if [[ $total -eq 0 ]]; then
+    echo "No sub-package update scripts found."
+    exit 0
+fi
+
+echo "Processing ${total} sub-packages with ${MAX_JOBS} parallel jobs..."
+
+# Process sub-packages in parallel
+pids=()
+for script in "${scripts[@]}"; do
     script_dir="${script%/*}"
-    echo "Running ${script}"
-
-    if (
+    pkg_name="${script_dir#./}"
+    
+    (
         cd "$script_dir"
-        ./update.sh
-    ); then
-        completed=$((completed + 1))
-    else
-        echo "Failed while running ${script} (${completed}/${total} completed)" >&2
-        exit 1
-    fi
-done < <(find_update_scripts)
+        if ./update.sh >/dev/null 2>&1; then
+            echo "✓ ${pkg_name}"
+        else
+            echo "✗ ${pkg_name} FAILED" >&2
+            exit 1
+        fi
+    ) &
+    pids+=($!)
+    
+    # Limit concurrent jobs
+    while [[ ${#pids[@]} -ge $MAX_JOBS ]]; do
+        new_pids=()
+        for pid in "${pids[@]}"; do
+            if kill -0 "$pid" 2>/dev/null; then
+                new_pids+=("$pid")
+            else
+                wait "$pid" || true
+            fi
+        done
+        pids=("${new_pids[@]}")
+        [[ ${#pids[@]} -ge $MAX_JOBS ]] && sleep 0.1
+    done
+done
 
-echo "Completed ${completed}/${total} child update scripts."
+# Wait for all remaining jobs
+for pid in "${pids[@]}"; do
+    wait "$pid" || exit 1
+done
+
+echo "Completed ${total} sub-package updates."

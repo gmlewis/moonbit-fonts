@@ -3,7 +3,28 @@
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-} derive(Show, Eq, FromJson, ToJson)
+} derive(Eq, FromJson, ToJson)
+
+///|
+pub impl Show for Vec2 with output(self, logger) {
+  let { x, y } = self
+  logger.write_string(
+    (
+      $|{x: \{x}, y: \{y}}
+    ),
+  )
+}
+
+///|
+test "Vec2 show interface" {
+  let v = Vec2::new(x=1.5, y=2.5)
+  inspect(
+    v,
+    content=(
+      #|{x: 1.5, y: 2.5}
+    ),
+  )
+}
 
 ///|
 /// `DEFAULT_TOLERANCE` is the default tolerance used for floating point comparisons.

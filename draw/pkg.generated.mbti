@@ -61,14 +61,15 @@ pub fn vec2(Double, Double) -> @geom.Vec2
 // Errors
 pub(all) suberror DrawError {
   DrawError(String)
-} derive(Eq, Show)
+} derive(Eq)
+pub impl Show for DrawError
 
 // Types and methods
 pub(all) struct Anchor {
   mut position : @geom.Vec2
   mut handle_in : @geom.Vec2
   mut handle_out : @geom.Vec2
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
 pub fn Anchor::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Anchor::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Anchor::all_anchors(Self) -> Array[Self]
@@ -84,13 +85,14 @@ pub fn Anchor::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Anchor::new(position? : @geom.Vec2, handle_in? : @geom.Vec2, handle_out? : @geom.Vec2) -> Self
 pub fn Anchor::reverse(Self) -> Self
 pub fn Anchor::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
+pub impl Show for Anchor
 
 pub(all) struct Color {
   mut r : Double
   mut g : Double
   mut b : Double
   mut a : Double
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
 pub fn Color::as_fill(Self) -> Fill
 pub fn Color::as_stroke(Self, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 pub fn Color::black() -> Self
@@ -112,12 +114,13 @@ pub fn Color::to_hsva(Self) -> Array[Double]
 pub fn Color::to_rgb8_number(Self) -> UInt
 pub fn Color::transparent() -> Self
 pub fn Color::white() -> Self
+pub impl Show for Color
 
 pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(Show, ToJson, @json.FromJson)
+} derive(ToJson, @json.FromJson)
 pub fn CompoundPath::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::all_anchors(Self) -> Array[Anchor]
@@ -149,13 +152,15 @@ pub fn CompoundPath::translate(Self, @geom.Vec2) -> Self
 pub fn CompoundPath::with_fill(Self, Fill?) -> Self
 pub fn CompoundPath::with_stroke(Self, Stroke?) -> Self
 pub fn CompoundPath::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
+pub impl Show for CompoundPath
 
 pub(all) struct Fill {
   color : Color
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
 pub fn Fill::from_string(String) -> Self raise
 pub fn Fill::new(color? : Color) -> Self
 pub impl Clonable for Fill
+pub impl Show for Fill
 
 pub enum GlyphStyleAction {
   UseDefault(GlyphTransform)
@@ -188,7 +193,7 @@ pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
   Path(Path)
-} derive(Show)
+}
 pub fn Graphic::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::all_anchors(Self) -> Array[Anchor]
@@ -231,12 +236,13 @@ pub fn Graphic::with_margin(Self, top? : Double, right? : Double, bottom? : Doub
 pub fn Graphic::with_stroke(Self, Stroke?) -> Self
 pub fn Graphic::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
 pub impl Add for Graphic
+pub impl Show for Graphic
 pub impl ToJson for Graphic
 pub impl @json.FromJson for Graphic
 
 pub(all) struct Group {
   mut items : Array[Graphic]
-} derive(Show, ToJson, @json.FromJson)
+} derive(ToJson, @json.FromJson)
 pub fn Group::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Group::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Group::all_anchors(Self) -> Array[Anchor]
@@ -274,6 +280,7 @@ pub fn Group::translate(Self, @geom.Vec2) -> Self
 pub fn Group::with_fill(Self, Fill?) -> Self
 pub fn Group::with_stroke(Self, Stroke?) -> Self
 pub fn Group::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
+pub impl Show for Group
 
 pub(all) struct Path {
   mut anchors : Array[Anchor]
@@ -281,7 +288,7 @@ pub(all) struct Path {
   mut clear : Bool
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(Show, ToJson, @json.FromJson)
+} derive(ToJson, @json.FromJson)
 pub fn Path::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Path::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Path::as_graphic(Self) -> Graphic
@@ -314,6 +321,7 @@ pub fn Path::translate(Self, @geom.Vec2) -> Self
 pub fn Path::with_fill(Self, Fill?) -> Self
 pub fn Path::with_stroke(Self, Stroke?) -> Self
 pub fn Path::with_style(Self, fill? : Fill, stroke? : Stroke) -> Self
+pub impl Show for Path
 
 pub(all) struct Stroke {
   mut color : Color
@@ -322,41 +330,42 @@ pub(all) struct Stroke {
   mut cap : StrokeCap
   mut join : StrokeJoin
   mut miter_limit : Double
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
 pub fn Stroke::new(color? : Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Self
 pub impl Clonable for Stroke
+pub impl Show for Stroke
 
 pub(all) enum StrokeAlignment {
   Centered
   Inner
   Outer
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
+pub impl Show for StrokeAlignment
 
 pub(all) enum StrokeCap {
   Butt
   Round
   Square
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
+pub impl Show for StrokeCap
 
 pub(all) enum StrokeJoin {
   Miter
   Round
   Bevel
-} derive(Eq, Show, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @json.FromJson)
+pub impl Show for StrokeJoin
 
 pub(all) enum TextAlign {
   Left
   Center
   Right
-} derive(Eq, Show)
+} derive(Eq)
+pub impl Show for TextAlign
 
 pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)
-#deprecated
-pub fn TextWithStyleFn::inner(Self) -> (GlyphStyleContext) -> GlyphStyleAction
 
 pub struct TextWithTupleStyleFn((Int, String) -> (Stroke?, Fill?))
-#deprecated
-pub fn TextWithTupleStyleFn::inner(Self) -> (Int, String) -> (Stroke?, Fill?)
 
 // Type aliases
 pub using @fonts {type AbsoluteCmd}

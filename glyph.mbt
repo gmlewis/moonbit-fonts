@@ -23,4 +23,34 @@ pub(all) struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-} derive(Show, Eq, FromJson, ToJson)
+} derive(Eq, FromJson, ToJson)
+
+///|
+pub impl Show for Glyph with output(self, logger) {
+  let { char, horiz_adv_x, gerber_lp, d, xmin, ymin, xmax, ymax } = self
+  logger.write_string(
+    (
+      $|{char: \{char.escape(quote=true)}, horiz_adv_x: \{horiz_adv_x}, gerber_lp: \{gerber_lp.escape(quote=true)}, d: \{d.escape(quote=true)}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}
+    ),
+  )
+}
+
+///|
+test "Glyph show interface" {
+  let glyph = {
+    char: "A",
+    horiz_adv_x: 500.0,
+    gerber_lp: "d",
+    d: "M0 0L100 0L100 100Z",
+    xmin: 0.0,
+    ymin: 0.0,
+    xmax: 100.0,
+    ymax: 100.0,
+  }
+  inspect(
+    glyph,
+    content=(
+      #|{char: "A", horiz_adv_x: 500, gerber_lp: "d", d: "M0 0L100 0L100 100Z", xmin: 0, ymin: 0, xmax: 100, ymax: 100}
+    ),
+  )
+}

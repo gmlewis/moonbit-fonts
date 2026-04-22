@@ -4,7 +4,43 @@ pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
   Path(Path)
-} derive(Show)
+}
+
+///|
+pub impl Show for Graphic with output(self, logger) {
+  match self {
+    CompoundPath(compound_path) =>
+      logger.write_string(
+        (
+          $|CompoundPath(\{compound_path})
+        ),
+      )
+    Group(group) =>
+      logger.write_string(
+        (
+          $|Group(\{group})
+        ),
+      )
+    Path(path) =>
+      logger.write_string(
+        (
+          $|Path(\{path})
+        ),
+      )
+  }
+}
+
+///|
+test "Graphic show interface" {
+  let path = Path::from_points([vec2(0, 0), vec2(10, 10)])
+  let graphic = Path(path)
+  inspect(
+    graphic,
+    content=(
+      #|Path({anchors: [{position: {x: 0, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 10, y: 10}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}], closed: false, clear: false, fill: None, stroke: None})
+    ),
+  )
+}
 
 ///|
 /// `op_add` allows composing two `Graphic`s into a `Group` using the `+` operator.

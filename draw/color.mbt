@@ -5,7 +5,28 @@ pub(all) struct Color {
   mut g : Double
   mut b : Double
   mut a : Double
-} derive(Show, Eq, FromJson, ToJson)
+} derive(Eq, FromJson, ToJson)
+
+///|
+pub impl Show for Color with output(self, logging) {
+  let { r, g, b, a } = self
+  logging.write_string(
+    (
+      $|{r: \{r}, g: \{g}, b: \{b}, a: \{a}}
+    ),
+  )
+}
+
+///|
+test "Color show interface" {
+  let color = rgba(0.5, 0.25, 0.75, 0.5)
+  inspect(
+    color,
+    content=(
+      #|{r: 0.5, g: 0.25, b: 0.75, a: 0.5}
+    ),
+  )
+}
 
 ///|
 /// `Color::new` returns a new color.

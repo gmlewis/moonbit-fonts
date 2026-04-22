@@ -8,7 +8,28 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for AffineMatrix with output(self, logger) {
+  let { a, b, c, d, tx, ty } = self
+  logger.write_string(
+    (
+      $|{a: \{a}, b: \{b}, c: \{c}, d: \{d}, tx: \{tx}, ty: \{ty}}
+    ),
+  )
+}
+
+///|
+test "AffineMatrix show interface" {
+  let m = AffineMatrix::new(a=1, b=0, c=0, d=1, tx=10, ty=20)
+  inspect(
+    m,
+    content=(
+      #|{a: 1, b: 0, c: 0, d: 1, tx: 10, ty: 20}
+    ),
+  )
+}
 
 ///|
 /// AffineMatrix::new returns a new 2D affine matrix.

@@ -1,6 +1,16 @@
 ///|
 /// `Params` represents the parameters to an SVG command.
-struct Params(Array[Double]) derive(Show, Eq)
+struct Params(Array[Double]) derive(Eq)
+
+///|
+pub impl Show for Params with output(self, logger) {
+  let Params(arr) = self
+  logger.write_string(
+    (
+      $|Params(\{arr})
+    ),
+  )
+}
 
 ///|
 pub fn Params::length(self : Params) -> Int {

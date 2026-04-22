@@ -9,7 +9,28 @@ pub(all) struct Path {
   mut clear : Bool
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(Show, FromJson, ToJson)
+} derive(FromJson, ToJson)
+
+///|
+pub impl Show for Path with output(self, logger) {
+  let { anchors, closed, clear, fill, stroke } = self
+  logger.write_string(
+    (
+      $|{anchors: \{anchors}, closed: \{closed}, clear: \{clear}, fill: \{fill}, stroke: \{stroke}}
+    ),
+  )
+}
+
+///|
+test "Path show interface" {
+  let path = Path::new(anchors=[], closed=false, clear=false)
+  inspect(
+    path,
+    content=(
+      #|{anchors: [], closed: false, clear: false, fill: None, stroke: None}
+    ),
+  )
+}
 
 ///|
 /// `Path::new` creates a new `Path`.

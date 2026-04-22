@@ -8,7 +8,17 @@
 ///|
 suberror TestError {
   TestError(String)
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for TestError with output(self, logger) {
+  let TestError(err) = self
+  logger.write_string(
+    (
+      $|TestError(\{err.escape(quote=true)})
+    ),
+  )
+}
 
 ///|
 test "BoundingBox::new" {

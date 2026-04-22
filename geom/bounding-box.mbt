@@ -3,7 +3,28 @@
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for BoundingBox with output(self, logger) {
+  let { min, max } = self
+  logger.write_string(
+    (
+      $|{min: \{min}, max: \{max}}
+    ),
+  )
+}
+
+///|
+test "BoundingBox show interface" {
+  let bbox = BoundingBox::new(min=vec2(0, 0), max=vec2(100, 100))
+  inspect(
+    bbox,
+    content=(
+      #|{min: {x: 0, y: 0}, max: {x: 100, y: 100}}
+    ),
+  )
+}
 
 ///|
 /// BoundingBox::new returns a new empty BoundingBox.

@@ -2,7 +2,28 @@
 /// `Group` represents a collection of `Graphic` elements.
 pub(all) struct Group {
   mut items : Array[Graphic]
-} derive(Show, FromJson, ToJson)
+} derive(FromJson, ToJson)
+
+///|
+pub impl Show for Group with output(self, logger) {
+  let { items } = self
+  logger.write_string(
+    (
+      $|{items: \{items}}
+    ),
+  )
+}
+
+///|
+test "Group show interface" {
+  let group = Group::new(items=[])
+  inspect(
+    group,
+    content=(
+      #|{items: []}
+    ),
+  )
+}
 
 ///|
 /// `Group::new` returns a new `Group`.

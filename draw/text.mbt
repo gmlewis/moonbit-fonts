@@ -7,7 +7,53 @@ pub(all) enum TextAlign {
   Center
   /// `Right` aligns text to the right.
   Right
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for TextAlign with output(self, logger) {
+  match self {
+    Left =>
+      logger.write_string(
+        (
+          $|Left
+        ),
+      )
+    Center =>
+      logger.write_string(
+        (
+          $|Center
+        ),
+      )
+    Right =>
+      logger.write_string(
+        (
+          $|Right
+        ),
+      )
+  }
+}
+
+///|
+test "TextAlign show interface" {
+  inspect(
+    Center,
+    content=(
+      #|Center
+    ),
+  )
+  inspect(
+    Left,
+    content=(
+      #|Left
+    ),
+  )
+  inspect(
+    Right,
+    content=(
+      #|Right
+    ),
+  )
+}
 
 ///|
 /// `to_graphic` generates a new `Graphic` from a text string and a font.

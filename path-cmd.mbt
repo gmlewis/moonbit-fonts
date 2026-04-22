@@ -22,7 +22,28 @@ pub(all) struct PathCmd {
   cmd : AbsoluteCmd
   gerber_lp : GerberLP
   params : Array[ParamPair]
-} derive(Show, Eq)
+} derive(Eq)
+
+///|
+pub impl Show for PathCmd with output(self, logger) {
+  let { cmd, gerber_lp, params } = self
+  logger.write_string(
+    (
+      $|{cmd: \{cmd}, gerber_lp: \{gerber_lp}, params: \{params}}
+    ),
+  )
+}
+
+///|
+test "PathCmd show interface" {
+  let cmd = { cmd: M, gerber_lp: Dark, params: [{ x: 10.0, y: 20.0 }] }
+  inspect(
+    cmd,
+    content=(
+      #|{cmd: M, gerber_lp: Dark, params: [(10,20)]}
+    ),
+  )
+}
 
 ///|
 /// `from_svg_cmd` creates a `PathCmd` from a raw SVG command and a `GerberLP`.
