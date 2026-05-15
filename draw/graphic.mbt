@@ -4,7 +4,7 @@ pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
   Path(Path)
-}
+} derive(Debug)
 
 ///|
 pub impl Show for Graphic with output(self, logger) {
@@ -37,7 +37,18 @@ test "Graphic show interface" {
   inspect(
     graphic,
     content=(
-      #|Path({anchors: [{position: {x: 0, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 10, y: 10}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}], closed: false, clear: false, fill: None, stroke: None})
+      #|Path({anchors: [
+      #|  {
+      #|    position: { x: 0, y: 0 },
+      #|    handle_in: { x: 0, y: 0 },
+      #|    handle_out: { x: 0, y: 0 },
+      #|  },
+      #|  {
+      #|    position: { x: 10, y: 10 },
+      #|    handle_in: { x: 0, y: 0 },
+      #|    handle_out: { x: 0, y: 0 },
+      #|  },
+      #|], closed: false, clear: false, fill: None, stroke: None})
     ),
   )
 }

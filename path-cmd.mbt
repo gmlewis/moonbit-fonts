@@ -3,7 +3,7 @@
 pub(all) struct ParamPair {
   x : Double
   y : Double
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 /// `to_string` returns a string representation of a `ParamPair`.
@@ -12,7 +12,7 @@ pub fn ParamPair::to_string(self : ParamPair) -> String {
 }
 
 ///|
-impl Show for ParamPair with output(self, logger) {
+pub impl Show for ParamPair with output(self, logger) {
   logger.write_string(self.to_string())
 }
 
@@ -22,14 +22,14 @@ pub(all) struct PathCmd {
   cmd : AbsoluteCmd
   gerber_lp : GerberLP
   params : Array[ParamPair]
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for PathCmd with output(self, logger) {
   let { cmd, gerber_lp, params } = self
   logger.write_string(
     (
-      $|{cmd: \{cmd}, gerber_lp: \{gerber_lp}, params: \{params}}
+      $|{cmd: \{cmd}, gerber_lp: \{gerber_lp}, params: \{to_repr(params)}}
     ),
   )
 }
@@ -40,7 +40,7 @@ test "PathCmd show interface" {
   inspect(
     cmd,
     content=(
-      #|{cmd: M, gerber_lp: Dark, params: [(10,20)]}
+      #|{cmd: M, gerber_lp: Dark, params: [{ x: 10, y: 20 }]}
     ),
   )
 }

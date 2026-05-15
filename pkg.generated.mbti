@@ -3,6 +3,7 @@ package "gmlewis/fonts"
 
 import {
   "gmlewis/fonts/geom",
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
@@ -24,10 +25,10 @@ pub(all) enum AbsoluteCmd {
   C
   Q
   Z
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub impl Show for AbsoluteCmd
 
-type Cmd derive(Eq)
+type Cmd derive(Eq, @debug.Debug)
 pub impl Show for Cmd
 
 pub(all) struct Font {
@@ -37,7 +38,7 @@ pub(all) struct Font {
   ascent : Double
   descent : Double
   glyphs : Map[String, Glyph]
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Font::gen_path(Self, String, alignment? : @geom.Alignment, y_up? : Bool) -> Glyph raise FontError
 pub fn Font::gen_paths(Self, Array[String], alignment? : @geom.Alignment, y_up? : Bool) -> Array[Glyph] raise FontError
 pub impl Show for Font
@@ -45,7 +46,7 @@ pub impl Show for Font
 pub(all) enum GerberLP {
   Dark
   Clear
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub impl Show for GerberLP
 
 pub(all) struct Glyph {
@@ -57,16 +58,17 @@ pub(all) struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub impl Show for Glyph
 
 pub(all) struct ParamPair {
   x : Double
   y : Double
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub fn ParamPair::to_string(Self) -> String
+pub impl Show for ParamPair
 
-type Params derive(Eq)
+type Params derive(Eq, @debug.Debug)
 pub fn Params::length(Self) -> Int
 pub impl Show for Params
 
@@ -74,7 +76,7 @@ pub(all) struct PathCmd {
   cmd : AbsoluteCmd
   gerber_lp : GerberLP
   params : Array[ParamPair]
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub fn PathCmd::bbox(Self) -> @geom.BoundingBox
 pub fn PathCmd::clone(Self) -> Self
 pub fn PathCmd::from_svg_cmd(Cmd, GerberLP) -> Self raise FontError

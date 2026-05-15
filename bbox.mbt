@@ -36,7 +36,7 @@ pub fn glyph_bbox(d : String) -> @geom.BoundingBox raise FontError {
     for index, val in cmd.p.0 {
       if cmd.c == "Z" {
         raise FontError(
-          "glyph_bbox: cmd_idx=\{cmd_idx}, index=\{index}, unexpected command 'Z' with params: \{cmd.p.0}",
+          "glyph_bbox: cmd_idx=\{cmd_idx}, index=\{index}, unexpected command 'Z' with params: \{to_repr(cmd.p.0)}",
         )
       }
       if cmd_idx == 0 && index == 0 {

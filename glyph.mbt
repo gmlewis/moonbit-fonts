@@ -23,7 +23,7 @@ pub(all) struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for Glyph with output(self, logger) {

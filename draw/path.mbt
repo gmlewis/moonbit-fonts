@@ -9,14 +9,14 @@ pub(all) struct Path {
   mut clear : Bool
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(FromJson, ToJson)
+} derive(Debug, FromJson, ToJson)
 
 ///|
 pub impl Show for Path with output(self, logger) {
   let { anchors, closed, clear, fill, stroke } = self
   logger.write_string(
     (
-      $|{anchors: \{anchors}, closed: \{closed}, clear: \{clear}, fill: \{fill}, stroke: \{stroke}}
+      $|{anchors: \{to_repr(anchors)}, closed: \{closed}, clear: \{clear}, fill: \{to_repr(fill)}, stroke: \{to_repr(stroke)}}
     ),
   )
 }

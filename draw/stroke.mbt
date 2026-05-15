@@ -7,7 +7,7 @@ pub(all) struct Stroke {
   mut cap : StrokeCap
   mut join : StrokeJoin
   mut miter_limit : Double
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for Stroke with output(self, logger) {
@@ -39,7 +39,7 @@ pub(all) enum StrokeAlignment {
   Inner
   /// `Outer` places the stroke outside the path.
   Outer
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for StrokeAlignment with output(self, logger) {
@@ -96,7 +96,7 @@ pub(all) enum StrokeCap {
   Round
   /// `Square` adds a square at the path end.
   Square
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for StrokeCap with output(self, logger) {
@@ -153,7 +153,7 @@ pub(all) enum StrokeJoin {
   Round
   /// `Bevel` creates a flattened corner.
   Bevel
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for StrokeJoin with output(self, logger) {

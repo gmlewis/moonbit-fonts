@@ -3,7 +3,7 @@
 struct Cmd {
   c : String
   p : Params
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for Cmd with output(self, logger) {
@@ -46,8 +46,8 @@ fn split_path(d : String) -> Array[Cmd] raise FontError {
     match match_result.results() {
       [_, Some(c), Some(p)] => {
         d = d.unsafe_substring(start=c.length() + p.length(), end=d.length())
-        let c = c.to_string()
-        let p = parse_params(p.to_string())
+        let c = c.to_owned()
+        let p = parse_params(p.to_owned())
         cmds.push({ c, p })
       }
       _ => raise FontError("split_path: unable to split SVG path \{d}")
@@ -80,5 +80,5 @@ test "split_path" {
     { c: "L", p: Params([395.0, 269.0]) },
     { c: "Z", p: Params([]) },
   ]
-  assert_eq(got, want)
+  @debug.assert_eq(got, want)
 }

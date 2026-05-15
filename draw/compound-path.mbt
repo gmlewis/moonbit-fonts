@@ -4,13 +4,13 @@ pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(FromJson, ToJson)
+} derive(Debug, FromJson, ToJson)
 
 ///|
 pub impl Show for CompoundPath with output(self, logger) {
   logger.write_string(
     (
-      $|{paths: \{self.paths.to_string()}, fill: \{self.fill.to_string()}, stroke: \{self.stroke.to_string()}}
+      $|{paths: \{to_repr(self.paths).to_string()}, fill: \{to_repr(self.fill).to_string()}, stroke: \{to_repr(self.stroke).to_string()}}
     ),
   )
 }
@@ -34,7 +34,40 @@ test "CompountPath show interface" {
   inspect(
     path2,
     content=(
-      #|{paths: [{anchors: [{position: {x: 0, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 1, y: 1}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}, {position: {x: 2, y: 0}, handle_in: {x: 0, y: 0}, handle_out: {x: 0, y: 0}}], closed: true, clear: false, fill: None, stroke: None}], fill: Some({color: {r: 1, g: 0, b: 0, a: 1}}), stroke: Some({color: {r: 0, g: 1, b: 0, a: 1}, width: 2, alignment: Centered, cap: Butt, join: Miter, miter_limit: 4})}
+      #|{paths: [
+      #|  {
+      #|    anchors: [
+      #|      {
+      #|        position: { x: 0, y: 0 },
+      #|        handle_in: { x: 0, y: 0 },
+      #|        handle_out: { x: 0, y: 0 },
+      #|      },
+      #|      {
+      #|        position: { x: 1, y: 1 },
+      #|        handle_in: { x: 0, y: 0 },
+      #|        handle_out: { x: 0, y: 0 },
+      #|      },
+      #|      {
+      #|        position: { x: 2, y: 0 },
+      #|        handle_in: { x: 0, y: 0 },
+      #|        handle_out: { x: 0, y: 0 },
+      #|      },
+      #|    ],
+      #|    closed: true,
+      #|    clear: false,
+      #|    fill: None,
+      #|    stroke: None,
+      #|  },
+      #|], fill: Some({ color: { r: 1, g: 0, b: 0, a: 1 } }), stroke: Some(
+      #|  {
+      #|    color: { r: 0, g: 1, b: 0, a: 1 },
+      #|    width: 2,
+      #|    alignment: Centered,
+      #|    cap: Butt,
+      #|    join: Miter,
+      #|    miter_limit: 4,
+      #|  },
+      #|)}
     ),
   )
 }

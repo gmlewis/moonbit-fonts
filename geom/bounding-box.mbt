@@ -3,7 +3,7 @@
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for BoundingBox with output(self, logger) {

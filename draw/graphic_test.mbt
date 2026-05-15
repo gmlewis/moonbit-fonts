@@ -2,7 +2,7 @@
 test "Graphic::bounding_box/empty_array" {
   let items = Group::new(items=[]).as_graphic()
   let result = items.bounding_box()
-  inspect(result, content="None")
+  @debug.debug_inspect(result, content="None")
 }
 
 ///|
@@ -13,14 +13,24 @@ test "Graphic::bounding_box/single_path" {
   let graphic = Graphic::Path(path)
   let items = Group::new(items=[graphic]).as_graphic()
   let result = items.bounding_box()
-  inspect(result, content="Some({min: {x: 1, y: 1}, max: {x: 2, y: 2}})")
+  @debug.debug_inspect(
+    result,
+    content=(
+      #|Some({ min: { x: 1, y: 1 }, max: { x: 2, y: 2 } })
+    ),
+  )
 }
 
 ///|
 test "Graphic::bounding_box/multiple_items" {
   let items = test_triangles()
   let result = items.bounding_box()
-  inspect(result, content="Some({min: {x: 1, y: 1}, max: {x: 5, y: 5}})")
+  @debug.debug_inspect(
+    result,
+    content=(
+      #|Some({ min: { x: 1, y: 1 }, max: { x: 5, y: 5 } })
+    ),
+  )
 }
 
 ///|
@@ -175,7 +185,12 @@ test "Graphic::with_margin" {
 
   // Original bbox was min:(0,0), max:(10,10)
   // New bbox should be min:(-4, -3), max:(12, 11)
-  inspect(result, content="Some({min: {x: -4, y: -3}, max: {x: 12, y: 11}})")
+  @debug.debug_inspect(
+    result,
+    content=(
+      #|Some({ min: { x: -4, y: -3 }, max: { x: 12, y: 11 } })
+    ),
+  )
 }
 
 ///|

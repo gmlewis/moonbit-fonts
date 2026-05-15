@@ -105,7 +105,8 @@ pub async fn load_font(font_name : String) -> Font raise LoaderError {
     let font : Font = @json.from_json(json)
     font
   } catch {
-    @json.JsonDecodeError(e) => raise LoaderError("JSON decode error: \{e}")
+    @json.JsonDecodeError(e) =>
+      raise LoaderError("JSON decode error: \{to_repr(e)}")
     e => raise LoaderError("Unexpected error loading font: \{e}")
   }
 }

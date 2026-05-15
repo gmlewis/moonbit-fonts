@@ -354,48 +354,48 @@ test "to_rgb8_number/upper_boundaries" {
 test "Color::to_hsva/primary-secondary" {
   // Red (1,0,0,1) should convert to (0,1,1,1)
   let red = Color::new(r=1.0, g=0.0, b=0.0, a=1.0)
-  inspect(red.to_hsva(), content="[0, 1, 1, 1]")
+  @debug.debug_inspect(red.to_hsva(), content="[0, 1, 1, 1]")
 
   // Green (0,1,0,1) should convert to (1/3,1,1,1)
   let green = Color::new(r=0.0, g=1.0, b=0.0, a=1.0)
-  inspect(green.to_hsva(), content="[0.3333333333333333, 1, 1, 1]")
+  @debug.debug_inspect(green.to_hsva(), content="[0.3333333333333333, 1, 1, 1]")
 
   // Blue (0,0,1,1) should convert to (2/3,1,1,1)
   let blue = Color::new(r=0.0, g=0.0, b=1.0, a=1.0)
-  inspect(blue.to_hsva(), content="[0.6666666666666666, 1, 1, 1]")
+  @debug.debug_inspect(blue.to_hsva(), content="[0.6666666666666666, 1, 1, 1]")
 }
 
 ///|
 test "Color::to_hsva/black 1" {
   let black = Color::new(r=0.0, g=0.0, b=0.0, a=1.0)
   // Black should have 0 saturation and value
-  inspect(black.to_hsva(), content="[0, 0, 0, 1]")
+  @debug.debug_inspect(black.to_hsva(), content="[0, 0, 0, 1]")
 }
 
 ///|
 test "Color::to_hsva/white 1" {
   let white = Color::new(r=1.0, g=1.0, b=1.0, a=1.0)
   // White should have 0 saturation but maximum value
-  inspect(white.to_hsva(), content="[0, 0, 1, 1]")
+  @debug.debug_inspect(white.to_hsva(), content="[0, 0, 1, 1]")
 }
 
 ///|
 test "Color::to_hsva/black 2" {
   let color = Color::new(r=0, g=0, b=0, a=1)
   let hsva = color.to_hsva()
-  inspect(hsva, content="[0, 0, 0, 1]")
+  @debug.debug_inspect(hsva, content="[0, 0, 0, 1]")
 }
 
 ///|
 test "Color::to_hsva/white 2" {
   let color = Color::new(r=1, g=1, b=1, a=1)
   let hsva = color.to_hsva()
-  inspect(hsva, content="[0, 0, 1, 1]")
+  @debug.debug_inspect(hsva, content="[0, 0, 1, 1]")
 }
 
 ///|
 test "Color::to_hsva/red" {
   let color = Color::new(r=1, g=0, b=0, a=1)
   let hsva = color.to_hsva()
-  inspect(hsva, content="[0, 1, 1, 1]")
+  @debug.debug_inspect(hsva, content="[0, 1, 1, 1]")
 }

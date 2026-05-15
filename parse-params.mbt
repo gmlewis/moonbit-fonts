@@ -1,13 +1,13 @@
 ///|
 /// `Params` represents the parameters to an SVG command.
-struct Params(Array[Double]) derive(Eq)
+struct Params(Array[Double]) derive(Debug, Eq)
 
 ///|
 pub impl Show for Params with output(self, logger) {
   let Params(arr) = self
   logger.write_string(
     (
-      $|Params(\{arr})
+      $|Params(\{to_repr(arr)})
     ),
   )
 }
@@ -44,7 +44,7 @@ fn parse_params(d : String) -> Params raise FontError {
       }
       e =>
         raise FontError(
-          "parse_params: unable to parse SVG params \{d}: got \{e}",
+          "parse_params: unable to parse SVG params \{d}: got \{to_repr(e)}",
         )
     }
   }

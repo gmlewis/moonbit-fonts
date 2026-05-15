@@ -5,7 +5,7 @@ pub(all) struct Anchor {
   mut position : Vec2 // absolute
   mut handle_in : Vec2 // relative
   mut handle_out : Vec2 // relative
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for Anchor with output(self, logging) {

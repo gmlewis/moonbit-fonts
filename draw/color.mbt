@@ -5,7 +5,7 @@ pub(all) struct Color {
   mut g : Double
   mut b : Double
   mut a : Double
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for Color with output(self, logging) {
@@ -150,7 +150,7 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
 ///|
 /// `Color::from_css_string` returns a color from a CSS string.
 pub fn Color::from_css_string(css_string : String) -> Color raise Error {
-  let css_string = css_string.trim(char_set=" ").to_lower().to_string()
+  let css_string = css_string.trim(char_set=" ").to_lower().to_owned()
   if css_string.is_empty() {
     return Color::new()
   }

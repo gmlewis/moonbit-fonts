@@ -4,6 +4,7 @@ package "gmlewis/fonts/draw"
 import {
   "gmlewis/fonts",
   "gmlewis/fonts/geom",
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
@@ -61,7 +62,7 @@ pub fn vec2(Double, Double) -> @geom.Vec2
 // Errors
 pub(all) suberror DrawError {
   DrawError(String)
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub impl Show for DrawError
 
 // Types and methods
@@ -69,7 +70,7 @@ pub(all) struct Anchor {
   mut position : @geom.Vec2
   mut handle_in : @geom.Vec2
   mut handle_out : @geom.Vec2
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Anchor::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Anchor::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Anchor::all_anchors(Self) -> Array[Self]
@@ -92,7 +93,7 @@ pub(all) struct Color {
   mut g : Double
   mut b : Double
   mut a : Double
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Color::as_fill(Self) -> Fill
 pub fn Color::as_stroke(Self, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Stroke
 pub fn Color::black() -> Self
@@ -120,7 +121,7 @@ pub(all) struct CompoundPath {
   mut paths : Array[Path]
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(ToJson, @json.FromJson)
+} derive(ToJson, @debug.Debug, @json.FromJson)
 pub fn CompoundPath::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn CompoundPath::all_anchors(Self) -> Array[Anchor]
@@ -156,7 +157,7 @@ pub impl Show for CompoundPath
 
 pub(all) struct Fill {
   color : Color
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Fill::from_string(String) -> Self raise
 pub fn Fill::new(color? : Color) -> Self
 pub impl Clonable for Fill
@@ -193,7 +194,7 @@ pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
   Path(Path)
-}
+} derive(@debug.Debug)
 pub fn Graphic::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::all_anchors(Self) -> Array[Anchor]
@@ -242,7 +243,7 @@ pub impl @json.FromJson for Graphic
 
 pub(all) struct Group {
   mut items : Array[Graphic]
-} derive(ToJson, @json.FromJson)
+} derive(ToJson, @debug.Debug, @json.FromJson)
 pub fn Group::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Group::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Group::all_anchors(Self) -> Array[Anchor]
@@ -288,7 +289,7 @@ pub(all) struct Path {
   mut clear : Bool
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(ToJson, @json.FromJson)
+} derive(ToJson, @debug.Debug, @json.FromJson)
 pub fn Path::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Path::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Path::as_graphic(Self) -> Graphic
@@ -330,7 +331,7 @@ pub(all) struct Stroke {
   mut cap : StrokeCap
   mut join : StrokeJoin
   mut miter_limit : Double
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Stroke::new(color? : Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Self
 pub impl Clonable for Stroke
 pub impl Show for Stroke
@@ -339,28 +340,28 @@ pub(all) enum StrokeAlignment {
   Centered
   Inner
   Outer
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub impl Show for StrokeAlignment
 
 pub(all) enum StrokeCap {
   Butt
   Round
   Square
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub impl Show for StrokeCap
 
 pub(all) enum StrokeJoin {
   Miter
   Round
   Bevel
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub impl Show for StrokeJoin
 
 pub(all) enum TextAlign {
   Left
   Center
   Right
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub impl Show for TextAlign
 
 pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)

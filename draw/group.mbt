@@ -2,14 +2,14 @@
 /// `Group` represents a collection of `Graphic` elements.
 pub(all) struct Group {
   mut items : Array[Graphic]
-} derive(FromJson, ToJson)
+} derive(Debug, FromJson, ToJson)
 
 ///|
 pub impl Show for Group with output(self, logger) {
   let { items } = self
   logger.write_string(
     (
-      $|{items: \{items}}
+      $|{items: \{to_repr(items)}}
     ),
   )
 }

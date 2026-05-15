@@ -2,6 +2,7 @@
 package "gmlewis/fonts/geom"
 
 import {
+  "moonbitlang/core/debug",
   "moonbitlang/core/json",
 }
 
@@ -28,7 +29,7 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub fn AffineMatrix::clone(Self) -> Self
 pub fn AffineMatrix::copy(Self, Self) -> Unit
 pub fn AffineMatrix::determinant(Self) -> Double
@@ -78,13 +79,13 @@ pub(all) enum Alignment {
   BottomCenter
   BottomRight
   RatioXY(Double, Double)
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub impl Show for Alignment
 
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub fn BoundingBox::area(Self) -> Double
 pub fn BoundingBox::boolean_intersect(Self, Array[Self]) -> Self?
 pub fn BoundingBox::bounds(Self) -> (Double, Double, Double, Double)
@@ -122,14 +123,14 @@ pub(all) struct Transform {
   scale : Vec2
   skew : Double
   origin : Vec2
-} derive(Eq)
+} derive(Eq, @debug.Debug)
 pub fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 pub impl Show for Transform
 
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-} derive(Eq, ToJson, @json.FromJson)
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
 pub fn Vec2::add_scalar(Self, Double) -> Self
 pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
 pub fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self

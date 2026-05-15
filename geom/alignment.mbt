@@ -23,7 +23,7 @@ pub(all) enum Alignment {
   ///
   /// For example, `TopRight` is identical to `RatioXY(1,0)`.
   RatioXY(Double, Double)
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for Alignment with output(self, logger) {

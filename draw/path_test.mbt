@@ -86,7 +86,12 @@ test "Path::to_polygon/with_curves with curve_segments=1" {
   let a2 = Anchor::new(position=vec2(1, 1), handle_in=vec2(-0.5, 0))
   let path = Path::new(anchors=[a1, a2], closed=true)
   let polygon = path.to_polygon(1)
-  inspect(polygon, content="[{x: 0, y: 0}, {x: 1, y: 1}]")
+  @debug.debug_inspect(
+    polygon,
+    content=(
+      #|[{ x: 0, y: 0 }, { x: 1, y: 1 }]
+    ),
+  )
 }
 
 ///|

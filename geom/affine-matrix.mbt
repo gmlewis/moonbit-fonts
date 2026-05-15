@@ -8,7 +8,7 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for AffineMatrix with output(self, logger) {

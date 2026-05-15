@@ -2,4 +2,5 @@ import {
   "gmlewis/fonts/draw",
   "gmlewis/fonts/geom",
   "moonbitlang/core/builtin",
+  "moonbitlang/core/debug",
 }

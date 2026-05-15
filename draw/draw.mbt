@@ -6,7 +6,7 @@
 /// DrawError represents an error that occured during graphic generation.
 pub(all) suberror DrawError {
   DrawError(String)
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for DrawError with output(self, logger) {

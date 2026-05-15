@@ -2,7 +2,7 @@
 /// `Fill` defines a fill style.
 pub(all) struct Fill {
   color : Color
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for Fill with output(self, logger) {

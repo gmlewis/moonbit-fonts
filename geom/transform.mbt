@@ -6,7 +6,7 @@ pub(all) struct Transform {
   scale : Vec2
   skew : Double
   origin : Vec2
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for Transform with output(self, logger) {

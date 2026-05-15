@@ -3,6 +3,7 @@ import {
   "gmlewis/fonts/geom",
   "moonbitlang/core/builtin",
   "moonbitlang/core/cmp",
+  "moonbitlang/core/debug",
   "moonbitlang/core/double",
   "moonbitlang/core/json",
   "moonbitlang/core/math",

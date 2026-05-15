@@ -96,7 +96,7 @@ test "text_with/UseDefault and Override stroke" {
   inspect(paths.length(), content="2")
   inspect(paths[0].stroke.unwrap().color.to_css_string(), content="#00FF00")
   inspect(paths[0].fill.unwrap().color.to_css_string(), content="#000000")
-  inspect(paths[1].stroke, content="None")
+  @debug.debug_inspect(paths[1].stroke, content="None")
   inspect(paths[1].fill.unwrap().color.to_css_string(), content="#000000")
 }
 

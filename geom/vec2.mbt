@@ -3,7 +3,7 @@
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-} derive(Eq, FromJson, ToJson)
+} derive(Debug, Eq, FromJson, ToJson)
 
 ///|
 pub impl Show for Vec2 with output(self, logger) {

@@ -25,7 +25,7 @@ pub impl Show for SVGPath with output(self, logger) {
   let { char, cmds, xmin, ymin, xmax, ymax } = self
   logger.write_string(
     (
-      $|{char: \{char.escape(quote=true)}, cmds: \{cmds}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}
+      $|{char: \{char.escape(quote=true)}, cmds: \{to_repr(cmds)}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}
     ),
   )
 }
@@ -66,7 +66,7 @@ pub(all) enum AbsoluteCmd {
   /// `Z` is the ClosePath command:
   /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#closepath
   Z
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for AbsoluteCmd with output(self, logger) {
@@ -145,7 +145,7 @@ pub(all) enum GerberLP {
   Dark
   /// `Clear` means the subpath is a hole.
   Clear
-} derive(Eq)
+} derive(Debug, Eq)
 
 ///|
 pub impl Show for GerberLP with output(self, logger) {
