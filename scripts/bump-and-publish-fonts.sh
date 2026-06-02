@@ -10,6 +10,7 @@ for i in ../mbt-fonts-* ; do
     echo $i && pushd $i
     VERSION=$(grep version moon.mod.json | sed -e 's/^.* "//g' -e 's/".*$//')
     ./update.sh
+    git add moon.mod
     git commit -sam "Bump version to ${VERSION}"
     git push
     # Remove JSON font representations before publishing, then restore.
