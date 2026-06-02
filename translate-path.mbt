@@ -8,21 +8,21 @@ pub fn translate_path(
   invert_y? : Bool = false,
 ) -> String raise FontError {
   let cmds = split_path(d)
-  let d = @buffer.new()
+  let d = Buffer()
   let y_scale = if invert_y { -1.0 } else { 1.0 }
   for cmd in cmds {
-    d.write_string(cmd.c)
+    d.write_string_utf16le(cmd.c)
     cmd.p.0
     .iter()
     .eachi(fn(index, val) {
       if index % 2 == 0 {
         if index > 0 {
-          d.write_char(' ')
+          d.write_char_utf16le(' ')
         }
-        d.write_string(svg_num(x + val))
+        d.write_string_utf16le(svg_num(x + val))
       } else {
-        d.write_char(' ')
-        d.write_string(svg_num(y + y_scale * val))
+        d.write_char_utf16le(' ')
+        d.write_string_utf16le(svg_num(y + y_scale * val))
       }
     })
   }

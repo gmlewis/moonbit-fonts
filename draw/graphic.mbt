@@ -7,7 +7,7 @@ pub(all) enum Graphic {
 } derive(Debug)
 
 ///|
-pub impl Show for Graphic with output(self, logger) {
+pub impl Show for Graphic with fn output(self, logger) {
   match self {
     CompoundPath(compound_path) =>
       logger.write_string(
@@ -55,7 +55,7 @@ test "Graphic show interface" {
 
 ///|
 /// `op_add` allows composing two `Graphic`s into a `Group` using the `+` operator.
-pub impl Add for Graphic with add(self, other) {
+pub impl Add for Graphic with fn add(self, other) {
   let items = match (self, other) {
     (Group(g1), Group(g2)) => g1.items + g2.items
     (Group(g1), _) => g1.items + [other]
@@ -693,7 +693,7 @@ pub fn Graphic::to_profiles_tuples(
 }
 
 ///|
-pub impl ToJson for Graphic with to_json(self) {
+pub impl ToJson for Graphic with fn to_json(self) {
   match self {
     CompoundPath(path) => path.to_json()
     Group(group) => group.to_json()
@@ -702,7 +702,7 @@ pub impl ToJson for Graphic with to_json(self) {
 }
 
 ///|
-pub impl @json.FromJson for Graphic with from_json(json, json_path) {
+pub impl @json.FromJson for Graphic with fn from_json(json, json_path) {
   let compound_path : Result[CompoundPath, _] = try? @json.from_json(json)
   if compound_path is Ok(_) {
     return CompoundPath(compound_path.unwrap())

@@ -11,7 +11,7 @@ suberror TestError {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for TestError with output(self, logger) {
+pub impl Show for TestError with fn output(self, logger) {
   let TestError(err) = self
   logger.write_string(
     (

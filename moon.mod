@@ -1,0 +1,17 @@
+name = "gmlewis/fonts"
+
+version = "0.19.9"
+
+import {
+  "moonbitlang/regexp@0.3.5",
+}
+
+readme = "README.md"
+
+repository = "https://github.com/gmlewis/moonbit-fonts"
+
+license = "Apache-2.0"
+
+keywords = [ "html5 canvas", "pdf", "svg", "open source", "fonts" ]
+
+description = "Experimental package to manipulate open source font data."

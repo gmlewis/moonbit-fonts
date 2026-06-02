@@ -26,7 +26,7 @@ pub(all) struct Glyph {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Glyph with output(self, logger) {
+pub impl Show for Glyph with fn output(self, logger) {
   let { char, horiz_adv_x, gerber_lp, d, xmin, ymin, xmax, ymax } = self
   logger.write_string(
     (

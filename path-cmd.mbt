@@ -12,7 +12,7 @@ pub fn ParamPair::to_string(self : ParamPair) -> String {
 }
 
 ///|
-pub impl Show for ParamPair with output(self, logger) {
+pub impl Show for ParamPair with fn output(self, logger) {
   logger.write_string(self.to_string())
 }
 
@@ -25,7 +25,7 @@ pub(all) struct PathCmd {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for PathCmd with output(self, logger) {
+pub impl Show for PathCmd with fn output(self, logger) {
   let { cmd, gerber_lp, params } = self
   logger.write_string(
     (

@@ -7,7 +7,7 @@ pub(all) struct CompoundPath {
 } derive(Debug, FromJson, ToJson)
 
 ///|
-pub impl Show for CompoundPath with output(self, logger) {
+pub impl Show for CompoundPath with fn output(self, logger) {
   logger.write_string(
     (
       $|{paths: \{to_repr(self.paths).to_string()}, fill: \{to_repr(self.fill).to_string()}, stroke: \{to_repr(self.stroke).to_string()}}

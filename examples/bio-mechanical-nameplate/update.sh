@@ -1,5 +1,3 @@
 #!/bin/bash -ex
-rm -rf _build .mooncakes
-moon add --no-update gmlewis/fonts-a
 moon fmt && moon info
-moon run . > bio-mechanical-nameplate.svg
+moon run . --target wasm > bio-mechanical-nameplate.svg

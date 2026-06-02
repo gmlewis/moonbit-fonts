@@ -9,7 +9,7 @@ pub(all) struct Transform {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for Transform with output(self, logger) {
+pub impl Show for Transform with fn output(self, logger) {
   let { position, rotation, scale, skew, origin } = self
   logger.write_string(
     (

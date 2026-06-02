@@ -21,7 +21,7 @@ pub(all) struct SVGPath {
 } derive(Eq)
 
 ///|
-pub impl Show for SVGPath with output(self, logger) {
+pub impl Show for SVGPath with fn output(self, logger) {
   let { char, cmds, xmin, ymin, xmax, ymax } = self
   logger.write_string(
     (
@@ -69,7 +69,7 @@ pub(all) enum AbsoluteCmd {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for AbsoluteCmd with output(self, logger) {
+pub impl Show for AbsoluteCmd with fn output(self, logger) {
   match self {
     M =>
       logger.write_string(
@@ -148,7 +148,7 @@ pub(all) enum GerberLP {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for GerberLP with output(self, logger) {
+pub impl Show for GerberLP with fn output(self, logger) {
   match self {
     Dark =>
       logger.write_string(
@@ -250,8 +250,8 @@ pub fn SVGPath::from_glyph(
 /// Note that apart from `path_cmd_fn`, `to_glyph` makes no attempt to process the
 /// individual glyphs and simply transforms the representation.
 pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
-  let gerber_lp = @buffer.new()
-  let d = @buffer.new()
+  let gerber_lp = Buffer()
+  let d = Buffer()
   let bbox = @geom.BoundingBox::max_reversed()
 
   //
@@ -261,14 +261,14 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
       _ => cmd
     }
     let (svg_cmd, glp) = cmd.to_svg_cmd()
-    d.write_string(svg_cmd.c)
+    d.write_string_utf16le(svg_cmd.c)
     if glp != "" {
-      gerber_lp.write_string(glp)
+      gerber_lp.write_string_utf16le(glp)
     }
     let params = Array::makei(svg_cmd.p.0.length(), fn(i) {
       svg_num(svg_cmd.p.0[i])
     })
-    d.write_string(params.join(" "))
+    d.write_string_utf16le(params.join(" "))
 
     // update bbox
     if cmd.cmd != Z {

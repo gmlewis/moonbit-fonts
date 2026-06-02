@@ -10,7 +10,7 @@ pub(all) struct Stroke {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Stroke with output(self, logger) {
+pub impl Show for Stroke with fn output(self, logger) {
   let { color, width, alignment, cap, join, miter_limit } = self
   logger.write_string(
     (
@@ -42,7 +42,7 @@ pub(all) enum StrokeAlignment {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for StrokeAlignment with output(self, logger) {
+pub impl Show for StrokeAlignment with fn output(self, logger) {
   match self {
     Centered =>
       logger.write_string(
@@ -99,7 +99,7 @@ pub(all) enum StrokeCap {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for StrokeCap with output(self, logger) {
+pub impl Show for StrokeCap with fn output(self, logger) {
   match self {
     Butt =>
       logger.write_string(
@@ -156,7 +156,7 @@ pub(all) enum StrokeJoin {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for StrokeJoin with output(self, logger) {
+pub impl Show for StrokeJoin with fn output(self, logger) {
   match self {
     Miter =>
       logger.write_string(
@@ -229,7 +229,7 @@ pub fn stroke(
 
 ///|
 /// `clone` returns a new copy of this `Stroke`.
-pub impl Clonable for Stroke with clone(self) {
+pub impl Clonable for Stroke with fn clone(self) {
   Stroke::new(
     color=self.color.clone(),
     width=self.width,

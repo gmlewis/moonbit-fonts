@@ -30,16 +30,16 @@ pub fn Font::gen_path(
   let mut x = 0.0
   let mut y = 0.0
   let y_scale = if y_up { 1.0 } else { -1.0 }
-  let char = @buffer.new()
-  let gerber_lp = @buffer.new()
-  let d = @buffer.new()
+  let char = Buffer()
+  let gerber_lp = Buffer()
+  let d = Buffer()
   //
   let mut first = true
   for c in text {
     match self.glyphs.get(c.to_string()) {
       Some(glyph) => {
-        char.write_string(glyph.char)
-        gerber_lp.write_string(glyph.gerber_lp)
+        char.write_string_utf16le(glyph.char)
+        gerber_lp.write_string_utf16le(glyph.gerber_lp)
         let (glyph_ymin, glyph_ymax) = if y_scale < 0 {
           (-glyph.ymax, -glyph.ymin)
         } else {
@@ -65,7 +65,7 @@ pub fn Font::gen_path(
             ymax = y + glyph_ymax
           }
         }
-        d.write_string(translate_path(glyph.d, x, y, invert_y=!y_up))
+        d.write_string_utf16le(translate_path(glyph.d, x, y, invert_y=!y_up))
         if glyph.horiz_adv_x > 0.0 {
           x = x + glyph.horiz_adv_x
         } else {
@@ -73,7 +73,7 @@ pub fn Font::gen_path(
         }
       }
       None => {
-        char.write_char(c)
+        char.write_char_utf16le(c)
         match c {
           '\n' => { // advance line and return to far left
             x = 0.0

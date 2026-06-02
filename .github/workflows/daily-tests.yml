@@ -41,15 +41,16 @@ jobs:
       - name: moon check
         run: moon check
 
+      - name: moon work sync
+        run: moon work sync
+
       - name: moon info
         run: |
           moon info
           git diff --exit-code
 
       - name: moon test
-        run: |
-          # moon test --target wasm
-          moon test --target js
+        run: moon test --target wasm,wasm-gc,js
 
       - name: format diff
         run: |

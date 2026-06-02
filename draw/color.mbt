@@ -8,7 +8,7 @@ pub(all) struct Color {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Color with output(self, logging) {
+pub impl Show for Color with fn output(self, logging) {
   let { r, g, b, a } = self
   logging.write_string(
     (

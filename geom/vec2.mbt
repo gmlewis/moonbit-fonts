@@ -6,7 +6,7 @@ pub(all) struct Vec2 {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Vec2 with output(self, logger) {
+pub impl Show for Vec2 with fn output(self, logger) {
   let { x, y } = self
   logger.write_string(
     (
@@ -150,7 +150,7 @@ pub fn Vec2::self_add(self : Vec2, v : Vec2) -> Unit {
 ///|
 /// `add` adds vector `other` to this vector without modifying either one
 /// and returns the result.
-pub impl Add for Vec2 with add(self, other) {
+pub impl Add for Vec2 with fn add(self, other) {
   let result = self.clone()
   result.self_add(other)
   result
@@ -179,7 +179,7 @@ pub fn Vec2::self_sub(self : Vec2, v : Vec2) -> Unit {
 ///|
 /// `sub` subtracts vector `other` from this vector without modifying either one
 /// and returns the result.
-pub impl Sub for Vec2 with sub(self, other) {
+pub impl Sub for Vec2 with fn sub(self, other) {
   let result = self.clone()
   result.self_sub(other)
   result
@@ -202,7 +202,7 @@ pub fn Vec2::self_mul(self : Vec2, v : Vec2) -> Unit {
 ///|
 /// `mul` multiplies vector `other` to this vector without modifying either one
 /// and returns the result.
-pub impl Mul for Vec2 with mul(self, other) {
+pub impl Mul for Vec2 with fn mul(self, other) {
   let result = self.clone()
   result.self_mul(other)
   result
@@ -231,7 +231,7 @@ pub fn Vec2::self_div(self : Vec2, v : Vec2) -> Unit {
 ///|
 /// `div` divides this vector by vector `other` without modifying either one
 /// and returns the result.
-pub impl Div for Vec2 with div(self, other) {
+pub impl Div for Vec2 with fn div(self, other) {
   let result = self.clone()
   result.self_div(other)
   result
@@ -253,7 +253,7 @@ pub fn Vec2::negate(self : Vec2) -> Unit {
 
 ///|
 /// `neg` returns a negated copy of `Vec2`.
-pub impl Neg for Vec2 with neg(self) {
+pub impl Neg for Vec2 with fn neg(self) {
   { x: -self.x, y: -self.y }
 }
 

@@ -11,7 +11,7 @@ pub(all) struct AffineMatrix {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for AffineMatrix with output(self, logger) {
+pub impl Show for AffineMatrix with fn output(self, logger) {
   let { a, b, c, d, tx, ty } = self
   logger.write_string(
     (
@@ -158,7 +158,7 @@ pub fn AffineMatrix::self_mul(self : AffineMatrix, m : AffineMatrix) -> Unit {
 
 ///|
 /// mul multiplies two 2D affine matrices together, returning a new one.
-pub impl Mul for AffineMatrix with mul(self, b) {
+pub impl Mul for AffineMatrix with fn mul(self, b) {
   let result = self.clone()
   result.self_mul(b)
   result

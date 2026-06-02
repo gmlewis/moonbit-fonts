@@ -8,7 +8,7 @@ pub(all) struct Anchor {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Anchor with output(self, logging) {
+pub impl Show for Anchor with fn output(self, logging) {
   let { position, handle_in, handle_out } = self
   logging.write_string(
     (

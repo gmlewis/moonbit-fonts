@@ -9,7 +9,6 @@ async fn main {
 
   //
   async fn write_progress(msg : String) -> Unit {
-    // Best-effort terminal output; ignore failures.
     @stdio.stdout.write(msg) catch {
       _ => ()
     }
@@ -28,7 +27,7 @@ async fn main {
       continue
     }
     let short_name_view = parts[parts.length() - 1]
-    let short_name = short_name_view.to_string()
+    let short_name = short_name_view.to_owned()
     if short_name == "" {
       println("Could not extract font name from line: \{line}")
       failed = failed + 1

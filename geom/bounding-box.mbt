@@ -6,7 +6,7 @@ pub(all) struct BoundingBox {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for BoundingBox with output(self, logger) {
+pub impl Show for BoundingBox with fn output(self, logger) {
   let { min, max } = self
   logger.write_string(
     (

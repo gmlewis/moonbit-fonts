@@ -3,7 +3,7 @@
 struct Params(Array[Double]) derive(Debug, Eq)
 
 ///|
-pub impl Show for Params with output(self, logger) {
+pub impl Show for Params with fn output(self, logger) {
   let Params(arr) = self
   logger.write_string(
     (

@@ -5,7 +5,7 @@ pub(all) struct Group {
 } derive(Debug, FromJson, ToJson)
 
 ///|
-pub impl Show for Group with output(self, logger) {
+pub impl Show for Group with fn output(self, logger) {
   let { items } = self
   logger.write_string(
     (

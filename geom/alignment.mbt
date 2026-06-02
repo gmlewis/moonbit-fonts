@@ -26,7 +26,7 @@ pub(all) enum Alignment {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for Alignment with output(self, logger) {
+pub impl Show for Alignment with fn output(self, logger) {
   match self {
     Unchanged =>
       logger.write_string(

@@ -1,5 +1,3 @@
 #!/bin/bash -ex
-rm -rf _build .mooncakes
-moon add --no-update gmlewis/fonts-a
 moon fmt && moon info
-moon run . > layout-gallery.svg
+moon run . --target wasm > layout-gallery.svg

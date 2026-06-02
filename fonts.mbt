@@ -10,7 +10,7 @@ pub(all) struct Font {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Font with output(self, logger) {
+pub impl Show for Font with fn output(self, logger) {
   let { id, horiz_adv_x, units_per_em, ascent, descent, glyphs } = self
   logger.write_string(
     (
@@ -66,7 +66,7 @@ pub(all) suberror FontError {
 } derive(Eq)
 
 ///|
-pub impl Show for FontError with output(self, logger) {
+pub impl Show for FontError with fn output(self, logger) {
   let FontError(err) = self
   logger.write_string(
     (

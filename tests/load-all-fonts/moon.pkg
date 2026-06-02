@@ -1,0 +1,14 @@
+import {
+  "gmlewis/fonts",
+  "gmlewis/fonts/loader",
+  "moonbitlang/async",
+  "moonbitlang/async/fs",
+  "moonbitlang/async/stdio",
+  "moonbitlang/core/builtin",
+}
+
+supported_targets = "+native"
+
+options(
+  "is-main": true,
+)

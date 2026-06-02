@@ -6,7 +6,7 @@ struct Cmd {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for Cmd with output(self, logger) {
+pub impl Show for Cmd with fn output(self, logger) {
   let { c, p } = self
   logger.write_string(
     (

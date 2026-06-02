@@ -12,7 +12,7 @@ pub(all) struct Path {
 } derive(Debug, FromJson, ToJson)
 
 ///|
-pub impl Show for Path with output(self, logger) {
+pub impl Show for Path with fn output(self, logger) {
   let { anchors, closed, clear, fill, stroke } = self
   logger.write_string(
     (
@@ -71,7 +71,7 @@ pub fn Path::from_points(points : Array[Vec2], closed? : Bool = false) -> Path {
 
 ///|
 pub(open) trait Clonable {
-  clone(Self) -> Self
+  fn clone(Self) -> Self
 }
 
 ///|

@@ -4,6 +4,11 @@ set -euo pipefail
 # Configuration - use available CPUs
 MAX_JOBS=${MAX_JOBS:-4}
 
+# On macOS, tcc needs the Xcode SDK lib path to find libc/libpthread
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export LIBRARY_PATH="$(xcrun --show-sdk-path)/usr/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
+fi
+
 # Fast update: only update registry once at the start
 echo "Updating registry..."
 moon update || true
@@ -14,8 +19,8 @@ find . -type d \( -name .mooncakes -o -name _build \) -not -path './.git/*' -exe
 
 # Root package setup
 echo "Setting up root package..."
-moon add moonbitlang/regexp || true
 moon fmt || true
+moon work sync || true
 moon info || true
 
 # Run root tests
@@ -23,7 +28,7 @@ echo "Running root tests..."
 moon test -j "$MAX_JOBS" --target all || true
 
 # Generate SVG
-moon run examples/svg-checkerboard > examples/svg-checkerboard/checkerboard.svg 2>/dev/null || true
+moon run examples/svg-checkerboard --target wasm > examples/svg-checkerboard/checkerboard.svg 2>/dev/null || true
 
 # Collect all sub-package update scripts (excluding root)
 scripts=()

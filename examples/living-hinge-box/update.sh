@@ -1,5 +1,3 @@
 #!/bin/bash -ex
-rm -rf _build .mooncakes
-moon add --no-update gmlewis/fonts-a
 moon fmt && moon info
-moon run . > living-hinge-box.svg
+moon run . --target wasm > living-hinge-box.svg

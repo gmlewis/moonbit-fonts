@@ -9,7 +9,7 @@ pub(all) suberror DrawError {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for DrawError with output(self, logger) {
+pub impl Show for DrawError with fn output(self, logger) {
   let DrawError(err) = self
   logger.write_string(
     (

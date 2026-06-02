@@ -1,0 +1,14 @@
+members = [
+  ".",
+  "./loader",
+  "./tests",
+  "./examples/alignment-gallery",
+  "./examples/bio-mechanical-nameplate",
+  "./examples/generative-mandala",
+  "./examples/layout-gallery",
+  "./examples/living-hinge-box",
+  "./examples/quick-start",
+  "./examples/recursive-calligram",
+  "./examples/styled-text",
+  "./examples/voronoi-stained-glass",
+]

@@ -5,7 +5,7 @@ pub(all) struct Fill {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
-pub impl Show for Fill with output(self, logger) {
+pub impl Show for Fill with fn output(self, logger) {
   let { color } = self
   logger.write_string(
     (
@@ -45,6 +45,6 @@ pub fn Fill::from_string(css_string : String) -> Fill raise Error {
 
 ///|
 /// `clone` returns a new copy of this `Fill`.
-pub impl Clonable for Fill with clone(self) {
+pub impl Clonable for Fill with fn clone(self) {
   { color: self.color.clone() }
 }

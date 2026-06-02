@@ -10,7 +10,7 @@ pub(all) enum TextAlign {
 } derive(Debug, Eq)
 
 ///|
-pub impl Show for TextAlign with output(self, logger) {
+pub impl Show for TextAlign with fn output(self, logger) {
   match self {
     Left =>
       logger.write_string(

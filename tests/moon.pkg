@@ -1,11 +1,5 @@
 import {
-  "gmlewis/fonts/draw",
-  "gmlewis/fonts/geom",
-  "gmlewis/fonts/svg",
-  "gmlewis/fonts-a/aaarghnormal",
   "moonbitlang/core/builtin",
 }
 
-options(
-  "is-main": true,
-)
+supported_targets = "+native"
