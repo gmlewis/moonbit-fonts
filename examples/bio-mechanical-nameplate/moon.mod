@@ -3,8 +3,8 @@ name = "gmlewis/bio-mechanical-nameplate"
 version = "0.1.0"
 
 import {
-  "gmlewis/fonts@0.19.10",
-  "gmlewis/fonts-a@0.19.9",
+  "gmlewis/fonts@0.19.11",
+  "gmlewis/fonts-a@0.19.10",
 }
 
 readme = "README.md"

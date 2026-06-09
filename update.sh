@@ -9,6 +9,22 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export LIBRARY_PATH="$(xcrun --show-sdk-path)/usr/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 fi
 
+# Sync example moon.mod imports with root package version
+ROOT_VERSION=$(grep '^version = ' moon.mod | head -1 | sed 's/version = "//;s/"//')
+IFS='.' read -r MAJOR MINOR PATCH <<< "$ROOT_VERSION"
+COMPANION_PATCH=$((PATCH - 1))
+COMPANION_VERSION="${MAJOR}.${MINOR}.${COMPANION_PATCH}"
+echo "Root version: ${ROOT_VERSION}, companion version (fonts-a/fonts-b): ${COMPANION_VERSION}"
+
+echo "Updating example moon.mod imports..."
+find examples -name moon.mod -print0 | while IFS= read -r -d '' f; do
+  sed -i '' \
+    -e "s/gmlewis\/fonts@[0-9][0-9.]*/gmlewis\/fonts@${ROOT_VERSION}/g" \
+    -e "s/gmlewis\/fonts-a@[0-9][0-9.]*/gmlewis\/fonts-a@${COMPANION_VERSION}/g" \
+    -e "s/gmlewis\/fonts-b@[0-9][0-9.]*/gmlewis\/fonts-b@${COMPANION_VERSION}/g" \
+    "$f"
+done
+
 # Fast update: only update registry once at the start
 echo "Updating registry..."
 moon update || true

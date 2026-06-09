@@ -703,17 +703,20 @@ pub impl ToJson for Graphic with fn to_json(self) {
 
 ///|
 pub impl @json.FromJson for Graphic with fn from_json(json, json_path) {
-  let compound_path : Result[CompoundPath, _] = try? @json.from_json(json)
-  if compound_path is Ok(_) {
-    return CompoundPath(compound_path.unwrap())
+  try @json.from_json(json) catch {
+    _ => ()
+  } noraise {
+    compound_path => return CompoundPath(compound_path)
   }
-  let group : Result[Group, _] = try? @json.from_json(json)
-  if group is Ok(_) {
-    return Group(group.unwrap())
+  try @json.from_json(json) catch {
+    _ => ()
+  } noraise {
+    group => return Group(group)
   }
-  let path : Result[Path, _] = try? @json.from_json(json)
-  if path is Ok(_) {
-    return Path(path.unwrap())
+  try @json.from_json(json) catch {
+    _ => ()
+  } noraise {
+    path => return Path(path)
   }
   raise @json.JsonDecodeError(
     (json_path, "Failed to parse JSON as any Graphic variant"),
