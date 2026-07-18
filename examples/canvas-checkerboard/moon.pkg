@@ -8,8 +8,9 @@ import {
 
 supported_targets = "+wasm+wasm-gc"
 
+pkgtype(kind: "executable")
+
 options(
-  "is-main": true,
   link: {
     "wasm": { "exports": [ "draw" ] },
     "wasm-gc": { "exports": [ "draw" ] },

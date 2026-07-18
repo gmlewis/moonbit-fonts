@@ -53,7 +53,7 @@ pub fn from_graphic(g : Graphic, y_up? : Bool = true) -> String {
   (
     $|<svg xmlns="http://www.w3.org/2000/svg" viewBox="\{min.x} \{min.y} \{width} \{height}">
     $|\{lines}
-    #|</svg>
+    $|</svg>
   )
 }
 

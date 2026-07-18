@@ -7,6 +7,4 @@ import {
   "moonbitlang/core/builtin",
 }
 
-options(
-  "is-main": true,
-)
+pkgtype(kind: "executable")
