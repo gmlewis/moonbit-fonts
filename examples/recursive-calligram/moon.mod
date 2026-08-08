@@ -3,8 +3,8 @@ name = "gmlewis/recursive-calligram"
 version = "0.1.0"
 
 import {
-  "gmlewis/fonts@0.19.12",
-  "gmlewis/fonts-a@0.19.11",
+  "gmlewis/fonts@0.19.13",
+  "gmlewis/fonts-a@0.19.12",
 }
 
 readme = "README.md"
