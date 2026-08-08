@@ -9,7 +9,7 @@ pub impl Show for Group with fn output(self, logger) {
   let { items } = self
   logger.write_string(
     (
-      $|{items: \{to_repr(items)}}
+      $|{items: \{Repr(items)}}
     ),
   )
 }

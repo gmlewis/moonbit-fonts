@@ -17,4 +17,3 @@ pub fn CanvasCtx::get_input_bytes(Self) -> Array[Byte]
 // Type aliases
 
 // Traits
-

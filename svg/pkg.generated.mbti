@@ -15,4 +15,3 @@ pub fn from_graphic(@draw.Graphic, y_up? : Bool) -> String
 // Type aliases
 
 // Traits
-

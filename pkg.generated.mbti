@@ -101,4 +101,3 @@ pub impl Show for SVGPath
 // Type aliases
 
 // Traits
-

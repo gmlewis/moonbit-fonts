@@ -15,4 +15,3 @@ pub fn draw(@canvas.CanvasCtx, Int, Int) -> Unit
 // Type aliases
 
 // Traits
-

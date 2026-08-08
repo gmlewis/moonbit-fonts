@@ -395,4 +395,3 @@ pub using @geom {type Vec2}
 pub(open) trait Clonable {
   fn clone(Self) -> Self
 }
-

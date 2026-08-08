@@ -7,7 +7,7 @@ pub impl Show for Params with fn output(self, logger) {
   let Params(arr) = self
   logger.write_string(
     (
-      $|Params(\{to_repr(arr)})
+      $|Params(\{Repr(arr)})
     ),
   )
 }
@@ -44,7 +44,7 @@ fn parse_params(d : String) -> Params raise FontError {
       }
       e =>
         raise FontError(
-          "parse_params: unable to parse SVG params \{d}: got \{to_repr(e)}",
+          "parse_params: unable to parse SVG params \{d}: got \{Repr(e)}",
         )
     }
   }

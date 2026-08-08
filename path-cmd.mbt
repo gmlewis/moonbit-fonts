@@ -29,7 +29,7 @@ pub impl Show for PathCmd with fn output(self, logger) {
   let { cmd, gerber_lp, params } = self
   logger.write_string(
     (
-      $|{cmd: \{cmd}, gerber_lp: \{gerber_lp}, params: \{to_repr(params)}}
+      $|{cmd: \{cmd}, gerber_lp: \{gerber_lp}, params: \{Repr(params)}}
     ),
   )
 }

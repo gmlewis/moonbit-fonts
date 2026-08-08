@@ -16,7 +16,7 @@ pub impl Show for Path with fn output(self, logger) {
   let { anchors, closed, clear, fill, stroke } = self
   logger.write_string(
     (
-      $|{anchors: \{to_repr(anchors)}, closed: \{closed}, clear: \{clear}, fill: \{to_repr(fill)}, stroke: \{to_repr(stroke)}}
+      $|{anchors: \{Repr(anchors)}, closed: \{closed}, clear: \{clear}, fill: \{Repr(fill)}, stroke: \{Repr(stroke)}}
     ),
   )
 }

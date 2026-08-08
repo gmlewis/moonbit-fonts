@@ -215,7 +215,7 @@ test "every point in f is in g" {
       let err = test_in(s, a)
       if err != None {
         raise TestError(
-          "Union: r=\{r}, s=\{s}, a\{a}, s not in a: \{to_repr(err)}",
+          "Union: r=\{r}, s=\{s}, a\{a}, s not in a: \{Repr(err)}",
         )
       }
       if a.is_empty() {

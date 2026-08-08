@@ -10,7 +10,7 @@ pub(all) struct CompoundPath {
 pub impl Show for CompoundPath with fn output(self, logger) {
   logger.write_string(
     (
-      $|{paths: \{to_repr(self.paths).to_string()}, fill: \{to_repr(self.fill).to_string()}, stroke: \{to_repr(self.stroke).to_string()}}
+      $|{paths: \{Repr(self.paths).to_string()}, fill: \{Repr(self.fill).to_string()}, stroke: \{Repr(self.stroke).to_string()}}
     ),
   )
 }

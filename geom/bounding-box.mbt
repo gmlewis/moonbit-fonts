@@ -66,7 +66,7 @@ pub fn BoundingBox::max_reversed() -> BoundingBox {
 ///|
 /// BoundingBox::from_points constructs the minimum bounding box containing `points`.
 pub fn BoundingBox::from_points(points : Array[Vec2]) -> BoundingBox {
-  guard points.length() > 0
+  guard! points.length() > 0
   let bbox = BoundingBox::new(min=points[0].clone(), max=points[0].clone())
   for i in 1..<points.length() {
     bbox.expand_to_include_point(points[i])
@@ -223,7 +223,7 @@ pub fn BoundingBox::boolean_intersect(
   self : BoundingBox,
   boxes : Array[BoundingBox],
 ) -> BoundingBox? {
-  guard boxes.length() > 0
+  guard! boxes.length() > 0
   let mut xmin = self.min.x
   let mut ymin = self.min.y
   let mut xmax = self.max.x

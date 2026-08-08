@@ -25,7 +25,7 @@ pub impl Show for SVGPath with fn output(self, logger) {
   let { char, cmds, xmin, ymin, xmax, ymax } = self
   logger.write_string(
     (
-      $|{char: \{char.escape(quote=true)}, cmds: \{to_repr(cmds)}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}
+      $|{char: \{char.escape(quote=true)}, cmds: \{Repr(cmds)}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}
     ),
   )
 }
