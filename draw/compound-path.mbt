@@ -7,6 +7,9 @@ pub(all) struct CompoundPath {
 } derive(Debug, FromJson, ToJson)
 
 ///|
+pub extend CompoundPath with ToJson::{to_json}
+
+///|
 pub impl Show for CompoundPath with fn output(self, logger) {
   logger.write_string(
     (
@@ -89,18 +92,16 @@ pub fn CompoundPath::as_graphic(self : CompoundPath) -> Graphic {
 }
 
 ///|
-/// op_get is a convenience function.
-pub fn CompoundPath::op_get(self : CompoundPath, index : Int) -> Path {
+/// get is a convenience function.
+#alias("_[_]")
+pub fn CompoundPath::get(self : CompoundPath, index : Int) -> Path {
   self.paths[index]
 }
 
 ///|
-/// op_set is a convenience function.
-pub fn CompoundPath::op_set(
-  self : CompoundPath,
-  index : Int,
-  path : Path,
-) -> Unit {
+/// set is a convenience function.
+#alias("_[_]=_")
+pub fn CompoundPath::set(self : CompoundPath, index : Int, path : Path) -> Unit {
   self.paths[index] = path
 }
 

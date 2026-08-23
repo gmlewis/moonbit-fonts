@@ -48,6 +48,7 @@ pub fn AffineMatrix::is_mirror(Self) -> Bool
 pub fn AffineMatrix::is_nan(Self) -> Bool
 pub fn AffineMatrix::is_orthogonal(Self, tolerance? : Double) -> Bool
 pub fn AffineMatrix::is_uniform_scale(Self, tolerance? : Double) -> Bool
+pub fn AffineMatrix::mul(Self, Self) -> Self
 pub fn AffineMatrix::mul_without_translation(Self, Self) -> Self
 pub fn AffineMatrix::new(a? : Double, b? : Double, c? : Double, d? : Double, tx? : Double, ty? : Double) -> Self
 pub fn AffineMatrix::normalize(Self) -> Self
@@ -131,6 +132,7 @@ pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn Vec2::add(Self, Self) -> Self
 pub fn Vec2::add_scalar(Self, Double) -> Self
 pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
 pub fn Vec2::affine_transform_without_translation(Self, AffineMatrix) -> Self
@@ -184,6 +186,7 @@ pub fn Vec2::self_mul_scalar(Self, Double) -> Unit
 pub fn Vec2::self_sub(Self, Self) -> Unit
 pub fn Vec2::self_sub_scalar(Self, Double) -> Unit
 pub fn Vec2::set(Self, Double, Double) -> Unit
+pub fn Vec2::sub(Self, Self) -> Self
 pub fn Vec2::to_tuple(Self) -> (Double, Double)
 pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 pub impl Add for Vec2

@@ -6,8 +6,8 @@ import {
   "gmlewis/io",
   "moonbitlang/async/fs",
   "moonbitlang/core/builtin",
+  "moonbitlang/core/env",
   "moonbitlang/core/json",
-  "moonbitlang/x/sys",
 }
 
 import {

@@ -5,6 +5,9 @@ pub(all) struct Group {
 } derive(Debug, FromJson, ToJson)
 
 ///|
+pub extend Group with ToJson::{to_json}
+
+///|
 pub impl Show for Group with fn output(self, logger) {
   let { items } = self
   logger.write_string(
@@ -38,14 +41,16 @@ pub fn Group::as_graphic(self : Group) -> Graphic {
 }
 
 ///|
-/// `op_get` is a convenience function.
-pub fn Group::op_get(self : Group, index : Int) -> Graphic {
+/// `get` is a convenience function.
+#alias("_[_]")
+pub fn Group::get(self : Group, index : Int) -> Graphic {
   self.items[index]
 }
 
 ///|
-/// `op_set` is a convenience function.
-pub fn Group::op_set(self : Group, index : Int, graphic : Graphic) -> Unit {
+/// `set` is a convenience function.
+#alias("_[_]=_")
+pub fn Group::set(self : Group, index : Int, graphic : Graphic) -> Unit {
   self.items[index] = graphic
 }
 

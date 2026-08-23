@@ -6,6 +6,12 @@ pub(all) struct Vec2 {
 } derive(Debug, Eq, FromJson, ToJson)
 
 ///|
+pub extend Vec2 with Add::{add}
+
+///|
+pub extend Vec2 with Sub::{sub}
+
+///|
 pub impl Show for Vec2 with fn output(self, logger) {
   let { x, y } = self
   logger.write_string(

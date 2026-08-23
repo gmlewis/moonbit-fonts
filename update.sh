@@ -29,6 +29,27 @@ done
 echo "Updating registry..."
 moon update || true
 
+# Upgrade every third-party dependency to its latest published version.
+# The gmlewis/fonts family is intentionally skipped: `fonts` and `fonts/loader`
+# are workspace members whose versions track the root package, and `fonts-a` /
+# `fonts-b` are companion releases pinned to (root version - 1) by the sync
+# step above.
+upgrade_module_deps() {
+  local modfile="$1" dir
+  dir="$(dirname "$modfile")"
+  # Pull module names out of the `import { ... }` block, stripping any @version.
+  awk '/^import \{/,/^\}/' "$modfile" | sed -n 's/.*"\([^"]*\)".*/\1/p' | sed -E 's/@.*//' | while read -r dep; do
+    case "$dep" in
+      gmlewis/fonts|gmlewis/fonts-a|gmlewis/fonts-b|gmlewis/fonts/loader) continue ;;
+    esac
+    (cd "$dir" && moon add --upgrade "$dep" >/dev/null 2>&1 || true)
+  done
+}
+echo "Upgrading third-party dependencies to latest..."
+while IFS= read -r -d '' f; do
+  upgrade_module_deps "$f"
+done < <(find . -path './.mooncakes' -prune -o -path './_build' -prune -o -name moon.mod -print0 | sort -z)
+
 # Clean build artifacts quickly
 echo "Cleaning build artifacts..."
 find . -type d \( -name .mooncakes -o -name _build \) -not -path './.git/*' -exec rm -rf {} + 2>/dev/null || true

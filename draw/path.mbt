@@ -12,6 +12,9 @@ pub(all) struct Path {
 } derive(Debug, FromJson, ToJson)
 
 ///|
+pub extend Path with ToJson::{to_json}
+
+///|
 pub impl Show for Path with fn output(self, logger) {
   let { anchors, closed, clear, fill, stroke } = self
   logger.write_string(
@@ -51,14 +54,16 @@ pub fn Path::as_graphic(self : Path) -> Graphic {
 }
 
 ///|
-/// `op_get` is a convenience function.
-pub fn Path::op_get(self : Path, index : Int) -> Anchor {
+/// `get` is a convenience function.
+#alias("_[_]")
+pub fn Path::get(self : Path, index : Int) -> Anchor {
   self.anchors[index]
 }
 
 ///|
-/// `op_set` is a convenience function.
-pub fn Path::op_set(self : Path, index : Int, anchor : Anchor) -> Unit {
+/// `set` is a convenience function.
+#alias("_[_]=_")
+pub fn Path::set(self : Path, index : Int, anchor : Anchor) -> Unit {
   self.anchors[index] = anchor
 }
 

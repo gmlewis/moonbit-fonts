@@ -11,6 +11,9 @@ suberror TestError {
 } derive(Debug, Eq)
 
 ///|
+pub extend TestError with @moonbitlang/core/debug.Debug::{to_repr}
+
+///|
 pub impl Show for TestError with fn output(self, logger) {
   let TestError(err) = self
   logger.write_string(

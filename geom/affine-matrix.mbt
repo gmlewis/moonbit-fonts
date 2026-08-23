@@ -11,6 +11,9 @@ pub(all) struct AffineMatrix {
 } derive(Debug, Eq)
 
 ///|
+pub extend AffineMatrix with Mul::{mul}
+
+///|
 pub impl Show for AffineMatrix with fn output(self, logger) {
   let { a, b, c, d, tx, ty } = self
   logger.write_string(

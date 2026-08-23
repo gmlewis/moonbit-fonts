@@ -132,14 +132,14 @@ pub fn CompoundPath::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anch
 pub fn CompoundPath::contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::copy_style(Self, Graphic) -> Self
 pub fn CompoundPath::first_styled(Self) -> Graphic?
+#alias("_[_]")
+pub fn CompoundPath::get(Self, Int) -> Path
 pub fn CompoundPath::has_style(Self) -> Bool
 pub fn CompoundPath::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn CompoundPath::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn CompoundPath::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn CompoundPath::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn CompoundPath::new(paths? : Array[Path], fill? : Fill, stroke? : Stroke) -> Self
-pub fn CompoundPath::op_get(Self, Int) -> Path
-pub fn CompoundPath::op_set(Self, Int, Path) -> Unit
 pub fn CompoundPath::primitives(Self) -> Array[Graphic]
 pub fn CompoundPath::remove_fill(Self) -> Self
 pub fn CompoundPath::remove_stroke(Self) -> Self
@@ -147,7 +147,10 @@ pub fn CompoundPath::reverse(Self) -> Self
 pub fn CompoundPath::rotate(Self, Double) -> Self
 pub fn CompoundPath::scale(Self, @geom.Vec2) -> Self
 pub fn CompoundPath::scale_stroke(Self, Double) -> Self
+#alias("_[_]=_")
+pub fn CompoundPath::set(Self, Int, Path) -> Unit
 pub fn CompoundPath::style_contains_point(Self, @geom.Vec2) -> Bool
+pub fn CompoundPath::to_json(Self) -> Json
 pub fn CompoundPath::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn CompoundPath::translate(Self, @geom.Vec2) -> Self
 pub fn CompoundPath::with_fill(Self, Fill?) -> Self
@@ -259,14 +262,14 @@ pub fn Group::copy_style(Self, Graphic) -> Self
 pub fn Group::first_fill(Self) -> Fill?
 pub fn Group::first_stroke(Self) -> Stroke?
 pub fn Group::first_styled(Self) -> Graphic?
+#alias("_[_]")
+pub fn Group::get(Self, Int) -> Graphic
 pub fn Group::has_style(Self) -> Bool
 pub fn Group::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Group::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Group::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Group::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Group::new(items? : Array[Graphic]) -> Self
-pub fn Group::op_get(Self, Int) -> Graphic
-pub fn Group::op_set(Self, Int, Graphic) -> Unit
 pub fn Group::primitives(Self) -> Array[Graphic]
 pub fn Group::remove_fill(Self) -> Self
 pub fn Group::remove_stroke(Self) -> Self
@@ -275,7 +278,10 @@ pub fn Group::rotate(Self, Double) -> Self
 pub fn Group::scale(Self, @geom.Vec2) -> Self
 pub fn Group::scale_stroke(Self, Double) -> Self
 pub fn Group::self_transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Unit
+#alias("_[_]=_")
+pub fn Group::set(Self, Int, Graphic) -> Unit
 pub fn Group::style_contains_point(Self, @geom.Vec2) -> Bool
+pub fn Group::to_json(Self) -> Json
 pub fn Group::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Group::translate(Self, @geom.Vec2) -> Self
 pub fn Group::with_fill(Self, Fill?) -> Self
@@ -300,14 +306,14 @@ pub fn Path::contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::copy_style(Self, Graphic) -> Self
 pub fn Path::first_styled(Self) -> Graphic?
 pub fn Path::from_points(Array[@geom.Vec2], closed? : Bool) -> Self
+#alias("_[_]")
+pub fn Path::get(Self, Int) -> Anchor
 pub fn Path::has_style(Self) -> Bool
 pub fn Path::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Path::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Path::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Path::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Path::new(anchors? : Array[Anchor], closed? : Bool, clear? : Bool, fill? : Fill, stroke? : Stroke) -> Self
-pub fn Path::op_get(Self, Int) -> Anchor
-pub fn Path::op_set(Self, Int, Anchor) -> Unit
 pub fn Path::primitives(Self) -> Array[Graphic]
 pub fn Path::remove_fill(Self) -> Self
 pub fn Path::remove_stroke(Self) -> Self
@@ -315,7 +321,10 @@ pub fn Path::reverse(Self) -> Self
 pub fn Path::rotate(Self, Double) -> Self
 pub fn Path::scale(Self, @geom.Vec2) -> Self
 pub fn Path::scale_stroke(Self, Double) -> Self
+#alias("_[_]=_")
+pub fn Path::set(Self, Int, Anchor) -> Unit
 pub fn Path::style_contains_point(Self, @geom.Vec2) -> Bool
+pub fn Path::to_json(Self) -> Json
 pub fn Path::to_polygon(Self, Int, epsilon? : Double) -> Array[@geom.Vec2]
 pub fn Path::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Path::translate(Self, @geom.Vec2) -> Self
