@@ -16,7 +16,7 @@ pub extend Path with ToJson::{to_json}
 
 ///|
 pub impl Show for Path with fn output(self, logger) {
-  let { anchors, closed, clear, fill, stroke } = self
+  let { anchors, closed, clear, fill, stroke, } = self
   logger.write_string(
     (
       $|{anchors: \{Repr(anchors)}, closed: \{closed}, clear: \{clear}, fill: \{Repr(fill)}, stroke: \{Repr(stroke)}}
@@ -44,7 +44,7 @@ pub fn Path::new(
   fill? : Fill,
   stroke? : Stroke,
 ) -> Path {
-  { anchors, closed, clear, fill, stroke }
+  { anchors, closed, clear, fill, stroke, }
 }
 
 ///|
@@ -71,7 +71,7 @@ pub fn Path::set(self : Path, index : Int, anchor : Anchor) -> Unit {
 /// `Path::from_points` connects a series of points with lines to form a `Path`.
 pub fn Path::from_points(points : Array[Vec2], closed? : Bool = false) -> Path {
   let anchors = points.map(fn(pt) { Anchor::new(position=pt) })
-  { anchors, closed, clear: false, fill: None, stroke: None }
+  { anchors, closed, clear: false, fill: None, stroke: None, }
 }
 
 ///|
@@ -92,7 +92,7 @@ pub fn Path::clone(self : Path) -> Path {
   let clear = self.clear
   let fill = clone_option(self.fill)
   let stroke = clone_option(self.stroke)
-  { anchors, closed, clear, fill, stroke }
+  { anchors, closed, clear, fill, stroke, }
 }
 
 ///|
@@ -104,7 +104,7 @@ pub fn Path::affine_transform(
   let new_anchors = self.anchors.map(fn(anchor) {
     anchor.affine_transform(affine_matrix)
   })
-  { ..self, anchors: new_anchors }
+  { ..self, anchors: new_anchors, }
 }
 
 ///|
@@ -117,7 +117,7 @@ pub fn Path::affine_transform_without_translation(
   let new_anchors = self.anchors.map(fn(anchor) {
     anchor.affine_transform_without_translation(affine_matrix)
   })
-  { ..self, anchors: new_anchors }
+  { ..self, anchors: new_anchors, }
 }
 
 ///|
@@ -151,7 +151,7 @@ pub fn Path::with_stroke(self : Path, stroke : Stroke?) -> Path {
 ///|
 /// `with_style` returns a new `Path` with the provided fill and stroke applied.
 pub fn Path::with_style(self : Path, fill? : Fill, stroke? : Stroke) -> Path {
-  { ..self, fill, stroke }
+  { ..self, fill, stroke, }
 }
 
 ///|
@@ -366,7 +366,7 @@ pub fn Path::contains_point(_self : Path, _point : Vec2) -> Bool {
 pub fn Path::copy_style(self : Path, graphic : Graphic) -> Path {
   let fill = graphic.first_fill()
   let stroke = graphic.first_stroke()
-  { ..self, fill, stroke }
+  { ..self, fill, stroke, }
 }
 
 ///|
@@ -502,13 +502,13 @@ pub fn Path::primitives(self : Path) -> Array[Graphic] {
 ///|
 /// `remove_fill` returns a new `Path` without fill styling.
 pub fn Path::remove_fill(self : Path) -> Path {
-  { ..self, fill: None }
+  { ..self, fill: None, }
 }
 
 ///|
 /// `remove_stroke` returns a new `Path` without stroke styling.
 pub fn Path::remove_stroke(self : Path) -> Path {
-  { ..self, stroke: None }
+  { ..self, stroke: None, }
 }
 
 ///|
@@ -529,7 +529,7 @@ pub fn Path::scale_stroke(self : Path, scale_factor : Double) -> Path {
     Some(stroke) => {
       let width = stroke.width * scale_factor
       let new_stroke = { ..stroke, width, }
-      { ..self, stroke: Some(new_stroke) }
+      { ..self, stroke: Some(new_stroke), }
     }
     _ => self
   }

@@ -22,7 +22,7 @@ pub(all) struct SVGPath {
 
 ///|
 pub impl Show for SVGPath with fn output(self, logger) {
-  let { char, cmds, xmin, ymin, xmax, ymax } = self
+  let { char, cmds, xmin, ymin, xmax, ymax, } = self
   logger.write_string(
     (
       $|{char: \{char.escape(quote=true)}, cmds: \{Repr(cmds)}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}
@@ -241,7 +241,7 @@ pub fn SVGPath::from_glyph(
 
   //
   let (xmin, ymin, xmax, ymax) = bbox.bounds()
-  { char: g.char, cmds, xmin, ymin, xmax, ymax }
+  { char: g.char, cmds, xmin, ymin, xmax, ymax, }
 }
 
 ///|
@@ -286,7 +286,7 @@ pub fn SVGPath::to_glyph(self : SVGPath, path_cmd_fn? : PathCmdFn) -> Glyph {
   let gerber_lp = gerber_lp.contents().to_unchecked_string()
   let d = d.contents().to_unchecked_string()
   let (xmin, ymin, xmax, ymax) = bbox.bounds()
-  { char: self.char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax }
+  { char: self.char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax, }
 }
 
 ///|

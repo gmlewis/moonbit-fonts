@@ -7,7 +7,7 @@ pub(all) struct BoundingBox {
 
 ///|
 pub impl Show for BoundingBox with fn output(self, logger) {
-  let { min, max } = self
+  let { min, max, } = self
   logger.write_string(
     (
       $|{min: \{min}, max: \{max}}
@@ -32,7 +32,7 @@ pub fn BoundingBox::new(
   min? : Vec2 = vec2(0, 0),
   max? : Vec2 = vec2(0, 0),
 ) -> BoundingBox {
-  { min, max }
+  { min, max, }
 }
 
 ///|
@@ -51,7 +51,7 @@ pub fn bbox(
 ) -> BoundingBox {
   let min = vec2(minx, miny)
   let max = vec2(maxx, maxy)
-  { min, max }
+  { min, max, }
 }
 
 ///|
@@ -60,7 +60,7 @@ pub fn bbox(
 pub fn BoundingBox::max_reversed() -> BoundingBox {
   let min = Vec2::infinity()
   let max = Vec2::neg_infinity()
-  { min, max }
+  { min, max, }
 }
 
 ///|
@@ -133,8 +133,8 @@ pub fn BoundingBox::is_nan(self : BoundingBox) -> Bool {
 ///|
 /// canonicalize ensures that min < max.
 pub fn BoundingBox::canonicalize(self : BoundingBox) -> Unit {
-  let { x: xmin, y: ymin } = self.min
-  let { x: xmax, y: ymax } = self.max
+  let { x: xmin, y: ymin, } = self.min
+  let { x: xmax, y: ymax, } = self.max
   self.min.set(@cmp.minimum(xmin, xmax), @cmp.minimum(ymin, ymax))
   self.max.set(@cmp.maximum(xmin, xmax), @cmp.maximum(ymin, ymax))
 }
@@ -172,7 +172,7 @@ pub fn BoundingBox::expand_scalar(
 ///|
 /// contains_point returns true if `point` is contained within this bounding box.
 pub fn BoundingBox::contains_point(self : BoundingBox, point : Vec2) -> Bool {
-  let { x, y } = point
+  let { x, y, } = point
   x >= self.min.x && x <= self.max.x && y >= self.min.y && y <= self.max.y
 }
 
@@ -182,7 +182,7 @@ pub fn BoundingBox::contains_bounding_box(
   self : BoundingBox,
   box : BoundingBox,
 ) -> Bool {
-  let { min, max } = box
+  let { min, max, } = box
   min.x >= self.min.x &&
   max.x <= self.max.x &&
   min.y >= self.min.y &&

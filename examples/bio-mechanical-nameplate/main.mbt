@@ -162,7 +162,7 @@ fn generate_bio_mechanical(
     .as_graphic()
     .with_style(stroke=@draw.rgba(0.4, 0.4, 0.4, 1.0).as_stroke(width=0.15))
 
-  let mut branches = @draw.Graphic::Group({ items: [] })
+  let mut branches = @draw.Graphic::Group({ items: [], })
   let mut max_depth = 1
   for n in nodes {
     if n.depth > max_depth {
@@ -207,7 +207,7 @@ struct PRNG {
 
 ///|
 fn PRNG::new(seed : UInt) -> PRNG {
-  { state: seed }
+  { state: seed, }
 }
 
 ///|

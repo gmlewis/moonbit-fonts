@@ -49,7 +49,7 @@ fn generate_living_hinge_box(
   let text_profiles = centered_text.to_profiles(5)
 
   // 2. Generate the lattice pattern for the hinge
-  let mut result = @draw.Graphic::Group({ items: [] })
+  let mut result = @draw.Graphic::Group({ items: [], })
 
   // Draw the two main panels
   let panel1 = @draw.Path::from_points(

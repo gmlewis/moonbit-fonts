@@ -13,7 +13,7 @@ pub extend Vec2 with Sub::{sub}
 
 ///|
 pub impl Show for Vec2 with fn output(self, logger) {
-  let { x, y } = self
+  let { x, y, } = self
   logger.write_string(
     (
       $|{x: \{x}, y: \{y}}
@@ -39,25 +39,25 @@ pub const DEFAULT_TOLERANCE = 0.001
 ///|
 /// `Vec2::new` returns a new `Vec2`.
 pub fn Vec2::new(x? : Double = 0, y? : Double = 0) -> Vec2 {
-  { x, y }
+  { x, y, }
 }
 
 ///|
 /// `Vec2::infinity` returns a new `Vec2` with infinite x and y.
 pub fn Vec2::infinity() -> Vec2 {
-  { x: @double.infinity, y: @double.infinity }
+  { x: @double.infinity, y: @double.infinity, }
 }
 
 ///|
 /// `Vec2::neg_infinity` returns a new `Vec2` with negative infinite x and y.
 pub fn Vec2::neg_infinity() -> Vec2 {
-  { x: @double.neg_infinity, y: @double.neg_infinity }
+  { x: @double.neg_infinity, y: @double.neg_infinity, }
 }
 
 ///|
 /// `vec2` returns a new `Vec2`.
 pub fn vec2(x : Double, y : Double) -> Vec2 {
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -72,13 +72,13 @@ pub fn Vec2::from_angle(angle : Double) -> Vec2 {
 pub fn Vec2::from_angle_radians(rad : Double) -> Vec2 {
   let x = @math.cos(rad)
   let y = @math.sin(rad)
-  { x, y }
+  { x, y, }
 }
 
 ///|
 /// `clone` returns a new copy of this `Vec2`.
 pub fn Vec2::clone(self : Vec2) -> Vec2 {
-  { x: self.x, y: self.y }
+  { x: self.x, y: self.y, }
 }
 
 ///|
@@ -108,11 +108,11 @@ pub fn Vec2::affine_transform(
   self : Vec2,
   affine_matrix : AffineMatrix,
 ) -> Vec2 {
-  let { x: x0, y: y0 } = self
-  let { a, b, c, d, tx, ty } = affine_matrix
+  let { x: x0, y: y0, } = self
+  let { a, b, c, d, tx, ty, } = affine_matrix
   let x = a * x0 + c * y0 + tx
   let y = b * x0 + d * y0 + ty
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -123,11 +123,11 @@ pub fn Vec2::affine_transform_without_translation(
   self : Vec2,
   affine_matrix : AffineMatrix,
 ) -> Vec2 {
-  let { x: x0, y: y0 } = self
+  let { x: x0, y: y0, } = self
   let { a, b, c, d, .. } = affine_matrix
   let x = a * x0 + c * y0
   let y = b * x0 + d * y0
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -260,7 +260,7 @@ pub fn Vec2::negate(self : Vec2) -> Unit {
 ///|
 /// `neg` returns a negated copy of `Vec2`.
 pub impl Neg for Vec2 with fn neg(self) {
-  { x: -self.x, y: -self.y }
+  { x: -self.x, y: -self.y, }
 }
 
 ///|
@@ -290,7 +290,7 @@ pub fn Vec2::almost_equals(
 pub fn Vec2::apply(self : Vec2, func : (Double) -> Double) -> Vec2 {
   let x = func(self.x)
   let y = func(self.y)
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -317,7 +317,7 @@ pub fn Vec2::round(self : Vec2) -> Vec2 {
 pub fn Vec2::round_to_fixed(self : Vec2, digits : Int) -> Vec2 {
   let x = round_to_fixed(self.x, digits)
   let y = round_to_fixed(self.y, digits)
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -330,7 +330,7 @@ pub fn Vec2::round_to_multiple(self : Vec2, v : Double) -> Vec2 {
   let t = 1.0 / v
   let x = @math.round(self.x * t) * v
   let y = @math.round(self.y * t) * v
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -355,7 +355,7 @@ pub fn Vec2::max(self : Vec2, v : Vec2) -> Unit {
 pub fn Vec2::mix(self : Vec2, v : Vec2, t : Double) -> Vec2 {
   let x = self.x + (v.x - self.x) * t
   let y = self.y + (v.y - self.y) * t
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -392,28 +392,28 @@ pub fn Vec2::rotate(self : Vec2, angle : Double) -> Vec2 {
 pub fn Vec2::rotate_radians(self : Vec2, rad : Double) -> Vec2 {
   let rx = @math.cos(rad)
   let ry = @math.sin(rad)
-  let { x: x0, y: y0 } = self
+  let { x: x0, y: y0, } = self
   let x = x0 * rx - y0 * ry
   let y = x0 * ry + y0 * rx
-  { x, y }
+  { x, y, }
 }
 
 ///|
 /// `rotate90` rotates this vector clockwise by 90° and returns a new one.
 pub fn Vec2::rotate90(self : Vec2) -> Vec2 {
-  let { x: x0, y: y0 } = self
+  let { x: x0, y: y0, } = self
   let x = -y0
   let y = x0
-  { x, y }
+  { x, y, }
 }
 
 ///|
 /// `rotate_neg90` rotates this vector counter-clockwise by 90° and returns a new one.
 pub fn Vec2::rotate_neg90(self : Vec2) -> Vec2 {
-  let { x: x0, y: y0 } = self
+  let { x: x0, y: y0, } = self
   let x = y0
   let y = -x0
-  { x, y }
+  { x, y, }
 }
 
 ///|
@@ -424,7 +424,7 @@ pub fn Vec2::project_onto(self : Vec2, v : Vec2) -> Vec2 {
     let n = self.dot(v) / t
     let x = v.x * n
     let y = v.y * n
-    { x, y }
+    { x, y, }
   } else {
     self
   }

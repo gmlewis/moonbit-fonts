@@ -570,7 +570,7 @@ pub fn Graphic::with_margin(
   let p3 = vec2(bbox.max.x + r, bbox.max.y + t)
   let p4 = vec2(bbox.min.x - l, bbox.max.y + t)
   let margin_path = Path::from_points([p1, p2, p3, p4], closed=true)
-  Group({ items: [self, Path(margin_path)] })
+  Group({ items: [self, Path(margin_path)], })
 }
 
 ///|
@@ -593,7 +593,7 @@ pub fn Graphic::with_background(self : Graphic, color : Color) -> Graphic {
     )
     .as_graphic()
     .with_style(fill=color.as_fill())
-  Group({ items: [background, self] })
+  Group({ items: [background, self], })
 }
 
 ///|

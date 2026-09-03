@@ -33,7 +33,7 @@ fn generate_recursive_calligram(
     .translate(center)
 
   let placed_boxes : Array[@geom.BoundingBox] = []
-  let mut result = @draw.Graphic::Group({ items: [] })
+  let mut result = @draw.Graphic::Group({ items: [], })
 
   // 2. Recursive Packing
   let mut current_size = 0.8
@@ -131,7 +131,7 @@ struct PRNG {
 
 ///|
 fn PRNG::new(seed : UInt) -> PRNG {
-  { state: seed }
+  { state: seed, }
 }
 
 ///|

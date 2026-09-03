@@ -9,7 +9,7 @@ pub extend Group with ToJson::{to_json}
 
 ///|
 pub impl Show for Group with fn output(self, logger) {
-  let { items } = self
+  let { items, } = self
   logger.write_string(
     (
       $|{items: \{Repr(items)}}
@@ -72,7 +72,7 @@ pub fn Group::affine_transform(
   self : Group,
   affine_matrix : AffineMatrix,
 ) -> Group {
-  { items: self.items.map(fn(item) { item.affine_transform(affine_matrix) }) }
+  { items: self.items.map(fn(item) { item.affine_transform(affine_matrix) }), }
 }
 
 ///|
@@ -234,7 +234,7 @@ pub fn Group::closest_point(
   point : Vec2,
   area_of_interest : BoundingBox?,
 ) -> Anchor? {
-  let { items } = self
+  let { items, } = self
   match items.length() {
     0 => return None
     1 => return items[0].closest_point(point, area_of_interest)
@@ -311,43 +311,43 @@ pub fn Group::has_style(self : Group) -> Bool {
 ///|
 /// `with_fill` returns a new `Group` with the provided fill applied.
 pub fn Group::with_fill(self : Group, fill : Fill?) -> Group {
-  { items: self.items.map(fn(item) { item.with_fill(fill) }) }
+  { items: self.items.map(fn(item) { item.with_fill(fill) }), }
 }
 
 ///|
 /// `remove_fill` removes a fill style from this `Group`.
 pub fn Group::remove_fill(self : Group) -> Group {
-  { items: self.items.map(fn(item) { item.remove_fill() }) }
+  { items: self.items.map(fn(item) { item.remove_fill() }), }
 }
 
 ///|
 /// `with_stroke` returns a new `Group` with the provided stroke applied.
 pub fn Group::with_stroke(self : Group, stroke : Stroke?) -> Group {
-  { items: self.items.map(fn(item) { item.with_stroke(stroke) }) }
+  { items: self.items.map(fn(item) { item.with_stroke(stroke) }), }
 }
 
 ///|
 /// `remove_stroke` removes a stroke style from this `Group`.
 pub fn Group::remove_stroke(self : Group) -> Group {
-  { items: self.items.map(fn(item) { item.remove_stroke() }) }
+  { items: self.items.map(fn(item) { item.remove_stroke() }), }
 }
 
 ///|
 /// `with_style` returns a new `Group` with the provided fill and stroke applied.
 pub fn Group::with_style(self : Group, fill? : Fill, stroke? : Stroke) -> Group {
-  { items: self.items.map(fn(item) { item.with_style(fill?, stroke?) }) }
+  { items: self.items.map(fn(item) { item.with_style(fill?, stroke?) }), }
 }
 
 ///|
 /// `copy_style` copies the fill and stroke style from `graphic`.
 pub fn Group::copy_style(self : Group, graphic : Graphic) -> Group {
-  { items: self.items.map(fn(item) { item.copy_style(graphic) }) }
+  { items: self.items.map(fn(item) { item.copy_style(graphic) }), }
 }
 
 ///|
 /// `scale_stroke` scales the stroke width of this `Group` by `scale_factor`.
 pub fn Group::scale_stroke(self : Group, scale_factor : Double) -> Group {
-  { items: self.items.map(fn(item) { item.scale_stroke(scale_factor) }) }
+  { items: self.items.map(fn(item) { item.scale_stroke(scale_factor) }), }
 }
 
 ///|

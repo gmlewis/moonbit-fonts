@@ -11,7 +11,7 @@ pub(all) struct Font {
 
 ///|
 pub impl Show for Font with fn output(self, logger) {
-  let { id, horiz_adv_x, units_per_em, ascent, descent, glyphs } = self
+  let { id, horiz_adv_x, units_per_em, ascent, descent, glyphs, } = self
   logger.write_string(
     (
       $|{id: \{id.escape(quote=true)}, horiz_adv_x: \{horiz_adv_x}, units_per_em: \{units_per_em}, ascent: \{ascent}, descent: \{descent}, glyphs: \{Repr(glyphs)}}

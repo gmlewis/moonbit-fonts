@@ -136,7 +136,7 @@ struct PRNG {
 
 ///|
 fn PRNG::new(seed : UInt) -> PRNG {
-  { state: seed }
+  { state: seed, }
 }
 
 ///|

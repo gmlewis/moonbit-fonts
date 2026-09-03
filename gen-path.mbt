@@ -115,7 +115,7 @@ pub fn Font::gen_path(
     xmax += dx
     ymax += dy
   }
-  { char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax }
+  { char, horiz_adv_x: 0, gerber_lp, d, xmin, ymin, xmax, ymax, }
 }
 
 ///|

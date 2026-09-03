@@ -27,7 +27,7 @@ pub(all) struct Glyph {
 
 ///|
 pub impl Show for Glyph with fn output(self, logger) {
-  let { char, horiz_adv_x, gerber_lp, d, xmin, ymin, xmax, ymax } = self
+  let { char, horiz_adv_x, gerber_lp, d, xmin, ymin, xmax, ymax, } = self
   logger.write_string(
     (
       $|{char: \{char.escape(quote=true)}, horiz_adv_x: \{horiz_adv_x}, gerber_lp: \{gerber_lp.escape(quote=true)}, d: \{d.escape(quote=true)}, xmin: \{xmin}, ymin: \{ymin}, xmax: \{xmax}, ymax: \{ymax}}

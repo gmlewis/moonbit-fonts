@@ -62,7 +62,7 @@ fn generate_voronoi_glass(
   }
 
   // 3. Compute Voronoi cells (brute force clipping)
-  let mut glass = @draw.Graphic::Group({ items: [] })
+  let mut glass = @draw.Graphic::Group({ items: [], })
   for i in 0..<seeds.length() {
     let seed = seeds[i]
 
@@ -189,7 +189,7 @@ struct PRNG {
 
 ///|
 fn PRNG::new(seed : UInt) -> PRNG {
-  { state: seed }
+  { state: seed, }
 }
 
 ///|

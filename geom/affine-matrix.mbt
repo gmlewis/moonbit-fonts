@@ -15,7 +15,7 @@ pub extend AffineMatrix with Mul::{mul}
 
 ///|
 pub impl Show for AffineMatrix with fn output(self, logger) {
-  let { a, b, c, d, tx, ty } = self
+  let { a, b, c, d, tx, ty, } = self
   logger.write_string(
     (
       $|{a: \{a}, b: \{b}, c: \{c}, d: \{d}, tx: \{tx}, ty: \{ty}}
@@ -44,13 +44,13 @@ pub fn AffineMatrix::new(
   tx? : Double = 0,
   ty? : Double = 0,
 ) -> AffineMatrix {
-  { a, b, c, d, tx, ty }
+  { a, b, c, d, tx, ty, }
 }
 
 ///|
 /// AffineMatrix::from_transform returns a new 2D affine matrix from a Transform.
 pub fn AffineMatrix::from_transform(transform : Transform) -> AffineMatrix {
-  let { position, rotation, scale, skew, origin } = transform
+  let { position, rotation, scale, skew, origin, } = transform
   AffineMatrix::new()
   .translate(position)
   .rotate(rotation)
@@ -104,7 +104,7 @@ pub fn AffineMatrix::from_center_scale(
   center : Vec2,
   scale : Vec2,
 ) -> AffineMatrix {
-  let { x, y } = center
+  let { x, y, } = center
   AffineMatrix::new(
     a=scale.x,
     d=scale.y,
@@ -116,7 +116,7 @@ pub fn AffineMatrix::from_center_scale(
 ///|
 /// clone returns a copy of this 2D affine matrix.
 pub fn AffineMatrix::clone(self : AffineMatrix) -> AffineMatrix {
-  { ..self }
+  { ..self, }
 }
 
 ///|
@@ -133,7 +133,7 @@ pub fn AffineMatrix::copy(self : AffineMatrix, other : AffineMatrix) -> Unit {
 ///|
 /// invert inverts this 2D affine matrix, returning a new one.
 pub fn AffineMatrix::invert(self : AffineMatrix) -> AffineMatrix {
-  let { a: a0, b: b0, c: c0, d: d0, tx: tx0, ty: ty0 } = self
+  let { a: a0, b: b0, c: c0, d: d0, tx: tx0, ty: ty0, } = self
   let cross = a0 * d0 - b0 * c0
   let dot = b0 * c0 - a0 * d0
   let result = self.clone()
@@ -149,8 +149,8 @@ pub fn AffineMatrix::invert(self : AffineMatrix) -> AffineMatrix {
 ///|
 /// self_mul multiplies this 2D affine matrix with another, storing the result in itself.
 pub fn AffineMatrix::self_mul(self : AffineMatrix, m : AffineMatrix) -> Unit {
-  let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = self
-  let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = m
+  let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty, } = self
+  let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty, } = m
   self.a = m0a * m1a + m0c * m1b
   self.b = m0b * m1a + m0d * m1b
   self.c = m0a * m1c + m0c * m1d
@@ -190,8 +190,8 @@ pub fn AffineMatrix::pre_mul(
   self : AffineMatrix,
   m : AffineMatrix,
 ) -> AffineMatrix {
-  let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty } = m
-  let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty } = self
+  let { a: m0a, b: m0b, c: m0c, d: m0d, tx: m0tx, ty: m0ty, } = m
+  let { a: m1a, b: m1b, c: m1c, d: m1d, tx: m1tx, ty: m1ty, } = self
   let result = self.clone()
   result.a = m0a * m1a + m0c * m1b
   result.b = m0b * m1a + m0d * m1b
@@ -225,7 +225,7 @@ pub fn AffineMatrix::translate(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   let { a, b, c, d, .. } = self
   let tx = self.tx + a * v.x + c * v.y
   let ty = self.ty + b * v.x + d * v.y
-  { ..self, tx, ty }
+  { ..self, tx, ty, }
 }
 
 ///|
@@ -244,7 +244,7 @@ pub fn AffineMatrix::skew(self : AffineMatrix, angle : Double) -> AffineMatrix {
   let t = @math.tan(rad)
   let c = self.c + t * self.a
   let d = self.d + t * self.b
-  { ..self, c, d }
+  { ..self, c, d, }
 }
 
 ///|
@@ -254,7 +254,7 @@ pub fn AffineMatrix::scale(self : AffineMatrix, v : Vec2) -> AffineMatrix {
   let b = self.b * v.x
   let c = self.c * v.y
   let d = self.d * v.y
-  { ..self, a, b, c, d }
+  { ..self, a, b, c, d, }
 }
 
 ///|
@@ -267,17 +267,17 @@ pub fn AffineMatrix::scale_scalar(
   let b = self.b * s
   let c = self.c * s
   let d = self.d * s
-  { ..self, a, b, c, d }
+  { ..self, a, b, c, d, }
 }
 
 ///|
 /// origin translates the matrix such that the center of future
 /// scale, rotate, and skew transformations will be `v`, returning a new one.
 pub fn AffineMatrix::origin(self : AffineMatrix, v : Vec2) -> AffineMatrix {
-  let { x, y } = v
+  let { x, y, } = v
   let tx = self.tx + self.a * x + self.c * y
   let ty = self.ty + self.b * x + self.d * y
-  { ..self, tx, ty }
+  { ..self, tx, ty, }
 }
 
 ///|
@@ -394,7 +394,7 @@ pub fn AffineMatrix::to_transform(
   self : AffineMatrix,
   origin? : Vec2 = vec2(0, 0),
 ) -> Transform {
-  let { a, b, c, d, tx, ty } = self
+  let { a, b, c, d, tx, ty, } = self
   let xnz = a * a + b * b > 0.00000001
   let ynz = c * c + d * d > 0.00000001
   let mut rad = 0.0
@@ -416,5 +416,5 @@ pub fn AffineMatrix::to_transform(
   let x = @math.cos(-rad)
   let y = @math.sin(-rad)
   let scale = vec2(a * x - b * y, c * y + d * x)
-  { position, rotation, scale, skew, origin }
+  { position, rotation, scale, skew, origin, }
 }

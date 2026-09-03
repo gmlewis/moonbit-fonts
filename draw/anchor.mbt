@@ -9,7 +9,7 @@ pub(all) struct Anchor {
 
 ///|
 pub impl Show for Anchor with fn output(self, logging) {
-  let { position, handle_in, handle_out } = self
+  let { position, handle_in, handle_out, } = self
   logging.write_string(
     (
       $|{position: \{position.to_string()}, handle_in: \{handle_in.to_string()}, handle_out: \{handle_out.to_string()}}
@@ -40,7 +40,7 @@ pub fn Anchor::new(
   handle_in? : Vec2 = vec2(0, 0),
   handle_out? : Vec2 = vec2(0, 0),
 ) -> Anchor {
-  { position, handle_in, handle_out }
+  { position, handle_in, handle_out, }
 }
 
 ///|
@@ -66,7 +66,7 @@ pub fn Anchor::affine_transform(
   let handle_out = self.handle_out.affine_transform_without_translation(
     affine_matrix,
   )
-  { position, handle_in, handle_out }
+  { position, handle_in, handle_out, }
 }
 
 ///|
@@ -85,7 +85,7 @@ pub fn Anchor::affine_transform_without_translation(
   let handle_out = self.handle_out.affine_transform_without_translation(
     affine_matrix,
   )
-  { position, handle_in, handle_out }
+  { position, handle_in, handle_out, }
 }
 
 ///|
@@ -133,8 +133,8 @@ pub fn Anchor::is_intersected_by_bounding_box(
   self : Anchor,
   box : BoundingBox,
 ) -> Bool {
-  let { min, max } = box
-  let { x, y } = self.position
+  let { min, max, } = box
+  let { x, y, } = self.position
   (x >= min.x && x <= max.x && (y == min.y || y == max.y)) ||
   (y >= min.y && y <= max.y && (x == min.x || x == max.x))
 }
@@ -171,7 +171,7 @@ pub fn Anchor::closest_point(
 /// `reverse` returns a new reverse of this `Anchor`.
 pub fn Anchor::reverse(self : Anchor) -> Anchor {
   let { handle_in, handle_out, .. } = self
-  { ..self, handle_in: handle_out, handle_out: handle_in }
+  { ..self, handle_in: handle_out, handle_out: handle_in, }
 }
 
 ///|

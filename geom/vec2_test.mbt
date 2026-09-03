@@ -324,16 +324,16 @@ test "copy/negative" {
 
 ///|
 test "copy/zero_vector" {
-  let source = Vec2::{ x: 0, y: 0 }
-  let other = Vec2::{ x: 5, y: 10 }
+  let source = Vec2::{ x: 0, y: 0, }
+  let other = Vec2::{ x: 5, y: 10, }
   source.copy(other)
   inspect(source, content="{x: 5, y: 10}")
 }
 
 ///|
 test "copy/negative_values" {
-  let source = Vec2::{ x: -1, y: -1 }
-  let other = Vec2::{ x: -5, y: -10 }
+  let source = Vec2::{ x: -1, y: -1, }
+  let other = Vec2::{ x: -5, y: -10, }
   source.copy(other)
   inspect(source, content="{x: -5, y: -10}")
 }
@@ -735,8 +735,8 @@ test "Vec2::self_add_scalar/negative_scalar" {
 
 ///|
 test "Vec2::self_sub/boundary_positive_and_negative" {
-  let v1 = Vec2::{ x: 5.0, y: 3.0 }
-  let v2 = Vec2::{ x: -2.5, y: 7.0 }
+  let v1 = Vec2::{ x: 5.0, y: 3.0, }
+  let v2 = Vec2::{ x: -2.5, y: 7.0, }
   v1.self_sub(v2)
   inspect(v1.x, content="7.5")
   inspect(v1.y, content="-4")
@@ -744,8 +744,8 @@ test "Vec2::self_sub/boundary_positive_and_negative" {
 
 ///|
 test "Vec2::self_sub/boundary_both_zero" {
-  let v1 = Vec2::{ x: 0.0, y: 0.0 }
-  let v2 = Vec2::{ x: 0.0, y: 0.0 }
+  let v1 = Vec2::{ x: 0.0, y: 0.0, }
+  let v2 = Vec2::{ x: 0.0, y: 0.0, }
   v1.self_sub(v2)
   inspect(v1.x, content="0")
   inspect(v1.y, content="0")
@@ -753,8 +753,8 @@ test "Vec2::self_sub/boundary_both_zero" {
 
 ///|
 test "Vec2::self_sub/boundary_max_min_values" {
-  let v1 = Vec2::{ x: @double.max_value, y: @double.min_value }
-  let v2 = Vec2::{ x: @double.min_value, y: @double.max_value }
+  let v1 = Vec2::{ x: @double.max_value, y: @double.min_value, }
+  let v2 = Vec2::{ x: @double.min_value, y: @double.max_value, }
   v1.self_sub(v2)
   inspect(v1.x, content="\{@double.max_value - @double.min_value}")
   inspect(v1.y, content="\{@double.min_value - @double.max_value}")
@@ -1044,15 +1044,15 @@ test "Vec2::mul_scalar/edge_case_nan" {
 ///|
 test "self_div" {
   // Basic division
-  let v1 = Vec2::{ x: 6.0, y: 8.0 }
-  let v2 = Vec2::{ x: 2.0, y: 4.0 }
+  let v1 = Vec2::{ x: 6.0, y: 8.0, }
+  let v2 = Vec2::{ x: 2.0, y: 4.0, }
   v1.self_div(v2)
   inspect(v1.x, content="3")
   inspect(v1.y, content="2")
 
   // Division by 1 should keep the original values
-  let v3 = Vec2::{ x: 5.0, y: 7.0 }
-  let v4 = Vec2::{ x: 1.0, y: 1.0 }
+  let v3 = Vec2::{ x: 5.0, y: 7.0, }
+  let v4 = Vec2::{ x: 1.0, y: 1.0, }
   v3.self_div(v4)
   inspect(v3.x, content="5")
   inspect(v3.y, content="7")
@@ -1060,8 +1060,8 @@ test "self_div" {
 
 ///|
 test "self_div/division_by_zero" {
-  let v1 = Vec2::{ x: 1.0, y: 1.0 }
-  let v2 = Vec2::{ x: 0.0, y: 0.0 }
+  let v1 = Vec2::{ x: 1.0, y: 1.0, }
+  let v2 = Vec2::{ x: 0.0, y: 0.0, }
   v1.self_div(v2)
   inspect(v1, content="{x: Infinity, y: Infinity}")
 }
@@ -2505,13 +2505,17 @@ fn assert_approx_eq10(
 ///|
 test "Vec2::length_squared" {
   // Basic functionality with positive coordinates
-  assert_approx_eq10(Vec2::length_squared({ x: 3.0, y: 4.0 }), 25.0, 0.000001)
+  assert_approx_eq10(Vec2::length_squared({ x: 3.0, y: 4.0, }), 25.0, 0.000001)
 
   // Zero vector case
-  assert_approx_eq10(Vec2::length_squared({ x: 0.0, y: 0.0 }), 0.0, 0.000001)
+  assert_approx_eq10(Vec2::length_squared({ x: 0.0, y: 0.0, }), 0.0, 0.000001)
 
   // Negative coordinates
-  assert_approx_eq10(Vec2::length_squared({ x: -3.0, y: -4.0 }), 25.0, 0.000001)
+  assert_approx_eq10(
+    Vec2::length_squared({ x: -3.0, y: -4.0, }),
+    25.0,
+    0.000001,
+  )
 }
 
 ///|
@@ -2607,13 +2611,13 @@ test "Vec2::is_zero/basic" {
 
 ///|
 test "Vec2::is_zero/non-zero-x" {
-  let v1 : Vec2 = { x: 1.0, y: 0.0 }
+  let v1 : Vec2 = { x: 1.0, y: 0.0, }
   inspect(Vec2::is_zero(v1), content="false")
 }
 
 ///|
 test "Vec2::is_zero/non-zero-y" {
-  let v1 : Vec2 = { x: 0.0, y: 1.0 }
+  let v1 : Vec2 = { x: 0.0, y: 1.0, }
   inspect(Vec2::is_zero(v1), content="false")
 }
 

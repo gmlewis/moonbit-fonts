@@ -82,7 +82,7 @@ pub fn CompoundPath::new(
   fill? : Fill,
   stroke? : Stroke,
 ) -> CompoundPath {
-  { paths, fill, stroke }
+  { paths, fill, stroke, }
 }
 
 ///|
@@ -111,7 +111,7 @@ pub fn CompoundPath::clone(self : CompoundPath) -> CompoundPath {
   let paths = self.paths.map(fn(path) { path.clone() })
   let fill = clone_option(self.fill)
   let stroke = clone_option(self.stroke)
-  { paths, fill, stroke }
+  { paths, fill, stroke, }
 }
 
 ///|
@@ -182,7 +182,7 @@ pub fn CompoundPath::with_style(
   fill? : Fill,
   stroke? : Stroke,
 ) -> CompoundPath {
-  { ..self, fill, stroke }
+  { ..self, fill, stroke, }
 }
 
 ///|
@@ -259,7 +259,7 @@ pub fn CompoundPath::copy_style(
 ) -> CompoundPath {
   let fill = graphic.first_fill()
   let stroke = graphic.first_stroke()
-  { ..self, fill, stroke }
+  { ..self, fill, stroke, }
 }
 
 ///|
@@ -367,13 +367,13 @@ pub fn CompoundPath::primitives(self : CompoundPath) -> Array[Graphic] {
 ///|
 /// remove_fill returns a new CompoundPath without fill styling.
 pub fn CompoundPath::remove_fill(self : CompoundPath) -> CompoundPath {
-  { ..self, fill: None }
+  { ..self, fill: None, }
 }
 
 ///|
 /// remove_stroke returns a new CompoundPath without stroke styling.
 pub fn CompoundPath::remove_stroke(self : CompoundPath) -> CompoundPath {
-  { ..self, stroke: None }
+  { ..self, stroke: None, }
 }
 
 ///|
@@ -393,7 +393,7 @@ pub fn CompoundPath::scale_stroke(
     Some(stroke) => {
       let width = stroke.width * scale_factor
       let new_stroke = { ..stroke, width, }
-      { ..self, stroke: Some(new_stroke) }
+      { ..self, stroke: Some(new_stroke), }
     }
     _ => self
   }

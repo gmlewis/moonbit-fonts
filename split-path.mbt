@@ -7,7 +7,7 @@ struct Cmd {
 
 ///|
 pub impl Show for Cmd with fn output(self, logger) {
-  let { c, p } = self
+  let { c, p, } = self
   logger.write_string(
     (
       $|{c: \{c.escape(quote=true)}, p: \{p}}
@@ -17,7 +17,7 @@ pub impl Show for Cmd with fn output(self, logger) {
 
 ///|
 test "Cmd show interface" {
-  let cmd = { c: "M", p: Params([10.0, 20.0]) }
+  let cmd = { c: "M", p: Params([10.0, 20.0]), }
   inspect(
     cmd,
     content=(
@@ -48,7 +48,7 @@ fn split_path(d : String) -> Array[Cmd] raise FontError {
         d = d.unsafe_substring(start=c.length() + p.length(), end=d.length())
         let c = c.to_owned()
         let p = parse_params(p.to_owned())
-        cmds.push({ c, p })
+        cmds.push({ c, p, })
       }
       _ => raise FontError("split_path: unable to split SVG path \{d}")
     }
@@ -63,22 +63,22 @@ test "split_path" {
     #|723L507 24ZM395 269L395 433L138 433L138 269L395 269Z
   let got = split_path(d)
   let want = [
-    { c: "M", p: Params([507.0, 24.0]) },
-    { c: "L", p: Params([48.0, 24.0]) },
-    { c: "L", p: Params([48.0, 530.0]) },
-    { c: "L", p: Params([395.0, 530.0]) },
-    { c: "L", p: Params([395.0, 625.0]) },
-    { c: "L", p: Params([48.0, 625.0]) },
-    { c: "L", p: Params([48.0, 723.0]) },
-    { c: "L", p: Params([507.0, 723.0]) },
-    { c: "L", p: Params([507.0, 24.0]) },
-    { c: "Z", p: Params([]) },
-    { c: "M", p: Params([395.0, 269.0]) },
-    { c: "L", p: Params([395.0, 433.0]) },
-    { c: "L", p: Params([138.0, 433.0]) },
-    { c: "L", p: Params([138.0, 269.0]) },
-    { c: "L", p: Params([395.0, 269.0]) },
-    { c: "Z", p: Params([]) },
+    { c: "M", p: Params([507.0, 24.0]), },
+    { c: "L", p: Params([48.0, 24.0]), },
+    { c: "L", p: Params([48.0, 530.0]), },
+    { c: "L", p: Params([395.0, 530.0]), },
+    { c: "L", p: Params([395.0, 625.0]), },
+    { c: "L", p: Params([48.0, 625.0]), },
+    { c: "L", p: Params([48.0, 723.0]), },
+    { c: "L", p: Params([507.0, 723.0]), },
+    { c: "L", p: Params([507.0, 24.0]), },
+    { c: "Z", p: Params([]), },
+    { c: "M", p: Params([395.0, 269.0]), },
+    { c: "L", p: Params([395.0, 433.0]), },
+    { c: "L", p: Params([138.0, 433.0]), },
+    { c: "L", p: Params([138.0, 269.0]), },
+    { c: "L", p: Params([395.0, 269.0]), },
+    { c: "Z", p: Params([]), },
   ]
   @debug.assert_eq(got, want)
 }

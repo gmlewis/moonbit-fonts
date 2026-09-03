@@ -26,7 +26,7 @@ pub(all) struct PathCmd {
 
 ///|
 pub impl Show for PathCmd with fn output(self, logger) {
-  let { cmd, gerber_lp, params } = self
+  let { cmd, gerber_lp, params, } = self
   logger.write_string(
     (
       $|{cmd: \{cmd}, gerber_lp: \{gerber_lp}, params: \{Repr(params)}}
@@ -36,7 +36,7 @@ pub impl Show for PathCmd with fn output(self, logger) {
 
 ///|
 test "PathCmd show interface" {
-  let cmd = { cmd: M, gerber_lp: Dark, params: [{ x: 10.0, y: 20.0 }] }
+  let cmd = { cmd: M, gerber_lp: Dark, params: [{ x: 10.0, y: 20.0, }], }
   inspect(
     cmd,
     content=(
@@ -70,11 +70,11 @@ pub fn PathCmd::from_svg_cmd(
   let params : Array[ParamPair] = Array::makei(svg_cmd.p.0.length() / 2, fn(i) {
     let x = svg_cmd.p.0[i * 2]
     let y = svg_cmd.p.0[i * 2 + 1]
-    { x, y }
+    { x, y, }
   })
 
   //
-  { cmd, gerber_lp, params }
+  { cmd, gerber_lp, params, }
 }
 
 ///|
@@ -97,7 +97,7 @@ pub fn PathCmd::to_svg_cmd(self : PathCmd) -> (Cmd, String) {
     }
   })
   let c = "\{self.cmd}"
-  let cmd = { c, p }
+  let cmd = { c, p, }
   (cmd, gerber_lp)
 }
 
@@ -128,7 +128,7 @@ pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
 pub fn PathCmd::clone(self : PathCmd) -> PathCmd {
   let params = Array::makei(self.params.length(), fn(i) {
     let param = self.params[i]
-    { x: param.x, y: param.y }
+    { x: param.x, y: param.y, }
   })
-  { cmd: self.cmd, gerber_lp: self.gerber_lp, params }
+  { cmd: self.cmd, gerber_lp: self.gerber_lp, params, }
 }

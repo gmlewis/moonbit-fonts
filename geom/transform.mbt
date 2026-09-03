@@ -10,7 +10,7 @@ pub(all) struct Transform {
 
 ///|
 pub impl Show for Transform with fn output(self, logger) {
-  let { position, rotation, scale, skew, origin } = self
+  let { position, rotation, scale, skew, origin, } = self
   logger.write_string(
     (
       $|{position: \{position}, rotation: \{rotation}, scale: \{scale}, skew: \{skew}, origin: \{origin}}
@@ -38,5 +38,5 @@ pub fn Transform::new(
   skew? : Double = 0,
   origin? : Vec2 = vec2(0, 0),
 ) -> Transform {
-  { position, rotation, scale, skew, origin }
+  { position, rotation, scale, skew, origin, }
 }

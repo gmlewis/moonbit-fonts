@@ -9,7 +9,7 @@ pub(all) struct Color {
 
 ///|
 pub impl Show for Color with fn output(self, logging) {
-  let { r, g, b, a } = self
+  let { r, g, b, a, } = self
   logging.write_string(
     (
       $|{r: \{r}, g: \{g}, b: \{b}, a: \{a}}
@@ -36,7 +36,7 @@ pub fn Color::new(
   b? : Double = 0,
   a? : Double = 1,
 ) -> Color {
-  { r, g, b, a }
+  { r, g, b, a, }
 }
 
 ///|
@@ -78,7 +78,7 @@ pub fn Color::transparent() -> Color {
 ///|
 /// `rgba` is a convenience function.
 pub fn rgba(r : Double, g : Double, b : Double, a : Double) -> Color {
-  { r, g, b, a }
+  { r, g, b, a, }
 }
 
 ///|
@@ -144,7 +144,7 @@ fn css_color(r : Int, g : Int, b : Int) -> Color {
   let r = r.to_double() / 255
   let g = g.to_double() / 255
   let b = b.to_double() / 255
-  { r, g, b, a: 1 }
+  { r, g, b, a: 1, }
 }
 
 ///|
@@ -369,7 +369,7 @@ pub fn Color::to_rgb8_number(self : Color) -> UInt {
 pub fn Color::to_hsva(self : Color) -> Array[Double] {
   let mut hue = 0.0
   let mut t = 0.0
-  let { r, g, b, a: alpha } = self
+  let { r, g, b, a: alpha, } = self
   let value = @cmp.maximum(@cmp.maximum(r, g), b)
   let delta = value - @cmp.minimum(@cmp.minimum(r, g), b)
   let f = fn(v) { (value - v) / (6.0 * delta) + 0.5 }

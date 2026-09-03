@@ -11,7 +11,7 @@ pub(all) struct Stroke {
 
 ///|
 pub impl Show for Stroke with fn output(self, logger) {
-  let { color, width, alignment, cap, join, miter_limit } = self
+  let { color, width, alignment, cap, join, miter_limit, } = self
   logger.write_string(
     (
       $|{color: \{color}, width: \{width}, alignment: \{alignment}, cap: \{cap}, join: \{join}, miter_limit: \{miter_limit}}
@@ -211,7 +211,7 @@ pub fn Stroke::new(
   join? : StrokeJoin = Miter,
   miter_limit? : Double = 4,
 ) -> Stroke {
-  { color, width, alignment, cap, join, miter_limit }
+  { color, width, alignment, cap, join, miter_limit, }
 }
 
 ///|

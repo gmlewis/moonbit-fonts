@@ -253,7 +253,7 @@ pub fn glyph_transform(
   origin? : Vec2 = vec2(0, 0),
   affine_matrix? : AffineMatrix,
 ) -> GlyphTransform {
-  { position, rotation, scale, skew, origin, affine_matrix }
+  { position, rotation, scale, skew, origin, affine_matrix, }
 }
 
 ///|
