@@ -192,7 +192,7 @@ pub fn SVGPath::from_glyph(
 ) -> SVGPath raise FontError {
   let bbox = @geom.BoundingBox::max_reversed()
   let svg_cmds = split_path(g.d)
-  let cmds = Array::new(capacity=svg_cmds.length())
+  let cmds = Array(capacity=svg_cmds.length())
   let mut gerber_index = 0
   let mut gerber_lp = Dark
   for index, svg_cmd in svg_cmds {

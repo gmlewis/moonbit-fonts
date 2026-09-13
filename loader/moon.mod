@@ -4,11 +4,11 @@ version = "0.19.6"
 
 import {
   "gmlewis/base64@0.16.12",
-  "gmlewis/flate@0.36.13",
-  "gmlewis/fonts@0.19.15",
-  "gmlewis/gzip@0.34.13",
-  "gmlewis/io@0.23.16",
-  "moonbitlang/async@0.21.2",
+  "gmlewis/flate@0.36.14",
+  "gmlewis/fonts@0.19.16",
+  "gmlewis/gzip@0.34.14",
+  "gmlewis/io@0.23.17",
+  "moonbitlang/async@0.21.3",
   "moonbitlang/regexp@0.3.5",
 }
 
