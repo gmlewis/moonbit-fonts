@@ -62,39 +62,68 @@ def find_best_font(family_query, font_map):
         return matches[0]
     return None
 
+def get_repo_version(repo_dir):
+    """Reads the version from a local moon.mod file."""
+    try:
+        with open(os.path.join(repo_dir, "moon.mod")) as f:
+            match = re.search(r'^version\s*=\s*"([^"]+)"', f.read(), re.MULTILINE)
+        if match:
+            return match.group(1)
+    except OSError:
+        pass
+    return "0.1.0"
+
+def generate_moon_work(member_dirs):
+    """Generates moon.work content (workspace members resolve dependencies locally,
+    since the modern moon.mod format no longer supports path dependencies)."""
+    members = "\n".join(f'  "{d}",' for d in member_dirs)
+    return f"members = [\n{members}\n]\n"
+
 def generate_moon_mod(font_packages, root_dir):
-    """Generates moon.mod.json content."""
+    """Generates moon.mod content (versions are ignored for local workspace members,
+    but are read from the local repos so a registry fallback stays correct)."""
     repos = set()
     for pkg in font_packages:
         repos.add('/'.join(pkg.split('/')[:2]))
 
-    deps = {
-        "gmlewis/fonts": { "path": root_dir }
-    }
-
-    for repo in repos:
+    deps = [("gmlewis/fonts", root_dir)]
+    for repo in sorted(repos):
         repo_suffix = repo.split('-')[-1]
-        phys_repo_path = os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}")
-        deps[repo] = { "path": phys_repo_path }
+        phys_repo_path = os.path.abspath(os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}"))
+        deps.append((repo, phys_repo_path))
 
-    import json
-    return json.dumps({
-        "name": "temp-render",
-        "version": "0.1.0",
-        "deps": deps
-    }, indent=2)
+    imports = "\n".join(f'  "{name}@{get_repo_version(path)}",' for name, path in deps)
+    return (
+        'name = "temp-render"\n'
+        '\n'
+        'version = "0.1.0"\n'
+        '\n'
+        f'import {{\n{imports}\n}}\n'
+        '\n'
+        'preferred_target = "native"\n'
+    )
+
+def generate_moon_work_deps(font_packages, root_dir):
+    """Returns the workspace member directories for the used font repos."""
+    members = [".", root_dir]
+    repos = set()
+    for pkg in font_packages:
+        repos.add('/'.join(pkg.split('/')[:2]))
+    for repo in sorted(repos):
+        repo_suffix = repo.split('-')[-1]
+        members.append(os.path.abspath(os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}")))
+    return members
 
 def generate_moon_pkg(font_packages):
-    """Generates moon.pkg.json content."""
-    import json
-    return json.dumps({
-        "is-main": True,
-        "import": [
-            "gmlewis/fonts/draw",
-            "gmlewis/fonts/geom",
-            "gmlewis/fonts/svg"
-        ] + font_packages
-    }, indent=2)
+    """Generates moon.pkg content."""
+    imports = "\n".join(
+        f'  "{pkg}",' for pkg in
+        ["gmlewis/fonts/draw", "gmlewis/fonts/geom", "gmlewis/fonts/svg"] + sorted(font_packages))
+    return (
+        f'import {{\n{imports}\n}}\n'
+        '\n'
+        'pkgtype(kind: "executable")\n'
+    )
 
 def generate_main_mbt(lines, family_info, alignment):
     """Generates main.mbt content."""
@@ -199,9 +228,11 @@ def main():
     root_dir = os.getcwd()
     tmp_dir = tempfile.mkdtemp(prefix="moon-render-")
     try:
-        with open(os.path.join(tmp_dir, "moon.mod.json"), "w") as f:
+        with open(os.path.join(tmp_dir, "moon.work"), "w") as f:
+            f.write(generate_moon_work(generate_moon_work_deps(font_packages, root_dir)))
+        with open(os.path.join(tmp_dir, "moon.mod"), "w") as f:
             f.write(generate_moon_mod(font_packages, root_dir))
-        with open(os.path.join(tmp_dir, "moon.pkg.json"), "w") as f:
+        with open(os.path.join(tmp_dir, "moon.pkg"), "w") as f:
             f.write(generate_moon_pkg(font_packages))
         with open(os.path.join(tmp_dir, "main.mbt"), "w") as f:
             f.write(generate_main_mbt(lines, family_info, args.align))
@@ -211,7 +242,7 @@ def main():
         if result.returncode != 0:
             print("Error running moon run:")
             print(result.stderr)
-            if not args.keep:
+            if args.keep:
                 print(f"Temp directory kept at: {tmp_dir}")
             sys.exit(1)
 

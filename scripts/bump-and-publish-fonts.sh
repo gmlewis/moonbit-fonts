@@ -17,7 +17,9 @@ for i in ../mbt-fonts-* ; do
     git commit -sam "Bump version to ${VERSION}"
     git push
     # Remove JSON font representations before publishing, then restore.
-    rm $(find . -maxdepth 2 -name "*.json" -not -name moon.pkg.json)
+    # (Only font data JSON files live at depth <= 2: moon.mod and moon.pkg
+    # contain no JSON, and .mooncakes/_build files are deeper.)
+    find . -maxdepth 2 -name "*.json" -delete
     # Additionally, mbt-fonts-n is too large - remove notosans*condensed* fonts
     rm -rf notosans*condensed*
     moon publish

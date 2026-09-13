@@ -29,7 +29,6 @@ while IFS= read -r f; do
 done < <(find "$ROOT_DIR" -name moon.mod \
   -not -path '*/.git/*' \
   -not -path '*/_build/*' \
-  -not -path '*/.mooncakes/*' \
-  -not -name moon.mod.json | sort)
+  -not -path '*/.mooncakes/*' | sort)
 
 echo "Updated gmlewis/fonts@$FONTS_VERSION in $COUNT moon.mod file(s)."

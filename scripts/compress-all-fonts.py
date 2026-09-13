@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import os
+import re
 import sys
 import tempfile
 import subprocess
@@ -17,36 +18,62 @@ def get_font_packages():
     with open("all-fonts.txt", "r") as f:
         return [line.strip() for line in f if line.strip()]
 
-def generate_moon_mod(font_pkg, root_dir):
-    """Generates moon.mod.json content."""
+def get_repo_version(repo_dir):
+    """Reads the version from a local moon.mod file."""
+    try:
+        with open(os.path.join(repo_dir, "moon.mod")) as f:
+            match = re.search(r'^version\s*=\s*"([^"]+)"', f.read(), re.MULTILINE)
+        if match:
+            return match.group(1)
+    except OSError:
+        pass
+    return "0.1.0"
+
+def generate_moon_work(member_dirs):
+    """Generates moon.work content (workspace members resolve dependencies locally,
+    since the modern moon.mod format no longer supports path dependencies)."""
+    members = "\n".join(f'  "{d}",' for d in member_dirs)
+    return f"members = [\n{members}\n]\n"
+
+def resolve_font_repo(font_pkg, root_dir):
+    """Returns (module_name, local_path) for a font package, or None."""
     parts = font_pkg.split('/')
     if len(parts) < 3:
         return None
-    
+
     repo = '/'.join(parts[:2]) # e.g. gmlewis/fonts-a
     repo_suffix = repo.split('-')[-1]
     phys_repo_path = os.path.abspath(os.path.join(root_dir, "..", f"mbt-fonts-{repo_suffix}"))
+    return repo, phys_repo_path
 
-    import json
-    return json.dumps({
-        "name": "temp-compress",
-        "version": "0.1.0",
-        "deps": {
-            "gmlewis/fonts": { "path": root_dir },
-            repo: { "path": phys_repo_path }
-        }
-    }, indent=2)
+def generate_moon_mod(repo, phys_repo_path, root_dir):
+    """Generates moon.mod content (versions are ignored for local workspace members,
+    but are read from the local repos so a registry fallback stays correct)."""
+    imports = "\n".join(
+        f'  "{name}@{get_repo_version(path)}",' for name, path in [
+            ("gmlewis/fonts", root_dir),
+            (repo, phys_repo_path),
+        ])
+    return (
+        'name = "temp-compress"\n'
+        '\n'
+        'version = "0.1.0"\n'
+        '\n'
+        f'import {{\n{imports}\n}}\n'
+        '\n'
+        'preferred_target = "native"\n'
+    )
 
 def generate_moon_pkg(font_pkg):
-    """Generates moon.pkg.json content."""
-    import json
-    return json.dumps({
-        "is-main": True,
-        "import": [
-            "gmlewis/fonts",
-            font_pkg
-        ]
-    }, indent=2)
+    """Generates moon.pkg content."""
+    return (
+        'import {\n'
+        '  "gmlewis/fonts",\n'
+        f'  "{font_pkg}",\n'
+        '}\n'
+        '\n'
+        'pkgtype(kind: "executable")\n'
+    )
 
 def generate_main_mbt(font_pkg):
     """Generates main.mbt content."""
@@ -63,13 +90,16 @@ def compress_font(font_pkg, root_dir, outdir):
     
     tmp_dir = tempfile.mkdtemp(prefix=f"moon-compress-{font_name}-")
     try:
-        moon_mod = generate_moon_mod(font_pkg, root_dir)
-        if not moon_mod:
+        resolved = resolve_font_repo(font_pkg, root_dir)
+        if not resolved:
             return font_pkg, False, f"Skipping {font_pkg}: unexpected format"
+        repo, phys_repo_path = resolved
 
-        with open(os.path.join(tmp_dir, "moon.mod.json"), "w") as f:
-            f.write(moon_mod)
-        with open(os.path.join(tmp_dir, "moon.pkg.json"), "w") as f:
+        with open(os.path.join(tmp_dir, "moon.work"), "w") as f:
+            f.write(generate_moon_work([".", root_dir, phys_repo_path]))
+        with open(os.path.join(tmp_dir, "moon.mod"), "w") as f:
+            f.write(generate_moon_mod(repo, phys_repo_path, root_dir))
+        with open(os.path.join(tmp_dir, "moon.pkg"), "w") as f:
             f.write(generate_moon_pkg(font_pkg))
         with open(os.path.join(tmp_dir, "main.mbt"), "w") as f:
             f.write(generate_main_mbt(font_pkg))

@@ -30,31 +30,60 @@ def find_label_font_pkg(query, all_packages):
             return pkg
     return None
 
-def generate_moon_mod(font_packages, label_font_pkg, root_dir):
-    """Generates moon.mod.json content."""
+def get_repo_version(repo_dir):
+    """Reads the version from a local moon.mod file."""
+    try:
+        with open(os.path.join(repo_dir, "moon.mod")) as f:
+            match = re.search(r'^version\s*=\s*"([^"]+)"', f.read(), re.MULTILINE)
+        if match:
+            return match.group(1)
+    except OSError:
+        pass
+    return "0.1.0"
+
+def generate_moon_work(member_dirs):
+    """Generates moon.work content (workspace members resolve dependencies locally,
+    since the modern moon.mod format no longer supports path dependencies)."""
+    members = "\n".join(f'  "{d}",' for d in member_dirs)
+    return f"members = [\n{members}\n]\n"
+
+def generate_used_repos(font_packages, label_font_pkg):
+    """Returns the set of module names used by the given font packages."""
     repos = set()
     for pkg in font_packages + [label_font_pkg]:
         repos.add('/'.join(pkg.split('/')[:2]))
-        
-    deps = {
-        "gmlewis/fonts": { "path": root_dir }
-    }
-    
-    for repo in repos:
+    return repos
+
+def generate_moon_mod(font_packages, label_font_pkg, root_dir):
+    """Generates moon.mod content (versions are ignored for local workspace members,
+    but are read from the local repos so a registry fallback stays correct)."""
+    deps = [("gmlewis/fonts", root_dir)]
+    for repo in sorted(generate_used_repos(font_packages, label_font_pkg)):
         repo_suffix = repo.split('-')[-1]
-        phys_repo_path = os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}")
-        deps[repo] = { "path": phys_repo_path }
-        
-    import json
-    return json.dumps({
-        "name": "temp-sample-all",
-        "version": "0.1.0",
-        "deps": deps
-    }, indent=2)
+        phys_repo_path = os.path.abspath(os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}"))
+        deps.append((repo, phys_repo_path))
+
+    imports = "\n".join(f'  "{name}@{get_repo_version(path)}",' for name, path in deps)
+    return (
+        'name = "temp-sample-all"\n'
+        '\n'
+        'version = "0.1.0"\n'
+        '\n'
+        f'import {{\n{imports}\n}}\n'
+        '\n'
+        'preferred_target = "native"\n'
+    )
+
+def generate_moon_work_deps(font_packages, label_font_pkg, root_dir):
+    """Returns the workspace member directories for the used font repos."""
+    members = [".", root_dir]
+    for repo in sorted(generate_used_repos(font_packages, label_font_pkg)):
+        repo_suffix = repo.split('-')[-1]
+        members.append(os.path.abspath(os.path.join(os.path.dirname(root_dir), f"mbt-fonts-{repo_suffix}")))
+    return members
 
 def generate_moon_pkg(font_packages, label_font_pkg):
-    """Generates moon.pkg.json content."""
-    import json
+    """Generates moon.pkg content."""
     all_imports = set([
         "gmlewis/fonts/draw",
         "gmlewis/fonts/geom",
@@ -62,10 +91,12 @@ def generate_moon_pkg(font_packages, label_font_pkg):
         label_font_pkg
     ])
     all_imports.update(font_packages)
-    return json.dumps({
-        "is-main": True,
-        "import": sorted(list(all_imports))
-    }, indent=2)
+    imports = "\n".join(f'  "{pkg}",' for pkg in sorted(all_imports))
+    return (
+        f'import {{\n{imports}\n}}\n'
+        '\n'
+        'pkgtype(kind: "executable")\n'
+    )
 
 def generate_main_mbt(font_packages, label_font_pkg, sample_lines):
     """Generates main.mbt content."""
@@ -114,22 +145,25 @@ def process_batch(font_packages, label_font_pkg, sample_lines, output_file, root
         if args.debug:
             print(f"--- Batch setup starting ({len(font_packages)} fonts) ---", file=sys.stderr)
             
-        with open(os.path.join(tmp_dir, "moon.mod.json"), "w") as f:
+        with open(os.path.join(tmp_dir, "moon.work"), "w") as f:
+            f.write(generate_moon_work(generate_moon_work_deps(font_packages, label_font_pkg, root_dir)))
+
+        with open(os.path.join(tmp_dir, "moon.mod"), "w") as f:
             f.write(generate_moon_mod(font_packages, label_font_pkg, root_dir))
-            
-        with open(os.path.join(tmp_dir, "moon.pkg.json"), "w") as f:
+
+        with open(os.path.join(tmp_dir, "moon.pkg"), "w") as f:
             f.write(generate_moon_pkg(font_packages, label_font_pkg))
-            
+
         with open(os.path.join(tmp_dir, "main.mbt"), "w") as f:
             f.write(generate_main_mbt(font_packages, label_font_pkg, sample_lines))
-            
+
         if args.debug:
             print(f"Setup took: {time.time() - start_time:.2f}s", file=sys.stderr)
-            
+
         print(f"Generating SVG for batch of {len(font_packages)} fonts...", file=sys.stderr)
-        
+
         moon_start = time.time()
-        # Using --target native as requested. We don't need moon add/update because we write moon.mod.json directly.
+        # Dependencies are resolved locally via moon.work workspace members.
         result = subprocess.run(["moon", "run", "main.mbt", "--target", "native"], cwd=tmp_dir, capture_output=True, text=True)
         moon_end = time.time()
         
@@ -144,7 +178,7 @@ def process_batch(font_packages, label_font_pkg, sample_lines, output_file, root
             if result.stderr:
                 print("--- STDERR ---", file=sys.stderr)
                 print(result.stderr, file=sys.stderr)
-            if not args.keep:
+            if args.keep:
                 print(f"Temp directory kept at: {tmp_dir}", file=sys.stderr)
             return False
             
@@ -158,7 +192,7 @@ def process_batch(font_packages, label_font_pkg, sample_lines, output_file, root
             print(result.stdout, file=sys.stderr)
             print("--- STDERR ---", file=sys.stderr)
             print(result.stderr, file=sys.stderr)
-            if not args.keep:
+            if args.keep:
                 print(f"Temp directory kept at: {tmp_dir}", file=sys.stderr)
             return False
             
