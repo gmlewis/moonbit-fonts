@@ -1,7 +1,6 @@
 import {
   "gmlewis/fonts/geom",
   "moonbitlang/core/builtin",
-  "moonbitlang/core/buffer",
   "moonbitlang/core/debug",
   "moonbitlang/core/json",
   "moonbitlang/core/string",

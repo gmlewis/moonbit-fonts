@@ -63,6 +63,9 @@ pub fn vec2(Double, Double) -> @geom.Vec2
 pub(all) suberror DrawError {
   DrawError(String)
 } derive(Eq, @debug.Debug)
+pub fn DrawError::equal(Self, Self) -> Bool
+pub fn DrawError::to_repr(Self) -> @debug.Repr
+pub fn DrawError::to_string(Self) -> String
 pub impl Show for DrawError
 
 // Types and methods
@@ -77,6 +80,8 @@ pub fn Anchor::all_anchors(Self) -> Array[Self]
 pub fn Anchor::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Anchor::clone(Self) -> Self
 pub fn Anchor::closest_point(Self, @geom.Vec2, area_of_interest? : @geom.BoundingBox) -> @geom.Vec2?
+pub fn Anchor::equal(Self, Self) -> Bool
+pub fn Anchor::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Anchor::has_tangent_handles(Self, tolerance? : Double) -> Bool
 pub fn Anchor::has_zero_handles(Self) -> Bool
 pub fn Anchor::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
@@ -85,6 +90,9 @@ pub fn Anchor::is_overlapped_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Anchor::loose_bounding_box(Self) -> @geom.BoundingBox?
 pub fn Anchor::new(position? : @geom.Vec2, handle_in? : @geom.Vec2, handle_out? : @geom.Vec2) -> Self
 pub fn Anchor::reverse(Self) -> Self
+pub fn Anchor::to_json(Self) -> Json
+pub fn Anchor::to_repr(Self) -> @debug.Repr
+pub fn Anchor::to_string(Self) -> String
 pub fn Anchor::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub impl Show for Anchor
 
@@ -99,8 +107,10 @@ pub fn Color::as_stroke(Self, width? : Double, alignment? : StrokeAlignment, cap
 pub fn Color::black() -> Self
 pub fn Color::blue() -> Self
 pub fn Color::clone(Self) -> Self
+pub fn Color::equal(Self, Self) -> Bool
 pub fn Color::from_css_string(String) -> Self raise
 pub fn Color::from_hsva(Double, Double, Double, Double) -> Self
+pub fn Color::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Color::from_rgb8_number(UInt) -> Self
 pub fn Color::green() -> Self
 pub fn Color::luminance(Self) -> Double
@@ -112,7 +122,10 @@ pub fn Color::to_css_hex_string(Self) -> String
 pub fn Color::to_css_rgba_string(Self) -> String
 pub fn Color::to_css_string(Self) -> String
 pub fn Color::to_hsva(Self) -> Array[Double]
+pub fn Color::to_json(Self) -> Json
+pub fn Color::to_repr(Self) -> @debug.Repr
 pub fn Color::to_rgb8_number(Self) -> UInt
+pub fn Color::to_string(Self) -> String
 pub fn Color::transparent() -> Self
 pub fn Color::white() -> Self
 pub impl Show for Color
@@ -132,6 +145,7 @@ pub fn CompoundPath::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anch
 pub fn CompoundPath::contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::copy_style(Self, Graphic) -> Self
 pub fn CompoundPath::first_styled(Self) -> Graphic?
+pub fn CompoundPath::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 #alias("_[_]")
 pub fn CompoundPath::get(Self, Int) -> Path
 pub fn CompoundPath::has_style(Self) -> Bool
@@ -151,6 +165,8 @@ pub fn CompoundPath::scale_stroke(Self, Double) -> Self
 pub fn CompoundPath::set(Self, Int, Path) -> Unit
 pub fn CompoundPath::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::to_json(Self) -> Json
+pub fn CompoundPath::to_repr(Self) -> @debug.Repr
+pub fn CompoundPath::to_string(Self) -> String
 pub fn CompoundPath::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn CompoundPath::translate(Self, @geom.Vec2) -> Self
 pub fn CompoundPath::with_fill(Self, Fill?) -> Self
@@ -161,8 +177,14 @@ pub impl Show for CompoundPath
 pub(all) struct Fill {
   color : Color
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn Fill::clone(Self) -> Self
+pub fn Fill::equal(Self, Self) -> Bool
+pub fn Fill::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Fill::from_string(String) -> Self raise
 pub fn Fill::new(color? : Color) -> Self
+pub fn Fill::to_json(Self) -> Json
+pub fn Fill::to_repr(Self) -> @debug.Repr
+pub fn Fill::to_string(Self) -> String
 pub impl Clonable for Fill
 pub impl Show for Fill
 
@@ -198,6 +220,7 @@ pub(all) enum Graphic {
   Group(Group)
   Path(Path)
 } derive(@debug.Debug)
+pub fn Graphic::add(Self, Self) -> Self
 pub fn Graphic::affine_transform(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::affine_transform_without_translation(Self, @geom.AffineMatrix) -> Self
 pub fn Graphic::all_anchors(Self) -> Array[Anchor]
@@ -214,6 +237,7 @@ pub fn Graphic::first_fill(Self) -> Fill?
 pub fn Graphic::first_stroke(Self) -> Stroke?
 pub fn Graphic::first_styled(Self) -> Self?
 pub fn Graphic::fit_to(Self, @geom.BoundingBox, anchor? : @geom.Alignment) -> Self
+pub fn Graphic::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Graphic::has_style(Self) -> Bool
 pub fn Graphic::is_contained_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
 pub fn Graphic::is_intersected_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
@@ -230,8 +254,11 @@ pub fn Graphic::scale_to_fill(Self, @geom.BoundingBox) -> Self
 pub fn Graphic::scale_to_fit(Self, @geom.BoundingBox, anchor? : @geom.Alignment) -> Self
 pub fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::style_contains_point(@geom.Vec2) -> (Self) -> Bool
+pub fn Graphic::to_json(Self) -> Json
 pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[@geom.Vec2], Array[Array[@geom.Vec2]])]
 pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
+pub fn Graphic::to_repr(Self) -> @debug.Repr
+pub fn Graphic::to_string(Self) -> String
 pub fn Graphic::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Graphic::translate(Self, @geom.Vec2) -> Self
 pub fn Graphic::with_background(Self, Color) -> Self
@@ -262,6 +289,7 @@ pub fn Group::copy_style(Self, Graphic) -> Self
 pub fn Group::first_fill(Self) -> Fill?
 pub fn Group::first_stroke(Self) -> Stroke?
 pub fn Group::first_styled(Self) -> Graphic?
+pub fn Group::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 #alias("_[_]")
 pub fn Group::get(Self, Int) -> Graphic
 pub fn Group::has_style(Self) -> Bool
@@ -282,6 +310,8 @@ pub fn Group::self_transform(Self, position? : @geom.Vec2, rotation? : Double, s
 pub fn Group::set(Self, Int, Graphic) -> Unit
 pub fn Group::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Group::to_json(Self) -> Json
+pub fn Group::to_repr(Self) -> @debug.Repr
+pub fn Group::to_string(Self) -> String
 pub fn Group::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Group::translate(Self, @geom.Vec2) -> Self
 pub fn Group::with_fill(Self, Fill?) -> Self
@@ -305,6 +335,7 @@ pub fn Path::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
 pub fn Path::contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::copy_style(Self, Graphic) -> Self
 pub fn Path::first_styled(Self) -> Graphic?
+pub fn Path::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Path::from_points(Array[@geom.Vec2], closed? : Bool) -> Self
 #alias("_[_]")
 pub fn Path::get(Self, Int) -> Anchor
@@ -326,6 +357,8 @@ pub fn Path::set(Self, Int, Anchor) -> Unit
 pub fn Path::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::to_json(Self) -> Json
 pub fn Path::to_polygon(Self, Int, epsilon? : Double) -> Array[@geom.Vec2]
+pub fn Path::to_repr(Self) -> @debug.Repr
+pub fn Path::to_string(Self) -> String
 pub fn Path::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
 pub fn Path::translate(Self, @geom.Vec2) -> Self
 pub fn Path::with_fill(Self, Fill?) -> Self
@@ -341,7 +374,13 @@ pub(all) struct Stroke {
   mut join : StrokeJoin
   mut miter_limit : Double
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn Stroke::clone(Self) -> Self
+pub fn Stroke::equal(Self, Self) -> Bool
+pub fn Stroke::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Stroke::new(color? : Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Self
+pub fn Stroke::to_json(Self) -> Json
+pub fn Stroke::to_repr(Self) -> @debug.Repr
+pub fn Stroke::to_string(Self) -> String
 pub impl Clonable for Stroke
 pub impl Show for Stroke
 
@@ -350,6 +389,11 @@ pub(all) enum StrokeAlignment {
   Inner
   Outer
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn StrokeAlignment::equal(Self, Self) -> Bool
+pub fn StrokeAlignment::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn StrokeAlignment::to_json(Self) -> Json
+pub fn StrokeAlignment::to_repr(Self) -> @debug.Repr
+pub fn StrokeAlignment::to_string(Self) -> String
 pub impl Show for StrokeAlignment
 
 pub(all) enum StrokeCap {
@@ -357,6 +401,11 @@ pub(all) enum StrokeCap {
   Round
   Square
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn StrokeCap::equal(Self, Self) -> Bool
+pub fn StrokeCap::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn StrokeCap::to_json(Self) -> Json
+pub fn StrokeCap::to_repr(Self) -> @debug.Repr
+pub fn StrokeCap::to_string(Self) -> String
 pub impl Show for StrokeCap
 
 pub(all) enum StrokeJoin {
@@ -364,6 +413,11 @@ pub(all) enum StrokeJoin {
   Round
   Bevel
 } derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn StrokeJoin::equal(Self, Self) -> Bool
+pub fn StrokeJoin::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn StrokeJoin::to_json(Self) -> Json
+pub fn StrokeJoin::to_repr(Self) -> @debug.Repr
+pub fn StrokeJoin::to_string(Self) -> String
 pub impl Show for StrokeJoin
 
 pub(all) enum TextAlign {
@@ -371,6 +425,9 @@ pub(all) enum TextAlign {
   Center
   Right
 } derive(Eq, @debug.Debug)
+pub fn TextAlign::equal(Self, Self) -> Bool
+pub fn TextAlign::to_repr(Self) -> @debug.Repr
+pub fn TextAlign::to_string(Self) -> String
 pub impl Show for TextAlign
 
 pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)

@@ -26,21 +26,21 @@ pub impl Show for TestError with fn output(self, logger) {
 ///|
 test "BoundingBox::new" {
   // Test default values (both min and max are zero vectors)
-  let bb1 = BoundingBox::new()
+  let bb1 = @geom.BoundingBox::new()
   inspect(bb1.min.x, content="0")
   inspect(bb1.min.y, content="0")
   inspect(bb1.max.x, content="0")
   inspect(bb1.max.y, content="0")
 
   // Test custom values
-  let bb2 = BoundingBox::new(min=vec2(-1, -2), max=vec2(3, 4))
+  let bb2 = @geom.BoundingBox::new(min=@geom.vec2(-1, -2), max=@geom.vec2(3, 4))
   inspect(bb2.min.x, content="-1")
   inspect(bb2.min.y, content="-2")
   inspect(bb2.max.x, content="3")
   inspect(bb2.max.y, content="4")
 
   // Test zero-area bounding box
-  let bb3 = BoundingBox::new(min=vec2(5, 5), max=vec2(5, 5))
+  let bb3 = @geom.BoundingBox::new(min=@geom.vec2(5, 5), max=@geom.vec2(5, 5))
   inspect(bb3.min.x, content="5")
   inspect(bb3.min.y, content="5")
   inspect(bb3.max.x, content="5")
@@ -50,12 +50,12 @@ test "BoundingBox::new" {
 ///|
 test "BoundingBox::from_points/normal" {
   let points = [
-    vec2(-1.0, -1.0),
-    vec2(1.0, -1.0),
-    vec2(1.0, 1.0),
-    vec2(-1.0, 1.0),
+    @geom.vec2(-1.0, -1.0),
+    @geom.vec2(1.0, -1.0),
+    @geom.vec2(1.0, 1.0),
+    @geom.vec2(-1.0, 1.0),
   ]
-  let bbox = BoundingBox::from_points(points)
+  let bbox = @geom.BoundingBox::from_points(points)
   inspect(bbox.min.x, content="-1")
   inspect(bbox.min.y, content="-1")
   inspect(bbox.max.x, content="1")
@@ -64,7 +64,10 @@ test "BoundingBox::from_points/normal" {
 
 ///|
 test "clone/basic" {
-  let bbox = BoundingBox::new(min=vec2(1.0, 2.0), max=vec2(3.0, 4.0))
+  let bbox = @geom.BoundingBox::new(
+    min=@geom.vec2(1.0, 2.0),
+    max=@geom.vec2(3.0, 4.0),
+  )
   let cloned = bbox.clone()
   inspect(cloned.min.x, content="1")
   inspect(cloned.min.y, content="2")
@@ -74,55 +77,64 @@ test "clone/basic" {
 
 ///|
 test "BoundingBox::center" {
-  let bbox = BoundingBox::new(min=vec2(0.0, 0.0), max=vec2(1.0, 1.0))
+  let bbox = @geom.BoundingBox::new(
+    min=@geom.vec2(0.0, 0.0),
+    max=@geom.vec2(1.0, 1.0),
+  )
   inspect(bbox.center(), content="{x: 0.5, y: 0.5}")
 }
 
 ///|
 test "BoundingBox::width" {
-  let box1 = BoundingBox::new(min=vec2(1.0, 2.0), max=vec2(4.0, 6.0))
+  let box1 = @geom.BoundingBox::new(
+    min=@geom.vec2(1.0, 2.0),
+    max=@geom.vec2(4.0, 6.0),
+  )
   inspect(box1.width(), content="3")
 }
 
 ///|
 test "BoundingBox::height" {
-  let bbox = BoundingBox::new(min=vec2(0, 1), max=vec2(10, 5))
+  let bbox = @geom.BoundingBox::new(min=@geom.vec2(0, 1), max=@geom.vec2(10, 5))
   inspect(bbox.height(), content="4")
 }
 
 ///|
 test "BoundingBox::area" {
-  let box1 = BoundingBox::new(min=vec2(0, 0), max=vec2(5, 4))
+  let box1 = @geom.BoundingBox::new(min=@geom.vec2(0, 0), max=@geom.vec2(5, 4))
   inspect(box1.area(), content="20")
 }
 
 ///|
 test "BoundingBox::contains_point" {
-  let bbox = BoundingBox::new(min=vec2(0.0, 0.0), max=vec2(10.0, 10.0))
-  let point = vec2(5.0, 5.0)
+  let bbox = @geom.BoundingBox::new(
+    min=@geom.vec2(0.0, 0.0),
+    max=@geom.vec2(10.0, 10.0),
+  )
+  let point = @geom.vec2(5.0, 5.0)
   inspect(bbox.contains_point(point), content="true")
-  let outside = vec2(15.0, 5.0)
+  let outside = @geom.vec2(15.0, 5.0)
   inspect(bbox.contains_point(outside), content="false")
 }
 
 ///|
 test "BoundingBox::overlaps_bounding_box" {
-  let box1 = BoundingBox::new(min=vec2(0, 0), max=vec2(2, 2))
-  let box2 = BoundingBox::new(min=vec2(1, 1), max=vec2(3, 3))
+  let box1 = @geom.BoundingBox::new(min=@geom.vec2(0, 0), max=@geom.vec2(2, 2))
+  let box2 = @geom.BoundingBox::new(min=@geom.vec2(1, 1), max=@geom.vec2(3, 3))
   // Partial overlap should be true now
   inspect(box1.overlaps_bounding_box(box2), content="true")
-  let box3 = BoundingBox::new(min=vec2(3, 3), max=vec2(4, 4))
+  let box3 = @geom.BoundingBox::new(min=@geom.vec2(3, 3), max=@geom.vec2(4, 4))
   inspect(box1.overlaps_bounding_box(box3), content="false")
 }
 
 ///|
-fn test_in(f : BoundingBox, g : BoundingBox) -> TestError? {
+fn test_in(f : @geom.BoundingBox, g : @geom.BoundingBox) -> TestError? {
   if !f.is_in(g) {
     return Some(TestError("f=\{f}, f.is_in(\{g}): got false, want true"))
   }
   for y = f.min.y; y < f.max.y; y = y + 1 {
     for x = f.min.x; x < f.max.x; x = x + 1 {
-      let p = pt(x, y)
+      let p = @geom.pt(x, y)
       if !p.is_in(g) {
         return Some(TestError("p=\{p}, p.is_in(\{g}): got false, want true"))
       }
@@ -134,17 +146,17 @@ fn test_in(f : BoundingBox, g : BoundingBox) -> TestError? {
 ///|
 test "every point in f is in g" {
   let rects = [
-    rect(0, 0, 10, 10),
-    rect(10, 0, 20, 10),
-    rect(1, 2, 3, 4),
-    rect(4, 6, 10, 10),
-    rect(2, 3, 12, 5),
-    rect(-1, -2, 0, 0),
-    rect(-1, -2, 4, 6),
-    rect(-10, -20, 30, 40),
-    rect(8, 8, 8, 8),
-    rect(88, 88, 88, 88),
-    rect(6, 5, 4, 3),
+    @geom.rect(0, 0, 10, 10),
+    @geom.rect(10, 0, 20, 10),
+    @geom.rect(1, 2, 3, 4),
+    @geom.rect(4, 6, 10, 10),
+    @geom.rect(2, 3, 12, 5),
+    @geom.rect(-1, -2, 0, 0),
+    @geom.rect(-1, -2, 4, 6),
+    @geom.rect(-10, -20, 30, 40),
+    @geom.rect(8, 8, 8, 8),
+    @geom.rect(88, 88, 88, 88),
+    @geom.rect(6, 5, 4, 3),
   ]
 
   // r == s should be equivalent to every point in r being in s, and every
@@ -179,7 +191,7 @@ test "every point in f is in g" {
           "Intersect: r=\{r}, s=\{s}, a\{a}, a not in s: \{err.unwrap().to_repr()}",
         )
       }
-      let (is_zero, overlaps) = (a == BoundingBox::new(), r.overlaps(s))
+      let (is_zero, overlaps) = (a == @geom.BoundingBox::new(), r.overlaps(s))
       if is_zero == overlaps {
         raise TestError(
           "Intersect: r=\{r}, s=\{s}, a\{a}: is_zero=\{is_zero} same as overlaps=\{overlaps}",

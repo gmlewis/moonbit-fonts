@@ -33,6 +33,7 @@ pub(all) struct AffineMatrix {
 pub fn AffineMatrix::clone(Self) -> Self
 pub fn AffineMatrix::copy(Self, Self) -> Unit
 pub fn AffineMatrix::determinant(Self) -> Double
+pub fn AffineMatrix::equal(Self, Self) -> Bool
 pub fn AffineMatrix::from_center_scale(Vec2, Vec2) -> Self
 pub fn AffineMatrix::from_rotation(Double) -> Self
 pub fn AffineMatrix::from_scale(Vec2) -> Self
@@ -60,6 +61,8 @@ pub fn AffineMatrix::scale(Self, Vec2) -> Self
 pub fn AffineMatrix::scale_scalar(Self, Double) -> Self
 pub fn AffineMatrix::self_mul(Self, Self) -> Unit
 pub fn AffineMatrix::skew(Self, Double) -> Self
+pub fn AffineMatrix::to_repr(Self) -> @debug.Repr
+pub fn AffineMatrix::to_string(Self) -> String
 pub fn AffineMatrix::to_transform(Self, origin? : Vec2) -> Transform
 pub fn AffineMatrix::translate(Self, Vec2) -> Self
 pub impl Mul for AffineMatrix
@@ -81,6 +84,9 @@ pub(all) enum Alignment {
   BottomRight
   RatioXY(Double, Double)
 } derive(Eq, @debug.Debug)
+pub fn Alignment::equal(Self, Self) -> Bool
+pub fn Alignment::to_repr(Self) -> @debug.Repr
+pub fn Alignment::to_string(Self) -> String
 pub impl Show for Alignment
 
 pub(all) struct BoundingBox {
@@ -98,6 +104,7 @@ pub fn BoundingBox::contains_point(Self, Vec2) -> Bool
 pub fn BoundingBox::copy(Self, Self) -> Unit
 pub fn BoundingBox::dx(Self) -> Double
 pub fn BoundingBox::dy(Self) -> Double
+pub fn BoundingBox::equal(Self, Self) -> Bool
 pub fn BoundingBox::expand_scalar(Self, Double) -> Unit
 pub fn BoundingBox::expand_to_include_bounding_box(Self, Self) -> Unit
 pub fn BoundingBox::expand_to_include_point(Self, Vec2) -> Unit
@@ -114,6 +121,8 @@ pub fn BoundingBox::new(min? : Vec2, max? : Vec2) -> Self
 pub fn BoundingBox::overlaps(Self, Self) -> Bool
 pub fn BoundingBox::overlaps_bounding_box(Self, Self) -> Bool
 pub fn BoundingBox::size(Self) -> Vec2
+pub fn BoundingBox::to_repr(Self) -> @debug.Repr
+pub fn BoundingBox::to_string(Self) -> String
 pub fn BoundingBox::union(Self, Self) -> Self
 pub fn BoundingBox::width(Self) -> Double
 pub impl Show for BoundingBox
@@ -125,7 +134,10 @@ pub(all) struct Transform {
   skew : Double
   origin : Vec2
 } derive(Eq, @debug.Debug)
+pub fn Transform::equal(Self, Self) -> Bool
 pub fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
+pub fn Transform::to_repr(Self) -> @debug.Repr
+pub fn Transform::to_string(Self) -> String
 pub impl Show for Transform
 
 pub(all) struct Vec2 {
@@ -147,10 +159,13 @@ pub fn Vec2::cross(Self, Self) -> Double
 pub fn Vec2::distance(Self, Self) -> Double
 pub fn Vec2::distance_squared(Self, Self) -> Double
 pub fn Vec2::distance_squared_tuple((Double, Double), (Double, Double)) -> Double
+pub fn Vec2::div(Self, Self) -> Self
 pub fn Vec2::dot(Self, Self) -> Double
+pub fn Vec2::equal(Self, Self) -> Bool
 pub fn Vec2::floor(Self) -> Self
 pub fn Vec2::from_angle(Double) -> Self
 pub fn Vec2::from_angle_radians(Double) -> Self
+pub fn Vec2::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Vec2::from_tuple((Double, Double)) -> Self
 pub fn Vec2::infinity() -> Self
 pub fn Vec2::is_clockwise_from(Self, Self) -> Bool
@@ -164,7 +179,9 @@ pub fn Vec2::length_squared(Self) -> Double
 pub fn Vec2::max(Self, Self) -> Unit
 pub fn Vec2::min(Self, Self) -> Unit
 pub fn Vec2::mix(Self, Self, Double) -> Self
+pub fn Vec2::mul(Self, Self) -> Self
 pub fn Vec2::mul_scalar(Self, Double) -> Self
+pub fn Vec2::neg(Self) -> Self
 pub fn Vec2::neg_infinity() -> Self
 pub fn Vec2::negate(Self) -> Unit
 pub fn Vec2::new(x? : Double, y? : Double) -> Self
@@ -187,6 +204,9 @@ pub fn Vec2::self_sub(Self, Self) -> Unit
 pub fn Vec2::self_sub_scalar(Self, Double) -> Unit
 pub fn Vec2::set(Self, Double, Double) -> Unit
 pub fn Vec2::sub(Self, Self) -> Self
+pub fn Vec2::to_json(Self) -> Json
+pub fn Vec2::to_repr(Self) -> @debug.Repr
+pub fn Vec2::to_string(Self) -> String
 pub fn Vec2::to_tuple(Self) -> (Double, Double)
 pub fn Vec2::transform(Self, position? : Self, rotation? : Double, scale? : Self, skew? : Double, origin? : Self) -> Self
 pub impl Add for Vec2

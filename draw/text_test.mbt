@@ -34,17 +34,17 @@ let text_test_font : @fonts.Font = {
 
 ///|
 test "text_with/Override by grapheme_index" {
-  let red_fill = fill(rgba(1, 0, 0, 1))
-  let black_fill = fill(rgba(0, 0, 0, 1))
-  let graphic = text_with(
+  let red_fill = @draw.fill(@draw.rgba(1, 0, 0, 1))
+  let black_fill = @draw.fill(@draw.rgba(0, 0, 0, 1))
+  let graphic = @draw.text_with(
     text_test_font,
     "*A",
     size=100,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme_index == 0 {
-        glyph_style_override(fill=red_fill)
+        @draw.glyph_style_override(fill=red_fill)
       } else {
-        glyph_style_override(fill=black_fill)
+        @draw.glyph_style_override(fill=black_fill)
       }
     }),
   )
@@ -56,19 +56,19 @@ test "text_with/Override by grapheme_index" {
 
 ///|
 test "text_with/Skip marker then Override next" {
-  let red_fill = fill(rgba(1, 0, 0, 1))
-  let black_fill = fill(rgba(0, 0, 0, 1))
-  let graphic = text_with(
+  let red_fill = @draw.fill(@draw.rgba(1, 0, 0, 1))
+  let black_fill = @draw.fill(@draw.rgba(0, 0, 0, 1))
+  let graphic = @draw.text_with(
     text_test_font,
     "*A",
     size=100,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme == "*" {
-        glyph_style_skip()
+        @draw.glyph_style_skip()
       } else if ctx.grapheme_index == 1 {
-        glyph_style_override(fill=red_fill)
+        @draw.glyph_style_override(fill=red_fill)
       } else {
-        glyph_style_override(fill=black_fill)
+        @draw.glyph_style_override(fill=black_fill)
       }
     }),
   )
@@ -79,16 +79,16 @@ test "text_with/Skip marker then Override next" {
 
 ///|
 test "text_with/UseDefault and Override stroke" {
-  let green_stroke = stroke(rgba(0, 1, 0, 1), width=2)
-  let graphic = text_with(
+  let green_stroke = @draw.stroke(@draw.rgba(0, 1, 0, 1), width=2)
+  let graphic = @draw.text_with(
     text_test_font,
     "AA",
     size=100,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme_index == 0 {
-        glyph_style_override(stroke=green_stroke)
+        @draw.glyph_style_override(stroke=green_stroke)
       } else {
-        glyph_style_use_default()
+        @draw.glyph_style_use_default()
       }
     }),
   )
@@ -102,13 +102,13 @@ test "text_with/UseDefault and Override stroke" {
 
 ///|
 test "text_with_tuple/compatibility helper" {
-  let red_fill = fill(rgba(1, 0, 0, 1))
-  let black_fill = fill(rgba(0, 0, 0, 1))
-  let graphic = text_with_tuple(
+  let red_fill = @draw.fill(@draw.rgba(1, 0, 0, 1))
+  let black_fill = @draw.fill(@draw.rgba(0, 0, 0, 1))
+  let graphic = @draw.text_with_tuple(
     text_test_font,
     "A*",
     size=100,
-    style_fn=text_with_tuple_style_fn(fn(_pos, glyph) {
+    style_fn=@draw.text_with_tuple_style_fn(fn(_pos, glyph) {
       if glyph == "*" {
         (None, Some(red_fill))
       } else {
@@ -124,17 +124,17 @@ test "text_with_tuple/compatibility helper" {
 
 ///|
 test "text_with/context line_index across newline" {
-  let red_fill = fill(rgba(1, 0, 0, 1))
-  let black_fill = fill(rgba(0, 0, 0, 1))
-  let graphic = text_with(
+  let red_fill = @draw.fill(@draw.rgba(1, 0, 0, 1))
+  let black_fill = @draw.fill(@draw.rgba(0, 0, 0, 1))
+  let graphic = @draw.text_with(
     text_test_font,
     "A\nA",
     size=100,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.line_index == 0 {
-        glyph_style_override(fill=black_fill)
+        @draw.glyph_style_override(fill=black_fill)
       } else {
-        glyph_style_override(fill=red_fill)
+        @draw.glyph_style_override(fill=red_fill)
       }
     }),
   )
@@ -146,17 +146,17 @@ test "text_with/context line_index across newline" {
 
 ///|
 test "text_with/context grapheme_index_in_line resets" {
-  let red_fill = fill(rgba(1, 0, 0, 1))
-  let black_fill = fill(rgba(0, 0, 0, 1))
-  let graphic = text_with(
+  let red_fill = @draw.fill(@draw.rgba(1, 0, 0, 1))
+  let black_fill = @draw.fill(@draw.rgba(0, 0, 0, 1))
+  let graphic = @draw.text_with(
     text_test_font,
     "AA\nA",
     size=100,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme_index_in_line == 0 {
-        glyph_style_override(fill=red_fill)
+        @draw.glyph_style_override(fill=red_fill)
       } else {
-        glyph_style_override(fill=black_fill)
+        @draw.glyph_style_override(fill=black_fill)
       }
     }),
   )
@@ -169,9 +169,9 @@ test "text_with/context grapheme_index_in_line resets" {
 
 ///|
 test "text_with/alignment Left Center Right" {
-  let left = text_with(text_test_font, "AA", size=100, align=Left)
-  let center = text_with(text_test_font, "AA", size=100, align=Center)
-  let right = text_with(text_test_font, "AA", size=100, align=Right)
+  let left = @draw.text_with(text_test_font, "AA", size=100, align=Left)
+  let center = @draw.text_with(text_test_font, "AA", size=100, align=Center)
+  let right = @draw.text_with(text_test_font, "AA", size=100, align=Right)
 
   let left_bbox = left.bounding_box().unwrap()
   let center_bbox = center.bounding_box().unwrap()
@@ -193,42 +193,42 @@ test "text_with/alignment Left Center Right" {
 
 ///|
 test "text_with/alignment with Skip marker" {
-  let left = text_with(
+  let left = @draw.text_with(
     text_test_font,
     "*AA",
     size=100,
     align=Left,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme == "*" {
-        glyph_style_skip()
+        @draw.glyph_style_skip()
       } else {
-        glyph_style_use_default()
+        @draw.glyph_style_use_default()
       }
     }),
   )
-  let center = text_with(
+  let center = @draw.text_with(
     text_test_font,
     "*AA",
     size=100,
     align=Center,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme == "*" {
-        glyph_style_skip()
+        @draw.glyph_style_skip()
       } else {
-        glyph_style_use_default()
+        @draw.glyph_style_use_default()
       }
     }),
   )
-  let right = text_with(
+  let right = @draw.text_with(
     text_test_font,
     "*AA",
     size=100,
     align=Right,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme == "*" {
-        glyph_style_skip()
+        @draw.glyph_style_skip()
       } else {
-        glyph_style_use_default()
+        @draw.glyph_style_use_default()
       }
     }),
   )
@@ -253,17 +253,17 @@ test "text_with/alignment with Skip marker" {
 
 ///|
 test "text_with/context pen_position_scaled can drive translation" {
-  let graphic = text_with(
+  let graphic = @draw.text_with(
     text_test_font,
     "AA",
     size=100,
-    style_fn=text_with_style_fn(fn(ctx) {
+    style_fn=@draw.text_with_style_fn(fn(ctx) {
       if ctx.grapheme_index == 1 {
-        glyph_style_use_default(
-          transform=glyph_transform(position=ctx.pen_position_scaled),
+        @draw.glyph_style_use_default(
+          transform=@draw.glyph_transform(position=ctx.pen_position_scaled),
         )
       } else {
-        glyph_style_use_default()
+        @draw.glyph_style_use_default()
       }
     }),
   )
@@ -274,12 +274,14 @@ test "text_with/context pen_position_scaled can drive translation" {
 
 ///|
 test "text_with/glyph_transform scale" {
-  let graphic = text_with(
+  let graphic = @draw.text_with(
     text_test_font,
     "A",
     size=100,
-    style_fn=text_with_style_fn(fn(_ctx) {
-      glyph_style_use_default(transform=glyph_transform(scale=vec2(2, 1)))
+    style_fn=@draw.text_with_style_fn(fn(_ctx) {
+      @draw.glyph_style_use_default(
+        transform=@draw.glyph_transform(scale=@draw.vec2(2, 1)),
+      )
     }),
   )
   let bbox = graphic.bounding_box().unwrap()
@@ -289,12 +291,14 @@ test "text_with/glyph_transform scale" {
 
 ///|
 test "text_with/glyph_transform rotation" {
-  let graphic = text_with(
+  let graphic = @draw.text_with(
     text_test_font,
     "A",
     size=100,
-    style_fn=text_with_style_fn(fn(_ctx) {
-      glyph_style_use_default(transform=glyph_transform(rotation=90))
+    style_fn=@draw.text_with_style_fn(fn(_ctx) {
+      @draw.glyph_style_use_default(
+        transform=@draw.glyph_transform(rotation=90),
+      )
     }),
   )
   let bbox = graphic.bounding_box().unwrap()
@@ -306,14 +310,14 @@ test "text_with/glyph_transform rotation" {
 
 ///|
 test "text_with/glyph_transform affine_matrix" {
-  let graphic = text_with(
+  let graphic = @draw.text_with(
     text_test_font,
     "A",
     size=100,
-    style_fn=text_with_style_fn(fn(_ctx) {
-      glyph_style_use_default(
-        transform=glyph_transform(
-          affine_matrix=AffineMatrix::new(a=1, d=1, tx=3, ty=4),
+    style_fn=@draw.text_with_style_fn(fn(_ctx) {
+      @draw.glyph_style_use_default(
+        transform=@draw.glyph_transform(
+          affine_matrix=@draw.AffineMatrix::new(a=1, d=1, tx=3, ty=4),
         ),
       )
     }),

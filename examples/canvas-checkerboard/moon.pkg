@@ -1,6 +1,5 @@
 import {
   "gmlewis/fonts/canvas",
-  "gmlewis/fonts/draw",
   "gmlewis/fonts/geom",
   "gmlewis/fonts/examples/checkerboard",
   "moonbitlang/core/builtin",

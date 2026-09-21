@@ -1,6 +1,22 @@
 #!/bin/bash
 set -euo pipefail
 
+# Usage: ./update.sh [--upgrade]
+#
+#   --upgrade   Also upgrade every third-party dependency to its latest
+#               published version. That step is slow (one `moon add --upgrade`
+#               per dependency per module), so it is skipped by default.
+UPGRADE=false
+for arg in "$@"; do
+  case "$arg" in
+    --upgrade) UPGRADE=true ;;
+    *)
+      echo "usage: $0 [--upgrade]" >&2
+      exit 2
+      ;;
+  esac
+done
+
 # Configuration - use available CPUs
 MAX_JOBS=${MAX_JOBS:-4}
 
@@ -45,10 +61,17 @@ upgrade_module_deps() {
     (cd "$dir" && moon add --upgrade "$dep" >/dev/null 2>&1 || true)
   done
 }
-echo "Upgrading third-party dependencies to latest..."
-while IFS= read -r -d '' f; do
-  upgrade_module_deps "$f"
-done < <(find . -path './.mooncakes' -prune -o -path './_build' -prune -o -name moon.mod -print0 | sort -z)
+
+# The upgrade itself is slow - one `moon add --upgrade` per dependency per
+# module - so it only runs with `./update.sh --upgrade`.
+if [[ "$UPGRADE" == true ]]; then
+  echo "Upgrading third-party dependencies to latest..."
+  while IFS= read -r -d '' f; do
+    upgrade_module_deps "$f"
+  done < <(find . -path './.mooncakes' -prune -o -path './_build' -prune -o -name moon.mod -print0 | sort -z)
+else
+  echo "Skipping third-party dependency upgrade (pass --upgrade to enable)."
+fi
 
 # Clean build artifacts quickly
 echo "Cleaning build artifacts..."

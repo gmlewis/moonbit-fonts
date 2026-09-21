@@ -3,8 +3,8 @@ name = "gmlewis/voronoi-stained-glass"
 version = "0.1.0"
 
 import {
-  "gmlewis/fonts@0.19.16",
-  "gmlewis/fonts-b@0.19.15",
+  "gmlewis/fonts@0.19.17",
+  "gmlewis/fonts-b@0.19.16",
 }
 
 readme = "README.md"
