@@ -38,9 +38,9 @@ test "Path show interface" {
 ///|
 /// `Path::new` creates a new `Path`.
 pub fn Path::new(
-  anchors? : Array[Anchor] = [],
-  closed? : Bool = false,
-  clear? : Bool = false,
+  anchors~ : Array[Anchor] = [],
+  closed~ : Bool = false,
+  clear~ : Bool = false,
   fill? : Fill,
   stroke? : Stroke,
 ) -> Path {
@@ -56,20 +56,20 @@ pub fn Path::as_graphic(self : Path) -> Graphic {
 ///|
 /// `get` is a convenience function.
 #alias("_[_]")
-pub fn Path::get(self : Path, index : Int) -> Anchor {
+pub fn Path::get(self : Path, index : Int32) -> Anchor {
   self.anchors[index]
 }
 
 ///|
 /// `set` is a convenience function.
 #alias("_[_]=_")
-pub fn Path::set(self : Path, index : Int, anchor : Anchor) -> Unit {
+pub fn Path::set(self : Path, index : Int32, anchor : Anchor) -> Unit {
   self.anchors[index] = anchor
 }
 
 ///|
 /// `Path::from_points` connects a series of points with lines to form a `Path`.
-pub fn Path::from_points(points : Array[Vec2], closed? : Bool = false) -> Path {
+pub fn Path::from_points(points : Array[Vec2], closed~ : Bool = false) -> Path {
   let anchors = points.map(fn(pt) { Anchor::new(position=pt) })
   { anchors, closed, clear: false, fill: None, stroke: None, }
 }
@@ -124,11 +124,11 @@ pub fn Path::affine_transform_without_translation(
 /// `transform` provides a convenient API for a common task.
 pub fn Path::transform(
   self : Path,
-  position? : Vec2 = vec2(0, 0),
-  rotation? : Double = 0,
-  scale? : Vec2 = vec2(1, 1),
-  skew? : Double = 0,
-  origin? : Vec2 = vec2(0, 0),
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Path {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -568,7 +568,7 @@ pub fn Path::rotate(self : Path, angle : Double) -> Path {
 /// Returns an empty array for open paths.
 pub fn Path::to_polygon(
   self : Path,
-  curve_segments : Int,
+  curve_segments : Int32,
   epsilon? : Double,
 ) -> Array[Vec2] {
   if !self.closed {

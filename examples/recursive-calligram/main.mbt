@@ -116,7 +116,7 @@ fn overlaps_any(
 }
 
 ///|
-fn hash_string(s : String) -> UInt {
+fn hash_string(s : String) -> UInt32 {
   let mut h = 0U
   for i in 0..<s.length() {
     h = h * 31U + s[i].to_int().reinterpret_as_uint()
@@ -126,16 +126,16 @@ fn hash_string(s : String) -> UInt {
 
 ///|
 struct PRNG {
-  mut state : UInt
+  mut state : UInt32
 }
 
 ///|
-fn PRNG::new(seed : UInt) -> PRNG {
+fn PRNG::new(seed : UInt32) -> PRNG {
   { state: seed, }
 }
 
 ///|
-fn PRNG::next(self : PRNG) -> UInt {
+fn PRNG::next(self : PRNG) -> UInt32 {
   self.state = self.state * 1103515245U + 12345U
   self.state
 }

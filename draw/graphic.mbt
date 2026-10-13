@@ -93,11 +93,11 @@ pub fn Graphic::affine_transform(
 /// `transform` provides a convenient API for a common task.
 pub fn Graphic::transform(
   self : Graphic,
-  position? : Vec2 = vec2(0, 0),
-  rotation? : Double = 0,
-  scale? : Vec2 = vec2(1, 1),
-  skew? : Double = 0,
-  origin? : Vec2 = vec2(0, 0),
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Graphic {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -466,7 +466,7 @@ pub fn Graphic::rotate(self : Graphic, angle : Double) -> Graphic {
 pub fn Graphic::scale_to_fit(
   self : Graphic,
   box : BoundingBox,
-  anchor? : Alignment = Center,
+  anchor~ : Alignment = Center,
 ) -> Graphic {
   self.fit_to(box, anchor~)
 }
@@ -492,7 +492,7 @@ pub fn Graphic::scale_to_fill(self : Graphic, box : BoundingBox) -> Graphic {
 pub fn Graphic::fit_to(
   self : Graphic,
   box : BoundingBox,
-  anchor? : Alignment = Center,
+  anchor~ : Alignment = Center,
 ) -> Graphic {
   let bbox = match self.bounding_box() {
     None => return self
@@ -601,7 +601,7 @@ pub fn Graphic::with_background(self : Graphic, color : Color) -> Graphic {
 /// Returns an array of (outer_polygon, holes_polygons).
 pub fn Graphic::to_profiles(
   self : Graphic,
-  curve_segments : Int,
+  curve_segments : Int32,
 ) -> Array[(Array[Vec2], Array[Array[Vec2]])] {
   match self {
     Path(path) => {
@@ -680,7 +680,7 @@ pub fn Graphic::to_profiles(
 /// `to_profiles_tuples` returns profiles with points as simple tuples for downstream consumers.
 pub fn Graphic::to_profiles_tuples(
   self : Graphic,
-  curve_segments : Int,
+  curve_segments : Int32,
 ) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])] {
   let profiles = self.to_profiles(curve_segments)
   profiles.map(fn(p : (Array[Vec2], Array[Array[Vec2]])) {

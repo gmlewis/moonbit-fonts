@@ -23,7 +23,7 @@ pub impl Show for DrawError with fn output(self, logger) {
 /// Points are considered duplicates if their distance_squared <= epsilon^2.
 pub fn dedupe_points(
   points : Array[Vec2],
-  epsilon? : Double = 1.e-9,
+  epsilon~ : Double = 1.e-9,
 ) -> Array[Vec2] {
   if points.length() <= 1 {
     return points

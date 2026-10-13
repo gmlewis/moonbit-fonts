@@ -2,7 +2,7 @@
 /// unit_ngon constructs a new Group representing a polygon with
 /// `sides` sides, each of length 1, centered at the origin.
 /// If `sides` is less than 3, it defaults to 3.
-pub fn unit_ngon(sides : Int, start_degrees? : Int = -90) -> Group {
+pub fn unit_ngon(sides : Int32, start_degrees~ : Int32 = -90) -> Group {
   let sides = if sides < 3 { 3 } else { sides }
   let n = sides.to_double()
   let radius = 1.0 / (2.0 * @math.sin(@math.PI / n))

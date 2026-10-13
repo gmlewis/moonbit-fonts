@@ -30,7 +30,7 @@ test "Group show interface" {
 
 ///|
 /// `Group::new` returns a new `Group`.
-pub fn Group::new(items? : Array[Graphic] = []) -> Group {
+pub fn Group::new(items~ : Array[Graphic] = []) -> Group {
   { items, }
 }
 
@@ -43,14 +43,14 @@ pub fn Group::as_graphic(self : Group) -> Graphic {
 ///|
 /// `get` is a convenience function.
 #alias("_[_]")
-pub fn Group::get(self : Group, index : Int) -> Graphic {
+pub fn Group::get(self : Group, index : Int32) -> Graphic {
   self.items[index]
 }
 
 ///|
 /// `set` is a convenience function.
 #alias("_[_]=_")
-pub fn Group::set(self : Group, index : Int, graphic : Graphic) -> Unit {
+pub fn Group::set(self : Group, index : Int32, graphic : Graphic) -> Unit {
   self.items[index] = graphic
 }
 
@@ -93,11 +93,11 @@ pub fn Group::affine_transform_without_translation(
 /// `transform` provides a convenient API for a common task, returning a new `Group`.
 pub fn Group::transform(
   self : Group,
-  position? : Vec2 = vec2(0, 0),
-  rotation? : Double = 0,
-  scale? : Vec2 = vec2(1, 1),
-  skew? : Double = 0,
-  origin? : Vec2 = vec2(0, 0),
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Group {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),
@@ -109,11 +109,11 @@ pub fn Group::transform(
 /// `self_transform` provides a convenient API for a common task, modifying the group in-place.
 pub fn Group::self_transform(
   self : Group,
-  position? : Vec2 = vec2(0, 0),
-  rotation? : Double = 0,
-  scale? : Vec2 = vec2(1, 1),
-  skew? : Double = 0,
-  origin? : Vec2 = vec2(0, 0),
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0),
 ) -> Unit {
   let new_group = self.transform(position~, rotation~, scale~, skew~, origin~)
   self.items = new_group.items

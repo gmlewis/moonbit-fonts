@@ -28,8 +28,8 @@ pub fn checkerboard() -> Graphic {
 
 ///|
 fn single_checker(
-  x : Int,
-  y : Int,
+  x : Int32,
+  y : Int32,
   outer_fill : Fill,
   inner_fill : Fill,
 ) -> Graphic {
@@ -53,21 +53,21 @@ fn single_checker(
 }
 
 ///|
-fn black_checker(x : Int, y : Int) -> Graphic {
+fn black_checker(x : Int32, y : Int32) -> Graphic {
   let light_gray = rgba(0.4, 0.4, 0.4, 1).as_fill()
   let dark_gray = rgba(0.1, 0.1, 0.1, 1).as_fill()
   single_checker(x, y, light_gray, dark_gray)
 }
 
 ///|
-fn red_checker(x : Int, y : Int) -> Graphic {
+fn red_checker(x : Int32, y : Int32) -> Graphic {
   let light_red = rgba(0.8, 0, 0, 1).as_fill()
   let dark_red = rgba(0.5, 0, 0, 1).as_fill()
   single_checker(x, y, light_red, dark_red)
 }
 
 ///|
-fn square(x : Int, y : Int) -> Graphic {
+fn square(x : Int32, y : Int32) -> Graphic {
   let fill = fill(
     if (x + y) % 2 == 0 {
       rgba(0, 0, 0, 1) // black

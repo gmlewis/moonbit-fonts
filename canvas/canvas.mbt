@@ -18,7 +18,7 @@ type CanvasCtx
 pub fn CanvasCtx::from_graphic(
   self : CanvasCtx,
   g : Graphic,
-  y_up? : Bool = true,
+  y_up~ : Bool = true,
 ) -> Unit {
   let mut bbox = match g.bounding_box() {
     Some(box) => box

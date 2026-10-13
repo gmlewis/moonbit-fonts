@@ -13,7 +13,7 @@ pub impl Show for Params with fn output(self, logger) {
 }
 
 ///|
-pub fn Params::length(self : Params) -> Int {
+pub fn Params::length(self : Params) -> Int32 {
   self.0.length()
 }
 

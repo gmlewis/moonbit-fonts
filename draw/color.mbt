@@ -31,10 +31,10 @@ test "Color show interface" {
 ///|
 /// `Color::new` returns a new color.
 pub fn Color::new(
-  r? : Double = 0,
-  g? : Double = 0,
-  b? : Double = 0,
-  a? : Double = 1,
+  r~ : Double = 0,
+  g~ : Double = 0,
+  b~ : Double = 0,
+  a~ : Double = 1,
 ) -> Color {
   { r, g, b, a, }
 }
@@ -140,7 +140,7 @@ fn parse_percent(s : StringView) -> Double raise Error {
 }
 
 ///|
-fn css_color(r : Int, g : Int, b : Int) -> Color {
+fn css_color(r : Int32, g : Int32, b : Int32) -> Color {
   let r = r.to_double() / 255
   let g = g.to_double() / 255
   let b = b.to_double() / 255
@@ -218,7 +218,7 @@ pub fn Color::from_css_string(css_string : String) -> Color raise Error {
 
 ///|
 /// `Color::from_rgb8_number` returns a color from a bit-packed RGB8 format.
-pub fn Color::from_rgb8_number(value : UInt) -> Color {
+pub fn Color::from_rgb8_number(value : UInt32) -> Color {
   let r = ((value >> 16) & 0xff).reinterpret_as_int().to_double() / 255
   let g = ((value >> 8) & 0xff).reinterpret_as_int().to_double() / 255
   let b = (value & 0xff).reinterpret_as_int().to_double() / 255
@@ -235,11 +235,11 @@ pub fn Color::as_fill(self : Color) -> Fill {
 /// `as_stroke` is a convenience function for setting a stroke color.
 pub fn Color::as_stroke(
   self : Color,
-  width? : Double = 0.1,
-  alignment? : StrokeAlignment = Centered,
-  cap? : StrokeCap = Butt,
-  join? : StrokeJoin = Miter,
-  miter_limit? : Double = 4,
+  width~ : Double = 0.1,
+  alignment~ : StrokeAlignment = Centered,
+  cap~ : StrokeCap = Butt,
+  join~ : StrokeJoin = Miter,
+  miter_limit~ : Double = 4,
 ) -> Stroke {
   stroke(self, width~, alignment~, cap~, join~, miter_limit~)
 }
@@ -319,7 +319,7 @@ fn to_hex_byte(v : Byte) -> String {
 // to_hex returns a 6-digit hex string (e.g. "FEDCBA")
 
 ///|
-fn to_hex(v : UInt) -> String {
+fn to_hex(v : UInt32) -> String {
   let r = to_hex_byte(((v >> 16) & 0xff).to_byte())
   let g = to_hex_byte(((v >> 8) & 0xff).to_byte())
   let b = to_hex_byte((v & 0xff).to_byte())
@@ -356,7 +356,7 @@ pub fn Color::to_css_rgba_string(self : Color) -> String {
 
 ///|
 /// `to_rgb8_number` returns a bit-packed number in RGB8 format.
-pub fn Color::to_rgb8_number(self : Color) -> UInt {
+pub fn Color::to_rgb8_number(self : Color) -> UInt32 {
   let r = clamp(@math.round(self.r * 255).to_int(), 0, 255).reinterpret_as_uint()
   let g = clamp(@math.round(self.g * 255).to_int(), 0, 255).reinterpret_as_uint()
   let b = clamp(@math.round(self.b * 255).to_int(), 0, 255).reinterpret_as_uint()
@@ -395,7 +395,7 @@ pub fn Color::to_hsva(self : Color) -> Array[Double] {
 }
 
 ///|
-let css_colors : Map[String, Array[Int]] = {
+let css_colors : Map[String, Array[Int32]] = {
   "aliceblue": [240, 248, 255],
   "antiquewhite": [250, 235, 215],
   "aqua": [0, 255, 255],

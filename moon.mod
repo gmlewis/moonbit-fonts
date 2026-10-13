@@ -3,7 +3,7 @@ name = "gmlewis/fonts"
 version = "0.19.17"
 
 import {
-  "moonbitlang/regexp@0.3.5",
+  "moonbitlang/regexp@0.3.6",
 }
 
 readme = "README.md"

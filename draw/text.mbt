@@ -60,9 +60,9 @@ test "TextAlign show interface" {
 pub fn to_graphic(
   font : Font,
   text : String,
-  size? : Double = 1.0,
-  alignment? : Alignment = Unchanged,
-  y_up? : Bool = false,
+  size~ : Double = 1.0,
+  alignment~ : Alignment = Unchanged,
+  y_up~ : Bool = false,
 ) -> Graphic raise DrawError {
   let glyph = font.gen_path(text, alignment~, y_up~) catch {
     e => raise DrawError("to_graphic: \{e}")
@@ -80,9 +80,9 @@ pub fn to_graphic(
 pub fn text(
   font : Font,
   text : String,
-  size? : Double = 1.0,
-  align? : TextAlign = Left,
-  y_up? : Bool = false,
+  size~ : Double = 1.0,
+  align~ : TextAlign = Left,
+  y_up~ : Bool = false,
 ) -> Graphic raise DrawError {
   let alignment : Alignment = match align {
     Left => BaselineLeft
@@ -189,10 +189,10 @@ fn svgpath2compound_path(
 ///|
 /// `GlyphStyleContext` provides callback context for `text_with`.
 pub struct GlyphStyleContext {
-  grapheme_index : Int
+  grapheme_index : Int32
   grapheme : String
-  line_index : Int
-  grapheme_index_in_line : Int
+  line_index : Int32
+  grapheme_index_in_line : Int32
   pen_position : Vec2
   pen_position_scaled : Vec2
   has_glyph : Bool
@@ -225,7 +225,7 @@ pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)
 
 ///|
 /// `TextWithTupleStyleFn` is a compatibility callback that returns `(stroke?, fill?)`.
-pub struct TextWithTupleStyleFn((Int, String) -> (Stroke?, Fill?))
+pub struct TextWithTupleStyleFn((Int32, String) -> (Stroke?, Fill?))
 
 ///|
 /// `text_with_style_fn` creates a style callback value for `text_with`.
@@ -238,7 +238,7 @@ pub fn text_with_style_fn(
 ///|
 /// `text_with_tuple_style_fn` creates a tuple-style callback value for `text_with_tuple`.
 pub fn text_with_tuple_style_fn(
-  func : (Int, String) -> (Stroke?, Fill?),
+  func : (Int32, String) -> (Stroke?, Fill?),
 ) -> TextWithTupleStyleFn {
   TextWithTupleStyleFn(func)
 }
@@ -246,11 +246,11 @@ pub fn text_with_tuple_style_fn(
 ///|
 /// `glyph_transform` creates a per-glyph transform.
 pub fn glyph_transform(
-  position? : Vec2 = vec2(0, 0),
-  rotation? : Double = 0,
-  scale? : Vec2 = vec2(1, 1),
-  skew? : Double = 0,
-  origin? : Vec2 = vec2(0, 0),
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0),
   affine_matrix? : AffineMatrix,
 ) -> GlyphTransform {
   { position, rotation, scale, skew, origin, affine_matrix, }
@@ -259,7 +259,7 @@ pub fn glyph_transform(
 ///|
 /// `glyph_style_use_default` keeps the glyph's default style.
 pub fn glyph_style_use_default(
-  transform? : GlyphTransform = glyph_transform(),
+  transform~ : GlyphTransform = glyph_transform(),
 ) -> GlyphStyleAction {
   UseDefault(transform)
 }
@@ -269,7 +269,7 @@ pub fn glyph_style_use_default(
 pub fn glyph_style_override(
   stroke? : Stroke,
   fill? : Fill,
-  transform? : GlyphTransform = glyph_transform(),
+  transform~ : GlyphTransform = glyph_transform(),
 ) -> GlyphStyleAction {
   Override(stroke, fill, transform)
 }
@@ -290,9 +290,9 @@ pub fn glyph_style_skip() -> GlyphStyleAction {
 pub fn text_with(
   font : Font,
   text : String,
-  size? : Double = 1.0,
-  align? : TextAlign = Left,
-  y_up? : Bool = false,
+  size~ : Double = 1.0,
+  align~ : TextAlign = Left,
+  y_up~ : Bool = false,
   style_fn? : TextWithStyleFn,
 ) -> Graphic raise DrawError {
   let xscale = size / font.units_per_em
@@ -431,9 +431,9 @@ pub fn text_with(
 pub fn text_with_tuple(
   font : Font,
   text : String,
-  size? : Double = 1.0,
-  align? : TextAlign = Left,
-  y_up? : Bool = false,
+  size~ : Double = 1.0,
+  align~ : TextAlign = Left,
+  y_up~ : Bool = false,
   style_fn? : TextWithTupleStyleFn,
 ) -> Graphic raise DrawError {
   let style_fn = match style_fn {

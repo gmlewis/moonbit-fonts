@@ -144,14 +144,14 @@ fn CanvasCtx::set_line_width(_self : CanvasCtx, _width : Double) -> Unit {
 /// string (such as a JSON blob) to the MoonBit wasm module without needing
 /// to provide another SDK or WIT interface. If these features are not needed,
 /// then the host can supply two functions that both return 0.
-fn CanvasCtx::get_input_length(_self : CanvasCtx) -> Int {
+fn CanvasCtx::get_input_length(_self : CanvasCtx) -> Int32 {
   abort("not a JS context")
 }
 
 ///|
 fn CanvasCtx::get_input_byte_at_offset(
   _self : CanvasCtx,
-  _offset : Int,
+  _offset : Int32,
 ) -> Byte {
   abort("not a JS context")
 }

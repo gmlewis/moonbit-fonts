@@ -204,12 +204,12 @@ test "StrokeJoin show interface" {
 ///|
 /// `Stroke::new` returns a new stroke style.
 pub fn Stroke::new(
-  color? : Color = rgba(0, 0, 0, 1),
-  width? : Double = 0.1,
-  alignment? : StrokeAlignment = Centered,
-  cap? : StrokeCap = Butt,
-  join? : StrokeJoin = Miter,
-  miter_limit? : Double = 4,
+  color~ : Color = rgba(0, 0, 0, 1),
+  width~ : Double = 0.1,
+  alignment~ : StrokeAlignment = Centered,
+  cap~ : StrokeCap = Butt,
+  join~ : StrokeJoin = Miter,
+  miter_limit~ : Double = 4,
 ) -> Stroke {
   { color, width, alignment, cap, join, miter_limit, }
 }
@@ -218,11 +218,11 @@ pub fn Stroke::new(
 /// `stroke` is a helper function.
 pub fn stroke(
   color : Color,
-  width? : Double = 0.1,
-  alignment? : StrokeAlignment = Centered,
-  cap? : StrokeCap = Butt,
-  join? : StrokeJoin = Miter,
-  miter_limit? : Double = 4,
+  width~ : Double = 0.1,
+  alignment~ : StrokeAlignment = Centered,
+  cap~ : StrokeCap = Butt,
+  join~ : StrokeJoin = Miter,
+  miter_limit~ : Double = 4,
 ) -> Stroke {
   Stroke::new(color~, width~, alignment~, cap~, join~, miter_limit~)
 }

@@ -137,7 +137,7 @@ pub fn column(
 /// `h_spacing` and `v_spacing` specify the distance between elements.
 pub fn grid(
   items : Array[Graphic],
-  cols : Int,
+  cols : Int32,
   alignment? : Alignment,
   h_spacing? : Double,
   v_spacing? : Double,

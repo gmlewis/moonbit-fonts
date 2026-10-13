@@ -110,7 +110,10 @@ fn CanvasCtx::set_line_width(self : CanvasCtx, width : Double) = "canvas" "setLi
 /// string (such as a JSON blob) to the MoonBit wasm module without needing
 /// to provide another SDK or WIT interface. If these features are not needed,
 /// then the host can supply two functions that both return 0.
-fn CanvasCtx::get_input_length(self : CanvasCtx) -> Int = "canvas" "getInputLength"
+fn CanvasCtx::get_input_length(self : CanvasCtx) -> Int32 = "canvas" "getInputLength"
 
 ///|
-fn CanvasCtx::get_input_byte_at_offset(self : CanvasCtx, offset : Int) -> Byte = "canvas" "getInputByteAtOffset"
+fn CanvasCtx::get_input_byte_at_offset(
+  self : CanvasCtx,
+  offset : Int32,
+) -> Byte = "canvas" "getInputByteAtOffset"

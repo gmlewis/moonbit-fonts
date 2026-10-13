@@ -78,7 +78,7 @@ test "CompountPath show interface" {
 ///|
 /// CompoundPath::new creates a new CompoundPath.
 pub fn CompoundPath::new(
-  paths? : Array[Path] = [],
+  paths~ : Array[Path] = [],
   fill? : Fill,
   stroke? : Stroke,
 ) -> CompoundPath {
@@ -94,14 +94,18 @@ pub fn CompoundPath::as_graphic(self : CompoundPath) -> Graphic {
 ///|
 /// get is a convenience function.
 #alias("_[_]")
-pub fn CompoundPath::get(self : CompoundPath, index : Int) -> Path {
+pub fn CompoundPath::get(self : CompoundPath, index : Int32) -> Path {
   self.paths[index]
 }
 
 ///|
 /// set is a convenience function.
 #alias("_[_]=_")
-pub fn CompoundPath::set(self : CompoundPath, index : Int, path : Path) -> Unit {
+pub fn CompoundPath::set(
+  self : CompoundPath,
+  index : Int32,
+  path : Path,
+) -> Unit {
   self.paths[index] = path
 }
 
@@ -145,11 +149,11 @@ pub fn CompoundPath::affine_transform_without_translation(
 /// transform provides a convenient API for a common task.
 pub fn CompoundPath::transform(
   self : CompoundPath,
-  position? : Vec2 = vec2(0, 0),
-  rotation? : Double = 0,
-  scale? : Vec2 = vec2(1, 1),
-  skew? : Double = 0,
-  origin? : Vec2 = vec2(0, 0),
+  position~ : Vec2 = vec2(0, 0),
+  rotation~ : Double = 0,
+  scale~ : Vec2 = vec2(1, 1),
+  skew~ : Double = 0,
+  origin~ : Vec2 = vec2(0, 0),
 ) -> CompoundPath {
   let affine_matrix = AffineMatrix::from_transform(
     Transform::new(position~, rotation~, scale~, skew~, origin~),

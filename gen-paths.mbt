@@ -7,8 +7,8 @@ using @geom {type Alignment}
 pub fn Font::gen_paths(
   self : Font,
   lines : Array[String],
-  alignment? : Alignment = BaselineLeft,
-  y_up? : Bool = false,
+  alignment~ : Alignment = BaselineLeft,
+  y_up~ : Bool = false,
 ) -> Array[Glyph] raise FontError {
   Array::makei(lines.length(), i => self.gen_path(lines[i], alignment~, y_up~))
 }
