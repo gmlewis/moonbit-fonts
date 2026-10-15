@@ -3,8 +3,8 @@ name = "gmlewis/living-hinge-box"
 version = "0.1.0"
 
 import {
-  "gmlewis/fonts@0.19.17",
-  "gmlewis/fonts-a@0.19.16",
+  "gmlewis/fonts@0.19.18",
+  "gmlewis/fonts-a@0.19.17",
 }
 
 readme = "README.md"

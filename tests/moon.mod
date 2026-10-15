@@ -5,8 +5,8 @@ version = "0.19.5"
 import {
   "gmlewis/base64@0.16.13",
   "gmlewis/flate@0.36.15",
-  "gmlewis/fonts@0.19.17",
-  "gmlewis/fonts-a@0.19.16",
+  "gmlewis/fonts@0.19.18",
+  "gmlewis/fonts-a@0.19.17",
   "gmlewis/fonts/loader@0.19.6",
   "gmlewis/gzip@0.34.15",
   "gmlewis/io@0.23.18",
