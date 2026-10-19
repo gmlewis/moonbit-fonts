@@ -3,17 +3,17 @@ fn main {
   let name = "BEND"
   let font = @aaarghnormal.font
 
-  match generate_living_hinge_box(font, name) {
-    Ok(graphic) => {
-      let svg_str = @svg.from_graphic(
-        graphic
-        .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
-        .with_background(@draw.Color::white()),
-        y_up=false,
-      )
-      println(svg_str)
-    }
-    Err(e) => println("Error: \{e}")
+  try {
+    let graphic = generate_living_hinge_box(font, name)
+    let svg_str = @svg.from_graphic(
+      graphic
+      .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
+      .with_background(@draw.Color::white()),
+      y_up=false,
+    )
+    println(svg_str)
+  } catch {
+    e => println("Error: \{e}")
   }
 }
 
@@ -21,7 +21,7 @@ fn main {
 fn generate_living_hinge_box(
   font : @fonts.Font,
   name : String,
-) -> Result[@draw.Graphic, @draw.DrawError] {
+) -> @draw.Graphic raise @draw.DrawError {
   // Constants for the box
   let box_width = 4.0
   let box_height = 2.0
@@ -29,9 +29,7 @@ fn generate_living_hinge_box(
 
   // 1. Create text to be integrated into the hinge
   // Use a smaller size to fit the narrow hinge
-  let text_graphic = @draw.text(font, name, size=0.4) catch {
-    e => return Err(e)
-  }
+  let text_graphic = @draw.text(font, name, size=0.4)
   let bbox = text_graphic.bounding_box().unwrap_or(@geom.BoundingBox::new())
 
   // Center text EXACTLY in the hinge area
@@ -112,7 +110,7 @@ fn generate_living_hinge_box(
     .with_style(stroke=@draw.Color::red().as_stroke(width=0.01))
     .remove_fill()
 
-  Ok(result)
+  result
 }
 
 ///|

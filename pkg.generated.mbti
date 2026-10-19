@@ -93,7 +93,7 @@ pub impl Show for ParamPair
 
 type Params derive(Eq, @debug.Debug)
 pub fn Params::equal(Self, Self) -> Bool
-pub fn Params::length(Self) -> Int
+pub fn Params::length(Self) -> Int32
 pub fn Params::to_repr(Self) -> @debug.Repr
 pub fn Params::to_string(Self) -> String
 pub impl Show for Params
@@ -112,7 +112,7 @@ pub fn PathCmd::to_string(Self) -> String
 pub fn PathCmd::to_svg_cmd(Self) -> (Cmd, String)
 pub impl Show for PathCmd
 
-pub(all) struct PathCmdFn((Int, PathCmd) -> PathCmd)
+pub(all) struct PathCmdFn((Int32, PathCmd) -> PathCmd)
 
 pub(all) struct SVGPath {
   char : String

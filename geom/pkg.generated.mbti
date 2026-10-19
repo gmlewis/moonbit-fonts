@@ -15,7 +15,7 @@ pub fn pt(Double, Double) -> Vec2
 
 pub fn rect(Double, Double, Double, Double) -> BoundingBox
 
-pub fn round_to_fixed(Double, Int) -> Double
+pub fn round_to_fixed(Double, Int32) -> Double
 
 pub fn vec2(Double, Double) -> Vec2
 
@@ -192,7 +192,7 @@ pub fn Vec2::rotate90(Self) -> Self
 pub fn Vec2::rotate_neg90(Self) -> Self
 pub fn Vec2::rotate_radians(Self, Double) -> Self
 pub fn Vec2::round(Self) -> Self
-pub fn Vec2::round_to_fixed(Self, Int) -> Self
+pub fn Vec2::round_to_fixed(Self, Int32) -> Self
 pub fn Vec2::round_to_multiple(Self, Double) -> Self
 pub fn Vec2::self_add(Self, Self) -> Unit
 pub fn Vec2::self_add_scalar(Self, Double) -> Unit

@@ -3,17 +3,17 @@ fn main {
   let name = "MOON"
   let font = @aaarghnormal.font
 
-  match generate_bio_mechanical(font, name) {
-    Ok(graphic) => {
-      let svg_str = @svg.from_graphic(
-        graphic
-        .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
-        .with_background(@draw.rgba(0.05, 0.05, 0.05, 1.0)), // Dark background
-        y_up=false,
-      )
-      println(svg_str)
-    }
-    Err(e) => println("Error: \{e}")
+  try {
+    let graphic = generate_bio_mechanical(font, name)
+    let svg_str = @svg.from_graphic(
+      graphic
+      .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
+      .with_background(@draw.rgba(0.05, 0.05, 0.05, 1.0)), // Dark background
+      y_up=false,
+    )
+    println(svg_str)
+  } catch {
+    e => println("Error: \{e}")
   }
 }
 
@@ -30,13 +30,11 @@ struct Node {
 fn generate_bio_mechanical(
   font : @fonts.Font,
   name : String,
-) -> Result[@draw.Graphic, @draw.DrawError] {
+) -> @draw.Graphic raise @draw.DrawError {
   let prng = PRNG::new(hash_string(name))
 
   // 1. Get text attractors
-  let text_graphic = @draw.text(font, name, size=1.0) catch {
-    e => return Err(e)
-  }
+  let text_graphic = @draw.text(font, name, size=1.0)
   let profiles = text_graphic.to_profiles(40) // Very dense
   let bbox = text_graphic.bounding_box().unwrap_or(@geom.BoundingBox::new())
   let frame = bbox.inset(-1.2)
@@ -188,7 +186,7 @@ fn generate_bio_mechanical(
     }
   }
 
-  Ok(branches + styled_text + frame_path)
+  branches + styled_text + frame_path
 }
 
 ///|

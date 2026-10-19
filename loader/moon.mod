@@ -5,7 +5,7 @@ version = "0.19.6"
 import {
   "gmlewis/base64@0.16.13",
   "gmlewis/flate@0.36.15",
-  "gmlewis/fonts@0.19.18",
+  "gmlewis/fonts@0.19.19",
   "gmlewis/gzip@0.34.15",
   "gmlewis/io@0.23.18",
   "moonbitlang/async@0.22.1",

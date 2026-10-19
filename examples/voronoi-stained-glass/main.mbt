@@ -2,17 +2,17 @@
 fn main {
   let name = "GLENN"
   let font = @baloo.font
-  match generate_voronoi_glass(font, name) {
-    Ok(graphic) => {
-      let svg_str = @svg.from_graphic(
-        graphic
-        .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
-        .with_background(@draw.Color::black()),
-        y_up=false,
-      )
-      println(svg_str)
-    }
-    Err(e) => println("Error: \{e}")
+  try {
+    let graphic = generate_voronoi_glass(font, name)
+    let svg_str = @svg.from_graphic(
+      graphic
+      .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
+      .with_background(@draw.Color::black()),
+      y_up=false,
+    )
+    println(svg_str)
+  } catch {
+    e => println("Error: \{e}")
   }
 }
 
@@ -20,13 +20,11 @@ fn main {
 fn generate_voronoi_glass(
   font : @fonts.Font,
   name : String,
-) -> Result[@draw.Graphic, @draw.DrawError] {
+) -> @draw.Graphic raise @draw.DrawError {
   let prng = PRNG::new(hash_string(name))
 
   // 1. Get text profiles (polygons)
-  let text_graphic = @draw.text(font, name, size=1.0) catch {
-    e => return Err(e)
-  }
+  let text_graphic = @draw.text(font, name, size=1.0)
   let profiles = text_graphic.to_profiles(5)
   let bbox = text_graphic.bounding_box().unwrap_or(@geom.BoundingBox::new())
   let frame = bbox.inset(-0.3)
@@ -99,7 +97,7 @@ fn generate_voronoi_glass(
       glass = glass + path
     }
   }
-  Ok(glass)
+  glass
 }
 
 ///|

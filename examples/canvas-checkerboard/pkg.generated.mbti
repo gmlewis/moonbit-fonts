@@ -6,7 +6,7 @@ import {
 }
 
 // Values
-pub fn draw(@canvas.CanvasCtx, Int, Int) -> Unit
+pub fn draw(@canvas.CanvasCtx, Int32, Int32) -> Unit
 
 // Errors
 

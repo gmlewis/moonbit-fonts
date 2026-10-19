@@ -3,25 +3,21 @@ fn main {
   let name = "MOON"
   let font = @aaarghnormal.font
 
-  match generate_recursive_calligram(font, name) {
-    Ok(graphic) => {
-      let svg_str = @svg.from_graphic(
-        graphic
-        .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
-        .with_background(@draw.Color::white()),
-        y_up=false,
-      )
-      println(svg_str)
-    }
-    Err(e) => println("Error: \{e}")
-  }
+  let graphic = generate_recursive_calligram(font, name)
+  let svg_str = @svg.from_graphic(
+    graphic
+    .with_margin(top=0.2, right=0.2, bottom=0.2, left=0.2)
+    .with_background(@draw.Color::white()),
+    y_up=false,
+  )
+  println(svg_str)
 }
 
 ///|
 fn generate_recursive_calligram(
   font : @fonts.Font,
   name : String,
-) -> Result[@draw.Graphic, @draw.DrawError] {
+) -> @draw.Graphic {
   let prng = PRNG::new(hash_string(name))
 
   // 1. Define the silhouette (large circle)
@@ -78,7 +74,7 @@ fn generate_recursive_calligram(
     .with_style(stroke=@draw.Color::black().as_stroke(width=0.02))
     .remove_fill()
 
-  Ok(result)
+  result
 }
 
 ///|

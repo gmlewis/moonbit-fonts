@@ -27,7 +27,7 @@ pub fn glyph_style_use_default(transform? : GlyphTransform) -> GlyphStyleAction
 
 pub fn glyph_transform(position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2, affine_matrix? : @geom.AffineMatrix) -> GlyphTransform
 
-pub fn grid(Array[Graphic], Int, alignment? : @geom.Alignment, h_spacing? : Double, v_spacing? : Double) -> Graphic
+pub fn grid(Array[Graphic], Int32, alignment? : @geom.Alignment, h_spacing? : Double, v_spacing? : Double) -> Graphic
 
 pub fn group(Array[Graphic]) -> Group
 
@@ -47,13 +47,13 @@ pub fn text_with_style_fn((GlyphStyleContext) -> GlyphStyleAction) -> TextWithSt
 
 pub fn text_with_tuple(@fonts.Font, String, size? : Double, align? : TextAlign, y_up? : Bool, style_fn? : TextWithTupleStyleFn) -> Graphic raise DrawError
 
-pub fn text_with_tuple_style_fn((Int, String) -> (Stroke?, Fill?)) -> TextWithTupleStyleFn
+pub fn text_with_tuple_style_fn((Int32, String) -> (Stroke?, Fill?)) -> TextWithTupleStyleFn
 
 pub fn to_graphic(@fonts.Font, String, size? : Double, alignment? : @geom.Alignment, y_up? : Bool) -> Graphic raise DrawError
 
 pub fn unit_circle() -> Group
 
-pub fn unit_ngon(Int, start_degrees? : Int) -> Group
+pub fn unit_ngon(Int32, start_degrees? : Int32) -> Group
 
 pub fn unit_square() -> Group
 
@@ -111,7 +111,7 @@ pub fn Color::equal(Self, Self) -> Bool
 pub fn Color::from_css_string(String) -> Self raise
 pub fn Color::from_hsva(Double, Double, Double, Double) -> Self
 pub fn Color::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
-pub fn Color::from_rgb8_number(UInt) -> Self
+pub fn Color::from_rgb8_number(UInt32) -> Self
 pub fn Color::green() -> Self
 pub fn Color::luminance(Self) -> Double
 pub fn Color::mix(Self, Self, Double) -> Self
@@ -124,7 +124,7 @@ pub fn Color::to_css_string(Self) -> String
 pub fn Color::to_hsva(Self) -> Array[Double]
 pub fn Color::to_json(Self) -> Json
 pub fn Color::to_repr(Self) -> @debug.Repr
-pub fn Color::to_rgb8_number(Self) -> UInt
+pub fn Color::to_rgb8_number(Self) -> UInt32
 pub fn Color::to_string(Self) -> String
 pub fn Color::transparent() -> Self
 pub fn Color::white() -> Self
@@ -147,7 +147,7 @@ pub fn CompoundPath::copy_style(Self, Graphic) -> Self
 pub fn CompoundPath::first_styled(Self) -> Graphic?
 pub fn CompoundPath::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 #alias("_[_]")
-pub fn CompoundPath::get(Self, Int) -> Path
+pub fn CompoundPath::get(Self, Int32) -> Path
 pub fn CompoundPath::has_style(Self) -> Bool
 pub fn CompoundPath::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn CompoundPath::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
@@ -162,7 +162,7 @@ pub fn CompoundPath::rotate(Self, Double) -> Self
 pub fn CompoundPath::scale(Self, @geom.Vec2) -> Self
 pub fn CompoundPath::scale_stroke(Self, Double) -> Self
 #alias("_[_]=_")
-pub fn CompoundPath::set(Self, Int, Path) -> Unit
+pub fn CompoundPath::set(Self, Int32, Path) -> Unit
 pub fn CompoundPath::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::to_json(Self) -> Json
 pub fn CompoundPath::to_repr(Self) -> @debug.Repr
@@ -195,10 +195,10 @@ pub enum GlyphStyleAction {
 }
 
 pub struct GlyphStyleContext {
-  grapheme_index : Int
+  grapheme_index : Int32
   grapheme : String
-  line_index : Int
-  grapheme_index_in_line : Int
+  line_index : Int32
+  grapheme_index_in_line : Int32
   pen_position : @geom.Vec2
   pen_position_scaled : @geom.Vec2
   has_glyph : Bool
@@ -255,8 +255,8 @@ pub fn Graphic::scale_to_fit(Self, @geom.BoundingBox, anchor? : @geom.Alignment)
 pub fn Graphic::some(Array[Self], (Self) -> Bool) -> Bool
 pub fn Graphic::style_contains_point(@geom.Vec2) -> (Self) -> Bool
 pub fn Graphic::to_json(Self) -> Json
-pub fn Graphic::to_profiles(Self, Int) -> Array[(Array[@geom.Vec2], Array[Array[@geom.Vec2]])]
-pub fn Graphic::to_profiles_tuples(Self, Int) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
+pub fn Graphic::to_profiles(Self, Int32) -> Array[(Array[@geom.Vec2], Array[Array[@geom.Vec2]])]
+pub fn Graphic::to_profiles_tuples(Self, Int32) -> Array[(Array[(Double, Double)], Array[Array[(Double, Double)]])]
 pub fn Graphic::to_repr(Self) -> @debug.Repr
 pub fn Graphic::to_string(Self) -> String
 pub fn Graphic::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
@@ -291,7 +291,7 @@ pub fn Group::first_stroke(Self) -> Stroke?
 pub fn Group::first_styled(Self) -> Graphic?
 pub fn Group::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 #alias("_[_]")
-pub fn Group::get(Self, Int) -> Graphic
+pub fn Group::get(Self, Int32) -> Graphic
 pub fn Group::has_style(Self) -> Bool
 pub fn Group::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Group::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
@@ -307,7 +307,7 @@ pub fn Group::scale(Self, @geom.Vec2) -> Self
 pub fn Group::scale_stroke(Self, Double) -> Self
 pub fn Group::self_transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Unit
 #alias("_[_]=_")
-pub fn Group::set(Self, Int, Graphic) -> Unit
+pub fn Group::set(Self, Int32, Graphic) -> Unit
 pub fn Group::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Group::to_json(Self) -> Json
 pub fn Group::to_repr(Self) -> @debug.Repr
@@ -338,7 +338,7 @@ pub fn Path::first_styled(Self) -> Graphic?
 pub fn Path::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Path::from_points(Array[@geom.Vec2], closed? : Bool) -> Self
 #alias("_[_]")
-pub fn Path::get(Self, Int) -> Anchor
+pub fn Path::get(Self, Int32) -> Anchor
 pub fn Path::has_style(Self) -> Bool
 pub fn Path::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
 pub fn Path::is_intersected_by_bounding_box(Self, @geom.BoundingBox) -> Bool
@@ -353,10 +353,10 @@ pub fn Path::rotate(Self, Double) -> Self
 pub fn Path::scale(Self, @geom.Vec2) -> Self
 pub fn Path::scale_stroke(Self, Double) -> Self
 #alias("_[_]=_")
-pub fn Path::set(Self, Int, Anchor) -> Unit
+pub fn Path::set(Self, Int32, Anchor) -> Unit
 pub fn Path::style_contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::to_json(Self) -> Json
-pub fn Path::to_polygon(Self, Int, epsilon? : Double) -> Array[@geom.Vec2]
+pub fn Path::to_polygon(Self, Int32, epsilon? : Double) -> Array[@geom.Vec2]
 pub fn Path::to_repr(Self) -> @debug.Repr
 pub fn Path::to_string(Self) -> String
 pub fn Path::transform(Self, position? : @geom.Vec2, rotation? : Double, scale? : @geom.Vec2, skew? : Double, origin? : @geom.Vec2) -> Self
@@ -432,7 +432,7 @@ pub impl Show for TextAlign
 
 pub struct TextWithStyleFn((GlyphStyleContext) -> GlyphStyleAction)
 
-pub struct TextWithTupleStyleFn((Int, String) -> (Stroke?, Fill?))
+pub struct TextWithTupleStyleFn((Int32, String) -> (Stroke?, Fill?))
 
 // Type aliases
 pub using @fonts {type AbsoluteCmd}
