@@ -22,6 +22,7 @@ pub fn vec2(Double, Double) -> Vec2
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct AffineMatrix {
   mut a : Double
   mut b : Double
@@ -29,7 +30,7 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-} derive(Eq, @debug.Debug)
+}
 pub fn AffineMatrix::clone(Self) -> Self
 pub fn AffineMatrix::copy(Self, Self) -> Unit
 pub fn AffineMatrix::determinant(Self) -> Double
@@ -68,6 +69,7 @@ pub fn AffineMatrix::translate(Self, Vec2) -> Self
 pub impl Mul for AffineMatrix
 pub impl Show for AffineMatrix
 
+#derive(Eq, @debug.Debug)
 pub(all) enum Alignment {
   Unchanged
   TopLeft
@@ -83,16 +85,17 @@ pub(all) enum Alignment {
   BottomCenter
   BottomRight
   RatioXY(Double, Double)
-} derive(Eq, @debug.Debug)
+}
 pub fn Alignment::equal(Self, Self) -> Bool
 pub fn Alignment::to_repr(Self) -> @debug.Repr
 pub fn Alignment::to_string(Self) -> String
 pub impl Show for Alignment
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-} derive(Eq, @debug.Debug)
+}
 pub fn BoundingBox::area(Self) -> Double
 pub fn BoundingBox::boolean_intersect(Self, Array[Self]) -> Self?
 pub fn BoundingBox::bounds(Self) -> (Double, Double, Double, Double)
@@ -127,23 +130,25 @@ pub fn BoundingBox::union(Self, Self) -> Self
 pub fn BoundingBox::width(Self) -> Double
 pub impl Show for BoundingBox
 
+#derive(Eq, @debug.Debug)
 pub(all) struct Transform {
   position : Vec2
   rotation : Double
   scale : Vec2
   skew : Double
   origin : Vec2
-} derive(Eq, @debug.Debug)
+}
 pub fn Transform::equal(Self, Self) -> Bool
 pub fn Transform::new(position? : Vec2, rotation? : Double, scale? : Vec2, skew? : Double, origin? : Vec2) -> Self
 pub fn Transform::to_repr(Self) -> @debug.Repr
 pub fn Transform::to_string(Self) -> String
 pub impl Show for Transform
 
+#derive(Eq, @debug.Debug, @json.FromJson, @json.ToJson)
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+}
 pub fn Vec2::add(Self, Self) -> Self
 pub fn Vec2::add_scalar(Self, Double) -> Self
 pub fn Vec2::affine_transform(Self, AffineMatrix) -> Self
@@ -165,7 +170,7 @@ pub fn Vec2::equal(Self, Self) -> Bool
 pub fn Vec2::floor(Self) -> Self
 pub fn Vec2::from_angle(Double) -> Self
 pub fn Vec2::from_angle_radians(Double) -> Self
-pub fn Vec2::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Vec2::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
 pub fn Vec2::from_tuple((Double, Double)) -> Self
 pub fn Vec2::infinity() -> Self
 pub fn Vec2::is_clockwise_from(Self, Self) -> Bool
@@ -204,7 +209,7 @@ pub fn Vec2::self_sub(Self, Self) -> Unit
 pub fn Vec2::self_sub_scalar(Self, Double) -> Unit
 pub fn Vec2::set(Self, Double, Double) -> Unit
 pub fn Vec2::sub(Self, Self) -> Self
-pub fn Vec2::to_json(Self) -> Json
+pub fn Vec2::to_json(Self) -> @json.Json
 pub fn Vec2::to_repr(Self) -> @debug.Repr
 pub fn Vec2::to_string(Self) -> String
 pub fn Vec2::to_tuple(Self) -> (Double, Double)

@@ -1,13 +1,13 @@
 name = "gmlewis/fonts/loader"
 
-version = "0.19.6"
+version = "0.19.7"
 
 import {
-  "gmlewis/base64@0.16.13",
-  "gmlewis/flate@0.36.15",
+  "gmlewis/base64@0.16.14",
+  "gmlewis/flate@0.36.18",
   "gmlewis/fonts@0.19.19",
-  "gmlewis/gzip@0.34.15",
-  "gmlewis/io@0.23.18",
+  "gmlewis/gzip@0.34.18",
+  "gmlewis/io@0.23.21",
   "moonbitlang/async@0.22.1",
   "moonbitlang/regexp@0.3.6",
 }

@@ -1,12 +1,13 @@
 ///|
 /// `Transform` represents transform arguments.
+#derive(Debug, Eq)
 pub(all) struct Transform {
   position : Vec2
   rotation : Double
   scale : Vec2
   skew : Double
   origin : Vec2
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for Transform with fn output(self, logger) {

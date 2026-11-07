@@ -1,9 +1,10 @@
 ///|
 /// `ParamPair` represents an X,Y absolute coordinate pair of parameters.
+#derive(Debug, Eq)
 pub(all) struct ParamPair {
   x : Double
   y : Double
-} derive(Debug, Eq)
+}
 
 ///|
 /// `to_string` returns a string representation of a `ParamPair`.
@@ -18,11 +19,12 @@ pub impl Show for ParamPair with fn output(self, logger) {
 
 ///|
 /// `PathCmd` represents an individual absolute SVG command.
+#derive(Debug, Eq)
 pub(all) struct PathCmd {
   cmd : AbsoluteCmd
   gerber_lp : GerberLP
   params : Array[ParamPair]
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for PathCmd with fn output(self, logger) {

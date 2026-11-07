@@ -4,9 +4,10 @@
 
 ///|
 /// DrawError represents an error that occured during graphic generation.
+#derive(Debug, Eq)
 pub(all) suberror DrawError {
   DrawError(String)
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for DrawError with fn output(self, logger) {

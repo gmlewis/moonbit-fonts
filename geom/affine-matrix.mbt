@@ -1,6 +1,7 @@
 ///|
 /// `AffineMatrix` represents a 2D affine transform that preserves parallel lines.
 /// See: https://en.wikipedia.org/wiki/Affine_transformation
+#derive(Debug, Eq)
 pub(all) struct AffineMatrix {
   mut a : Double
   mut b : Double
@@ -8,7 +9,7 @@ pub(all) struct AffineMatrix {
   mut d : Double
   mut tx : Double
   mut ty : Double
-} derive(Debug, Eq)
+}
 
 ///|
 pub extend AffineMatrix with Mul::{mul}

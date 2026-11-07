@@ -3,6 +3,7 @@
 /// for further manipulation, whereas a `Glyph` is optimized for compact
 /// storage of font data within all the font packages.
 /// An `SVGPath` can be converted to a `Glyph` and vice versa.
+#derive(Eq)
 pub(all) struct SVGPath {
   /// `char` represents all the glyphs contained in this path.
   /// It is identical to the `Glyph.char` field.
@@ -18,7 +19,7 @@ pub(all) struct SVGPath {
   ymin : Double
   xmax : Double
   ymax : Double
-} derive(Eq)
+}
 
 ///|
 pub impl Show for SVGPath with fn output(self, logger) {
@@ -50,6 +51,7 @@ test "SVGPath show interface" {
 
 ///|
 /// `AbsoluteCmd` represents a supported absolute SVG command.
+#derive(Debug, Eq)
 pub(all) enum AbsoluteCmd {
   /// `M` is the MoveTo command:
   /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#moveto_path_commands
@@ -66,7 +68,7 @@ pub(all) enum AbsoluteCmd {
   /// `Z` is the ClosePath command:
   /// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#closepath
   Z
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for AbsoluteCmd with fn output(self, logger) {
@@ -140,12 +142,13 @@ test "AbsoluteCmd show interface" {
 
 ///|
 /// `GerberLP` represents whether a subpath is `Dark` or `Clear`.
+#derive(Debug, Eq)
 pub(all) enum GerberLP {
   /// `Dark` means the subpath is filled.
   Dark
   /// `Clear` means the subpath is a hole.
   Clear
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for GerberLP with fn output(self, logger) {

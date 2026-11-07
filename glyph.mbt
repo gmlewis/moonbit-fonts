@@ -3,6 +3,7 @@
 /// multiple glyphs combined together (for example after using `Font.gen_path`
 /// and switching back and forth between `Glyph`s which are optimized for storage,
 /// and `Path`s which are optimized for processing).
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) struct Glyph {
   /// `char` is this glyph. (For "super-glyphs" this could be a long string.)
   char : String
@@ -23,7 +24,7 @@ pub(all) struct Glyph {
   ymin : Double
   xmax : Double
   ymax : Double
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for Glyph with fn output(self, logger) {

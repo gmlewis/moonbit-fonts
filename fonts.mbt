@@ -1,5 +1,6 @@
 ///|
 /// `Font` represents an entire font.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) struct Font {
   id : String
   horiz_adv_x : Double
@@ -7,7 +8,7 @@ pub(all) struct Font {
   ascent : Double
   descent : Double
   glyphs : Map[String, Glyph]
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for Font with fn output(self, logger) {
@@ -61,9 +62,10 @@ test "Font show interface" {
 
 ///|
 /// `FontError` represents an error that occurred during font processing.
+#derive(Eq)
 pub(all) suberror FontError {
   FontError(String)
-} derive(Eq)
+}
 
 ///|
 pub impl Show for FontError with fn output(self, logger) {

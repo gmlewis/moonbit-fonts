@@ -1,9 +1,10 @@
 ///|
 /// `Cmd` represents an SVG command along with its parameters.
+#derive(Debug, Eq)
 struct Cmd {
   c : String
   p : Params
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for Cmd with fn output(self, logger) {

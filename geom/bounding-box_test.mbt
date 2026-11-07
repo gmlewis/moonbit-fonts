@@ -6,9 +6,10 @@
 // license that can be found in the LICENSE file.
 
 ///|
+#derive(Debug, Eq)
 suberror TestError {
   TestError(String)
-} derive(Debug, Eq)
+}
 
 ///|
 pub extend TestError with @moonbitlang/core/debug.Debug::{to_repr}

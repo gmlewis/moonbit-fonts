@@ -1,5 +1,6 @@
 ///|
 /// `TextAlign` specifies the horizontal alignment of text.
+#derive(Debug, Eq)
 pub(all) enum TextAlign {
   /// `Left` aligns text to the left.
   Left
@@ -7,7 +8,7 @@ pub(all) enum TextAlign {
   Center
   /// `Right` aligns text to the right.
   Right
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for TextAlign with fn output(self, logger) {

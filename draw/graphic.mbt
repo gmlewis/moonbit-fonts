@@ -1,10 +1,11 @@
 ///|
 /// `Graphic` represents a drawable graphic element.
+#derive(Debug)
 pub(all) enum Graphic {
   CompoundPath(CompoundPath)
   Group(Group)
   Path(Path)
-} derive(Debug)
+}
 
 ///|
 pub impl Show for Graphic with fn output(self, logger) {

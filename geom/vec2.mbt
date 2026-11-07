@@ -1,9 +1,10 @@
 ///|
 /// `Vec2` represents a 2D vector.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) struct Vec2 {
   mut x : Double
   mut y : Double
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub extend Vec2 with Add::{add}

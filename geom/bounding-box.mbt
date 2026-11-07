@@ -1,9 +1,10 @@
 ///|
 /// `BoundingBox` represents a minimum bounding box as an axis-aligned rectangle.
+#derive(Debug, Eq)
 pub(all) struct BoundingBox {
   mut min : Vec2
   mut max : Vec2
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for BoundingBox with fn output(self, logger) {

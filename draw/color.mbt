@@ -1,11 +1,12 @@
 ///|
 /// `Color` represents a color in RGBA color space.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) struct Color {
   mut r : Double
   mut g : Double
   mut b : Double
   mut a : Double
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for Color with fn output(self, logging) {

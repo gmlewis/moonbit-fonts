@@ -3,13 +3,14 @@
 /// or filled. A 'clear' path is sub-path of a `Path` that defines
 /// regions of the filled path where no fill is added, for example in the
 /// center of the letter 'O'.
+#derive(Debug, FromJson, ToJson)
 pub(all) struct Path {
   mut anchors : Array[Anchor]
   mut closed : Bool
   mut clear : Bool
   mut fill : Fill?
   mut stroke : Stroke?
-} derive(Debug, FromJson, ToJson)
+}
 
 ///|
 pub extend Path with ToJson::{to_json}

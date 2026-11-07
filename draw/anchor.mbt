@@ -1,11 +1,12 @@
 ///|
 /// `Anchor` represents a single point in a path. Two anchors form a segment.
 /// The position of an `Anchor` is absolute and the handles are both relative.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) struct Anchor {
   mut position : Vec2 // absolute
   mut handle_in : Vec2 // relative
   mut handle_out : Vec2 // relative
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for Anchor with fn output(self, logging) {

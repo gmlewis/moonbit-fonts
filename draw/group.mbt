@@ -1,8 +1,9 @@
 ///|
 /// `Group` represents a collection of `Graphic` elements.
+#derive(Debug, FromJson, ToJson)
 pub(all) struct Group {
   mut items : Array[Graphic]
-} derive(Debug, FromJson, ToJson)
+}
 
 ///|
 pub extend Group with ToJson::{to_json}

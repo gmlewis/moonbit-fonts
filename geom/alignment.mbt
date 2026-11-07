@@ -1,6 +1,7 @@
 ///|
 /// `Alignment` represents where to place the origin (0,0) of the glyph relative
 /// to its minimum bounding box.
+#derive(Debug, Eq)
 pub(all) enum Alignment {
   /// `Unchanged` means that the SVG path will not be translated.
   Unchanged
@@ -23,7 +24,7 @@ pub(all) enum Alignment {
   ///
   /// For example, `TopRight` is identical to `RatioXY(1,0)`.
   RatioXY(Double, Double)
-} derive(Debug, Eq)
+}
 
 ///|
 pub impl Show for Alignment with fn output(self, logger) {

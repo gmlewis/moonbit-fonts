@@ -1,5 +1,6 @@
 ///|
 /// `Stroke` defines a stroke style.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) struct Stroke {
   mut color : Color
   mut width : Double
@@ -7,7 +8,7 @@ pub(all) struct Stroke {
   mut cap : StrokeCap
   mut join : StrokeJoin
   mut miter_limit : Double
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for Stroke with fn output(self, logger) {
@@ -32,6 +33,7 @@ test "Stroke show interface" {
 
 ///|
 /// `StrokeAlignment` defines where the stroke is placed relative to the path.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) enum StrokeAlignment {
   /// `Centered` places the stroke centered on the path.
   Centered
@@ -39,7 +41,7 @@ pub(all) enum StrokeAlignment {
   Inner
   /// `Outer` places the stroke outside the path.
   Outer
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for StrokeAlignment with fn output(self, logger) {
@@ -89,6 +91,7 @@ test "StrokeAlignment show interface" {
 
 ///|
 /// `StrokeCap` defines the shape used at the end of open paths.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) enum StrokeCap {
   /// `Butt` ends the stroke exactly at the path end.
   Butt
@@ -96,7 +99,7 @@ pub(all) enum StrokeCap {
   Round
   /// `Square` adds a square at the path end.
   Square
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for StrokeCap with fn output(self, logger) {
@@ -146,6 +149,7 @@ test "StrokeCap show interface" {
 
 ///|
 /// `StrokeJoin` defines the shape used at the corners of paths.
+#derive(Debug, Eq, FromJson, ToJson)
 pub(all) enum StrokeJoin {
   /// `Miter` creates a sharp corner.
   Miter
@@ -153,7 +157,7 @@ pub(all) enum StrokeJoin {
   Round
   /// `Bevel` creates a flattened corner.
   Bevel
-} derive(Debug, Eq, FromJson, ToJson)
+}
 
 ///|
 pub impl Show for StrokeJoin with fn output(self, logger) {
