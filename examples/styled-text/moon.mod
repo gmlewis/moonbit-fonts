@@ -1,10 +1,10 @@
 name = "examples/styled-text"
 
-version = "0.1.1"
+version = "0.1.2"
 
 import {
-  "gmlewis/fonts@0.19.19",
-  "gmlewis/fonts-b@0.19.18",
+  "gmlewis/fonts@0.19.20",
+  "gmlewis/fonts-b@0.19.20",
 }
 
 readme = "README.md"
