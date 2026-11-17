@@ -9,9 +9,7 @@ async fn main {
 
   //
   async fn write_progress(msg : String) -> Unit {
-    @stdio.stdout.write(msg) catch {
-      _ => ()
-    }
+    @io.Writer::write(@stdio.stdout, msg)
   }
 
   //

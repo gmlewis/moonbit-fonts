@@ -170,7 +170,7 @@ pub fn Vec2::equal(Self, Self) -> Bool
 pub fn Vec2::floor(Self) -> Self
 pub fn Vec2::from_angle(Double) -> Self
 pub fn Vec2::from_angle_radians(Double) -> Self
-pub fn Vec2::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Vec2::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Vec2::from_tuple((Double, Double)) -> Self
 pub fn Vec2::infinity() -> Self
 pub fn Vec2::is_clockwise_from(Self, Self) -> Bool

@@ -52,7 +52,7 @@ pub(all) struct Font {
   glyphs : Map[String, Glyph]
 }
 pub fn Font::equal(Self, Self) -> Bool
-pub fn Font::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Font::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Font::gen_path(Self, String, alignment? : @geom.Alignment, y_up? : Bool) -> Glyph raise FontError
 pub fn Font::gen_paths(Self, Array[String], alignment? : @geom.Alignment, y_up? : Bool) -> Array[Glyph] raise FontError
 pub fn Font::to_json(Self) -> @json.Json
@@ -82,7 +82,7 @@ pub(all) struct Glyph {
   ymax : Double
 }
 pub fn Glyph::equal(Self, Self) -> Bool
-pub fn Glyph::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Glyph::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Glyph::to_json(Self) -> @json.Json
 pub fn Glyph::to_repr(Self) -> @debug.Repr
 pub fn Glyph::to_string(Self) -> String

@@ -83,7 +83,7 @@ pub fn Anchor::bounding_box(Self) -> @geom.BoundingBox?
 pub fn Anchor::clone(Self) -> Self
 pub fn Anchor::closest_point(Self, @geom.Vec2, area_of_interest? : @geom.BoundingBox) -> @geom.Vec2?
 pub fn Anchor::equal(Self, Self) -> Bool
-pub fn Anchor::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Anchor::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Anchor::has_tangent_handles(Self, tolerance? : Double) -> Bool
 pub fn Anchor::has_zero_handles(Self) -> Bool
 pub fn Anchor::is_contained_by_bounding_box(Self, @geom.BoundingBox) -> Bool
@@ -113,7 +113,7 @@ pub fn Color::clone(Self) -> Self
 pub fn Color::equal(Self, Self) -> Bool
 pub fn Color::from_css_string(String) -> Self raise
 pub fn Color::from_hsva(Double, Double, Double, Double) -> Self
-pub fn Color::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Color::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Color::from_rgb8_number(UInt32) -> Self
 pub fn Color::green() -> Self
 pub fn Color::luminance(Self) -> Double
@@ -149,7 +149,7 @@ pub fn CompoundPath::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anch
 pub fn CompoundPath::contains_point(Self, @geom.Vec2) -> Bool
 pub fn CompoundPath::copy_style(Self, Graphic) -> Self
 pub fn CompoundPath::first_styled(Self) -> Graphic?
-pub fn CompoundPath::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn CompoundPath::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 #alias("_[_]")
 pub fn CompoundPath::get(Self, Int32) -> Path
 pub fn CompoundPath::has_style(Self) -> Bool
@@ -184,7 +184,7 @@ pub(all) struct Fill {
 }
 pub fn Fill::clone(Self) -> Self
 pub fn Fill::equal(Self, Self) -> Bool
-pub fn Fill::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Fill::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Fill::from_string(String) -> Self raise
 pub fn Fill::new(color? : Color) -> Self
 pub fn Fill::to_json(Self) -> @json.Json
@@ -243,7 +243,7 @@ pub fn Graphic::first_fill(Self) -> Fill?
 pub fn Graphic::first_stroke(Self) -> Stroke?
 pub fn Graphic::first_styled(Self) -> Self?
 pub fn Graphic::fit_to(Self, @geom.BoundingBox, anchor? : @geom.Alignment) -> Self
-pub fn Graphic::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Graphic::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Graphic::has_style(Self) -> Bool
 pub fn Graphic::is_contained_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
 pub fn Graphic::is_intersected_by_bounding_box(@geom.BoundingBox) -> (Self) -> Bool
@@ -296,7 +296,7 @@ pub fn Group::copy_style(Self, Graphic) -> Self
 pub fn Group::first_fill(Self) -> Fill?
 pub fn Group::first_stroke(Self) -> Stroke?
 pub fn Group::first_styled(Self) -> Graphic?
-pub fn Group::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Group::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 #alias("_[_]")
 pub fn Group::get(Self, Int32) -> Graphic
 pub fn Group::has_style(Self) -> Bool
@@ -343,7 +343,7 @@ pub fn Path::closest_point(Self, @geom.Vec2, @geom.BoundingBox?) -> Anchor?
 pub fn Path::contains_point(Self, @geom.Vec2) -> Bool
 pub fn Path::copy_style(Self, Graphic) -> Self
 pub fn Path::first_styled(Self) -> Graphic?
-pub fn Path::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Path::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Path::from_points(Array[@geom.Vec2], closed? : Bool) -> Self
 #alias("_[_]")
 pub fn Path::get(Self, Int32) -> Anchor
@@ -385,7 +385,7 @@ pub(all) struct Stroke {
 }
 pub fn Stroke::clone(Self) -> Self
 pub fn Stroke::equal(Self, Self) -> Bool
-pub fn Stroke::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Stroke::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn Stroke::new(color? : Color, width? : Double, alignment? : StrokeAlignment, cap? : StrokeCap, join? : StrokeJoin, miter_limit? : Double) -> Self
 pub fn Stroke::to_json(Self) -> @json.Json
 pub fn Stroke::to_repr(Self) -> @debug.Repr
@@ -400,7 +400,7 @@ pub(all) enum StrokeAlignment {
   Outer
 }
 pub fn StrokeAlignment::equal(Self, Self) -> Bool
-pub fn StrokeAlignment::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn StrokeAlignment::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn StrokeAlignment::to_json(Self) -> @json.Json
 pub fn StrokeAlignment::to_repr(Self) -> @debug.Repr
 pub fn StrokeAlignment::to_string(Self) -> String
@@ -413,7 +413,7 @@ pub(all) enum StrokeCap {
   Square
 }
 pub fn StrokeCap::equal(Self, Self) -> Bool
-pub fn StrokeCap::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn StrokeCap::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn StrokeCap::to_json(Self) -> @json.Json
 pub fn StrokeCap::to_repr(Self) -> @debug.Repr
 pub fn StrokeCap::to_string(Self) -> String
@@ -426,7 +426,7 @@ pub(all) enum StrokeJoin {
   Bevel
 }
 pub fn StrokeJoin::equal(Self, Self) -> Bool
-pub fn StrokeJoin::from_json(@json.Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn StrokeJoin::from_json(@json.Json, @json.DecodeContext) -> Self raise @json.JsonDecodeError
 pub fn StrokeJoin::to_json(Self) -> @json.Json
 pub fn StrokeJoin::to_repr(Self) -> @debug.Repr
 pub fn StrokeJoin::to_string(Self) -> String

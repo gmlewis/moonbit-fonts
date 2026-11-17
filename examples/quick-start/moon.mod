@@ -3,7 +3,7 @@ name = "examples/quick-start"
 version = "0.1.2"
 
 import {
-  "gmlewis/fonts@0.19.20",
+  "gmlewis/fonts@0.19.21",
   "gmlewis/fonts-a@0.19.20",
 }
 
