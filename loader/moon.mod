@@ -1,6 +1,6 @@
 name = "gmlewis/fonts/loader"
 
-version = "0.19.20"
+version = "0.19.21"
 
 import {
   "gmlewis/base64@0.16.15",
