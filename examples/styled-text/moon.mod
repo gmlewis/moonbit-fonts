@@ -3,7 +3,7 @@ name = "examples/styled-text"
 version = "0.1.6"
 
 import {
-  "gmlewis/fonts@0.19.22",
+  "gmlewis/fonts@0.19.23",
   "gmlewis/fonts-b@0.19.21",
 }
 

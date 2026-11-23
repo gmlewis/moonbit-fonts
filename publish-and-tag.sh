@@ -11,7 +11,8 @@ set -euo pipefail
 #   2. If moon.mod's version is newer than the last published version, tag
 #      HEAD "vA.B.C", push the tag, and publish. If that tag already exists,
 #      fall through to step 3.
-#   3. Bump the PATCH version in moon.mod, validate the workspace with
+#   3. Bump the PATCH version in moon.mod, sync the workspace member pins
+#      with `moon work sync`, validate the workspace with
 #      `moon publish --dry-run`, commit "Bump version to A.B.C", tag
 #      "vA.B.C", push the commit and the tag, and publish.
 #
@@ -102,6 +103,16 @@ validate_publish() {
     die "moon publish --dry-run failed; fix the workspace before publishing"
 }
 
+# sync_workspace_pins moves every workspace member's dependency pins onto the
+# workspace modules' versions. Step 1 synced them to the pre-bump version, so
+# this must run again after the version is bumped; CI runs `moon work sync`
+# and fails on the resulting `git diff --exit-code` otherwise.
+sync_workspace_pins() {
+  note "Syncing workspace member pins (moon work sync) ..."
+  moon work sync ||
+    die "moon work sync failed; the workspace cannot be resolved"
+}
+
 # --- Step 1: update --------------------------------------------------------
 
 note "Running ./update.sh (required before publishing) ..."
@@ -135,6 +146,7 @@ if [[ -n "$published_version" ]] &&
   if tag_exists "v$local_version"; then
     note "tag v$local_version already exists; bumping the patch version instead"
   else
+    sync_workspace_pins
     validate_publish
     if [[ -n "$(git status --porcelain --untracked-files=no)" ]]; then
       head_version=$(git show HEAD:moon.mod 2>/dev/null |
@@ -172,6 +184,7 @@ fi
 note "Bumping $local_version -> $new_version in moon.mod ..."
 set_version "$new_version"
 
+sync_workspace_pins
 validate_publish
 
 note "Committing the release ..."
