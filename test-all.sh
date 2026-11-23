@@ -6,7 +6,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export LIBRARY_PATH="$(xcrun --show-sdk-path)/usr/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 fi
 
-moon test --target all
+moon test --target all --deny-warn
 
 # Ensure that all fonts load without error:
 # export MOONBIT_FONTS_DIR="$(dirname "$(readlink -f "$0")")"

@@ -27,6 +27,8 @@ for i in ../mbt-fonts-* ; do
         echo "ERROR: version '${VERSION}' in ${i} is not MAJOR.MINOR.PATCH" && popd && continue
     fi
     ./update.sh
+    # Never publish a font module that still has compiler warnings.
+    moon check --deny-warn --no-mbti --target js
     git add moon.mod */pkg.generated.mbti
     if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
         git commit -sam "Bump version to ${VERSION}"

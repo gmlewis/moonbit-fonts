@@ -129,7 +129,7 @@ moon info || true
 
 # Run root tests
 echo "Running root tests..."
-moon test -j "$MAX_JOBS" --target all || true
+moon test -j "$MAX_JOBS" --target all --deny-warn
 
 # Generate SVG
 moon run examples/svg-checkerboard --target wasm > examples/svg-checkerboard/checkerboard.svg 2>/dev/null || true
