@@ -3,7 +3,7 @@ name = "examples/layout-gallery"
 version = "0.1.3"
 
 import {
-  "gmlewis/fonts@0.19.23",
+  "gmlewis/fonts@0.19.24",
   "gmlewis/fonts-a@0.19.21",
 }
 
