@@ -80,6 +80,11 @@ find . \
     sync_member_pins "$f"
   done
 
+# Nested workspace members (gmlewis/fonts/loader, gmlewis/fonts/tests) mirror
+# the root module's version; they cannot be published on their own.
+echo "Syncing nested workspace member versions..."
+./scripts/sync-moon-version.sh "${ROOT_VERSION}"
+
 # Fast update: only update registry once at the start
 echo "Updating registry..."
 moon update || true

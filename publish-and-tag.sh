@@ -11,10 +11,14 @@ set -euo pipefail
 #   2. If moon.mod's version is newer than the last published version, tag
 #      HEAD "vA.B.C", push the tag, and publish. If that tag already exists,
 #      fall through to step 3.
-#   3. Bump the PATCH version in moon.mod, sync the workspace member pins
-#      with `moon work sync`, validate the workspace with
+#   3. Bump the PATCH version in moon.mod, sync nested workspace member
+#      versions and dependency pins, validate the workspace with
 #      `moon publish --dry-run`, commit "Bump version to A.B.C", tag
 #      "vA.B.C", push the commit and the tag, and publish.
+#
+# Workspace members nested under this module's name (for example
+# gmlewis/fonts/loader) cannot be published on their own, so their versions
+# are always kept equal to the root module's version.
 #
 # A workspace member may only depend on published versions, because
 # `moon check` and `moon publish` resolve the whole workspace. Sibling
@@ -113,6 +117,16 @@ sync_workspace_pins() {
     die "moon work sync failed; the workspace cannot be resolved"
 }
 
+# sync_nested_versions keeps workspace members nested under this module (for
+# example gmlewis/fonts/loader) at the module's version. They can never be
+# published on their own, so they must always mirror the root version. The
+# helper only exists in repositories that have nested members.
+sync_nested_versions() {
+  [[ -x ./scripts/sync-moon-version.sh ]] || return 0
+  note "Syncing nested workspace member versions to $1 ..."
+  ./scripts/sync-moon-version.sh "$1"
+}
+
 # --- Step 1: update --------------------------------------------------------
 
 note "Running ./update.sh (required before publishing) ..."
@@ -146,6 +160,7 @@ if [[ -n "$published_version" ]] &&
   if tag_exists "v$local_version"; then
     note "tag v$local_version already exists; bumping the patch version instead"
   else
+    sync_nested_versions "$local_version"
     sync_workspace_pins
     validate_publish
     if [[ -n "$(git status --porcelain --untracked-files=no)" ]]; then
@@ -184,6 +199,7 @@ fi
 note "Bumping $local_version -> $new_version in moon.mod ..."
 set_version "$new_version"
 
+sync_nested_versions "$new_version"
 sync_workspace_pins
 validate_publish
 
