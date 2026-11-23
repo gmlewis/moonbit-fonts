@@ -25,21 +25,60 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export LIBRARY_PATH="$(xcrun --show-sdk-path)/usr/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 fi
 
-# Sync example moon.mod imports with root package version
+# Sync workspace member moon.mod imports with the root package version and
+# with the latest *published* companion versions.
+#
+# `moon check` resolves every `moon.work` member, so one member pinned to an
+# unpublished version makes the whole workspace (and `moon publish`) fail.
+# `gmlewis/fonts` and `gmlewis/fonts/loader` are workspace members and must
+# track ROOT_VERSION; `gmlewis/fonts-a` / `gmlewis/fonts-b` live in sibling
+# repos and must track what is actually in the registry. Never pin a member
+# to a version that has not been published.
 ROOT_VERSION=$(grep '^version = ' moon.mod | head -1 | sed 's/version = "//;s/"//')
-IFS='.' read -r MAJOR MINOR PATCH <<< "$ROOT_VERSION"
-COMPANION_PATCH=$((PATCH - 1))
-COMPANION_VERSION="${MAJOR}.${MINOR}.${COMPANION_PATCH}"
-echo "Root version: ${ROOT_VERSION}, companion version (fonts-a/fonts-b): ${COMPANION_VERSION}"
 
-echo "Updating example moon.mod imports..."
-find examples -name moon.mod -print0 | while IFS= read -r -d '' f; do
-  sed -i '' \
-    -e "s/gmlewis\/fonts@[0-9][0-9.]*/gmlewis\/fonts@${ROOT_VERSION}/g" \
-    -e "s/gmlewis\/fonts-a@[0-9][0-9.]*/gmlewis\/fonts-a@${COMPANION_VERSION}/g" \
-    -e "s/gmlewis\/fonts-b@[0-9][0-9.]*/gmlewis\/fonts-b@${COMPANION_VERSION}/g" \
-    "$f"
-done
+latest_published() {
+  moon view "$1" --json 2>/dev/null | python3 -c '
+import json
+import sys
+try:
+    print(json.load(sys.stdin)["result"]["latest_version"])
+except Exception:
+    pass'
+}
+
+FONTS_A_VERSION=$(latest_published gmlewis/fonts-a || true)
+FONTS_B_VERSION=$(latest_published gmlewis/fonts-b || true)
+echo "Root version: ${ROOT_VERSION}"
+echo "Latest published companions: fonts-a=${FONTS_A_VERSION:-<unknown>}, fonts-b=${FONTS_B_VERSION:-<unknown>}"
+if [[ -z "$FONTS_A_VERSION" || -z "$FONTS_B_VERSION" ]]; then
+  echo "warning: could not look up the published companion versions; leaving those pins unchanged." >&2
+fi
+
+# sync_member_pins FILE rewrites the workspace-member and companion pins.
+sync_member_pins() {
+  local f="$1" args=()
+  args+=(-e "s/gmlewis\/fonts@[0-9][0-9.]*/gmlewis\/fonts@${ROOT_VERSION}/g")
+  args+=(-e "s/gmlewis\/fonts\/loader@[0-9][0-9.]*/gmlewis\/fonts\/loader@${ROOT_VERSION}/g")
+  if [[ -n "$FONTS_A_VERSION" ]]; then
+    args+=(-e "s/gmlewis\/fonts-a@[0-9][0-9.]*/gmlewis\/fonts-a@${FONTS_A_VERSION}/g")
+  fi
+  if [[ -n "$FONTS_B_VERSION" ]]; then
+    args+=(-e "s/gmlewis\/fonts-b@[0-9][0-9.]*/gmlewis\/fonts-b@${FONTS_B_VERSION}/g")
+  fi
+  sed -i '' "${args[@]}" "$f"
+}
+
+echo "Updating workspace member moon.mod imports..."
+find . \
+  \( -type d \( -name .git -o -name .mooncakes -o -name _build \
+     -o -name .moonagent -o -name all-fonts -o -name target \) -prune \) \
+  -o -name moon.mod -print0 |
+  while IFS= read -r -d '' f; do
+    if [[ "$f" == "./moon.mod" ]]; then
+      continue
+    fi
+    sync_member_pins "$f"
+  done
 
 # Fast update: only update registry once at the start
 echo "Updating registry..."
@@ -48,8 +87,8 @@ moon update || true
 # Upgrade every third-party dependency to its latest published version.
 # The gmlewis/fonts family is intentionally skipped: `fonts` and `fonts/loader`
 # are workspace members whose versions track the root package, and `fonts-a` /
-# `fonts-b` are companion releases pinned to (root version - 1) by the sync
-# step above.
+# `fonts-b` are companion releases pinned to their latest published versions
+# by the sync step above.
 upgrade_module_deps() {
   local modfile="$1" dir
   dir="$(dirname "$modfile")"
