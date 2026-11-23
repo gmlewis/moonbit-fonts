@@ -21,10 +21,9 @@ set -euo pipefail
 # are always kept equal to the root module's version.
 #
 # A workspace member may only depend on published versions, because
-# `moon check` and `moon publish` resolve the whole workspace. Sibling
-# dependencies are therefore NOT refreshed here: publish this module first,
-# then publish the gmlewis/fonts-* sibling repos, then run
-# `~/tools/bin/update-moonbit-deps` to move the member pins forward.
+# `moon check` and `moon publish` resolve the whole workspace. After a
+# successful publish, `update-moonbit-deps -refresh` runs so the registry cache
+# and every dependent repository see the new version.
 #
 # The module name and version come from moon.mod, so this file is identical
 # in every sibling repo, but each copy is independent: it only reads, tags,
@@ -41,6 +40,8 @@ warn() { echo "warning: $*" >&2; }
 
 [[ -f moon.mod ]] || die "moon.mod not found in $PWD"
 [[ -x ./update.sh ]] || die "./update.sh not found or not executable"
+[[ -x "$HOME/tools/bin/update-moonbit-deps" ]] ||
+  die "~/tools/bin/update-moonbit-deps not found or not executable"
 for cmd in git moon python3; do
   command -v "$cmd" >/dev/null 2>&1 || die "$cmd not found on PATH"
 done
@@ -96,6 +97,14 @@ tag_exists() {
   git rev-parse -q --verify "refs/tags/$1" >/dev/null 2>&1
 }
 
+# refresh_registry runs update-moonbit-deps with -refresh: the on-disk cache is
+# bypassed, so the version that was just published is seen immediately and
+# every dependent repository's pins are advanced.
+refresh_registry() {
+  note "Refreshing update-moonbit-deps (-refresh) ..."
+  "$HOME/tools/bin/update-moonbit-deps" -refresh
+}
+
 # validate_publish runs the same workspace resolution that `moon publish` will
 # perform, without creating a release. Because `moon check` resolves every
 # `moon.work` member, a single member pinned to an unpublished version fails
@@ -112,6 +121,7 @@ validate_publish() {
 # this must run again after the version is bumped; CI runs `moon work sync`
 # and fails on the resulting `git diff --exit-code` otherwise.
 sync_workspace_pins() {
+  [[ -f moon.work ]] || return 0
   note "Syncing workspace member pins (moon work sync) ..."
   moon work sync ||
     die "moon work sync failed; the workspace cannot be resolved"
@@ -179,6 +189,7 @@ if [[ -n "$published_version" ]] &&
     git push origin "refs/tags/v$local_version"
     note "Publishing $module@$local_version ..."
     moon publish
+    refresh_registry
     note "Published $module@$local_version with tag v$local_version"
     exit 0
   fi
@@ -212,4 +223,5 @@ git push origin "refs/tags/v$new_version"
 
 note "Publishing $module@$new_version ..."
 moon publish
+refresh_registry
 note "Published $module@$new_version with tag v$new_version"
