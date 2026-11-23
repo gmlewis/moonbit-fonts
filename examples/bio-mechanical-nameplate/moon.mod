@@ -4,7 +4,7 @@ version = "0.1.3"
 
 import {
   "gmlewis/fonts@0.19.22",
-  "gmlewis/fonts-a@0.19.22",
+  "gmlewis/fonts-a@0.19.21",
 }
 
 readme = "README.md"
