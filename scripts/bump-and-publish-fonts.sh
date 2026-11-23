@@ -14,7 +14,9 @@ REPO_DIR=$(realpath ${SCRIPT_DIR}/..)
 pushd ${REPO_DIR}
 
 update-moonbit-version-readme
-update-moonbit-deps
+# After the root release, the registry cache may still hold the previous
+# versions; refresh it so the font modules pin the newly published root.
+update-moonbit-deps -refresh
 for i in ../mbt-fonts-* ; do
     echo $i && pushd $i
     VERSION=$(sed -n -e 's/^version *= *"\(.*\)"$/\1/p' moon.mod)
@@ -48,3 +50,7 @@ for i in ../mbt-fonts-* ; do
     git checkout -- .
     popd
 done
+
+# Every font module is published now. Refresh the registry cache and advance
+# the root repo's pins to the new versions (commit those changes afterwards).
+update-moonbit-deps -refresh
