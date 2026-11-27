@@ -1,10 +1,10 @@
 name = "examples/layout-gallery"
 
-version = "0.1.4"
+version = "0.1.5"
 
 import {
   "gmlewis/fonts@0.20.0",
-  "gmlewis/fonts-a@0.19.24",
+  "gmlewis/fonts-a@0.20.0",
 }
 
 readme = "README.md"
