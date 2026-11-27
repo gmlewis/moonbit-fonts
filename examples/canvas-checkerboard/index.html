@@ -75,7 +75,7 @@
       const bbox = canvas.getBoundingClientRect()
       const width = bbox.width
       const height = bbox.height
-      WebAssembly.instantiateStreaming(fetch("/target/wasm-gc/release/build/examples/canvas-checkerboard/canvas-checkerboard.wasm"), importObject).then(
+      WebAssembly.instantiateStreaming(fetch("/_build/wasm-gc/release/build/gmlewis/fonts/examples/canvas-checkerboard/canvas-checkerboard.wasm"), importObject).then(
         (obj) => {
           obj.instance.exports["draw"](ctx, width, height)
           flush()

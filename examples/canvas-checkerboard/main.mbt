@@ -2,6 +2,7 @@
 using @geom {vec2, type BoundingBox}
 
 ///|
+#export_name("draw")
 pub fn draw(ctx : @canvas.CanvasCtx, width : Int32, height : Int32) -> Unit {
   let box = BoundingBox::from_points([
     vec2(0, 0),
@@ -9,9 +10,4 @@ pub fn draw(ctx : @canvas.CanvasCtx, width : Int32, height : Int32) -> Unit {
   ])
   let b = @checkerboard.checkerboard().fit_to(box)
   ctx.from_graphic(b)
-}
-
-///|
-fn main {
-
 }

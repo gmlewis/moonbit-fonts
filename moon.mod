@@ -1,6 +1,6 @@
 name = "gmlewis/fonts"
 
-version = "0.19.24"
+version = "0.20.0"
 
 import {
   "moonbitlang/regexp@0.3.6",

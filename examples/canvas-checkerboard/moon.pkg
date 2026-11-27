@@ -1,17 +1,10 @@
 import {
   "gmlewis/fonts/canvas",
-  "gmlewis/fonts/geom",
   "gmlewis/fonts/examples/checkerboard",
+  "gmlewis/fonts/geom",
   "moonbitlang/core/builtin",
 }
 
 supported_targets = "+wasm+wasm-gc"
 
-pkgtype(kind: "executable")
-
-options(
-  link: {
-    "wasm": { "exports": [ "draw" ] },
-    "wasm-gc": { "exports": [ "draw" ] },
-  },
-)
+pkgtype(kind: "foreign_library")
